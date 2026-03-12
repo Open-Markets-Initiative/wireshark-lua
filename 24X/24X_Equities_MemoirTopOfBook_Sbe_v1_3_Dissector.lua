@@ -194,8 +194,473 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect 24X Equities MemoirTopOfBook Sbe 1.3
+-- 24X Equities MemoirTopOfBook Sbe 1.3 Fields
 -----------------------------------------------------------------------
+
+-- As Of Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number = {}
+
+-- Size: As Of Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size = 8
+
+-- Display: As Of Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display = function(value)
+  return "As Of Sequence Number: "..value
+end
+
+-- Dissect: As Of Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price = {}
+
+-- Size: Bid Price
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.size = 8
+
+-- Display: Bid Price
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bid Price
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.translate(raw)
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short = {}
+
+-- Size: Bid Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size = 2
+
+-- Display: Bid Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
+end
+
+-- Translate: Bid Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate(raw)
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size = {}
+
+-- Size: Bid Size
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.size = 4
+
+-- Display: Bid Size
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short = {}
+
+-- Size: Bid Size Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size = 2
+
+-- Display: Bid Size Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
+end
+
+-- Dissect: Bid Size Short
+n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+n24x_equities_memoirtopofbook_sbe_v1_3.block_length = {}
+
+-- Size: Block Length
+n24x_equities_memoirtopofbook_sbe_v1_3.block_length.size = 2
+
+-- Display: Block Length
+n24x_equities_memoirtopofbook_sbe_v1_3.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+n24x_equities_memoirtopofbook_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.block_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Header Length
+n24x_equities_memoirtopofbook_sbe_v1_3.header_length = {}
+
+-- Size: Header Length
+n24x_equities_memoirtopofbook_sbe_v1_3.header_length.size = 1
+
+-- Display: Header Length
+n24x_equities_memoirtopofbook_sbe_v1_3.header_length.display = function(value)
+  return "Header Length: "..value
+end
+
+-- Dissect: Header Length
+n24x_equities_memoirtopofbook_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.header_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.header_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Test Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol = {}
+
+-- Size: Is Test Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size = 1
+
+-- Display: Is Test Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.display = function(value)
+  if value == 0 then
+    return "Is Test Symbol: False (0)"
+  end
+  if value == 1 then
+    return "Is Test Symbol: True (1)"
+  end
+
+  return "Is Test Symbol: Unknown("..value..")"
+end
+
+-- Dissect: Is Test Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+n24x_equities_memoirtopofbook_sbe_v1_3.message_count = {}
+
+-- Size: Message Count
+n24x_equities_memoirtopofbook_sbe_v1_3.message_count.size = 2
+
+-- Display: Message Count
+n24x_equities_memoirtopofbook_sbe_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+n24x_equities_memoirtopofbook_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+n24x_equities_memoirtopofbook_sbe_v1_3.message_length = {}
+
+-- Size: Message Length
+n24x_equities_memoirtopofbook_sbe_v1_3.message_length.size = 2
+
+-- Display: Message Length
+n24x_equities_memoirtopofbook_sbe_v1_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+n24x_equities_memoirtopofbook_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+n24x_equities_memoirtopofbook_sbe_v1_3.message_type = {}
+
+-- Size: Message Type
+n24x_equities_memoirtopofbook_sbe_v1_3.message_type.size = 1
+
+-- Display: Message Type
+n24x_equities_memoirtopofbook_sbe_v1_3.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat Message (0)"
+  end
+  if value == 1 then
+    return "Message Type: Session Shutdown Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Sequenced Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+n24x_equities_memoirtopofbook_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+n24x_equities_memoirtopofbook_sbe_v1_3.mpv = {}
+
+-- Size: Mpv
+n24x_equities_memoirtopofbook_sbe_v1_3.mpv.size = 8
+
+-- Display: Mpv
+n24x_equities_memoirtopofbook_sbe_v1_3.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Translate: Mpv
+n24x_equities_memoirtopofbook_sbe_v1_3.mpv.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Mpv
+n24x_equities_memoirtopofbook_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.mpv.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = n24x_equities_memoirtopofbook_sbe_v1_3.mpv.translate(raw)
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price = {}
+
+-- Size: Offer Price
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.size = 8
+
+-- Display: Offer Price
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.display = function(value)
+  return "Offer Price: "..value
+end
+
+-- Translate: Offer Price
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Offer Price
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.translate(raw)
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short = {}
+
+-- Size: Offer Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size = 2
+
+-- Display: Offer Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display = function(value)
+  return "Offer Price Short: "..value
+end
+
+-- Translate: Offer Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Offer Price Short
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate(raw)
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer size
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size = {}
+
+-- Size: Offer size
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.size = 4
+
+-- Display: Offer size
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.display = function(value)
+  return "Offer size: "..value
+end
+
+-- Dissect: Offer size
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size uint 16
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16 = {}
+
+-- Size: Offer Size uint 16
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size = 2
+
+-- Display: Offer Size uint 16
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.display = function(value)
+  return "Offer Size uint 16: "..value
+end
+
+-- Dissect: Offer Size uint 16
+n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot
+n24x_equities_memoirtopofbook_sbe_v1_3.round_lot = {}
+
+-- Size: Round Lot
+n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.size = 4
+
+-- Display: Round Lot
+n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.display = function(value)
+  return "Round Lot: "..value
+end
+
+-- Dissect: Round Lot
+n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+n24x_equities_memoirtopofbook_sbe_v1_3.schema_id = {}
+
+-- Size: Schema Id
+n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.size = 1
+
+-- Display: Schema Id
+n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.display = function(value)
+  if value == 3 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
 
 -- Security Id
 n24x_equities_memoirtopofbook_sbe_v1_3.security_id = {}
@@ -216,6 +681,312 @@ n24x_equities_memoirtopofbook_sbe_v1_3.security_id.dissect = function(buffer, of
   local display = n24x_equities_memoirtopofbook_sbe_v1_3.security_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status = {}
+
+-- Size: Security Trading Status
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size = 1
+
+-- Display: Security Trading Status
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == "H" then
+    return "Security Trading Status: Halted (H)"
+  end
+  if value == "P" then
+    return "Security Trading Status: Paused (P)"
+  end
+  if value == "Q" then
+    return "Security Trading Status: Quoting (Q)"
+  end
+  if value == "T" then
+    return "Security Trading Status: Trading (T)"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status Reason
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason = {}
+
+-- Size: Security Trading Status Reason
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size = 1
+
+-- Display: Security Trading Status Reason
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status Reason: No Value"
+  end
+
+  if value == "X" then
+    return "Security Trading Status Reason: None (X)"
+  end
+  if value == "R" then
+    return "Security Trading Status Reason: Regulatory (R)"
+  end
+  if value == "A" then
+    return "Security Trading Status Reason: Administrative (A)"
+  end
+
+  return "Security Trading Status Reason: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status Reason
+n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number = {}
+
+-- Size: Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.size = 8
+
+-- Display: Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+n24x_equities_memoirtopofbook_sbe_v1_3.session_id = {}
+
+-- Size: Session Id
+n24x_equities_memoirtopofbook_sbe_v1_3.session_id.size = 8
+
+-- Display: Session Id
+n24x_equities_memoirtopofbook_sbe_v1_3.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+n24x_equities_memoirtopofbook_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction
+n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction = {}
+
+-- Size: Short Sale Restriction
+n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size = 1
+
+-- Display: Short Sale Restriction
+n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.display = function(value)
+  if value == 0 then
+    return "Short Sale Restriction: False (0)"
+  end
+  if value == 1 then
+    return "Short Sale Restriction: True (1)"
+  end
+
+  return "Short Sale Restriction: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction
+n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol = {}
+
+-- Size: Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol.size = 6
+
+-- Display: Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Sfx
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx = {}
+
+-- Size: Symbol Sfx
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size = 6
+
+-- Display: Symbol Sfx
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Sfx: No Value"
+  end
+
+  return "Symbol Sfx: "..value
+end
+
+-- Dissect: Symbol Sfx
+n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+n24x_equities_memoirtopofbook_sbe_v1_3.template_id = {}
+
+-- Size: Template Id
+n24x_equities_memoirtopofbook_sbe_v1_3.template_id.size = 1
+
+-- Display: Template Id
+n24x_equities_memoirtopofbook_sbe_v1_3.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: Instrument Directory Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Reg Sho Restriction Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Security Trading Status Message (3)"
+  end
+  if value == 4 then
+    return "Template Id: Snapshot Complete Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Trading Session Status Message (5)"
+  end
+  if value == 10 then
+    return "Template Id: Best Bid Offer Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Best Bid Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Best Offer Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Best Bid Short Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Best Offer Short Message (14)"
+  end
+  if value == 15 then
+    return "Template Id: Clear Book Message (15)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+n24x_equities_memoirtopofbook_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -246,6 +1017,87 @@ n24x_equities_memoirtopofbook_sbe_v1_3.timestamp.dissect = function(buffer, offs
 
   return offset + length, value
 end
+
+-- Trading Session
+n24x_equities_memoirtopofbook_sbe_v1_3.trading_session = {}
+
+-- Size: Trading Session
+n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.size = 1
+
+-- Display: Trading Session
+n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
+  if value == "1" then
+    return "Trading Session: Opening (1)"
+  end
+  if value == "2" then
+    return "Trading Session: Trading (2)"
+  end
+  if value == "3" then
+    return "Trading Session: Post Trading (3)"
+  end
+  if value == "4" then
+    return "Trading Session: Closed (4)"
+  end
+
+  return "Trading Session: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session
+n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+n24x_equities_memoirtopofbook_sbe_v1_3.version = {}
+
+-- Size: Version
+n24x_equities_memoirtopofbook_sbe_v1_3.version.size = 2
+
+-- Display: Version
+n24x_equities_memoirtopofbook_sbe_v1_3.version.display = function(value)
+  if value == 259 then
+    return "Version: Version 1.3"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+n24x_equities_memoirtopofbook_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_equities_memoirtopofbook_sbe_v1_3.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_equities_memoirtopofbook_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect 24X Equities MemoirTopOfBook Sbe 1.3
+-----------------------------------------------------------------------
 
 -- Clear Book Message
 n24x_equities_memoirtopofbook_sbe_v1_3.clear_book_message = {}
@@ -289,58 +1141,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.clear_book_message.dissect = function(buf
     -- Skip element, add fields directly
     return n24x_equities_memoirtopofbook_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offer Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short = {}
-
--- Size: Offer Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size = 2
-
--- Display: Offer Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display = function(value)
-  return "Offer Price Short: "..value
-end
-
--- Translate: Offer Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.translate(raw)
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size uint 16
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16 = {}
-
--- Size: Offer Size uint 16
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size = 2
-
--- Display: Offer Size uint 16
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.display = function(value)
-  return "Offer Size uint 16: "..value
-end
-
--- Dissect: Offer Size uint 16
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16, range, value, display)
-
-  return offset + length, value
 end
 
 -- Best Offer Short Message
@@ -395,58 +1195,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.best_offer_short_message.dissect = functi
   end
 end
 
--- Bid Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short = {}
-
--- Size: Bid Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size = 2
-
--- Display: Bid Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display = function(value)
-  return "Bid Price Short: "..value
-end
-
--- Translate: Bid Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.translate(raw)
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short = {}
-
--- Size: Bid Size Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size = 2
-
--- Display: Bid Size Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.display = function(value)
-  return "Bid Size Short: "..value
-end
-
--- Dissect: Bid Size Short
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size_short, range, value, display)
-
-  return offset + length, value
-end
-
 -- Best Bid Short Message
 n24x_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message = {}
 
@@ -499,58 +1247,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.best_bid_short_message.dissect = function
   end
 end
 
--- Offer Price
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price = {}
-
--- Size: Offer Price
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.size = 8
-
--- Display: Offer Price
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.display = function(value)
-  return "Offer Price: "..value
-end
-
--- Translate: Offer Price
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Offer Price
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.translate(raw)
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer size
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size = {}
-
--- Size: Offer size
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.size = 4
-
--- Display: Offer size
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.display = function(value)
-  return "Offer size: "..value
-end
-
--- Dissect: Offer size
-n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Best Offer Message
 n24x_equities_memoirtopofbook_sbe_v1_3.best_offer_message = {}
 
@@ -601,58 +1297,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.best_offer_message.dissect = function(buf
     -- Skip element, add fields directly
     return n24x_equities_memoirtopofbook_sbe_v1_3.best_offer_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Bid Price
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price = {}
-
--- Size: Bid Price
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.size = 8
-
--- Display: Bid Price
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Bid Price
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.translate(raw)
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size = {}
-
--- Size: Bid Size
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.size = 4
-
--- Display: Bid Size
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.bid_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Best Bid Message
@@ -767,55 +1411,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.dissect = function
   end
 end
 
--- Trading Session
-n24x_equities_memoirtopofbook_sbe_v1_3.trading_session = {}
-
--- Size: Trading Session
-n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.size = 1
-
--- Display: Trading Session
-n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trading Session: No Value"
-  end
-
-  if value == "1" then
-    return "Trading Session: Opening (1)"
-  end
-  if value == "2" then
-    return "Trading Session: Trading (2)"
-  end
-  if value == "3" then
-    return "Trading Session: Post Trading (3)"
-  end
-  if value == "4" then
-    return "Trading Session: Closed (4)"
-  end
-
-  return "Trading Session: Unknown("..value..")"
-end
-
--- Dissect: Trading Session
-n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.trading_session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Session Status Message
 n24x_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message = {}
 
@@ -860,29 +1455,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.trading_session_status_message.dissect = 
   end
 end
 
--- As Of Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number = {}
-
--- Size: As Of Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size = 8
-
--- Display: As Of Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display = function(value)
-  return "As Of Sequence Number: "..value
-end
-
--- Dissect: As Of Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.as_of_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Snapshot Complete Message
 n24x_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message = {}
 
@@ -925,101 +1497,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.dissect = funct
     -- Skip element, add fields directly
     return n24x_equities_memoirtopofbook_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Security Trading Status Reason
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason = {}
-
--- Size: Security Trading Status Reason
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size = 1
-
--- Display: Security Trading Status Reason
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Trading Status Reason: No Value"
-  end
-
-  if value == "X" then
-    return "Security Trading Status Reason: None (X)"
-  end
-  if value == "R" then
-    return "Security Trading Status Reason: Regulatory (R)"
-  end
-  if value == "A" then
-    return "Security Trading Status Reason: Administrative (A)"
-  end
-
-  return "Security Trading Status Reason: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status Reason
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Trading Status
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status = {}
-
--- Size: Security Trading Status
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size = 1
-
--- Display: Security Trading Status
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Trading Status: No Value"
-  end
-
-  if value == "H" then
-    return "Security Trading Status: Halted (H)"
-  end
-  if value == "P" then
-    return "Security Trading Status: Paused (P)"
-  end
-  if value == "Q" then
-    return "Security Trading Status: Quoting (Q)"
-  end
-  if value == "T" then
-    return "Security Trading Status: Trading (T)"
-  end
-
-  return "Security Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status
-n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.security_trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Trading Status Message
@@ -1074,36 +1551,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.security_trading_status_message.dissect =
   end
 end
 
--- Short Sale Restriction
-n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction = {}
-
--- Size: Short Sale Restriction
-n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size = 1
-
--- Display: Short Sale Restriction
-n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
-
-  return "Short Sale Restriction: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction
-n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reg Sho Restriction Message
 n24x_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message = {}
 
@@ -1150,166 +1597,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.dissect = fun
     -- Skip element, add fields directly
     return n24x_equities_memoirtopofbook_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mpv
-n24x_equities_memoirtopofbook_sbe_v1_3.mpv = {}
-
--- Size: Mpv
-n24x_equities_memoirtopofbook_sbe_v1_3.mpv.size = 8
-
--- Display: Mpv
-n24x_equities_memoirtopofbook_sbe_v1_3.mpv.display = function(value)
-  return "Mpv: "..value
-end
-
--- Translate: Mpv
-n24x_equities_memoirtopofbook_sbe_v1_3.mpv.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Mpv
-n24x_equities_memoirtopofbook_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.mpv.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = n24x_equities_memoirtopofbook_sbe_v1_3.mpv.translate(raw)
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Test Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol = {}
-
--- Size: Is Test Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size = 1
-
--- Display: Is Test Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
-
-  return "Is Test Symbol: Unknown("..value..")"
-end
-
--- Dissect: Is Test Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot
-n24x_equities_memoirtopofbook_sbe_v1_3.round_lot = {}
-
--- Size: Round Lot
-n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.size = 4
-
--- Display: Round Lot
-n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.display = function(value)
-  return "Round Lot: "..value
-end
-
--- Dissect: Round Lot
-n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.round_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Sfx
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx = {}
-
--- Size: Symbol Sfx
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size = 6
-
--- Display: Symbol Sfx
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Sfx: No Value"
-  end
-
-  return "Symbol Sfx: "..value
-end
-
--- Dissect: Symbol Sfx
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol = {}
-
--- Size: Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol.size = 6
-
--- Display: Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-n24x_equities_memoirtopofbook_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Directory Message
@@ -1429,140 +1716,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.payload.dissect = function(buffer, offset
   return offset
 end
 
--- Version
-n24x_equities_memoirtopofbook_sbe_v1_3.version = {}
-
--- Size: Version
-n24x_equities_memoirtopofbook_sbe_v1_3.version.size = 2
-
--- Display: Version
-n24x_equities_memoirtopofbook_sbe_v1_3.version.display = function(value)
-  if value == 259 then
-    return "Version: Version 1.3"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-n24x_equities_memoirtopofbook_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-n24x_equities_memoirtopofbook_sbe_v1_3.schema_id = {}
-
--- Size: Schema Id
-n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.size = 1
-
--- Display: Schema Id
-n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.display = function(value)
-  if value == 3 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-n24x_equities_memoirtopofbook_sbe_v1_3.template_id = {}
-
--- Size: Template Id
-n24x_equities_memoirtopofbook_sbe_v1_3.template_id.size = 1
-
--- Display: Template Id
-n24x_equities_memoirtopofbook_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Snapshot Complete Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Best Bid Offer Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Best Bid Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Best Offer Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Best Bid Short Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Best Offer Short Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Clear Book Message (15)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-n24x_equities_memoirtopofbook_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-n24x_equities_memoirtopofbook_sbe_v1_3.block_length = {}
-
--- Size: Block Length
-n24x_equities_memoirtopofbook_sbe_v1_3.block_length.size = 2
-
--- Display: Block Length
-n24x_equities_memoirtopofbook_sbe_v1_3.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-n24x_equities_memoirtopofbook_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 n24x_equities_memoirtopofbook_sbe_v1_3.sbe_header = {}
 
@@ -1660,29 +1813,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.sbe_message.dissect = function(buffer, of
   end
 end
 
--- Message Length
-n24x_equities_memoirtopofbook_sbe_v1_3.message_length = {}
-
--- Size: Message Length
-n24x_equities_memoirtopofbook_sbe_v1_3.message_length.size = 2
-
--- Display: Message Length
-n24x_equities_memoirtopofbook_sbe_v1_3.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-n24x_equities_memoirtopofbook_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 n24x_equities_memoirtopofbook_sbe_v1_3.message = {}
 
@@ -1735,29 +1865,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.message.dissect = function(buffer, offset
 
     return index
   end
-end
-
--- Message Count
-n24x_equities_memoirtopofbook_sbe_v1_3.message_count = {}
-
--- Size: Message Count
-n24x_equities_memoirtopofbook_sbe_v1_3.message_count.size = 2
-
--- Display: Message Count
-n24x_equities_memoirtopofbook_sbe_v1_3.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-n24x_equities_memoirtopofbook_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Message
@@ -1832,108 +1939,6 @@ n24x_equities_memoirtopofbook_sbe_v1_3.sequenced_messages.dissect = function(buf
   end
 
   return offset
-end
-
--- Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number = {}
-
--- Size: Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.size = 8
-
--- Display: Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-n24x_equities_memoirtopofbook_sbe_v1_3.session_id = {}
-
--- Size: Session Id
-n24x_equities_memoirtopofbook_sbe_v1_3.session_id.size = 8
-
--- Display: Session Id
-n24x_equities_memoirtopofbook_sbe_v1_3.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-n24x_equities_memoirtopofbook_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Header Length
-n24x_equities_memoirtopofbook_sbe_v1_3.header_length = {}
-
--- Size: Header Length
-n24x_equities_memoirtopofbook_sbe_v1_3.header_length.size = 1
-
--- Display: Header Length
-n24x_equities_memoirtopofbook_sbe_v1_3.header_length.display = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-n24x_equities_memoirtopofbook_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.header_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.header_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-n24x_equities_memoirtopofbook_sbe_v1_3.message_type = {}
-
--- Size: Message Type
-n24x_equities_memoirtopofbook_sbe_v1_3.message_type.size = 1
-
--- Display: Message Type
-n24x_equities_memoirtopofbook_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-n24x_equities_memoirtopofbook_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_equities_memoirtopofbook_sbe_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = n24x_equities_memoirtopofbook_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_n24x_equities_memoirtopofbook_sbe_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

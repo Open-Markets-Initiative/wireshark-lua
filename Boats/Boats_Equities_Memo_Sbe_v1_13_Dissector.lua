@@ -425,68 +425,51 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Boats Equities Memo Sbe 1.13
+-- Boats Equities Memo Sbe 1.13 Fields
 -----------------------------------------------------------------------
 
--- Mass Cancel Reject Reason
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason = {}
+-- Block Length
+boats_equities_memo_sbe_v1_13.block_length = {}
 
--- Size: Mass Cancel Reject Reason
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size = 1
+-- Size: Block Length
+boats_equities_memo_sbe_v1_13.block_length.size = 2
 
--- Display: Mass Cancel Reject Reason
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Reject Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Reject Reason: Unknown Product (1)"
-  end
-  if value == 2 then
-    return "Mass Cancel Reject Reason: Unknown Side (2)"
-  end
-  if value == 3 then
-    return "Mass Cancel Reject Reason: Unknown Group Id (3)"
-  end
-  if value == 4 then
-    return "Mass Cancel Reject Reason: Higher Price Lower Or Equal To Lower Price (4)"
-  end
-  if value == 5 then
-    return "Mass Cancel Reject Reason: Product Missing For Price Restriction (5)"
-  end
-  if value == 6 then
-    return "Mass Cancel Reject Reason: Duplicate Cl Ord Id (6)"
-  end
-  if value == 7 then
-    return "Mass Cancel Reject Reason: Malformed Request Missing Cl Ord Id Field (7)"
-  end
-  if value == 8 then
-    return "Mass Cancel Reject Reason: Invalid Cancel Group Id (8)"
-  end
-  if value == 9 then
-    return "Mass Cancel Reject Reason: Invalid Cl Ord Id (9)"
-  end
-  if value == 10 then
-    return "Mass Cancel Reject Reason: Invalid Lower Price (10)"
-  end
-  if value == 11 then
-    return "Mass Cancel Reject Reason: Invalid Higher Price (11)"
-  end
-  if value == 255 then
-    return "Mass Cancel Reject Reason: Null Value (255)"
-  end
-
-  return "Mass Cancel Reject Reason: Unknown("..value..")"
+-- Display: Block Length
+boats_equities_memo_sbe_v1_13.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Mass Cancel Reject Reason
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
+-- Dissect: Block Length
+boats_equities_memo_sbe_v1_13.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.block_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
+  local display = boats_equities_memo_sbe_v1_13.block_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_reason, range, value, display)
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length uint 8
+boats_equities_memo_sbe_v1_13.block_length_uint_8 = {}
+
+-- Size: Block Length uint 8
+boats_equities_memo_sbe_v1_13.block_length_uint_8.size = 1
+
+-- Display: Block Length uint 8
+boats_equities_memo_sbe_v1_13.block_length_uint_8.display = function(value)
+  return "Block Length uint 8: "..value
+end
+
+-- Dissect: Block Length uint 8
+boats_equities_memo_sbe_v1_13.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.block_length_uint_8.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.block_length_uint_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.block_length_uint_8, range, value, display)
 
   return offset + length, value
 end
@@ -519,210 +502,89 @@ boats_equities_memo_sbe_v1_13.cancel_group_id.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Higher Than Price
-boats_equities_memo_sbe_v1_13.higher_than_price = {}
+-- Cancel Reason
+boats_equities_memo_sbe_v1_13.cancel_reason = {}
 
--- Size: Higher Than Price
-boats_equities_memo_sbe_v1_13.higher_than_price.size = 8
+-- Size: Cancel Reason
+boats_equities_memo_sbe_v1_13.cancel_reason.size = 1
 
--- Display: Higher Than Price
-boats_equities_memo_sbe_v1_13.higher_than_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Higher Than Price: No Value"
-  end
-
-  return "Higher Than Price: "..value
-end
-
--- Translate: Higher Than Price
-boats_equities_memo_sbe_v1_13.higher_than_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Higher Than Price
-boats_equities_memo_sbe_v1_13.higher_than_price.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.higher_than_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memo_sbe_v1_13.higher_than_price.translate(raw)
-  local display = boats_equities_memo_sbe_v1_13.higher_than_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.higher_than_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Lower Than Price
-boats_equities_memo_sbe_v1_13.lower_than_price = {}
-
--- Size: Lower Than Price
-boats_equities_memo_sbe_v1_13.lower_than_price.size = 8
-
--- Display: Lower Than Price
-boats_equities_memo_sbe_v1_13.lower_than_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Lower Than Price: No Value"
-  end
-
-  return "Lower Than Price: "..value
-end
-
--- Translate: Lower Than Price
-boats_equities_memo_sbe_v1_13.lower_than_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Lower Than Price
-boats_equities_memo_sbe_v1_13.lower_than_price.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.lower_than_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memo_sbe_v1_13.lower_than_price.translate(raw)
-  local display = boats_equities_memo_sbe_v1_13.lower_than_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.lower_than_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Optional
-boats_equities_memo_sbe_v1_13.side_optional = {}
-
--- Size: Side Optional
-boats_equities_memo_sbe_v1_13.side_optional.size = 1
-
--- Display: Side Optional
-boats_equities_memo_sbe_v1_13.side_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side Optional: No Value"
-  end
-
-  if value == "1" then
-    return "Side Optional: Buy (1)"
-  end
-  if value == "2" then
-    return "Side Optional: Sell (2)"
-  end
-  if value == "5" then
-    return "Side Optional: Sell Short (5)"
-  end
-  if value == "6" then
-    return "Side Optional: Sell Short Exempt (6)"
-  end
+-- Display: Cancel Reason
+boats_equities_memo_sbe_v1_13.cancel_reason.display = function(value)
   if value == 0 then
-    return "Side Optional: No Value"
+    return "Cancel Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Cancel Reason: User Requested Cancel (1)"
+  end
+  if value == 4 then
+    return "Cancel Reason: End Of Trading (4)"
+  end
+  if value == 5 then
+    return "Cancel Reason: Limit Up Limit Down (5)"
+  end
+  if value == 6 then
+    return "Cancel Reason: Halted (6)"
+  end
+  if value == 7 then
+    return "Cancel Reason: Exchange Supervisory (7)"
+  end
+  if value == 8 then
+    return "Cancel Reason: Order Expired (8)"
+  end
+  if value == 9 then
+    return "Cancel Reason: Lock Or Cross Book (9)"
+  end
+  if value == 10 then
+    return "Cancel Reason: Self Trade Prevention (10)"
+  end
+  if value == 11 then
+    return "Cancel Reason: Insufficient Quotes (11)"
+  end
+  if value == 12 then
+    return "Cancel Reason: Non Compliant Price (12)"
+  end
+  if value == 13 then
+    return "Cancel Reason: Participant Disconnect (13)"
+  end
+  if value == 14 then
+    return "Cancel Reason: Order Not Bookable (14)"
+  end
+  if value == 15 then
+    return "Cancel Reason: Trade Protection Limits (15)"
+  end
+  if value == 16 then
+    return "Cancel Reason: Unable To Route (16)"
+  end
+  if value == 17 then
+    return "Cancel Reason: Firm Disabled (17)"
+  end
+  if value == 18 then
+    return "Cancel Reason: Mpid Disabled (18)"
+  end
+  if value == 19 then
+    return "Cancel Reason: Account Disabled (19)"
+  end
+  if value == 20 then
+    return "Cancel Reason: Notional Exposure Risk Breached (20)"
+  end
+  if value == 255 then
+    return "Cancel Reason: Null Value (255)"
+  end
+  if value == 255 then
+    return "Cancel Reason: No Value"
   end
 
-  return "Side Optional: Unknown("..value..")"
+  return "Cancel Reason: Unknown("..value..")"
 end
 
--- Dissect: Side Optional
-boats_equities_memo_sbe_v1_13.side_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.side_optional.size
+-- Dissect: Cancel Reason
+boats_equities_memo_sbe_v1_13.cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.cancel_reason.size
   local range = buffer(offset, length)
-
-  -- parse as byte
   local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.cancel_reason.display(value, buffer, offset, packet, parent)
 
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.side_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.side_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Sfx
-boats_equities_memo_sbe_v1_13.symbol_sfx = {}
-
--- Size: Symbol Sfx
-boats_equities_memo_sbe_v1_13.symbol_sfx.size = 6
-
--- Display: Symbol Sfx
-boats_equities_memo_sbe_v1_13.symbol_sfx.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Sfx: No Value"
-  end
-
-  return "Symbol Sfx: "..value
-end
-
--- Dissect: Symbol Sfx
-boats_equities_memo_sbe_v1_13.symbol_sfx.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.symbol_sfx.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.symbol_sfx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.symbol_sfx, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-boats_equities_memo_sbe_v1_13.symbol = {}
-
--- Size: Symbol
-boats_equities_memo_sbe_v1_13.symbol.size = 6
-
--- Display: Symbol
-boats_equities_memo_sbe_v1_13.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-boats_equities_memo_sbe_v1_13.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.symbol, range, value, display)
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -766,140 +628,81 @@ boats_equities_memo_sbe_v1_13.clordid.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Sending Time
-boats_equities_memo_sbe_v1_13.sending_time = {}
+-- Count
+boats_equities_memo_sbe_v1_13.count = {}
 
--- Size: Sending Time
-boats_equities_memo_sbe_v1_13.sending_time.size = 8
+-- Size: Count
+boats_equities_memo_sbe_v1_13.count.size = 4
 
--- Display: Sending Time
-boats_equities_memo_sbe_v1_13.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+-- Display: Count
+boats_equities_memo_sbe_v1_13.count.display = function(value)
+  return "Count: "..value
 end
 
--- Dissect: Sending Time
-boats_equities_memo_sbe_v1_13.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.sending_time.size
+-- Dissect: Count
+boats_equities_memo_sbe_v1_13.count.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.count.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.sending_time.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.sending_time, range, value, display)
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.count, range, value, display)
 
   return offset + length, value
 end
 
--- Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_message = {}
+-- Cum Qty
+boats_equities_memo_sbe_v1_13.cum_qty = {}
 
--- Size: Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.size =
-  boats_equities_memo_sbe_v1_13.sending_time.size + 
-  boats_equities_memo_sbe_v1_13.clordid.size + 
-  boats_equities_memo_sbe_v1_13.symbol.size + 
-  boats_equities_memo_sbe_v1_13.symbol_sfx.size + 
-  boats_equities_memo_sbe_v1_13.side_optional.size + 
-  boats_equities_memo_sbe_v1_13.lower_than_price.size + 
-  boats_equities_memo_sbe_v1_13.higher_than_price.size + 
-  boats_equities_memo_sbe_v1_13.cancel_group_id.size + 
-  boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
+-- Size: Cum Qty
+boats_equities_memo_sbe_v1_13.cum_qty.size = 4
 
--- Display: Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.display = function(packet, parent, length)
-  return ""
+-- Display: Cum Qty
+boats_equities_memo_sbe_v1_13.cum_qty.display = function(value)
+  return "Cum Qty: "..value
 end
 
--- Dissect Fields: Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = boats_equities_memo_sbe_v1_13.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_CanceledClOrdID
-  index, clordid = boats_equities_memo_sbe_v1_13.clordid.dissect(buffer, index, packet, parent)
-
-  -- Symbol: ExecutionReport_NewSymbol
-  index, symbol = boats_equities_memo_sbe_v1_13.symbol.dissect(buffer, index, packet, parent)
-
-  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
-  index, symbol_sfx = boats_equities_memo_sbe_v1_13.symbol_sfx.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: SideType
-  index, side_optional = boats_equities_memo_sbe_v1_13.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Lower Than Price: PriceType
-  index, lower_than_price = boats_equities_memo_sbe_v1_13.lower_than_price.dissect(buffer, index, packet, parent)
-
-  -- Higher Than Price: PriceType
-  index, higher_than_price = boats_equities_memo_sbe_v1_13.higher_than_price.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = boats_equities_memo_sbe_v1_13.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Reject Reason: MassCancelRejectReasonCode
-  index, mass_cancel_reject_reason = boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Reject Message
-boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
-    local index = boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Link Id Optional
-boats_equities_memo_sbe_v1_13.link_id_optional = {}
-
--- Size: Link Id Optional
-boats_equities_memo_sbe_v1_13.link_id_optional.size = 4
-
--- Display: Link Id Optional
-boats_equities_memo_sbe_v1_13.link_id_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Link Id Optional: No Value"
-  end
-
-  return "Link Id Optional: "..value
-end
-
--- Dissect: Link Id Optional
-boats_equities_memo_sbe_v1_13.link_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.link_id_optional.size
+-- Dissect: Cum Qty
+boats_equities_memo_sbe_v1_13.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.cum_qty.size
   local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.cum_qty.display(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.cum_qty, range, value, display)
 
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
+  return offset + length, value
+end
+
+-- Cust Order Capacity
+boats_equities_memo_sbe_v1_13.cust_order_capacity = {}
+
+-- Size: Cust Order Capacity
+boats_equities_memo_sbe_v1_13.cust_order_capacity.size = 1
+
+-- Display: Cust Order Capacity
+boats_equities_memo_sbe_v1_13.cust_order_capacity.display = function(value)
+  if value == 1 then
+    return "Cust Order Capacity: Member Trading On Their Own Account (1)"
+  end
+  if value == 5 then
+    return "Cust Order Capacity: Retail Customer (5)"
+  end
+  if value == 255 then
+    return "Cust Order Capacity: Null Value (255)"
   end
 
-  local display = boats_equities_memo_sbe_v1_13.link_id_optional.display(value, buffer, offset, packet, parent)
+  return "Cust Order Capacity: Unknown("..value..")"
+end
 
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.link_id_optional, range, value, display)
+-- Dissect: Cust Order Capacity
+boats_equities_memo_sbe_v1_13.cust_order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.cust_order_capacity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.cust_order_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.cust_order_capacity, range, value, display)
 
   return offset + length, value
 end
@@ -1088,6 +891,2923 @@ boats_equities_memo_sbe_v1_13.cxl_rej_response_to.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Display Method
+boats_equities_memo_sbe_v1_13.display_method = {}
+
+-- Size: Display Method
+boats_equities_memo_sbe_v1_13.display_method.size = 1
+
+-- Display: Display Method
+boats_equities_memo_sbe_v1_13.display_method.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Display Method: No Value"
+  end
+
+  if value == "1" then
+    return "Display Method: Initial (1)"
+  end
+  if value == "3" then
+    return "Display Method: Random (3)"
+  end
+  if value == "4" then
+    return "Display Method: Undisclosed (4)"
+  end
+  if value == 0 then
+    return "Display Method: No Value"
+  end
+
+  return "Display Method: Unknown("..value..")"
+end
+
+-- Dissect: Display Method
+boats_equities_memo_sbe_v1_13.display_method.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.display_method.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.display_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.display_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Min Incr
+boats_equities_memo_sbe_v1_13.display_min_incr = {}
+
+-- Size: Display Min Incr
+boats_equities_memo_sbe_v1_13.display_min_incr.size = 4
+
+-- Display: Display Min Incr
+boats_equities_memo_sbe_v1_13.display_min_incr.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Display Min Incr: No Value"
+  end
+
+  return "Display Min Incr: "..value
+end
+
+-- Dissect: Display Min Incr
+boats_equities_memo_sbe_v1_13.display_min_incr.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.display_min_incr.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.display_min_incr.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.display_min_incr, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Qty
+boats_equities_memo_sbe_v1_13.display_qty = {}
+
+-- Size: Display Qty
+boats_equities_memo_sbe_v1_13.display_qty.size = 4
+
+-- Display: Display Qty
+boats_equities_memo_sbe_v1_13.display_qty.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Display Qty: No Value"
+  end
+
+  return "Display Qty: "..value
+end
+
+-- Dissect: Display Qty
+boats_equities_memo_sbe_v1_13.display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.display_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.display_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+boats_equities_memo_sbe_v1_13.exec_id = {}
+
+-- Size: Exec Id
+boats_equities_memo_sbe_v1_13.exec_id.size = 8
+
+-- Display: Exec Id
+boats_equities_memo_sbe_v1_13.exec_id.display = function(value)
+  return "Exec Id: "..value
+end
+
+-- Dissect: Exec Id
+boats_equities_memo_sbe_v1_13.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.exec_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Ref Id
+boats_equities_memo_sbe_v1_13.exec_ref_id = {}
+
+-- Size: Exec Ref Id
+boats_equities_memo_sbe_v1_13.exec_ref_id.size = 8
+
+-- Display: Exec Ref Id
+boats_equities_memo_sbe_v1_13.exec_ref_id.display = function(value)
+  return "Exec Ref Id: "..value
+end
+
+-- Dissect: Exec Ref Id
+boats_equities_memo_sbe_v1_13.exec_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.exec_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.exec_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.exec_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Restatement Reason
+boats_equities_memo_sbe_v1_13.exec_restatement_reason = {}
+
+-- Size: Exec Restatement Reason
+boats_equities_memo_sbe_v1_13.exec_restatement_reason.size = 1
+
+-- Display: Exec Restatement Reason
+boats_equities_memo_sbe_v1_13.exec_restatement_reason.display = function(value)
+  if value == 3 then
+    return "Exec Restatement Reason: Order Reprice (3)"
+  end
+  if value == 5 then
+    return "Exec Restatement Reason: Self Trade Prevention (5)"
+  end
+  if value == 99 then
+    return "Exec Restatement Reason: Other (99)"
+  end
+  if value == 255 then
+    return "Exec Restatement Reason: Null Value (255)"
+  end
+
+  return "Exec Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Exec Restatement Reason
+boats_equities_memo_sbe_v1_13.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.exec_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.exec_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.exec_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Time
+boats_equities_memo_sbe_v1_13.expire_time = {}
+
+-- Size: Expire Time
+boats_equities_memo_sbe_v1_13.expire_time.size = 8
+
+-- Display: Expire Time
+boats_equities_memo_sbe_v1_13.expire_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Expire Time: No Value"
+  end
+
+  return "Expire Time: "..value
+end
+
+-- Dissect: Expire Time
+boats_equities_memo_sbe_v1_13.expire_time.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.expire_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.expire_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.expire_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Extended Restatement Reason
+boats_equities_memo_sbe_v1_13.extended_restatement_reason = {}
+
+-- Size: Extended Restatement Reason
+boats_equities_memo_sbe_v1_13.extended_restatement_reason.size = 1
+
+-- Display: Extended Restatement Reason
+boats_equities_memo_sbe_v1_13.extended_restatement_reason.display = function(value)
+  if value == 0 then
+    return "Extended Restatement Reason: None (0)"
+  end
+  if value == 1 then
+    return "Extended Restatement Reason: Set Nbbo (1)"
+  end
+  if value == 2 then
+    return "Extended Restatement Reason: Joined Nbbo (2)"
+  end
+  if value == 3 then
+    return "Extended Restatement Reason: Self Trade Cancel Newest (3)"
+  end
+  if value == 4 then
+    return "Extended Restatement Reason: Self Trade Cancel Oldest (4)"
+  end
+  if value == 5 then
+    return "Extended Restatement Reason: Self Trade Decrement And Cancel (5)"
+  end
+  if value == 6 then
+    return "Extended Restatement Reason: Self Trade Cancel Both (6)"
+  end
+  if value == 7 then
+    return "Extended Restatement Reason: Self Trade Cancel Smallest (7)"
+  end
+  if value == 255 then
+    return "Extended Restatement Reason: Null Value (255)"
+  end
+  if value == 255 then
+    return "Extended Restatement Reason: No Value"
+  end
+
+  return "Extended Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Extended Restatement Reason
+boats_equities_memo_sbe_v1_13.extended_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.extended_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.extended_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.extended_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Higher Than Price
+boats_equities_memo_sbe_v1_13.higher_than_price = {}
+
+-- Size: Higher Than Price
+boats_equities_memo_sbe_v1_13.higher_than_price.size = 8
+
+-- Display: Higher Than Price
+boats_equities_memo_sbe_v1_13.higher_than_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Higher Than Price: No Value"
+  end
+
+  return "Higher Than Price: "..value
+end
+
+-- Translate: Higher Than Price
+boats_equities_memo_sbe_v1_13.higher_than_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Higher Than Price
+boats_equities_memo_sbe_v1_13.higher_than_price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.higher_than_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memo_sbe_v1_13.higher_than_price.translate(raw)
+  local display = boats_equities_memo_sbe_v1_13.higher_than_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.higher_than_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Liquidity Ind
+boats_equities_memo_sbe_v1_13.last_liquidity_ind = {}
+
+-- Size: Last Liquidity Ind
+boats_equities_memo_sbe_v1_13.last_liquidity_ind.size = 1
+
+-- Display: Last Liquidity Ind
+boats_equities_memo_sbe_v1_13.last_liquidity_ind.display = function(value)
+  if value == 1 then
+    return "Last Liquidity Ind: Add Displayed (1)"
+  end
+  if value == 2 then
+    return "Last Liquidity Ind: Removed (2)"
+  end
+  if value == 3 then
+    return "Last Liquidity Ind: Routed (3)"
+  end
+  if value == 4 then
+    return "Last Liquidity Ind: Cross (4)"
+  end
+  if value == 51 then
+    return "Last Liquidity Ind: Add Hidden (51)"
+  end
+  if value == 52 then
+    return "Last Liquidity Ind: Add Midpoint Peg (52)"
+  end
+  if value == 53 then
+    return "Last Liquidity Ind: Add Displayed Nbbo Improve (53)"
+  end
+  if value == 54 then
+    return "Last Liquidity Ind: Add Displayed Nbbo Join (54)"
+  end
+  if value == 61 then
+    return "Last Liquidity Ind: Immediate Midpoint Remove On Entry (61)"
+  end
+  if value == 62 then
+    return "Last Liquidity Ind: Add Displayed Price Improvement (62)"
+  end
+  if value == 63 then
+    return "Last Liquidity Ind: Add Hidden Price Improvement (63)"
+  end
+  if value == 101 then
+    return "Last Liquidity Ind: Retail Add Displayed (101)"
+  end
+  if value == 102 then
+    return "Last Liquidity Ind: Retail Removed (102)"
+  end
+  if value == 103 then
+    return "Last Liquidity Ind: Retail Routed (103)"
+  end
+  if value == 104 then
+    return "Last Liquidity Ind: Retail Cross (104)"
+  end
+  if value == 151 then
+    return "Last Liquidity Ind: Retail Add Hidden (151)"
+  end
+  if value == 152 then
+    return "Last Liquidity Ind: Retail Add Midpoint Peg (152)"
+  end
+  if value == 153 then
+    return "Last Liquidity Ind: Retail Add Displayed Nbbo Improve (153)"
+  end
+  if value == 154 then
+    return "Last Liquidity Ind: Retail Add Displayed Nbbo Join (154)"
+  end
+  if value == 160 then
+    return "Last Liquidity Ind: Retail Removed On Entry (160)"
+  end
+  if value == 161 then
+    return "Last Liquidity Ind: Retail Immediate Midpoint Remove On Entry (161)"
+  end
+  if value == 162 then
+    return "Last Liquidity Ind: Retail Add Displayed Price Improvement (162)"
+  end
+  if value == 163 then
+    return "Last Liquidity Ind: Retail Add Hidden Price Improvement (163)"
+  end
+  if value == 255 then
+    return "Last Liquidity Ind: Null Value (255)"
+  end
+
+  return "Last Liquidity Ind: Unknown("..value..")"
+end
+
+-- Dissect: Last Liquidity Ind
+boats_equities_memo_sbe_v1_13.last_liquidity_ind.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_liquidity_ind.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.last_liquidity_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_liquidity_ind, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Mkt
+boats_equities_memo_sbe_v1_13.last_mkt = {}
+
+-- Size: Last Mkt
+boats_equities_memo_sbe_v1_13.last_mkt.size = 4
+
+-- Display: Last Mkt
+boats_equities_memo_sbe_v1_13.last_mkt.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Last Mkt: No Value"
+  end
+
+  return "Last Mkt: "..value
+end
+
+-- Dissect: Last Mkt
+boats_equities_memo_sbe_v1_13.last_mkt.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_mkt.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.last_mkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_mkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+boats_equities_memo_sbe_v1_13.last_px = {}
+
+-- Size: Last Px
+boats_equities_memo_sbe_v1_13.last_px.size = 8
+
+-- Display: Last Px
+boats_equities_memo_sbe_v1_13.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+boats_equities_memo_sbe_v1_13.last_px.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Last Px
+boats_equities_memo_sbe_v1_13.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memo_sbe_v1_13.last_px.translate(raw)
+  local display = boats_equities_memo_sbe_v1_13.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px Optional
+boats_equities_memo_sbe_v1_13.last_px_optional = {}
+
+-- Size: Last Px Optional
+boats_equities_memo_sbe_v1_13.last_px_optional.size = 8
+
+-- Display: Last Px Optional
+boats_equities_memo_sbe_v1_13.last_px_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Last Px Optional: No Value"
+  end
+
+  return "Last Px Optional: "..value
+end
+
+-- Translate: Last Px Optional
+boats_equities_memo_sbe_v1_13.last_px_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Last Px Optional
+boats_equities_memo_sbe_v1_13.last_px_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_px_optional.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memo_sbe_v1_13.last_px_optional.translate(raw)
+  local display = boats_equities_memo_sbe_v1_13.last_px_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_px_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+boats_equities_memo_sbe_v1_13.last_qty = {}
+
+-- Size: Last Qty
+boats_equities_memo_sbe_v1_13.last_qty.size = 4
+
+-- Display: Last Qty
+boats_equities_memo_sbe_v1_13.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+boats_equities_memo_sbe_v1_13.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty Optional
+boats_equities_memo_sbe_v1_13.last_qty_optional = {}
+
+-- Size: Last Qty Optional
+boats_equities_memo_sbe_v1_13.last_qty_optional.size = 4
+
+-- Display: Last Qty Optional
+boats_equities_memo_sbe_v1_13.last_qty_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Qty Optional: No Value"
+  end
+
+  return "Last Qty Optional: "..value
+end
+
+-- Dissect: Last Qty Optional
+boats_equities_memo_sbe_v1_13.last_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_qty_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.last_qty_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Shares
+boats_equities_memo_sbe_v1_13.last_shares = {}
+
+-- Size: Last Shares
+boats_equities_memo_sbe_v1_13.last_shares.size = 4
+
+-- Display: Last Shares
+boats_equities_memo_sbe_v1_13.last_shares.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Shares: No Value"
+  end
+
+  return "Last Shares: "..value
+end
+
+-- Dissect: Last Shares
+boats_equities_memo_sbe_v1_13.last_shares.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.last_shares.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.last_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+boats_equities_memo_sbe_v1_13.leaves_qty = {}
+
+-- Size: Leaves Qty
+boats_equities_memo_sbe_v1_13.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+boats_equities_memo_sbe_v1_13.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+boats_equities_memo_sbe_v1_13.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Link Id Optional
+boats_equities_memo_sbe_v1_13.link_id_optional = {}
+
+-- Size: Link Id Optional
+boats_equities_memo_sbe_v1_13.link_id_optional.size = 4
+
+-- Display: Link Id Optional
+boats_equities_memo_sbe_v1_13.link_id_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Link Id Optional: No Value"
+  end
+
+  return "Link Id Optional: "..value
+end
+
+-- Dissect: Link Id Optional
+boats_equities_memo_sbe_v1_13.link_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.link_id_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.link_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.link_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Locate Broker Optional
+boats_equities_memo_sbe_v1_13.locate_broker_optional = {}
+
+-- Size: Locate Broker Optional
+boats_equities_memo_sbe_v1_13.locate_broker_optional.size = 4
+
+-- Display: Locate Broker Optional
+boats_equities_memo_sbe_v1_13.locate_broker_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Locate Broker Optional: No Value"
+  end
+
+  return "Locate Broker Optional: "..value
+end
+
+-- Dissect: Locate Broker Optional
+boats_equities_memo_sbe_v1_13.locate_broker_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.locate_broker_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.locate_broker_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.locate_broker_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Locate Reqd
+boats_equities_memo_sbe_v1_13.locate_reqd = {}
+
+-- Size: Locate Reqd
+boats_equities_memo_sbe_v1_13.locate_reqd.size = 1
+
+-- Display: Locate Reqd
+boats_equities_memo_sbe_v1_13.locate_reqd.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Locate Reqd: No Value"
+  end
+
+  return "Locate Reqd: "..value
+end
+
+-- Dissect: Locate Reqd
+boats_equities_memo_sbe_v1_13.locate_reqd.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.locate_reqd.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.locate_reqd.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.locate_reqd, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Reject Code
+boats_equities_memo_sbe_v1_13.login_reject_code = {}
+
+-- Size: Login Reject Code
+boats_equities_memo_sbe_v1_13.login_reject_code.size = 1
+
+-- Display: Login Reject Code
+boats_equities_memo_sbe_v1_13.login_reject_code.display = function(value)
+  if value == "T" then
+    return "Login Reject Code: Malformed Token (T)"
+  end
+  if value == "U" then
+    return "Login Reject Code: Token Type Unsupported (U)"
+  end
+  if value == "V" then
+    return "Login Reject Code: Token Type Invalid (V)"
+  end
+  if value == "A" then
+    return "Login Reject Code: Authorization Failed (A)"
+  end
+
+  return "Login Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Login Reject Code
+boats_equities_memo_sbe_v1_13.login_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.login_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = boats_equities_memo_sbe_v1_13.login_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.login_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Than Price
+boats_equities_memo_sbe_v1_13.lower_than_price = {}
+
+-- Size: Lower Than Price
+boats_equities_memo_sbe_v1_13.lower_than_price.size = 8
+
+-- Display: Lower Than Price
+boats_equities_memo_sbe_v1_13.lower_than_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Lower Than Price: No Value"
+  end
+
+  return "Lower Than Price: "..value
+end
+
+-- Translate: Lower Than Price
+boats_equities_memo_sbe_v1_13.lower_than_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Lower Than Price
+boats_equities_memo_sbe_v1_13.lower_than_price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.lower_than_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memo_sbe_v1_13.lower_than_price.translate(raw)
+  local display = boats_equities_memo_sbe_v1_13.lower_than_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.lower_than_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Reject Reason
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason = {}
+
+-- Size: Mass Cancel Reject Reason
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size = 1
+
+-- Display: Mass Cancel Reject Reason
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.display = function(value)
+  if value == 0 then
+    return "Mass Cancel Reject Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Mass Cancel Reject Reason: Unknown Product (1)"
+  end
+  if value == 2 then
+    return "Mass Cancel Reject Reason: Unknown Side (2)"
+  end
+  if value == 3 then
+    return "Mass Cancel Reject Reason: Unknown Group Id (3)"
+  end
+  if value == 4 then
+    return "Mass Cancel Reject Reason: Higher Price Lower Or Equal To Lower Price (4)"
+  end
+  if value == 5 then
+    return "Mass Cancel Reject Reason: Product Missing For Price Restriction (5)"
+  end
+  if value == 6 then
+    return "Mass Cancel Reject Reason: Duplicate Cl Ord Id (6)"
+  end
+  if value == 7 then
+    return "Mass Cancel Reject Reason: Malformed Request Missing Cl Ord Id Field (7)"
+  end
+  if value == 8 then
+    return "Mass Cancel Reject Reason: Invalid Cancel Group Id (8)"
+  end
+  if value == 9 then
+    return "Mass Cancel Reject Reason: Invalid Cl Ord Id (9)"
+  end
+  if value == 10 then
+    return "Mass Cancel Reject Reason: Invalid Lower Price (10)"
+  end
+  if value == 11 then
+    return "Mass Cancel Reject Reason: Invalid Higher Price (11)"
+  end
+  if value == 255 then
+    return "Mass Cancel Reject Reason: Null Value (255)"
+  end
+
+  return "Mass Cancel Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Reject Reason
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Sequence Number
+boats_equities_memo_sbe_v1_13.max_sequence_number = {}
+
+-- Size: Max Sequence Number
+boats_equities_memo_sbe_v1_13.max_sequence_number.size = 8
+
+-- Display: Max Sequence Number
+boats_equities_memo_sbe_v1_13.max_sequence_number.display = function(value)
+  return "Max Sequence Number: "..value
+end
+
+-- Dissect: Max Sequence Number
+boats_equities_memo_sbe_v1_13.max_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.max_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.max_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.max_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+boats_equities_memo_sbe_v1_13.message_count = {}
+
+-- Size: Message Count
+boats_equities_memo_sbe_v1_13.message_count.size = 8
+
+-- Display: Message Count
+boats_equities_memo_sbe_v1_13.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+boats_equities_memo_sbe_v1_13.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+boats_equities_memo_sbe_v1_13.message_length = {}
+
+-- Size: Message Length
+boats_equities_memo_sbe_v1_13.message_length.size = 2
+
+-- Display: Message Length
+boats_equities_memo_sbe_v1_13.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+boats_equities_memo_sbe_v1_13.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+boats_equities_memo_sbe_v1_13.message_type = {}
+
+-- Size: Message Type
+boats_equities_memo_sbe_v1_13.message_type.size = 1
+
+-- Display: Message Type
+boats_equities_memo_sbe_v1_13.message_type.display = function(value)
+  if value == 100 then
+    return "Message Type: Login Request (100)"
+  end
+  if value == 101 then
+    return "Message Type: Replay Request (101)"
+  end
+  if value == 102 then
+    return "Message Type: Replay All Request (102)"
+  end
+  if value == 103 then
+    return "Message Type: Stream Request (103)"
+  end
+  if value == 104 then
+    return "Message Type: Unsequenced Message (104)"
+  end
+  if value == 1 then
+    return "Message Type: Login Accepted (1)"
+  end
+  if value == 2 then
+    return "Message Type: Login Rejected (2)"
+  end
+  if value == 3 then
+    return "Message Type: Start Of Session (3)"
+  end
+  if value == 3 then
+    return "Message Type: End Of Session (3)"
+  end
+  if value == 5 then
+    return "Message Type: Replay Begin (5)"
+  end
+  if value == 6 then
+    return "Message Type: Replay Rejected (6)"
+  end
+  if value == 7 then
+    return "Message Type: Replay Complete (7)"
+  end
+  if value == 8 then
+    return "Message Type: Stream Begin (8)"
+  end
+  if value == 9 then
+    return "Message Type: Stream Rejected (9)"
+  end
+  if value == 10 then
+    return "Message Type: Stream Complete (10)"
+  end
+  if value == 11 then
+    return "Message Type: Sequenced Message (11)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+boats_equities_memo_sbe_v1_13.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+boats_equities_memo_sbe_v1_13.min_qty = {}
+
+-- Size: Min Qty
+boats_equities_memo_sbe_v1_13.min_qty.size = 4
+
+-- Display: Min Qty
+boats_equities_memo_sbe_v1_13.min_qty.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Min Qty: No Value"
+  end
+
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+boats_equities_memo_sbe_v1_13.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Sequence Number
+boats_equities_memo_sbe_v1_13.next_sequence_number = {}
+
+-- Size: Next Sequence Number
+boats_equities_memo_sbe_v1_13.next_sequence_number.size = 8
+
+-- Display: Next Sequence Number
+boats_equities_memo_sbe_v1_13.next_sequence_number.display = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+boats_equities_memo_sbe_v1_13.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.next_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.next_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+boats_equities_memo_sbe_v1_13.num_in_group = {}
+
+-- Size: Num In Group
+boats_equities_memo_sbe_v1_13.num_in_group.size = 1
+
+-- Display: Num In Group
+boats_equities_memo_sbe_v1_13.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+boats_equities_memo_sbe_v1_13.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status
+boats_equities_memo_sbe_v1_13.ord_status = {}
+
+-- Size: Ord Status
+boats_equities_memo_sbe_v1_13.ord_status.size = 1
+
+-- Display: Ord Status
+boats_equities_memo_sbe_v1_13.ord_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
+  if value == "0" then
+    return "Ord Status: New (0)"
+  end
+  if value == "1" then
+    return "Ord Status: Partial Filled (1)"
+  end
+  if value == "2" then
+    return "Ord Status: Filled (2)"
+  end
+  if value == "4" then
+    return "Ord Status: Canceled (4)"
+  end
+  if value == "6" then
+    return "Ord Status: Pending Cancel (6)"
+  end
+  if value == "8" then
+    return "Ord Status: Rejected (8)"
+  end
+  if value == "A" then
+    return "Ord Status: Pending New (A)"
+  end
+  if value == "E" then
+    return "Ord Status: Pending Replace (E)"
+  end
+  if value == "C" then
+    return "Ord Status: Expired (C)"
+  end
+
+  return "Ord Status: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status
+boats_equities_memo_sbe_v1_13.ord_status.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.ord_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.ord_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.ord_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Type
+boats_equities_memo_sbe_v1_13.ord_type = {}
+
+-- Size: Ord Type
+boats_equities_memo_sbe_v1_13.ord_type.size = 1
+
+-- Display: Ord Type
+boats_equities_memo_sbe_v1_13.ord_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
+  if value == "1" then
+    return "Ord Type: Market (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "P" then
+    return "Ord Type: Pegged (P)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type
+boats_equities_memo_sbe_v1_13.ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.ord_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Capacity
+boats_equities_memo_sbe_v1_13.order_capacity = {}
+
+-- Size: Order Capacity
+boats_equities_memo_sbe_v1_13.order_capacity.size = 1
+
+-- Display: Order Capacity
+boats_equities_memo_sbe_v1_13.order_capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Capacity: No Value"
+  end
+
+  if value == "A" then
+    return "Order Capacity: Agency (A)"
+  end
+  if value == "P" then
+    return "Order Capacity: Principal (P)"
+  end
+  if value == "R" then
+    return "Order Capacity: Riskless Principal (R)"
+  end
+
+  return "Order Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Order Capacity
+boats_equities_memo_sbe_v1_13.order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.order_capacity.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.order_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+boats_equities_memo_sbe_v1_13.order_id = {}
+
+-- Size: Order Id
+boats_equities_memo_sbe_v1_13.order_id.size = 8
+
+-- Display: Order Id
+boats_equities_memo_sbe_v1_13.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+boats_equities_memo_sbe_v1_13.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id Optional
+boats_equities_memo_sbe_v1_13.order_id_optional = {}
+
+-- Size: Order Id Optional
+boats_equities_memo_sbe_v1_13.order_id_optional.size = 8
+
+-- Display: Order Id Optional
+boats_equities_memo_sbe_v1_13.order_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id Optional: No Value"
+  end
+
+  return "Order Id Optional: "..value
+end
+
+-- Dissect: Order Id Optional
+boats_equities_memo_sbe_v1_13.order_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.order_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.order_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+boats_equities_memo_sbe_v1_13.order_qty = {}
+
+-- Size: Order Qty
+boats_equities_memo_sbe_v1_13.order_qty.size = 4
+
+-- Display: Order Qty
+boats_equities_memo_sbe_v1_13.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+boats_equities_memo_sbe_v1_13.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Reject Reason
+boats_equities_memo_sbe_v1_13.order_reject_reason = {}
+
+-- Size: Order Reject Reason
+boats_equities_memo_sbe_v1_13.order_reject_reason.size = 1
+
+-- Display: Order Reject Reason
+boats_equities_memo_sbe_v1_13.order_reject_reason.display = function(value)
+  if value == 1 then
+    return "Order Reject Reason: Invalid Symbol (1)"
+  end
+  if value == 2 then
+    return "Order Reject Reason: Exchange Closed (2)"
+  end
+  if value == 3 then
+    return "Order Reject Reason: Order Size Exceeds Limit (3)"
+  end
+  if value == 6 then
+    return "Order Reject Reason: Duplicate Cl Ord Id (6)"
+  end
+  if value == 18 then
+    return "Order Reject Reason: Invalid Limit Price Increment (18)"
+  end
+  if value == 19 then
+    return "Order Reject Reason: No Nbbo Available (19)"
+  end
+  if value == 20 then
+    return "Order Reject Reason: Order Notional Exceeds Limit (20)"
+  end
+  if value == 22 then
+    return "Order Reject Reason: Block Sell Short Risk Rule Violated (22)"
+  end
+  if value == 23 then
+    return "Order Reject Reason: Hard To Borrow Security Risk Rule Violated (23)"
+  end
+  if value == 27 then
+    return "Order Reject Reason: Max Notional Value Per Order Risk Rule Breach (27)"
+  end
+  if value == 99 then
+    return "Order Reject Reason: Other (99)"
+  end
+  if value == 100 then
+    return "Order Reject Reason: Missing Symbol (100)"
+  end
+  if value == 101 then
+    return "Order Reject Reason: Missing Locate (101)"
+  end
+  if value == 102 then
+    return "Order Reject Reason: Invalid Locate (102)"
+  end
+  if value == 103 then
+    return "Order Reject Reason: Missing Cl Ord Id (103)"
+  end
+  if value == 104 then
+    return "Order Reject Reason: Invalid Cl Ord Id (104)"
+  end
+  if value == 105 then
+    return "Order Reject Reason: Missing Side (105)"
+  end
+  if value == 106 then
+    return "Order Reject Reason: Invalid Side (106)"
+  end
+  if value == 107 then
+    return "Order Reject Reason: Missing Order Quantity (107)"
+  end
+  if value == 108 then
+    return "Order Reject Reason: Invalid Order Quantity (108)"
+  end
+  if value == 109 then
+    return "Order Reject Reason: Missing Order Type (109)"
+  end
+  if value == 110 then
+    return "Order Reject Reason: Invalid Order Type (110)"
+  end
+  if value == 111 then
+    return "Order Reject Reason: Missing Time In Force (111)"
+  end
+  if value == 112 then
+    return "Order Reject Reason: Invalid Time In Force (112)"
+  end
+  if value == 113 then
+    return "Order Reject Reason: Missing Order Capacity (113)"
+  end
+  if value == 114 then
+    return "Order Reject Reason: Invalid Order Capacity (114)"
+  end
+  if value == 115 then
+    return "Order Reject Reason: Missing Exec Inst (115)"
+  end
+  if value == 116 then
+    return "Order Reject Reason: Missing Limit Price (116)"
+  end
+  if value == 117 then
+    return "Order Reject Reason: Invalid Limit Price (117)"
+  end
+  if value == 118 then
+    return "Order Reject Reason: Missing Max Floor (118)"
+  end
+  if value == 119 then
+    return "Order Reject Reason: Invalid Max Floor (119)"
+  end
+  if value == 120 then
+    return "Order Reject Reason: Missing Reserve Replenish Amount Type (120)"
+  end
+  if value == 121 then
+    return "Order Reject Reason: Invalid Reserve Replenish Amount Type (121)"
+  end
+  if value == 122 then
+    return "Order Reject Reason: Missing Reserve Replenish Time Type (122)"
+  end
+  if value == 123 then
+    return "Order Reject Reason: Invalid Reserve Replenish Time Type (123)"
+  end
+  if value == 124 then
+    return "Order Reject Reason: Missing Random Replenish Value (124)"
+  end
+  if value == 125 then
+    return "Order Reject Reason: Invalid Random Replenish Value (125)"
+  end
+  if value == 126 then
+    return "Order Reject Reason: Invalid Random Replenish Value For Reserve Type (126)"
+  end
+  if value == 127 then
+    return "Order Reject Reason: Missing Reprice Frequency Type (127)"
+  end
+  if value == 128 then
+    return "Order Reject Reason: Invalid Reprice Frequency Type (128)"
+  end
+  if value == 129 then
+    return "Order Reject Reason: Missing Reprice Behavior Type (129)"
+  end
+  if value == 130 then
+    return "Order Reject Reason: Invalid Reprice Behavior Type (130)"
+  end
+  if value == 131 then
+    return "Order Reject Reason: Invalid Reprice Behavior For Reprice Frequency (131)"
+  end
+  if value == 132 then
+    return "Order Reject Reason: Missing Customer Capacity Type (132)"
+  end
+  if value == 133 then
+    return "Order Reject Reason: Invalid Customer Capacity (133)"
+  end
+  if value == 134 then
+    return "Order Reject Reason: Missing Expire Time (134)"
+  end
+  if value == 135 then
+    return "Order Reject Reason: Invalid Expire Time (135)"
+  end
+  if value == 136 then
+    return "Order Reject Reason: Missing Peg Type (136)"
+  end
+  if value == 137 then
+    return "Order Reject Reason: Invalid Peg Type (137)"
+  end
+  if value == 138 then
+    return "Order Reject Reason: Invalid Modifier For Order Type (138)"
+  end
+  if value == 139 then
+    return "Order Reject Reason: Invalid Modifiers Combination (139)"
+  end
+  if value == 140 then
+    return "Order Reject Reason: Invalid Trading Session For Order Type (140)"
+  end
+  if value == 141 then
+    return "Order Reject Reason: Invalid Time In Force For Order Type (141)"
+  end
+  if value == 142 then
+    return "Order Reject Reason: Invalid Modifier For Peg Type (142)"
+  end
+  if value == 143 then
+    return "Order Reject Reason: Invalid Min Quantity (143)"
+  end
+  if value == 145 then
+    return "Order Reject Reason: Invalid Mpid Value (145)"
+  end
+  if value == 146 then
+    return "Order Reject Reason: Symbol Halted Or Paused (146)"
+  end
+  if value == 147 then
+    return "Order Reject Reason: Block Iso Risk Rule Violated (147)"
+  end
+  if value == 148 then
+    return "Order Reject Reason: Block Session Risk Rule Violated (148)"
+  end
+  if value == 149 then
+    return "Order Reject Reason: Block Non Test Symbols Risk Rule Violated (149)"
+  end
+  if value == 150 then
+    return "Order Reject Reason: Max Shares Per Order Risk Rule Breach (150)"
+  end
+  if value == 151 then
+    return "Order Reject Reason: Price Percent Collar Risk Rule Violated (151)"
+  end
+  if value == 152 then
+    return "Order Reject Reason: Price Value Collar Risk Rule Violated (152)"
+  end
+  if value == 153 then
+    return "Order Reject Reason: Max Adv Percent Per Order Risk Rule Breach (153)"
+  end
+  if value == 154 then
+    return "Order Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (154)"
+  end
+  if value == 155 then
+    return "Order Reject Reason: Daily Net Notional Exposure Risk Rule Breach (155)"
+  end
+  if value == 156 then
+    return "Order Reject Reason: Max Num Duplicate Orders Risk Rule Breach (156)"
+  end
+  if value == 157 then
+    return "Order Reject Reason: Max Order Rate Risk Rule Breach (157)"
+  end
+  if value == 158 then
+    return "Order Reject Reason: Restricted Security Risk Rule Violated (158)"
+  end
+  if value == 159 then
+    return "Order Reject Reason: Invalid Self Trade Prevention Configuration (159)"
+  end
+  if value == 160 then
+    return "Order Reject Reason: Invalid Self Trade Prevention Type (160)"
+  end
+  if value == 161 then
+    return "Order Reject Reason: Invalid Risk Group Id (161)"
+  end
+  if value == 162 then
+    return "Order Reject Reason: Firm Disabled (162)"
+  end
+  if value == 163 then
+    return "Order Reject Reason: Mpid Disabled (163)"
+  end
+  if value == 164 then
+    return "Order Reject Reason: Account Disabled (164)"
+  end
+  if value == 165 then
+    return "Order Reject Reason: Cannot Trade Non Test Symbol (165)"
+  end
+  if value == 166 then
+    return "Order Reject Reason: Missing Firm (166)"
+  end
+  if value == 167 then
+    return "Order Reject Reason: Missing Account (167)"
+  end
+  if value == 168 then
+    return "Order Reject Reason: Missing Mpid (168)"
+  end
+  if value == 169 then
+    return "Order Reject Reason: Missing Risk Group (169)"
+  end
+  if value == 170 then
+    return "Order Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (170)"
+  end
+  if value == 171 then
+    return "Order Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (171)"
+  end
+  if value == 172 then
+    return "Order Reject Reason: Missing Disp Method Type (172)"
+  end
+  if value == 173 then
+    return "Order Reject Reason: Missing Firm Risk Setting (173)"
+  end
+  if value == 174 then
+    return "Order Reject Reason: Invalid Account Mpid To Firm (174)"
+  end
+  if value == 175 then
+    return "Order Reject Reason: Invalid Peg Offset Value (175)"
+  end
+  if value == 176 then
+    return "Order Reject Reason: Invalid Disp Method Type (176)"
+  end
+  if value == 177 then
+    return "Order Reject Reason: Missing Cancel Group Id (177)"
+  end
+  if value == 178 then
+    return "Order Reject Reason: Invalid Cancel Group Id (178)"
+  end
+  if value == 179 then
+    return "Order Reject Reason: Missing Stp Group Id (179)"
+  end
+  if value == 180 then
+    return "Order Reject Reason: Invalid Stp Group Id (180)"
+  end
+  if value == 181 then
+    return "Order Reject Reason: Invalid Lnk Id (181)"
+  end
+  if value == 182 then
+    return "Order Reject Reason: Missing Locate Broker (182)"
+  end
+  if value == 183 then
+    return "Order Reject Reason: Invalid Locate Broker (183)"
+  end
+  if value == 255 then
+    return "Order Reject Reason: Null Value (255)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Reject Reason
+boats_equities_memo_sbe_v1_13.order_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.order_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.order_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrigClOrdId
+boats_equities_memo_sbe_v1_13.origclordid = {}
+
+-- Size: OrigClOrdId
+boats_equities_memo_sbe_v1_13.origclordid.size = 16
+
+-- Display: OrigClOrdId
+boats_equities_memo_sbe_v1_13.origclordid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "OrigClOrdId: No Value"
+  end
+
+  return "OrigClOrdId: "..value
+end
+
+-- Dissect: OrigClOrdId
+boats_equities_memo_sbe_v1_13.origclordid.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.origclordid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.origclordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.origclordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrigClOrdId Optional
+boats_equities_memo_sbe_v1_13.origclordid_optional = {}
+
+-- Size: OrigClOrdId Optional
+boats_equities_memo_sbe_v1_13.origclordid_optional.size = 16
+
+-- Display: OrigClOrdId Optional
+boats_equities_memo_sbe_v1_13.origclordid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "OrigClOrdId Optional: No Value"
+  end
+
+  return "OrigClOrdId Optional: "..value
+end
+
+-- Dissect: OrigClOrdId Optional
+boats_equities_memo_sbe_v1_13.origclordid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.origclordid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.origclordid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.origclordid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party I D New Order Single Party Id
+boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id = {}
+
+-- Size: Party I D New Order Single Party Id
+boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size = 16
+
+-- Display: Party I D New Order Single Party Id
+boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party I D New Order Single Party Id: No Value"
+  end
+
+  return "Party I D New Order Single Party Id: "..value
+end
+
+-- Dissect: Party I D New Order Single Party Id
+boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Source
+boats_equities_memo_sbe_v1_13.party_id_source = {}
+
+-- Size: Party Id Source
+boats_equities_memo_sbe_v1_13.party_id_source.size = 1
+
+-- Display: Party Id Source
+boats_equities_memo_sbe_v1_13.party_id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Source: No Value"
+  end
+
+  return "Party Id Source: "..value
+end
+
+-- Dissect: Party Id Source
+boats_equities_memo_sbe_v1_13.party_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.party_id_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.party_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.party_id_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Role
+boats_equities_memo_sbe_v1_13.party_role = {}
+
+-- Size: Party Role
+boats_equities_memo_sbe_v1_13.party_role.size = 1
+
+-- Display: Party Role
+boats_equities_memo_sbe_v1_13.party_role.display = function(value)
+  if value == 1 then
+    return "Party Role: Executing Firm (1)"
+  end
+
+  return "Party Role: Unknown("..value..")"
+end
+
+-- Dissect: Party Role
+boats_equities_memo_sbe_v1_13.party_role.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.party_role.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.party_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.party_role, range, value, display)
+
+  return offset + length, value
+end
+
+-- Peg Offset Value
+boats_equities_memo_sbe_v1_13.peg_offset_value = {}
+
+-- Size: Peg Offset Value
+boats_equities_memo_sbe_v1_13.peg_offset_value.size = 8
+
+-- Display: Peg Offset Value
+boats_equities_memo_sbe_v1_13.peg_offset_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Peg Offset Value: No Value"
+  end
+
+  return "Peg Offset Value: "..value
+end
+
+-- Translate: Peg Offset Value
+boats_equities_memo_sbe_v1_13.peg_offset_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Peg Offset Value
+boats_equities_memo_sbe_v1_13.peg_offset_value.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.peg_offset_value.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memo_sbe_v1_13.peg_offset_value.translate(raw)
+  local display = boats_equities_memo_sbe_v1_13.peg_offset_value.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.peg_offset_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Peg Price Type
+boats_equities_memo_sbe_v1_13.peg_price_type = {}
+
+-- Size: Peg Price Type
+boats_equities_memo_sbe_v1_13.peg_price_type.size = 1
+
+-- Display: Peg Price Type
+boats_equities_memo_sbe_v1_13.peg_price_type.display = function(value)
+  if value == 2 then
+    return "Peg Price Type: Mid Price Peg (2)"
+  end
+  if value == 5 then
+    return "Peg Price Type: Primary Peg (5)"
+  end
+  if value == 255 then
+    return "Peg Price Type: Null Value (255)"
+  end
+  if value == 255 then
+    return "Peg Price Type: No Value"
+  end
+
+  return "Peg Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Peg Price Type
+boats_equities_memo_sbe_v1_13.peg_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.peg_price_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.peg_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.peg_price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pending Message Count
+boats_equities_memo_sbe_v1_13.pending_message_count = {}
+
+-- Size: Pending Message Count
+boats_equities_memo_sbe_v1_13.pending_message_count.size = 4
+
+-- Display: Pending Message Count
+boats_equities_memo_sbe_v1_13.pending_message_count.display = function(value)
+  return "Pending Message Count: "..value
+end
+
+-- Dissect: Pending Message Count
+boats_equities_memo_sbe_v1_13.pending_message_count.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.pending_message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.pending_message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.pending_message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+boats_equities_memo_sbe_v1_13.price = {}
+
+-- Size: Price
+boats_equities_memo_sbe_v1_13.price.size = 8
+
+-- Display: Price
+boats_equities_memo_sbe_v1_13.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
+  return "Price: "..value
+end
+
+-- Translate: Price
+boats_equities_memo_sbe_v1_13.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Price
+boats_equities_memo_sbe_v1_13.price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memo_sbe_v1_13.price.translate(raw)
+  local display = boats_equities_memo_sbe_v1_13.price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replay Reject Code
+boats_equities_memo_sbe_v1_13.replay_reject_code = {}
+
+-- Size: Replay Reject Code
+boats_equities_memo_sbe_v1_13.replay_reject_code.size = 1
+
+-- Display: Replay Reject Code
+boats_equities_memo_sbe_v1_13.replay_reject_code.display = function(value)
+  if value == "R" then
+    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
+  end
+  if value == "A" then
+    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
+  end
+  if value == "P" then
+    return "Replay Reject Code: Not The Active Session (P)"
+  end
+  if value == "S" then
+    return "Replay Reject Code: Sequence Number Out Of Range (S)"
+  end
+
+  return "Replay Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Replay Reject Code
+boats_equities_memo_sbe_v1_13.replay_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.replay_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = boats_equities_memo_sbe_v1_13.replay_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.replay_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reprice Behavior
+boats_equities_memo_sbe_v1_13.reprice_behavior = {}
+
+-- Size: Reprice Behavior
+boats_equities_memo_sbe_v1_13.reprice_behavior.size = 1
+
+-- Display: Reprice Behavior
+boats_equities_memo_sbe_v1_13.reprice_behavior.display = function(value)
+  if value == 1 then
+    return "Reprice Behavior: Reprice Lock Cancel Cross (1)"
+  end
+  if value == 2 then
+    return "Reprice Behavior: Reprice Lock Reprice Cross (2)"
+  end
+  if value == 255 then
+    return "Reprice Behavior: Null Value (255)"
+  end
+  if value == 255 then
+    return "Reprice Behavior: No Value"
+  end
+
+  return "Reprice Behavior: Unknown("..value..")"
+end
+
+-- Dissect: Reprice Behavior
+boats_equities_memo_sbe_v1_13.reprice_behavior.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.reprice_behavior.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.reprice_behavior.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.reprice_behavior, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reprice Frequency
+boats_equities_memo_sbe_v1_13.reprice_frequency = {}
+
+-- Size: Reprice Frequency
+boats_equities_memo_sbe_v1_13.reprice_frequency.size = 1
+
+-- Display: Reprice Frequency
+boats_equities_memo_sbe_v1_13.reprice_frequency.display = function(value)
+  if value == 0 then
+    return "Reprice Frequency: Single Reprice (0)"
+  end
+  if value == 1 then
+    return "Reprice Frequency: Continuous Reprice (1)"
+  end
+  if value == 2 then
+    return "Reprice Frequency: None (2)"
+  end
+  if value == 255 then
+    return "Reprice Frequency: Null Value (255)"
+  end
+  if value == 255 then
+    return "Reprice Frequency: No Value"
+  end
+
+  return "Reprice Frequency: Unknown("..value..")"
+end
+
+-- Dissect: Reprice Frequency
+boats_equities_memo_sbe_v1_13.reprice_frequency.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.reprice_frequency.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.reprice_frequency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.reprice_frequency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserve Replenish Timing
+boats_equities_memo_sbe_v1_13.reserve_replenish_timing = {}
+
+-- Size: Reserve Replenish Timing
+boats_equities_memo_sbe_v1_13.reserve_replenish_timing.size = 1
+
+-- Display: Reserve Replenish Timing
+boats_equities_memo_sbe_v1_13.reserve_replenish_timing.display = function(value)
+  if value == 1 then
+    return "Reserve Replenish Timing: Immediate (1)"
+  end
+  if value == 2 then
+    return "Reserve Replenish Timing: Random (2)"
+  end
+  if value == 255 then
+    return "Reserve Replenish Timing: Null Value (255)"
+  end
+  if value == 255 then
+    return "Reserve Replenish Timing: No Value"
+  end
+
+  return "Reserve Replenish Timing: Unknown("..value..")"
+end
+
+-- Dissect: Reserve Replenish Timing
+boats_equities_memo_sbe_v1_13.reserve_replenish_timing.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.reserve_replenish_timing.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.reserve_replenish_timing.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.reserve_replenish_timing, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Group Id
+boats_equities_memo_sbe_v1_13.risk_group_id = {}
+
+-- Size: Risk Group Id
+boats_equities_memo_sbe_v1_13.risk_group_id.size = 2
+
+-- Display: Risk Group Id
+boats_equities_memo_sbe_v1_13.risk_group_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Risk Group Id: No Value"
+  end
+
+  return "Risk Group Id: "..value
+end
+
+-- Dissect: Risk Group Id
+boats_equities_memo_sbe_v1_13.risk_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.risk_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.risk_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.risk_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+boats_equities_memo_sbe_v1_13.schema_id = {}
+
+-- Size: Schema Id
+boats_equities_memo_sbe_v1_13.schema_id.size = 1
+
+-- Display: Schema Id
+boats_equities_memo_sbe_v1_13.schema_id.display = function(value)
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+boats_equities_memo_sbe_v1_13.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Group
+boats_equities_memo_sbe_v1_13.security_group = {}
+
+-- Size: Security Group
+boats_equities_memo_sbe_v1_13.security_group.size = 1
+
+-- Display: Security Group
+boats_equities_memo_sbe_v1_13.security_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group: No Value"
+  end
+
+  return "Security Group: "..value
+end
+
+-- Dissect: Security Group
+boats_equities_memo_sbe_v1_13.security_group.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.security_group.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.security_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.security_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Trade Prevention
+boats_equities_memo_sbe_v1_13.self_trade_prevention = {}
+
+-- Size: Self Trade Prevention
+boats_equities_memo_sbe_v1_13.self_trade_prevention.size = 1
+
+-- Display: Self Trade Prevention
+boats_equities_memo_sbe_v1_13.self_trade_prevention.display = function(value)
+  if value == 0 then
+    return "Self Trade Prevention: Cancel Newest (0)"
+  end
+  if value == 1 then
+    return "Self Trade Prevention: Cancel Oldest (1)"
+  end
+  if value == 2 then
+    return "Self Trade Prevention: Decrement And Cancel (2)"
+  end
+  if value == 3 then
+    return "Self Trade Prevention: Cancel Both (3)"
+  end
+  if value == 4 then
+    return "Self Trade Prevention: Cancel Smallest (4)"
+  end
+  if value == 255 then
+    return "Self Trade Prevention: Null Value (255)"
+  end
+  if value == 255 then
+    return "Self Trade Prevention: No Value"
+  end
+
+  return "Self Trade Prevention: Unknown("..value..")"
+end
+
+-- Dissect: Self Trade Prevention
+boats_equities_memo_sbe_v1_13.self_trade_prevention.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.self_trade_prevention.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.self_trade_prevention.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.self_trade_prevention, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+boats_equities_memo_sbe_v1_13.sending_time = {}
+
+-- Size: Sending Time
+boats_equities_memo_sbe_v1_13.sending_time.size = 8
+
+-- Display: Sending Time
+boats_equities_memo_sbe_v1_13.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+boats_equities_memo_sbe_v1_13.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+boats_equities_memo_sbe_v1_13.session_id = {}
+
+-- Size: Session Id
+boats_equities_memo_sbe_v1_13.session_id.size = 8
+
+-- Display: Session Id
+boats_equities_memo_sbe_v1_13.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+boats_equities_memo_sbe_v1_13.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+boats_equities_memo_sbe_v1_13.side = {}
+
+-- Size: Side
+boats_equities_memo_sbe_v1_13.side.size = 1
+
+-- Display: Side
+boats_equities_memo_sbe_v1_13.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+  if value == "5" then
+    return "Side: Sell Short (5)"
+  end
+  if value == "6" then
+    return "Side: Sell Short Exempt (6)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+boats_equities_memo_sbe_v1_13.side.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Optional
+boats_equities_memo_sbe_v1_13.side_optional = {}
+
+-- Size: Side Optional
+boats_equities_memo_sbe_v1_13.side_optional.size = 1
+
+-- Display: Side Optional
+boats_equities_memo_sbe_v1_13.side_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side Optional: No Value"
+  end
+
+  if value == "1" then
+    return "Side Optional: Buy (1)"
+  end
+  if value == "2" then
+    return "Side Optional: Sell (2)"
+  end
+  if value == "5" then
+    return "Side Optional: Sell Short (5)"
+  end
+  if value == "6" then
+    return "Side Optional: Sell Short Exempt (6)"
+  end
+  if value == 0 then
+    return "Side Optional: No Value"
+  end
+
+  return "Side Optional: Unknown("..value..")"
+end
+
+-- Dissect: Side Optional
+boats_equities_memo_sbe_v1_13.side_optional.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.side_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.side_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.side_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stp Group Id
+boats_equities_memo_sbe_v1_13.stp_group_id = {}
+
+-- Size: Stp Group Id
+boats_equities_memo_sbe_v1_13.stp_group_id.size = 2
+
+-- Display: Stp Group Id
+boats_equities_memo_sbe_v1_13.stp_group_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Stp Group Id: No Value"
+  end
+
+  return "Stp Group Id: "..value
+end
+
+-- Dissect: Stp Group Id
+boats_equities_memo_sbe_v1_13.stp_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.stp_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.stp_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.stp_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Reject Code
+boats_equities_memo_sbe_v1_13.stream_reject_code = {}
+
+-- Size: Stream Reject Code
+boats_equities_memo_sbe_v1_13.stream_reject_code.size = 1
+
+-- Display: Stream Reject Code
+boats_equities_memo_sbe_v1_13.stream_reject_code.display = function(value)
+  if value == "R" then
+    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
+  end
+  if value == "P" then
+    return "Stream Reject Code: Not The Active Session (P)"
+  end
+  if value == "S" then
+    return "Stream Reject Code: Sequence Number Out Of Range (S)"
+  end
+
+  return "Stream Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Stream Reject Code
+boats_equities_memo_sbe_v1_13.stream_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.stream_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = boats_equities_memo_sbe_v1_13.stream_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.stream_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Supported Request Mode
+boats_equities_memo_sbe_v1_13.supported_request_mode = {}
+
+-- Size: Supported Request Mode
+boats_equities_memo_sbe_v1_13.supported_request_mode.size = 1
+
+-- Display: Supported Request Mode
+boats_equities_memo_sbe_v1_13.supported_request_mode.display = function(value)
+  if value == "S" then
+    return "Supported Request Mode: Stream (S)"
+  end
+  if value == "R" then
+    return "Supported Request Mode: Replay (R)"
+  end
+  if value == "T" then
+    return "Supported Request Mode: Snapshot Mode (T)"
+  end
+
+  return "Supported Request Mode: Unknown("..value..")"
+end
+
+-- Dissect: Supported Request Mode
+boats_equities_memo_sbe_v1_13.supported_request_mode.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.supported_request_mode.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = boats_equities_memo_sbe_v1_13.supported_request_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.supported_request_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+boats_equities_memo_sbe_v1_13.symbol = {}
+
+-- Size: Symbol
+boats_equities_memo_sbe_v1_13.symbol.size = 6
+
+-- Display: Symbol
+boats_equities_memo_sbe_v1_13.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+boats_equities_memo_sbe_v1_13.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Sfx
+boats_equities_memo_sbe_v1_13.symbol_sfx = {}
+
+-- Size: Symbol Sfx
+boats_equities_memo_sbe_v1_13.symbol_sfx.size = 6
+
+-- Display: Symbol Sfx
+boats_equities_memo_sbe_v1_13.symbol_sfx.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Sfx: No Value"
+  end
+
+  return "Symbol Sfx: "..value
+end
+
+-- Dissect: Symbol Sfx
+boats_equities_memo_sbe_v1_13.symbol_sfx.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.symbol_sfx.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.symbol_sfx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.symbol_sfx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+boats_equities_memo_sbe_v1_13.template_id = {}
+
+-- Size: Template Id
+boats_equities_memo_sbe_v1_13.template_id.size = 1
+
+-- Display: Template Id
+boats_equities_memo_sbe_v1_13.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: New Order Single Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Order Cancel Replace Request Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Order Cancel Request Message (3)"
+  end
+  if value == 4 then
+    return "Template Id: Mass Cancel Request Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Execution Report Pending New Message (5)"
+  end
+  if value == 6 then
+    return "Template Id: Execution Report New Message (6)"
+  end
+  if value == 7 then
+    return "Template Id: Execution Report Rejected Message (7)"
+  end
+  if value == 8 then
+    return "Template Id: Execution Report Trade Message (8)"
+  end
+  if value == 9 then
+    return "Template Id: Execution Report Pending Cancel Message (9)"
+  end
+  if value == 10 then
+    return "Template Id: Pending Mass Cancel Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Execution Report Canceled Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Mass Cancel Done Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Execution Report Pending Replace Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Execution Report Replaced Message (14)"
+  end
+  if value == 15 then
+    return "Template Id: Execution Report Trade Correction Message (15)"
+  end
+  if value == 16 then
+    return "Template Id: Execution Report Trade Break Message (16)"
+  end
+  if value == 17 then
+    return "Template Id: Execution Report Restatement Message (17)"
+  end
+  if value == 18 then
+    return "Template Id: Order Cancel Reject Message (18)"
+  end
+  if value == 20 then
+    return "Template Id: Mass Cancel Reject Message (20)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+boats_equities_memo_sbe_v1_13.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+boats_equities_memo_sbe_v1_13.time_in_force = {}
+
+-- Size: Time In Force
+boats_equities_memo_sbe_v1_13.time_in_force.size = 1
+
+-- Display: Time In Force
+boats_equities_memo_sbe_v1_13.time_in_force.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "3" then
+    return "Time In Force: Immediate Or Cancel (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fill Or Kill (4)"
+  end
+  if value == "A" then
+    return "Time In Force: Good For Time (A)"
+  end
+  if value == "F" then
+    return "Time In Force: Regular Hours Only (F)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+boats_equities_memo_sbe_v1_13.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.time_in_force.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memo_sbe_v1_13.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Token
+boats_equities_memo_sbe_v1_13.token = {}
+
+-- Size: Token
+boats_equities_memo_sbe_v1_13.token.size = 1
+
+-- Display: Token
+boats_equities_memo_sbe_v1_13.token.display = function(value)
+  return "Token: "..value
+end
+
+-- Dissect: Token
+boats_equities_memo_sbe_v1_13.token.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = boats_equities_memo_sbe_v1_13.token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Token Type
+boats_equities_memo_sbe_v1_13.token_type = {}
+
+-- Size: Token Type
+boats_equities_memo_sbe_v1_13.token_type.size = 1
+
+-- Display: Token Type
+boats_equities_memo_sbe_v1_13.token_type.display = function(value)
+  return "Token Type: "..value
+end
+
+-- Dissect: Token Type
+boats_equities_memo_sbe_v1_13.token_type.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.token_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = boats_equities_memo_sbe_v1_13.token_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.token_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Sequence Count
+boats_equities_memo_sbe_v1_13.total_sequence_count = {}
+
+-- Size: Total Sequence Count
+boats_equities_memo_sbe_v1_13.total_sequence_count.size = 8
+
+-- Display: Total Sequence Count
+boats_equities_memo_sbe_v1_13.total_sequence_count.display = function(value)
+  return "Total Sequence Count: "..value
+end
+
+-- Dissect: Total Sequence Count
+boats_equities_memo_sbe_v1_13.total_sequence_count.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.total_sequence_count.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.total_sequence_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.total_sequence_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+boats_equities_memo_sbe_v1_13.transact_time = {}
+
+-- Size: Transact Time
+boats_equities_memo_sbe_v1_13.transact_time.size = 8
+
+-- Display: Transact Time
+boats_equities_memo_sbe_v1_13.transact_time.display = function(value)
+  return "Transact Time: "..value
+end
+
+-- Dissect: Transact Time
+boats_equities_memo_sbe_v1_13.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Match Id
+boats_equities_memo_sbe_v1_13.trd_match_id = {}
+
+-- Size: Trd Match Id
+boats_equities_memo_sbe_v1_13.trd_match_id.size = 8
+
+-- Display: Trd Match Id
+boats_equities_memo_sbe_v1_13.trd_match_id.display = function(value)
+  return "Trd Match Id: "..value
+end
+
+-- Dissect: Trd Match Id
+boats_equities_memo_sbe_v1_13.trd_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.trd_match_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.trd_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.trd_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Matching Id
+boats_equities_memo_sbe_v1_13.trd_matching_id = {}
+
+-- Size: Trd Matching Id
+boats_equities_memo_sbe_v1_13.trd_matching_id.size = 8
+
+-- Display: Trd Matching Id
+boats_equities_memo_sbe_v1_13.trd_matching_id.display = function(value)
+  return "Trd Matching Id: "..value
+end
+
+-- Dissect: Trd Matching Id
+boats_equities_memo_sbe_v1_13.trd_matching_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.trd_matching_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memo_sbe_v1_13.trd_matching_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.trd_matching_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+boats_equities_memo_sbe_v1_13.version = {}
+
+-- Size: Version
+boats_equities_memo_sbe_v1_13.version.size = 2
+
+-- Display: Version
+boats_equities_memo_sbe_v1_13.version.display = function(value)
+  if value == 269 then
+    return "Version: Version 1.13"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+boats_equities_memo_sbe_v1_13.version.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memo_sbe_v1_13.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memo_sbe_v1_13.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Boats Equities Memo Sbe 1.13
+-----------------------------------------------------------------------
+
+-- Mass Cancel Reject Message
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_message = {}
+
+-- Size: Mass Cancel Reject Message
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.size =
+  boats_equities_memo_sbe_v1_13.sending_time.size + 
+  boats_equities_memo_sbe_v1_13.clordid.size + 
+  boats_equities_memo_sbe_v1_13.symbol.size + 
+  boats_equities_memo_sbe_v1_13.symbol_sfx.size + 
+  boats_equities_memo_sbe_v1_13.side_optional.size + 
+  boats_equities_memo_sbe_v1_13.lower_than_price.size + 
+  boats_equities_memo_sbe_v1_13.higher_than_price.size + 
+  boats_equities_memo_sbe_v1_13.cancel_group_id.size + 
+  boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.size
+
+-- Display: Mass Cancel Reject Message
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Reject Message
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = boats_equities_memo_sbe_v1_13.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_CanceledClOrdID
+  index, clordid = boats_equities_memo_sbe_v1_13.clordid.dissect(buffer, index, packet, parent)
+
+  -- Symbol: ExecutionReport_NewSymbol
+  index, symbol = boats_equities_memo_sbe_v1_13.symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Sfx: ExecutionReport_NewSymbolSfx
+  index, symbol_sfx = boats_equities_memo_sbe_v1_13.symbol_sfx.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: SideType
+  index, side_optional = boats_equities_memo_sbe_v1_13.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Lower Than Price: PriceType
+  index, lower_than_price = boats_equities_memo_sbe_v1_13.lower_than_price.dissect(buffer, index, packet, parent)
+
+  -- Higher Than Price: PriceType
+  index, higher_than_price = boats_equities_memo_sbe_v1_13.higher_than_price.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = boats_equities_memo_sbe_v1_13.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Reject Reason: MassCancelRejectReasonCode
+  index, mass_cancel_reject_reason = boats_equities_memo_sbe_v1_13.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Reject Message
+boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel_reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_boats_equities_memo_sbe_v1_13.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return boats_equities_memo_sbe_v1_13.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Order Cancel Reject Message
 boats_equities_memo_sbe_v1_13.order_cancel_reject_message = {}
 
@@ -1144,108 +3864,6 @@ boats_equities_memo_sbe_v1_13.order_cancel_reject_message.dissect = function(buf
   end
 end
 
--- Party Role
-boats_equities_memo_sbe_v1_13.party_role = {}
-
--- Size: Party Role
-boats_equities_memo_sbe_v1_13.party_role.size = 1
-
--- Display: Party Role
-boats_equities_memo_sbe_v1_13.party_role.display = function(value)
-  if value == 1 then
-    return "Party Role: Executing Firm (1)"
-  end
-
-  return "Party Role: Unknown("..value..")"
-end
-
--- Dissect: Party Role
-boats_equities_memo_sbe_v1_13.party_role.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.party_role.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.party_role.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.party_role, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Source
-boats_equities_memo_sbe_v1_13.party_id_source = {}
-
--- Size: Party Id Source
-boats_equities_memo_sbe_v1_13.party_id_source.size = 1
-
--- Display: Party Id Source
-boats_equities_memo_sbe_v1_13.party_id_source.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Id Source: No Value"
-  end
-
-  return "Party Id Source: "..value
-end
-
--- Dissect: Party Id Source
-boats_equities_memo_sbe_v1_13.party_id_source.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.party_id_source.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.party_id_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.party_id_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Party I D New Order Single Party Id
-boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id = {}
-
--- Size: Party I D New Order Single Party Id
-boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size = 16
-
--- Display: Party I D New Order Single Party Id
-boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party I D New Order Single Party Id: No Value"
-  end
-
-  return "Party I D New Order Single Party Id: "..value
-end
-
--- Dissect: Party I D New Order Single Party Id
-boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Parties Group
 boats_equities_memo_sbe_v1_13.parties_group = {}
 
@@ -1298,52 +3916,6 @@ boats_equities_memo_sbe_v1_13.parties_group.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
   end
-end
-
--- Num In Group
-boats_equities_memo_sbe_v1_13.num_in_group = {}
-
--- Size: Num In Group
-boats_equities_memo_sbe_v1_13.num_in_group.size = 1
-
--- Display: Num In Group
-boats_equities_memo_sbe_v1_13.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-boats_equities_memo_sbe_v1_13.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length uint 8
-boats_equities_memo_sbe_v1_13.block_length_uint_8 = {}
-
--- Size: Block Length uint 8
-boats_equities_memo_sbe_v1_13.block_length_uint_8.size = 1
-
--- Display: Block Length uint 8
-boats_equities_memo_sbe_v1_13.block_length_uint_8.display = function(value)
-  return "Block Length uint 8: "..value
-end
-
--- Dissect: Block Length uint 8
-boats_equities_memo_sbe_v1_13.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.block_length_uint_8.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.block_length_uint_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.block_length_uint_8, range, value, display)
-
-  return offset + length, value
 end
 
 -- Repeating Group Dimensions
@@ -1445,342 +4017,6 @@ boats_equities_memo_sbe_v1_13.parties_groups.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.parties_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Extended Restatement Reason
-boats_equities_memo_sbe_v1_13.extended_restatement_reason = {}
-
--- Size: Extended Restatement Reason
-boats_equities_memo_sbe_v1_13.extended_restatement_reason.size = 1
-
--- Display: Extended Restatement Reason
-boats_equities_memo_sbe_v1_13.extended_restatement_reason.display = function(value)
-  if value == 0 then
-    return "Extended Restatement Reason: None (0)"
-  end
-  if value == 1 then
-    return "Extended Restatement Reason: Set Nbbo (1)"
-  end
-  if value == 2 then
-    return "Extended Restatement Reason: Joined Nbbo (2)"
-  end
-  if value == 3 then
-    return "Extended Restatement Reason: Self Trade Cancel Newest (3)"
-  end
-  if value == 4 then
-    return "Extended Restatement Reason: Self Trade Cancel Oldest (4)"
-  end
-  if value == 5 then
-    return "Extended Restatement Reason: Self Trade Decrement And Cancel (5)"
-  end
-  if value == 6 then
-    return "Extended Restatement Reason: Self Trade Cancel Both (6)"
-  end
-  if value == 7 then
-    return "Extended Restatement Reason: Self Trade Cancel Smallest (7)"
-  end
-  if value == 255 then
-    return "Extended Restatement Reason: Null Value (255)"
-  end
-  if value == 255 then
-    return "Extended Restatement Reason: No Value"
-  end
-
-  return "Extended Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Extended Restatement Reason
-boats_equities_memo_sbe_v1_13.extended_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.extended_restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.extended_restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.extended_restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-boats_equities_memo_sbe_v1_13.transact_time = {}
-
--- Size: Transact Time
-boats_equities_memo_sbe_v1_13.transact_time.size = 8
-
--- Display: Transact Time
-boats_equities_memo_sbe_v1_13.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
--- Dissect: Transact Time
-boats_equities_memo_sbe_v1_13.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Restatement Reason
-boats_equities_memo_sbe_v1_13.exec_restatement_reason = {}
-
--- Size: Exec Restatement Reason
-boats_equities_memo_sbe_v1_13.exec_restatement_reason.size = 1
-
--- Display: Exec Restatement Reason
-boats_equities_memo_sbe_v1_13.exec_restatement_reason.display = function(value)
-  if value == 3 then
-    return "Exec Restatement Reason: Order Reprice (3)"
-  end
-  if value == 5 then
-    return "Exec Restatement Reason: Self Trade Prevention (5)"
-  end
-  if value == 99 then
-    return "Exec Restatement Reason: Other (99)"
-  end
-  if value == 255 then
-    return "Exec Restatement Reason: Null Value (255)"
-  end
-
-  return "Exec Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Exec Restatement Reason
-boats_equities_memo_sbe_v1_13.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.exec_restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.exec_restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.exec_restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Shares
-boats_equities_memo_sbe_v1_13.last_shares = {}
-
--- Size: Last Shares
-boats_equities_memo_sbe_v1_13.last_shares.size = 4
-
--- Display: Last Shares
-boats_equities_memo_sbe_v1_13.last_shares.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Last Shares: No Value"
-  end
-
-  return "Last Shares: "..value
-end
-
--- Dissect: Last Shares
-boats_equities_memo_sbe_v1_13.last_shares.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_shares.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.last_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Cum Qty
-boats_equities_memo_sbe_v1_13.cum_qty = {}
-
--- Size: Cum Qty
-boats_equities_memo_sbe_v1_13.cum_qty.size = 4
-
--- Display: Cum Qty
-boats_equities_memo_sbe_v1_13.cum_qty.display = function(value)
-  return "Cum Qty: "..value
-end
-
--- Dissect: Cum Qty
-boats_equities_memo_sbe_v1_13.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.cum_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.cum_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leaves Qty
-boats_equities_memo_sbe_v1_13.leaves_qty = {}
-
--- Size: Leaves Qty
-boats_equities_memo_sbe_v1_13.leaves_qty.size = 4
-
--- Display: Leaves Qty
-boats_equities_memo_sbe_v1_13.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-boats_equities_memo_sbe_v1_13.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px Optional
-boats_equities_memo_sbe_v1_13.last_px_optional = {}
-
--- Size: Last Px Optional
-boats_equities_memo_sbe_v1_13.last_px_optional.size = 8
-
--- Display: Last Px Optional
-boats_equities_memo_sbe_v1_13.last_px_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Last Px Optional: No Value"
-  end
-
-  return "Last Px Optional: "..value
-end
-
--- Translate: Last Px Optional
-boats_equities_memo_sbe_v1_13.last_px_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Last Px Optional
-boats_equities_memo_sbe_v1_13.last_px_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_px_optional.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memo_sbe_v1_13.last_px_optional.translate(raw)
-  local display = boats_equities_memo_sbe_v1_13.last_px_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_px_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status
-boats_equities_memo_sbe_v1_13.ord_status = {}
-
--- Size: Ord Status
-boats_equities_memo_sbe_v1_13.ord_status.size = 1
-
--- Display: Ord Status
-boats_equities_memo_sbe_v1_13.ord_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Status: No Value"
-  end
-
-  if value == "0" then
-    return "Ord Status: New (0)"
-  end
-  if value == "1" then
-    return "Ord Status: Partial Filled (1)"
-  end
-  if value == "2" then
-    return "Ord Status: Filled (2)"
-  end
-  if value == "4" then
-    return "Ord Status: Canceled (4)"
-  end
-  if value == "6" then
-    return "Ord Status: Pending Cancel (6)"
-  end
-  if value == "8" then
-    return "Ord Status: Rejected (8)"
-  end
-  if value == "A" then
-    return "Ord Status: Pending New (A)"
-  end
-  if value == "E" then
-    return "Ord Status: Pending Replace (E)"
-  end
-  if value == "C" then
-    return "Ord Status: Expired (C)"
-  end
-
-  return "Ord Status: Unknown("..value..")"
-end
-
--- Dissect: Ord Status
-boats_equities_memo_sbe_v1_13.ord_status.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.ord_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.ord_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.ord_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-boats_equities_memo_sbe_v1_13.exec_id = {}
-
--- Size: Exec Id
-boats_equities_memo_sbe_v1_13.exec_id.size = 8
-
--- Display: Exec Id
-boats_equities_memo_sbe_v1_13.exec_id.display = function(value)
-  return "Exec Id: "..value
-end
-
--- Dissect: Exec Id
-boats_equities_memo_sbe_v1_13.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-boats_equities_memo_sbe_v1_13.order_id = {}
-
--- Size: Order Id
-boats_equities_memo_sbe_v1_13.order_id.size = 8
-
--- Display: Order Id
-boats_equities_memo_sbe_v1_13.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-boats_equities_memo_sbe_v1_13.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Restatement Message
@@ -1893,88 +4129,6 @@ boats_equities_memo_sbe_v1_13.execution_report_restatement_message.dissect = fun
   end
 end
 
--- Security Group
-boats_equities_memo_sbe_v1_13.security_group = {}
-
--- Size: Security Group
-boats_equities_memo_sbe_v1_13.security_group.size = 1
-
--- Display: Security Group
-boats_equities_memo_sbe_v1_13.security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group: No Value"
-  end
-
-  return "Security Group: "..value
-end
-
--- Dissect: Security Group
-boats_equities_memo_sbe_v1_13.security_group.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.security_group.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.security_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.security_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Match Id
-boats_equities_memo_sbe_v1_13.trd_match_id = {}
-
--- Size: Trd Match Id
-boats_equities_memo_sbe_v1_13.trd_match_id.size = 8
-
--- Display: Trd Match Id
-boats_equities_memo_sbe_v1_13.trd_match_id.display = function(value)
-  return "Trd Match Id: "..value
-end
-
--- Dissect: Trd Match Id
-boats_equities_memo_sbe_v1_13.trd_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.trd_match_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.trd_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.trd_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Ref Id
-boats_equities_memo_sbe_v1_13.exec_ref_id = {}
-
--- Size: Exec Ref Id
-boats_equities_memo_sbe_v1_13.exec_ref_id.size = 8
-
--- Display: Exec Ref Id
-boats_equities_memo_sbe_v1_13.exec_ref_id.display = function(value)
-  return "Exec Ref Id: "..value
-end
-
--- Dissect: Exec Ref Id
-boats_equities_memo_sbe_v1_13.exec_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.exec_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.exec_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.exec_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Trade Break Message
 boats_equities_memo_sbe_v1_13.execution_report_trade_break_message = {}
 
@@ -2073,63 +4227,6 @@ boats_equities_memo_sbe_v1_13.execution_report_trade_break_message.dissect = fun
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Last Qty Optional
-boats_equities_memo_sbe_v1_13.last_qty_optional = {}
-
--- Size: Last Qty Optional
-boats_equities_memo_sbe_v1_13.last_qty_optional.size = 4
-
--- Display: Last Qty Optional
-boats_equities_memo_sbe_v1_13.last_qty_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Last Qty Optional: No Value"
-  end
-
-  return "Last Qty Optional: "..value
-end
-
--- Dissect: Last Qty Optional
-boats_equities_memo_sbe_v1_13.last_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.last_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_qty_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-boats_equities_memo_sbe_v1_13.last_px = {}
-
--- Size: Last Px
-boats_equities_memo_sbe_v1_13.last_px.size = 8
-
--- Display: Last Px
-boats_equities_memo_sbe_v1_13.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-boats_equities_memo_sbe_v1_13.last_px.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Last Px
-boats_equities_memo_sbe_v1_13.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memo_sbe_v1_13.last_px.translate(raw)
-  local display = boats_equities_memo_sbe_v1_13.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_px, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Trade Correction Message
@@ -2240,305 +4337,6 @@ boats_equities_memo_sbe_v1_13.execution_report_trade_correction_message.dissect 
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Locate Broker Optional
-boats_equities_memo_sbe_v1_13.locate_broker_optional = {}
-
--- Size: Locate Broker Optional
-boats_equities_memo_sbe_v1_13.locate_broker_optional.size = 4
-
--- Display: Locate Broker Optional
-boats_equities_memo_sbe_v1_13.locate_broker_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Locate Broker Optional: No Value"
-  end
-
-  return "Locate Broker Optional: "..value
-end
-
--- Dissect: Locate Broker Optional
-boats_equities_memo_sbe_v1_13.locate_broker_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.locate_broker_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.locate_broker_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.locate_broker_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Locate Reqd
-boats_equities_memo_sbe_v1_13.locate_reqd = {}
-
--- Size: Locate Reqd
-boats_equities_memo_sbe_v1_13.locate_reqd.size = 1
-
--- Display: Locate Reqd
-boats_equities_memo_sbe_v1_13.locate_reqd.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Locate Reqd: No Value"
-  end
-
-  return "Locate Reqd: "..value
-end
-
--- Dissect: Locate Reqd
-boats_equities_memo_sbe_v1_13.locate_reqd.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.locate_reqd.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.locate_reqd.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.locate_reqd, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Qty
-boats_equities_memo_sbe_v1_13.display_qty = {}
-
--- Size: Display Qty
-boats_equities_memo_sbe_v1_13.display_qty.size = 4
-
--- Display: Display Qty
-boats_equities_memo_sbe_v1_13.display_qty.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Display Qty: No Value"
-  end
-
-  return "Display Qty: "..value
-end
-
--- Dissect: Display Qty
-boats_equities_memo_sbe_v1_13.display_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.display_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.display_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.display_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-boats_equities_memo_sbe_v1_13.price = {}
-
--- Size: Price
-boats_equities_memo_sbe_v1_13.price.size = 8
-
--- Display: Price
-boats_equities_memo_sbe_v1_13.price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Price: No Value"
-  end
-
-  return "Price: "..value
-end
-
--- Translate: Price
-boats_equities_memo_sbe_v1_13.price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Price
-boats_equities_memo_sbe_v1_13.price.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memo_sbe_v1_13.price.translate(raw)
-  local display = boats_equities_memo_sbe_v1_13.price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Type
-boats_equities_memo_sbe_v1_13.ord_type = {}
-
--- Size: Ord Type
-boats_equities_memo_sbe_v1_13.ord_type.size = 1
-
--- Display: Ord Type
-boats_equities_memo_sbe_v1_13.ord_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Type: No Value"
-  end
-
-  if value == "1" then
-    return "Ord Type: Market (1)"
-  end
-  if value == "2" then
-    return "Ord Type: Limit (2)"
-  end
-  if value == "P" then
-    return "Ord Type: Pegged (P)"
-  end
-
-  return "Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Ord Type
-boats_equities_memo_sbe_v1_13.ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.ord_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.ord_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-boats_equities_memo_sbe_v1_13.order_qty = {}
-
--- Size: Order Qty
-boats_equities_memo_sbe_v1_13.order_qty.size = 4
-
--- Display: Order Qty
-boats_equities_memo_sbe_v1_13.order_qty.display = function(value)
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-boats_equities_memo_sbe_v1_13.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-boats_equities_memo_sbe_v1_13.side = {}
-
--- Size: Side
-boats_equities_memo_sbe_v1_13.side.size = 1
-
--- Display: Side
-boats_equities_memo_sbe_v1_13.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-  if value == "5" then
-    return "Side: Sell Short (5)"
-  end
-  if value == "6" then
-    return "Side: Sell Short Exempt (6)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-boats_equities_memo_sbe_v1_13.side.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- OrigClOrdId Optional
-boats_equities_memo_sbe_v1_13.origclordid_optional = {}
-
--- Size: OrigClOrdId Optional
-boats_equities_memo_sbe_v1_13.origclordid_optional.size = 16
-
--- Display: OrigClOrdId Optional
-boats_equities_memo_sbe_v1_13.origclordid_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "OrigClOrdId Optional: No Value"
-  end
-
-  return "OrigClOrdId Optional: "..value
-end
-
--- Dissect: OrigClOrdId Optional
-boats_equities_memo_sbe_v1_13.origclordid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.origclordid_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.origclordid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.origclordid_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Replaced Message
@@ -2860,93 +4658,6 @@ boats_equities_memo_sbe_v1_13.mass_cancel_done_message.dissect = function(buffer
   end
 end
 
--- Cancel Reason
-boats_equities_memo_sbe_v1_13.cancel_reason = {}
-
--- Size: Cancel Reason
-boats_equities_memo_sbe_v1_13.cancel_reason.size = 1
-
--- Display: Cancel Reason
-boats_equities_memo_sbe_v1_13.cancel_reason.display = function(value)
-  if value == 0 then
-    return "Cancel Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Cancel Reason: User Requested Cancel (1)"
-  end
-  if value == 4 then
-    return "Cancel Reason: End Of Trading (4)"
-  end
-  if value == 5 then
-    return "Cancel Reason: Limit Up Limit Down (5)"
-  end
-  if value == 6 then
-    return "Cancel Reason: Halted (6)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Exchange Supervisory (7)"
-  end
-  if value == 8 then
-    return "Cancel Reason: Order Expired (8)"
-  end
-  if value == 9 then
-    return "Cancel Reason: Lock Or Cross Book (9)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Self Trade Prevention (10)"
-  end
-  if value == 11 then
-    return "Cancel Reason: Insufficient Quotes (11)"
-  end
-  if value == 12 then
-    return "Cancel Reason: Non Compliant Price (12)"
-  end
-  if value == 13 then
-    return "Cancel Reason: Participant Disconnect (13)"
-  end
-  if value == 14 then
-    return "Cancel Reason: Order Not Bookable (14)"
-  end
-  if value == 15 then
-    return "Cancel Reason: Trade Protection Limits (15)"
-  end
-  if value == 16 then
-    return "Cancel Reason: Unable To Route (16)"
-  end
-  if value == 17 then
-    return "Cancel Reason: Firm Disabled (17)"
-  end
-  if value == 18 then
-    return "Cancel Reason: Mpid Disabled (18)"
-  end
-  if value == 19 then
-    return "Cancel Reason: Account Disabled (19)"
-  end
-  if value == 20 then
-    return "Cancel Reason: Notional Exposure Risk Breached (20)"
-  end
-  if value == 255 then
-    return "Cancel Reason: Null Value (255)"
-  end
-  if value == 255 then
-    return "Cancel Reason: No Value"
-  end
-
-  return "Cancel Reason: Unknown("..value..")"
-end
-
--- Dissect: Cancel Reason
-boats_equities_memo_sbe_v1_13.cancel_reason.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.cancel_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.cancel_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.cancel_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Canceled Message
 boats_equities_memo_sbe_v1_13.execution_report_canceled_message = {}
 
@@ -3215,187 +4926,6 @@ boats_equities_memo_sbe_v1_13.execution_report_pending_cancel_message.dissect = 
   end
 end
 
--- Trd Matching Id
-boats_equities_memo_sbe_v1_13.trd_matching_id = {}
-
--- Size: Trd Matching Id
-boats_equities_memo_sbe_v1_13.trd_matching_id.size = 8
-
--- Display: Trd Matching Id
-boats_equities_memo_sbe_v1_13.trd_matching_id.display = function(value)
-  return "Trd Matching Id: "..value
-end
-
--- Dissect: Trd Matching Id
-boats_equities_memo_sbe_v1_13.trd_matching_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.trd_matching_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.trd_matching_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.trd_matching_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Mkt
-boats_equities_memo_sbe_v1_13.last_mkt = {}
-
--- Size: Last Mkt
-boats_equities_memo_sbe_v1_13.last_mkt.size = 4
-
--- Display: Last Mkt
-boats_equities_memo_sbe_v1_13.last_mkt.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Last Mkt: No Value"
-  end
-
-  return "Last Mkt: "..value
-end
-
--- Dissect: Last Mkt
-boats_equities_memo_sbe_v1_13.last_mkt.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_mkt.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.last_mkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_mkt, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Liquidity Ind
-boats_equities_memo_sbe_v1_13.last_liquidity_ind = {}
-
--- Size: Last Liquidity Ind
-boats_equities_memo_sbe_v1_13.last_liquidity_ind.size = 1
-
--- Display: Last Liquidity Ind
-boats_equities_memo_sbe_v1_13.last_liquidity_ind.display = function(value)
-  if value == 1 then
-    return "Last Liquidity Ind: Add Displayed (1)"
-  end
-  if value == 2 then
-    return "Last Liquidity Ind: Removed (2)"
-  end
-  if value == 3 then
-    return "Last Liquidity Ind: Routed (3)"
-  end
-  if value == 4 then
-    return "Last Liquidity Ind: Cross (4)"
-  end
-  if value == 51 then
-    return "Last Liquidity Ind: Add Hidden (51)"
-  end
-  if value == 52 then
-    return "Last Liquidity Ind: Add Midpoint Peg (52)"
-  end
-  if value == 53 then
-    return "Last Liquidity Ind: Add Displayed Nbbo Improve (53)"
-  end
-  if value == 54 then
-    return "Last Liquidity Ind: Add Displayed Nbbo Join (54)"
-  end
-  if value == 61 then
-    return "Last Liquidity Ind: Immediate Midpoint Remove On Entry (61)"
-  end
-  if value == 62 then
-    return "Last Liquidity Ind: Add Displayed Price Improvement (62)"
-  end
-  if value == 63 then
-    return "Last Liquidity Ind: Add Hidden Price Improvement (63)"
-  end
-  if value == 101 then
-    return "Last Liquidity Ind: Retail Add Displayed (101)"
-  end
-  if value == 102 then
-    return "Last Liquidity Ind: Retail Removed (102)"
-  end
-  if value == 103 then
-    return "Last Liquidity Ind: Retail Routed (103)"
-  end
-  if value == 104 then
-    return "Last Liquidity Ind: Retail Cross (104)"
-  end
-  if value == 151 then
-    return "Last Liquidity Ind: Retail Add Hidden (151)"
-  end
-  if value == 152 then
-    return "Last Liquidity Ind: Retail Add Midpoint Peg (152)"
-  end
-  if value == 153 then
-    return "Last Liquidity Ind: Retail Add Displayed Nbbo Improve (153)"
-  end
-  if value == 154 then
-    return "Last Liquidity Ind: Retail Add Displayed Nbbo Join (154)"
-  end
-  if value == 160 then
-    return "Last Liquidity Ind: Retail Removed On Entry (160)"
-  end
-  if value == 161 then
-    return "Last Liquidity Ind: Retail Immediate Midpoint Remove On Entry (161)"
-  end
-  if value == 162 then
-    return "Last Liquidity Ind: Retail Add Displayed Price Improvement (162)"
-  end
-  if value == 163 then
-    return "Last Liquidity Ind: Retail Add Hidden Price Improvement (163)"
-  end
-  if value == 255 then
-    return "Last Liquidity Ind: Null Value (255)"
-  end
-
-  return "Last Liquidity Ind: Unknown("..value..")"
-end
-
--- Dissect: Last Liquidity Ind
-boats_equities_memo_sbe_v1_13.last_liquidity_ind.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_liquidity_ind.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.last_liquidity_ind.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_liquidity_ind, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty
-boats_equities_memo_sbe_v1_13.last_qty = {}
-
--- Size: Last Qty
-boats_equities_memo_sbe_v1_13.last_qty.size = 4
-
--- Display: Last Qty
-boats_equities_memo_sbe_v1_13.last_qty.display = function(value)
-  return "Last Qty: "..value
-end
-
--- Dissect: Last Qty
-boats_equities_memo_sbe_v1_13.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.last_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Trade Message
 boats_equities_memo_sbe_v1_13.execution_report_trade_message = {}
 
@@ -3516,315 +5046,6 @@ boats_equities_memo_sbe_v1_13.execution_report_trade_message.dissect = function(
   end
 end
 
--- Order Reject Reason
-boats_equities_memo_sbe_v1_13.order_reject_reason = {}
-
--- Size: Order Reject Reason
-boats_equities_memo_sbe_v1_13.order_reject_reason.size = 1
-
--- Display: Order Reject Reason
-boats_equities_memo_sbe_v1_13.order_reject_reason.display = function(value)
-  if value == 1 then
-    return "Order Reject Reason: Invalid Symbol (1)"
-  end
-  if value == 2 then
-    return "Order Reject Reason: Exchange Closed (2)"
-  end
-  if value == 3 then
-    return "Order Reject Reason: Order Size Exceeds Limit (3)"
-  end
-  if value == 6 then
-    return "Order Reject Reason: Duplicate Cl Ord Id (6)"
-  end
-  if value == 18 then
-    return "Order Reject Reason: Invalid Limit Price Increment (18)"
-  end
-  if value == 19 then
-    return "Order Reject Reason: No Nbbo Available (19)"
-  end
-  if value == 20 then
-    return "Order Reject Reason: Order Notional Exceeds Limit (20)"
-  end
-  if value == 22 then
-    return "Order Reject Reason: Block Sell Short Risk Rule Violated (22)"
-  end
-  if value == 23 then
-    return "Order Reject Reason: Hard To Borrow Security Risk Rule Violated (23)"
-  end
-  if value == 27 then
-    return "Order Reject Reason: Max Notional Value Per Order Risk Rule Breach (27)"
-  end
-  if value == 99 then
-    return "Order Reject Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Order Reject Reason: Missing Symbol (100)"
-  end
-  if value == 101 then
-    return "Order Reject Reason: Missing Locate (101)"
-  end
-  if value == 102 then
-    return "Order Reject Reason: Invalid Locate (102)"
-  end
-  if value == 103 then
-    return "Order Reject Reason: Missing Cl Ord Id (103)"
-  end
-  if value == 104 then
-    return "Order Reject Reason: Invalid Cl Ord Id (104)"
-  end
-  if value == 105 then
-    return "Order Reject Reason: Missing Side (105)"
-  end
-  if value == 106 then
-    return "Order Reject Reason: Invalid Side (106)"
-  end
-  if value == 107 then
-    return "Order Reject Reason: Missing Order Quantity (107)"
-  end
-  if value == 108 then
-    return "Order Reject Reason: Invalid Order Quantity (108)"
-  end
-  if value == 109 then
-    return "Order Reject Reason: Missing Order Type (109)"
-  end
-  if value == 110 then
-    return "Order Reject Reason: Invalid Order Type (110)"
-  end
-  if value == 111 then
-    return "Order Reject Reason: Missing Time In Force (111)"
-  end
-  if value == 112 then
-    return "Order Reject Reason: Invalid Time In Force (112)"
-  end
-  if value == 113 then
-    return "Order Reject Reason: Missing Order Capacity (113)"
-  end
-  if value == 114 then
-    return "Order Reject Reason: Invalid Order Capacity (114)"
-  end
-  if value == 115 then
-    return "Order Reject Reason: Missing Exec Inst (115)"
-  end
-  if value == 116 then
-    return "Order Reject Reason: Missing Limit Price (116)"
-  end
-  if value == 117 then
-    return "Order Reject Reason: Invalid Limit Price (117)"
-  end
-  if value == 118 then
-    return "Order Reject Reason: Missing Max Floor (118)"
-  end
-  if value == 119 then
-    return "Order Reject Reason: Invalid Max Floor (119)"
-  end
-  if value == 120 then
-    return "Order Reject Reason: Missing Reserve Replenish Amount Type (120)"
-  end
-  if value == 121 then
-    return "Order Reject Reason: Invalid Reserve Replenish Amount Type (121)"
-  end
-  if value == 122 then
-    return "Order Reject Reason: Missing Reserve Replenish Time Type (122)"
-  end
-  if value == 123 then
-    return "Order Reject Reason: Invalid Reserve Replenish Time Type (123)"
-  end
-  if value == 124 then
-    return "Order Reject Reason: Missing Random Replenish Value (124)"
-  end
-  if value == 125 then
-    return "Order Reject Reason: Invalid Random Replenish Value (125)"
-  end
-  if value == 126 then
-    return "Order Reject Reason: Invalid Random Replenish Value For Reserve Type (126)"
-  end
-  if value == 127 then
-    return "Order Reject Reason: Missing Reprice Frequency Type (127)"
-  end
-  if value == 128 then
-    return "Order Reject Reason: Invalid Reprice Frequency Type (128)"
-  end
-  if value == 129 then
-    return "Order Reject Reason: Missing Reprice Behavior Type (129)"
-  end
-  if value == 130 then
-    return "Order Reject Reason: Invalid Reprice Behavior Type (130)"
-  end
-  if value == 131 then
-    return "Order Reject Reason: Invalid Reprice Behavior For Reprice Frequency (131)"
-  end
-  if value == 132 then
-    return "Order Reject Reason: Missing Customer Capacity Type (132)"
-  end
-  if value == 133 then
-    return "Order Reject Reason: Invalid Customer Capacity (133)"
-  end
-  if value == 134 then
-    return "Order Reject Reason: Missing Expire Time (134)"
-  end
-  if value == 135 then
-    return "Order Reject Reason: Invalid Expire Time (135)"
-  end
-  if value == 136 then
-    return "Order Reject Reason: Missing Peg Type (136)"
-  end
-  if value == 137 then
-    return "Order Reject Reason: Invalid Peg Type (137)"
-  end
-  if value == 138 then
-    return "Order Reject Reason: Invalid Modifier For Order Type (138)"
-  end
-  if value == 139 then
-    return "Order Reject Reason: Invalid Modifiers Combination (139)"
-  end
-  if value == 140 then
-    return "Order Reject Reason: Invalid Trading Session For Order Type (140)"
-  end
-  if value == 141 then
-    return "Order Reject Reason: Invalid Time In Force For Order Type (141)"
-  end
-  if value == 142 then
-    return "Order Reject Reason: Invalid Modifier For Peg Type (142)"
-  end
-  if value == 143 then
-    return "Order Reject Reason: Invalid Min Quantity (143)"
-  end
-  if value == 145 then
-    return "Order Reject Reason: Invalid Mpid Value (145)"
-  end
-  if value == 146 then
-    return "Order Reject Reason: Symbol Halted Or Paused (146)"
-  end
-  if value == 147 then
-    return "Order Reject Reason: Block Iso Risk Rule Violated (147)"
-  end
-  if value == 148 then
-    return "Order Reject Reason: Block Session Risk Rule Violated (148)"
-  end
-  if value == 149 then
-    return "Order Reject Reason: Block Non Test Symbols Risk Rule Violated (149)"
-  end
-  if value == 150 then
-    return "Order Reject Reason: Max Shares Per Order Risk Rule Breach (150)"
-  end
-  if value == 151 then
-    return "Order Reject Reason: Price Percent Collar Risk Rule Violated (151)"
-  end
-  if value == 152 then
-    return "Order Reject Reason: Price Value Collar Risk Rule Violated (152)"
-  end
-  if value == 153 then
-    return "Order Reject Reason: Max Adv Percent Per Order Risk Rule Breach (153)"
-  end
-  if value == 154 then
-    return "Order Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (154)"
-  end
-  if value == 155 then
-    return "Order Reject Reason: Daily Net Notional Exposure Risk Rule Breach (155)"
-  end
-  if value == 156 then
-    return "Order Reject Reason: Max Num Duplicate Orders Risk Rule Breach (156)"
-  end
-  if value == 157 then
-    return "Order Reject Reason: Max Order Rate Risk Rule Breach (157)"
-  end
-  if value == 158 then
-    return "Order Reject Reason: Restricted Security Risk Rule Violated (158)"
-  end
-  if value == 159 then
-    return "Order Reject Reason: Invalid Self Trade Prevention Configuration (159)"
-  end
-  if value == 160 then
-    return "Order Reject Reason: Invalid Self Trade Prevention Type (160)"
-  end
-  if value == 161 then
-    return "Order Reject Reason: Invalid Risk Group Id (161)"
-  end
-  if value == 162 then
-    return "Order Reject Reason: Firm Disabled (162)"
-  end
-  if value == 163 then
-    return "Order Reject Reason: Mpid Disabled (163)"
-  end
-  if value == 164 then
-    return "Order Reject Reason: Account Disabled (164)"
-  end
-  if value == 165 then
-    return "Order Reject Reason: Cannot Trade Non Test Symbol (165)"
-  end
-  if value == 166 then
-    return "Order Reject Reason: Missing Firm (166)"
-  end
-  if value == 167 then
-    return "Order Reject Reason: Missing Account (167)"
-  end
-  if value == 168 then
-    return "Order Reject Reason: Missing Mpid (168)"
-  end
-  if value == 169 then
-    return "Order Reject Reason: Missing Risk Group (169)"
-  end
-  if value == 170 then
-    return "Order Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (170)"
-  end
-  if value == 171 then
-    return "Order Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (171)"
-  end
-  if value == 172 then
-    return "Order Reject Reason: Missing Disp Method Type (172)"
-  end
-  if value == 173 then
-    return "Order Reject Reason: Missing Firm Risk Setting (173)"
-  end
-  if value == 174 then
-    return "Order Reject Reason: Invalid Account Mpid To Firm (174)"
-  end
-  if value == 175 then
-    return "Order Reject Reason: Invalid Peg Offset Value (175)"
-  end
-  if value == 176 then
-    return "Order Reject Reason: Invalid Disp Method Type (176)"
-  end
-  if value == 177 then
-    return "Order Reject Reason: Missing Cancel Group Id (177)"
-  end
-  if value == 178 then
-    return "Order Reject Reason: Invalid Cancel Group Id (178)"
-  end
-  if value == 179 then
-    return "Order Reject Reason: Missing Stp Group Id (179)"
-  end
-  if value == 180 then
-    return "Order Reject Reason: Invalid Stp Group Id (180)"
-  end
-  if value == 181 then
-    return "Order Reject Reason: Invalid Lnk Id (181)"
-  end
-  if value == 182 then
-    return "Order Reject Reason: Missing Locate Broker (182)"
-  end
-  if value == 183 then
-    return "Order Reject Reason: Invalid Locate Broker (183)"
-  end
-  if value == 255 then
-    return "Order Reject Reason: Null Value (255)"
-  end
-
-  return "Order Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Order Reject Reason
-boats_equities_memo_sbe_v1_13.order_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.order_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.order_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Rejected Message
 boats_equities_memo_sbe_v1_13.execution_report_rejected_message = {}
 
@@ -3920,426 +5141,6 @@ boats_equities_memo_sbe_v1_13.execution_report_rejected_message.dissect = functi
   end
 end
 
--- Risk Group Id
-boats_equities_memo_sbe_v1_13.risk_group_id = {}
-
--- Size: Risk Group Id
-boats_equities_memo_sbe_v1_13.risk_group_id.size = 2
-
--- Display: Risk Group Id
-boats_equities_memo_sbe_v1_13.risk_group_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Risk Group Id: No Value"
-  end
-
-  return "Risk Group Id: "..value
-end
-
--- Dissect: Risk Group Id
-boats_equities_memo_sbe_v1_13.risk_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.risk_group_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.risk_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.risk_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Trade Prevention
-boats_equities_memo_sbe_v1_13.self_trade_prevention = {}
-
--- Size: Self Trade Prevention
-boats_equities_memo_sbe_v1_13.self_trade_prevention.size = 1
-
--- Display: Self Trade Prevention
-boats_equities_memo_sbe_v1_13.self_trade_prevention.display = function(value)
-  if value == 0 then
-    return "Self Trade Prevention: Cancel Newest (0)"
-  end
-  if value == 1 then
-    return "Self Trade Prevention: Cancel Oldest (1)"
-  end
-  if value == 2 then
-    return "Self Trade Prevention: Decrement And Cancel (2)"
-  end
-  if value == 3 then
-    return "Self Trade Prevention: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Self Trade Prevention: Cancel Smallest (4)"
-  end
-  if value == 255 then
-    return "Self Trade Prevention: Null Value (255)"
-  end
-  if value == 255 then
-    return "Self Trade Prevention: No Value"
-  end
-
-  return "Self Trade Prevention: Unknown("..value..")"
-end
-
--- Dissect: Self Trade Prevention
-boats_equities_memo_sbe_v1_13.self_trade_prevention.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.self_trade_prevention.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.self_trade_prevention.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.self_trade_prevention, range, value, display)
-
-  return offset + length, value
-end
-
--- Stp Group Id
-boats_equities_memo_sbe_v1_13.stp_group_id = {}
-
--- Size: Stp Group Id
-boats_equities_memo_sbe_v1_13.stp_group_id.size = 2
-
--- Display: Stp Group Id
-boats_equities_memo_sbe_v1_13.stp_group_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Stp Group Id: No Value"
-  end
-
-  return "Stp Group Id: "..value
-end
-
--- Dissect: Stp Group Id
-boats_equities_memo_sbe_v1_13.stp_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.stp_group_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.stp_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.stp_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reprice Behavior
-boats_equities_memo_sbe_v1_13.reprice_behavior = {}
-
--- Size: Reprice Behavior
-boats_equities_memo_sbe_v1_13.reprice_behavior.size = 1
-
--- Display: Reprice Behavior
-boats_equities_memo_sbe_v1_13.reprice_behavior.display = function(value)
-  if value == 1 then
-    return "Reprice Behavior: Reprice Lock Cancel Cross (1)"
-  end
-  if value == 2 then
-    return "Reprice Behavior: Reprice Lock Reprice Cross (2)"
-  end
-  if value == 255 then
-    return "Reprice Behavior: Null Value (255)"
-  end
-  if value == 255 then
-    return "Reprice Behavior: No Value"
-  end
-
-  return "Reprice Behavior: Unknown("..value..")"
-end
-
--- Dissect: Reprice Behavior
-boats_equities_memo_sbe_v1_13.reprice_behavior.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.reprice_behavior.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.reprice_behavior.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.reprice_behavior, range, value, display)
-
-  return offset + length, value
-end
-
--- Reprice Frequency
-boats_equities_memo_sbe_v1_13.reprice_frequency = {}
-
--- Size: Reprice Frequency
-boats_equities_memo_sbe_v1_13.reprice_frequency.size = 1
-
--- Display: Reprice Frequency
-boats_equities_memo_sbe_v1_13.reprice_frequency.display = function(value)
-  if value == 0 then
-    return "Reprice Frequency: Single Reprice (0)"
-  end
-  if value == 1 then
-    return "Reprice Frequency: Continuous Reprice (1)"
-  end
-  if value == 2 then
-    return "Reprice Frequency: None (2)"
-  end
-  if value == 255 then
-    return "Reprice Frequency: Null Value (255)"
-  end
-  if value == 255 then
-    return "Reprice Frequency: No Value"
-  end
-
-  return "Reprice Frequency: Unknown("..value..")"
-end
-
--- Dissect: Reprice Frequency
-boats_equities_memo_sbe_v1_13.reprice_frequency.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.reprice_frequency.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.reprice_frequency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.reprice_frequency, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Min Incr
-boats_equities_memo_sbe_v1_13.display_min_incr = {}
-
--- Size: Display Min Incr
-boats_equities_memo_sbe_v1_13.display_min_incr.size = 4
-
--- Display: Display Min Incr
-boats_equities_memo_sbe_v1_13.display_min_incr.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Display Min Incr: No Value"
-  end
-
-  return "Display Min Incr: "..value
-end
-
--- Dissect: Display Min Incr
-boats_equities_memo_sbe_v1_13.display_min_incr.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.display_min_incr.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.display_min_incr.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.display_min_incr, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserve Replenish Timing
-boats_equities_memo_sbe_v1_13.reserve_replenish_timing = {}
-
--- Size: Reserve Replenish Timing
-boats_equities_memo_sbe_v1_13.reserve_replenish_timing.size = 1
-
--- Display: Reserve Replenish Timing
-boats_equities_memo_sbe_v1_13.reserve_replenish_timing.display = function(value)
-  if value == 1 then
-    return "Reserve Replenish Timing: Immediate (1)"
-  end
-  if value == 2 then
-    return "Reserve Replenish Timing: Random (2)"
-  end
-  if value == 255 then
-    return "Reserve Replenish Timing: Null Value (255)"
-  end
-  if value == 255 then
-    return "Reserve Replenish Timing: No Value"
-  end
-
-  return "Reserve Replenish Timing: Unknown("..value..")"
-end
-
--- Dissect: Reserve Replenish Timing
-boats_equities_memo_sbe_v1_13.reserve_replenish_timing.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.reserve_replenish_timing.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.reserve_replenish_timing.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.reserve_replenish_timing, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Method
-boats_equities_memo_sbe_v1_13.display_method = {}
-
--- Size: Display Method
-boats_equities_memo_sbe_v1_13.display_method.size = 1
-
--- Display: Display Method
-boats_equities_memo_sbe_v1_13.display_method.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Display Method: No Value"
-  end
-
-  if value == "1" then
-    return "Display Method: Initial (1)"
-  end
-  if value == "3" then
-    return "Display Method: Random (3)"
-  end
-  if value == "4" then
-    return "Display Method: Undisclosed (4)"
-  end
-  if value == 0 then
-    return "Display Method: No Value"
-  end
-
-  return "Display Method: Unknown("..value..")"
-end
-
--- Dissect: Display Method
-boats_equities_memo_sbe_v1_13.display_method.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.display_method.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.display_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.display_method, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Qty
-boats_equities_memo_sbe_v1_13.min_qty = {}
-
--- Size: Min Qty
-boats_equities_memo_sbe_v1_13.min_qty.size = 4
-
--- Display: Min Qty
-boats_equities_memo_sbe_v1_13.min_qty.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Min Qty: No Value"
-  end
-
-  return "Min Qty: "..value
-end
-
--- Dissect: Min Qty
-boats_equities_memo_sbe_v1_13.min_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.min_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.min_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.min_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Expire Time
-boats_equities_memo_sbe_v1_13.expire_time = {}
-
--- Size: Expire Time
-boats_equities_memo_sbe_v1_13.expire_time.size = 8
-
--- Display: Expire Time
-boats_equities_memo_sbe_v1_13.expire_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Expire Time: No Value"
-  end
-
-  return "Expire Time: "..value
-end
-
--- Dissect: Expire Time
-boats_equities_memo_sbe_v1_13.expire_time.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.expire_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.expire_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.expire_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Peg Price Type
-boats_equities_memo_sbe_v1_13.peg_price_type = {}
-
--- Size: Peg Price Type
-boats_equities_memo_sbe_v1_13.peg_price_type.size = 1
-
--- Display: Peg Price Type
-boats_equities_memo_sbe_v1_13.peg_price_type.display = function(value)
-  if value == 2 then
-    return "Peg Price Type: Mid Price Peg (2)"
-  end
-  if value == 5 then
-    return "Peg Price Type: Primary Peg (5)"
-  end
-  if value == 255 then
-    return "Peg Price Type: Null Value (255)"
-  end
-  if value == 255 then
-    return "Peg Price Type: No Value"
-  end
-
-  return "Peg Price Type: Unknown("..value..")"
-end
-
--- Dissect: Peg Price Type
-boats_equities_memo_sbe_v1_13.peg_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.peg_price_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.peg_price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.peg_price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Peg Offset Value
-boats_equities_memo_sbe_v1_13.peg_offset_value = {}
-
--- Size: Peg Offset Value
-boats_equities_memo_sbe_v1_13.peg_offset_value.size = 8
-
--- Display: Peg Offset Value
-boats_equities_memo_sbe_v1_13.peg_offset_value.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Peg Offset Value: No Value"
-  end
-
-  return "Peg Offset Value: "..value
-end
-
--- Translate: Peg Offset Value
-boats_equities_memo_sbe_v1_13.peg_offset_value.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Peg Offset Value
-boats_equities_memo_sbe_v1_13.peg_offset_value.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.peg_offset_value.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memo_sbe_v1_13.peg_offset_value.translate(raw)
-  local display = boats_equities_memo_sbe_v1_13.peg_offset_value.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.peg_offset_value, range, value, display)
-
-  return offset + length, value
-end
-
 -- Exec Inst
 boats_equities_memo_sbe_v1_13.exec_inst = {}
 
@@ -4395,137 +5196,6 @@ boats_equities_memo_sbe_v1_13.exec_inst.dissect = function(buffer, offset, packe
   end
 
   return offset + size, value
-end
-
--- Cust Order Capacity
-boats_equities_memo_sbe_v1_13.cust_order_capacity = {}
-
--- Size: Cust Order Capacity
-boats_equities_memo_sbe_v1_13.cust_order_capacity.size = 1
-
--- Display: Cust Order Capacity
-boats_equities_memo_sbe_v1_13.cust_order_capacity.display = function(value)
-  if value == 1 then
-    return "Cust Order Capacity: Member Trading On Their Own Account (1)"
-  end
-  if value == 5 then
-    return "Cust Order Capacity: Retail Customer (5)"
-  end
-  if value == 255 then
-    return "Cust Order Capacity: Null Value (255)"
-  end
-
-  return "Cust Order Capacity: Unknown("..value..")"
-end
-
--- Dissect: Cust Order Capacity
-boats_equities_memo_sbe_v1_13.cust_order_capacity.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.cust_order_capacity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.cust_order_capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.cust_order_capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Capacity
-boats_equities_memo_sbe_v1_13.order_capacity = {}
-
--- Size: Order Capacity
-boats_equities_memo_sbe_v1_13.order_capacity.size = 1
-
--- Display: Order Capacity
-boats_equities_memo_sbe_v1_13.order_capacity.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Order Capacity: No Value"
-  end
-
-  if value == "A" then
-    return "Order Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Order Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Order Capacity: Riskless Principal (R)"
-  end
-
-  return "Order Capacity: Unknown("..value..")"
-end
-
--- Dissect: Order Capacity
-boats_equities_memo_sbe_v1_13.order_capacity.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.order_capacity.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.order_capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-boats_equities_memo_sbe_v1_13.time_in_force = {}
-
--- Size: Time In Force
-boats_equities_memo_sbe_v1_13.time_in_force.size = 1
-
--- Display: Time In Force
-boats_equities_memo_sbe_v1_13.time_in_force.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Time In Force: No Value"
-  end
-
-  if value == "0" then
-    return "Time In Force: Day (0)"
-  end
-  if value == "3" then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == "4" then
-    return "Time In Force: Fill Or Kill (4)"
-  end
-  if value == "A" then
-    return "Time In Force: Good For Time (A)"
-  end
-  if value == "F" then
-    return "Time In Force: Regular Hours Only (F)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-boats_equities_memo_sbe_v1_13.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.time_in_force.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.time_in_force, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report New Message
@@ -5027,34 +5697,6 @@ boats_equities_memo_sbe_v1_13.mass_cancel_request_message.dissect = function(buf
   end
 end
 
--- Order Id Optional
-boats_equities_memo_sbe_v1_13.order_id_optional = {}
-
--- Size: Order Id Optional
-boats_equities_memo_sbe_v1_13.order_id_optional.size = 8
-
--- Display: Order Id Optional
-boats_equities_memo_sbe_v1_13.order_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Id Optional: No Value"
-  end
-
-  return "Order Id Optional: "..value
-end
-
--- Dissect: Order Id Optional
-boats_equities_memo_sbe_v1_13.order_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.order_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.order_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.order_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Cancel Request Message
 boats_equities_memo_sbe_v1_13.order_cancel_request_message = {}
 
@@ -5109,45 +5751,6 @@ boats_equities_memo_sbe_v1_13.order_cancel_request_message.dissect = function(bu
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.order_cancel_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- OrigClOrdId
-boats_equities_memo_sbe_v1_13.origclordid = {}
-
--- Size: OrigClOrdId
-boats_equities_memo_sbe_v1_13.origclordid.size = 16
-
--- Display: OrigClOrdId
-boats_equities_memo_sbe_v1_13.origclordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "OrigClOrdId: No Value"
-  end
-
-  return "OrigClOrdId: "..value
-end
-
--- Dissect: OrigClOrdId
-boats_equities_memo_sbe_v1_13.origclordid.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.origclordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memo_sbe_v1_13.origclordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.origclordid, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Cancel Replace Request Message
@@ -5504,164 +6107,6 @@ boats_equities_memo_sbe_v1_13.payload.dissect = function(buffer, offset, packet,
   return offset
 end
 
--- Version
-boats_equities_memo_sbe_v1_13.version = {}
-
--- Size: Version
-boats_equities_memo_sbe_v1_13.version.size = 2
-
--- Display: Version
-boats_equities_memo_sbe_v1_13.version.display = function(value)
-  if value == 269 then
-    return "Version: Version 1.13"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-boats_equities_memo_sbe_v1_13.version.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-boats_equities_memo_sbe_v1_13.schema_id = {}
-
--- Size: Schema Id
-boats_equities_memo_sbe_v1_13.schema_id.size = 1
-
--- Display: Schema Id
-boats_equities_memo_sbe_v1_13.schema_id.display = function(value)
-  if value == 1 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-boats_equities_memo_sbe_v1_13.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-boats_equities_memo_sbe_v1_13.template_id = {}
-
--- Size: Template Id
-boats_equities_memo_sbe_v1_13.template_id.size = 1
-
--- Display: Template Id
-boats_equities_memo_sbe_v1_13.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: New Order Single Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Order Cancel Replace Request Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Order Cancel Request Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Mass Cancel Request Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Execution Report Pending New Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Execution Report New Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Execution Report Rejected Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Execution Report Trade Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Execution Report Pending Cancel Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Pending Mass Cancel Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Execution Report Canceled Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Mass Cancel Done Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Execution Report Pending Replace Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Execution Report Replaced Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Execution Report Trade Correction Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Execution Report Trade Break Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Execution Report Restatement Message (17)"
-  end
-  if value == 18 then
-    return "Template Id: Order Cancel Reject Message (18)"
-  end
-  if value == 20 then
-    return "Template Id: Mass Cancel Reject Message (20)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-boats_equities_memo_sbe_v1_13.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-boats_equities_memo_sbe_v1_13.block_length = {}
-
--- Size: Block Length
-boats_equities_memo_sbe_v1_13.block_length.size = 2
-
--- Display: Block Length
-boats_equities_memo_sbe_v1_13.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-boats_equities_memo_sbe_v1_13.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 boats_equities_memo_sbe_v1_13.sbe_header = {}
 
@@ -5811,29 +6256,6 @@ boats_equities_memo_sbe_v1_13.sequenced_message.dissect = function(buffer, offse
   end
 end
 
--- Total Sequence Count
-boats_equities_memo_sbe_v1_13.total_sequence_count = {}
-
--- Size: Total Sequence Count
-boats_equities_memo_sbe_v1_13.total_sequence_count.size = 8
-
--- Display: Total Sequence Count
-boats_equities_memo_sbe_v1_13.total_sequence_count.display = function(value)
-  return "Total Sequence Count: "..value
-end
-
--- Dissect: Total Sequence Count
-boats_equities_memo_sbe_v1_13.total_sequence_count.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.total_sequence_count.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.total_sequence_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.total_sequence_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Complete Message
 boats_equities_memo_sbe_v1_13.stream_complete_message = {}
 
@@ -5874,39 +6296,6 @@ boats_equities_memo_sbe_v1_13.stream_complete_message.dissect = function(buffer,
   end
 end
 
--- Stream Reject Code
-boats_equities_memo_sbe_v1_13.stream_reject_code = {}
-
--- Size: Stream Reject Code
-boats_equities_memo_sbe_v1_13.stream_reject_code.size = 1
-
--- Display: Stream Reject Code
-boats_equities_memo_sbe_v1_13.stream_reject_code.display = function(value)
-  if value == "R" then
-    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
-  end
-  if value == "P" then
-    return "Stream Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Stream Reject Code: Sequence Number Out Of Range (S)"
-  end
-
-  return "Stream Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Stream Reject Code
-boats_equities_memo_sbe_v1_13.stream_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.stream_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = boats_equities_memo_sbe_v1_13.stream_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.stream_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Rejected Message
 boats_equities_memo_sbe_v1_13.stream_rejected_message = {}
 
@@ -5945,52 +6334,6 @@ boats_equities_memo_sbe_v1_13.stream_rejected_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Max Sequence Number
-boats_equities_memo_sbe_v1_13.max_sequence_number = {}
-
--- Size: Max Sequence Number
-boats_equities_memo_sbe_v1_13.max_sequence_number.size = 8
-
--- Display: Max Sequence Number
-boats_equities_memo_sbe_v1_13.max_sequence_number.display = function(value)
-  return "Max Sequence Number: "..value
-end
-
--- Dissect: Max Sequence Number
-boats_equities_memo_sbe_v1_13.max_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.max_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.max_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.max_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Sequence Number
-boats_equities_memo_sbe_v1_13.next_sequence_number = {}
-
--- Size: Next Sequence Number
-boats_equities_memo_sbe_v1_13.next_sequence_number.size = 8
-
--- Display: Next Sequence Number
-boats_equities_memo_sbe_v1_13.next_sequence_number.display = function(value)
-  return "Next Sequence Number: "..value
-end
-
--- Dissect: Next Sequence Number
-boats_equities_memo_sbe_v1_13.next_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.next_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.next_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.next_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stream Begin Message
@@ -6037,29 +6380,6 @@ boats_equities_memo_sbe_v1_13.stream_begin_message.dissect = function(buffer, of
   end
 end
 
--- Message Count
-boats_equities_memo_sbe_v1_13.message_count = {}
-
--- Size: Message Count
-boats_equities_memo_sbe_v1_13.message_count.size = 8
-
--- Display: Message Count
-boats_equities_memo_sbe_v1_13.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-boats_equities_memo_sbe_v1_13.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Complete Message
 boats_equities_memo_sbe_v1_13.replay_complete_message = {}
 
@@ -6100,42 +6420,6 @@ boats_equities_memo_sbe_v1_13.replay_complete_message.dissect = function(buffer,
   end
 end
 
--- Replay Reject Code
-boats_equities_memo_sbe_v1_13.replay_reject_code = {}
-
--- Size: Replay Reject Code
-boats_equities_memo_sbe_v1_13.replay_reject_code.size = 1
-
--- Display: Replay Reject Code
-boats_equities_memo_sbe_v1_13.replay_reject_code.display = function(value)
-  if value == "R" then
-    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
-  end
-  if value == "A" then
-    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
-  end
-  if value == "P" then
-    return "Replay Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Replay Reject Code: Sequence Number Out Of Range (S)"
-  end
-
-  return "Replay Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Replay Reject Code
-boats_equities_memo_sbe_v1_13.replay_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.replay_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = boats_equities_memo_sbe_v1_13.replay_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.replay_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Rejected Message
 boats_equities_memo_sbe_v1_13.replay_rejected_message = {}
 
@@ -6174,29 +6458,6 @@ boats_equities_memo_sbe_v1_13.replay_rejected_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Pending Message Count
-boats_equities_memo_sbe_v1_13.pending_message_count = {}
-
--- Size: Pending Message Count
-boats_equities_memo_sbe_v1_13.pending_message_count.size = 4
-
--- Display: Pending Message Count
-boats_equities_memo_sbe_v1_13.pending_message_count.display = function(value)
-  return "Pending Message Count: "..value
-end
-
--- Dissect: Pending Message Count
-boats_equities_memo_sbe_v1_13.pending_message_count.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.pending_message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.pending_message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.pending_message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replay Begin Message
@@ -6243,29 +6504,6 @@ boats_equities_memo_sbe_v1_13.replay_begin_message.dissect = function(buffer, of
   end
 end
 
--- Session Id
-boats_equities_memo_sbe_v1_13.session_id = {}
-
--- Size: Session Id
-boats_equities_memo_sbe_v1_13.session_id.size = 8
-
--- Display: Session Id
-boats_equities_memo_sbe_v1_13.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-boats_equities_memo_sbe_v1_13.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memo_sbe_v1_13.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Start Of Session Message
 boats_equities_memo_sbe_v1_13.start_of_session_message = {}
 
@@ -6306,42 +6544,6 @@ boats_equities_memo_sbe_v1_13.start_of_session_message.dissect = function(buffer
   end
 end
 
--- Login Reject Code
-boats_equities_memo_sbe_v1_13.login_reject_code = {}
-
--- Size: Login Reject Code
-boats_equities_memo_sbe_v1_13.login_reject_code.size = 1
-
--- Display: Login Reject Code
-boats_equities_memo_sbe_v1_13.login_reject_code.display = function(value)
-  if value == "T" then
-    return "Login Reject Code: Malformed Token (T)"
-  end
-  if value == "U" then
-    return "Login Reject Code: Token Type Unsupported (U)"
-  end
-  if value == "V" then
-    return "Login Reject Code: Token Type Invalid (V)"
-  end
-  if value == "A" then
-    return "Login Reject Code: Authorization Failed (A)"
-  end
-
-  return "Login Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Login Reject Code
-boats_equities_memo_sbe_v1_13.login_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.login_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = boats_equities_memo_sbe_v1_13.login_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.login_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Rejected Message
 boats_equities_memo_sbe_v1_13.login_rejected_message = {}
 
@@ -6380,39 +6582,6 @@ boats_equities_memo_sbe_v1_13.login_rejected_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Supported Request Mode
-boats_equities_memo_sbe_v1_13.supported_request_mode = {}
-
--- Size: Supported Request Mode
-boats_equities_memo_sbe_v1_13.supported_request_mode.size = 1
-
--- Display: Supported Request Mode
-boats_equities_memo_sbe_v1_13.supported_request_mode.display = function(value)
-  if value == "S" then
-    return "Supported Request Mode: Stream (S)"
-  end
-  if value == "R" then
-    return "Supported Request Mode: Replay (R)"
-  end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
-
-  return "Supported Request Mode: Unknown("..value..")"
-end
-
--- Dissect: Supported Request Mode
-boats_equities_memo_sbe_v1_13.supported_request_mode.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.supported_request_mode.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = boats_equities_memo_sbe_v1_13.supported_request_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.supported_request_mode, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Message
@@ -6591,29 +6760,6 @@ boats_equities_memo_sbe_v1_13.replay_all_request_message.dissect = function(buff
   end
 end
 
--- Count
-boats_equities_memo_sbe_v1_13.count = {}
-
--- Size: Count
-boats_equities_memo_sbe_v1_13.count.size = 4
-
--- Display: Count
-boats_equities_memo_sbe_v1_13.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-boats_equities_memo_sbe_v1_13.count.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Request Message
 boats_equities_memo_sbe_v1_13.replay_request_message = {}
 
@@ -6660,52 +6806,6 @@ boats_equities_memo_sbe_v1_13.replay_request_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return boats_equities_memo_sbe_v1_13.replay_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Token
-boats_equities_memo_sbe_v1_13.token = {}
-
--- Size: Token
-boats_equities_memo_sbe_v1_13.token.size = 1
-
--- Display: Token
-boats_equities_memo_sbe_v1_13.token.display = function(value)
-  return "Token: "..value
-end
-
--- Dissect: Token
-boats_equities_memo_sbe_v1_13.token.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = boats_equities_memo_sbe_v1_13.token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.token, range, value, display)
-
-  return offset + length, value
-end
-
--- Token Type
-boats_equities_memo_sbe_v1_13.token_type = {}
-
--- Size: Token Type
-boats_equities_memo_sbe_v1_13.token_type.size = 1
-
--- Display: Token Type
-boats_equities_memo_sbe_v1_13.token_type.display = function(value)
-  return "Token Type: "..value
-end
-
--- Dissect: Token Type
-boats_equities_memo_sbe_v1_13.token_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.token_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = boats_equities_memo_sbe_v1_13.token_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.token_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Request Message
@@ -6819,101 +6919,6 @@ boats_equities_memo_sbe_v1_13.data.dissect = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Message Length
-boats_equities_memo_sbe_v1_13.message_length = {}
-
--- Size: Message Length
-boats_equities_memo_sbe_v1_13.message_length.size = 2
-
--- Display: Message Length
-boats_equities_memo_sbe_v1_13.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-boats_equities_memo_sbe_v1_13.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-boats_equities_memo_sbe_v1_13.message_type = {}
-
--- Size: Message Type
-boats_equities_memo_sbe_v1_13.message_type.size = 1
-
--- Display: Message Type
-boats_equities_memo_sbe_v1_13.message_type.display = function(value)
-  if value == 100 then
-    return "Message Type: Login Request (100)"
-  end
-  if value == 101 then
-    return "Message Type: Replay Request (101)"
-  end
-  if value == 102 then
-    return "Message Type: Replay All Request (102)"
-  end
-  if value == 103 then
-    return "Message Type: Stream Request (103)"
-  end
-  if value == 104 then
-    return "Message Type: Unsequenced Message (104)"
-  end
-  if value == 1 then
-    return "Message Type: Login Accepted (1)"
-  end
-  if value == 2 then
-    return "Message Type: Login Rejected (2)"
-  end
-  if value == 3 then
-    return "Message Type: Start Of Session (3)"
-  end
-  if value == 3 then
-    return "Message Type: End Of Session (3)"
-  end
-  if value == 5 then
-    return "Message Type: Replay Begin (5)"
-  end
-  if value == 6 then
-    return "Message Type: Replay Rejected (6)"
-  end
-  if value == 7 then
-    return "Message Type: Replay Complete (7)"
-  end
-  if value == 8 then
-    return "Message Type: Stream Begin (8)"
-  end
-  if value == 9 then
-    return "Message Type: Stream Rejected (9)"
-  end
-  if value == 10 then
-    return "Message Type: Stream Complete (10)"
-  end
-  if value == 11 then
-    return "Message Type: Sequenced Message (11)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-boats_equities_memo_sbe_v1_13.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memo_sbe_v1_13.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memo_sbe_v1_13.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memo_sbe_v1_13.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

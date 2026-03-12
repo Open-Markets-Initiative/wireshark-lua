@@ -331,28 +331,591 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq BxOptions DepthOfMarket Itch 1.3
+-- Nasdaq BxOptions DepthOfMarket Itch 1.3 Fields
 -----------------------------------------------------------------------
 
--- Reserved
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved = {}
+-- Ask
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask = {}
 
--- Size: Reserved
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size = 3
+-- Size: Ask
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.size = 4
 
--- Display: Reserved
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Ask
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.display = function(value)
+  return "Ask: "..value
 end
 
--- Dissect: Reserved
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size
+-- Dissect: Ask
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price = {}
+
+-- Size: Ask Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size = 2
+
+-- Display: Ask Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.display = function(value)
+  return "Ask Price: "..value
+end
+
+-- Translate: Ask Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Ask Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long = {}
+
+-- Size: Ask Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size = 4
+
+-- Display: Ask Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.display = function(value)
+  return "Ask Price Long: "..value
+end
+
+-- Translate: Ask Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Ask Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Reference Delta Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number = {}
+
+-- Size: Ask Reference Delta Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size = 4
+
+-- Display: Ask Reference Delta Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.display = function(value)
+  return "Ask Reference Delta Number: "..value
+end
+
+-- Dissect: Ask Reference Delta Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_delta_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta = {}
+
+-- Size: Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size = 4
+
+-- Display: Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.display = function(value)
+  return "Ask Reference Number Delta: "..value
+end
+
+-- Dissect: Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size = {}
+
+-- Size: Ask Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size = 2
+
+-- Display: Ask Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.display = function(value)
+  return "Ask Size: "..value
+end
+
+-- Dissect: Ask Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long = {}
+
+-- Size: Ask Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size = 4
+
+-- Display: Ask Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.display = function(value)
+  return "Ask Size Long: "..value
+end
+
+-- Dissect: Ask Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id = {}
+
+-- Size: Auction Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.size = 4
+
+-- Display: Auction Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type = {}
+
+-- Size: Auction Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.size = 1
+
+-- Display: Auction Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.display = function(value)
+  if value == "O" then
+    return "Auction Type: Opening (O)"
+  end
+  if value == "R" then
+    return "Auction Type: Reopening (R)"
+  end
+  if value == "I" then
+    return "Auction Type: Exposure (I)"
+  end
+  if value == "P" then
+    return "Auction Type: Price Improvement (P)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Base Reference Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number = {}
+
+-- Size: Base Reference Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.size = 8
+
+-- Display: Base Reference Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.display = function(value)
+  return "Base Reference Number: "..value
+end
+
+-- Dissect: Base Reference Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid = {}
+
+-- Size: Bid
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.size = 4
+
+-- Display: Bid
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.display = function(value)
+  return "Bid: "..value
+end
+
+-- Dissect: Bid
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price = {}
+
+-- Size: Bid Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size = 2
+
+-- Display: Bid Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long = {}
+
+-- Size: Bid Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size = 4
+
+-- Display: Bid Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
+end
+
+-- Translate: Bid Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Bid Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta = {}
+
+-- Size: Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size = 4
+
+-- Display: Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.display = function(value)
+  return "Bid Reference Number Delta: "..value
+end
+
+-- Dissect: Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size = {}
+
+-- Size: Bid Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size = 2
+
+-- Display: Bid Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long = {}
+
+-- Size: Bid Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size = 4
+
+-- Display: Bid Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
+end
+
+-- Dissect: Bid Size Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Indicator
+nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator = {}
+
+-- Size: Buy Sell Indicator
+nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size = 1
+
+-- Display: Buy Sell Indicator
+nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.display = function(value)
+  if value == "B" then
+    return "Buy Sell Indicator: Buy (B)"
+  end
+  if value == "S" then
+    return "Buy Sell Indicator: Sell (S)"
+  end
+
+  return "Buy Sell Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Buy Sell Indicator
+nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancelled Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts = {}
+
+-- Size: Cancelled Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.size = 4
+
+-- Display: Cancelled Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.display = function(value)
+  return "Cancelled Contracts: "..value
+end
+
+-- Dissect: Cancelled Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Change Reason
+nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason = {}
+
+-- Size: Change Reason
+nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.size = 1
+
+-- Display: Change Reason
+nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.display = function(value)
+  if value == "U" then
+    return "Change Reason: User (U)"
+  end
+  if value == "R" then
+    return "Change Reason: Reprice (R)"
+  end
+  if value == "S" then
+    return "Change Reason: Suspend (S)"
+  end
+
+  return "Change Reason: Unknown("..value..")"
+end
+
+-- Dissect: Change Reason
+nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number = {}
+
+-- Size: Cross Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size = 4
+
+-- Display: Cross Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.display = function(value)
+  return "Cross Number: "..value
+end
+
+-- Dissect: Cross Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type = {}
+
+-- Size: Cross Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.size = 1
+
+-- Display: Cross Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.display = function(value)
+  if value == "O" then
+    return "Cross Type: Bx Opening Reopening (O)"
+  end
+  if value == "P" then
+    return "Cross Type: Bx Opening Reopening (P)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
+end
+
+-- Dissect: Cross Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading (T)"
+  end
+  if value == "B" then
+    return "Current Trading State: Buy Side Trading Suspended (B)"
+  end
+  if value == "S" then
+    return "Current Trading State: Sell Side Trading Suspended (S)"
+  end
+  if value == "Y" then
+    return "Current Trading State: Open (Y)"
+  end
+  if value == "N" then
+    return "Current Trading State: Closed (N)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -396,77 +959,165 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.dissect = funct
   return offset + length, value
 end
 
--- Imbalance Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume = {}
+-- Event Code
+nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code = {}
 
--- Size: Imbalance Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.size = 4
+-- Size: Event Code
+nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.size = 1
 
--- Display: Imbalance Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.display = function(value)
-  return "Imbalance Volume: "..value
+-- Display: Event Code
+nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Market Hours (Q)"
+  end
+  if value == "M" then
+    return "Event Code: End Of Market Hours (M)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
 end
 
--- Dissect: Imbalance Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.size
+-- Dissect: Event Code
+nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.event_code, range, value, display)
 
   return offset + length, value
 end
 
--- Imbalance Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price = {}
+-- Executed Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts = {}
 
--- Size: Imbalance Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size = 4
+-- Size: Executed Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.size = 4
 
--- Display: Imbalance Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.display = function(value)
-  return "Imbalance Price: "..value
+-- Display: Executed Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.display = function(value)
+  return "Executed Contracts: "..value
 end
 
--- Translate: Imbalance Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.translate = function(raw)
+-- Dissect: Executed Contracts
+nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.executed_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Date
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date = {}
+
+-- Size: Expiration Date
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.size = 1
+
+-- Display: Expiration Date
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.display = function(value)
+  return "Expiration Date: "..value
+end
+
+-- Dissect: Expiration Date
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Month
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month = {}
+
+-- Size: Expiration Month
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.size = 1
+
+-- Display: Expiration Month
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.display = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Year
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year = {}
+
+-- Size: Expiration Year
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.size = 1
+
+-- Display: Expiration Year
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.display = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Explicit Strike Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price = {}
+
+-- Size: Explicit Strike Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size = 4
+
+-- Display: Explicit Strike Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display = function(value)
+  return "Explicit Strike Price: "..value
+end
+
+-- Translate: Explicit Strike Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Imbalance Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size
+-- Dissect: Explicit Strike Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id = {}
-
--- Size: Option Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size = 4
-
--- Display: Option Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.display = function(value)
-  return "Option Id: "..value
-end
-
--- Dissect: Option Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -501,6 +1152,510 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_direction.dissect = function(
   return offset + length, value
 end
 
+-- Imbalance Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price = {}
+
+-- Size: Imbalance Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size = 4
+
+-- Display: Imbalance Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.display = function(value)
+  return "Imbalance Price: "..value
+end
+
+-- Translate: Imbalance Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Imbalance Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume = {}
+
+-- Size: Imbalance Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.size = 4
+
+-- Display: Imbalance Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.display = function(value)
+  return "Imbalance Volume: "..value
+end
+
+-- Dissect: Imbalance Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.imbalance_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Side
+nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side = {}
+
+-- Size: Market Side
+nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size = 1
+
+-- Display: Market Side
+nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.display = function(value)
+  if value == "B" then
+    return "Market Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Market Side: Sell (S)"
+  end
+
+  return "Market Side: Unknown("..value..")"
+end
+
+-- Dissect: Market Side
+nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number = {}
+
+-- Size: Match Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size = 4
+
+-- Display: Match Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.display = function(value)
+  return "Match Number: "..value
+end
+
+-- Dissect: Match Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count = {}
+
+-- Size: Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length = {}
+
+-- Size: Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type = {}
+
+-- Size: Message Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.display = function(value)
+  if value == "T" then
+    return "Message Type: Seconds Message (T)"
+  end
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "L" then
+    return "Message Type: Base Reference Message (L)"
+  end
+  if value == "R" then
+    return "Message Type: Option Directory Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Trading Action Message (H)"
+  end
+  if value == "O" then
+    return "Message Type: Option Open Message (O)"
+  end
+  if value == "a" then
+    return "Message Type: Add Order Message Short Form (a)"
+  end
+  if value == "A" then
+    return "Message Type: Add Order Message Long Form (A)"
+  end
+  if value == "j" then
+    return "Message Type: Add Quote Message Short Form (j)"
+  end
+  if value == "J" then
+    return "Message Type: Add Quote Message Long Form (J)"
+  end
+  if value == "E" then
+    return "Message Type: Single Side Executed Message (E)"
+  end
+  if value == "C" then
+    return "Message Type: Single Side Order Executed With Price Message (C)"
+  end
+  if value == "X" then
+    return "Message Type: Order Cancel Message (X)"
+  end
+  if value == "u" then
+    return "Message Type: Single Side Replace Message Short Form (u)"
+  end
+  if value == "U" then
+    return "Message Type: Single Side Replace Message Long Form (U)"
+  end
+  if value == "D" then
+    return "Message Type: Single Side Delete Message (D)"
+  end
+  if value == "G" then
+    return "Message Type: Single Side Update Message (G)"
+  end
+  if value == "k" then
+    return "Message Type: Quote Replace Message Short Form (k)"
+  end
+  if value == "K" then
+    return "Message Type: Quote Replace Message Long Form (K)"
+  end
+  if value == "Y" then
+    return "Message Type: Quote Delete Message (Y)"
+  end
+  if value == "Z" then
+    return "Message Type: Block Delete Message (Z)"
+  end
+  if value == "P" then
+    return "Message Type: Non Auction Options Trade Message (P)"
+  end
+  if value == "Q" then
+    return "Message Type: Options Cross Trade Message (Q)"
+  end
+  if value == "B" then
+    return "Message Type: Broken Trade Or Order Execution Message (B)"
+  end
+  if value == "I" then
+    return "Message Type: Net Order Imbalance Indicator Message (I)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv = {}
+
+-- Size: Mpv
+nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.size = 1
+
+-- Display: Mpv
+nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.display = function(value)
+  if value == "E" then
+    return "Mpv: Everywhere (E)"
+  end
+  if value == "S" then
+    return "Mpv: Scaled (S)"
+  end
+  if value == "P" then
+    return "Mpv: Pilot (P)"
+  end
+
+  return "Mpv: Unknown("..value..")"
+end
+
+-- Dissect: Mpv
+nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta = {}
+
+-- Size: New Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size = 4
+
+-- Display: New Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.display = function(value)
+  return "New Reference Number Delta: "..value
+end
+
+-- Dissect: New Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state = {}
+
+-- Size: Open State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.size = 1
+
+-- Display: Open State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.display = function(value)
+  return "Open State: "..value
+end
+
+-- Dissect: Open State
+nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id = {}
+
+-- Size: Option Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type = {}
+
+-- Size: Option Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Closing Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type = {}
+
+-- Size: Options Closing Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.size = 1
+
+-- Display: Options Closing Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.display = function(value)
+  if value == "N" then
+    return "Options Closing Type: Normal (N)"
+  end
+  if value == "L" then
+    return "Options Closing Type: Late (L)"
+  end
+
+  return "Options Closing Type: Unknown("..value..")"
+end
+
+-- Dissect: Options Closing Type
+nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta = {}
+
+-- Size: Order Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size = 4
+
+-- Display: Order Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.display = function(value)
+  return "Order Reference Number Delta: "..value
+end
+
+-- Dissect: Order Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta = {}
+
+-- Size: Original Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size = 4
+
+-- Display: Original Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.display = function(value)
+  return "Original Ask Reference Number Delta: "..value
+end
+
+-- Dissect: Original Ask Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_ask_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta = {}
+
+-- Size: Original Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size = 4
+
+-- Display: Original Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.display = function(value)
+  return "Original Bid Reference Number Delta: "..value
+end
+
+-- Dissect: Original Bid Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_bid_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta = {}
+
+-- Size: Original Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size = 4
+
+-- Display: Original Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.display = function(value)
+  return "Original Reference Number Delta: "..value
+end
+
+-- Dissect: Original Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
 -- Paired Contracts
 nasdaq_bxoptions_depthofmarket_itch_v1_3.paired_contracts = {}
 
@@ -524,61 +1679,290 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.paired_contracts.dissect = function(buf
   return offset + length, value
 end
 
--- Auction Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type = {}
+-- Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price = {}
 
--- Size: Auction Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.size = 1
+-- Size: Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size = 2
 
--- Display: Auction Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening (O)"
-  end
-  if value == "R" then
-    return "Auction Type: Reopening (R)"
-  end
-  if value == "I" then
-    return "Auction Type: Exposure (I)"
-  end
-  if value == "P" then
-    return "Auction Type: Price Improvement (P)"
-  end
-
-  return "Auction Type: Unknown("..value..")"
+-- Display: Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price.display = function(value)
+  return "Price: "..value
 end
 
--- Dissect: Auction Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_type.display(value, buffer, offset, packet, parent)
+-- Translate: Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_type, range, value, display)
+-- Dissect: Price
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id = {}
+-- Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long = {}
 
--- Size: Auction Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.size = 4
+-- Size: Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size = 4
 
--- Display: Auction Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.display = function(value)
-  return "Auction Id: "..value
+-- Display: Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Dissect: Auction Id
-nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.size
+-- Translate: Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.translate(raw)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Printable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.printable = {}
+
+-- Size: Printable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.size = 1
+
+-- Display: Printable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.display = function(value)
+  if value == "N" then
+    return "Printable: Nonprintable (N)"
+  end
+  if value == "Y" then
+    return "Printable: Printable (Y)"
+  end
+
+  return "Printable: Unknown("..value..")"
+end
+
+-- Dissect: Printable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta = {}
+
+-- Size: Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size = 4
+
+-- Display: Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.display = function(value)
+  return "Reference Number Delta: "..value
+end
+
+-- Dissect: Reference Number Delta
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.auction_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.auction_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Number Deltan
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan = {}
+
+-- Size: Reference Number Deltan
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.size = 4
+
+-- Display: Reference Number Deltan
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.display = function(value)
+  return "Reference Number Deltan: "..value
+end
+
+-- Dissect: Reference Number Deltan
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved = {}
+
+-- Size: Reserved
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size = 3
+
+-- Display: Reserved
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second
+nasdaq_bxoptions_depthofmarket_itch_v1_3.second = {}
+
+-- Size: Second
+nasdaq_bxoptions_depthofmarket_itch_v1_3.second.size = 4
+
+-- Display: Second
+nasdaq_bxoptions_depthofmarket_itch_v1_3.second.display = function(value)
+  return "Second: "..value
+end
+
+-- Dissect: Second
+nasdaq_bxoptions_depthofmarket_itch_v1_3.second.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.second.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.second.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.size = 6
+
+-- Display: Security Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_bxoptions_depthofmarket_itch_v1_3.session = {}
+
+-- Size: Session
+nasdaq_bxoptions_depthofmarket_itch_v1_3.session.size = 10
+
+-- Display: Session
+nasdaq_bxoptions_depthofmarket_itch_v1_3.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_bxoptions_depthofmarket_itch_v1_3.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+nasdaq_bxoptions_depthofmarket_itch_v1_3.source = {}
+
+-- Size: Source
+nasdaq_bxoptions_depthofmarket_itch_v1_3.source.size = 1
+
+-- Display: Source
+nasdaq_bxoptions_depthofmarket_itch_v1_3.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+nasdaq_bxoptions_depthofmarket_itch_v1_3.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -605,6 +1989,133 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.timestamp.dissect = function(buffer, of
 
   return offset + length, value
 end
+
+-- Total Number Of Reference Number Deltas
+nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas = {}
+
+-- Size: Total Number Of Reference Number Deltas
+nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.size = 2
+
+-- Display: Total Number Of Reference Number Deltas
+nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.display = function(value)
+  return "Total Number Of Reference Number Deltas: "..value
+end
+
+-- Dissect: Total Number Of Reference Number Deltas
+nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.total_number_of_reference_number_deltas, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable = {}
+
+-- Size: Tradable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.size = 1
+
+-- Display: Tradable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.display = function(value)
+  if value == "N" then
+    return "Tradable: Not Tradable (N)"
+  end
+  if value == "Y" then
+    return "Tradable: Is Tradable (Y)"
+  end
+
+  return "Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Tradable
+nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume = {}
+
+-- Size: Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size = 2
+
+-- Display: Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long = {}
+
+-- Size: Volume Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size = 4
+
+-- Display: Volume Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.display = function(value)
+  return "Volume Long: "..value
+end
+
+-- Dissect: Volume Long
+nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq BxOptions DepthOfMarket Itch 1.3
+-----------------------------------------------------------------------
 
 -- Net Order Imbalance Indicator Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message = {}
@@ -682,52 +2193,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.d
   end
 end
 
--- Match Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number = {}
-
--- Size: Match Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size = 4
-
--- Display: Match Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.display = function(value)
-  return "Match Number: "..value
-end
-
--- Dissect: Match Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.match_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.match_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number = {}
-
--- Size: Cross Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size = 4
-
--- Display: Cross Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.display = function(value)
-  return "Cross Number: "..value
-end
-
--- Dissect: Cross Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Broken Trade Or Order Execution Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message = {}
 
@@ -774,88 +2239,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Volume Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long = {}
-
--- Size: Volume Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size = 4
-
--- Display: Volume Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.display = function(value)
-  return "Volume Long: "..value
-end
-
--- Dissect: Volume Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long = {}
-
--- Size: Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size = 4
-
--- Display: Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.display = function(value)
-  return "Price Long: "..value
-end
-
--- Translate: Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type = {}
-
--- Size: Cross Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.size = 1
-
--- Display: Cross Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Bx Opening Reopening (O)"
-  end
-  if value == "P" then
-    return "Cross Type: Bx Opening Reopening (P)"
-  end
-
-  return "Cross Type: Unknown("..value..")"
-end
-
--- Dissect: Cross Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cross_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Cross Trade Message
@@ -922,36 +2305,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.dissect = f
   end
 end
 
--- Buy Sell Indicator
-nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator = {}
-
--- Size: Buy Sell Indicator
-nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size = 1
-
--- Display: Buy Sell Indicator
-nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
-
-  return "Buy Sell Indicator: Unknown("..value..")"
-end
-
--- Dissect: Buy Sell Indicator
-nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.buy_sell_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Non Auction Options Trade Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message = {}
 
@@ -1016,52 +2369,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.disse
   end
 end
 
--- Reference Number Deltan
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan = {}
-
--- Size: Reference Number Deltan
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.size = 4
-
--- Display: Reference Number Deltan
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.display = function(value)
-  return "Reference Number Deltan: "..value
-end
-
--- Dissect: Reference Number Deltan
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_deltan.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Number Of Reference Number Deltas
-nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas = {}
-
--- Size: Total Number Of Reference Number Deltas
-nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.size = 2
-
--- Display: Total Number Of Reference Number Deltas
-nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.display = function(value)
-  return "Total Number Of Reference Number Deltas: "..value
-end
-
--- Dissect: Total Number Of Reference Number Deltas
-nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.total_number_of_reference_number_deltas, range, value, display)
-
-  return offset + length, value
-end
-
 -- Block Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message = {}
 
@@ -1110,52 +2417,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.block_delete_message.dissect = function
   end
 end
 
--- Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta = {}
-
--- Size: Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size = 4
-
--- Display: Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.display = function(value)
-  return "Ask Reference Number Delta: "..value
-end
-
--- Dissect: Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_number_delta, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta = {}
-
--- Size: Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size = 4
-
--- Display: Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.display = function(value)
-  return "Bid Reference Number Delta: "..value
-end
-
--- Dissect: Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_reference_number_delta, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Delete Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message = {}
 
@@ -1202,179 +2463,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message.dissect = function
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_delete_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ask Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long = {}
-
--- Size: Ask Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size = 4
-
--- Display: Ask Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.display = function(value)
-  return "Ask Size Long: "..value
-end
-
--- Dissect: Ask Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long = {}
-
--- Size: Ask Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size = 4
-
--- Display: Ask Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.display = function(value)
-  return "Ask Price Long: "..value
-end
-
--- Translate: Ask Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Ask Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long = {}
-
--- Size: Bid Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size = 4
-
--- Display: Bid Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.display = function(value)
-  return "Bid Size Long: "..value
-end
-
--- Dissect: Bid Size Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long = {}
-
--- Size: Bid Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size = 4
-
--- Display: Bid Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.display = function(value)
-  return "Bid Price Long: "..value
-end
-
--- Translate: Bid Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Bid Price Long
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Reference Delta Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number = {}
-
--- Size: Ask Reference Delta Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size = 4
-
--- Display: Ask Reference Delta Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.display = function(value)
-  return "Ask Reference Delta Number: "..value
-end
-
--- Dissect: Ask Reference Delta Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_reference_delta_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta = {}
-
--- Size: Original Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size = 4
-
--- Display: Original Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.display = function(value)
-  return "Original Ask Reference Number Delta: "..value
-end
-
--- Dissect: Original Ask Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_ask_reference_number_delta, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta = {}
-
--- Size: Original Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size = 4
-
--- Display: Original Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.display = function(value)
-  return "Original Bid Reference Number Delta: "..value
-end
-
--- Dissect: Original Bid Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_bid_reference_number_delta, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Replace Message Long Form
@@ -1449,110 +2537,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.dissect
   end
 end
 
--- Ask Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size = {}
-
--- Size: Ask Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size = 2
-
--- Display: Ask Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.display = function(value)
-  return "Ask Size: "..value
-end
-
--- Dissect: Ask Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price = {}
-
--- Size: Ask Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size = 2
-
--- Display: Ask Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.display = function(value)
-  return "Ask Price: "..value
-end
-
--- Translate: Ask Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Ask Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size = {}
-
--- Size: Bid Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size = 2
-
--- Display: Bid Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price = {}
-
--- Size: Bid Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size = 2
-
--- Display: Bid Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Replace Message Short Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form = {}
 
@@ -1623,62 +2607,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.dissec
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.fields(buffer, offset, packet, parent)
   end
-end
-
--- Change Reason
-nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason = {}
-
--- Size: Change Reason
-nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.size = 1
-
--- Display: Change Reason
-nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.display = function(value)
-  if value == "U" then
-    return "Change Reason: User (U)"
-  end
-  if value == "R" then
-    return "Change Reason: Reprice (R)"
-  end
-  if value == "S" then
-    return "Change Reason: Suspend (S)"
-  end
-
-  return "Change Reason: Unknown("..value..")"
-end
-
--- Dissect: Change Reason
-nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.change_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.change_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta = {}
-
--- Size: Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size = 4
-
--- Display: Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.display = function(value)
-  return "Reference Number Delta: "..value
-end
-
--- Dissect: Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Side Update Message
@@ -1781,52 +2709,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_delete_message.dissect = fu
   end
 end
 
--- New Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta = {}
-
--- Size: New Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size = 4
-
--- Display: New Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.display = function(value)
-  return "New Reference Number Delta: "..value
-end
-
--- Dissect: New Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.new_reference_number_delta, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta = {}
-
--- Size: Original Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size = 4
-
--- Display: Original Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.display = function(value)
-  return "Original Reference Number Delta: "..value
-end
-
--- Dissect: Original Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.original_reference_number_delta, range, value, display)
-
-  return offset + length, value
-end
-
 -- Single Side Replace Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form = {}
 
@@ -1881,58 +2763,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.d
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.fields(buffer, offset, packet, parent)
   end
-end
-
--- Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume = {}
-
--- Size: Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size = 2
-
--- Display: Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price = {}
-
--- Size: Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size = 2
-
--- Display: Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Side Replace Message Short Form
@@ -1991,52 +2821,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.
   end
 end
 
--- Cancelled Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts = {}
-
--- Size: Cancelled Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.size = 4
-
--- Display: Cancelled Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.display = function(value)
-  return "Cancelled Contracts: "..value
-end
-
--- Dissect: Cancelled Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.cancelled_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.cancelled_contracts, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta = {}
-
--- Size: Order Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size = 4
-
--- Display: Order Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.display = function(value)
-  return "Order Reference Number Delta: "..value
-end
-
--- Dissect: Order Reference Number Delta
-nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.order_reference_number_delta, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Cancel Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message = {}
 
@@ -2083,36 +2867,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message.dissect = function
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.order_cancel_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Printable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.printable = {}
-
--- Size: Printable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.size = 1
-
--- Display: Printable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Nonprintable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
-
-  return "Printable: Unknown("..value..")"
-end
-
--- Dissect: Printable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.printable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.printable, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Side Order Executed With Price Message
@@ -2179,29 +2933,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_m
   end
 end
 
--- Executed Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts = {}
-
--- Size: Executed Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.size = 4
-
--- Display: Executed Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.display = function(value)
-  return "Executed Contracts: "..value
-end
-
--- Dissect: Executed Contracts
-nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.executed_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.executed_contracts, range, value, display)
-
-  return offset + length, value
-end
-
 -- Single Side Executed Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message = {}
 
@@ -2256,52 +2987,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message.dissect = 
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.single_side_executed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ask
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask = {}
-
--- Size: Ask
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.size = 4
-
--- Display: Ask
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.display = function(value)
-  return "Ask: "..value
-end
-
--- Dissect: Ask
-nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.ask.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.ask, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid = {}
-
--- Size: Bid
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.size = 4
-
--- Display: Bid
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.display = function(value)
-  return "Bid: "..value
-end
-
--- Dissect: Bid
-nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.bid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.bid, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Quote Message Long Form
@@ -2440,36 +3125,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.dissect = 
   end
 end
 
--- Market Side
-nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side = {}
-
--- Size: Market Side
-nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size = 1
-
--- Display: Market Side
-nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.display = function(value)
-  if value == "B" then
-    return "Market Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Market Side: Sell (S)"
-  end
-
-  return "Market Side: Unknown("..value..")"
-end
-
--- Dissect: Market Side
-nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.market_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.market_side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Add Order Message Long Form
 nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_long_form = {}
 
@@ -2590,29 +3245,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.dissect = 
   end
 end
 
--- Open State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state = {}
-
--- Size: Open State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.size = 1
-
--- Display: Open State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.display = function(value)
-  return "Open State: "..value
-end
-
--- Dissect: Open State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.open_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.open_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Option Open Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message = {}
 
@@ -2661,48 +3293,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.option_open_message.dissect = function(
   end
 end
 
--- Current Trading State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
-  if value == "B" then
-    return "Current Trading State: Buy Side Trading Suspended (B)"
-  end
-  if value == "S" then
-    return "Current Trading State: Sell Side Trading Suspended (S)"
-  end
-  if value == "Y" then
-    return "Current Trading State: Open (Y)"
-  end
-  if value == "N" then
-    return "Current Trading State: Closed (N)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Action Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message = {}
 
@@ -2749,296 +3339,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message.dissect = functi
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.trading_action_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mpv
-nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv = {}
-
--- Size: Mpv
-nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.size = 1
-
--- Display: Mpv
-nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Pilot (P)"
-  end
-
-  return "Mpv: Unknown("..value..")"
-end
-
--- Dissect: Mpv
-nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Tradable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable = {}
-
--- Size: Tradable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.size = 1
-
--- Display: Tradable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.display = function(value)
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
-  if value == "Y" then
-    return "Tradable: Is Tradable (Y)"
-  end
-
-  return "Tradable: Unknown("..value..")"
-end
-
--- Dissect: Tradable
-nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.tradable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Options Closing Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type = {}
-
--- Size: Options Closing Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.size = 1
-
--- Display: Options Closing Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.display = function(value)
-  if value == "N" then
-    return "Options Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Options Closing Type: Late (L)"
-  end
-
-  return "Options Closing Type: Unknown("..value..")"
-end
-
--- Dissect: Options Closing Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.options_closing_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.options_closing_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.size = 13
-
--- Display: Underlying Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Source
-nasdaq_bxoptions_depthofmarket_itch_v1_3.source = {}
-
--- Size: Source
-nasdaq_bxoptions_depthofmarket_itch_v1_3.source.size = 1
-
--- Display: Source
-nasdaq_bxoptions_depthofmarket_itch_v1_3.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-nasdaq_bxoptions_depthofmarket_itch_v1_3.source.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type = {}
-
--- Size: Option Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.size = 1
-
--- Display: Option Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Explicit Strike Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price = {}
-
--- Size: Explicit Strike Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size = 4
-
--- Display: Explicit Strike Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display = function(value)
-  return "Explicit Strike Price: "..value
-end
-
--- Translate: Explicit Strike Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Explicit Strike Price
-nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate(raw)
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.explicit_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Date
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date = {}
-
--- Size: Expiration Date
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.size = 1
-
--- Display: Expiration Date
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.display = function(value)
-  return "Expiration Date: "..value
-end
-
--- Dissect: Expiration Date
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Month
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month = {}
-
--- Size: Expiration Month
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.size = 1
-
--- Display: Expiration Month
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.display = function(value)
-  return "Expiration Month: "..value
-end
-
--- Dissect: Expiration Month
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Year
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year = {}
-
--- Size: Expiration Year
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.size = 1
-
--- Display: Expiration Year
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.display = function(value)
-  return "Expiration Year: "..value
-end
-
--- Dissect: Expiration Year
-nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.expiration_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.expiration_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol = {}
-
--- Size: Security Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.size = 6
-
--- Display: Security Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.security_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Option Directory Message
@@ -3129,29 +3429,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.option_directory_message.dissect = func
   end
 end
 
--- Base Reference Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number = {}
-
--- Size: Base Reference Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.size = 8
-
--- Display: Base Reference Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.display = function(value)
-  return "Base Reference Number: "..value
-end
-
--- Dissect: Base Reference Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.base_reference_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Base Reference Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message = {}
 
@@ -3196,48 +3473,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.base_reference_message.dissect = functi
   end
 end
 
--- Event Code
-nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code = {}
-
--- Size: Event Code
-nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.size = 1
-
--- Display: Event Code
-nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message = {}
 
@@ -3280,29 +3515,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message.dissect = function
     -- Skip element, add fields directly
     return nasdaq_bxoptions_depthofmarket_itch_v1_3.system_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Second
-nasdaq_bxoptions_depthofmarket_itch_v1_3.second = {}
-
--- Size: Second
-nasdaq_bxoptions_depthofmarket_itch_v1_3.second.size = 4
-
--- Display: Second
-nasdaq_bxoptions_depthofmarket_itch_v1_3.second.display = function(value)
-  return "Second: "..value
-end
-
--- Dissect: Second
-nasdaq_bxoptions_depthofmarket_itch_v1_3.second.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.second.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.second.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.second, range, value, display)
-
-  return offset + length, value
 end
 
 -- Seconds Message
@@ -3454,128 +3666,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.payload.dissect = function(buffer, offs
   return offset
 end
 
--- Message Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type = {}
-
--- Size: Message Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.size = 1
-
--- Display: Message Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Message Type: Base Reference Message (L)"
-  end
-  if value == "R" then
-    return "Message Type: Option Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Option Open Message (O)"
-  end
-  if value == "a" then
-    return "Message Type: Add Order Message Short Form (a)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message Long Form (A)"
-  end
-  if value == "j" then
-    return "Message Type: Add Quote Message Short Form (j)"
-  end
-  if value == "J" then
-    return "Message Type: Add Quote Message Long Form (J)"
-  end
-  if value == "E" then
-    return "Message Type: Single Side Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Single Side Order Executed With Price Message (C)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "u" then
-    return "Message Type: Single Side Replace Message Short Form (u)"
-  end
-  if value == "U" then
-    return "Message Type: Single Side Replace Message Long Form (U)"
-  end
-  if value == "D" then
-    return "Message Type: Single Side Delete Message (D)"
-  end
-  if value == "G" then
-    return "Message Type: Single Side Update Message (G)"
-  end
-  if value == "k" then
-    return "Message Type: Quote Replace Message Short Form (k)"
-  end
-  if value == "K" then
-    return "Message Type: Quote Replace Message Long Form (K)"
-  end
-  if value == "Y" then
-    return "Message Type: Quote Delete Message (Y)"
-  end
-  if value == "Z" then
-    return "Message Type: Block Delete Message (Z)"
-  end
-  if value == "P" then
-    return "Message Type: Non Auction Options Trade Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Options Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Or Order Execution Message (B)"
-  end
-  if value == "I" then
-    return "Message Type: Net Order Imbalance Indicator Message (I)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length = {}
-
--- Size: Message Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.size = 2
-
--- Display: Message Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 nasdaq_bxoptions_depthofmarket_itch_v1_3.message_header = {}
 
@@ -3709,91 +3799,6 @@ nasdaq_bxoptions_depthofmarket_itch_v1_3.messages.dissect = function(buffer, off
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count = {}
-
--- Size: Message Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.size = 2
-
--- Display: Message Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_bxoptions_depthofmarket_itch_v1_3.session = {}
-
--- Size: Session
-nasdaq_bxoptions_depthofmarket_itch_v1_3.session.size = 10
-
--- Display: Session
-nasdaq_bxoptions_depthofmarket_itch_v1_3.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_bxoptions_depthofmarket_itch_v1_3.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_depthofmarket_itch_v1_3.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_bxoptions_depthofmarket_itch_v1_3.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_depthofmarket_itch_v1_3.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

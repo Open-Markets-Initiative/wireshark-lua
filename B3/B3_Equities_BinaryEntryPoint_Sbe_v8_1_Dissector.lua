@@ -707,236 +707,435 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect B3 Equities BinaryEntryPoint Sbe 8.1
+-- B3 Equities BinaryEntryPoint Sbe 8.1 Fields
 -----------------------------------------------------------------------
 
--- Text Data
-b3_equities_binaryentrypoint_sbe_v8_1.text_data = {}
+-- Account
+b3_equities_binaryentrypoint_sbe_v8_1.account = {}
 
--- Display: Text Data
-b3_equities_binaryentrypoint_sbe_v8_1.text_data.display = function(value)
-  return "Text Data: "..value
+-- Size: Account
+b3_equities_binaryentrypoint_sbe_v8_1.account.size = 4
+
+-- Display: Account
+b3_equities_binaryentrypoint_sbe_v8_1.account.display = function(value)
+  return "Account: "..value
 end
 
--- Dissect runtime sized field: Text Data
-b3_equities_binaryentrypoint_sbe_v8_1.text_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.text_data.display(value, packet, parent, size)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.text_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Text Length
-b3_equities_binaryentrypoint_sbe_v8_1.text_length = {}
-
--- Size: Text Length
-b3_equities_binaryentrypoint_sbe_v8_1.text_length.size = 1
-
--- Display: Text Length
-b3_equities_binaryentrypoint_sbe_v8_1.text_length.display = function(value)
-  return "Text Length: "..value
-end
-
--- Dissect: Text Length
-b3_equities_binaryentrypoint_sbe_v8_1.text_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.text_length.size
+-- Dissect: Account
+b3_equities_binaryentrypoint_sbe_v8_1.account.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.account.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.text_length.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.account.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.text_length, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.account, range, value, display)
 
   return offset + length, value
 end
 
--- Text
-b3_equities_binaryentrypoint_sbe_v8_1.text = {}
+-- Account Type
+b3_equities_binaryentrypoint_sbe_v8_1.account_type = {}
 
--- Calculate size of: Text
-b3_equities_binaryentrypoint_sbe_v8_1.text.size = function(buffer, offset)
-  local index = 0
+-- Size: Account Type
+b3_equities_binaryentrypoint_sbe_v8_1.account_type.size = 1
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text_length.size
-
-  local text_length = buffer(offset + index - 1, 1):le_uint()
-
-  if text_length > 0 then
-    -- Parse runtime size of: Text Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
-
+-- Display: Account Type
+b3_equities_binaryentrypoint_sbe_v8_1.account_type.display = function(value)
+  if value == 38 then
+    return "Account Type: Remove Account Information (38)"
+  end
+  if value == 39 then
+    return "Account Type: Regular Account (39)"
+  end
+  if value == 0 then
+    return "Account Type: No Value"
   end
 
-  return index
+  return "Account Type: Unknown("..value..")"
 end
 
--- Display: Text
-b3_equities_binaryentrypoint_sbe_v8_1.text.display = function(packet, parent, value, length)
-  if value == nil then
-    return "No Value"
-  end
-
-  return value
-end
-
--- Dissect Fields: Text
-b3_equities_binaryentrypoint_sbe_v8_1.text.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Text Length: uint8
-  index, text_length = b3_equities_binaryentrypoint_sbe_v8_1.text_length.dissect(buffer, index, packet, parent)
-
-  -- Runtime optional field: Text Data
-  local text_data = nil
-
-  local text_data_exists = text_length > 0
-
-  if text_data_exists then
-
-    -- Runtime Size Of: Text Data
-    index, text_data = b3_equities_binaryentrypoint_sbe_v8_1.text_data.dissect(buffer, index, packet, parent, text_length)
-  end
-
-  -- Composite value
-  local text = text_data
-
-  return index, text
-end
-
--- Dissect: Text
-b3_equities_binaryentrypoint_sbe_v8_1.text.dissect = function(buffer, offset, packet, parent)
-  if show.text then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.text, buffer(offset, 0))
-    local index, value = b3_equities_binaryentrypoint_sbe_v8_1.text.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.text.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.text.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Document
-b3_equities_binaryentrypoint_sbe_v8_1.document = {}
-
--- Size: Document
-b3_equities_binaryentrypoint_sbe_v8_1.document.size = 4
-
--- Display: Document
-b3_equities_binaryentrypoint_sbe_v8_1.document.display = function(value)
-  return "Document: "..value
-end
-
--- Dissect: Document
-b3_equities_binaryentrypoint_sbe_v8_1.document.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.document.size
+-- Dissect: Account Type
+b3_equities_binaryentrypoint_sbe_v8_1.account_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.account_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.document.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.account_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.document, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.account_type, range, value, display)
 
   return offset + length, value
 end
 
--- Prefix
-b3_equities_binaryentrypoint_sbe_v8_1.prefix = {}
+-- Action Requested From Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id = {}
 
--- Size: Prefix
-b3_equities_binaryentrypoint_sbe_v8_1.prefix.size = 2
+-- Size: Action Requested From Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.size = 4
 
--- Display: Prefix
-b3_equities_binaryentrypoint_sbe_v8_1.prefix.display = function(value)
-  return "Prefix: "..value
+-- Display: Action Requested From Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.display = function(value)
+  return "Action Requested From Session Id: "..value
 end
 
--- Dissect: Prefix
-b3_equities_binaryentrypoint_sbe_v8_1.prefix.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.prefix.size
+-- Dissect: Action Requested From Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.prefix.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.prefix, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.action_requested_from_session_id, range, value, display)
 
   return offset + length, value
 end
 
--- Investor Id
-b3_equities_binaryentrypoint_sbe_v8_1.investor_id = {}
+-- Aggressor Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator = {}
 
--- Size: Investor Id
-b3_equities_binaryentrypoint_sbe_v8_1.investor_id.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.prefix.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.document.size
+-- Size: Aggressor Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.size = 1
 
--- Display: Investor Id
-b3_equities_binaryentrypoint_sbe_v8_1.investor_id.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Investor Id
-b3_equities_binaryentrypoint_sbe_v8_1.investor_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Prefix: uint16
-  index, prefix = b3_equities_binaryentrypoint_sbe_v8_1.prefix.dissect(buffer, index, packet, parent)
-
-  -- Document: uint32
-  index, document = b3_equities_binaryentrypoint_sbe_v8_1.document.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Investor Id
-b3_equities_binaryentrypoint_sbe_v8_1.investor_id.dissect = function(buffer, offset, packet, parent)
-  if show.investor_id then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.investor_id, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.investor_id.fields(buffer, offset, packet, parent)
+-- Display: Aggressor Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.display = function(value)
+  if value == 0 then
+    return "Aggressor Indicator: False Value (0)"
   end
-end
-
--- Security Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional = {}
-
--- Size: Security Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size = 8
-
--- Display: Security Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Security Id Optional: No Value"
+  if value == 1 then
+    return "Aggressor Indicator: True Value (1)"
   end
 
-  return "Security Id Optional: "..value
+  return "Aggressor Indicator: Unknown("..value..")"
 end
 
--- Dissect: Security Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size
+-- Dissect: Aggressor Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.aggressor_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Account
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_account = {}
+
+-- Size: Alloc Account
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.size = 4
+
+-- Display: Alloc Account
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.display = function(value)
+  return "Alloc Account: "..value
+end
+
+-- Dissect: Alloc Account
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_id = {}
+
+-- Size: Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size = 8
+
+-- Display: Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.display = function(value)
+  return "Alloc Id: "..value
+end
+
+-- Dissect: Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_id_optional, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc No Orders Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type = {}
+
+-- Size: Alloc No Orders Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size = 1
+
+-- Display: Alloc No Orders Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc No Orders Type: No Value"
+  end
+
+  if value == "0" then
+    return "Alloc No Orders Type: Not Specified (0)"
+  end
+
+  return "Alloc No Orders Type: Unknown("..value..")"
+end
+
+-- Dissect: Alloc No Orders Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_no_orders_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Qty
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty = {}
+
+-- Size: Alloc Qty
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.size = 8
+
+-- Display: Alloc Qty
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.display = function(value)
+  return "Alloc Qty: "..value
+end
+
+-- Dissect: Alloc Qty
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Rej Code
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code = {}
+
+-- Size: Alloc Rej Code
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.size = 4
+
+-- Display: Alloc Rej Code
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.display = function(value)
+  return "Alloc Rej Code: "..value
+end
+
+-- Dissect: Alloc Rej Code
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_rej_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id = {}
+
+-- Size: Alloc Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.size = 8
+
+-- Display: Alloc Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.display = function(value)
+  return "Alloc Report Id: "..value
+end
+
+-- Dissect: Alloc Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Report Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type = {}
+
+-- Size: Alloc Report Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.size = 1
+
+-- Display: Alloc Report Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Report Type: No Value"
+  end
+
+  if value == "8" then
+    return "Alloc Report Type: Request To Intermediary (8)"
+  end
+
+  return "Alloc Report Type: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Report Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_report_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Status
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_status = {}
+
+-- Size: Alloc Status
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.size = 1
+
+-- Display: Alloc Status
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Status: No Value"
+  end
+
+  if value == "0" then
+    return "Alloc Status: Accepted (0)"
+  end
+  if value == "5" then
+    return "Alloc Status: Rejected By Intermediary (5)"
+  end
+
+  return "Alloc Status: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Status
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type = {}
+
+-- Size: Alloc Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size = 1
+
+-- Display: Alloc Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Trans Type: No Value"
+  end
+
+  if value == "0" then
+    return "Alloc Trans Type: New (0)"
+  end
+  if value == "2" then
+    return "Alloc Trans Type: Cancel (2)"
+  end
+
+  return "Alloc Trans Type: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_trans_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_type = {}
+
+-- Size: Alloc Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.size = 1
+
+-- Display: Alloc Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Alloc Type: No Value"
+  end
+
+  if value == "8" then
+    return "Alloc Type: Request To Intermediary (8)"
+  end
+
+  return "Alloc Type: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Type
+b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_type, range, value, display)
 
   return offset + length, value
 end
@@ -980,58 +1179,1193 @@ b3_equities_binaryentrypoint_sbe_v8_1.asset.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Offset 49 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1 = {}
+-- Block Length
+b3_equities_binaryentrypoint_sbe_v8_1.block_length = {}
 
--- Size: Offset 49 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.size = 1
+-- Size: Block Length
+b3_equities_binaryentrypoint_sbe_v8_1.block_length.size = 2
 
--- Display: Offset 49 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.display = function(value)
-  return "Offset 49 Padding 1: "..value
+-- Display: Block Length
+b3_equities_binaryentrypoint_sbe_v8_1.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Offset 49 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.size
+-- Dissect: Block Length
+b3_equities_binaryentrypoint_sbe_v8_1.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.block_length.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.block_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_49_padding_1, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.block_length, range, value, display)
 
   return offset + length, value
 end
 
--- Side Optional
-b3_equities_binaryentrypoint_sbe_v8_1.side_optional = {}
+-- Business Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason = {}
 
--- Size: Side Optional
-b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size = 1
+-- Size: Business Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.size = 4
 
--- Display: Side Optional
-b3_equities_binaryentrypoint_sbe_v8_1.side_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side Optional: No Value"
-  end
-
-  if value == "1" then
-    return "Side Optional: Buy (1)"
-  end
-  if value == "2" then
-    return "Side Optional: Sell (2)"
-  end
-  if value == 0 then
-    return "Side Optional: No Value"
-  end
-
-  return "Side Optional: Unknown("..value..")"
+-- Display: Business Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.display = function(value)
+  return "Business Reject Reason: "..value
 end
 
--- Dissect: Side Optional
-b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size
+-- Dissect: Business Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Business Reject Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id = {}
+
+-- Size: Business Reject Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.size = 8
+
+-- Display: Business Reject Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.display = function(value)
+  return "Business Reject Ref Id: "..value
+end
+
+-- Dissect: Business Reject Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_reject_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel On Disconnect Type
+b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type = {}
+
+-- Size: Cancel On Disconnect Type
+b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.size = 1
+
+-- Display: Cancel On Disconnect Type
+b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.display = function(value)
+  if value == 0 then
+    return "Cancel On Disconnect Type: Do Not Cancel On Disconnect Or Terminate (0)"
+  end
+  if value == 1 then
+    return "Cancel On Disconnect Type: Cancel On Disconnect Only (1)"
+  end
+  if value == 2 then
+    return "Cancel On Disconnect Type: Cancel On Terminate Only (2)"
+  end
+  if value == 3 then
+    return "Cancel On Disconnect Type: Cancel On Disconnect Or Terminate (3)"
+  end
+
+  return "Cancel On Disconnect Type: Unknown("..value..")"
+end
+
+-- Dissect: Cancel On Disconnect Type
+b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cancel_on_disconnect_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Business Date
+b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date = {}
+
+-- Size: Clearing Business Date
+b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size = 2
+
+-- Display: Clearing Business Date
+b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.display = function(value)
+  return "Clearing Business Date: "..value
+end
+
+-- Dissect: Clearing Business Date
+b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.clearing_business_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client App Name Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data = {}
+
+-- Display: Client App Name Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data.display = function(value)
+  return "Client App Name Data: "..value
+end
+
+-- Dissect runtime sized field: Client App Name Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data.display(value, packet, parent, size)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_name_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Client App Name Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length = {}
+
+-- Size: Client App Name Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.size = 1
+
+-- Display: Client App Name Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.display = function(value)
+  return "Client App Name Length: "..value
+end
+
+-- Dissect: Client App Name Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_name_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client App Version Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data = {}
+
+-- Display: Client App Version Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data.display = function(value)
+  return "Client App Version Data: "..value
+end
+
+-- Dissect runtime sized field: Client App Version Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data.display(value, packet, parent, size)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_version_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Client App Version Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length = {}
+
+-- Size: Client App Version Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.size = 1
+
+-- Display: Client App Version Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.display = function(value)
+  return "Client App Version Length: "..value
+end
+
+-- Dissect: Client App Version Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_version_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Ip Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data = {}
+
+-- Display: Client Ip Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data.display = function(value)
+  return "Client Ip Data: "..value
+end
+
+-- Dissect runtime sized field: Client Ip Data
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data.display(value, packet, parent, size)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_ip_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Client Ip Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length = {}
+
+-- Size: Client Ip Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.size = 1
+
+-- Display: Client Ip Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.display = function(value)
+  return "Client Ip Length: "..value
+end
+
+-- Dissect: Client Ip Length
+b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_ip_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- ClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.clordid = {}
+
+-- Size: ClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.clordid.size = 8
+
+-- Display: ClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.clordid.display = function(value)
+  return "ClOrdId: "..value
+end
+
+-- Dissect: ClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.clordid.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.clordid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.clordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.clordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- ClOrdId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional = {}
+
+-- Size: ClOrdId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.size = 8
+
+-- Display: ClOrdId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.display = function(value)
+  return "ClOrdId Optional: "..value
+end
+
+-- Dissect: ClOrdId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.clordid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cod Timeout Window
+b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window = {}
+
+-- Size: Cod Timeout Window
+b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.size = 8
+
+-- Display: Cod Timeout Window
+b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.display = function(value)
+  return "Cod Timeout Window: "..value
+end
+
+-- Dissect: Cod Timeout Window
+b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cod_timeout_window, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Broker
+b3_equities_binaryentrypoint_sbe_v8_1.contra_broker = {}
+
+-- Size: Contra Broker
+b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size = 4
+
+-- Display: Contra Broker
+b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.display = function(value)
+  return "Contra Broker: "..value
+end
+
+-- Dissect: Contra Broker
+b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.contra_broker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contrary Instruction Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator = {}
+
+-- Size: Contrary Instruction Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size = 1
+
+-- Display: Contrary Instruction Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.display = function(value)
+  if value == 0 then
+    return "Contrary Instruction Indicator: False Value (0)"
+  end
+  if value == 1 then
+    return "Contrary Instruction Indicator: True Value (1)"
+  end
+
+  return "Contrary Instruction Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Contrary Instruction Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.contrary_instruction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+b3_equities_binaryentrypoint_sbe_v8_1.count = {}
+
+-- Size: Count
+b3_equities_binaryentrypoint_sbe_v8_1.count.size = 4
+
+-- Display: Count
+b3_equities_binaryentrypoint_sbe_v8_1.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+b3_equities_binaryentrypoint_sbe_v8_1.count.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Credentials Data
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_data = {}
+
+-- Display: Credentials Data
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_data.display = function(value)
+  return "Credentials Data: "..value
+end
+
+-- Dissect runtime sized field: Credentials Data
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.credentials_data.display(value, packet, parent, size)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.credentials_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Credentials Length
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_length = {}
+
+-- Size: Credentials Length
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.size = 1
+
+-- Display: Credentials Length
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.display = function(value)
+  return "Credentials Length: "..value
+end
+
+-- Dissect: Credentials Length
+b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.credentials_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Prioritization
+b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization = {}
+
+-- Size: Cross Prioritization
+b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.size = 1
+
+-- Display: Cross Prioritization
+b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.display = function(value)
+  if value == 0 then
+    return "Cross Prioritization: None (0)"
+  end
+  if value == 1 then
+    return "Cross Prioritization: Buy Side Is Prioritized (1)"
+  end
+  if value == 2 then
+    return "Cross Prioritization: Sell Side Is Prioritized (2)"
+  end
+  if value == 255 then
+    return "Cross Prioritization: No Value"
+  end
+
+  return "Cross Prioritization: Unknown("..value..")"
+end
+
+-- Dissect: Cross Prioritization
+b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cross_prioritization, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+b3_equities_binaryentrypoint_sbe_v8_1.cross_type = {}
+
+-- Size: Cross Type
+b3_equities_binaryentrypoint_sbe_v8_1.cross_type.size = 1
+
+-- Display: Cross Type
+b3_equities_binaryentrypoint_sbe_v8_1.cross_type.display = function(value)
+  if value == 1 then
+    return "Cross Type: All Or None Cross (1)"
+  end
+  if value == 4 then
+    return "Cross Type: Cross Executed Against Book From Client (4)"
+  end
+  if value == 0 then
+    return "Cross Type: No Value"
+  end
+
+  return "Cross Type: Unknown("..value..")"
+end
+
+-- Dissect: Cross Type
+b3_equities_binaryentrypoint_sbe_v8_1.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossed Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator = {}
+
+-- Size: Crossed Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.size = 2
+
+-- Display: Crossed Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.display = function(value)
+  if value == 1001 then
+    return "Crossed Indicator: Structured Transaction (1001)"
+  end
+  if value == 1002 then
+    return "Crossed Indicator: Operational Error (1002)"
+  end
+  if value == 1003 then
+    return "Crossed Indicator: Twap Vwap (1003)"
+  end
+  if value == 0 then
+    return "Crossed Indicator: No Value"
+  end
+
+  return "Crossed Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Crossed Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.crossed_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- CrossId
+b3_equities_binaryentrypoint_sbe_v8_1.crossid = {}
+
+-- Size: CrossId
+b3_equities_binaryentrypoint_sbe_v8_1.crossid.size = 8
+
+-- Display: CrossId
+b3_equities_binaryentrypoint_sbe_v8_1.crossid.display = function(value)
+  return "CrossId: "..value
+end
+
+-- Dissect: CrossId
+b3_equities_binaryentrypoint_sbe_v8_1.crossid.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.crossid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.crossid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.crossid, range, value, display)
+
+  return offset + length, value
+end
+
+-- CrossId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional = {}
+
+-- Size: CrossId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.size = 8
+
+-- Display: CrossId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.display = function(value)
+  return "CrossId Optional: "..value
+end
+
+-- Dissect: CrossId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.crossid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cum Qty
+b3_equities_binaryentrypoint_sbe_v8_1.cum_qty = {}
+
+-- Size: Cum Qty
+b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.size = 8
+
+-- Display: Cum Qty
+b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.display = function(value)
+  return "Cum Qty: "..value
+end
+
+-- Dissect: Cum Qty
+b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cum_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id = {}
+
+-- Size: Current Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.size = 8
+
+-- Display: Current Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.display = function(value)
+  return "Current Session Ver Id: "..value
+end
+
+-- Dissect: Current Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.current_session_ver_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Custodian
+b3_equities_binaryentrypoint_sbe_v8_1.custodian = {}
+
+-- Size: Custodian
+b3_equities_binaryentrypoint_sbe_v8_1.custodian.size = 4
+
+-- Display: Custodian
+b3_equities_binaryentrypoint_sbe_v8_1.custodian.display = function(value)
+  return "Custodian: "..value
+end
+
+-- Dissect: Custodian
+b3_equities_binaryentrypoint_sbe_v8_1.custodian.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.custodian.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.custodian.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.custodian, range, value, display)
+
+  return offset + length, value
+end
+
+-- Custody Account
+b3_equities_binaryentrypoint_sbe_v8_1.custody_account = {}
+
+-- Size: Custody Account
+b3_equities_binaryentrypoint_sbe_v8_1.custody_account.size = 4
+
+-- Display: Custody Account
+b3_equities_binaryentrypoint_sbe_v8_1.custody_account.display = function(value)
+  return "Custody Account: "..value
+end
+
+-- Dissect: Custody Account
+b3_equities_binaryentrypoint_sbe_v8_1.custody_account.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.custody_account.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.custody_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.custody_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Custody Allocation Type
+b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type = {}
+
+-- Size: Custody Allocation Type
+b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.size = 4
+
+-- Display: Custody Allocation Type
+b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.display = function(value)
+  return "Custody Allocation Type: "..value
+end
+
+-- Dissect: Custody Allocation Type
+b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.custody_allocation_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cxl Rej Response To
+b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to = {}
+
+-- Size: Cxl Rej Response To
+b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.size = 1
+
+-- Display: Cxl Rej Response To
+b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.display = function(value)
+  if value == 0 then
+    return "Cxl Rej Response To: New (0)"
+  end
+  if value == 1 then
+    return "Cxl Rej Response To: Cancel (1)"
+  end
+  if value == 2 then
+    return "Cxl Rej Response To: Replace (2)"
+  end
+
+  return "Cxl Rej Response To: Unknown("..value..")"
+end
+
+-- Dissect: Cxl Rej Response To
+b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cxl_rej_response_to, range, value, display)
+
+  return offset + length, value
+end
+
+-- Days To Settlement
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement = {}
+
+-- Size: Days To Settlement
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size = 2
+
+-- Display: Days To Settlement
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.display = function(value)
+  return "Days To Settlement: "..value
+end
+
+-- Dissect: Days To Settlement
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.days_to_settlement, range, value, display)
+
+  return offset + length, value
+end
+
+-- Days To Settlement Optional
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional = {}
+
+-- Size: Days To Settlement Optional
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size = 2
+
+-- Display: Days To Settlement Optional
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.display = function(value)
+  return "Days To Settlement Optional: "..value
+end
+
+-- Dissect: Days To Settlement Optional
+b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.days_to_settlement_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Desk Id Data
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data = {}
+
+-- Display: Desk Id Data
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.display = function(value)
+  return "Desk Id Data: "..value
+end
+
+-- Dissect runtime sized field: Desk Id Data
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.display(value, packet, parent, size)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.desk_id_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Desk Id Length
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length = {}
+
+-- Size: Desk Id Length
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.size = 1
+
+-- Display: Desk Id Length
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.display = function(value)
+  return "Desk Id Length: "..value
+end
+
+-- Dissect: Desk Id Length
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.desk_id_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Document
+b3_equities_binaryentrypoint_sbe_v8_1.document = {}
+
+-- Size: Document
+b3_equities_binaryentrypoint_sbe_v8_1.document.size = 4
+
+-- Display: Document
+b3_equities_binaryentrypoint_sbe_v8_1.document.display = function(value)
+  return "Document: "..value
+end
+
+-- Dissect: Document
+b3_equities_binaryentrypoint_sbe_v8_1.document.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.document.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.document.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.document, range, value, display)
+
+  return offset + length, value
+end
+
+-- Encoding Type
+b3_equities_binaryentrypoint_sbe_v8_1.encoding_type = {}
+
+-- Size: Encoding Type
+b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.size = 2
+
+-- Display: Encoding Type
+b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.display = function(value)
+  return "Encoding Type: "..value
+end
+
+-- Dissect: Encoding Type
+b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.encoding_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Entering Firm
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm = {}
+
+-- Size: Entering Firm
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.size = 4
+
+-- Display: Entering Firm
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.display = function(value)
+  return "Entering Firm: "..value
+end
+
+-- Dissect: Entering Firm
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.entering_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional = {}
+
+-- Size: Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.size = 4
+
+-- Display: Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.display = function(value)
+  return "Entering Firm Optional: "..value
+end
+
+-- Dissect: Entering Firm Optional
+b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.entering_firm_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Entering Trader
+b3_equities_binaryentrypoint_sbe_v8_1.entering_trader = {}
+
+-- Size: Entering Trader
+b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size = 5
+
+-- Display: Entering Trader
+b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Entering Trader: No Value"
+  end
+
+  return "Entering Trader: "..value
+end
+
+-- Dissect: Entering Trader
+b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.entering_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Establishment Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code = {}
+
+-- Size: Establishment Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.size = 1
+
+-- Display: Establishment Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.display = function(value)
+  if value == 0 then
+    return "Establishment Reject Code: Unspecified (0)"
+  end
+  if value == 1 then
+    return "Establishment Reject Code: Credentials (1)"
+  end
+  if value == 2 then
+    return "Establishment Reject Code: Unnegotiated (2)"
+  end
+  if value == 3 then
+    return "Establishment Reject Code: Already Established (3)"
+  end
+  if value == 4 then
+    return "Establishment Reject Code: Session Blocked (4)"
+  end
+  if value == 5 then
+    return "Establishment Reject Code: Invalid Sessionid (5)"
+  end
+  if value == 6 then
+    return "Establishment Reject Code: Invalid Sessionverid (6)"
+  end
+  if value == 7 then
+    return "Establishment Reject Code: Invalid Timestamp (7)"
+  end
+  if value == 8 then
+    return "Establishment Reject Code: Invalid Keepalive Interval (8)"
+  end
+  if value == 9 then
+    return "Establishment Reject Code: Invalid Nextseqno (9)"
+  end
+  if value == 10 then
+    return "Establishment Reject Code: Establish Attempts Exceeded (10)"
+  end
+  if value == 20 then
+    return "Establishment Reject Code: Establish Not Allowed (20)"
+  end
+  if value == 21 then
+    return "Establishment Reject Code: Duplicate Session Connection (21)"
+  end
+  if value == 22 then
+    return "Establishment Reject Code: Authentication In Progress (22)"
+  end
+  if value == 23 then
+    return "Establishment Reject Code: Protocol Version Not Supported (23)"
+  end
+
+  return "Establishment Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Establishment Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.establishment_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_id = {}
+
+-- Size: Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_id.size = 8
+
+-- Display: Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_id.display = function(value)
+  return "Exec Id: "..value
+end
+
+-- Dissect: Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id = {}
+
+-- Size: Exec Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.size = 8
+
+-- Display: Exec Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.display = function(value)
+  return "Exec Ref Id: "..value
+end
+
+-- Dissect: Exec Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason = {}
+
+-- Size: Exec Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.size = 1
+
+-- Display: Exec Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.display = function(value)
+  if value == 8 then
+    return "Exec Restatement Reason: Market Option (8)"
+  end
+  if value == 100 then
+    return "Exec Restatement Reason: Cancel On Hard Disconnection (100)"
+  end
+  if value == 101 then
+    return "Exec Restatement Reason: Cancel On Terminate (101)"
+  end
+  if value == 102 then
+    return "Exec Restatement Reason: Cancel On Disconnect And Terminate (102)"
+  end
+  if value == 103 then
+    return "Exec Restatement Reason: Self Trading Prevention (103)"
+  end
+  if value == 105 then
+    return "Exec Restatement Reason: Cancel From Firmsoft (105)"
+  end
+  if value == 107 then
+    return "Exec Restatement Reason: Cancel Resting Order On Self Trade (107)"
+  end
+  if value == 200 then
+    return "Exec Restatement Reason: Market Maker Protection (200)"
+  end
+  if value == 201 then
+    return "Exec Restatement Reason: Risk Management Cancellation (201)"
+  end
+  if value == 202 then
+    return "Exec Restatement Reason: Order Mass Action From Client Request (202)"
+  end
+  if value == 203 then
+    return "Exec Restatement Reason: Cancel Order Due To Operational Error (203)"
+  end
+  if value == 204 then
+    return "Exec Restatement Reason: Order Cancelled Due To Operational Error (204)"
+  end
+  if value == 205 then
+    return "Exec Restatement Reason: Cancel Order Firmsoft Due To Operational Error (205)"
+  end
+  if value == 206 then
+    return "Exec Restatement Reason: Order Cancelled Firmsoft Due To Operational Error (206)"
+  end
+  if value == 207 then
+    return "Exec Restatement Reason: Mass Cancel Order Due To Operational Error Request (207)"
+  end
+  if value == 208 then
+    return "Exec Restatement Reason: Mass Cancel Order Due To Operational Error Effective (208)"
+  end
+  if value == 209 then
+    return "Exec Restatement Reason: Cancel On Midpoint Broker Only Removal (209)"
+  end
+  if value == 210 then
+    return "Exec Restatement Reason: Cancel Remaining From Sweep Cross (210)"
+  end
+  if value == 211 then
+    return "Exec Restatement Reason: Mass Cancel On Behalf (211)"
+  end
+  if value == 212 then
+    return "Exec Restatement Reason: Mass Cancel On Behalf Due To Operational Error Effective (212)"
+  end
+  if value == 0 then
+    return "Exec Restatement Reason: No Value"
+  end
+
+  return "Exec Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Exec Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Type
+b3_equities_binaryentrypoint_sbe_v8_1.exec_type = {}
+
+-- Size: Exec Type
+b3_equities_binaryentrypoint_sbe_v8_1.exec_type.size = 1
+
+-- Display: Exec Type
+b3_equities_binaryentrypoint_sbe_v8_1.exec_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Type: No Value"
+  end
+
+  if value == "F" then
+    return "Exec Type: Trade (F)"
+  end
+  if value == "H" then
+    return "Exec Type: Trade Cancel (H)"
+  end
+
+  return "Exec Type: Unknown("..value..")"
+end
+
+-- Dissect: Exec Type
+b3_equities_binaryentrypoint_sbe_v8_1.exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1042,65 +2376,653 @@ b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect = function(buffer, o
     value = range:string()
   end
 
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.side_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- OrdTagId
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid = {}
-
--- Size: OrdTagId
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size = 1
-
--- Display: OrdTagId
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.display = function(value)
-  return "OrdTagId: "..value
-end
-
--- Dissect: OrdTagId
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ordtagid, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_type, range, value, display)
 
   return offset + length, value
 end
 
--- Mass Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason = {}
+-- Execute Underlying Trade
+b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade = {}
 
--- Size: Mass Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size = 1
+-- Size: Execute Underlying Trade
+b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size = 1
 
--- Display: Mass Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.display = function(value)
-  if value == 202 then
-    return "Mass Cancel Restatement Reason: Order Mass Action From Client Request (202)"
+-- Display: Execute Underlying Trade
+b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Execute Underlying Trade: No Value"
   end
-  if value == 207 then
-    return "Mass Cancel Restatement Reason: Mass Cancel Order Due To Operational Error Request (207)"
+
+  if value == "0" then
+    return "Execute Underlying Trade: No Underlying Trade (0)"
+  end
+  if value == "1" then
+    return "Execute Underlying Trade: Underlying Opposing Trade (1)"
   end
   if value == 0 then
-    return "Mass Cancel Restatement Reason: No Value"
+    return "Execute Underlying Trade: No Value"
   end
 
-  return "Mass Cancel Restatement Reason: Unknown("..value..")"
+  return "Execute Underlying Trade: Unknown("..value..")"
 end
 
--- Dissect: Mass Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size
+-- Dissect: Execute Underlying Trade
+b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execute_underlying_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executing Trader
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader = {}
+
+-- Size: Executing Trader
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size = 5
+
+-- Display: Executing Trader
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Executing Trader: No Value"
+  end
+
+  return "Executing Trader: "..value
+end
+
+-- Dissect: Executing Trader
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executing Trader Optional
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional = {}
+
+-- Size: Executing Trader Optional
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.size = 5
+
+-- Display: Executing Trader Optional
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Executing Trader Optional: No Value"
+  end
+
+  return "Executing Trader Optional: "..value
+end
+
+-- Dissect: Executing Trader Optional
+b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.executing_trader_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Date
+b3_equities_binaryentrypoint_sbe_v8_1.expire_date = {}
+
+-- Size: Expire Date
+b3_equities_binaryentrypoint_sbe_v8_1.expire_date.size = 2
+
+-- Display: Expire Date
+b3_equities_binaryentrypoint_sbe_v8_1.expire_date.display = function(value)
+  return "Expire Date: "..value
+end
+
+-- Dissect: Expire Date
+b3_equities_binaryentrypoint_sbe_v8_1.expire_date.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.expire_date.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.expire_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_cancel_restatement_reason, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.expire_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fixed Rate Percentage 8
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8 = {}
+
+-- Size: Fixed Rate Percentage 8
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size = 8
+
+-- Display: Fixed Rate Percentage 8
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.display = function(value)
+  return "Fixed Rate Percentage 8: "..value
+end
+
+-- Translate: Fixed Rate Percentage 8
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Fixed Rate Percentage 8
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.fixed_rate_percentage_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fixed Rate Percentage 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional = {}
+
+-- Size: Fixed Rate Percentage 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size = 8
+
+-- Display: Fixed Rate Percentage 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Fixed Rate Percentage 8 Optional: No Value"
+  end
+
+  return "Fixed Rate Percentage 8 Optional: "..value
+end
+
+-- Translate: Fixed Rate Percentage 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Fixed Rate Percentage 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.fixed_rate_percentage_8_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- From Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no = {}
+
+-- Size: From Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.size = 4
+
+-- Display: From Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.display = function(value)
+  return "From Seq No: "..value
+end
+
+-- Dissect: From Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.from_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Individual Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id = {}
+
+-- Size: Individual Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.size = 8
+
+-- Display: Individual Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.display = function(value)
+  return "Individual Alloc Id: "..value
+end
+
+-- Dissect: Individual Alloc Id
+b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.individual_alloc_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Keep Alive Interval
+b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval = {}
+
+-- Size: Keep Alive Interval
+b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.size = 8
+
+-- Display: Keep Alive Interval
+b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.display = function(value)
+  return "Keep Alive Interval: "..value
+end
+
+-- Dissect: Keep Alive Interval
+b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.keep_alive_interval, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Incoming Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no = {}
+
+-- Size: Last Incoming Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.size = 4
+
+-- Display: Last Incoming Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.display = function(value)
+  return "Last Incoming Seq No: "..value
+end
+
+-- Dissect: Last Incoming Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_incoming_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Incoming Seq No Optional
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional = {}
+
+-- Size: Last Incoming Seq No Optional
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.size = 4
+
+-- Display: Last Incoming Seq No Optional
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.display = function(value)
+  return "Last Incoming Seq No Optional: "..value
+end
+
+-- Dissect: Last Incoming Seq No Optional
+b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_incoming_seq_no_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+b3_equities_binaryentrypoint_sbe_v8_1.last_px = {}
+
+-- Size: Last Px
+b3_equities_binaryentrypoint_sbe_v8_1.last_px.size = 8
+
+-- Display: Last Px
+b3_equities_binaryentrypoint_sbe_v8_1.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+b3_equities_binaryentrypoint_sbe_v8_1.last_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Last Px
+b3_equities_binaryentrypoint_sbe_v8_1.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.last_px.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+b3_equities_binaryentrypoint_sbe_v8_1.last_qty = {}
+
+-- Size: Last Qty
+b3_equities_binaryentrypoint_sbe_v8_1.last_qty.size = 8
+
+-- Display: Last Qty
+b3_equities_binaryentrypoint_sbe_v8_1.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+b3_equities_binaryentrypoint_sbe_v8_1.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty = {}
+
+-- Size: Leaves Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.size = 8
+
+-- Display: Leaves Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty = {}
+
+-- Size: Leg Ratio Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.size = 8
+
+-- Display: Leg Ratio Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.display = function(value)
+  return "Leg Ratio Qty: "..value
+end
+
+-- Translate: Leg Ratio Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Leg Ratio Qty
+b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+b3_equities_binaryentrypoint_sbe_v8_1.leg_side = {}
+
+-- Size: Leg Side
+b3_equities_binaryentrypoint_sbe_v8_1.leg_side.size = 1
+
+-- Display: Leg Side
+b3_equities_binaryentrypoint_sbe_v8_1.leg_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Side: No Value"
+  end
+
+  if value == "1" then
+    return "Leg Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Leg Side: Sell (2)"
+  end
+  if value == 0 then
+    return "Leg Side: No Value"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+b3_equities_binaryentrypoint_sbe_v8_1.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.leg_side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol = {}
+
+-- Size: Leg Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.size = 20
+
+-- Display: Leg Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Symbol: No Value"
+  end
+
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Long Qty
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty = {}
+
+-- Size: Long Qty
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty.size = 8
+
+-- Display: Long Qty
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty.display = function(value)
+  return "Long Qty: "..value
+end
+
+-- Dissect: Long Qty
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.long_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.long_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.long_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Long Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional = {}
+
+-- Size: Long Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.size = 8
+
+-- Display: Long Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.display = function(value)
+  return "Long Qty Optional: "..value
+end
+
+-- Dissect: Long Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.long_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id = {}
+
+-- Size: Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.size = 1
+
+-- Display: Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.display = function(value)
+  return "Market Segment Id: "..value
+end
+
+-- Dissect: Market Segment Id
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional = {}
+
+-- Size: Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size = 1
+
+-- Display: Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.display = function(value)
+  return "Market Segment Id Optional: "..value
+end
+
+-- Dissect: Market Segment Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Segment Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time = {}
+
+-- Size: Market Segment Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.size = 8
+
+-- Display: Market Segment Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Market Segment Received Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Market Segment Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Market Segment Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_received_time, range, value, display)
 
   return offset + length, value
 end
@@ -1137,6 +3059,52 @@ b3_equities_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.dissect = functi
   local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id = {}
+
+-- Size: Mass Action Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.size = 8
+
+-- Display: Mass Action Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.display = function(value)
+  return "Mass Action Report Id: "..value
+end
+
+-- Dissect: Mass Action Report Id
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Report Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional = {}
+
+-- Size: Mass Action Report Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.size = 8
+
+-- Display: Mass Action Report Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.display = function(value)
+  return "Mass Action Report Id Optional: "..value
+end
+
+-- Dissect: Mass Action Report Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_report_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1180,79 +3148,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.mass_action_response.dissect = function(bu
   local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_response.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_response, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-b3_equities_binaryentrypoint_sbe_v8_1.transact_time = {}
-
--- Size: Transact Time
-b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size = 8
-
--- Display: Transact Time
-b3_equities_binaryentrypoint_sbe_v8_1.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id = {}
-
--- Size: Mass Action Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.size = 8
-
--- Display: Mass Action Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.display = function(value)
-  return "Mass Action Report Id: "..value
-end
-
--- Dissect: Mass Action Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.clordid = {}
-
--- Size: ClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.clordid.size = 8
-
--- Display: ClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.clordid.display = function(value)
-  return "ClOrdId: "..value
-end
-
--- Dissect: ClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.clordid.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.clordid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.clordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -1320,1021 +3215,88 @@ b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.dissect = function(buffer
   return offset + length, value
 end
 
--- Padding
-b3_equities_binaryentrypoint_sbe_v8_1.padding = {}
+-- Mass Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason = {}
 
--- Size: Padding
-b3_equities_binaryentrypoint_sbe_v8_1.padding.size = 1
+-- Size: Mass Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size = 1
 
--- Display: Padding
-b3_equities_binaryentrypoint_sbe_v8_1.padding.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Padding: No Value"
+-- Display: Mass Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.display = function(value)
+  if value == 202 then
+    return "Mass Cancel Restatement Reason: Order Mass Action From Client Request (202)"
+  end
+  if value == 207 then
+    return "Mass Cancel Restatement Reason: Mass Cancel Order Due To Operational Error Request (207)"
+  end
+  if value == 0 then
+    return "Mass Cancel Restatement Reason: No Value"
   end
 
-  return "Padding: "..value
+  return "Mass Cancel Restatement Reason: Unknown("..value..")"
 end
 
--- Dissect: Padding
-b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.padding.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.padding.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.padding, range, value, display)
-
-  return offset + length, value
-end
-
--- Poss Resend
-b3_equities_binaryentrypoint_sbe_v8_1.poss_resend = {}
-
--- Size: Poss Resend
-b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size = 1
-
--- Display: Poss Resend
-b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.display = function(value)
-  return "Poss Resend: "..value
-end
-
--- Dissect: Poss Resend
-b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size
+-- Dissect: Mass Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.poss_resend, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_cancel_restatement_reason, range, value, display)
 
   return offset + length, value
 end
 
--- Sending Time
-b3_equities_binaryentrypoint_sbe_v8_1.sending_time = {}
+-- Max Floor
+b3_equities_binaryentrypoint_sbe_v8_1.max_floor = {}
 
--- Size: Sending Time
-b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size = 8
+-- Size: Max Floor
+b3_equities_binaryentrypoint_sbe_v8_1.max_floor.size = 8
 
--- Display: Sending Time
-b3_equities_binaryentrypoint_sbe_v8_1.sending_time.display = function(value)
-  -- Check null value
+-- Display: Max Floor
+b3_equities_binaryentrypoint_sbe_v8_1.max_floor.display = function(value)
+  return "Max Floor: "..value
+end
+
+-- Dissect: Max Floor
+b3_equities_binaryentrypoint_sbe_v8_1.max_floor.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.max_floor.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.max_floor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.max_floor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Sweep Qty
+b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty = {}
+
+-- Size: Max Sweep Qty
+b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.size = 8
+
+-- Display: Max Sweep Qty
+b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.display = function(value)
+  -- Check if field has value
   if value == UInt64(0x00000000, 0x00000000) then
-    return "Sending Time: No Value"
-
+    return "Max Sweep Qty: No Value"
   end
 
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Max Sweep Qty: "..value
 end
 
--- Dissect: Sending Time
-b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size
+-- Dissect: Max Sweep Qty
+b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num = {}
-
--- Size: Msg Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size = 4
-
--- Display: Msg Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.display = function(value)
-  return "Msg Seq Num: "..value
-end
-
--- Dissect: Msg Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.msg_seq_num, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.max_sweep_qty, range, value, display)
 
   return offset + length, value
-end
-
--- Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_id = {}
-
--- Size: Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_id.size = 4
-
--- Display: Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Outbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header = {}
-
--- Size: Outbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.session_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.padding.size
-
--- Display: Outbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Outbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
-  index, session_id = b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect(buffer, index, packet, parent)
-
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
-  index, poss_resend = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.dissect(buffer, index, packet, parent)
-
-  -- Padding: char
-  index, padding = b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Outbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect = function(buffer, offset, packet, parent)
-  if show.outbound_business_header then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.outbound_business_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Mass Action Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message = {}
-
--- Calculate size of: Order Mass Action Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clordid.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_response.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.asset.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.investor_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Order Mass Action Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Mass Action Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Outbound Business Header: Struct of 5 fields
-  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Type: MassActionType
-  index, mass_action_type = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Scope: MassActionScope
-  index, mass_action_scope = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_equities_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Report Id: MassActionReportID
-  index, mass_action_report_id = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Response: MassActionResponse
-  index, mass_action_response = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_response.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Reject Reason: MassActionRejectReason
-  index, mass_action_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Restatement Reason: ExecRestatementReasonValidForMassCancel
-  index, mass_cancel_restatement_reason = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- OrdTagId: OrdTagID
-  index, ordtagid = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: Side
-  index, side_optional = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Offset 49 Padding 1: 1 Byte
-  index, offset_49_padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.dissect(buffer, index, packet, parent)
-
-  -- Asset: AssetOptional
-  index, asset = b3_equities_binaryentrypoint_sbe_v8_1.asset.dissect(buffer, index, packet, parent)
-
-  -- Security Id Optional: SecurityIDOptional
-  index, security_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Investor Id: Struct of 2 fields
-  index, investor_id = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.dissect(buffer, index, packet, parent)
-
-  -- Text: Struct of 2 fields
-  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Mass Action Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_action_report_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_report_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Offset 31 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1 = {}
-
--- Size: Offset 31 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.size = 1
-
--- Display: Offset 31 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.display = function(value)
-  return "Offset 31 Padding 1: "..value
-end
-
--- Dissect: Offset 31 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_31_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id = {}
-
--- Size: Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.size = 1
-
--- Display: Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.display = function(value)
-  return "Market Segment Id: "..value
-end
-
--- Dissect: Market Segment Id
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Inbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header = {}
-
--- Size: Inbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.session_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.padding.size
-
--- Display: Inbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
-  index, session_id = b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect(buffer, index, packet, parent)
-
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
-  index, market_segment_id = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.dissect(buffer, index, packet, parent)
-
-  -- Padding: char
-  index, padding = b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inbound Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect = function(buffer, offset, packet, parent)
-  if show.inbound_business_header then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.inbound_business_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Mass Action Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message = {}
-
--- Size: Order Mass Action Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.clordid.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.asset.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.investor_id.size
-
--- Display: Order Mass Action Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Mass Action Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inbound Business Header: Struct of 5 fields
-  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Type: MassActionType
-  index, mass_action_type = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.dissect(buffer, index, packet, parent)
-
-  -- Mass Action Scope: MassActionScope
-  index, mass_action_scope = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_equities_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Restatement Reason: ExecRestatementReasonValidForMassCancel
-  index, mass_cancel_restatement_reason = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- OrdTagId: OrdTagID
-  index, ordtagid = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: Side
-  index, side_optional = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Offset 31 Padding 1: 1 Byte
-  index, offset_31_padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.dissect(buffer, index, packet, parent)
-
-  -- Asset: AssetOptional
-  index, asset = b3_equities_binaryentrypoint_sbe_v8_1.asset.dissect(buffer, index, packet, parent)
-
-  -- Security Id Optional: SecurityIDOptional
-  index, security_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Investor Id: Struct of 2 fields
-  index, investor_id = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Mass Action Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_mass_action_request_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Entering Trader
-b3_equities_binaryentrypoint_sbe_v8_1.entering_trader = {}
-
--- Size: Entering Trader
-b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size = 5
-
--- Display: Entering Trader
-b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Entering Trader: No Value"
-  end
-
-  return "Entering Trader: "..value
-end
-
--- Dissect: Entering Trader
-b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.entering_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Sender Location
-b3_equities_binaryentrypoint_sbe_v8_1.sender_location = {}
-
--- Size: Sender Location
-b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size = 10
-
--- Display: Sender Location
-b3_equities_binaryentrypoint_sbe_v8_1.sender_location.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sender Location: No Value"
-  end
-
-  return "Sender Location: "..value
-end
-
--- Dissect: Sender Location
-b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sender_location, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-b3_equities_binaryentrypoint_sbe_v8_1.side = {}
-
--- Size: Side
-b3_equities_binaryentrypoint_sbe_v8_1.side.size = 1
-
--- Display: Side
-b3_equities_binaryentrypoint_sbe_v8_1.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-b3_equities_binaryentrypoint_sbe_v8_1.side.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional = {}
-
--- Size: Trade Date Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size = 2
-
--- Display: Trade Date Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.display = function(value)
-  return "Trade Date Optional: "..value
-end
-
--- Dissect: Trade Date Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_date_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Status
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_status = {}
-
--- Size: Alloc Status
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.size = 1
-
--- Display: Alloc Status
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Alloc Status: No Value"
-  end
-
-  if value == "0" then
-    return "Alloc Status: Accepted (0)"
-  end
-  if value == "5" then
-    return "Alloc Status: Rejected By Intermediary (5)"
-  end
-
-  return "Alloc Status: Unknown("..value..")"
-end
-
--- Dissect: Alloc Status
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity
-b3_equities_binaryentrypoint_sbe_v8_1.quantity = {}
-
--- Size: Quantity
-b3_equities_binaryentrypoint_sbe_v8_1.quantity.size = 8
-
--- Display: Quantity
-b3_equities_binaryentrypoint_sbe_v8_1.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-b3_equities_binaryentrypoint_sbe_v8_1.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Rej Code
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code = {}
-
--- Size: Alloc Rej Code
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.size = 4
-
--- Display: Alloc Rej Code
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.display = function(value)
-  return "Alloc Rej Code: "..value
-end
-
--- Dissect: Alloc Rej Code
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_rej_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc No Orders Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type = {}
-
--- Size: Alloc No Orders Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size = 1
-
--- Display: Alloc No Orders Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Alloc No Orders Type: No Value"
-  end
-
-  if value == "0" then
-    return "Alloc No Orders Type: Not Specified (0)"
-  end
-
-  return "Alloc No Orders Type: Unknown("..value..")"
-end
-
--- Dissect: Alloc No Orders Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_no_orders_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Report Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type = {}
-
--- Size: Alloc Report Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.size = 1
-
--- Display: Alloc Report Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Alloc Report Type: No Value"
-  end
-
-  if value == "8" then
-    return "Alloc Report Type: Request To Intermediary (8)"
-  end
-
-  return "Alloc Report Type: Unknown("..value..")"
-end
-
--- Dissect: Alloc Report Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_report_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type = {}
-
--- Size: Alloc Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size = 1
-
--- Display: Alloc Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Alloc Trans Type: No Value"
-  end
-
-  if value == "0" then
-    return "Alloc Trans Type: New (0)"
-  end
-  if value == "2" then
-    return "Alloc Trans Type: Cancel (2)"
-  end
-
-  return "Alloc Trans Type: Unknown("..value..")"
-end
-
--- Dissect: Alloc Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_trans_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id = {}
-
--- Size: Alloc Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.size = 8
-
--- Display: Alloc Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.display = function(value)
-  return "Alloc Report Id: "..value
-end
-
--- Dissect: Alloc Report Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_id = {}
-
--- Size: Security Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_id.size = 8
-
--- Display: Security Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_id.display = function(value)
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_id = {}
-
--- Size: Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size = 8
-
--- Display: Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.display = function(value)
-  return "Alloc Id: "..value
-end
-
--- Dissect: Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Allocation Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message = {}
-
--- Size: Allocation Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.quantity.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.side.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
--- Display: Allocation Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Outbound Business Header: Struct of 5 fields
-  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Alloc Id: AllocID
-  index, alloc_id = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Report Id: AllocReportID
-  index, alloc_report_id = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Trans Type: AllocTransType
-  index, alloc_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc Report Type: AllocReportType
-  index, alloc_report_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc No Orders Type: AllocNoOrdersType
-  index, alloc_no_orders_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc Rej Code: RejReasonOptional
-  index, alloc_rej_code = b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Quantity
-  index, quantity = b3_equities_binaryentrypoint_sbe_v8_1.quantity.dissect(buffer, index, packet, parent)
-
-  -- Alloc Status: AllocStatus
-  index, alloc_status = b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.dissect(buffer, index, packet, parent)
-
-  -- Trade Date Optional: LocalMktDateOptional
-  index, trade_date_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Side: Side
-  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_report_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Memo Data
@@ -2379,4885 +3341,25 @@ b3_equities_binaryentrypoint_sbe_v8_1.memo_length.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Memo
-b3_equities_binaryentrypoint_sbe_v8_1.memo = {}
+-- Message Length
+b3_equities_binaryentrypoint_sbe_v8_1.message_length = {}
 
--- Calculate size of: Memo
-b3_equities_binaryentrypoint_sbe_v8_1.memo.size = function(buffer, offset)
-  local index = 0
+-- Size: Message Length
+b3_equities_binaryentrypoint_sbe_v8_1.message_length.size = 2
 
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo_length.size
-
-  local memo_length = buffer(offset + index - 1, 1):le_uint()
-
-  if memo_length > 0 then
-    -- Parse runtime size of: Memo Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
-
-  end
-
-  return index
+-- Display: Message Length
+b3_equities_binaryentrypoint_sbe_v8_1.message_length.display = function(value)
+  return "Message Length: "..value
 end
 
--- Display: Memo
-b3_equities_binaryentrypoint_sbe_v8_1.memo.display = function(packet, parent, value, length)
-  if value == nil then
-    return "No Value"
-  end
-
-  return value
-end
-
--- Dissect Fields: Memo
-b3_equities_binaryentrypoint_sbe_v8_1.memo.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Memo Length: uint8
-  index, memo_length = b3_equities_binaryentrypoint_sbe_v8_1.memo_length.dissect(buffer, index, packet, parent)
-
-  -- Runtime optional field: Memo Data
-  local memo_data = nil
-
-  local memo_data_exists = memo_length > 0
-
-  if memo_data_exists then
-
-    -- Runtime Size Of: Memo Data
-    index, memo_data = b3_equities_binaryentrypoint_sbe_v8_1.memo_data.dissect(buffer, index, packet, parent, memo_length)
-  end
-
-  -- Composite value
-  local memo = memo_data
-
-  return index, memo
-end
-
--- Dissect: Memo
-b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect = function(buffer, offset, packet, parent)
-  if show.memo then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.memo, buffer(offset, 0))
-    local index, value = b3_equities_binaryentrypoint_sbe_v8_1.memo.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.memo.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.memo.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Desk Id Data
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data = {}
-
--- Display: Desk Id Data
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.display = function(value)
-  return "Desk Id Data: "..value
-end
-
--- Dissect runtime sized field: Desk Id Data
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.display(value, packet, parent, size)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.desk_id_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Desk Id Length
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length = {}
-
--- Size: Desk Id Length
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.size = 1
-
--- Display: Desk Id Length
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.display = function(value)
-  return "Desk Id Length: "..value
-end
-
--- Dissect: Desk Id Length
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.size
+-- Dissect: Message Length
+b3_equities_binaryentrypoint_sbe_v8_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.message_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.message_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.desk_id_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Desk Id
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id = {}
-
--- Calculate size of: Desk Id
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.size
-
-  local desk_id_length = buffer(offset + index - 1, 1):le_uint()
-
-  if desk_id_length > 0 then
-    -- Parse runtime size of: Desk Id Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
-
-  end
-
-  return index
-end
-
--- Display: Desk Id
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id.display = function(packet, parent, value, length)
-  if value == nil then
-    return "No Value"
-  end
-
-  return value
-end
-
--- Dissect Fields: Desk Id
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Desk Id Length: uint8
-  index, desk_id_length = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.dissect(buffer, index, packet, parent)
-
-  -- Runtime optional field: Desk Id Data
-  local desk_id_data = nil
-
-  local desk_id_data_exists = desk_id_length > 0
-
-  if desk_id_data_exists then
-
-    -- Runtime Size Of: Desk Id Data
-    index, desk_id_data = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.dissect(buffer, index, packet, parent, desk_id_length)
-  end
-
-  -- Composite value
-  local desk_id = desk_id_data
-
-  return index, desk_id
-end
-
--- Dissect: Desk Id
-b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect = function(buffer, offset, packet, parent)
-  if show.desk_id then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.desk_id, buffer(offset, 0))
-    local index, value = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.desk_id.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Alloc Qty
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty = {}
-
--- Size: Alloc Qty
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.size = 8
-
--- Display: Alloc Qty
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.display = function(value)
-  return "Alloc Qty: "..value
-end
-
--- Dissect: Alloc Qty
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Account
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_account = {}
-
--- Size: Alloc Account
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.size = 4
-
--- Display: Alloc Account
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.display = function(value)
-  return "Alloc Account: "..value
-end
-
--- Dissect: Alloc Account
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Individual Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id = {}
-
--- Size: Individual Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.size = 8
-
--- Display: Individual Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.display = function(value)
-  return "Individual Alloc Id: "..value
-end
-
--- Dissect: Individual Alloc Id
-b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.individual_alloc_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id = {}
-
--- Size: Trade Id
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size = 4
-
--- Display: Trade Id
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_type = {}
-
--- Size: Alloc Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.size = 1
-
--- Display: Alloc Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Alloc Type: No Value"
-  end
-
-  if value == "8" then
-    return "Alloc Type: Request To Intermediary (8)"
-  end
-
-  return "Alloc Type: Unknown("..value..")"
-end
-
--- Dissect: Alloc Type
-b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.alloc_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Allocation Instruction Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message = {}
-
--- Calculate size of: Allocation Instruction Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quantity.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Allocation Instruction Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Instruction Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inbound Business Header: Struct of 5 fields
-  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Alloc Id: AllocID
-  index, alloc_id = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Trans Type: AllocTransType
-  index, alloc_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc Type: AllocType
-  index, alloc_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc No Orders Type: AllocNoOrdersType
-  index, alloc_no_orders_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Quantity
-  index, quantity = b3_equities_binaryentrypoint_sbe_v8_1.quantity.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Trade Id: TradeID
-  index, trade_id = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Date Optional: LocalMktDateOptional
-  index, trade_date_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.dissect(buffer, index, packet, parent)
-
-  -- Individual Alloc Id: AllocID
-  index, individual_alloc_id = b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Account: Account
-  index, alloc_account = b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.dissect(buffer, index, packet, parent)
-
-  -- Alloc Qty: Quantity
-  index, alloc_qty = b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Instruction Message
-b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_instruction_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Short Qty
-b3_equities_binaryentrypoint_sbe_v8_1.short_qty = {}
-
--- Size: Short Qty
-b3_equities_binaryentrypoint_sbe_v8_1.short_qty.size = 8
-
--- Display: Short Qty
-b3_equities_binaryentrypoint_sbe_v8_1.short_qty.display = function(value)
-  return "Short Qty: "..value
-end
-
--- Dissect: Short Qty
-b3_equities_binaryentrypoint_sbe_v8_1.short_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.short_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.short_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.short_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Long Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional = {}
-
--- Size: Long Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.size = 8
-
--- Display: Long Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.display = function(value)
-  return "Long Qty Optional: "..value
-end
-
--- Dissect: Long Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.long_qty_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_type = {}
-
--- Size: Pos Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_type.size = 1
-
--- Display: Pos Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Pos Type: No Value"
-  end
-
-  if value == "T" then
-    return "Pos Type: Transaction Quantity (T)"
-  end
-  if value == "S" then
-    return "Pos Type: Start Of Day Qty (S)"
-  end
-  if value == "E" then
-    return "Pos Type: Option Exercise Qty (E)"
-  end
-  if value == "B" then
-    return "Pos Type: Blocked Qty (B)"
-  end
-  if value == "U" then
-    return "Pos Type: Uncovered Qty (U)"
-  end
-  if value == "C" then
-    return "Pos Type: Covered Qty (C)"
-  end
-
-  return "Pos Type: Unknown("..value..")"
-end
-
--- Dissect: Pos Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Positions Group
-b3_equities_binaryentrypoint_sbe_v8_1.positions_group = {}
-
--- Size: Positions Group
-b3_equities_binaryentrypoint_sbe_v8_1.positions_group.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.pos_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.short_qty.size
-
--- Display: Positions Group
-b3_equities_binaryentrypoint_sbe_v8_1.positions_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Positions Group
-b3_equities_binaryentrypoint_sbe_v8_1.positions_group.fields = function(buffer, offset, packet, parent, positions_group_index)
-  local index = offset
-
-  -- Implicit Positions Group Index
-  if positions_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.positions_group_index, positions_group_index)
-    iteration:set_generated()
-  end
-
-  -- Pos Type: PosType
-  index, pos_type = b3_equities_binaryentrypoint_sbe_v8_1.pos_type.dissect(buffer, index, packet, parent)
-
-  -- Long Qty Optional: QuantityOptional
-  index, long_qty_optional = b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.dissect(buffer, index, packet, parent)
-
-  -- Short Qty: QuantityOptional
-  index, short_qty = b3_equities_binaryentrypoint_sbe_v8_1.short_qty.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Positions Group
-b3_equities_binaryentrypoint_sbe_v8_1.positions_group.dissect = function(buffer, offset, packet, parent, positions_group_index)
-  if show.positions_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.positions_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.positions_group.fields(buffer, offset, packet, parent, positions_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.positions_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.positions_group.fields(buffer, offset, packet, parent, positions_group_index)
-  end
-end
-
--- Num In Group
-b3_equities_binaryentrypoint_sbe_v8_1.num_in_group = {}
-
--- Size: Num In Group
-b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.size = 1
-
--- Display: Num In Group
-b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-b3_equities_binaryentrypoint_sbe_v8_1.block_length = {}
-
--- Size: Block Length
-b3_equities_binaryentrypoint_sbe_v8_1.block_length.size = 2
-
--- Display: Block Length
-b3_equities_binaryentrypoint_sbe_v8_1.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-b3_equities_binaryentrypoint_sbe_v8_1.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Group Size Encoding
-b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding = {}
-
--- Size: Group Size Encoding
-b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.block_length.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.size
-
--- Display: Group Size Encoding
-b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Group Size Encoding
-b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: uint16
-  index, block_length = b3_equities_binaryentrypoint_sbe_v8_1.block_length.dissect(buffer, index, packet, parent)
-
-  -- Num In Group: uint8
-  index, num_in_group = b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Group Size Encoding
-b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.group_size_encoding then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.group_size_encoding, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_1.positions_groups = {}
-
--- Calculate size of: Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size
-
-  -- Calculate field size from count
-  local positions_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + positions_group_count * 17
-
-  return index
-end
-
--- Display: Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Positions Group
-  for positions_group_index = 1, num_in_group do
-    index, positions_group = b3_equities_binaryentrypoint_sbe_v8_1.positions_group.dissect(buffer, index, packet, parent, positions_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Positions Groups
-b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.dissect = function(buffer, offset, packet, parent)
-  if show.positions_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.positions_groups, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Contrary Instruction Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator = {}
-
--- Size: Contrary Instruction Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size = 1
-
--- Display: Contrary Instruction Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.display = function(value)
-  if value == 0 then
-    return "Contrary Instruction Indicator: False Value (0)"
-  end
-  if value == 1 then
-    return "Contrary Instruction Indicator: True Value (1)"
-  end
-
-  return "Contrary Instruction Indicator: Unknown("..value..")"
-end
-
--- Dissect: Contrary Instruction Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.contrary_instruction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Maint Result
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result = {}
-
--- Size: Pos Maint Result
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.size = 4
-
--- Display: Pos Maint Result
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.display = function(value)
-  return "Pos Maint Result: "..value
-end
-
--- Dissect: Pos Maint Result
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_result, range, value, display)
-
-  return offset + length, value
-end
-
--- Account
-b3_equities_binaryentrypoint_sbe_v8_1.account = {}
-
--- Size: Account
-b3_equities_binaryentrypoint_sbe_v8_1.account.size = 4
-
--- Display: Account
-b3_equities_binaryentrypoint_sbe_v8_1.account.display = function(value)
-  return "Account: "..value
-end
-
--- Dissect: Account
-b3_equities_binaryentrypoint_sbe_v8_1.account.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.account.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.account, range, value, display)
-
-  return offset + length, value
-end
-
--- Threshold Amount
-b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount = {}
-
--- Size: Threshold Amount
-b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size = 8
-
--- Display: Threshold Amount
-b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Threshold Amount: No Value"
-  end
-
-  return "Threshold Amount: "..value
-end
-
--- Translate: Threshold Amount
-b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Threshold Amount
-b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.threshold_amount, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Business Date
-b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date = {}
-
--- Size: Clearing Business Date
-b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size = 2
-
--- Display: Clearing Business Date
-b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.display = function(value)
-  return "Clearing Business Date: "..value
-end
-
--- Dissect: Clearing Business Date
-b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.clearing_business_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Account Type
-b3_equities_binaryentrypoint_sbe_v8_1.account_type = {}
-
--- Size: Account Type
-b3_equities_binaryentrypoint_sbe_v8_1.account_type.size = 1
-
--- Display: Account Type
-b3_equities_binaryentrypoint_sbe_v8_1.account_type.display = function(value)
-  if value == 38 then
-    return "Account Type: Remove Account Information (38)"
-  end
-  if value == 39 then
-    return "Account Type: Regular Account (39)"
-  end
-  if value == 0 then
-    return "Account Type: No Value"
-  end
-
-  return "Account Type: Unknown("..value..")"
-end
-
--- Dissect: Account Type
-b3_equities_binaryentrypoint_sbe_v8_1.account_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.account_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.account_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.account_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Pos Req Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id = {}
-
--- Size: Orig Pos Req Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size = 8
-
--- Display: Orig Pos Req Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.display = function(value)
-  return "Orig Pos Req Ref Id: "..value
-end
-
--- Dissect: Orig Pos Req Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.orig_pos_req_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional = {}
-
--- Size: Trade Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size = 4
-
--- Display: Trade Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.display = function(value)
-  return "Trade Id Optional: "..value
-end
-
--- Dissect: Trade Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Maint Status
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status = {}
-
--- Size: Pos Maint Status
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.size = 1
-
--- Display: Pos Maint Status
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Pos Maint Status: No Value"
-  end
-
-  if value == "0" then
-    return "Pos Maint Status: Accepted (0)"
-  end
-  if value == "2" then
-    return "Pos Maint Status: Rejected (2)"
-  end
-  if value == "3" then
-    return "Pos Maint Status: Completed (3)"
-  end
-  if value == "9" then
-    return "Pos Maint Status: Not Executed (9)"
-  end
-
-  return "Pos Maint Status: Unknown("..value..")"
-end
-
--- Dissect: Pos Maint Status
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Maint Action
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action = {}
-
--- Size: Pos Maint Action
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.size = 1
-
--- Display: Pos Maint Action
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Pos Maint Action: No Value"
-  end
-
-  if value == "1" then
-    return "Pos Maint Action: New (1)"
-  end
-  if value == "3" then
-    return "Pos Maint Action: Cancel (3)"
-  end
-
-  return "Pos Maint Action: Unknown("..value..")"
-end
-
--- Dissect: Pos Maint Action
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type = {}
-
--- Size: Pos Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size = 1
-
--- Display: Pos Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.display = function(value)
-  if value == 1 then
-    return "Pos Trans Type: Exercise (1)"
-  end
-  if value == 105 then
-    return "Pos Trans Type: Automatic Exercise (105)"
-  end
-  if value == 106 then
-    return "Pos Trans Type: Exercise Not Automatic (106)"
-  end
-
-  return "Pos Trans Type: Unknown("..value..")"
-end
-
--- Dissect: Pos Trans Type
-b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_trans_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Maint Rpt Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id = {}
-
--- Size: Pos Maint Rpt Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.size = 8
-
--- Display: Pos Maint Rpt Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.display = function(value)
-  return "Pos Maint Rpt Id: "..value
-end
-
--- Dissect: Pos Maint Rpt Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_rpt_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional = {}
-
--- Size: Pos Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.size = 8
-
--- Display: Pos Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.display = function(value)
-  return "Pos Req Id Optional: "..value
-end
-
--- Dissect: Pos Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Position Maintenance Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message = {}
-
--- Calculate size of: Position Maintenance Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Position Maintenance Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Position Maintenance Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Outbound Business Header: Struct of 5 fields
-  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Pos Req Id Optional: PosReqIDOptional
-  index, pos_req_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Pos Maint Rpt Id: PosMaintRptID
-  index, pos_maint_rpt_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.dissect(buffer, index, packet, parent)
-
-  -- Pos Trans Type: PosTransType
-  index, pos_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Pos Maint Action: PosMaintAction
-  index, pos_maint_action = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.dissect(buffer, index, packet, parent)
-
-  -- Pos Maint Status: PosMaintStatus
-  index, pos_maint_status = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.dissect(buffer, index, packet, parent)
-
-  -- Trade Id Optional: TradeIDOptional
-  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Orig Pos Req Ref Id: PosReqIDOptional
-  index, orig_pos_req_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Account Type: AccountType
-  index, account_type = b3_equities_binaryentrypoint_sbe_v8_1.account_type.dissect(buffer, index, packet, parent)
-
-  -- Clearing Business Date: LocalMktDate
-  index, clearing_business_date = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.dissect(buffer, index, packet, parent)
-
-  -- Threshold Amount: PriceOffsetOptional
-  index, threshold_amount = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Pos Maint Result: RejReasonOptional
-  index, pos_maint_result = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.dissect(buffer, index, packet, parent)
-
-  -- Contrary Instruction Indicator: Boolean
-  index, contrary_instruction_indicator = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect(buffer, index, packet, parent)
-
-  -- Positions Groups: Struct of 2 fields
-  index, positions_groups = b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  -- Text: Struct of 2 fields
-  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Position Maintenance Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.position_maintenance_report_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_report_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Long Qty
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty = {}
-
--- Size: Long Qty
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty.size = 8
-
--- Display: Long Qty
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty.display = function(value)
-  return "Long Qty: "..value
-end
-
--- Dissect: Long Qty
-b3_equities_binaryentrypoint_sbe_v8_1.long_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.long_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.long_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.long_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Pos Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id = {}
-
--- Size: Pos Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size = 8
-
--- Display: Pos Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.display = function(value)
-  return "Pos Req Id: "..value
-end
-
--- Dissect: Pos Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Position Maintenance Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message = {}
-
--- Calculate size of: Position Maintenance Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.long_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Position Maintenance Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Position Maintenance Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inbound Business Header: Struct of 5 fields
-  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Pos Req Id: PosReqID
-  index, pos_req_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Threshold Amount: PriceOffsetOptional
-  index, threshold_amount = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Pos Trans Type: PosTransType
-  index, pos_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Clearing Business Date: LocalMktDate
-  index, clearing_business_date = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.dissect(buffer, index, packet, parent)
-
-  -- Contrary Instruction Indicator: Boolean
-  index, contrary_instruction_indicator = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Long Qty: Quantity
-  index, long_qty = b3_equities_binaryentrypoint_sbe_v8_1.long_qty.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Position Maintenance Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.position_maintenance_request_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Pos Maint Rpt Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id = {}
-
--- Size: Pos Maint Rpt Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.size = 8
-
--- Display: Pos Maint Rpt Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.display = function(value)
-  return "Pos Maint Rpt Ref Id: "..value
-end
-
--- Dissect: Pos Maint Rpt Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_rpt_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Position Maintenance Cancel Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message = {}
-
--- Size: Position Maintenance Cancel Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
--- Display: Position Maintenance Cancel Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Position Maintenance Cancel Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inbound Business Header: Struct of 5 fields
-  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Pos Req Id: PosReqID
-  index, pos_req_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Orig Pos Req Ref Id: PosReqIDOptional
-  index, orig_pos_req_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Pos Maint Rpt Ref Id: PosMaintRptIDOptional
-  index, pos_maint_rpt_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Position Maintenance Cancel Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.position_maintenance_cancel_request_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_cancel_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sides Group
-b3_equities_binaryentrypoint_sbe_v8_1.sides_group = {}
-
--- Size: Sides Group
-b3_equities_binaryentrypoint_sbe_v8_1.sides_group.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.side.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
--- Display: Sides Group
-b3_equities_binaryentrypoint_sbe_v8_1.sides_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sides Group
-b3_equities_binaryentrypoint_sbe_v8_1.sides_group.fields = function(buffer, offset, packet, parent, sides_group_index)
-  local index = offset
-
-  -- Implicit Sides Group Index
-  if sides_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_group_index, sides_group_index)
-    iteration:set_generated()
-  end
-
-  -- Side: Side
-  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sides Group
-b3_equities_binaryentrypoint_sbe_v8_1.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
-  if show.sides_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.sides_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
-  end
-end
-
--- Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_1.sides_groups = {}
-
--- Calculate size of: Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size
-
-  -- Calculate field size from count
-  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + sides_group_count * 5
-
-  return index
-end
-
--- Display: Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Sides Group
-  for sides_group_index = 1, num_in_group do
-    index, sides_group = b3_equities_binaryentrypoint_sbe_v8_1.sides_group.dissect(buffer, index, packet, parent, sides_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Sides Groups
-b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.dissect = function(buffer, offset, packet, parent)
-  if show.sides_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_groups, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Days To Settlement Optional
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional = {}
-
--- Size: Days To Settlement Optional
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size = 2
-
--- Display: Days To Settlement Optional
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.display = function(value)
-  return "Days To Settlement Optional: "..value
-end
-
--- Dissect: Days To Settlement Optional
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.days_to_settlement_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Fixed Rate Percentage 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional = {}
-
--- Size: Fixed Rate Percentage 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size = 8
-
--- Display: Fixed Rate Percentage 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Fixed Rate Percentage 8 Optional: No Value"
-  end
-
-  return "Fixed Rate Percentage 8 Optional: "..value
-end
-
--- Translate: Fixed Rate Percentage 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Fixed Rate Percentage 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.fixed_rate_percentage_8_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Executing Trader
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader = {}
-
--- Size: Executing Trader
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size = 5
-
--- Display: Executing Trader
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Executing Trader: No Value"
-  end
-
-  return "Executing Trader: "..value
-end
-
--- Dissect: Executing Trader
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional = {}
-
--- Size: Order Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.size = 8
-
--- Display: Order Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.display = function(value)
-  return "Order Qty Optional: "..value
-end
-
--- Dissect: Order Qty Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_qty_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional = {}
-
--- Size: Price 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size = 8
-
--- Display: Price 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Price 8 Optional: No Value"
-  end
-
-  return "Price 8 Optional: "..value
-end
-
--- Translate: Price 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price 8 Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price_8_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- SettlType Optional
-b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional = {}
-
--- Size: SettlType Optional
-b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size = 1
-
--- Display: SettlType Optional
-b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "SettlType Optional: No Value"
-  end
-
-  if value == "0" then
-    return "SettlType Optional: Buyers Discretion (0)"
-  end
-  if value == "8" then
-    return "SettlType Optional: Sellers Discretion (8)"
-  end
-  if value == "X" then
-    return "SettlType Optional: Mutual (X)"
-  end
-  if value == 0 then
-    return "SettlType Optional: No Value"
-  end
-
-  return "SettlType Optional: Unknown("..value..")"
-end
-
--- Dissect: SettlType Optional
-b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.settltype_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Broker
-b3_equities_binaryentrypoint_sbe_v8_1.contra_broker = {}
-
--- Size: Contra Broker
-b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size = 4
-
--- Display: Contra Broker
-b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.display = function(value)
-  return "Contra Broker: "..value
-end
-
--- Dissect: Contra Broker
-b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.contra_broker, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional = {}
-
--- Size: Quote Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size = 8
-
--- Display: Quote Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.display = function(value)
-  return "Quote Id Optional: "..value
-end
-
--- Dissect: Quote Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id = {}
-
--- Size: Quote Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size = 8
-
--- Display: Quote Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.display = function(value)
-  return "Quote Req Id: "..value
-end
-
--- Dissect: Quote Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Request Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason = {}
-
--- Size: Quote Request Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.size = 4
-
--- Display: Quote Request Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.display = function(value)
-  return "Quote Request Reject Reason: "..value
-end
-
--- Dissect: Quote Request Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional = {}
-
--- Size: Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size = 1
-
--- Display: Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.display = function(value)
-  return "Market Segment Id Optional: "..value
-end
-
--- Dissect: Market Segment Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Bidirectional Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header = {}
-
--- Size: Bidirectional Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.session_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.padding.size
-
--- Display: Bidirectional Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Bidirectional Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
-  index, session_id = b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect(buffer, index, packet, parent)
-
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
-  index, poss_resend = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.dissect(buffer, index, packet, parent)
-
-  -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer
-  index, market_segment_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Padding: char
-  index, padding = b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Bidirectional Business Header
-b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect = function(buffer, offset, packet, parent)
-  if show.bidirectional_business_header then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.bidirectional_business_header, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Request Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message = {}
-
--- Calculate size of: Quote Request Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Quote Request Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Request Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bidirectional Business Header: Struct of 6 fields
-  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
-
-  -- Quote Request Reject Reason: RejReasonOptional
-  index, quote_request_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id: QuoteReqID
-  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Id Optional: QuoteIDOptional
-  index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Trade Id Optional: TradeIDOptional
-  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Contra Broker: Firm
-  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
-
-  -- Price 8 Optional: Price8Optional
-  index, price_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Optional: QuantityOptional
-  index, order_qty_optional = b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: Trader
-  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
-  index, fixed_rate_percentage_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
-
-  -- Days To Settlement Optional: DaysToSettlementOptional
-  index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect(buffer, index, packet, parent)
-
-  -- Sides Groups: Struct of 2 fields
-  index, sides_groups = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  -- Text: Struct of 2 fields
-  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Request Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request_reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_reject_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional = {}
-
--- Size: Quote Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.size = 8
-
--- Display: Quote Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.display = function(value)
-  return "Quote Req Id Optional: "..value
-end
-
--- Dissect: Quote Req Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Cancel Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message = {}
-
--- Calculate size of: Quote Cancel Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Quote Cancel Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Cancel Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bidirectional Business Header: Struct of 6 fields
-  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id Optional: QuoteReqIDOptional
-  index, quote_req_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Quote Id Optional: QuoteIDOptional
-  index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: Trader
-  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Cancel Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_cancel_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_cancel_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Days To Settlement
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement = {}
-
--- Size: Days To Settlement
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size = 2
-
--- Display: Days To Settlement
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.display = function(value)
-  return "Days To Settlement: "..value
-end
-
--- Dissect: Days To Settlement
-b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.days_to_settlement, range, value, display)
-
-  return offset + length, value
-end
-
--- Execute Underlying Trade
-b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade = {}
-
--- Size: Execute Underlying Trade
-b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size = 1
-
--- Display: Execute Underlying Trade
-b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Execute Underlying Trade: No Value"
-  end
-
-  if value == "0" then
-    return "Execute Underlying Trade: No Underlying Trade (0)"
-  end
-  if value == "1" then
-    return "Execute Underlying Trade: Underlying Opposing Trade (1)"
-  end
-  if value == 0 then
-    return "Execute Underlying Trade: No Value"
-  end
-
-  return "Execute Underlying Trade: Unknown("..value..")"
-end
-
--- Dissect: Execute Underlying Trade
-b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execute_underlying_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Fixed Rate Percentage 8
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8 = {}
-
--- Size: Fixed Rate Percentage 8
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size = 8
-
--- Display: Fixed Rate Percentage 8
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.display = function(value)
-  return "Fixed Rate Percentage 8: "..value
-end
-
--- Translate: Fixed Rate Percentage 8
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Fixed Rate Percentage 8
-b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.fixed_rate_percentage_8, range, value, display)
-
-  return offset + length, value
-end
-
--- SettlType
-b3_equities_binaryentrypoint_sbe_v8_1.settltype = {}
-
--- Size: SettlType
-b3_equities_binaryentrypoint_sbe_v8_1.settltype.size = 1
-
--- Display: SettlType
-b3_equities_binaryentrypoint_sbe_v8_1.settltype.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "SettlType: No Value"
-  end
-
-  if value == "0" then
-    return "SettlType: Buyers Discretion (0)"
-  end
-  if value == "8" then
-    return "SettlType: Sellers Discretion (8)"
-  end
-  if value == "X" then
-    return "SettlType: Mutual (X)"
-  end
-
-  return "SettlType: Unknown("..value..")"
-end
-
--- Dissect: SettlType
-b3_equities_binaryentrypoint_sbe_v8_1.settltype.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.settltype.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.settltype.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.settltype, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty = {}
-
--- Size: Order Qty
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size = 8
-
--- Display: Order Qty
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty.display = function(value)
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id = {}
-
--- Size: Quote Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size = 8
-
--- Display: Quote Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id.display = function(value)
-  return "Quote Id: "..value
-end
-
--- Dissect: Quote Id
-b3_equities_binaryentrypoint_sbe_v8_1.quote_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_message = {}
-
--- Calculate size of: Quote Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Quote Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bidirectional Business Header: Struct of 6 fields
-  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id: QuoteReqID
-  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Id: QuoteID
-  index, quote_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Price 8 Optional: Price8Optional
-  index, price_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: Quantity
-  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Side: Side
-  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
-
-  -- SettlType: SettlType
-  index, settltype = b3_equities_binaryentrypoint_sbe_v8_1.settltype.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: Trader
-  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Fixed Rate Percentage 8: Percentage8
-  index, fixed_rate_percentage_8 = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.dissect(buffer, index, packet, parent)
-
-  -- Execute Underlying Trade: ExecuteUnderlyingTrade
-  index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
-
-  -- Days To Settlement: DaysToSettlement
-  index, days_to_settlement = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Quote Status Response To
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to = {}
-
--- Size: Quote Status Response To
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.size = 1
-
--- Display: Quote Status Response To
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Quote Status Response To: No Value"
-  end
-
-  if value == "0" then
-    return "Quote Status Response To: Quote (0)"
-  end
-  if value == "1" then
-    return "Quote Status Response To: Quote Request (1)"
-  end
-  if value == "2" then
-    return "Quote Status Response To: Quote Cancel (2)"
-  end
-  if value == "3" then
-    return "Quote Status Response To: Quote Request Reject (3)"
-  end
-  if value == 0 then
-    return "Quote Status Response To: No Value"
-  end
-
-  return "Quote Status Response To: Unknown("..value..")"
-end
-
--- Dissect: Quote Status Response To
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status_response_to, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Status
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status = {}
-
--- Size: Quote Status
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status.size = 1
-
--- Display: Quote Status
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status.display = function(value)
-  if value == 7 then
-    return "Quote Status: Expired (7)"
-  end
-  if value == 0 then
-    return "Quote Status: Accepted (0)"
-  end
-  if value == 5 then
-    return "Quote Status: Rejected (5)"
-  end
-  if value == 9 then
-    return "Quote Status: Quote Not Found (9)"
-  end
-  if value == 10 then
-    return "Quote Status: Pending (10)"
-  end
-  if value == 11 then
-    return "Quote Status: Pass (11)"
-  end
-  if value == 17 then
-    return "Quote Status: Canceled (17)"
-  end
-
-  return "Quote Status: Unknown("..value..")"
-end
-
--- Dissect: Quote Status
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason = {}
-
--- Size: Quote Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.size = 4
-
--- Display: Quote Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.display = function(value)
-  if value == 009999 then
-    return "Quote Reject Reason: Technical Error: Function not performed  (009999)"
-  end
-  if value == 008006 then
-    return "Quote Reject Reason: Exercise price not allowed  (008006)"
-  end
-  if value == 008007 then
-    return "Quote Reject Reason: No positions blocked  (008007)"
-  end
-  if value == 008008 then
-    return "Quote Reject Reason: Quantity doesn't match with the original request [Quantity on original request: <quantity on original request>]  (008008)"
-  end
-  if value == 008011 then
-    return "Quote Reject Reason: Exercise must be on maturity date.  (008011)"
-  end
-  if value == 008014 then
-    return "Quote Reject Reason: Function not available this time  (008014)"
-  end
-  if value == 008015 then
-    return "Quote Reject Reason: Blocking quantity more than 999999999  (008015)"
-  end
-  if value == 008020 then
-    return "Quote Reject Reason: Trade does not belong to the specified firm ‘Firm Id: <XXX>’  (008020)"
-  end
-  if value == 008021 then
-    return "Quote Reject Reason: Blocking qty more than available quantity  (008021)"
-  end
-  if value == 008022 then
-    return "Quote Reject Reason: There aren't positions available to exercise  (008022)"
-  end
-  if value == 008023 then
-    return "Quote Reject Reason: Total qty must be the sum of all AllocQty  (008023)"
-  end
-  if value == 008024 then
-    return "Quote Reject Reason: Trade already cancelled or does not exist ‘Trade Id: <XXX>’  (008024)"
-  end
-  if value == 008027 then
-    return "Quote Reject Reason: Available quantity to block is zero  (008027)"
-  end
-  if value == 008028 then
-    return "Quote Reject Reason: Invalid Operation for contract type.  (008028)"
-  end
-  if value == 008036 then
-    return "Quote Reject Reason: Function closed or suspended.  (008036)"
-  end
-  if value == 008039 then
-    return "Quote Reject Reason: Exercise price outside required moneyness.  (008039)"
-  end
-  if value == 008040 then
-    return "Quote Reject Reason: Invalid exercise request id to cancel  (008040)"
-  end
-  if value == 008059 then
-    return "Quote Reject Reason: Invalid blocking Id to unblock  (008059)"
-  end
-  if value == 008062 then
-    return "Quote Reject Reason: Invalid quantity to unblock  (008062)"
-  end
-  if value == 008063 then
-    return "Quote Reject Reason: On Behalf Operation not allowed during CCR recovery  (008063)"
-  end
-  if value == 008065 then
-    return "Quote Reject Reason: Problem parsing incoming message  (008065)"
-  end
-  if value == 008066 then
-    return "Quote Reject Reason: Exercise quantity should be greater than zero  (008066)"
-  end
-  if value == 008069 then
-    return "Quote Reject Reason: Contrary Exercise already registered for this position  (008069)"
-  end
-  if value == 008070 then
-    return "Quote Reject Reason: In-the-money contract allows Contrary Exercise to not exercise automatically only  (008070)"
-  end
-  if value == 008071 then
-    return "Quote Reject Reason: At/Out-the-money contract allows Contrary Exercise to exercise automatically only  (008071)"
-  end
-  if value == 008072 then
-    return "Quote Reject Reason: DMA is not allowed to request Contrary Exercise  (008072)"
-  end
-  if value == 008073 then
-    return "Quote Reject Reason: Contrary Exercises can only be requested by default link or position owner with direct access on absence of default link  (008073)"
-  end
-  if value == 008074 then
-    return "Quote Reject Reason: Contrary Exercise invalid operation. (008074)"
-  end
-  if value == 008075 then
-    return "Quote Reject Reason: Threshold must not be informed  (008075)"
-  end
-
-  return "Quote Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Quote Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Status Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message = {}
-
--- Calculate size of: Quote Status Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_status.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Quote Status Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Status Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bidirectional Business Header: Struct of 6 fields
-  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
-
-  -- Quote Reject Reason: RejReasonOptional
-  index, quote_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id: QuoteReqID
-  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Id: QuoteID
-  index, quote_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Id Optional: TradeIDOptional
-  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Contra Broker: Firm
-  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Quote Status: QuoteStatus
-  index, quote_status = b3_equities_binaryentrypoint_sbe_v8_1.quote_status.dissect(buffer, index, packet, parent)
-
-  -- Quote Status Response To: QuoteStatusResponseTo
-  index, quote_status_response_to = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: Side
-  index, side_optional = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
-
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
-
-  -- Price 8 Optional: Price8Optional
-  index, price_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: Quantity
-  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: Trader
-  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
-  index, fixed_rate_percentage_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
-
-  -- Execute Underlying Trade: ExecuteUnderlyingTrade
-  index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
-
-  -- Days To Settlement Optional: DaysToSettlementOptional
-  index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  -- Text: Struct of 2 fields
-  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Status Report Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_status_report_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status_report_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Price 8
-b3_equities_binaryentrypoint_sbe_v8_1.price_8 = {}
-
--- Size: Price 8
-b3_equities_binaryentrypoint_sbe_v8_1.price_8.size = 8
-
--- Display: Price 8
-b3_equities_binaryentrypoint_sbe_v8_1.price_8.display = function(value)
-  return "Price 8: "..value
-end
-
--- Translate: Price 8
-b3_equities_binaryentrypoint_sbe_v8_1.price_8.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price 8
-b3_equities_binaryentrypoint_sbe_v8_1.price_8.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.price_8.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message = {}
-
--- Calculate size of: Quote Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Quote Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Bidirectional Business Header: Struct of 6 fields
-  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Req Id: QuoteReqID
-  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Id Optional: QuoteIDOptional
-  index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Trade Id Optional: TradeIDOptional
-  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Contra Broker: Firm
-  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Price 8: Price8
-  index, price_8 = b3_equities_binaryentrypoint_sbe_v8_1.price_8.dissect(buffer, index, packet, parent)
-
-  -- SettlType: SettlType
-  index, settltype = b3_equities_binaryentrypoint_sbe_v8_1.settltype.dissect(buffer, index, packet, parent)
-
-  -- Execute Underlying Trade: ExecuteUnderlyingTrade
-  index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: Quantity
-  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Executing Trader: Trader
-  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Fixed Rate Percentage 8: Percentage8
-  index, fixed_rate_percentage_8 = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.dissect(buffer, index, packet, parent)
-
-  -- Days To Settlement: DaysToSettlement
-  index, days_to_settlement = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.dissect(buffer, index, packet, parent)
-
-  -- Sides Groups: Struct of 2 fields
-  index, sides_groups = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_request_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Response Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_id = {}
-
--- Size: Security Response Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.size = 8
-
--- Display: Security Response Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.display = function(value)
-  return "Security Response Id: "..value
-end
-
--- Dissect: Security Response Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_response_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.symbol = {}
-
--- Size: Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.symbol.size = 20
-
--- Display: Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Strategy Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type = {}
-
--- Size: Security Strategy Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.size = 3
-
--- Display: Security Strategy Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Strategy Type: No Value"
-  end
-
-  return "Security Strategy Type: "..value
-end
-
--- Dissect: Security Strategy Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_strategy_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Response Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_type = {}
-
--- Size: Security Response Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.size = 1
-
--- Display: Security Response Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.display = function(value)
-  if value == 1 then
-    return "Security Response Type: Accept Security Proposal As Is (1)"
-  end
-  if value == 5 then
-    return "Security Response Type: Reject Security Proposal (5)"
-  end
-  if value == 2 then
-    return "Security Response Type: Accept Security As Proposal With Revisions (2)"
-  end
-
-  return "Security Response Type: Unknown("..value..")"
-end
-
--- Dissect: Security Response Type
-b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_response_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_req_id = {}
-
--- Size: Security Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size = 8
-
--- Display: Security Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.display = function(value)
-  return "Security Req Id: "..value
-end
-
--- Dissect: Security Req Id
-b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 18 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2 = {}
-
--- Size: Offset 18 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.size = 2
-
--- Display: Offset 18 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.display = function(value)
-  return "Offset 18 Padding 2: "..value
-end
-
--- Dissect: Offset 18 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_18_padding_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Definition Response Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message = {}
-
--- Size: Security Definition Response Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.symbol.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
--- Display: Security Definition Response Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Definition Response Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Outbound Business Header: Struct of 5 fields
-  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Offset 18 Padding 2: 2 Byte
-  index, offset_18_padding_2 = b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.dissect(buffer, index, packet, parent)
-
-  -- Security Req Id: SecurityReqRespID
-  index, security_req_id = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id Optional: SecurityIDOptional
-  index, security_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Security Response Type: SecurityResponseType
-  index, security_response_type = b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.dissect(buffer, index, packet, parent)
-
-  -- Security Strategy Type: SecurityStrategyType
-  index, security_strategy_type = b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.dissect(buffer, index, packet, parent)
-
-  -- Symbol: Symbol
-  index, symbol = b3_equities_binaryentrypoint_sbe_v8_1.symbol.dissect(buffer, index, packet, parent)
-
-  -- Security Response Id: SecurityReqRespID
-  index, security_response_id = b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security Definition Response Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_response_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_response_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.padding_1 = {}
-
--- Size: Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.padding_1.size = 1
-
--- Display: Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.padding_1.display = function(value)
-  return "Padding 1: "..value
-end
-
--- Dissect: Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-b3_equities_binaryentrypoint_sbe_v8_1.leg_side = {}
-
--- Size: Leg Side
-b3_equities_binaryentrypoint_sbe_v8_1.leg_side.size = 1
-
--- Display: Leg Side
-b3_equities_binaryentrypoint_sbe_v8_1.leg_side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Leg Side: No Value"
-  end
-
-  if value == "1" then
-    return "Leg Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Leg Side: Sell (2)"
-  end
-  if value == 0 then
-    return "Leg Side: No Value"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-b3_equities_binaryentrypoint_sbe_v8_1.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.leg_side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty = {}
-
--- Size: Leg Ratio Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.size = 8
-
--- Display: Leg Ratio Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.display = function(value)
-  return "Leg Ratio Qty: "..value
-end
-
--- Translate: Leg Ratio Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Leg Ratio Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol = {}
-
--- Size: Leg Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.size = 20
-
--- Display: Leg Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Symbol: No Value"
-  end
-
-  return "Leg Symbol: "..value
-end
-
--- Dissect: Leg Symbol
-b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leg_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Legs Group
-b3_equities_binaryentrypoint_sbe_v8_1.legs_group = {}
-
--- Size: Legs Group
-b3_equities_binaryentrypoint_sbe_v8_1.legs_group.size =
-  b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.leg_side.size + 
-  b3_equities_binaryentrypoint_sbe_v8_1.padding_1.size
-
--- Display: Legs Group
-b3_equities_binaryentrypoint_sbe_v8_1.legs_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Legs Group
-b3_equities_binaryentrypoint_sbe_v8_1.legs_group.fields = function(buffer, offset, packet, parent, legs_group_index)
-  local index = offset
-
-  -- Implicit Legs Group Index
-  if legs_group_index ~= nil then
-    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.legs_group_index, legs_group_index)
-    iteration:set_generated()
-  end
-
-  -- Leg Symbol: Symbol
-  index, leg_symbol = b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: RatioQty
-  index, leg_ratio_qty = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: Side
-  index, leg_side = b3_equities_binaryentrypoint_sbe_v8_1.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Padding 1: 1 Byte
-  index, padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.padding_1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Legs Group
-b3_equities_binaryentrypoint_sbe_v8_1.legs_group.dissect = function(buffer, offset, packet, parent, legs_group_index)
-  if show.legs_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.legs_group, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.legs_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
-  end
-end
-
--- Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_1.legs_groups = {}
-
--- Calculate size of: Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size
-
-  -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + legs_group_count * 30
-
-  return index
-end
-
--- Display: Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
-  -- Repeating: Legs Group
-  for legs_group_index = 1, num_in_group do
-    index, legs_group = b3_equities_binaryentrypoint_sbe_v8_1.legs_group.dissect(buffer, index, packet, parent, legs_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Legs Groups
-b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.dissect = function(buffer, offset, packet, parent)
-  if show.legs_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.legs_groups, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Definition Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message = {}
-
--- Calculate size of: Security Definition Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Security Definition Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Security Definition Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inbound Business Header: Struct of 5 fields
-  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Security Req Id: SecurityReqRespID
-  index, security_req_id = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.dissect(buffer, index, packet, parent)
-
-  -- Sender Location: SenderLocation
-  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
-
-  -- Entering Trader: Trader
-  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
-
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Security Definition Request Message
-b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.security_definition_request_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_request_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Business Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason = {}
-
--- Size: Business Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.size = 4
-
--- Display: Business Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.display = function(value)
-  return "Business Reject Reason: "..value
-end
-
--- Dissect: Business Reject Reason
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Business Reject Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id = {}
-
--- Size: Business Reject Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.size = 8
-
--- Display: Business Reject Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.display = function(value)
-  return "Business Reject Ref Id: "..value
-end
-
--- Dissect: Business Reject Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_reject_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num = {}
-
--- Size: Ref Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.size = 4
-
--- Display: Ref Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.display = function(value)
-  return "Ref Seq Num: "..value
-end
-
--- Dissect: Ref Seq Num
-b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ref_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 19 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1 = {}
-
--- Size: Offset 19 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.size = 1
-
--- Display: Offset 19 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.display = function(value)
-  return "Offset 19 Padding 1: "..value
-end
-
--- Dissect: Offset 19 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_19_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Msg Type
-b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type = {}
-
--- Size: Ref Msg Type
-b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.size = 1
-
--- Display: Ref Msg Type
-b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.display = function(value)
-  if value == 0 then
-    return "Ref Msg Type: Negotiate (0)"
-  end
-  if value == 1 then
-    return "Ref Msg Type: Negotiate Response (1)"
-  end
-  if value == 2 then
-    return "Ref Msg Type: Negotiate Reject (2)"
-  end
-  if value == 3 then
-    return "Ref Msg Type: Establish (3)"
-  end
-  if value == 4 then
-    return "Ref Msg Type: Establish Ack (4)"
-  end
-  if value == 5 then
-    return "Ref Msg Type: Establish Reject (5)"
-  end
-  if value == 6 then
-    return "Ref Msg Type: Terminate (6)"
-  end
-  if value == 9 then
-    return "Ref Msg Type: Not Applied (9)"
-  end
-  if value == 10 then
-    return "Ref Msg Type: Retransmit Request (10)"
-  end
-  if value == 11 then
-    return "Ref Msg Type: Retransmission (11)"
-  end
-  if value == 12 then
-    return "Ref Msg Type: Retransmit Reject (12)"
-  end
-  if value == 13 then
-    return "Ref Msg Type: Sequence (13)"
-  end
-  if value == 14 then
-    return "Ref Msg Type: Business Message Reject (14)"
-  end
-  if value == 15 then
-    return "Ref Msg Type: Simple New Order (15)"
-  end
-  if value == 16 then
-    return "Ref Msg Type: Simple Modify Order (16)"
-  end
-  if value == 17 then
-    return "Ref Msg Type: New Order Single (17)"
-  end
-  if value == 18 then
-    return "Ref Msg Type: Order Cancel Replace Request (18)"
-  end
-  if value == 19 then
-    return "Ref Msg Type: Order Cancel Request (19)"
-  end
-  if value == 20 then
-    return "Ref Msg Type: New Order Cross (20)"
-  end
-  if value == 21 then
-    return "Ref Msg Type: Execution Report New (21)"
-  end
-  if value == 22 then
-    return "Ref Msg Type: Execution Report Modify (22)"
-  end
-  if value == 23 then
-    return "Ref Msg Type: Execution Report Cancel (23)"
-  end
-  if value == 24 then
-    return "Ref Msg Type: Execution Report Trade (24)"
-  end
-  if value == 25 then
-    return "Ref Msg Type: Execution Report Reject (25)"
-  end
-  if value == 26 then
-    return "Ref Msg Type: Execution Report Forward (26)"
-  end
-  if value == 27 then
-    return "Ref Msg Type: Security Definition Request (27)"
-  end
-  if value == 28 then
-    return "Ref Msg Type: Security Definition Response (28)"
-  end
-  if value == 29 then
-    return "Ref Msg Type: Order Mass Action Request (29)"
-  end
-  if value == 30 then
-    return "Ref Msg Type: Order Mass Action Report (30)"
-  end
-  if value == 31 then
-    return "Ref Msg Type: Quote Request (31)"
-  end
-  if value == 32 then
-    return "Ref Msg Type: Quote Status Report (32)"
-  end
-  if value == 33 then
-    return "Ref Msg Type: Quote (33)"
-  end
-  if value == 34 then
-    return "Ref Msg Type: Quote Cancel (34)"
-  end
-  if value == 35 then
-    return "Ref Msg Type: Quote Request Reject (35)"
-  end
-  if value == 36 then
-    return "Ref Msg Type: Position Maintenance Cancel Request (36)"
-  end
-  if value == 37 then
-    return "Ref Msg Type: Position Maintenance Request (37)"
-  end
-  if value == 38 then
-    return "Ref Msg Type: Position Maintenance Report (38)"
-  end
-  if value == 39 then
-    return "Ref Msg Type: Allocation Instruction (39)"
-  end
-  if value == 40 then
-    return "Ref Msg Type: Allocation Report (40)"
-  end
-
-  return "Ref Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Ref Msg Type
-b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ref_msg_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Business Message Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message = {}
-
--- Calculate size of: Business Message Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Business Message Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Business Message Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Outbound Business Header: Struct of 5 fields
-  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Ref Msg Type: MessageType
-  index, ref_msg_type = b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.dissect(buffer, index, packet, parent)
-
-  -- Offset 19 Padding 1: 1 Byte
-  index, offset_19_padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.dissect(buffer, index, packet, parent)
-
-  -- Ref Seq Num: SeqNum
-  index, ref_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Business Reject Ref Id: BusinessRejectRefID
-  index, business_reject_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Business Reject Reason: RejReason
-  index, business_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  -- Text: Struct of 2 fields
-  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Business Message Reject Message
-b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.business_message_reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_message_reject_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Trading Status
-b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status = {}
-
--- Size: Security Trading Status
-b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.size = 1
-
--- Display: Security Trading Status
-b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Trading Halt (2)"
-  end
-  if value == 4 then
-    return "Security Trading Status: No Open (4)"
-  end
-  if value == 17 then
-    return "Security Trading Status: Ready To Trade (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Forbidden (18)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknown Or Invalid (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 101 then
-    return "Security Trading Status: Final Closing Call (101)"
-  end
-  if value == 110 then
-    return "Security Trading Status: Reserved (110)"
-  end
-  if value == 0 then
-    return "Security Trading Status: No Value"
-  end
-
-  return "Security Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status
-b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Sub Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id = {}
-
--- Size: Trading Session Sub Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size = 1
-
--- Display: Trading Session Sub Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.display = function(value)
-  if value == 2 then
-    return "Trading Session Sub Id: Pause (2)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Close (4)"
-  end
-  if value == 17 then
-    return "Trading Session Sub Id: Open (17)"
-  end
-  if value == 18 then
-    return "Trading Session Sub Id: Pre Close (18)"
-  end
-  if value == 21 then
-    return "Trading Session Sub Id: Pre Open (21)"
-  end
-  if value == 101 then
-    return "Trading Session Sub Id: Final Closing Call (101)"
-  end
-  if value == 0 then
-    return "Trading Session Sub Id: No Value"
-  end
-
-  return "Trading Session Sub Id: Unknown("..value..")"
-end
-
--- Dissect: Trading Session Sub Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trading_session_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id = {}
-
--- Size: Trading Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.size = 1
-
--- Display: Trading Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Id: Regular Day Session (1)"
-  end
-  if value == 6 then
-    return "Trading Session Id: Non Regular Session (6)"
-  end
-  if value == 0 then
-    return "Trading Session Id: No Value"
-  end
-
-  return "Trading Session Id: Unknown("..value..")"
-end
-
--- Dissect: Trading Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trading_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id = {}
-
--- Size: Exec Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.size = 8
-
--- Display: Exec Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.display = function(value)
-  return "Exec Ref Id: "..value
-end
-
--- Dissect: Exec Ref Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Secondary Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id = {}
-
--- Size: Secondary Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.size = 8
-
--- Display: Secondary Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.display = function(value)
-  return "Secondary Exec Id: "..value
-end
-
--- Dissect: Secondary Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.secondary_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 118 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2 = {}
-
--- Size: Offset 118 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.size = 2
-
--- Display: Offset 118 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.display = function(value)
-  return "Offset 118 Padding 2: "..value
-end
-
--- Dissect: Offset 118 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_118_padding_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date = {}
-
--- Size: Trade Date
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date.size = 2
-
--- Display: Trade Date
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-b3_equities_binaryentrypoint_sbe_v8_1.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator = {}
-
--- Size: Aggressor Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.size = 1
-
--- Display: Aggressor Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.display = function(value)
-  if value == 0 then
-    return "Aggressor Indicator: False Value (0)"
-  end
-  if value == 1 then
-    return "Aggressor Indicator: True Value (1)"
-  end
-
-  return "Aggressor Indicator: Unknown("..value..")"
-end
-
--- Dissect: Aggressor Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.aggressor_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.order_id = {}
-
--- Size: Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.order_id.size = 8
-
--- Display: Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Cum Qty
-b3_equities_binaryentrypoint_sbe_v8_1.cum_qty = {}
-
--- Size: Cum Qty
-b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.size = 8
-
--- Display: Cum Qty
-b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.display = function(value)
-  return "Cum Qty: "..value
-end
-
--- Dissect: Cum Qty
-b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leaves Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty = {}
-
--- Size: Leaves Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.size = 8
-
--- Display: Leaves Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_id = {}
-
--- Size: Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_id.size = 8
-
--- Display: Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_id.display = function(value)
-  return "Exec Id: "..value
-end
-
--- Dissect: Exec Id
-b3_equities_binaryentrypoint_sbe_v8_1.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-b3_equities_binaryentrypoint_sbe_v8_1.last_px = {}
-
--- Size: Last Px
-b3_equities_binaryentrypoint_sbe_v8_1.last_px.size = 8
-
--- Display: Last Px
-b3_equities_binaryentrypoint_sbe_v8_1.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-b3_equities_binaryentrypoint_sbe_v8_1.last_px.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Last Px
-b3_equities_binaryentrypoint_sbe_v8_1.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.last_px.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty
-b3_equities_binaryentrypoint_sbe_v8_1.last_qty = {}
-
--- Size: Last Qty
-b3_equities_binaryentrypoint_sbe_v8_1.last_qty.size = 8
-
--- Display: Last Qty
-b3_equities_binaryentrypoint_sbe_v8_1.last_qty.display = function(value)
-  return "Last Qty: "..value
-end
-
--- Dissect: Last Qty
-b3_equities_binaryentrypoint_sbe_v8_1.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Secondary Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id = {}
-
--- Size: Secondary Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.size = 8
-
--- Display: Secondary Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.display = function(value)
-  return "Secondary Order Id: "..value
-end
-
--- Dissect: Secondary Order Id
-b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.secondary_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional = {}
-
--- Size: ClOrdId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.size = 8
-
--- Display: ClOrdId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.display = function(value)
-  return "ClOrdId Optional: "..value
-end
-
--- Dissect: ClOrdId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.clordid_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status
-b3_equities_binaryentrypoint_sbe_v8_1.ord_status = {}
-
--- Size: Ord Status
-b3_equities_binaryentrypoint_sbe_v8_1.ord_status.size = 1
-
--- Display: Ord Status
-b3_equities_binaryentrypoint_sbe_v8_1.ord_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Status: No Value"
-  end
-
-  if value == "0" then
-    return "Ord Status: New (0)"
-  end
-  if value == "1" then
-    return "Ord Status: Partially Filled (1)"
-  end
-  if value == "2" then
-    return "Ord Status: Filled (2)"
-  end
-  if value == "4" then
-    return "Ord Status: Canceled (4)"
-  end
-  if value == "5" then
-    return "Ord Status: Replaced (5)"
-  end
-  if value == "8" then
-    return "Ord Status: Rejected (8)"
-  end
-  if value == "C" then
-    return "Ord Status: Expired (C)"
-  end
-  if value == "R" then
-    return "Ord Status: Restated (R)"
-  end
-  if value == "Z" then
-    return "Ord Status: Previous Final State (Z)"
-  end
-
-  return "Ord Status: Unknown("..value..")"
-end
-
--- Dissect: Ord Status
-b3_equities_binaryentrypoint_sbe_v8_1.ord_status.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.ord_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.ord_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ord_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Report Forward Message
-b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message = {}
-
--- Calculate size of: Execution Report Forward Message
-b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ord_status.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.last_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.last_px.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.exec_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_date.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.size
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
-
-  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Execution Report Forward Message
-b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Forward Message
-b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Outbound Business Header: Struct of 5 fields
-  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
-
-  -- Side: Side
-  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatus
-  index, ord_status = b3_equities_binaryentrypoint_sbe_v8_1.ord_status.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId Optional: ClOrdIDOptional
-  index, clordid_optional = b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.dissect(buffer, index, packet, parent)
-
-  -- Secondary Order Id: OrderID
-  index, secondary_order_id = b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: SecurityID
-  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
-
-  -- Account: AccountOptional
-  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
-
-  -- Last Qty: Quantity
-  index, last_qty = b3_equities_binaryentrypoint_sbe_v8_1.last_qty.dissect(buffer, index, packet, parent)
-
-  -- Last Px: Price
-  index, last_px = b3_equities_binaryentrypoint_sbe_v8_1.last_px.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: ExecID
-  index, exec_id = b3_equities_binaryentrypoint_sbe_v8_1.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: Quantity
-  index, leaves_qty = b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: Quantity
-  index, cum_qty = b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Trade Id: TradeID
-  index, trade_id = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.dissect(buffer, index, packet, parent)
-
-  -- Contra Broker: Firm
-  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
-
-  -- Order Id: OrderID
-  index, order_id = b3_equities_binaryentrypoint_sbe_v8_1.order_id.dissect(buffer, index, packet, parent)
-
-  -- Aggressor Indicator: Boolean
-  index, aggressor_indicator = b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.dissect(buffer, index, packet, parent)
-
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: LocalMktDate
-  index, trade_date = b3_equities_binaryentrypoint_sbe_v8_1.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Days To Settlement Optional: DaysToSettlementOptional
-  index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect(buffer, index, packet, parent)
-
-  -- Offset 118 Padding 2: 2 Byte
-  index, offset_118_padding_2 = b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.dissect(buffer, index, packet, parent)
-
-  -- Secondary Exec Id: ExecIDOptional
-  index, secondary_exec_id = b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Ref Id: ExecIDOptional
-  index, exec_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
-  index, fixed_rate_percentage_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: Quantity
-  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Id: TradingSessionID
-  index, trading_session_id = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Sub Id: TradingSessionSubID
-  index, trading_session_sub_id = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.dissect(buffer, index, packet, parent)
-
-  -- Security Trading Status: SecurityTradingStatus
-  index, security_trading_status = b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.dissect(buffer, index, packet, parent)
-
-  -- Desk Id: Struct of 2 fields
-  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
-
-  -- Memo: Struct of 2 fields
-  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Forward Message
-b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_forward_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_forward_message, buffer(offset, 0))
-    local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Strategy Id
-b3_equities_binaryentrypoint_sbe_v8_1.strategy_id = {}
-
--- Size: Strategy Id
-b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.size = 4
-
--- Display: Strategy Id
-b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.display = function(value)
-  -- Check if field has value
-  if value == 0 then
-    return "Strategy Id: No Value"
-  end
-
-  return "Strategy Id: "..value
-end
-
--- Dissect: Strategy Id
-b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.strategy_id, range, value, display)
-
-  return offset + length, value
-end
-
--- OrdTagId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional = {}
-
--- Size: OrdTagId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.size = 1
-
--- Display: OrdTagId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.display = function(value)
-  -- Check if field has value
-  if value == 0 then
-    return "OrdTagId Optional: No Value"
-  end
-
-  return "OrdTagId Optional: "..value
-end
-
--- Dissect: OrdTagId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ordtagid_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 146 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3 = {}
-
--- Size: Offset 146 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.size = 3
-
--- Display: Offset 146 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.display = function(value)
-  return "Offset 146 Padding 3: "..value
-end
-
--- Dissect: Offset 146 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_146_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.received_time = {}
-
--- Size: Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.received_time.size = 8
-
--- Display: Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.received_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Received Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.received_time.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.received_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.received_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.received_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Crossed Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator = {}
-
--- Size: Crossed Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.size = 2
-
--- Display: Crossed Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.display = function(value)
-  if value == 1001 then
-    return "Crossed Indicator: Structured Transaction (1001)"
-  end
-  if value == 1002 then
-    return "Crossed Indicator: Operational Error (1002)"
-  end
-  if value == 1003 then
-    return "Crossed Indicator: Twap Vwap (1003)"
-  end
-  if value == 0 then
-    return "Crossed Indicator: No Value"
-  end
-
-  return "Crossed Indicator: Unknown("..value..")"
-end
-
--- Dissect: Crossed Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.crossed_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.crossed_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- CrossId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional = {}
-
--- Size: CrossId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.size = 8
-
--- Display: CrossId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.display = function(value)
-  return "CrossId Optional: "..value
-end
-
--- Dissect: CrossId Optional
-b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.crossid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.crossid_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Floor
-b3_equities_binaryentrypoint_sbe_v8_1.max_floor = {}
-
--- Size: Max Floor
-b3_equities_binaryentrypoint_sbe_v8_1.max_floor.size = 8
-
--- Display: Max Floor
-b3_equities_binaryentrypoint_sbe_v8_1.max_floor.display = function(value)
-  return "Max Floor: "..value
-end
-
--- Dissect: Max Floor
-b3_equities_binaryentrypoint_sbe_v8_1.max_floor.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.max_floor.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.max_floor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.max_floor, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -7285,206 +3387,124 @@ b3_equities_binaryentrypoint_sbe_v8_1.min_qty.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Stop Px
-b3_equities_binaryentrypoint_sbe_v8_1.stop_px = {}
+-- Mm Protection Reset Boolean
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean = {}
 
--- Size: Stop Px
-b3_equities_binaryentrypoint_sbe_v8_1.stop_px.size = 8
+-- Size: Mm Protection Reset Boolean
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size = 1
 
--- Display: Stop Px
-b3_equities_binaryentrypoint_sbe_v8_1.stop_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Stop Px: No Value"
+-- Display: Mm Protection Reset Boolean
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.display = function(value)
+  if value == 0 then
+    return "Mm Protection Reset Boolean: False Value (0)"
+  end
+  if value == 1 then
+    return "Mm Protection Reset Boolean: True Value (1)"
   end
 
-  return "Stop Px: "..value
+  return "Mm Protection Reset Boolean: Unknown("..value..")"
 end
 
--- Translate: Stop Px
-b3_equities_binaryentrypoint_sbe_v8_1.stop_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Stop Px
-b3_equities_binaryentrypoint_sbe_v8_1.stop_px.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.stop_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.stop_px.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.stop_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_optional = {}
-
--- Size: Price Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_optional.size = 8
-
--- Display: Price Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Price Optional: No Value"
-  end
-
-  return "Price Optional: "..value
-end
-
--- Translate: Price Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price Optional
-b3_equities_binaryentrypoint_sbe_v8_1.price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.price_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.price_optional.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.price_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Expire Date
-b3_equities_binaryentrypoint_sbe_v8_1.expire_date = {}
-
--- Size: Expire Date
-b3_equities_binaryentrypoint_sbe_v8_1.expire_date.size = 2
-
--- Display: Expire Date
-b3_equities_binaryentrypoint_sbe_v8_1.expire_date.display = function(value)
-  return "Expire Date: "..value
-end
-
--- Dissect: Expire Date
-b3_equities_binaryentrypoint_sbe_v8_1.expire_date.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.expire_date.size
+-- Dissect: Mm Protection Reset Boolean
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.expire_date.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.expire_date, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean, range, value, display)
 
   return offset + length, value
 end
 
--- Time In Force
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force = {}
+-- Mm Protection Reset Boolean optional
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional = {}
 
--- Size: Time In Force
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.size = 1
+-- Size: Mm Protection Reset Boolean optional
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size = 1
 
--- Display: Time In Force
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Time In Force: No Value"
+-- Display: Mm Protection Reset Boolean optional
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.display = function(value)
+  if value == 0 then
+    return "Mm Protection Reset Boolean optional: False Value (0)"
   end
-
-  if value == "0" then
-    return "Time In Force: Day (0)"
+  if value == 1 then
+    return "Mm Protection Reset Boolean optional: True Value (1)"
   end
-  if value == "1" then
-    return "Time In Force: Good Till Cancel (1)"
-  end
-  if value == "3" then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == "4" then
-    return "Time In Force: Fill Or Kill (4)"
-  end
-  if value == "6" then
-    return "Time In Force: Good Till Date (6)"
-  end
-  if value == "7" then
-    return "Time In Force: At The Close (7)"
-  end
-  if value == "A" then
-    return "Time In Force: Good For Auction (A)"
+  if value == 255 then
+    return "Mm Protection Reset Boolean optional: No Value"
   end
 
-  return "Time In Force: Unknown("..value..")"
+  return "Mm Protection Reset Boolean optional: Unknown("..value..")"
 end
 
--- Dissect: Time In Force
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.size
+-- Dissect: Mm Protection Reset Boolean optional
+b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size
   local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.display(value, buffer, offset, packet, parent)
 
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.time_in_force, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean_optional, range, value, display)
 
   return offset + length, value
 end
 
--- OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.ordtype = {}
+-- Msg Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num = {}
 
--- Size: OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.ordtype.size = 1
+-- Size: Msg Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size = 4
 
--- Display: OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.ordtype.display = function(value)
+-- Display: Msg Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.display = function(value)
+  return "Msg Seq Num: "..value
+end
+
+-- Dissect: Msg Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.msg_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Multi Leg Reporting Type
+b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type = {}
+
+-- Size: Multi Leg Reporting Type
+b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.size = 1
+
+-- Display: Multi Leg Reporting Type
+b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "OrdType: No Value"
+    return "Multi Leg Reporting Type: No Value"
   end
 
   if value == "1" then
-    return "OrdType: Market (1)"
+    return "Multi Leg Reporting Type: Single Security (1)"
   end
   if value == "2" then
-    return "OrdType: Limit (2)"
+    return "Multi Leg Reporting Type: Individualleg Of Multileg Security (2)"
   end
   if value == "3" then
-    return "OrdType: Stop Loss (3)"
+    return "Multi Leg Reporting Type: Multileg Security (3)"
   end
-  if value == "4" then
-    return "OrdType: Stop Limit (4)"
-  end
-  if value == "K" then
-    return "OrdType: Market With Leftover As Limit (K)"
-  end
-  if value == "W" then
-    return "OrdType: Rlp (W)"
-  end
-  if value == "P" then
-    return "OrdType: Pegged Midpoint (P)"
+  if value == 0 then
+    return "Multi Leg Reporting Type: No Value"
   end
 
-  return "OrdType: Unknown("..value..")"
+  return "Multi Leg Reporting Type: Unknown("..value..")"
 end
 
--- Dissect: OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.ordtype.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.ordtype.size
+-- Dissect: Multi Leg Reporting Type
+b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -7495,55 +3515,578 @@ b3_equities_binaryentrypoint_sbe_v8_1.ordtype.dissect = function(buffer, offset,
     value = range:string()
   end
 
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.ordtype.display(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ordtype, range, value, display)
-
-  return offset + length, value
-end
-
--- OrigClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.origclordid = {}
-
--- Size: OrigClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.origclordid.size = 8
-
--- Display: OrigClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.origclordid.display = function(value)
-  return "OrigClOrdId: "..value
-end
-
--- Dissect: OrigClOrdId
-b3_equities_binaryentrypoint_sbe_v8_1.origclordid.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.origclordid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.origclordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.origclordid, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.multi_leg_reporting_type, range, value, display)
 
   return offset + length, value
 end
 
--- Order Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional = {}
+-- Negotiation Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code = {}
 
--- Size: Order Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.size = 8
+-- Size: Negotiation Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.size = 1
 
--- Display: Order Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.display = function(value)
-  return "Order Id Optional: "..value
+-- Display: Negotiation Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.display = function(value)
+  if value == 0 then
+    return "Negotiation Reject Code: Unspecified (0)"
+  end
+  if value == 1 then
+    return "Negotiation Reject Code: Credentials (1)"
+  end
+  if value == 2 then
+    return "Negotiation Reject Code: Flowtype Not Supported (2)"
+  end
+  if value == 3 then
+    return "Negotiation Reject Code: Already Negotiated (3)"
+  end
+  if value == 4 then
+    return "Negotiation Reject Code: Session Blocked (4)"
+  end
+  if value == 5 then
+    return "Negotiation Reject Code: Invalid Sessionid (5)"
+  end
+  if value == 6 then
+    return "Negotiation Reject Code: Invalid Sessionverid (6)"
+  end
+  if value == 7 then
+    return "Negotiation Reject Code: Invalid Timestamp (7)"
+  end
+  if value == 8 then
+    return "Negotiation Reject Code: Invalid Firm (8)"
+  end
+  if value == 20 then
+    return "Negotiation Reject Code: Negotiate Not Allowed (20)"
+  end
+  if value == 21 then
+    return "Negotiation Reject Code: Duplicate Session Connection (21)"
+  end
+  if value == 22 then
+    return "Negotiation Reject Code: Authentication In Progress (22)"
+  end
+  if value == 23 then
+    return "Negotiation Reject Code: Protocol Version Not Supported (23)"
+  end
+
+  return "Negotiation Reject Code: Unknown("..value..")"
 end
 
--- Dissect: Order Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.size
+-- Dissect: Negotiation Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_id_optional, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiation_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no = {}
+
+-- Size: Next Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.size = 4
+
+-- Display: Next Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.display = function(value)
+  return "Next Seq No: "..value
+end
+
+-- Dissect: Next Seq No
+b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.next_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+b3_equities_binaryentrypoint_sbe_v8_1.num_in_group = {}
+
+-- Size: Num In Group
+b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.size = 1
+
+-- Display: Num In Group
+b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1 = {}
+
+-- Size: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.size = 1
+
+-- Display: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.display = function(value)
+  return "Offset 1 Padding 1: "..value
+end
+
+-- Dissect: Offset 1 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_1_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 100 Padding 4
+b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4 = {}
+
+-- Size: Offset 100 Padding 4
+b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.size = 4
+
+-- Display: Offset 100 Padding 4
+b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.display = function(value)
+  return "Offset 100 Padding 4: "..value
+end
+
+-- Dissect: Offset 100 Padding 4
+b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_100_padding_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 118 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2 = {}
+
+-- Size: Offset 118 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.size = 2
+
+-- Display: Offset 118 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.display = function(value)
+  return "Offset 118 Padding 2: "..value
+end
+
+-- Dissect: Offset 118 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_118_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 119 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1 = {}
+
+-- Size: Offset 119 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.size = 1
+
+-- Display: Offset 119 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.display = function(value)
+  return "Offset 119 Padding 1: "..value
+end
+
+-- Dissect: Offset 119 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_119_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 146 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3 = {}
+
+-- Size: Offset 146 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.size = 3
+
+-- Display: Offset 146 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.display = function(value)
+  return "Offset 146 Padding 3: "..value
+end
+
+-- Dissect: Offset 146 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_146_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_146_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 152 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3 = {}
+
+-- Size: Offset 152 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.size = 3
+
+-- Display: Offset 152 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.display = function(value)
+  return "Offset 152 Padding 3: "..value
+end
+
+-- Dissect: Offset 152 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_152_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 159 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1 = {}
+
+-- Size: Offset 159 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.size = 1
+
+-- Display: Offset 159 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.display = function(value)
+  return "Offset 159 Padding 1: "..value
+end
+
+-- Dissect: Offset 159 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_159_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 164 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3 = {}
+
+-- Size: Offset 164 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.size = 3
+
+-- Display: Offset 164 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.display = function(value)
+  return "Offset 164 Padding 3: "..value
+end
+
+-- Dissect: Offset 164 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_164_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 165 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3 = {}
+
+-- Size: Offset 165 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.size = 3
+
+-- Display: Offset 165 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.display = function(value)
+  return "Offset 165 Padding 3: "..value
+end
+
+-- Dissect: Offset 165 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_165_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 168 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3 = {}
+
+-- Size: Offset 168 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.size = 3
+
+-- Display: Offset 168 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.display = function(value)
+  return "Offset 168 Padding 3: "..value
+end
+
+-- Dissect: Offset 168 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_168_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 179 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3 = {}
+
+-- Size: Offset 179 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.size = 3
+
+-- Display: Offset 179 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.display = function(value)
+  return "Offset 179 Padding 3: "..value
+end
+
+-- Dissect: Offset 179 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_179_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 18 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2 = {}
+
+-- Size: Offset 18 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.size = 2
+
+-- Display: Offset 18 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.display = function(value)
+  return "Offset 18 Padding 2: "..value
+end
+
+-- Dissect: Offset 18 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_18_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 19 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1 = {}
+
+-- Size: Offset 19 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.size = 1
+
+-- Display: Offset 19 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.display = function(value)
+  return "Offset 19 Padding 1: "..value
+end
+
+-- Dissect: Offset 19 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_19_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1 = {}
+
+-- Size: Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.size = 1
+
+-- Display: Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.display = function(value)
+  return "Offset 21 Padding 1: "..value
+end
+
+-- Dissect: Offset 21 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_21_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3 = {}
+
+-- Size: Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.size = 3
+
+-- Display: Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.display = function(value)
+  return "Offset 25 Padding 3: "..value
+end
+
+-- Dissect: Offset 25 Padding 3
+b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_25_padding_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 31 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1 = {}
+
+-- Size: Offset 31 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.size = 1
+
+-- Display: Offset 31 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.display = function(value)
+  return "Offset 31 Padding 1: "..value
+end
+
+-- Dissect: Offset 31 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_31_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1 = {}
+
+-- Size: Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.size = 1
+
+-- Display: Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.display = function(value)
+  return "Offset 33 Padding 1: "..value
+end
+
+-- Dissect: Offset 33 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_33_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 49 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1 = {}
+
+-- Size: Offset 49 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.size = 1
+
+-- Display: Offset 49 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.display = function(value)
+  return "Offset 49 Padding 1: "..value
+end
+
+-- Dissect: Offset 49 Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_49_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2 = {}
+
+-- Size: Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.size = 2
+
+-- Display: Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.display = function(value)
+  return "Offset 54 Padding 2: "..value
+end
+
+-- Dissect: Offset 54 Padding 2
+b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_54_padding_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Onbehalf Firm
+b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm = {}
+
+-- Size: Onbehalf Firm
+b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.size = 4
+
+-- Display: Onbehalf Firm
+b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.display = function(value)
+  return "Onbehalf Firm: "..value
+end
+
+-- Dissect: Onbehalf Firm
+b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.onbehalf_firm, range, value, display)
 
   return offset + length, value
 end
@@ -9051,6 +5594,1682 @@ b3_equities_binaryentrypoint_sbe_v8_1.ord_rej_reason.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Ord Status
+b3_equities_binaryentrypoint_sbe_v8_1.ord_status = {}
+
+-- Size: Ord Status
+b3_equities_binaryentrypoint_sbe_v8_1.ord_status.size = 1
+
+-- Display: Ord Status
+b3_equities_binaryentrypoint_sbe_v8_1.ord_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
+  if value == "0" then
+    return "Ord Status: New (0)"
+  end
+  if value == "1" then
+    return "Ord Status: Partially Filled (1)"
+  end
+  if value == "2" then
+    return "Ord Status: Filled (2)"
+  end
+  if value == "4" then
+    return "Ord Status: Canceled (4)"
+  end
+  if value == "5" then
+    return "Ord Status: Replaced (5)"
+  end
+  if value == "8" then
+    return "Ord Status: Rejected (8)"
+  end
+  if value == "C" then
+    return "Ord Status: Expired (C)"
+  end
+  if value == "R" then
+    return "Ord Status: Restated (R)"
+  end
+  if value == "Z" then
+    return "Ord Status: Previous Final State (Z)"
+  end
+
+  return "Ord Status: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status
+b3_equities_binaryentrypoint_sbe_v8_1.ord_status.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.ord_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.ord_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ord_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Category
+b3_equities_binaryentrypoint_sbe_v8_1.order_category = {}
+
+-- Size: Order Category
+b3_equities_binaryentrypoint_sbe_v8_1.order_category.size = 1
+
+-- Display: Order Category
+b3_equities_binaryentrypoint_sbe_v8_1.order_category.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Category: No Value"
+  end
+
+  if value == "B" then
+    return "Order Category: Result Of Options Exercise (B)"
+  end
+  if value == "C" then
+    return "Order Category: Result Of Assignment From An Options Exercise (C)"
+  end
+  if value == "D" then
+    return "Order Category: Result Of Automatic Options Exercise (D)"
+  end
+  if value == "E" then
+    return "Order Category: Result Of Midpoint Order (E)"
+  end
+  if value == "F" then
+    return "Order Category: Result Of Block Book Trade (F)"
+  end
+  if value == "G" then
+    return "Order Category: Result Of Trade At Close (G)"
+  end
+  if value == "H" then
+    return "Order Category: Result Of Trade At Average (H)"
+  end
+  if value == 0 then
+    return "Order Category: No Value"
+  end
+
+  return "Order Category: Unknown("..value..")"
+end
+
+-- Dissect: Order Category
+b3_equities_binaryentrypoint_sbe_v8_1.order_category.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_category.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.order_id = {}
+
+-- Size: Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.order_id.size = 8
+
+-- Display: Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional = {}
+
+-- Size: Order Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.size = 8
+
+-- Display: Order Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.display = function(value)
+  return "Order Id Optional: "..value
+end
+
+-- Dissect: Order Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty = {}
+
+-- Size: Order Qty
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size = 8
+
+-- Display: Order Qty
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional = {}
+
+-- Size: Order Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.size = 8
+
+-- Display: Order Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.display = function(value)
+  return "Order Qty Optional: "..value
+end
+
+-- Dissect: Order Qty Optional
+b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrdTagId
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid = {}
+
+-- Size: OrdTagId
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size = 1
+
+-- Display: OrdTagId
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.display = function(value)
+  return "OrdTagId: "..value
+end
+
+-- Dissect: OrdTagId
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ordtagid, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrdTagId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional = {}
+
+-- Size: OrdTagId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.size = 1
+
+-- Display: OrdTagId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "OrdTagId Optional: No Value"
+  end
+
+  return "OrdTagId Optional: "..value
+end
+
+-- Dissect: OrdTagId Optional
+b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ordtagid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.ordtype = {}
+
+-- Size: OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.ordtype.size = 1
+
+-- Display: OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.ordtype.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "OrdType: No Value"
+  end
+
+  if value == "1" then
+    return "OrdType: Market (1)"
+  end
+  if value == "2" then
+    return "OrdType: Limit (2)"
+  end
+  if value == "3" then
+    return "OrdType: Stop Loss (3)"
+  end
+  if value == "4" then
+    return "OrdType: Stop Limit (4)"
+  end
+  if value == "K" then
+    return "OrdType: Market With Leftover As Limit (K)"
+  end
+  if value == "W" then
+    return "OrdType: Rlp (W)"
+  end
+  if value == "P" then
+    return "OrdType: Pegged Midpoint (P)"
+  end
+
+  return "OrdType: Unknown("..value..")"
+end
+
+-- Dissect: OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.ordtype.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.ordtype.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.ordtype.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ordtype, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Pos Req Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id = {}
+
+-- Size: Orig Pos Req Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size = 8
+
+-- Display: Orig Pos Req Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.display = function(value)
+  return "Orig Pos Req Ref Id: "..value
+end
+
+-- Dissect: Orig Pos Req Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.orig_pos_req_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrigClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.origclordid = {}
+
+-- Size: OrigClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.origclordid.size = 8
+
+-- Display: OrigClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.origclordid.display = function(value)
+  return "OrigClOrdId: "..value
+end
+
+-- Dissect: OrigClOrdId
+b3_equities_binaryentrypoint_sbe_v8_1.origclordid.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.origclordid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.origclordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.origclordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Padding
+b3_equities_binaryentrypoint_sbe_v8_1.padding = {}
+
+-- Size: Padding
+b3_equities_binaryentrypoint_sbe_v8_1.padding.size = 1
+
+-- Display: Padding
+b3_equities_binaryentrypoint_sbe_v8_1.padding.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Padding: No Value"
+  end
+
+  return "Padding: "..value
+end
+
+-- Dissect: Padding
+b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.padding.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.padding.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.padding, range, value, display)
+
+  return offset + length, value
+end
+
+-- Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.padding_1 = {}
+
+-- Size: Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.padding_1.size = 1
+
+-- Display: Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.padding_1.display = function(value)
+  return "Padding 1: "..value
+end
+
+-- Dissect: Padding 1
+b3_equities_binaryentrypoint_sbe_v8_1.padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.padding_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.padding_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Maint Action
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action = {}
+
+-- Size: Pos Maint Action
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.size = 1
+
+-- Display: Pos Maint Action
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Pos Maint Action: No Value"
+  end
+
+  if value == "1" then
+    return "Pos Maint Action: New (1)"
+  end
+  if value == "3" then
+    return "Pos Maint Action: Cancel (3)"
+  end
+
+  return "Pos Maint Action: Unknown("..value..")"
+end
+
+-- Dissect: Pos Maint Action
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Maint Result
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result = {}
+
+-- Size: Pos Maint Result
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.size = 4
+
+-- Display: Pos Maint Result
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.display = function(value)
+  return "Pos Maint Result: "..value
+end
+
+-- Dissect: Pos Maint Result
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_result, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Maint Rpt Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id = {}
+
+-- Size: Pos Maint Rpt Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.size = 8
+
+-- Display: Pos Maint Rpt Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.display = function(value)
+  return "Pos Maint Rpt Id: "..value
+end
+
+-- Dissect: Pos Maint Rpt Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_rpt_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Maint Rpt Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id = {}
+
+-- Size: Pos Maint Rpt Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.size = 8
+
+-- Display: Pos Maint Rpt Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.display = function(value)
+  return "Pos Maint Rpt Ref Id: "..value
+end
+
+-- Dissect: Pos Maint Rpt Ref Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_rpt_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Maint Status
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status = {}
+
+-- Size: Pos Maint Status
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.size = 1
+
+-- Display: Pos Maint Status
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Pos Maint Status: No Value"
+  end
+
+  if value == "0" then
+    return "Pos Maint Status: Accepted (0)"
+  end
+  if value == "2" then
+    return "Pos Maint Status: Rejected (2)"
+  end
+  if value == "3" then
+    return "Pos Maint Status: Completed (3)"
+  end
+  if value == "9" then
+    return "Pos Maint Status: Not Executed (9)"
+  end
+
+  return "Pos Maint Status: Unknown("..value..")"
+end
+
+-- Dissect: Pos Maint Status
+b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_maint_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id = {}
+
+-- Size: Pos Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size = 8
+
+-- Display: Pos Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.display = function(value)
+  return "Pos Req Id: "..value
+end
+
+-- Dissect: Pos Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional = {}
+
+-- Size: Pos Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.size = 8
+
+-- Display: Pos Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.display = function(value)
+  return "Pos Req Id Optional: "..value
+end
+
+-- Dissect: Pos Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type = {}
+
+-- Size: Pos Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size = 1
+
+-- Display: Pos Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.display = function(value)
+  if value == 1 then
+    return "Pos Trans Type: Exercise (1)"
+  end
+  if value == 105 then
+    return "Pos Trans Type: Automatic Exercise (105)"
+  end
+  if value == 106 then
+    return "Pos Trans Type: Exercise Not Automatic (106)"
+  end
+
+  return "Pos Trans Type: Unknown("..value..")"
+end
+
+-- Dissect: Pos Trans Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_trans_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pos Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_type = {}
+
+-- Size: Pos Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_type.size = 1
+
+-- Display: Pos Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Pos Type: No Value"
+  end
+
+  if value == "T" then
+    return "Pos Type: Transaction Quantity (T)"
+  end
+  if value == "S" then
+    return "Pos Type: Start Of Day Qty (S)"
+  end
+  if value == "E" then
+    return "Pos Type: Option Exercise Qty (E)"
+  end
+  if value == "B" then
+    return "Pos Type: Blocked Qty (B)"
+  end
+  if value == "U" then
+    return "Pos Type: Uncovered Qty (U)"
+  end
+  if value == "C" then
+    return "Pos Type: Covered Qty (C)"
+  end
+
+  return "Pos Type: Unknown("..value..")"
+end
+
+-- Dissect: Pos Type
+b3_equities_binaryentrypoint_sbe_v8_1.pos_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.pos_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.pos_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.pos_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Poss Resend
+b3_equities_binaryentrypoint_sbe_v8_1.poss_resend = {}
+
+-- Size: Poss Resend
+b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size = 1
+
+-- Display: Poss Resend
+b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.display = function(value)
+  return "Poss Resend: "..value
+end
+
+-- Dissect: Poss Resend
+b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.poss_resend, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prefix
+b3_equities_binaryentrypoint_sbe_v8_1.prefix = {}
+
+-- Size: Prefix
+b3_equities_binaryentrypoint_sbe_v8_1.prefix.size = 2
+
+-- Display: Prefix
+b3_equities_binaryentrypoint_sbe_v8_1.prefix.display = function(value)
+  return "Prefix: "..value
+end
+
+-- Dissect: Prefix
+b3_equities_binaryentrypoint_sbe_v8_1.prefix.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.prefix.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.prefix.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.prefix, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+b3_equities_binaryentrypoint_sbe_v8_1.price = {}
+
+-- Size: Price
+b3_equities_binaryentrypoint_sbe_v8_1.price.size = 8
+
+-- Display: Price
+b3_equities_binaryentrypoint_sbe_v8_1.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+b3_equities_binaryentrypoint_sbe_v8_1.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+b3_equities_binaryentrypoint_sbe_v8_1.price.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.price.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 8
+b3_equities_binaryentrypoint_sbe_v8_1.price_8 = {}
+
+-- Size: Price 8
+b3_equities_binaryentrypoint_sbe_v8_1.price_8.size = 8
+
+-- Display: Price 8
+b3_equities_binaryentrypoint_sbe_v8_1.price_8.display = function(value)
+  return "Price 8: "..value
+end
+
+-- Translate: Price 8
+b3_equities_binaryentrypoint_sbe_v8_1.price_8.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price 8
+b3_equities_binaryentrypoint_sbe_v8_1.price_8.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.price_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.price_8.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.price_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional = {}
+
+-- Size: Price 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size = 8
+
+-- Display: Price 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Price 8 Optional: No Value"
+  end
+
+  return "Price 8 Optional: "..value
+end
+
+-- Translate: Price 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price 8 Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price_8_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_optional = {}
+
+-- Size: Price Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_optional.size = 8
+
+-- Display: Price Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Price Optional: No Value"
+  end
+
+  return "Price Optional: "..value
+end
+
+-- Translate: Price Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price Optional
+b3_equities_binaryentrypoint_sbe_v8_1.price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.price_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.price_optional.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.price_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Protection Price
+b3_equities_binaryentrypoint_sbe_v8_1.protection_price = {}
+
+-- Size: Protection Price
+b3_equities_binaryentrypoint_sbe_v8_1.protection_price.size = 8
+
+-- Display: Protection Price
+b3_equities_binaryentrypoint_sbe_v8_1.protection_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Protection Price: No Value"
+  end
+
+  return "Protection Price: "..value
+end
+
+-- Translate: Protection Price
+b3_equities_binaryentrypoint_sbe_v8_1.protection_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Protection Price
+b3_equities_binaryentrypoint_sbe_v8_1.protection_price.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.protection_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.protection_price.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.protection_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.protection_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+b3_equities_binaryentrypoint_sbe_v8_1.quantity = {}
+
+-- Size: Quantity
+b3_equities_binaryentrypoint_sbe_v8_1.quantity.size = 8
+
+-- Display: Quantity
+b3_equities_binaryentrypoint_sbe_v8_1.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+b3_equities_binaryentrypoint_sbe_v8_1.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id = {}
+
+-- Size: Quote Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size = 8
+
+-- Display: Quote Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id.display = function(value)
+  return "Quote Id: "..value
+end
+
+-- Dissect: Quote Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional = {}
+
+-- Size: Quote Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size = 8
+
+-- Display: Quote Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.display = function(value)
+  return "Quote Id Optional: "..value
+end
+
+-- Dissect: Quote Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason = {}
+
+-- Size: Quote Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.size = 4
+
+-- Display: Quote Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.display = function(value)
+  if value == 009999 then
+    return "Quote Reject Reason: Technical Error: Function not performed  (009999)"
+  end
+  if value == 008006 then
+    return "Quote Reject Reason: Exercise price not allowed  (008006)"
+  end
+  if value == 008007 then
+    return "Quote Reject Reason: No positions blocked  (008007)"
+  end
+  if value == 008008 then
+    return "Quote Reject Reason: Quantity doesn't match with the original request [Quantity on original request: <quantity on original request>]  (008008)"
+  end
+  if value == 008011 then
+    return "Quote Reject Reason: Exercise must be on maturity date.  (008011)"
+  end
+  if value == 008014 then
+    return "Quote Reject Reason: Function not available this time  (008014)"
+  end
+  if value == 008015 then
+    return "Quote Reject Reason: Blocking quantity more than 999999999  (008015)"
+  end
+  if value == 008020 then
+    return "Quote Reject Reason: Trade does not belong to the specified firm ‘Firm Id: <XXX>’  (008020)"
+  end
+  if value == 008021 then
+    return "Quote Reject Reason: Blocking qty more than available quantity  (008021)"
+  end
+  if value == 008022 then
+    return "Quote Reject Reason: There aren't positions available to exercise  (008022)"
+  end
+  if value == 008023 then
+    return "Quote Reject Reason: Total qty must be the sum of all AllocQty  (008023)"
+  end
+  if value == 008024 then
+    return "Quote Reject Reason: Trade already cancelled or does not exist ‘Trade Id: <XXX>’  (008024)"
+  end
+  if value == 008027 then
+    return "Quote Reject Reason: Available quantity to block is zero  (008027)"
+  end
+  if value == 008028 then
+    return "Quote Reject Reason: Invalid Operation for contract type.  (008028)"
+  end
+  if value == 008036 then
+    return "Quote Reject Reason: Function closed or suspended.  (008036)"
+  end
+  if value == 008039 then
+    return "Quote Reject Reason: Exercise price outside required moneyness.  (008039)"
+  end
+  if value == 008040 then
+    return "Quote Reject Reason: Invalid exercise request id to cancel  (008040)"
+  end
+  if value == 008059 then
+    return "Quote Reject Reason: Invalid blocking Id to unblock  (008059)"
+  end
+  if value == 008062 then
+    return "Quote Reject Reason: Invalid quantity to unblock  (008062)"
+  end
+  if value == 008063 then
+    return "Quote Reject Reason: On Behalf Operation not allowed during CCR recovery  (008063)"
+  end
+  if value == 008065 then
+    return "Quote Reject Reason: Problem parsing incoming message  (008065)"
+  end
+  if value == 008066 then
+    return "Quote Reject Reason: Exercise quantity should be greater than zero  (008066)"
+  end
+  if value == 008069 then
+    return "Quote Reject Reason: Contrary Exercise already registered for this position  (008069)"
+  end
+  if value == 008070 then
+    return "Quote Reject Reason: In-the-money contract allows Contrary Exercise to not exercise automatically only  (008070)"
+  end
+  if value == 008071 then
+    return "Quote Reject Reason: At/Out-the-money contract allows Contrary Exercise to exercise automatically only  (008071)"
+  end
+  if value == 008072 then
+    return "Quote Reject Reason: DMA is not allowed to request Contrary Exercise  (008072)"
+  end
+  if value == 008073 then
+    return "Quote Reject Reason: Contrary Exercises can only be requested by default link or position owner with direct access on absence of default link  (008073)"
+  end
+  if value == 008074 then
+    return "Quote Reject Reason: Contrary Exercise invalid operation. (008074)"
+  end
+  if value == 008075 then
+    return "Quote Reject Reason: Threshold must not be informed  (008075)"
+  end
+
+  return "Quote Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Quote Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id = {}
+
+-- Size: Quote Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size = 8
+
+-- Display: Quote Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.display = function(value)
+  return "Quote Req Id: "..value
+end
+
+-- Dissect: Quote Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional = {}
+
+-- Size: Quote Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.size = 8
+
+-- Display: Quote Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.display = function(value)
+  return "Quote Req Id Optional: "..value
+end
+
+-- Dissect: Quote Req Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Request Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason = {}
+
+-- Size: Quote Request Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.size = 4
+
+-- Display: Quote Request Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.display = function(value)
+  return "Quote Request Reject Reason: "..value
+end
+
+-- Dissect: Quote Request Reject Reason
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Status
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status = {}
+
+-- Size: Quote Status
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status.size = 1
+
+-- Display: Quote Status
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status.display = function(value)
+  if value == 7 then
+    return "Quote Status: Expired (7)"
+  end
+  if value == 0 then
+    return "Quote Status: Accepted (0)"
+  end
+  if value == 5 then
+    return "Quote Status: Rejected (5)"
+  end
+  if value == 9 then
+    return "Quote Status: Quote Not Found (9)"
+  end
+  if value == 10 then
+    return "Quote Status: Pending (10)"
+  end
+  if value == 11 then
+    return "Quote Status: Pass (11)"
+  end
+  if value == 17 then
+    return "Quote Status: Canceled (17)"
+  end
+
+  return "Quote Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Status
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Status Response To
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to = {}
+
+-- Size: Quote Status Response To
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.size = 1
+
+-- Display: Quote Status Response To
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Status Response To: No Value"
+  end
+
+  if value == "0" then
+    return "Quote Status Response To: Quote (0)"
+  end
+  if value == "1" then
+    return "Quote Status Response To: Quote Request (1)"
+  end
+  if value == "2" then
+    return "Quote Status Response To: Quote Cancel (2)"
+  end
+  if value == "3" then
+    return "Quote Status Response To: Quote Request Reject (3)"
+  end
+  if value == 0 then
+    return "Quote Status Response To: No Value"
+  end
+
+  return "Quote Status Response To: Unknown("..value..")"
+end
+
+-- Dissect: Quote Status Response To
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status_response_to, range, value, display)
+
+  return offset + length, value
+end
+
+-- Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.received_time = {}
+
+-- Size: Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.received_time.size = 8
+
+-- Display: Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.received_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Received Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Received Time
+b3_equities_binaryentrypoint_sbe_v8_1.received_time.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.received_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.received_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.received_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Msg Type
+b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type = {}
+
+-- Size: Ref Msg Type
+b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.size = 1
+
+-- Display: Ref Msg Type
+b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.display = function(value)
+  if value == 0 then
+    return "Ref Msg Type: Negotiate (0)"
+  end
+  if value == 1 then
+    return "Ref Msg Type: Negotiate Response (1)"
+  end
+  if value == 2 then
+    return "Ref Msg Type: Negotiate Reject (2)"
+  end
+  if value == 3 then
+    return "Ref Msg Type: Establish (3)"
+  end
+  if value == 4 then
+    return "Ref Msg Type: Establish Ack (4)"
+  end
+  if value == 5 then
+    return "Ref Msg Type: Establish Reject (5)"
+  end
+  if value == 6 then
+    return "Ref Msg Type: Terminate (6)"
+  end
+  if value == 9 then
+    return "Ref Msg Type: Not Applied (9)"
+  end
+  if value == 10 then
+    return "Ref Msg Type: Retransmit Request (10)"
+  end
+  if value == 11 then
+    return "Ref Msg Type: Retransmission (11)"
+  end
+  if value == 12 then
+    return "Ref Msg Type: Retransmit Reject (12)"
+  end
+  if value == 13 then
+    return "Ref Msg Type: Sequence (13)"
+  end
+  if value == 14 then
+    return "Ref Msg Type: Business Message Reject (14)"
+  end
+  if value == 15 then
+    return "Ref Msg Type: Simple New Order (15)"
+  end
+  if value == 16 then
+    return "Ref Msg Type: Simple Modify Order (16)"
+  end
+  if value == 17 then
+    return "Ref Msg Type: New Order Single (17)"
+  end
+  if value == 18 then
+    return "Ref Msg Type: Order Cancel Replace Request (18)"
+  end
+  if value == 19 then
+    return "Ref Msg Type: Order Cancel Request (19)"
+  end
+  if value == 20 then
+    return "Ref Msg Type: New Order Cross (20)"
+  end
+  if value == 21 then
+    return "Ref Msg Type: Execution Report New (21)"
+  end
+  if value == 22 then
+    return "Ref Msg Type: Execution Report Modify (22)"
+  end
+  if value == 23 then
+    return "Ref Msg Type: Execution Report Cancel (23)"
+  end
+  if value == 24 then
+    return "Ref Msg Type: Execution Report Trade (24)"
+  end
+  if value == 25 then
+    return "Ref Msg Type: Execution Report Reject (25)"
+  end
+  if value == 26 then
+    return "Ref Msg Type: Execution Report Forward (26)"
+  end
+  if value == 27 then
+    return "Ref Msg Type: Security Definition Request (27)"
+  end
+  if value == 28 then
+    return "Ref Msg Type: Security Definition Response (28)"
+  end
+  if value == 29 then
+    return "Ref Msg Type: Order Mass Action Request (29)"
+  end
+  if value == 30 then
+    return "Ref Msg Type: Order Mass Action Report (30)"
+  end
+  if value == 31 then
+    return "Ref Msg Type: Quote Request (31)"
+  end
+  if value == 32 then
+    return "Ref Msg Type: Quote Status Report (32)"
+  end
+  if value == 33 then
+    return "Ref Msg Type: Quote (33)"
+  end
+  if value == 34 then
+    return "Ref Msg Type: Quote Cancel (34)"
+  end
+  if value == 35 then
+    return "Ref Msg Type: Quote Request Reject (35)"
+  end
+  if value == 36 then
+    return "Ref Msg Type: Position Maintenance Cancel Request (36)"
+  end
+  if value == 37 then
+    return "Ref Msg Type: Position Maintenance Request (37)"
+  end
+  if value == 38 then
+    return "Ref Msg Type: Position Maintenance Report (38)"
+  end
+  if value == 39 then
+    return "Ref Msg Type: Allocation Instruction (39)"
+  end
+  if value == 40 then
+    return "Ref Msg Type: Allocation Report (40)"
+  end
+
+  return "Ref Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Ref Msg Type
+b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ref_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num = {}
+
+-- Size: Ref Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.size = 4
+
+-- Display: Ref Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.display = function(value)
+  return "Ref Seq Num: "..value
+end
+
+-- Dissect: Ref Seq Num
+b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.ref_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp = {}
+
+-- Size: Request Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.size = 8
+
+-- Display: Request Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.display = function(value)
+  return "Request Timestamp: "..value
+end
+
+-- Dissect: Request Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.request_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmit Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code = {}
+
+-- Size: Retransmit Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.size = 1
+
+-- Display: Retransmit Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.display = function(value)
+  if value == 0 then
+    return "Retransmit Reject Code: Out Of Range (0)"
+  end
+  if value == 1 then
+    return "Retransmit Reject Code: Invalid Session (1)"
+  end
+  if value == 2 then
+    return "Retransmit Reject Code: Request Limit Exceeded (2)"
+  end
+  if value == 3 then
+    return "Retransmit Reject Code: Retransmit In Progress (3)"
+  end
+  if value == 4 then
+    return "Retransmit Reject Code: Invalid Timestamp (4)"
+  end
+  if value == 5 then
+    return "Retransmit Reject Code: Invalid Fromseqno (5)"
+  end
+  if value == 9 then
+    return "Retransmit Reject Code: Invalid Count (9)"
+  end
+  if value == 10 then
+    return "Retransmit Reject Code: Throttle Reject (10)"
+  end
+  if value == 11 then
+    return "Retransmit Reject Code: System Busy (11)"
+  end
+
+  return "Retransmit Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Retransmit Reject Code
+b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Routing Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction = {}
+
+-- Size: Routing Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.size = 1
+
+-- Display: Routing Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.display = function(value)
+  if value == 1 then
+    return "Routing Instruction: Retail Liquidity Taker (1)"
+  end
+  if value == 2 then
+    return "Routing Instruction: Waived Priority (2)"
+  end
+  if value == 3 then
+    return "Routing Instruction: Broker Only (3)"
+  end
+  if value == 4 then
+    return "Routing Instruction: Broker Only Removal (4)"
+  end
+  if value == 0 then
+    return "Routing Instruction: No Value"
+  end
+
+  return "Routing Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Routing Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.routing_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+b3_equities_binaryentrypoint_sbe_v8_1.schema_id = {}
+
+-- Size: Schema Id
+b3_equities_binaryentrypoint_sbe_v8_1.schema_id.size = 2
+
+-- Display: Schema Id
+b3_equities_binaryentrypoint_sbe_v8_1.schema_id.display = function(value)
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+b3_equities_binaryentrypoint_sbe_v8_1.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Secondary Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id = {}
+
+-- Size: Secondary Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.size = 8
+
+-- Display: Secondary Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.display = function(value)
+  return "Secondary Exec Id: "..value
+end
+
+-- Dissect: Secondary Exec Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.secondary_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Secondary Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id = {}
+
+-- Size: Secondary Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.size = 8
+
+-- Display: Secondary Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.display = function(value)
+  return "Secondary Order Id: "..value
+end
+
+-- Dissect: Secondary Order Id
+b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.secondary_order_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Secondary Order Id Optional
 b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id_optional = {}
 
@@ -9074,37 +7293,4139 @@ b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id_optional.dissect = func
   return offset + length, value
 end
 
--- Cxl Rej Response To
-b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to = {}
+-- Security Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_id = {}
 
--- Size: Cxl Rej Response To
-b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.size = 1
+-- Size: Security Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_id.size = 8
 
--- Display: Cxl Rej Response To
-b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.display = function(value)
-  if value == 0 then
-    return "Cxl Rej Response To: New (0)"
-  end
-  if value == 1 then
-    return "Cxl Rej Response To: Cancel (1)"
-  end
-  if value == 2 then
-    return "Cxl Rej Response To: Replace (2)"
-  end
-
-  return "Cxl Rej Response To: Unknown("..value..")"
+-- Display: Security Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_id.display = function(value)
+  return "Security Id: "..value
 end
 
--- Dissect: Cxl Rej Response To
-b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.size
+-- Dissect: Security Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cxl_rej_response_to, range, value, display)
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Security Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional = {}
+
+-- Size: Security Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size = 8
+
+-- Display: Security Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Security Id Optional: No Value"
+  end
+
+  return "Security Id Optional: "..value
+end
+
+-- Dissect: Security Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_req_id = {}
+
+-- Size: Security Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size = 8
+
+-- Display: Security Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.display = function(value)
+  return "Security Req Id: "..value
+end
+
+-- Dissect: Security Req Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Response Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_id = {}
+
+-- Size: Security Response Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.size = 8
+
+-- Display: Security Response Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.display = function(value)
+  return "Security Response Id: "..value
+end
+
+-- Dissect: Security Response Id
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_response_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Response Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_type = {}
+
+-- Size: Security Response Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.size = 1
+
+-- Display: Security Response Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.display = function(value)
+  if value == 1 then
+    return "Security Response Type: Accept Security Proposal As Is (1)"
+  end
+  if value == 5 then
+    return "Security Response Type: Reject Security Proposal (5)"
+  end
+  if value == 2 then
+    return "Security Response Type: Accept Security As Proposal With Revisions (2)"
+  end
+
+  return "Security Response Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Response Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_response_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Strategy Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type = {}
+
+-- Size: Security Strategy Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.size = 3
+
+-- Display: Security Strategy Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Strategy Type: No Value"
+  end
+
+  return "Security Strategy Type: "..value
+end
+
+-- Dissect: Security Strategy Type
+b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_strategy_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status
+b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status = {}
+
+-- Size: Security Trading Status
+b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.size = 1
+
+-- Display: Security Trading Status
+b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.display = function(value)
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 4 then
+    return "Security Trading Status: No Open (4)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Ready To Trade (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Forbidden (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Unknown Or Invalid (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Pre Open (21)"
+  end
+  if value == 101 then
+    return "Security Trading Status: Final Closing Call (101)"
+  end
+  if value == 110 then
+    return "Security Trading Status: Reserved (110)"
+  end
+  if value == 0 then
+    return "Security Trading Status: No Value"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Trade Prevention Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction = {}
+
+-- Size: Self Trade Prevention Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.size = 1
+
+-- Display: Self Trade Prevention Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.display = function(value)
+  if value == 0 then
+    return "Self Trade Prevention Instruction: None (0)"
+  end
+  if value == 1 then
+    return "Self Trade Prevention Instruction: Cancel Aggressor Order (1)"
+  end
+  if value == 2 then
+    return "Self Trade Prevention Instruction: Cancel Resting Order (2)"
+  end
+  if value == 3 then
+    return "Self Trade Prevention Instruction: Cancel Both Orders (3)"
+  end
+
+  return "Self Trade Prevention Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Self Trade Prevention Instruction
+b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.self_trade_prevention_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Location
+b3_equities_binaryentrypoint_sbe_v8_1.sender_location = {}
+
+-- Size: Sender Location
+b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size = 10
+
+-- Display: Sender Location
+b3_equities_binaryentrypoint_sbe_v8_1.sender_location.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sender Location: No Value"
+  end
+
+  return "Sender Location: "..value
+end
+
+-- Dissect: Sender Location
+b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sender_location, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+b3_equities_binaryentrypoint_sbe_v8_1.sending_time = {}
+
+-- Size: Sending Time
+b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size = 8
+
+-- Display: Sending Time
+b3_equities_binaryentrypoint_sbe_v8_1.sending_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Sending Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_id = {}
+
+-- Size: Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_id.size = 4
+
+-- Display: Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id = {}
+
+-- Size: Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.size = 8
+
+-- Display: Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.display = function(value)
+  return "Session Ver Id: "..value
+end
+
+-- Dissect: Session Ver Id
+b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.session_ver_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- SettlType
+b3_equities_binaryentrypoint_sbe_v8_1.settltype = {}
+
+-- Size: SettlType
+b3_equities_binaryentrypoint_sbe_v8_1.settltype.size = 1
+
+-- Display: SettlType
+b3_equities_binaryentrypoint_sbe_v8_1.settltype.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "SettlType: No Value"
+  end
+
+  if value == "0" then
+    return "SettlType: Buyers Discretion (0)"
+  end
+  if value == "8" then
+    return "SettlType: Sellers Discretion (8)"
+  end
+  if value == "X" then
+    return "SettlType: Mutual (X)"
+  end
+
+  return "SettlType: Unknown("..value..")"
+end
+
+-- Dissect: SettlType
+b3_equities_binaryentrypoint_sbe_v8_1.settltype.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.settltype.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.settltype.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.settltype, range, value, display)
+
+  return offset + length, value
+end
+
+-- SettlType Optional
+b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional = {}
+
+-- Size: SettlType Optional
+b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size = 1
+
+-- Display: SettlType Optional
+b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "SettlType Optional: No Value"
+  end
+
+  if value == "0" then
+    return "SettlType Optional: Buyers Discretion (0)"
+  end
+  if value == "8" then
+    return "SettlType Optional: Sellers Discretion (8)"
+  end
+  if value == "X" then
+    return "SettlType Optional: Mutual (X)"
+  end
+  if value == 0 then
+    return "SettlType Optional: No Value"
+  end
+
+  return "SettlType Optional: Unknown("..value..")"
+end
+
+-- Dissect: SettlType Optional
+b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.settltype_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Qty
+b3_equities_binaryentrypoint_sbe_v8_1.short_qty = {}
+
+-- Size: Short Qty
+b3_equities_binaryentrypoint_sbe_v8_1.short_qty.size = 8
+
+-- Display: Short Qty
+b3_equities_binaryentrypoint_sbe_v8_1.short_qty.display = function(value)
+  return "Short Qty: "..value
+end
+
+-- Dissect: Short Qty
+b3_equities_binaryentrypoint_sbe_v8_1.short_qty.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.short_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.short_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.short_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+b3_equities_binaryentrypoint_sbe_v8_1.side = {}
+
+-- Size: Side
+b3_equities_binaryentrypoint_sbe_v8_1.side.size = 1
+
+-- Display: Side
+b3_equities_binaryentrypoint_sbe_v8_1.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+b3_equities_binaryentrypoint_sbe_v8_1.side.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Optional
+b3_equities_binaryentrypoint_sbe_v8_1.side_optional = {}
+
+-- Size: Side Optional
+b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size = 1
+
+-- Display: Side Optional
+b3_equities_binaryentrypoint_sbe_v8_1.side_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side Optional: No Value"
+  end
+
+  if value == "1" then
+    return "Side Optional: Buy (1)"
+  end
+  if value == "2" then
+    return "Side Optional: Sell (2)"
+  end
+  if value == 0 then
+    return "Side Optional: No Value"
+  end
+
+  return "Side Optional: Unknown("..value..")"
+end
+
+-- Dissect: Side Optional
+b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.side_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Simple OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype = {}
+
+-- Size: Simple OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.size = 1
+
+-- Display: Simple OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Simple OrdType: No Value"
+  end
+
+  if value == "1" then
+    return "Simple OrdType: Market (1)"
+  end
+  if value == "2" then
+    return "Simple OrdType: Limit (2)"
+  end
+
+  return "Simple OrdType: Unknown("..value..")"
+end
+
+-- Dissect: Simple OrdType
+b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.simple_ordtype, range, value, display)
+
+  return offset + length, value
+end
+
+-- Single Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason = {}
+
+-- Size: Single Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.size = 1
+
+-- Display: Single Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.display = function(value)
+  if value == 203 then
+    return "Single Cancel Restatement Reason: Cancel Order Due To Operational Error (203)"
+  end
+  if value == 0 then
+    return "Single Cancel Restatement Reason: No Value"
+  end
+
+  return "Single Cancel Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Single Cancel Restatement Reason
+b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.single_cancel_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Px
+b3_equities_binaryentrypoint_sbe_v8_1.stop_px = {}
+
+-- Size: Stop Px
+b3_equities_binaryentrypoint_sbe_v8_1.stop_px.size = 8
+
+-- Display: Stop Px
+b3_equities_binaryentrypoint_sbe_v8_1.stop_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Stop Px: No Value"
+  end
+
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+b3_equities_binaryentrypoint_sbe_v8_1.stop_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Stop Px
+b3_equities_binaryentrypoint_sbe_v8_1.stop_px.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.stop_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.stop_px.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.stop_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.stop_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Id
+b3_equities_binaryentrypoint_sbe_v8_1.strategy_id = {}
+
+-- Size: Strategy Id
+b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.size = 4
+
+-- Display: Strategy Id
+b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Strategy Id: No Value"
+  end
+
+  return "Strategy Id: "..value
+end
+
+-- Dissect: Strategy Id
+b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.strategy_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.strategy_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.symbol = {}
+
+-- Size: Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.symbol.size = 20
+
+-- Display: Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+b3_equities_binaryentrypoint_sbe_v8_1.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+b3_equities_binaryentrypoint_sbe_v8_1.template_id = {}
+
+-- Size: Template Id
+b3_equities_binaryentrypoint_sbe_v8_1.template_id.size = 2
+
+-- Display: Template Id
+b3_equities_binaryentrypoint_sbe_v8_1.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: Negotiate Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Negotiate Response Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Negotiate Reject Message (3)"
+  end
+  if value == 4 then
+    return "Template Id: Establish Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Establish Ack Message (5)"
+  end
+  if value == 6 then
+    return "Template Id: Establish Reject Message (6)"
+  end
+  if value == 7 then
+    return "Template Id: Terminate Message (7)"
+  end
+  if value == 8 then
+    return "Template Id: Not Applied Message (8)"
+  end
+  if value == 9 then
+    return "Template Id: Sequence Message (9)"
+  end
+  if value == 12 then
+    return "Template Id: Retransmit Request Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Retransmission Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Retransmit Reject Message (14)"
+  end
+  if value == 100 then
+    return "Template Id: Simple New Order Message (100)"
+  end
+  if value == 101 then
+    return "Template Id: Simple Modify Order Message (101)"
+  end
+  if value == 102 then
+    return "Template Id: New Order Single Message (102)"
+  end
+  if value == 104 then
+    return "Template Id: Order Cancel Replace Request Message (104)"
+  end
+  if value == 105 then
+    return "Template Id: Order Cancel Request Message (105)"
+  end
+  if value == 106 then
+    return "Template Id: New Order Cross Message (106)"
+  end
+  if value == 200 then
+    return "Template Id: Execution Report New Message (200)"
+  end
+  if value == 201 then
+    return "Template Id: Execution Report Modify Message (201)"
+  end
+  if value == 202 then
+    return "Template Id: Execution Report Cancel Message (202)"
+  end
+  if value == 203 then
+    return "Template Id: Execution Report Trade Message (203)"
+  end
+  if value == 204 then
+    return "Template Id: Execution Report Reject Message (204)"
+  end
+  if value == 205 then
+    return "Template Id: Execution Report Forward Message (205)"
+  end
+  if value == 206 then
+    return "Template Id: Business Message Reject Message (206)"
+  end
+  if value == 300 then
+    return "Template Id: Security Definition Request Message (300)"
+  end
+  if value == 301 then
+    return "Template Id: Security Definition Response Message (301)"
+  end
+  if value == 401 then
+    return "Template Id: Quote Request Message (401)"
+  end
+  if value == 402 then
+    return "Template Id: Quote Status Report Message (402)"
+  end
+  if value == 403 then
+    return "Template Id: Quote Message (403)"
+  end
+  if value == 404 then
+    return "Template Id: Quote Cancel Message (404)"
+  end
+  if value == 405 then
+    return "Template Id: Quote Request Reject Message (405)"
+  end
+  if value == 501 then
+    return "Template Id: Position Maintenance Cancel Request Message (501)"
+  end
+  if value == 502 then
+    return "Template Id: Position Maintenance Request Message (502)"
+  end
+  if value == 503 then
+    return "Template Id: Position Maintenance Report Message (503)"
+  end
+  if value == 601 then
+    return "Template Id: Allocation Instruction Message (601)"
+  end
+  if value == 602 then
+    return "Template Id: Allocation Report Message (602)"
+  end
+  if value == 701 then
+    return "Template Id: Order Mass Action Request Message (701)"
+  end
+  if value == 702 then
+    return "Template Id: Order Mass Action Report Message (702)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+b3_equities_binaryentrypoint_sbe_v8_1.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Termination Code
+b3_equities_binaryentrypoint_sbe_v8_1.termination_code = {}
+
+-- Size: Termination Code
+b3_equities_binaryentrypoint_sbe_v8_1.termination_code.size = 1
+
+-- Display: Termination Code
+b3_equities_binaryentrypoint_sbe_v8_1.termination_code.display = function(value)
+  if value == 0 then
+    return "Termination Code: Unspecified (0)"
+  end
+  if value == 1 then
+    return "Termination Code: Finished (1)"
+  end
+  if value == 2 then
+    return "Termination Code: Unnegotiated (2)"
+  end
+  if value == 3 then
+    return "Termination Code: Not Established (3)"
+  end
+  if value == 4 then
+    return "Termination Code: Session Blocked (4)"
+  end
+  if value == 5 then
+    return "Termination Code: Negotiation In Progress (5)"
+  end
+  if value == 6 then
+    return "Termination Code: Establish In Progress (6)"
+  end
+  if value == 10 then
+    return "Termination Code: Keepalive Interval Lapsed (10)"
+  end
+  if value == 11 then
+    return "Termination Code: Invalid Sessionid (11)"
+  end
+  if value == 12 then
+    return "Termination Code: Invalid Sessionverid (12)"
+  end
+  if value == 13 then
+    return "Termination Code: Invalid Timestamp (13)"
+  end
+  if value == 14 then
+    return "Termination Code: Invalid Nextseqno (14)"
+  end
+  if value == 15 then
+    return "Termination Code: Unrecognized Message (15)"
+  end
+  if value == 16 then
+    return "Termination Code: Invalid Sofh (16)"
+  end
+  if value == 17 then
+    return "Termination Code: Decoding Error (17)"
+  end
+  if value == 20 then
+    return "Termination Code: Terminate Not Allowed (20)"
+  end
+  if value == 21 then
+    return "Termination Code: Terminate In Progress (21)"
+  end
+  if value == 23 then
+    return "Termination Code: Protocol Version Not Supported (23)"
+  end
+  if value == 30 then
+    return "Termination Code: Backup Takeover In Progress (30)"
+  end
+
+  return "Termination Code: Unknown("..value..")"
+end
+
+-- Dissect: Termination Code
+b3_equities_binaryentrypoint_sbe_v8_1.termination_code.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.termination_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.termination_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.termination_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text Data
+b3_equities_binaryentrypoint_sbe_v8_1.text_data = {}
+
+-- Display: Text Data
+b3_equities_binaryentrypoint_sbe_v8_1.text_data.display = function(value)
+  return "Text Data: "..value
+end
+
+-- Dissect runtime sized field: Text Data
+b3_equities_binaryentrypoint_sbe_v8_1.text_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.text_data.display(value, packet, parent, size)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.text_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Text Length
+b3_equities_binaryentrypoint_sbe_v8_1.text_length = {}
+
+-- Size: Text Length
+b3_equities_binaryentrypoint_sbe_v8_1.text_length.size = 1
+
+-- Display: Text Length
+b3_equities_binaryentrypoint_sbe_v8_1.text_length.display = function(value)
+  return "Text Length: "..value
+end
+
+-- Dissect: Text Length
+b3_equities_binaryentrypoint_sbe_v8_1.text_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.text_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.text_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.text_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Threshold Amount
+b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount = {}
+
+-- Size: Threshold Amount
+b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size = 8
+
+-- Display: Threshold Amount
+b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Threshold Amount: No Value"
+  end
+
+  return "Threshold Amount: "..value
+end
+
+-- Translate: Threshold Amount
+b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Threshold Amount
+b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.translate(raw)
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.threshold_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force = {}
+
+-- Size: Time In Force
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.size = 1
+
+-- Display: Time In Force
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force: Good Till Cancel (1)"
+  end
+  if value == "3" then
+    return "Time In Force: Immediate Or Cancel (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fill Or Kill (4)"
+  end
+  if value == "6" then
+    return "Time In Force: Good Till Date (6)"
+  end
+  if value == "7" then
+    return "Time In Force: At The Close (7)"
+  end
+  if value == "A" then
+    return "Time In Force: Good For Auction (A)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional = {}
+
+-- Size: Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.size = 1
+
+-- Display: Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force Optional: No Value"
+  end
+
+  if value == "0" then
+    return "Time In Force Optional: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force Optional: Good Till Cancel (1)"
+  end
+  if value == "3" then
+    return "Time In Force Optional: Immediate Or Cancel (3)"
+  end
+  if value == "4" then
+    return "Time In Force Optional: Fill Or Kill (4)"
+  end
+  if value == "6" then
+    return "Time In Force Optional: Good Till Date (6)"
+  end
+  if value == "7" then
+    return "Time In Force Optional: At The Close (7)"
+  end
+  if value == "A" then
+    return "Time In Force Optional: Good For Auction (A)"
+  end
+  if value == 0 then
+    return "Time In Force Optional: No Value"
+  end
+
+  return "Time In Force Optional: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force Optional
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.time_in_force_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple = {}
+
+-- Size: Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.size = 1
+
+-- Display: Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force Simple: No Value"
+  end
+
+  if value == "0" then
+    return "Time In Force Simple: Day (0)"
+  end
+  if value == "3" then
+    return "Time In Force Simple: Immediate Or Cancel (3)"
+  end
+  if value == "4" then
+    return "Time In Force Simple: Fill Or Kill (4)"
+  end
+
+  return "Time In Force Simple: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force Simple
+b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.time_in_force_simple, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.timestamp = {}
+
+-- Size: Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.timestamp.size = 8
+
+-- Display: Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+b3_equities_binaryentrypoint_sbe_v8_1.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tot No Related Sym
+b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym = {}
+
+-- Size: Tot No Related Sym
+b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.size = 1
+
+-- Display: Tot No Related Sym
+b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.display = function(value)
+  return "Tot No Related Sym: "..value
+end
+
+-- Dissect: Tot No Related Sym
+b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.tot_no_related_sym, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date = {}
+
+-- Size: Trade Date
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date.size = 2
+
+-- Display: Trade Date
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date.display = function(value)
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional = {}
+
+-- Size: Trade Date Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size = 2
+
+-- Display: Trade Date Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.display = function(value)
+  return "Trade Date Optional: "..value
+end
+
+-- Dissect: Trade Date Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_date_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id = {}
+
+-- Size: Trade Id
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size = 4
+
+-- Display: Trade Id
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional = {}
+
+-- Size: Trade Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size = 4
+
+-- Display: Trade Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.display = function(value)
+  return "Trade Id Optional: "..value
+end
+
+-- Dissect: Trade Id Optional
+b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trade_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id = {}
+
+-- Size: Trading Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.size = 1
+
+-- Display: Trading Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.display = function(value)
+  if value == 1 then
+    return "Trading Session Id: Regular Day Session (1)"
+  end
+  if value == 6 then
+    return "Trading Session Id: Non Regular Session (6)"
+  end
+  if value == 0 then
+    return "Trading Session Id: No Value"
+  end
+
+  return "Trading Session Id: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trading_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Sub Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id = {}
+
+-- Size: Trading Session Sub Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size = 1
+
+-- Display: Trading Session Sub Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.display = function(value)
+  if value == 2 then
+    return "Trading Session Sub Id: Pause (2)"
+  end
+  if value == 4 then
+    return "Trading Session Sub Id: Close (4)"
+  end
+  if value == 17 then
+    return "Trading Session Sub Id: Open (17)"
+  end
+  if value == 18 then
+    return "Trading Session Sub Id: Pre Close (18)"
+  end
+  if value == 21 then
+    return "Trading Session Sub Id: Pre Open (21)"
+  end
+  if value == 101 then
+    return "Trading Session Sub Id: Final Closing Call (101)"
+  end
+  if value == 0 then
+    return "Trading Session Sub Id: No Value"
+  end
+
+  return "Trading Session Sub Id: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session Sub Id
+b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.trading_session_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+b3_equities_binaryentrypoint_sbe_v8_1.transact_time = {}
+
+-- Size: Transact Time
+b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size = 8
+
+-- Display: Transact Time
+b3_equities_binaryentrypoint_sbe_v8_1.transact_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+b3_equities_binaryentrypoint_sbe_v8_1.version = {}
+
+-- Size: Version
+b3_equities_binaryentrypoint_sbe_v8_1.version.size = 2
+
+-- Display: Version
+b3_equities_binaryentrypoint_sbe_v8_1.version.display = function(value)
+  if value == 3 then
+    return "Version: Version 8.1.1"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+b3_equities_binaryentrypoint_sbe_v8_1.version.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Working Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.working_indicator = {}
+
+-- Size: Working Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.size = 1
+
+-- Display: Working Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.display = function(value)
+  if value == 0 then
+    return "Working Indicator: False Value (0)"
+  end
+  if value == 1 then
+    return "Working Indicator: True Value (1)"
+  end
+
+  return "Working Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Working Indicator
+b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.working_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect B3 Equities BinaryEntryPoint Sbe 8.1
+-----------------------------------------------------------------------
+
+-- Text
+b3_equities_binaryentrypoint_sbe_v8_1.text = {}
+
+-- Calculate size of: Text
+b3_equities_binaryentrypoint_sbe_v8_1.text.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text_length.size
+
+  local text_length = buffer(offset + index - 1, 1):le_uint()
+
+  if text_length > 0 then
+    -- Parse runtime size of: Text Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
+
+  return index
+end
+
+-- Display: Text
+b3_equities_binaryentrypoint_sbe_v8_1.text.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
+end
+
+-- Dissect Fields: Text
+b3_equities_binaryentrypoint_sbe_v8_1.text.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Text Length: uint8
+  index, text_length = b3_equities_binaryentrypoint_sbe_v8_1.text_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Text Data
+  local text_data = nil
+
+  local text_data_exists = text_length > 0
+
+  if text_data_exists then
+
+    -- Runtime Size Of: Text Data
+    index, text_data = b3_equities_binaryentrypoint_sbe_v8_1.text_data.dissect(buffer, index, packet, parent, text_length)
+  end
+
+  -- Composite value
+  local text = text_data
+
+  return index, text
+end
+
+-- Dissect: Text
+b3_equities_binaryentrypoint_sbe_v8_1.text.dissect = function(buffer, offset, packet, parent)
+  if show.text then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.text, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_1.text.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.text.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.text.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Investor Id
+b3_equities_binaryentrypoint_sbe_v8_1.investor_id = {}
+
+-- Size: Investor Id
+b3_equities_binaryentrypoint_sbe_v8_1.investor_id.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.prefix.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.document.size
+
+-- Display: Investor Id
+b3_equities_binaryentrypoint_sbe_v8_1.investor_id.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Investor Id
+b3_equities_binaryentrypoint_sbe_v8_1.investor_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Prefix: uint16
+  index, prefix = b3_equities_binaryentrypoint_sbe_v8_1.prefix.dissect(buffer, index, packet, parent)
+
+  -- Document: uint32
+  index, document = b3_equities_binaryentrypoint_sbe_v8_1.document.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Investor Id
+b3_equities_binaryentrypoint_sbe_v8_1.investor_id.dissect = function(buffer, offset, packet, parent)
+  if show.investor_id then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.investor_id, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.investor_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Outbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header = {}
+
+-- Size: Outbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.padding.size
+
+-- Display: Outbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Outbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  index, session_id = b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect(buffer, index, packet, parent)
+
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
+  index, poss_resend = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.dissect(buffer, index, packet, parent)
+
+  -- Padding: char
+  index, padding = b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Outbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect = function(buffer, offset, packet, parent)
+  if show.outbound_business_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.outbound_business_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Mass Action Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message = {}
+
+-- Calculate size of: Order Mass Action Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clordid.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_response.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.asset.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.investor_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Order Mass Action Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Mass Action Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Outbound Business Header: Struct of 5 fields
+  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Type: MassActionType
+  index, mass_action_type = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Scope: MassActionScope
+  index, mass_action_scope = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ClOrdID
+  index, clordid = b3_equities_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Report Id: MassActionReportID
+  index, mass_action_report_id = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Response: MassActionResponse
+  index, mass_action_response = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_response.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Reject Reason: MassActionRejectReason
+  index, mass_action_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Restatement Reason: ExecRestatementReasonValidForMassCancel
+  index, mass_cancel_restatement_reason = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- OrdTagId: OrdTagID
+  index, ordtagid = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: Side
+  index, side_optional = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Offset 49 Padding 1: 1 Byte
+  index, offset_49_padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.offset_49_padding_1.dissect(buffer, index, packet, parent)
+
+  -- Asset: AssetOptional
+  index, asset = b3_equities_binaryentrypoint_sbe_v8_1.asset.dissect(buffer, index, packet, parent)
+
+  -- Security Id Optional: SecurityIDOptional
+  index, security_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Investor Id: Struct of 2 fields
+  index, investor_id = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.dissect(buffer, index, packet, parent)
+
+  -- Text: Struct of 2 fields
+  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Mass Action Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_mass_action_report_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Inbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header = {}
+
+-- Size: Inbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.padding.size
+
+-- Display: Inbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  index, session_id = b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect(buffer, index, packet, parent)
+
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
+  index, market_segment_id = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id.dissect(buffer, index, packet, parent)
+
+  -- Padding: char
+  index, padding = b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inbound Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect = function(buffer, offset, packet, parent)
+  if show.inbound_business_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.inbound_business_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Mass Action Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message = {}
+
+-- Size: Order Mass Action Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.clordid.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.asset.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.investor_id.size
+
+-- Display: Order Mass Action Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Mass Action Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inbound Business Header: Struct of 5 fields
+  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Type: MassActionType
+  index, mass_action_type = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_type.dissect(buffer, index, packet, parent)
+
+  -- Mass Action Scope: MassActionScope
+  index, mass_action_scope = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_scope.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ClOrdID
+  index, clordid = b3_equities_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Restatement Reason: ExecRestatementReasonValidForMassCancel
+  index, mass_cancel_restatement_reason = b3_equities_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- OrdTagId: OrdTagID
+  index, ordtagid = b3_equities_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: Side
+  index, side_optional = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Offset 31 Padding 1: 1 Byte
+  index, offset_31_padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.offset_31_padding_1.dissect(buffer, index, packet, parent)
+
+  -- Asset: AssetOptional
+  index, asset = b3_equities_binaryentrypoint_sbe_v8_1.asset.dissect(buffer, index, packet, parent)
+
+  -- Security Id Optional: SecurityIDOptional
+  index, security_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Investor Id: Struct of 2 fields
+  index, investor_id = b3_equities_binaryentrypoint_sbe_v8_1.investor_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Mass Action Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_mass_action_request_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_mass_action_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.order_mass_action_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message = {}
+
+-- Size: Allocation Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.quantity.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+-- Display: Allocation Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Outbound Business Header: Struct of 5 fields
+  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Alloc Id: AllocID
+  index, alloc_id = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Report Id: AllocReportID
+  index, alloc_report_id = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Trans Type: AllocTransType
+  index, alloc_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc Report Type: AllocReportType
+  index, alloc_report_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_report_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc No Orders Type: AllocNoOrdersType
+  index, alloc_no_orders_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc Rej Code: RejReasonOptional
+  index, alloc_rej_code = b3_equities_binaryentrypoint_sbe_v8_1.alloc_rej_code.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Quantity
+  index, quantity = b3_equities_binaryentrypoint_sbe_v8_1.quantity.dissect(buffer, index, packet, parent)
+
+  -- Alloc Status: AllocStatus
+  index, alloc_status = b3_equities_binaryentrypoint_sbe_v8_1.alloc_status.dissect(buffer, index, packet, parent)
+
+  -- Trade Date Optional: LocalMktDateOptional
+  index, trade_date_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Side: Side
+  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Allocation Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.allocation_report_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.allocation_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Memo
+b3_equities_binaryentrypoint_sbe_v8_1.memo = {}
+
+-- Calculate size of: Memo
+b3_equities_binaryentrypoint_sbe_v8_1.memo.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo_length.size
+
+  local memo_length = buffer(offset + index - 1, 1):le_uint()
+
+  if memo_length > 0 then
+    -- Parse runtime size of: Memo Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
+
+  return index
+end
+
+-- Display: Memo
+b3_equities_binaryentrypoint_sbe_v8_1.memo.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
+end
+
+-- Dissect Fields: Memo
+b3_equities_binaryentrypoint_sbe_v8_1.memo.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Memo Length: uint8
+  index, memo_length = b3_equities_binaryentrypoint_sbe_v8_1.memo_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Memo Data
+  local memo_data = nil
+
+  local memo_data_exists = memo_length > 0
+
+  if memo_data_exists then
+
+    -- Runtime Size Of: Memo Data
+    index, memo_data = b3_equities_binaryentrypoint_sbe_v8_1.memo_data.dissect(buffer, index, packet, parent, memo_length)
+  end
+
+  -- Composite value
+  local memo = memo_data
+
+  return index, memo
+end
+
+-- Dissect: Memo
+b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect = function(buffer, offset, packet, parent)
+  if show.memo then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.memo, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_1.memo.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.memo.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.memo.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Desk Id
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id = {}
+
+-- Calculate size of: Desk Id
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.size
+
+  local desk_id_length = buffer(offset + index - 1, 1):le_uint()
+
+  if desk_id_length > 0 then
+    -- Parse runtime size of: Desk Id Data
+    index = index + buffer(offset + index - 1, 1):le_uint()
+
+  end
+
+  return index
+end
+
+-- Display: Desk Id
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
+end
+
+-- Dissect Fields: Desk Id
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Desk Id Length: uint8
+  index, desk_id_length = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Desk Id Data
+  local desk_id_data = nil
+
+  local desk_id_data_exists = desk_id_length > 0
+
+  if desk_id_data_exists then
+
+    -- Runtime Size Of: Desk Id Data
+    index, desk_id_data = b3_equities_binaryentrypoint_sbe_v8_1.desk_id_data.dissect(buffer, index, packet, parent, desk_id_length)
+  end
+
+  -- Composite value
+  local desk_id = desk_id_data
+
+  return index, desk_id
+end
+
+-- Dissect: Desk Id
+b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect = function(buffer, offset, packet, parent)
+  if show.desk_id then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.desk_id, buffer(offset, 0))
+    local index, value = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.desk_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Instruction Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message = {}
+
+-- Calculate size of: Allocation Instruction Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quantity.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Allocation Instruction Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Instruction Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inbound Business Header: Struct of 5 fields
+  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Alloc Id: AllocID
+  index, alloc_id = b3_equities_binaryentrypoint_sbe_v8_1.alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Trans Type: AllocTransType
+  index, alloc_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc Type: AllocType
+  index, alloc_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc No Orders Type: AllocNoOrdersType
+  index, alloc_no_orders_type = b3_equities_binaryentrypoint_sbe_v8_1.alloc_no_orders_type.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Quantity
+  index, quantity = b3_equities_binaryentrypoint_sbe_v8_1.quantity.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: TradeID
+  index, trade_id = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Date Optional: LocalMktDateOptional
+  index, trade_date_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_date_optional.dissect(buffer, index, packet, parent)
+
+  -- Individual Alloc Id: AllocID
+  index, individual_alloc_id = b3_equities_binaryentrypoint_sbe_v8_1.individual_alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Account: Account
+  index, alloc_account = b3_equities_binaryentrypoint_sbe_v8_1.alloc_account.dissect(buffer, index, packet, parent)
+
+  -- Alloc Qty: Quantity
+  index, alloc_qty = b3_equities_binaryentrypoint_sbe_v8_1.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Allocation Instruction Message
+b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.dissect = function(buffer, offset, packet, parent)
+  if show.allocation_instruction_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.allocation_instruction_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.allocation_instruction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Positions Group
+b3_equities_binaryentrypoint_sbe_v8_1.positions_group = {}
+
+-- Size: Positions Group
+b3_equities_binaryentrypoint_sbe_v8_1.positions_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.pos_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.short_qty.size
+
+-- Display: Positions Group
+b3_equities_binaryentrypoint_sbe_v8_1.positions_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Positions Group
+b3_equities_binaryentrypoint_sbe_v8_1.positions_group.fields = function(buffer, offset, packet, parent, positions_group_index)
+  local index = offset
+
+  -- Implicit Positions Group Index
+  if positions_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.positions_group_index, positions_group_index)
+    iteration:set_generated()
+  end
+
+  -- Pos Type: PosType
+  index, pos_type = b3_equities_binaryentrypoint_sbe_v8_1.pos_type.dissect(buffer, index, packet, parent)
+
+  -- Long Qty Optional: QuantityOptional
+  index, long_qty_optional = b3_equities_binaryentrypoint_sbe_v8_1.long_qty_optional.dissect(buffer, index, packet, parent)
+
+  -- Short Qty: QuantityOptional
+  index, short_qty = b3_equities_binaryentrypoint_sbe_v8_1.short_qty.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Positions Group
+b3_equities_binaryentrypoint_sbe_v8_1.positions_group.dissect = function(buffer, offset, packet, parent, positions_group_index)
+  if show.positions_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.positions_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.positions_group.fields(buffer, offset, packet, parent, positions_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.positions_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.positions_group.fields(buffer, offset, packet, parent, positions_group_index)
+  end
+end
+
+-- Group Size Encoding
+b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding = {}
+
+-- Size: Group Size Encoding
+b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.block_length.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.size
+
+-- Display: Group Size Encoding
+b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Group Size Encoding
+b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = b3_equities_binaryentrypoint_sbe_v8_1.block_length.dissect(buffer, index, packet, parent)
+
+  -- Num In Group: uint8
+  index, num_in_group = b3_equities_binaryentrypoint_sbe_v8_1.num_in_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Group Size Encoding
+b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect = function(buffer, offset, packet, parent)
+  if show.group_size_encoding then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.group_size_encoding, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_1.positions_groups = {}
+
+-- Calculate size of: Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size
+
+  -- Calculate field size from count
+  local positions_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + positions_group_count * 17
+
+  return index
+end
+
+-- Display: Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Positions Group
+  for positions_group_index = 1, num_in_group do
+    index, positions_group = b3_equities_binaryentrypoint_sbe_v8_1.positions_group.dissect(buffer, index, packet, parent, positions_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Positions Groups
+b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.dissect = function(buffer, offset, packet, parent)
+  if show.positions_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.positions_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Position Maintenance Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message = {}
+
+-- Calculate size of: Position Maintenance Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Position Maintenance Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Position Maintenance Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Outbound Business Header: Struct of 5 fields
+  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Pos Req Id Optional: PosReqIDOptional
+  index, pos_req_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Pos Maint Rpt Id: PosMaintRptID
+  index, pos_maint_rpt_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_id.dissect(buffer, index, packet, parent)
+
+  -- Pos Trans Type: PosTransType
+  index, pos_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Pos Maint Action: PosMaintAction
+  index, pos_maint_action = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_action.dissect(buffer, index, packet, parent)
+
+  -- Pos Maint Status: PosMaintStatus
+  index, pos_maint_status = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_status.dissect(buffer, index, packet, parent)
+
+  -- Trade Id Optional: TradeIDOptional
+  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Orig Pos Req Ref Id: PosReqIDOptional
+  index, orig_pos_req_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Account Type: AccountType
+  index, account_type = b3_equities_binaryentrypoint_sbe_v8_1.account_type.dissect(buffer, index, packet, parent)
+
+  -- Clearing Business Date: LocalMktDate
+  index, clearing_business_date = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.dissect(buffer, index, packet, parent)
+
+  -- Threshold Amount: PriceOffsetOptional
+  index, threshold_amount = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Pos Maint Result: RejReasonOptional
+  index, pos_maint_result = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_result.dissect(buffer, index, packet, parent)
+
+  -- Contrary Instruction Indicator: Boolean
+  index, contrary_instruction_indicator = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Positions Groups: Struct of 2 fields
+  index, positions_groups = b3_equities_binaryentrypoint_sbe_v8_1.positions_groups.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  -- Text: Struct of 2 fields
+  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Position Maintenance Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.position_maintenance_report_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Position Maintenance Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message = {}
+
+-- Calculate size of: Position Maintenance Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.long_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Position Maintenance Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Position Maintenance Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inbound Business Header: Struct of 5 fields
+  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Pos Req Id: PosReqID
+  index, pos_req_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Threshold Amount: PriceOffsetOptional
+  index, threshold_amount = b3_equities_binaryentrypoint_sbe_v8_1.threshold_amount.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Pos Trans Type: PosTransType
+  index, pos_trans_type = b3_equities_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Clearing Business Date: LocalMktDate
+  index, clearing_business_date = b3_equities_binaryentrypoint_sbe_v8_1.clearing_business_date.dissect(buffer, index, packet, parent)
+
+  -- Contrary Instruction Indicator: Boolean
+  index, contrary_instruction_indicator = b3_equities_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Long Qty: Quantity
+  index, long_qty = b3_equities_binaryentrypoint_sbe_v8_1.long_qty.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Position Maintenance Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.position_maintenance_request_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Position Maintenance Cancel Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message = {}
+
+-- Size: Position Maintenance Cancel Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+-- Display: Position Maintenance Cancel Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Position Maintenance Cancel Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inbound Business Header: Struct of 5 fields
+  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Pos Req Id: PosReqID
+  index, pos_req_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_req_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Orig Pos Req Ref Id: PosReqIDOptional
+  index, orig_pos_req_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.orig_pos_req_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Pos Maint Rpt Ref Id: PosMaintRptIDOptional
+  index, pos_maint_rpt_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.pos_maint_rpt_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Position Maintenance Cancel Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.position_maintenance_cancel_request_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.position_maintenance_cancel_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.position_maintenance_cancel_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sides Group
+b3_equities_binaryentrypoint_sbe_v8_1.sides_group = {}
+
+-- Size: Sides Group
+b3_equities_binaryentrypoint_sbe_v8_1.sides_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+-- Display: Sides Group
+b3_equities_binaryentrypoint_sbe_v8_1.sides_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sides Group
+b3_equities_binaryentrypoint_sbe_v8_1.sides_group.fields = function(buffer, offset, packet, parent, sides_group_index)
+  local index = offset
+
+  -- Implicit Sides Group Index
+  if sides_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_group_index, sides_group_index)
+    iteration:set_generated()
+  end
+
+  -- Side: Side
+  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sides Group
+b3_equities_binaryentrypoint_sbe_v8_1.sides_group.dissect = function(buffer, offset, packet, parent, sides_group_index)
+  if show.sides_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.sides_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.sides_group.fields(buffer, offset, packet, parent, sides_group_index)
+  end
+end
+
+-- Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_1.sides_groups = {}
+
+-- Calculate size of: Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size
+
+  -- Calculate field size from count
+  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + sides_group_count * 5
+
+  return index
+end
+
+-- Display: Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Sides Group
+  for sides_group_index = 1, num_in_group do
+    index, sides_group = b3_equities_binaryentrypoint_sbe_v8_1.sides_group.dissect(buffer, index, packet, parent, sides_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Sides Groups
+b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.dissect = function(buffer, offset, packet, parent)
+  if show.sides_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.sides_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bidirectional Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header = {}
+
+-- Size: Bidirectional Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.session_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.sending_time.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.padding.size
+
+-- Display: Bidirectional Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bidirectional Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  index, session_id = b3_equities_binaryentrypoint_sbe_v8_1.session_id.dissect(buffer, index, packet, parent)
+
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, msg_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, sending_time = b3_equities_binaryentrypoint_sbe_v8_1.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
+  index, poss_resend = b3_equities_binaryentrypoint_sbe_v8_1.poss_resend.dissect(buffer, index, packet, parent)
+
+  -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer
+  index, market_segment_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Padding: char
+  index, padding = b3_equities_binaryentrypoint_sbe_v8_1.padding.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bidirectional Business Header
+b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect = function(buffer, offset, packet, parent)
+  if show.bidirectional_business_header then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.bidirectional_business_header, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Request Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message = {}
+
+-- Calculate size of: Quote Request Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Quote Request Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bidirectional Business Header: Struct of 6 fields
+  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
+
+  -- Quote Request Reject Reason: RejReasonOptional
+  index, quote_request_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: QuoteReqID
+  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Id Optional: QuoteIDOptional
+  index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Trade Id Optional: TradeIDOptional
+  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Contra Broker: Firm
+  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- SettlType Optional: SettlType
+  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
+
+  -- Price 8 Optional: Price8Optional
+  index, price_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
+
+  -- Order Qty Optional: QuantityOptional
+  index, order_qty_optional = b3_equities_binaryentrypoint_sbe_v8_1.order_qty_optional.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: Trader
+  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
+  index, fixed_rate_percentage_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
+
+  -- Days To Settlement Optional: DaysToSettlementOptional
+  index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect(buffer, index, packet, parent)
+
+  -- Sides Groups: Struct of 2 fields
+  index, sides_groups = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  -- Text: Struct of 2 fields
+  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Request Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_request_reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Cancel Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message = {}
+
+-- Calculate size of: Quote Cancel Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Quote Cancel Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Cancel Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bidirectional Business Header: Struct of 6 fields
+  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id Optional: QuoteReqIDOptional
+  index, quote_req_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Quote Id Optional: QuoteIDOptional
+  index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: Trader
+  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Cancel Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_cancel_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_cancel_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.quote_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_message = {}
+
+-- Calculate size of: Quote Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Quote Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bidirectional Business Header: Struct of 6 fields
+  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: QuoteReqID
+  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Id: QuoteID
+  index, quote_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Price 8 Optional: Price8Optional
+  index, price_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: Quantity
+  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Side: Side
+  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
+
+  -- SettlType: SettlType
+  index, settltype = b3_equities_binaryentrypoint_sbe_v8_1.settltype.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: Trader
+  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Fixed Rate Percentage 8: Percentage8
+  index, fixed_rate_percentage_8 = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.dissect(buffer, index, packet, parent)
+
+  -- Execute Underlying Trade: ExecuteUnderlyingTrade
+  index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
+
+  -- Days To Settlement: DaysToSettlement
+  index, days_to_settlement = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Status Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message = {}
+
+-- Calculate size of: Quote Status Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_status.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Quote Status Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Status Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bidirectional Business Header: Struct of 6 fields
+  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
+
+  -- Quote Reject Reason: RejReasonOptional
+  index, quote_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.quote_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: QuoteReqID
+  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Id: QuoteID
+  index, quote_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id Optional: TradeIDOptional
+  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Contra Broker: Firm
+  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Quote Status: QuoteStatus
+  index, quote_status = b3_equities_binaryentrypoint_sbe_v8_1.quote_status.dissect(buffer, index, packet, parent)
+
+  -- Quote Status Response To: QuoteStatusResponseTo
+  index, quote_status_response_to = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_response_to.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: Side
+  index, side_optional = b3_equities_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
+
+  -- SettlType Optional: SettlType
+  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
+
+  -- Price 8 Optional: Price8Optional
+  index, price_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: Quantity
+  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: Trader
+  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
+  index, fixed_rate_percentage_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
+
+  -- Execute Underlying Trade: ExecuteUnderlyingTrade
+  index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
+
+  -- Days To Settlement Optional: DaysToSettlementOptional
+  index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  -- Text: Struct of 2 fields
+  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Status Report Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_status_report_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_status_report_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message = {}
+
+-- Calculate size of: Quote Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.price_8.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Quote Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bidirectional Business Header: Struct of 6 fields
+  index, bidirectional_business_header = b3_equities_binaryentrypoint_sbe_v8_1.bidirectional_business_header.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: QuoteReqID
+  index, quote_req_id = b3_equities_binaryentrypoint_sbe_v8_1.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Id Optional: QuoteIDOptional
+  index, quote_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.quote_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Trade Id Optional: TradeIDOptional
+  index, trade_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.trade_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Contra Broker: Firm
+  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Price 8: Price8
+  index, price_8 = b3_equities_binaryentrypoint_sbe_v8_1.price_8.dissect(buffer, index, packet, parent)
+
+  -- SettlType: SettlType
+  index, settltype = b3_equities_binaryentrypoint_sbe_v8_1.settltype.dissect(buffer, index, packet, parent)
+
+  -- Execute Underlying Trade: ExecuteUnderlyingTrade
+  index, execute_underlying_trade = b3_equities_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: Quantity
+  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: Trader
+  index, executing_trader = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Fixed Rate Percentage 8: Percentage8
+  index, fixed_rate_percentage_8 = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8.dissect(buffer, index, packet, parent)
+
+  -- Days To Settlement: DaysToSettlement
+  index, days_to_settlement = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement.dissect(buffer, index, packet, parent)
+
+  -- Sides Groups: Struct of 2 fields
+  index, sides_groups = b3_equities_binaryentrypoint_sbe_v8_1.sides_groups.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_request_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.quote_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.quote_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Definition Response Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message = {}
+
+-- Size: Security Definition Response Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.symbol.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+-- Display: Security Definition Response Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Definition Response Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Outbound Business Header: Struct of 5 fields
+  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Offset 18 Padding 2: 2 Byte
+  index, offset_18_padding_2 = b3_equities_binaryentrypoint_sbe_v8_1.offset_18_padding_2.dissect(buffer, index, packet, parent)
+
+  -- Security Req Id: SecurityReqRespID
+  index, security_req_id = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id Optional: SecurityIDOptional
+  index, security_id_optional = b3_equities_binaryentrypoint_sbe_v8_1.security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Security Response Type: SecurityResponseType
+  index, security_response_type = b3_equities_binaryentrypoint_sbe_v8_1.security_response_type.dissect(buffer, index, packet, parent)
+
+  -- Security Strategy Type: SecurityStrategyType
+  index, security_strategy_type = b3_equities_binaryentrypoint_sbe_v8_1.security_strategy_type.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Symbol
+  index, symbol = b3_equities_binaryentrypoint_sbe_v8_1.symbol.dissect(buffer, index, packet, parent)
+
+  -- Security Response Id: SecurityReqRespID
+  index, security_response_id = b3_equities_binaryentrypoint_sbe_v8_1.security_response_id.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Definition Response Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.security_definition_response_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_response_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.security_definition_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Legs Group
+b3_equities_binaryentrypoint_sbe_v8_1.legs_group = {}
+
+-- Size: Legs Group
+b3_equities_binaryentrypoint_sbe_v8_1.legs_group.size =
+  b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.leg_side.size + 
+  b3_equities_binaryentrypoint_sbe_v8_1.padding_1.size
+
+-- Display: Legs Group
+b3_equities_binaryentrypoint_sbe_v8_1.legs_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Legs Group
+b3_equities_binaryentrypoint_sbe_v8_1.legs_group.fields = function(buffer, offset, packet, parent, legs_group_index)
+  local index = offset
+
+  -- Implicit Legs Group Index
+  if legs_group_index ~= nil then
+    local iteration = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.legs_group_index, legs_group_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Symbol: Symbol
+  index, leg_symbol = b3_equities_binaryentrypoint_sbe_v8_1.leg_symbol.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: RatioQty
+  index, leg_ratio_qty = b3_equities_binaryentrypoint_sbe_v8_1.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: Side
+  index, leg_side = b3_equities_binaryentrypoint_sbe_v8_1.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Padding 1: 1 Byte
+  index, padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.padding_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Legs Group
+b3_equities_binaryentrypoint_sbe_v8_1.legs_group.dissect = function(buffer, offset, packet, parent, legs_group_index)
+  if show.legs_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.legs_group, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.legs_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
+  end
+end
+
+-- Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_1.legs_groups = {}
+
+-- Calculate size of: Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.size
+
+  -- Calculate field size from count
+  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + legs_group_count * 30
+
+  return index
+end
+
+-- Display: Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = b3_equities_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Legs Group
+  for legs_group_index = 1, num_in_group do
+    index, legs_group = b3_equities_binaryentrypoint_sbe_v8_1.legs_group.dissect(buffer, index, packet, parent, legs_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Legs Groups
+b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.dissect = function(buffer, offset, packet, parent)
+  if show.legs_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.legs_groups, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Definition Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message = {}
+
+-- Calculate size of: Security Definition Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.sender_location.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Security Definition Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Definition Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inbound Business Header: Struct of 5 fields
+  index, inbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.inbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Security Req Id: SecurityReqRespID
+  index, security_req_id = b3_equities_binaryentrypoint_sbe_v8_1.security_req_id.dissect(buffer, index, packet, parent)
+
+  -- Sender Location: SenderLocation
+  index, sender_location = b3_equities_binaryentrypoint_sbe_v8_1.sender_location.dissect(buffer, index, packet, parent)
+
+  -- Entering Trader: Trader
+  index, entering_trader = b3_equities_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
+
+  -- Legs Groups: Struct of 2 fields
+  index, legs_groups = b3_equities_binaryentrypoint_sbe_v8_1.legs_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Definition Request Message
+b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.security_definition_request_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.security_definition_request_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.security_definition_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Business Message Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message = {}
+
+-- Calculate size of: Business Message Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.text.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Business Message Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Business Message Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Outbound Business Header: Struct of 5 fields
+  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Ref Msg Type: MessageType
+  index, ref_msg_type = b3_equities_binaryentrypoint_sbe_v8_1.ref_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Offset 19 Padding 1: 1 Byte
+  index, offset_19_padding_1 = b3_equities_binaryentrypoint_sbe_v8_1.offset_19_padding_1.dissect(buffer, index, packet, parent)
+
+  -- Ref Seq Num: SeqNum
+  index, ref_seq_num = b3_equities_binaryentrypoint_sbe_v8_1.ref_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Business Reject Ref Id: BusinessRejectRefID
+  index, business_reject_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Business Reject Reason: RejReason
+  index, business_reject_reason = b3_equities_binaryentrypoint_sbe_v8_1.business_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  -- Text: Struct of 2 fields
+  index, text = b3_equities_binaryentrypoint_sbe_v8_1.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Business Message Reject Message
+b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.business_message_reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.business_message_reject_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.business_message_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Forward Message
+b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message = {}
+
+-- Calculate size of: Execution Report Forward Message
+b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.side.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.ord_status.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.account.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.last_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.last_px.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.exec_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.transact_time.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trade_date.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.order_qty.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.size
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.desk_id.size(buffer, offset + index)
+
+  index = index + b3_equities_binaryentrypoint_sbe_v8_1.memo.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Execution Report Forward Message
+b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Forward Message
+b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Outbound Business Header: Struct of 5 fields
+  index, outbound_business_header = b3_equities_binaryentrypoint_sbe_v8_1.outbound_business_header.dissect(buffer, index, packet, parent)
+
+  -- Side: Side
+  index, side = b3_equities_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatus
+  index, ord_status = b3_equities_binaryentrypoint_sbe_v8_1.ord_status.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId Optional: ClOrdIDOptional
+  index, clordid_optional = b3_equities_binaryentrypoint_sbe_v8_1.clordid_optional.dissect(buffer, index, packet, parent)
+
+  -- Secondary Order Id: OrderID
+  index, secondary_order_id = b3_equities_binaryentrypoint_sbe_v8_1.secondary_order_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: SecurityID
+  index, security_id = b3_equities_binaryentrypoint_sbe_v8_1.security_id.dissect(buffer, index, packet, parent)
+
+  -- Account: AccountOptional
+  index, account = b3_equities_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
+
+  -- Last Qty: Quantity
+  index, last_qty = b3_equities_binaryentrypoint_sbe_v8_1.last_qty.dissect(buffer, index, packet, parent)
+
+  -- Last Px: Price
+  index, last_px = b3_equities_binaryentrypoint_sbe_v8_1.last_px.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: ExecID
+  index, exec_id = b3_equities_binaryentrypoint_sbe_v8_1.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = b3_equities_binaryentrypoint_sbe_v8_1.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: Quantity
+  index, leaves_qty = b3_equities_binaryentrypoint_sbe_v8_1.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: Quantity
+  index, cum_qty = b3_equities_binaryentrypoint_sbe_v8_1.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: TradeID
+  index, trade_id = b3_equities_binaryentrypoint_sbe_v8_1.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Contra Broker: Firm
+  index, contra_broker = b3_equities_binaryentrypoint_sbe_v8_1.contra_broker.dissect(buffer, index, packet, parent)
+
+  -- Order Id: OrderID
+  index, order_id = b3_equities_binaryentrypoint_sbe_v8_1.order_id.dissect(buffer, index, packet, parent)
+
+  -- Aggressor Indicator: Boolean
+  index, aggressor_indicator = b3_equities_binaryentrypoint_sbe_v8_1.aggressor_indicator.dissect(buffer, index, packet, parent)
+
+  -- SettlType Optional: SettlType
+  index, settltype_optional = b3_equities_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: LocalMktDate
+  index, trade_date = b3_equities_binaryentrypoint_sbe_v8_1.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Days To Settlement Optional: DaysToSettlementOptional
+  index, days_to_settlement_optional = b3_equities_binaryentrypoint_sbe_v8_1.days_to_settlement_optional.dissect(buffer, index, packet, parent)
+
+  -- Offset 118 Padding 2: 2 Byte
+  index, offset_118_padding_2 = b3_equities_binaryentrypoint_sbe_v8_1.offset_118_padding_2.dissect(buffer, index, packet, parent)
+
+  -- Secondary Exec Id: ExecIDOptional
+  index, secondary_exec_id = b3_equities_binaryentrypoint_sbe_v8_1.secondary_exec_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Ref Id: ExecIDOptional
+  index, exec_ref_id = b3_equities_binaryentrypoint_sbe_v8_1.exec_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
+  index, fixed_rate_percentage_8_optional = b3_equities_binaryentrypoint_sbe_v8_1.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: Quantity
+  index, order_qty = b3_equities_binaryentrypoint_sbe_v8_1.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: TradingSessionID
+  index, trading_session_id = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Sub Id: TradingSessionSubID
+  index, trading_session_sub_id = b3_equities_binaryentrypoint_sbe_v8_1.trading_session_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Security Trading Status: SecurityTradingStatus
+  index, security_trading_status = b3_equities_binaryentrypoint_sbe_v8_1.security_trading_status.dissect(buffer, index, packet, parent)
+
+  -- Desk Id: Struct of 2 fields
+  index, desk_id = b3_equities_binaryentrypoint_sbe_v8_1.desk_id.dissect(buffer, index, packet, parent)
+
+  -- Memo: Struct of 2 fields
+  index, memo = b3_equities_binaryentrypoint_sbe_v8_1.memo.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Forward Message
+b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_forward_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.execution_report_forward_message, buffer(offset, 0))
+    local index = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return b3_equities_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Execution Report Reject Message
@@ -9295,297 +11616,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.execution_report_reject_message.dissect = 
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.execution_report_reject_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offset 159 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1 = {}
-
--- Size: Offset 159 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.size = 1
-
--- Display: Offset 159 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.display = function(value)
-  return "Offset 159 Padding 1: "..value
-end
-
--- Dissect: Offset 159 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_159_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_159_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Prioritization
-b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization = {}
-
--- Size: Cross Prioritization
-b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.size = 1
-
--- Display: Cross Prioritization
-b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.display = function(value)
-  if value == 0 then
-    return "Cross Prioritization: None (0)"
-  end
-  if value == 1 then
-    return "Cross Prioritization: Buy Side Is Prioritized (1)"
-  end
-  if value == 2 then
-    return "Cross Prioritization: Sell Side Is Prioritized (2)"
-  end
-  if value == 255 then
-    return "Cross Prioritization: No Value"
-  end
-
-  return "Cross Prioritization: Unknown("..value..")"
-end
-
--- Dissect: Cross Prioritization
-b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.cross_prioritization.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cross_prioritization, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Type
-b3_equities_binaryentrypoint_sbe_v8_1.cross_type = {}
-
--- Size: Cross Type
-b3_equities_binaryentrypoint_sbe_v8_1.cross_type.size = 1
-
--- Display: Cross Type
-b3_equities_binaryentrypoint_sbe_v8_1.cross_type.display = function(value)
-  if value == 1 then
-    return "Cross Type: All Or None Cross (1)"
-  end
-  if value == 4 then
-    return "Cross Type: Cross Executed Against Book From Client (4)"
-  end
-  if value == 0 then
-    return "Cross Type: No Value"
-  end
-
-  return "Cross Type: Unknown("..value..")"
-end
-
--- Dissect: Cross Type
-b3_equities_binaryentrypoint_sbe_v8_1.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.cross_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cross_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 119 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1 = {}
-
--- Size: Offset 119 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.size = 1
-
--- Display: Offset 119 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.display = function(value)
-  return "Offset 119 Padding 1: "..value
-end
-
--- Dissect: Offset 119 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_119_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_119_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Tot No Related Sym
-b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym = {}
-
--- Size: Tot No Related Sym
-b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.size = 1
-
--- Display: Tot No Related Sym
-b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.display = function(value)
-  return "Tot No Related Sym: "..value
-end
-
--- Dissect: Tot No Related Sym
-b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.tot_no_related_sym.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.tot_no_related_sym, range, value, display)
-
-  return offset + length, value
-end
-
--- Multi Leg Reporting Type
-b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type = {}
-
--- Size: Multi Leg Reporting Type
-b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.size = 1
-
--- Display: Multi Leg Reporting Type
-b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Multi Leg Reporting Type: No Value"
-  end
-
-  if value == "1" then
-    return "Multi Leg Reporting Type: Single Security (1)"
-  end
-  if value == "2" then
-    return "Multi Leg Reporting Type: Individualleg Of Multileg Security (2)"
-  end
-  if value == "3" then
-    return "Multi Leg Reporting Type: Multileg Security (3)"
-  end
-  if value == 0 then
-    return "Multi Leg Reporting Type: No Value"
-  end
-
-  return "Multi Leg Reporting Type: Unknown("..value..")"
-end
-
--- Dissect: Multi Leg Reporting Type
-b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.multi_leg_reporting_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.multi_leg_reporting_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Category
-b3_equities_binaryentrypoint_sbe_v8_1.order_category = {}
-
--- Size: Order Category
-b3_equities_binaryentrypoint_sbe_v8_1.order_category.size = 1
-
--- Display: Order Category
-b3_equities_binaryentrypoint_sbe_v8_1.order_category.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Order Category: No Value"
-  end
-
-  if value == "B" then
-    return "Order Category: Result Of Options Exercise (B)"
-  end
-  if value == "C" then
-    return "Order Category: Result Of Assignment From An Options Exercise (C)"
-  end
-  if value == "D" then
-    return "Order Category: Result Of Automatic Options Exercise (D)"
-  end
-  if value == "E" then
-    return "Order Category: Result Of Midpoint Order (E)"
-  end
-  if value == "F" then
-    return "Order Category: Result Of Block Book Trade (F)"
-  end
-  if value == "G" then
-    return "Order Category: Result Of Trade At Close (G)"
-  end
-  if value == "H" then
-    return "Order Category: Result Of Trade At Average (H)"
-  end
-  if value == 0 then
-    return "Order Category: No Value"
-  end
-
-  return "Order Category: Unknown("..value..")"
-end
-
--- Dissect: Order Category
-b3_equities_binaryentrypoint_sbe_v8_1.order_category.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.order_category.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.order_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.order_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Type
-b3_equities_binaryentrypoint_sbe_v8_1.exec_type = {}
-
--- Size: Exec Type
-b3_equities_binaryentrypoint_sbe_v8_1.exec_type.size = 1
-
--- Display: Exec Type
-b3_equities_binaryentrypoint_sbe_v8_1.exec_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Exec Type: No Value"
-  end
-
-  if value == "F" then
-    return "Exec Type: Trade (F)"
-  end
-  if value == "H" then
-    return "Exec Type: Trade Cancel (H)"
-  end
-
-  return "Exec Type: Unknown("..value..")"
-end
-
--- Dissect: Exec Type
-b3_equities_binaryentrypoint_sbe_v8_1.exec_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Trade Message
@@ -9813,248 +11843,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.execution_report_trade_message.dissect = f
   end
 end
 
--- Action Requested From Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id = {}
-
--- Size: Action Requested From Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.size = 4
-
--- Display: Action Requested From Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.display = function(value)
-  return "Action Requested From Session Id: "..value
-end
-
--- Dissect: Action Requested From Session Id
-b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.action_requested_from_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.action_requested_from_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 164 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3 = {}
-
--- Size: Offset 164 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.size = 3
-
--- Display: Offset 164 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.display = function(value)
-  return "Offset 164 Padding 3: "..value
-end
-
--- Dissect: Offset 164 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_164_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_164_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Report Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional = {}
-
--- Size: Mass Action Report Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.size = 8
-
--- Display: Mass Action Report Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.display = function(value)
-  return "Mass Action Report Id Optional: "..value
-end
-
--- Dissect: Mass Action Report Id Optional
-b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.mass_action_report_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mass_action_report_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 100 Padding 4
-b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4 = {}
-
--- Size: Offset 100 Padding 4
-b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.size = 4
-
--- Display: Offset 100 Padding 4
-b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.display = function(value)
-  return "Offset 100 Padding 4: "..value
-end
-
--- Dissect: Offset 100 Padding 4
-b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_100_padding_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_100_padding_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason = {}
-
--- Size: Exec Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.size = 1
-
--- Display: Exec Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.display = function(value)
-  if value == 8 then
-    return "Exec Restatement Reason: Market Option (8)"
-  end
-  if value == 100 then
-    return "Exec Restatement Reason: Cancel On Hard Disconnection (100)"
-  end
-  if value == 101 then
-    return "Exec Restatement Reason: Cancel On Terminate (101)"
-  end
-  if value == 102 then
-    return "Exec Restatement Reason: Cancel On Disconnect And Terminate (102)"
-  end
-  if value == 103 then
-    return "Exec Restatement Reason: Self Trading Prevention (103)"
-  end
-  if value == 105 then
-    return "Exec Restatement Reason: Cancel From Firmsoft (105)"
-  end
-  if value == 107 then
-    return "Exec Restatement Reason: Cancel Resting Order On Self Trade (107)"
-  end
-  if value == 200 then
-    return "Exec Restatement Reason: Market Maker Protection (200)"
-  end
-  if value == 201 then
-    return "Exec Restatement Reason: Risk Management Cancellation (201)"
-  end
-  if value == 202 then
-    return "Exec Restatement Reason: Order Mass Action From Client Request (202)"
-  end
-  if value == 203 then
-    return "Exec Restatement Reason: Cancel Order Due To Operational Error (203)"
-  end
-  if value == 204 then
-    return "Exec Restatement Reason: Order Cancelled Due To Operational Error (204)"
-  end
-  if value == 205 then
-    return "Exec Restatement Reason: Cancel Order Firmsoft Due To Operational Error (205)"
-  end
-  if value == 206 then
-    return "Exec Restatement Reason: Order Cancelled Firmsoft Due To Operational Error (206)"
-  end
-  if value == 207 then
-    return "Exec Restatement Reason: Mass Cancel Order Due To Operational Error Request (207)"
-  end
-  if value == 208 then
-    return "Exec Restatement Reason: Mass Cancel Order Due To Operational Error Effective (208)"
-  end
-  if value == 209 then
-    return "Exec Restatement Reason: Cancel On Midpoint Broker Only Removal (209)"
-  end
-  if value == 210 then
-    return "Exec Restatement Reason: Cancel Remaining From Sweep Cross (210)"
-  end
-  if value == 211 then
-    return "Exec Restatement Reason: Mass Cancel On Behalf (211)"
-  end
-  if value == 212 then
-    return "Exec Restatement Reason: Mass Cancel On Behalf Due To Operational Error Effective (212)"
-  end
-  if value == 0 then
-    return "Exec Restatement Reason: No Value"
-  end
-
-  return "Exec Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Exec Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.exec_restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.exec_restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Working Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.working_indicator = {}
-
--- Size: Working Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.size = 1
-
--- Display: Working Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.display = function(value)
-  if value == 0 then
-    return "Working Indicator: False Value (0)"
-  end
-  if value == 1 then
-    return "Working Indicator: True Value (1)"
-  end
-
-  return "Working Indicator: Unknown("..value..")"
-end
-
--- Dissect: Working Indicator
-b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.working_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.working_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Segment Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time = {}
-
--- Size: Market Segment Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.size = 8
-
--- Display: Market Segment Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Market Segment Received Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Market Segment Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Market Segment Received Time
-b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.market_segment_received_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.market_segment_received_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Cancel Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_cancel_message = {}
 
@@ -10263,124 +12051,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.execution_report_cancel_message.dissect = 
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.execution_report_cancel_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offset 179 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3 = {}
-
--- Size: Offset 179 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.size = 3
-
--- Display: Offset 179 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.display = function(value)
-  return "Offset 179 Padding 3: "..value
-end
-
--- Dissect: Offset 179 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_179_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_179_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Mm Protection Reset Boolean optional
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional = {}
-
--- Size: Mm Protection Reset Boolean optional
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size = 1
-
--- Display: Mm Protection Reset Boolean optional
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.display = function(value)
-  if value == 0 then
-    return "Mm Protection Reset Boolean optional: False Value (0)"
-  end
-  if value == 1 then
-    return "Mm Protection Reset Boolean optional: True Value (1)"
-  end
-  if value == 255 then
-    return "Mm Protection Reset Boolean optional: No Value"
-  end
-
-  return "Mm Protection Reset Boolean optional: Unknown("..value..")"
-end
-
--- Dissect: Mm Protection Reset Boolean optional
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 168 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3 = {}
-
--- Size: Offset 168 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.size = 3
-
--- Display: Offset 168 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.display = function(value)
-  return "Offset 168 Padding 3: "..value
-end
-
--- Dissect: Offset 168 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_168_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_168_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Protection Price
-b3_equities_binaryentrypoint_sbe_v8_1.protection_price = {}
-
--- Size: Protection Price
-b3_equities_binaryentrypoint_sbe_v8_1.protection_price.size = 8
-
--- Display: Protection Price
-b3_equities_binaryentrypoint_sbe_v8_1.protection_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Protection Price: No Value"
-  end
-
-  return "Protection Price: "..value
-end
-
--- Translate: Protection Price
-b3_equities_binaryentrypoint_sbe_v8_1.protection_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Protection Price
-b3_equities_binaryentrypoint_sbe_v8_1.protection_price.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.protection_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.protection_price.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.protection_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.protection_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Modify Message
@@ -10598,52 +12268,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.execution_report_modify_message.dissect = 
   end
 end
 
--- Offset 165 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3 = {}
-
--- Size: Offset 165 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.size = 3
-
--- Display: Offset 165 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.display = function(value)
-  return "Offset 165 Padding 3: "..value
-end
-
--- Dissect: Offset 165 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_165_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_165_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 152 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3 = {}
-
--- Size: Offset 152 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.size = 3
-
--- Display: Offset 152 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.display = function(value)
-  return "Offset 152 Padding 3: "..value
-end
-
--- Dissect: Offset 152 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_152_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_152_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report New Message
 b3_equities_binaryentrypoint_sbe_v8_1.execution_report_new_message = {}
 
@@ -10859,52 +12483,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.execution_report_new_message.dissect = fun
   end
 end
 
--- Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional = {}
-
--- Size: Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.size = 4
-
--- Display: Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.display = function(value)
-  return "Entering Firm Optional: "..value
-end
-
--- Dissect: Entering Firm Optional
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.entering_firm_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1 = {}
-
--- Size: Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.size = 1
-
--- Display: Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.display = function(value)
-  return "Offset 1 Padding 1: "..value
-end
-
--- Dissect: Offset 1 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_1_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_1_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cross Sides Group
 b3_equities_binaryentrypoint_sbe_v8_1.cross_sides_group = {}
 
@@ -11022,125 +12600,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.cross_sides_groups.dissect = function(buff
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.cross_sides_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Max Sweep Qty
-b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty = {}
-
--- Size: Max Sweep Qty
-b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.size = 8
-
--- Display: Max Sweep Qty
-b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Max Sweep Qty: No Value"
-  end
-
-  return "Max Sweep Qty: "..value
-end
-
--- Dissect: Max Sweep Qty
-b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.max_sweep_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.max_sweep_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-b3_equities_binaryentrypoint_sbe_v8_1.price = {}
-
--- Size: Price
-b3_equities_binaryentrypoint_sbe_v8_1.price.size = 8
-
--- Display: Price
-b3_equities_binaryentrypoint_sbe_v8_1.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-b3_equities_binaryentrypoint_sbe_v8_1.price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price
-b3_equities_binaryentrypoint_sbe_v8_1.price.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = b3_equities_binaryentrypoint_sbe_v8_1.price.translate(raw)
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Executing Trader Optional
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional = {}
-
--- Size: Executing Trader Optional
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.size = 5
-
--- Display: Executing Trader Optional
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Executing Trader Optional: No Value"
-  end
-
-  return "Executing Trader Optional: "..value
-end
-
--- Dissect: Executing Trader Optional
-b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.executing_trader_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.executing_trader_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- CrossId
-b3_equities_binaryentrypoint_sbe_v8_1.crossid = {}
-
--- Size: CrossId
-b3_equities_binaryentrypoint_sbe_v8_1.crossid.size = 8
-
--- Display: CrossId
-b3_equities_binaryentrypoint_sbe_v8_1.crossid.display = function(value)
-  return "CrossId: "..value
-end
-
--- Dissect: CrossId
-b3_equities_binaryentrypoint_sbe_v8_1.crossid.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.crossid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.crossid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.crossid, range, value, display)
-
-  return offset + length, value
 end
 
 -- New Order Cross Message
@@ -11263,59 +12722,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.new_order_cross_message.dissect = function
   end
 end
 
--- Offset 54 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2 = {}
-
--- Size: Offset 54 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.size = 2
-
--- Display: Offset 54 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.display = function(value)
-  return "Offset 54 Padding 2: "..value
-end
-
--- Dissect: Offset 54 Padding 2
-b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_54_padding_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_54_padding_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Single Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason = {}
-
--- Size: Single Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.size = 1
-
--- Display: Single Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.display = function(value)
-  if value == 203 then
-    return "Single Cancel Restatement Reason: Cancel Order Due To Operational Error (203)"
-  end
-  if value == 0 then
-    return "Single Cancel Restatement Reason: No Value"
-  end
-
-  return "Single Cancel Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Single Cancel Restatement Reason
-b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.single_cancel_restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Cancel Request Message
 b3_equities_binaryentrypoint_sbe_v8_1.order_cancel_request_message = {}
 
@@ -11426,75 +12832,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.order_cancel_request_message.dissect = fun
   end
 end
 
--- Custody Allocation Type
-b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type = {}
-
--- Size: Custody Allocation Type
-b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.size = 4
-
--- Display: Custody Allocation Type
-b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.display = function(value)
-  return "Custody Allocation Type: "..value
-end
-
--- Dissect: Custody Allocation Type
-b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.custody_allocation_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.custody_allocation_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Custody Account
-b3_equities_binaryentrypoint_sbe_v8_1.custody_account = {}
-
--- Size: Custody Account
-b3_equities_binaryentrypoint_sbe_v8_1.custody_account.size = 4
-
--- Display: Custody Account
-b3_equities_binaryentrypoint_sbe_v8_1.custody_account.display = function(value)
-  return "Custody Account: "..value
-end
-
--- Dissect: Custody Account
-b3_equities_binaryentrypoint_sbe_v8_1.custody_account.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.custody_account.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.custody_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.custody_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Custodian
-b3_equities_binaryentrypoint_sbe_v8_1.custodian = {}
-
--- Size: Custodian
-b3_equities_binaryentrypoint_sbe_v8_1.custodian.size = 4
-
--- Display: Custodian
-b3_equities_binaryentrypoint_sbe_v8_1.custodian.display = function(value)
-  return "Custodian: "..value
-end
-
--- Dissect: Custodian
-b3_equities_binaryentrypoint_sbe_v8_1.custodian.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.custodian.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.custodian.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.custodian, range, value, display)
-
-  return offset + length, value
-end
-
 -- Custodian Info
 b3_equities_binaryentrypoint_sbe_v8_1.custodian_info = {}
 
@@ -11541,172 +12878,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.custodian_info.dissect = function(buffer, 
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.custodian_info.fields(buffer, offset, packet, parent)
   end
-end
-
--- Routing Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction = {}
-
--- Size: Routing Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.size = 1
-
--- Display: Routing Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.display = function(value)
-  if value == 1 then
-    return "Routing Instruction: Retail Liquidity Taker (1)"
-  end
-  if value == 2 then
-    return "Routing Instruction: Waived Priority (2)"
-  end
-  if value == 3 then
-    return "Routing Instruction: Broker Only (3)"
-  end
-  if value == 4 then
-    return "Routing Instruction: Broker Only Removal (4)"
-  end
-  if value == 0 then
-    return "Routing Instruction: No Value"
-  end
-
-  return "Routing Instruction: Unknown("..value..")"
-end
-
--- Dissect: Routing Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.routing_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.routing_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force Optional
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional = {}
-
--- Size: Time In Force Optional
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.size = 1
-
--- Display: Time In Force Optional
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Time In Force Optional: No Value"
-  end
-
-  if value == "0" then
-    return "Time In Force Optional: Day (0)"
-  end
-  if value == "1" then
-    return "Time In Force Optional: Good Till Cancel (1)"
-  end
-  if value == "3" then
-    return "Time In Force Optional: Immediate Or Cancel (3)"
-  end
-  if value == "4" then
-    return "Time In Force Optional: Fill Or Kill (4)"
-  end
-  if value == "6" then
-    return "Time In Force Optional: Good Till Date (6)"
-  end
-  if value == "7" then
-    return "Time In Force Optional: At The Close (7)"
-  end
-  if value == "A" then
-    return "Time In Force Optional: Good For Auction (A)"
-  end
-  if value == 0 then
-    return "Time In Force Optional: No Value"
-  end
-
-  return "Time In Force Optional: Unknown("..value..")"
-end
-
--- Dissect: Time In Force Optional
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.time_in_force_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Trade Prevention Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction = {}
-
--- Size: Self Trade Prevention Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.size = 1
-
--- Display: Self Trade Prevention Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.display = function(value)
-  if value == 0 then
-    return "Self Trade Prevention Instruction: None (0)"
-  end
-  if value == 1 then
-    return "Self Trade Prevention Instruction: Cancel Aggressor Order (1)"
-  end
-  if value == 2 then
-    return "Self Trade Prevention Instruction: Cancel Resting Order (2)"
-  end
-  if value == 3 then
-    return "Self Trade Prevention Instruction: Cancel Both Orders (3)"
-  end
-
-  return "Self Trade Prevention Instruction: Unknown("..value..")"
-end
-
--- Dissect: Self Trade Prevention Instruction
-b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.self_trade_prevention_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Mm Protection Reset Boolean
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean = {}
-
--- Size: Mm Protection Reset Boolean
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size = 1
-
--- Display: Mm Protection Reset Boolean
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.display = function(value)
-  if value == 0 then
-    return "Mm Protection Reset Boolean: False Value (0)"
-  end
-  if value == 1 then
-    return "Mm Protection Reset Boolean: True Value (1)"
-  end
-
-  return "Mm Protection Reset Boolean: Unknown("..value..")"
-end
-
--- Dissect: Mm Protection Reset Boolean
-b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Cancel Replace Request Message
@@ -12054,95 +13225,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.new_order_single_message.dissect = functio
   end
 end
 
--- Time In Force Simple
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple = {}
-
--- Size: Time In Force Simple
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.size = 1
-
--- Display: Time In Force Simple
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Time In Force Simple: No Value"
-  end
-
-  if value == "0" then
-    return "Time In Force Simple: Day (0)"
-  end
-  if value == "3" then
-    return "Time In Force Simple: Immediate Or Cancel (3)"
-  end
-  if value == "4" then
-    return "Time In Force Simple: Fill Or Kill (4)"
-  end
-
-  return "Time In Force Simple: Unknown("..value..")"
-end
-
--- Dissect: Time In Force Simple
-b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.time_in_force_simple.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.time_in_force_simple, range, value, display)
-
-  return offset + length, value
-end
-
--- Simple OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype = {}
-
--- Size: Simple OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.size = 1
-
--- Display: Simple OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Simple OrdType: No Value"
-  end
-
-  if value == "1" then
-    return "Simple OrdType: Market (1)"
-  end
-  if value == "2" then
-    return "Simple OrdType: Limit (2)"
-  end
-
-  return "Simple OrdType: Unknown("..value..")"
-end
-
--- Dissect: Simple OrdType
-b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.simple_ordtype.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.simple_ordtype, range, value, display)
-
-  return offset + length, value
-end
-
 -- Simple Modify Order Message
 b3_equities_binaryentrypoint_sbe_v8_1.simple_modify_order_message = {}
 
@@ -12403,80 +13485,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.simple_new_order_message.dissect = functio
   end
 end
 
--- Retransmit Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code = {}
-
--- Size: Retransmit Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.size = 1
-
--- Display: Retransmit Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.display = function(value)
-  if value == 0 then
-    return "Retransmit Reject Code: Out Of Range (0)"
-  end
-  if value == 1 then
-    return "Retransmit Reject Code: Invalid Session (1)"
-  end
-  if value == 2 then
-    return "Retransmit Reject Code: Request Limit Exceeded (2)"
-  end
-  if value == 3 then
-    return "Retransmit Reject Code: Retransmit In Progress (3)"
-  end
-  if value == 4 then
-    return "Retransmit Reject Code: Invalid Timestamp (4)"
-  end
-  if value == 5 then
-    return "Retransmit Reject Code: Invalid Fromseqno (5)"
-  end
-  if value == 9 then
-    return "Retransmit Reject Code: Invalid Count (9)"
-  end
-  if value == 10 then
-    return "Retransmit Reject Code: Throttle Reject (10)"
-  end
-  if value == 11 then
-    return "Retransmit Reject Code: System Busy (11)"
-  end
-
-  return "Retransmit Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Retransmit Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.retransmit_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp = {}
-
--- Size: Request Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.size = 8
-
--- Display: Request Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.display = function(value)
-  return "Request Timestamp: "..value
-end
-
--- Dissect: Request Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.request_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.request_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Retransmit Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_message = {}
 
@@ -12523,52 +13531,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_message.dissect = functi
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.retransmit_reject_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Count
-b3_equities_binaryentrypoint_sbe_v8_1.count = {}
-
--- Size: Count
-b3_equities_binaryentrypoint_sbe_v8_1.count.size = 4
-
--- Display: Count
-b3_equities_binaryentrypoint_sbe_v8_1.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-b3_equities_binaryentrypoint_sbe_v8_1.count.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no = {}
-
--- Size: Next Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.size = 4
-
--- Display: Next Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.display = function(value)
-  return "Next Seq No: "..value
-end
-
--- Dissect: Next Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.next_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.next_seq_no, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmission Message
@@ -12621,52 +13583,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.retransmission_message.dissect = function(
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.retransmission_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- From Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no = {}
-
--- Size: From Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.size = 4
-
--- Display: From Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.display = function(value)
-  return "From Seq No: "..value
-end
-
--- Dissect: From Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.from_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.from_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.timestamp = {}
-
--- Size: Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.timestamp.size = 8
-
--- Display: Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-b3_equities_binaryentrypoint_sbe_v8_1.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.timestamp, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmit Request Message
@@ -12805,110 +13721,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.not_applied_message.dissect = function(buf
   end
 end
 
--- Termination Code
-b3_equities_binaryentrypoint_sbe_v8_1.termination_code = {}
-
--- Size: Termination Code
-b3_equities_binaryentrypoint_sbe_v8_1.termination_code.size = 1
-
--- Display: Termination Code
-b3_equities_binaryentrypoint_sbe_v8_1.termination_code.display = function(value)
-  if value == 0 then
-    return "Termination Code: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Termination Code: Finished (1)"
-  end
-  if value == 2 then
-    return "Termination Code: Unnegotiated (2)"
-  end
-  if value == 3 then
-    return "Termination Code: Not Established (3)"
-  end
-  if value == 4 then
-    return "Termination Code: Session Blocked (4)"
-  end
-  if value == 5 then
-    return "Termination Code: Negotiation In Progress (5)"
-  end
-  if value == 6 then
-    return "Termination Code: Establish In Progress (6)"
-  end
-  if value == 10 then
-    return "Termination Code: Keepalive Interval Lapsed (10)"
-  end
-  if value == 11 then
-    return "Termination Code: Invalid Sessionid (11)"
-  end
-  if value == 12 then
-    return "Termination Code: Invalid Sessionverid (12)"
-  end
-  if value == 13 then
-    return "Termination Code: Invalid Timestamp (13)"
-  end
-  if value == 14 then
-    return "Termination Code: Invalid Nextseqno (14)"
-  end
-  if value == 15 then
-    return "Termination Code: Unrecognized Message (15)"
-  end
-  if value == 16 then
-    return "Termination Code: Invalid Sofh (16)"
-  end
-  if value == 17 then
-    return "Termination Code: Decoding Error (17)"
-  end
-  if value == 20 then
-    return "Termination Code: Terminate Not Allowed (20)"
-  end
-  if value == 21 then
-    return "Termination Code: Terminate In Progress (21)"
-  end
-  if value == 23 then
-    return "Termination Code: Protocol Version Not Supported (23)"
-  end
-  if value == 30 then
-    return "Termination Code: Backup Takeover In Progress (30)"
-  end
-
-  return "Termination Code: Unknown("..value..")"
-end
-
--- Dissect: Termination Code
-b3_equities_binaryentrypoint_sbe_v8_1.termination_code.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.termination_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.termination_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.termination_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id = {}
-
--- Size: Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.size = 8
-
--- Display: Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.display = function(value)
-  return "Session Ver Id: "..value
-end
-
--- Dissect: Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.session_ver_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.session_ver_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Terminate Message
 b3_equities_binaryentrypoint_sbe_v8_1.terminate_message = {}
 
@@ -12955,121 +13767,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.terminate_message.dissect = function(buffe
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.terminate_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Last Incoming Seq No Optional
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional = {}
-
--- Size: Last Incoming Seq No Optional
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.size = 4
-
--- Display: Last Incoming Seq No Optional
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.display = function(value)
-  return "Last Incoming Seq No Optional: "..value
-end
-
--- Dissect: Last Incoming Seq No Optional
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_incoming_seq_no_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 21 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1 = {}
-
--- Size: Offset 21 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.size = 1
-
--- Display: Offset 21 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.display = function(value)
-  return "Offset 21 Padding 1: "..value
-end
-
--- Dissect: Offset 21 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_21_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_21_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Establishment Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code = {}
-
--- Size: Establishment Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.size = 1
-
--- Display: Establishment Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.display = function(value)
-  if value == 0 then
-    return "Establishment Reject Code: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Establishment Reject Code: Credentials (1)"
-  end
-  if value == 2 then
-    return "Establishment Reject Code: Unnegotiated (2)"
-  end
-  if value == 3 then
-    return "Establishment Reject Code: Already Established (3)"
-  end
-  if value == 4 then
-    return "Establishment Reject Code: Session Blocked (4)"
-  end
-  if value == 5 then
-    return "Establishment Reject Code: Invalid Sessionid (5)"
-  end
-  if value == 6 then
-    return "Establishment Reject Code: Invalid Sessionverid (6)"
-  end
-  if value == 7 then
-    return "Establishment Reject Code: Invalid Timestamp (7)"
-  end
-  if value == 8 then
-    return "Establishment Reject Code: Invalid Keepalive Interval (8)"
-  end
-  if value == 9 then
-    return "Establishment Reject Code: Invalid Nextseqno (9)"
-  end
-  if value == 10 then
-    return "Establishment Reject Code: Establish Attempts Exceeded (10)"
-  end
-  if value == 20 then
-    return "Establishment Reject Code: Establish Not Allowed (20)"
-  end
-  if value == 21 then
-    return "Establishment Reject Code: Duplicate Session Connection (21)"
-  end
-  if value == 22 then
-    return "Establishment Reject Code: Authentication In Progress (22)"
-  end
-  if value == 23 then
-    return "Establishment Reject Code: Protocol Version Not Supported (23)"
-  end
-
-  return "Establishment Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Establishment Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.establishment_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.establishment_reject_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- Establish Reject Message
@@ -13132,52 +13829,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.establish_reject_message.dissect = functio
   end
 end
 
--- Last Incoming Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no = {}
-
--- Size: Last Incoming Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.size = 4
-
--- Display: Last Incoming Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.display = function(value)
-  return "Last Incoming Seq No: "..value
-end
-
--- Dissect: Last Incoming Seq No
-b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.last_incoming_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.last_incoming_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Keep Alive Interval
-b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval = {}
-
--- Size: Keep Alive Interval
-b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.size = 8
-
--- Display: Keep Alive Interval
-b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.display = function(value)
-  return "Keep Alive Interval: "..value
-end
-
--- Dissect: Keep Alive Interval
-b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.keep_alive_interval.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.keep_alive_interval, range, value, display)
-
-  return offset + length, value
-end
-
 -- Establish Ack Message
 b3_equities_binaryentrypoint_sbe_v8_1.establish_ack_message = {}
 
@@ -13236,48 +13887,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.establish_ack_message.dissect = function(b
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.establish_ack_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Credentials Data
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_data = {}
-
--- Display: Credentials Data
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_data.display = function(value)
-  return "Credentials Data: "..value
-end
-
--- Dissect runtime sized field: Credentials Data
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.credentials_data.display(value, packet, parent, size)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.credentials_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Credentials Length
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_length = {}
-
--- Size: Credentials Length
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.size = 1
-
--- Display: Credentials Length
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.display = function(value)
-  return "Credentials Length: "..value
-end
-
--- Dissect: Credentials Length
-b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.credentials_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.credentials_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Credentials
@@ -13349,88 +13958,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.credentials.dissect = function(buffer, off
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.credentials.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cod Timeout Window
-b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window = {}
-
--- Size: Cod Timeout Window
-b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.size = 8
-
--- Display: Cod Timeout Window
-b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.display = function(value)
-  return "Cod Timeout Window: "..value
-end
-
--- Dissect: Cod Timeout Window
-b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.cod_timeout_window.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cod_timeout_window, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 33 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1 = {}
-
--- Size: Offset 33 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.size = 1
-
--- Display: Offset 33 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.display = function(value)
-  return "Offset 33 Padding 1: "..value
-end
-
--- Dissect: Offset 33 Padding 1
-b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_33_padding_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_33_padding_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Cancel On Disconnect Type
-b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type = {}
-
--- Size: Cancel On Disconnect Type
-b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.size = 1
-
--- Display: Cancel On Disconnect Type
-b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.display = function(value)
-  if value == 0 then
-    return "Cancel On Disconnect Type: Do Not Cancel On Disconnect Or Terminate (0)"
-  end
-  if value == 1 then
-    return "Cancel On Disconnect Type: Cancel On Disconnect Only (1)"
-  end
-  if value == 2 then
-    return "Cancel On Disconnect Type: Cancel On Terminate Only (2)"
-  end
-  if value == 3 then
-    return "Cancel On Disconnect Type: Cancel On Disconnect Or Terminate (3)"
-  end
-
-  return "Cancel On Disconnect Type: Unknown("..value..")"
-end
-
--- Dissect: Cancel On Disconnect Type
-b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.cancel_on_disconnect_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Establish Message
@@ -13518,115 +14045,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.establish_message.dissect = function(buffe
   end
 end
 
--- Current Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id = {}
-
--- Size: Current Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.size = 8
-
--- Display: Current Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.display = function(value)
-  return "Current Session Ver Id: "..value
-end
-
--- Dissect: Current Session Ver Id
-b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.current_session_ver_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.current_session_ver_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Offset 25 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3 = {}
-
--- Size: Offset 25 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.size = 3
-
--- Display: Offset 25 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.display = function(value)
-  return "Offset 25 Padding 3: "..value
-end
-
--- Dissect: Offset 25 Padding 3
-b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.offset_25_padding_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.offset_25_padding_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Negotiation Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code = {}
-
--- Size: Negotiation Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.size = 1
-
--- Display: Negotiation Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.display = function(value)
-  if value == 0 then
-    return "Negotiation Reject Code: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Negotiation Reject Code: Credentials (1)"
-  end
-  if value == 2 then
-    return "Negotiation Reject Code: Flowtype Not Supported (2)"
-  end
-  if value == 3 then
-    return "Negotiation Reject Code: Already Negotiated (3)"
-  end
-  if value == 4 then
-    return "Negotiation Reject Code: Session Blocked (4)"
-  end
-  if value == 5 then
-    return "Negotiation Reject Code: Invalid Sessionid (5)"
-  end
-  if value == 6 then
-    return "Negotiation Reject Code: Invalid Sessionverid (6)"
-  end
-  if value == 7 then
-    return "Negotiation Reject Code: Invalid Timestamp (7)"
-  end
-  if value == 8 then
-    return "Negotiation Reject Code: Invalid Firm (8)"
-  end
-  if value == 20 then
-    return "Negotiation Reject Code: Negotiate Not Allowed (20)"
-  end
-  if value == 21 then
-    return "Negotiation Reject Code: Duplicate Session Connection (21)"
-  end
-  if value == 22 then
-    return "Negotiation Reject Code: Authentication In Progress (22)"
-  end
-  if value == 23 then
-    return "Negotiation Reject Code: Protocol Version Not Supported (23)"
-  end
-
-  return "Negotiation Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Negotiation Reject Code
-b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.negotiation_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.negotiation_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Negotiate Reject Message
 b3_equities_binaryentrypoint_sbe_v8_1.negotiate_reject_message = {}
 
@@ -13691,29 +14109,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.negotiate_reject_message.dissect = functio
   end
 end
 
--- Entering Firm
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm = {}
-
--- Size: Entering Firm
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.size = 4
-
--- Display: Entering Firm
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.display = function(value)
-  return "Entering Firm: "..value
-end
-
--- Dissect: Entering Firm
-b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.entering_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.entering_firm, range, value, display)
-
-  return offset + length, value
-end
-
 -- Negotiate Response Message
 b3_equities_binaryentrypoint_sbe_v8_1.negotiate_response_message = {}
 
@@ -13764,48 +14159,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.negotiate_response_message.dissect = funct
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.negotiate_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Client App Version Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data = {}
-
--- Display: Client App Version Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data.display = function(value)
-  return "Client App Version Data: "..value
-end
-
--- Dissect runtime sized field: Client App Version Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_data.display(value, packet, parent, size)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_version_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Client App Version Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length = {}
-
--- Size: Client App Version Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.size = 1
-
--- Display: Client App Version Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.display = function(value)
-  return "Client App Version Length: "..value
-end
-
--- Dissect: Client App Version Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_version_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_version_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Client App Version
@@ -13879,48 +14232,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.client_app_version.dissect = function(buff
   end
 end
 
--- Client App Name Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data = {}
-
--- Display: Client App Name Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data.display = function(value)
-  return "Client App Name Data: "..value
-end
-
--- Dissect runtime sized field: Client App Name Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_data.display(value, packet, parent, size)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_name_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Client App Name Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length = {}
-
--- Size: Client App Name Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.size = 1
-
--- Display: Client App Name Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.display = function(value)
-  return "Client App Name Length: "..value
-end
-
--- Dissect: Client App Name Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_app_name_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_app_name_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Client App Name
 b3_equities_binaryentrypoint_sbe_v8_1.client_app_name = {}
 
@@ -13992,48 +14303,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.client_app_name.dissect = function(buffer,
   end
 end
 
--- Client Ip Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data = {}
-
--- Display: Client Ip Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data.display = function(value)
-  return "Client Ip Data: "..value
-end
-
--- Dissect runtime sized field: Client Ip Data
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_ip_data.display(value, packet, parent, size)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_ip_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Client Ip Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length = {}
-
--- Size: Client Ip Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.size = 1
-
--- Display: Client Ip Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.display = function(value)
-  return "Client Ip Length: "..value
-end
-
--- Dissect: Client Ip Length
-b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.client_ip_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.client_ip_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Client Ip
 b3_equities_binaryentrypoint_sbe_v8_1.client_ip = {}
 
@@ -14103,29 +14372,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.client_ip.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.client_ip.fields(buffer, offset, packet, parent)
   end
-end
-
--- Onbehalf Firm
-b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm = {}
-
--- Size: Onbehalf Firm
-b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.size = 4
-
--- Display: Onbehalf Firm
-b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.display = function(value)
-  return "Onbehalf Firm: "..value
-end
-
--- Dissect: Onbehalf Firm
-b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.onbehalf_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.onbehalf_firm, range, value, display)
-
-  return offset + length, value
 end
 
 -- Negotiate Message
@@ -14378,201 +14624,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.payload.dissect = function(buffer, offset,
   return offset
 end
 
--- Version
-b3_equities_binaryentrypoint_sbe_v8_1.version = {}
-
--- Size: Version
-b3_equities_binaryentrypoint_sbe_v8_1.version.size = 2
-
--- Display: Version
-b3_equities_binaryentrypoint_sbe_v8_1.version.display = function(value)
-  if value == 3 then
-    return "Version: Version 8.1.1"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-b3_equities_binaryentrypoint_sbe_v8_1.version.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-b3_equities_binaryentrypoint_sbe_v8_1.schema_id = {}
-
--- Size: Schema Id
-b3_equities_binaryentrypoint_sbe_v8_1.schema_id.size = 2
-
--- Display: Schema Id
-b3_equities_binaryentrypoint_sbe_v8_1.schema_id.display = function(value)
-  if value == 1 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-b3_equities_binaryentrypoint_sbe_v8_1.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-b3_equities_binaryentrypoint_sbe_v8_1.template_id = {}
-
--- Size: Template Id
-b3_equities_binaryentrypoint_sbe_v8_1.template_id.size = 2
-
--- Display: Template Id
-b3_equities_binaryentrypoint_sbe_v8_1.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Negotiate Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Negotiate Response Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Negotiate Reject Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Establish Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Establish Ack Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Establish Reject Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Terminate Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Not Applied Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Sequence Message (9)"
-  end
-  if value == 12 then
-    return "Template Id: Retransmit Request Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Retransmission Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Retransmit Reject Message (14)"
-  end
-  if value == 100 then
-    return "Template Id: Simple New Order Message (100)"
-  end
-  if value == 101 then
-    return "Template Id: Simple Modify Order Message (101)"
-  end
-  if value == 102 then
-    return "Template Id: New Order Single Message (102)"
-  end
-  if value == 104 then
-    return "Template Id: Order Cancel Replace Request Message (104)"
-  end
-  if value == 105 then
-    return "Template Id: Order Cancel Request Message (105)"
-  end
-  if value == 106 then
-    return "Template Id: New Order Cross Message (106)"
-  end
-  if value == 200 then
-    return "Template Id: Execution Report New Message (200)"
-  end
-  if value == 201 then
-    return "Template Id: Execution Report Modify Message (201)"
-  end
-  if value == 202 then
-    return "Template Id: Execution Report Cancel Message (202)"
-  end
-  if value == 203 then
-    return "Template Id: Execution Report Trade Message (203)"
-  end
-  if value == 204 then
-    return "Template Id: Execution Report Reject Message (204)"
-  end
-  if value == 205 then
-    return "Template Id: Execution Report Forward Message (205)"
-  end
-  if value == 206 then
-    return "Template Id: Business Message Reject Message (206)"
-  end
-  if value == 300 then
-    return "Template Id: Security Definition Request Message (300)"
-  end
-  if value == 301 then
-    return "Template Id: Security Definition Response Message (301)"
-  end
-  if value == 401 then
-    return "Template Id: Quote Request Message (401)"
-  end
-  if value == 402 then
-    return "Template Id: Quote Status Report Message (402)"
-  end
-  if value == 403 then
-    return "Template Id: Quote Message (403)"
-  end
-  if value == 404 then
-    return "Template Id: Quote Cancel Message (404)"
-  end
-  if value == 405 then
-    return "Template Id: Quote Request Reject Message (405)"
-  end
-  if value == 501 then
-    return "Template Id: Position Maintenance Cancel Request Message (501)"
-  end
-  if value == 502 then
-    return "Template Id: Position Maintenance Request Message (502)"
-  end
-  if value == 503 then
-    return "Template Id: Position Maintenance Report Message (503)"
-  end
-  if value == 601 then
-    return "Template Id: Allocation Instruction Message (601)"
-  end
-  if value == 602 then
-    return "Template Id: Allocation Report Message (602)"
-  end
-  if value == 701 then
-    return "Template Id: Order Mass Action Request Message (701)"
-  end
-  if value == 702 then
-    return "Template Id: Order Mass Action Report Message (702)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-b3_equities_binaryentrypoint_sbe_v8_1.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 b3_equities_binaryentrypoint_sbe_v8_1.message_header = {}
 
@@ -14623,52 +14674,6 @@ b3_equities_binaryentrypoint_sbe_v8_1.message_header.dissect = function(buffer, 
     -- Skip element, add fields directly
     return b3_equities_binaryentrypoint_sbe_v8_1.message_header.fields(buffer, offset, packet, parent)
   end
-end
-
--- Encoding Type
-b3_equities_binaryentrypoint_sbe_v8_1.encoding_type = {}
-
--- Size: Encoding Type
-b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.size = 2
-
--- Display: Encoding Type
-b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.display = function(value)
-  return "Encoding Type: "..value
-end
-
--- Dissect: Encoding Type
-b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.encoding_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.encoding_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-b3_equities_binaryentrypoint_sbe_v8_1.message_length = {}
-
--- Size: Message Length
-b3_equities_binaryentrypoint_sbe_v8_1.message_length.size = 2
-
--- Display: Message Length
-b3_equities_binaryentrypoint_sbe_v8_1.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-b3_equities_binaryentrypoint_sbe_v8_1.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryentrypoint_sbe_v8_1.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_equities_binaryentrypoint_sbe_v8_1.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_equities_binaryentrypoint_sbe_v8_1.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Simple Open Framing Header

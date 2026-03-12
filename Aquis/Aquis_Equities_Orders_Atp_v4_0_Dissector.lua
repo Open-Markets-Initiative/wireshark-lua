@@ -329,28 +329,345 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Aquis Equities Orders Atp 4.0
+-- Aquis Equities Orders Atp 4.0 Fields
 -----------------------------------------------------------------------
 
--- User Tag
-aquis_equities_orders_atp_v4_0.user_tag = {}
+-- Account
+aquis_equities_orders_atp_v4_0.account = {}
 
--- Size: User Tag
-aquis_equities_orders_atp_v4_0.user_tag.size = 8
+-- Size: Account
+aquis_equities_orders_atp_v4_0.account.size = 1
 
--- Display: User Tag
-aquis_equities_orders_atp_v4_0.user_tag.display = function(value)
-  return "User Tag: "..value
+-- Display: Account
+aquis_equities_orders_atp_v4_0.account.display = function(value)
+  return "Account: "..value
 end
 
--- Dissect: User Tag
-aquis_equities_orders_atp_v4_0.user_tag.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.user_tag.size
+-- Dissect: Account
+aquis_equities_orders_atp_v4_0.account.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.account.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Atp Seq No
+aquis_equities_orders_atp_v4_0.atp_seq_no = {}
+
+-- Size: Atp Seq No
+aquis_equities_orders_atp_v4_0.atp_seq_no.size = 4
+
+-- Display: Atp Seq No
+aquis_equities_orders_atp_v4_0.atp_seq_no.display = function(value)
+  return "Atp Seq No: "..value
+end
+
+-- Dissect: Atp Seq No
+aquis_equities_orders_atp_v4_0.atp_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.atp_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.atp_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.atp_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Blotter Blacklist
+aquis_equities_orders_atp_v4_0.blotter_blacklist = {}
+
+-- Size: Blotter Blacklist
+aquis_equities_orders_atp_v4_0.blotter_blacklist.size = 50
+
+-- Display: Blotter Blacklist
+aquis_equities_orders_atp_v4_0.blotter_blacklist.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Blotter Blacklist: No Value"
+  end
+
+  return "Blotter Blacklist: "..value
+end
+
+-- Dissect: Blotter Blacklist
+aquis_equities_orders_atp_v4_0.blotter_blacklist.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.blotter_blacklist.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_orders_atp_v4_0.blotter_blacklist.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.blotter_blacklist, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ccp Code
+aquis_equities_orders_atp_v4_0.ccp_code = {}
+
+-- Size: Ccp Code
+aquis_equities_orders_atp_v4_0.ccp_code.size = 1
+
+-- Display: Ccp Code
+aquis_equities_orders_atp_v4_0.ccp_code.display = function(value)
+  return "Ccp Code: "..value
+end
+
+-- Dissect: Ccp Code
+aquis_equities_orders_atp_v4_0.ccp_code.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.ccp_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.ccp_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ccp_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Seq No
+aquis_equities_orders_atp_v4_0.client_seq_no = {}
+
+-- Size: Client Seq No
+aquis_equities_orders_atp_v4_0.client_seq_no.size = 4
+
+-- Display: Client Seq No
+aquis_equities_orders_atp_v4_0.client_seq_no.display = function(value)
+  return "Client Seq No: "..value
+end
+
+-- Dissect: Client Seq No
+aquis_equities_orders_atp_v4_0.client_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.client_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.client_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.client_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Designated Order Id
+aquis_equities_orders_atp_v4_0.designated_order_id = {}
+
+-- Size: Designated Order Id
+aquis_equities_orders_atp_v4_0.designated_order_id.size = 8
+
+-- Display: Designated Order Id
+aquis_equities_orders_atp_v4_0.designated_order_id.display = function(value)
+  return "Designated Order Id: "..value
+end
+
+-- Dissect: Designated Order Id
+aquis_equities_orders_atp_v4_0.designated_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.designated_order_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = aquis_equities_orders_atp_v4_0.user_tag.display(value, buffer, offset, packet, parent)
+  local display = aquis_equities_orders_atp_v4_0.designated_order_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.user_tag, range, value, display)
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.designated_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Quantity
+aquis_equities_orders_atp_v4_0.display_quantity = {}
+
+-- Size: Display Quantity
+aquis_equities_orders_atp_v4_0.display_quantity.size = 4
+
+-- Display: Display Quantity
+aquis_equities_orders_atp_v4_0.display_quantity.display = function(value)
+  return "Display Quantity: "..value
+end
+
+-- Dissect: Display Quantity
+aquis_equities_orders_atp_v4_0.display_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.display_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.display_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.display_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inactivity Timeout
+aquis_equities_orders_atp_v4_0.inactivity_timeout = {}
+
+-- Size: Inactivity Timeout
+aquis_equities_orders_atp_v4_0.inactivity_timeout.size = 2
+
+-- Display: Inactivity Timeout
+aquis_equities_orders_atp_v4_0.inactivity_timeout.display = function(value)
+  return "Inactivity Timeout: "..value
+end
+
+-- Dissect: Inactivity Timeout
+aquis_equities_orders_atp_v4_0.inactivity_timeout.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.inactivity_timeout.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.inactivity_timeout.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.inactivity_timeout, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ioi Order Type
+aquis_equities_orders_atp_v4_0.ioi_order_type = {}
+
+-- Size: Ioi Order Type
+aquis_equities_orders_atp_v4_0.ioi_order_type.size = 1
+
+-- Display: Ioi Order Type
+aquis_equities_orders_atp_v4_0.ioi_order_type.display = function(value)
+  if value == 12 then
+    return "Ioi Order Type: Mid Pegged (12)"
+  end
+  if value == 17 then
+    return "Ioi Order Type: Aquis Vwap Match (17)"
+  end
+  if value == 18 then
+    return "Ioi Order Type: Targeted Aquis Vwap Match (18)"
+  end
+
+  return "Ioi Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Ioi Order Type
+aquis_equities_orders_atp_v4_0.ioi_order_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.ioi_order_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.ioi_order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ioi_order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liq Indicator
+aquis_equities_orders_atp_v4_0.liq_indicator = {}
+
+-- Size: Liq Indicator
+aquis_equities_orders_atp_v4_0.liq_indicator.size = 1
+
+-- Display: Liq Indicator
+aquis_equities_orders_atp_v4_0.liq_indicator.display = function(value)
+  if value == 1 then
+    return "Liq Indicator: Added Liquidity (1)"
+  end
+  if value == 2 then
+    return "Liq Indicator: Removed Liquidity (2)"
+  end
+  if value == 3 then
+    return "Liq Indicator: Removed Liquidity Hidden Quantity (3)"
+  end
+  if value == 4 then
+    return "Liq Indicator: Auction Ma C (4)"
+  end
+  if value == 6 then
+    return "Liq Indicator: Auction On Demand (6)"
+  end
+
+  return "Liq Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Liq Indicator
+aquis_equities_orders_atp_v4_0.liq_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.liq_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.liq_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.liq_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logout Reason Code
+aquis_equities_orders_atp_v4_0.logout_reason_code = {}
+
+-- Size: Logout Reason Code
+aquis_equities_orders_atp_v4_0.logout_reason_code.size = 1
+
+-- Display: Logout Reason Code
+aquis_equities_orders_atp_v4_0.logout_reason_code.display = function(value)
+  if value == 0 then
+    return "Logout Reason Code: User Requested (0)"
+  end
+  if value == 1 then
+    return "Logout Reason Code: Admin (1)"
+  end
+  if value == 2 then
+    return "Logout Reason Code: Disconnect (2)"
+  end
+  if value == 3 then
+    return "Logout Reason Code: End Of Day (3)"
+  end
+  if value == 4 then
+    return "Logout Reason Code: Inactivity Timeout (4)"
+  end
+  if value == 5 then
+    return "Logout Reason Code: Protocol Error (5)"
+  end
+  if value == 6 then
+    return "Logout Reason Code: Sequence Number Error (6)"
+  end
+
+  return "Logout Reason Code: Unknown("..value..")"
+end
+
+-- Dissect: Logout Reason Code
+aquis_equities_orders_atp_v4_0.logout_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.logout_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.logout_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.logout_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Data Id
+aquis_equities_orders_atp_v4_0.market_data_id = {}
+
+-- Size: Market Data Id
+aquis_equities_orders_atp_v4_0.market_data_id.size = 4
+
+-- Display: Market Data Id
+aquis_equities_orders_atp_v4_0.market_data_id.display = function(value)
+  return "Market Data Id: "..value
+end
+
+-- Dissect: Market Data Id
+aquis_equities_orders_atp_v4_0.market_data_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.market_data_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.market_data_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.market_data_id, range, value, display)
 
   return offset + length, value
 end
@@ -378,25 +695,406 @@ aquis_equities_orders_atp_v4_0.min_qty.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Quantity
-aquis_equities_orders_atp_v4_0.quantity = {}
+-- Msg Length
+aquis_equities_orders_atp_v4_0.msg_length = {}
 
--- Size: Quantity
-aquis_equities_orders_atp_v4_0.quantity.size = 4
+-- Size: Msg Length
+aquis_equities_orders_atp_v4_0.msg_length.size = 2
 
--- Display: Quantity
-aquis_equities_orders_atp_v4_0.quantity.display = function(value)
-  return "Quantity: "..value
+-- Display: Msg Length
+aquis_equities_orders_atp_v4_0.msg_length.display = function(value)
+  return "Msg Length: "..value
 end
 
--- Dissect: Quantity
-aquis_equities_orders_atp_v4_0.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.quantity.size
+-- Dissect: Msg Length
+aquis_equities_orders_atp_v4_0.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.msg_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.quantity.display(value, buffer, offset, packet, parent)
+  local display = aquis_equities_orders_atp_v4_0.msg_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.quantity, range, value, display)
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Seq No
+aquis_equities_orders_atp_v4_0.msg_seq_no = {}
+
+-- Size: Msg Seq No
+aquis_equities_orders_atp_v4_0.msg_seq_no.size = 4
+
+-- Display: Msg Seq No
+aquis_equities_orders_atp_v4_0.msg_seq_no.display = function(value)
+  return "Msg Seq No: "..value
+end
+
+-- Dissect: Msg Seq No
+aquis_equities_orders_atp_v4_0.msg_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.msg_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.msg_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.msg_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+aquis_equities_orders_atp_v4_0.msg_type = {}
+
+-- Size: Msg Type
+aquis_equities_orders_atp_v4_0.msg_type.size = 1
+
+-- Display: Msg Type
+aquis_equities_orders_atp_v4_0.msg_type.display = function(value)
+  if value == 1 then
+    return "Msg Type: Login Message (1)"
+  end
+  if value == 2 then
+    return "Msg Type: Login Response Message (2)"
+  end
+  if value == 0 then
+    return "Msg Type: Heartbeat (0)"
+  end
+  if value == 3 then
+    return "Msg Type: Logout Request Message (3)"
+  end
+  if value == 4 then
+    return "Msg Type: Logout Message (4)"
+  end
+  if value == 5 then
+    return "Msg Type: Order Add Message (5)"
+  end
+  if value == 21 then
+    return "Msg Type: Order Add Extended Message (21)"
+  end
+  if value == 7 then
+    return "Msg Type: Order Cancel Message (7)"
+  end
+  if value == 9 then
+    return "Msg Type: Order Modify Message (9)"
+  end
+  if value == 22 then
+    return "Msg Type: Order Modify Extended Message (22)"
+  end
+  if value == 6 then
+    return "Msg Type: Order Add Response Message (6)"
+  end
+  if value == 8 then
+    return "Msg Type: Order Cancel Response Message (8)"
+  end
+  if value == 10 then
+    return "Msg Type: Order Modify Response Message (10)"
+  end
+  if value == 23 then
+    return "Msg Type: Iceberg Order Refresh Message (23)"
+  end
+  if value == 17 then
+    return "Msg Type: Trade Capture Message (17)"
+  end
+  if value == 18 then
+    return "Msg Type: Trade Capture Response Message (18)"
+  end
+  if value == 11 then
+    return "Msg Type: Trade Message (11)"
+  end
+  if value == 12 then
+    return "Msg Type: Trade Bust Message (12)"
+  end
+  if value == 27 then
+    return "Msg Type: Ioi Add Message (27)"
+  end
+  if value == 28 then
+    return "Msg Type: Ioi Invite Message (28)"
+  end
+  if value == 29 then
+    return "Msg Type: Ioi Firmup Message (29)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+aquis_equities_orders_atp_v4_0.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_orders_atp_v4_0.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Aqx Ord Id
+aquis_equities_orders_atp_v4_0.new_aqx_ord_id = {}
+
+-- Size: New Aqx Ord Id
+aquis_equities_orders_atp_v4_0.new_aqx_ord_id.size = 4
+
+-- Display: New Aqx Ord Id
+aquis_equities_orders_atp_v4_0.new_aqx_ord_id.display = function(value)
+  return "New Aqx Ord Id: "..value
+end
+
+-- Dissect: New Aqx Ord Id
+aquis_equities_orders_atp_v4_0.new_aqx_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.new_aqx_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.new_aqx_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.new_aqx_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Optim X Universe
+aquis_equities_orders_atp_v4_0.optim_x_universe = {}
+
+-- Size: Optim X Universe
+aquis_equities_orders_atp_v4_0.optim_x_universe.size = 1
+
+-- Display: Optim X Universe
+aquis_equities_orders_atp_v4_0.optim_x_universe.display = function(value)
+  if value == 0 then
+    return "Optim X Universe: Off (0)"
+  end
+  if value == 1 then
+    return "Optim X Universe: Show To All Optim X Clients (1)"
+  end
+  if value == 2 then
+    return "Optim X Universe: Show To Current Broker Clients Only (2)"
+  end
+
+  return "Optim X Universe: Unknown("..value..")"
+end
+
+-- Dissect: Optim X Universe
+aquis_equities_orders_atp_v4_0.optim_x_universe.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.optim_x_universe.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.optim_x_universe.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.optim_x_universe, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Capacity
+aquis_equities_orders_atp_v4_0.order_capacity = {}
+
+-- Size: Order Capacity
+aquis_equities_orders_atp_v4_0.order_capacity.size = 1
+
+-- Display: Order Capacity
+aquis_equities_orders_atp_v4_0.order_capacity.display = function(value)
+  if value == 1 then
+    return "Order Capacity: Aotc (1)"
+  end
+  if value == 2 then
+    return "Order Capacity: Deal (2)"
+  end
+  if value == 3 then
+    return "Order Capacity: Mtch (3)"
+  end
+
+  return "Order Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Order Capacity
+aquis_equities_orders_atp_v4_0.order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.order_capacity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.order_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Modify Response Flags U 81
+aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81 = {}
+
+-- Size: Order Modify Response Flags U 81
+aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.size = 1
+
+-- Display: Order Modify Response Flags U 81
+aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.display = function(value)
+  return "Order Modify Response Flags U 81: "..value
+end
+
+-- Dissect: Order Modify Response Flags U 81
+aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_modify_response_flags_u_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Ref
+aquis_equities_orders_atp_v4_0.order_ref = {}
+
+-- Size: Order Ref
+aquis_equities_orders_atp_v4_0.order_ref.size = 4
+
+-- Display: Order Ref
+aquis_equities_orders_atp_v4_0.order_ref.display = function(value)
+  return "Order Ref: "..value
+end
+
+-- Dissect: Order Ref
+aquis_equities_orders_atp_v4_0.order_ref.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.order_ref.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.order_ref.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_ref, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+aquis_equities_orders_atp_v4_0.order_type = {}
+
+-- Size: Order Type
+aquis_equities_orders_atp_v4_0.order_type.size = 1
+
+-- Display: Order Type
+aquis_equities_orders_atp_v4_0.order_type.display = function(value)
+  if value == 1 then
+    return "Order Type: Limit Order (1)"
+  end
+  if value == 2 then
+    return "Order Type: Auction On Demand Limit Order (2)"
+  end
+  if value == 3 then
+    return "Order Type: Auction On Demand Mid Pegged Limit (3)"
+  end
+  if value == 4 then
+    return "Order Type: Auction On Demand Near Touch Pegged (4)"
+  end
+  if value == 6 then
+    return "Order Type: Market At Close (6)"
+  end
+  if value == 8 then
+    return "Order Type: Post Only Cancel Replace (8)"
+  end
+  if value == 9 then
+    return "Order Type: Post Only (9)"
+  end
+  if value == 10 then
+    return "Order Type: Restricted Pocr Order (10)"
+  end
+  if value == 11 then
+    return "Order Type: Restricted Post Only Order (11)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+aquis_equities_orders_atp_v4_0.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.order_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Aqx Ord Id
+aquis_equities_orders_atp_v4_0.orig_aqx_ord_id = {}
+
+-- Size: Orig Aqx Ord Id
+aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.size = 4
+
+-- Display: Orig Aqx Ord Id
+aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.display = function(value)
+  return "Orig Aqx Ord Id: "..value
+end
+
+-- Dissect: Orig Aqx Ord Id
+aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.orig_aqx_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+aquis_equities_orders_atp_v4_0.password = {}
+
+-- Size: Password
+aquis_equities_orders_atp_v4_0.password.size = 16
+
+-- Display: Password
+aquis_equities_orders_atp_v4_0.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+aquis_equities_orders_atp_v4_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_orders_atp_v4_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Peg Difference
+aquis_equities_orders_atp_v4_0.peg_difference = {}
+
+-- Size: Peg Difference
+aquis_equities_orders_atp_v4_0.peg_difference.size = 8
+
+-- Display: Peg Difference
+aquis_equities_orders_atp_v4_0.peg_difference.display = function(value)
+  return "Peg Difference: "..value
+end
+
+-- Dissect: Peg Difference
+aquis_equities_orders_atp_v4_0.peg_difference.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.peg_difference.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = aquis_equities_orders_atp_v4_0.peg_difference.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.peg_difference, range, value, display)
 
   return offset + length, value
 end
@@ -424,28 +1122,596 @@ aquis_equities_orders_atp_v4_0.price.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Order Ref
-aquis_equities_orders_atp_v4_0.order_ref = {}
+-- Protocol Version
+aquis_equities_orders_atp_v4_0.protocol_version = {}
 
--- Size: Order Ref
-aquis_equities_orders_atp_v4_0.order_ref.size = 4
+-- Size: Protocol Version
+aquis_equities_orders_atp_v4_0.protocol_version.size = 2
 
--- Display: Order Ref
-aquis_equities_orders_atp_v4_0.order_ref.display = function(value)
-  return "Order Ref: "..value
+-- Display: Protocol Version
+aquis_equities_orders_atp_v4_0.protocol_version.display = function(value)
+  return "Protocol Version: "..value
 end
 
--- Dissect: Order Ref
-aquis_equities_orders_atp_v4_0.order_ref.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.order_ref.size
+-- Dissect: Protocol Version
+aquis_equities_orders_atp_v4_0.protocol_version.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.protocol_version.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.order_ref.display(value, buffer, offset, packet, parent)
+  local display = aquis_equities_orders_atp_v4_0.protocol_version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_ref, range, value, display)
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.protocol_version, range, value, display)
 
   return offset + length, value
 end
+
+-- Quantity
+aquis_equities_orders_atp_v4_0.quantity = {}
+
+-- Size: Quantity
+aquis_equities_orders_atp_v4_0.quantity.size = 4
+
+-- Display: Quantity
+aquis_equities_orders_atp_v4_0.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+aquis_equities_orders_atp_v4_0.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason Text
+aquis_equities_orders_atp_v4_0.reason_text = {}
+
+-- Size: Reason Text
+aquis_equities_orders_atp_v4_0.reason_text.size = 32
+
+-- Display: Reason Text
+aquis_equities_orders_atp_v4_0.reason_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reason Text: No Value"
+  end
+
+  return "Reason Text: "..value
+end
+
+-- Dissect: Reason Text
+aquis_equities_orders_atp_v4_0.reason_text.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.reason_text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_orders_atp_v4_0.reason_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.reason_text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Ref
+aquis_equities_orders_atp_v4_0.request_ref = {}
+
+-- Size: Request Ref
+aquis_equities_orders_atp_v4_0.request_ref.size = 4
+
+-- Display: Request Ref
+aquis_equities_orders_atp_v4_0.request_ref.display = function(value)
+  return "Request Ref: "..value
+end
+
+-- Dissect: Request Ref
+aquis_equities_orders_atp_v4_0.request_ref.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.request_ref.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.request_ref.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.request_ref, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved U 162
+aquis_equities_orders_atp_v4_0.reserved_u_162 = {}
+
+-- Size: Reserved U 162
+aquis_equities_orders_atp_v4_0.reserved_u_162.size = 2
+
+-- Display: Reserved U 162
+aquis_equities_orders_atp_v4_0.reserved_u_162.display = function(value)
+  return "Reserved U 162: "..value
+end
+
+-- Dissect: Reserved U 162
+aquis_equities_orders_atp_v4_0.reserved_u_162.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.reserved_u_162.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.reserved_u_162.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.reserved_u_162, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved U 648
+aquis_equities_orders_atp_v4_0.reserved_u_648 = {}
+
+-- Size: Reserved U 648
+aquis_equities_orders_atp_v4_0.reserved_u_648.size = 8
+
+-- Display: Reserved U 648
+aquis_equities_orders_atp_v4_0.reserved_u_648.display = function(value)
+  return "Reserved U 648: "..value
+end
+
+-- Dissect: Reserved U 648
+aquis_equities_orders_atp_v4_0.reserved_u_648.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.reserved_u_648.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_orders_atp_v4_0.reserved_u_648.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.reserved_u_648, range, value, display)
+
+  return offset + length, value
+end
+
+-- Result Code
+aquis_equities_orders_atp_v4_0.result_code = {}
+
+-- Size: Result Code
+aquis_equities_orders_atp_v4_0.result_code.size = 1
+
+-- Display: Result Code
+aquis_equities_orders_atp_v4_0.result_code.display = function(value)
+  if value == 0 then
+    return "Result Code: Success (0)"
+  end
+  if value == 1 then
+    return "Result Code: Already Logged In (1)"
+  end
+  if value == 2 then
+    return "Result Code: Sequence Number Error (2)"
+  end
+  if value == 3 then
+    return "Result Code: Unsupported Protocol (3)"
+  end
+  if value == 4 then
+    return "Result Code: Failed Authentication (4)"
+  end
+  if value == 5 then
+    return "Result Code: Unknown Source Network (5)"
+  end
+
+  return "Result Code: Unknown("..value..")"
+end
+
+-- Dissect: Result Code
+aquis_equities_orders_atp_v4_0.result_code.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.result_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.result_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.result_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id U 162
+aquis_equities_orders_atp_v4_0.security_id_u_162 = {}
+
+-- Size: Security Id U 162
+aquis_equities_orders_atp_v4_0.security_id_u_162.size = 2
+
+-- Display: Security Id U 162
+aquis_equities_orders_atp_v4_0.security_id_u_162.display = function(value)
+  return "Security Id U 162: "..value
+end
+
+-- Dissect: Security Id U 162
+aquis_equities_orders_atp_v4_0.security_id_u_162.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.security_id_u_162.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.security_id_u_162.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.security_id_u_162, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id U 324
+aquis_equities_orders_atp_v4_0.security_id_u_324 = {}
+
+-- Size: Security Id U 324
+aquis_equities_orders_atp_v4_0.security_id_u_324.size = 4
+
+-- Display: Security Id U 324
+aquis_equities_orders_atp_v4_0.security_id_u_324.display = function(value)
+  return "Security Id U 324: "..value
+end
+
+-- Dissect: Security Id U 324
+aquis_equities_orders_atp_v4_0.security_id_u_324.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.security_id_u_324.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.security_id_u_324.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.security_id_u_324, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Id
+aquis_equities_orders_atp_v4_0.sender_id = {}
+
+-- Size: Sender Id
+aquis_equities_orders_atp_v4_0.sender_id.size = 16
+
+-- Display: Sender Id
+aquis_equities_orders_atp_v4_0.sender_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sender Id: No Value"
+  end
+
+  return "Sender Id: "..value
+end
+
+-- Dissect: Sender Id
+aquis_equities_orders_atp_v4_0.sender_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.sender_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_orders_atp_v4_0.sender_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.sender_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Code 1
+aquis_equities_orders_atp_v4_0.short_code_1 = {}
+
+-- Size: Short Code 1
+aquis_equities_orders_atp_v4_0.short_code_1.size = 4
+
+-- Display: Short Code 1
+aquis_equities_orders_atp_v4_0.short_code_1.display = function(value)
+  if value == 0 then
+    return "Short Code 1: None (0)"
+  end
+  if value == 1 then
+    return "Short Code 1: Aggregated (1)"
+  end
+  if value == 2 then
+    return "Short Code 1: Pending Allocation (2)"
+  end
+  if value == 3 then
+    return "Short Code 1: Client (3)"
+  end
+
+  return "Short Code 1: Unknown("..value..")"
+end
+
+-- Dissect: Short Code 1
+aquis_equities_orders_atp_v4_0.short_code_1.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.short_code_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.short_code_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.short_code_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Code 2
+aquis_equities_orders_atp_v4_0.short_code_2 = {}
+
+-- Size: Short Code 2
+aquis_equities_orders_atp_v4_0.short_code_2.size = 4
+
+-- Display: Short Code 2
+aquis_equities_orders_atp_v4_0.short_code_2.display = function(value)
+  if value == 0 then
+    return "Short Code 2: None (0)"
+  end
+  if value == 1 then
+    return "Short Code 2: Aggregated (1)"
+  end
+  if value == 2 then
+    return "Short Code 2: Pending Allocation (2)"
+  end
+  if value == 3 then
+    return "Short Code 2: Client (3)"
+  end
+
+  return "Short Code 2: Unknown("..value..")"
+end
+
+-- Dissect: Short Code 2
+aquis_equities_orders_atp_v4_0.short_code_2.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.short_code_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.short_code_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.short_code_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Code 3
+aquis_equities_orders_atp_v4_0.short_code_3 = {}
+
+-- Size: Short Code 3
+aquis_equities_orders_atp_v4_0.short_code_3.size = 4
+
+-- Display: Short Code 3
+aquis_equities_orders_atp_v4_0.short_code_3.display = function(value)
+  if value == 0 then
+    return "Short Code 3: None (0)"
+  end
+  if value == 1 then
+    return "Short Code 3: Aggregated (1)"
+  end
+  if value == 2 then
+    return "Short Code 3: Pending Allocation (2)"
+  end
+  if value == 3 then
+    return "Short Code 3: Client (3)"
+  end
+
+  return "Short Code 3: Unknown("..value..")"
+end
+
+-- Dissect: Short Code 3
+aquis_equities_orders_atp_v4_0.short_code_3.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.short_code_3.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.short_code_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.short_code_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+aquis_equities_orders_atp_v4_0.side = {}
+
+-- Size: Side
+aquis_equities_orders_atp_v4_0.side.size = 1
+
+-- Display: Side
+aquis_equities_orders_atp_v4_0.side.display = function(value)
+  return "Side: "..value
+end
+
+-- Dissect: Side
+aquis_equities_orders_atp_v4_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+aquis_equities_orders_atp_v4_0.time_in_force = {}
+
+-- Size: Time In Force
+aquis_equities_orders_atp_v4_0.time_in_force.size = 1
+
+-- Display: Time In Force
+aquis_equities_orders_atp_v4_0.time_in_force.display = function(value)
+  if value == 1 then
+    return "Time In Force: Day (1)"
+  end
+  if value == 2 then
+    return "Time In Force: Fill Or Kill (2)"
+  end
+  if value == 3 then
+    return "Time In Force: Immediate Or Cancel (3)"
+  end
+  if value == 9 then
+    return "Time In Force: Good For Auction (9)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+aquis_equities_orders_atp_v4_0.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+aquis_equities_orders_atp_v4_0.timestamp = {}
+
+-- Size: Timestamp
+aquis_equities_orders_atp_v4_0.timestamp.size = 8
+
+-- Display: Timestamp
+aquis_equities_orders_atp_v4_0.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+aquis_equities_orders_atp_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_orders_atp_v4_0.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Capture Type
+aquis_equities_orders_atp_v4_0.trade_capture_type = {}
+
+-- Size: Trade Capture Type
+aquis_equities_orders_atp_v4_0.trade_capture_type.size = 1
+
+-- Display: Trade Capture Type
+aquis_equities_orders_atp_v4_0.trade_capture_type.display = function(value)
+  if value == 1 then
+    return "Trade Capture Type: Lis Cross (1)"
+  end
+  if value == 2 then
+    return "Trade Capture Type: Lis Cross No Clearing (2)"
+  end
+  if value == 3 then
+    return "Trade Capture Type: Vwap Benchmark Cross (3)"
+  end
+  if value == 4 then
+    return "Trade Capture Type: Vwap Benchmark Cross No Clearing (4)"
+  end
+  if value == 5 then
+    return "Trade Capture Type: Twap Benchmark Cross (5)"
+  end
+  if value == 6 then
+    return "Trade Capture Type: Twap Benchmark Cross No Clearing (6)"
+  end
+
+  return "Trade Capture Type: Unknown("..value..")"
+end
+
+-- Dissect: Trade Capture Type
+aquis_equities_orders_atp_v4_0.trade_capture_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.trade_capture_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.trade_capture_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_capture_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Ref
+aquis_equities_orders_atp_v4_0.trade_ref = {}
+
+-- Size: Trade Ref
+aquis_equities_orders_atp_v4_0.trade_ref.size = 4
+
+-- Display: Trade Ref
+aquis_equities_orders_atp_v4_0.trade_ref.display = function(value)
+  return "Trade Ref: "..value
+end
+
+-- Dissect: Trade Ref
+aquis_equities_orders_atp_v4_0.trade_ref.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.trade_ref.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.trade_ref.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_ref, range, value, display)
+
+  return offset + length, value
+end
+
+-- Traded Quantity
+aquis_equities_orders_atp_v4_0.traded_quantity = {}
+
+-- Size: Traded Quantity
+aquis_equities_orders_atp_v4_0.traded_quantity.size = 4
+
+-- Display: Traded Quantity
+aquis_equities_orders_atp_v4_0.traded_quantity.display = function(value)
+  return "Traded Quantity: "..value
+end
+
+-- Dissect: Traded Quantity
+aquis_equities_orders_atp_v4_0.traded_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.traded_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_orders_atp_v4_0.traded_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.traded_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Tag
+aquis_equities_orders_atp_v4_0.user_tag = {}
+
+-- Size: User Tag
+aquis_equities_orders_atp_v4_0.user_tag.size = 8
+
+-- Display: User Tag
+aquis_equities_orders_atp_v4_0.user_tag.display = function(value)
+  return "User Tag: "..value
+end
+
+-- Dissect: User Tag
+aquis_equities_orders_atp_v4_0.user_tag.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_orders_atp_v4_0.user_tag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_orders_atp_v4_0.user_tag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.user_tag, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis Equities Orders Atp 4.0
+-----------------------------------------------------------------------
 
 -- Ioi Firmup Message
 aquis_equities_orders_atp_v4_0.ioi_firmup_message = {}
@@ -501,33 +1767,6 @@ aquis_equities_orders_atp_v4_0.ioi_firmup_message.dissect = function(buffer, off
     -- Skip element, add fields directly
     return aquis_equities_orders_atp_v4_0.ioi_firmup_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Timestamp
-aquis_equities_orders_atp_v4_0.timestamp = {}
-
--- Size: Timestamp
-aquis_equities_orders_atp_v4_0.timestamp.size = 8
-
--- Display: Timestamp
-aquis_equities_orders_atp_v4_0.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Timestamp
-aquis_equities_orders_atp_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_orders_atp_v4_0.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.timestamp, range, value, display)
-
-  return offset + length, value
 end
 
 -- Ioi Invite Message
@@ -590,78 +1829,6 @@ aquis_equities_orders_atp_v4_0.ioi_invite_message.dissect = function(buffer, off
   end
 end
 
--- Blotter Blacklist
-aquis_equities_orders_atp_v4_0.blotter_blacklist = {}
-
--- Size: Blotter Blacklist
-aquis_equities_orders_atp_v4_0.blotter_blacklist.size = 50
-
--- Display: Blotter Blacklist
-aquis_equities_orders_atp_v4_0.blotter_blacklist.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Blotter Blacklist: No Value"
-  end
-
-  return "Blotter Blacklist: "..value
-end
-
--- Dissect: Blotter Blacklist
-aquis_equities_orders_atp_v4_0.blotter_blacklist.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.blotter_blacklist.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_orders_atp_v4_0.blotter_blacklist.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.blotter_blacklist, range, value, display)
-
-  return offset + length, value
-end
-
--- Optim X Universe
-aquis_equities_orders_atp_v4_0.optim_x_universe = {}
-
--- Size: Optim X Universe
-aquis_equities_orders_atp_v4_0.optim_x_universe.size = 1
-
--- Display: Optim X Universe
-aquis_equities_orders_atp_v4_0.optim_x_universe.display = function(value)
-  if value == 0 then
-    return "Optim X Universe: Off (0)"
-  end
-  if value == 1 then
-    return "Optim X Universe: Show To All Optim X Clients (1)"
-  end
-  if value == 2 then
-    return "Optim X Universe: Show To Current Broker Clients Only (2)"
-  end
-
-  return "Optim X Universe: Unknown("..value..")"
-end
-
--- Dissect: Optim X Universe
-aquis_equities_orders_atp_v4_0.optim_x_universe.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.optim_x_universe.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.optim_x_universe.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.optim_x_universe, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ioi Extended Flags
 aquis_equities_orders_atp_v4_0.ioi_extended_flags = {}
 
@@ -712,42 +1879,6 @@ aquis_equities_orders_atp_v4_0.ioi_extended_flags.dissect = function(buffer, off
   return offset + size, value
 end
 
--- Short Code 3
-aquis_equities_orders_atp_v4_0.short_code_3 = {}
-
--- Size: Short Code 3
-aquis_equities_orders_atp_v4_0.short_code_3.size = 4
-
--- Display: Short Code 3
-aquis_equities_orders_atp_v4_0.short_code_3.display = function(value)
-  if value == 0 then
-    return "Short Code 3: None (0)"
-  end
-  if value == 1 then
-    return "Short Code 3: Aggregated (1)"
-  end
-  if value == 2 then
-    return "Short Code 3: Pending Allocation (2)"
-  end
-  if value == 3 then
-    return "Short Code 3: Client (3)"
-  end
-
-  return "Short Code 3: Unknown("..value..")"
-end
-
--- Dissect: Short Code 3
-aquis_equities_orders_atp_v4_0.short_code_3.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.short_code_3.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.short_code_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.short_code_3, range, value, display)
-
-  return offset + length, value
-end
-
 -- Table Select 3
 aquis_equities_orders_atp_v4_0.table_select_3 = {}
 
@@ -787,42 +1918,6 @@ aquis_equities_orders_atp_v4_0.table_select_3.dissect = function(buffer, offset,
   return offset + size, value
 end
 
--- Short Code 2
-aquis_equities_orders_atp_v4_0.short_code_2 = {}
-
--- Size: Short Code 2
-aquis_equities_orders_atp_v4_0.short_code_2.size = 4
-
--- Display: Short Code 2
-aquis_equities_orders_atp_v4_0.short_code_2.display = function(value)
-  if value == 0 then
-    return "Short Code 2: None (0)"
-  end
-  if value == 1 then
-    return "Short Code 2: Aggregated (1)"
-  end
-  if value == 2 then
-    return "Short Code 2: Pending Allocation (2)"
-  end
-  if value == 3 then
-    return "Short Code 2: Client (3)"
-  end
-
-  return "Short Code 2: Unknown("..value..")"
-end
-
--- Dissect: Short Code 2
-aquis_equities_orders_atp_v4_0.short_code_2.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.short_code_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.short_code_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.short_code_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Table Select 2
 aquis_equities_orders_atp_v4_0.table_select_2 = {}
 
@@ -860,42 +1955,6 @@ aquis_equities_orders_atp_v4_0.table_select_2.dissect = function(buffer, offset,
   end
 
   return offset + size, value
-end
-
--- Short Code 1
-aquis_equities_orders_atp_v4_0.short_code_1 = {}
-
--- Size: Short Code 1
-aquis_equities_orders_atp_v4_0.short_code_1.size = 4
-
--- Display: Short Code 1
-aquis_equities_orders_atp_v4_0.short_code_1.display = function(value)
-  if value == 0 then
-    return "Short Code 1: None (0)"
-  end
-  if value == 1 then
-    return "Short Code 1: Aggregated (1)"
-  end
-  if value == 2 then
-    return "Short Code 1: Pending Allocation (2)"
-  end
-  if value == 3 then
-    return "Short Code 1: Client (3)"
-  end
-
-  return "Short Code 1: Unknown("..value..")"
-end
-
--- Dissect: Short Code 1
-aquis_equities_orders_atp_v4_0.short_code_1.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.short_code_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.short_code_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.short_code_1, range, value, display)
-
-  return offset + length, value
 end
 
 -- Table Select 1
@@ -992,177 +2051,6 @@ aquis_equities_orders_atp_v4_0.flags.dissect = function(buffer, offset, packet, 
   end
 
   return offset + size, value
-end
-
--- Account
-aquis_equities_orders_atp_v4_0.account = {}
-
--- Size: Account
-aquis_equities_orders_atp_v4_0.account.size = 1
-
--- Display: Account
-aquis_equities_orders_atp_v4_0.account.display = function(value)
-  return "Account: "..value
-end
-
--- Dissect: Account
-aquis_equities_orders_atp_v4_0.account.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.account.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.account, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Capacity
-aquis_equities_orders_atp_v4_0.order_capacity = {}
-
--- Size: Order Capacity
-aquis_equities_orders_atp_v4_0.order_capacity.size = 1
-
--- Display: Order Capacity
-aquis_equities_orders_atp_v4_0.order_capacity.display = function(value)
-  if value == 1 then
-    return "Order Capacity: Aotc (1)"
-  end
-  if value == 2 then
-    return "Order Capacity: Deal (2)"
-  end
-  if value == 3 then
-    return "Order Capacity: Mtch (3)"
-  end
-
-  return "Order Capacity: Unknown("..value..")"
-end
-
--- Dissect: Order Capacity
-aquis_equities_orders_atp_v4_0.order_capacity.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.order_capacity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.order_capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-aquis_equities_orders_atp_v4_0.side = {}
-
--- Size: Side
-aquis_equities_orders_atp_v4_0.side.size = 1
-
--- Display: Side
-aquis_equities_orders_atp_v4_0.side.display = function(value)
-  return "Side: "..value
-end
-
--- Dissect: Side
-aquis_equities_orders_atp_v4_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-aquis_equities_orders_atp_v4_0.time_in_force = {}
-
--- Size: Time In Force
-aquis_equities_orders_atp_v4_0.time_in_force.size = 1
-
--- Display: Time In Force
-aquis_equities_orders_atp_v4_0.time_in_force.display = function(value)
-  if value == 1 then
-    return "Time In Force: Day (1)"
-  end
-  if value == 2 then
-    return "Time In Force: Fill Or Kill (2)"
-  end
-  if value == 3 then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == 9 then
-    return "Time In Force: Good For Auction (9)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-aquis_equities_orders_atp_v4_0.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Ioi Order Type
-aquis_equities_orders_atp_v4_0.ioi_order_type = {}
-
--- Size: Ioi Order Type
-aquis_equities_orders_atp_v4_0.ioi_order_type.size = 1
-
--- Display: Ioi Order Type
-aquis_equities_orders_atp_v4_0.ioi_order_type.display = function(value)
-  if value == 12 then
-    return "Ioi Order Type: Mid Pegged (12)"
-  end
-  if value == 17 then
-    return "Ioi Order Type: Aquis Vwap Match (17)"
-  end
-  if value == 18 then
-    return "Ioi Order Type: Targeted Aquis Vwap Match (18)"
-  end
-
-  return "Ioi Order Type: Unknown("..value..")"
-end
-
--- Dissect: Ioi Order Type
-aquis_equities_orders_atp_v4_0.ioi_order_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.ioi_order_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.ioi_order_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ioi_order_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id U 162
-aquis_equities_orders_atp_v4_0.security_id_u_162 = {}
-
--- Size: Security Id U 162
-aquis_equities_orders_atp_v4_0.security_id_u_162.size = 2
-
--- Display: Security Id U 162
-aquis_equities_orders_atp_v4_0.security_id_u_162.display = function(value)
-  return "Security Id U 162: "..value
-end
-
--- Dissect: Security Id U 162
-aquis_equities_orders_atp_v4_0.security_id_u_162.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.security_id_u_162.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.security_id_u_162.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.security_id_u_162, range, value, display)
-
-  return offset + length, value
 end
 
 -- Ioi Add Message
@@ -1281,29 +2169,6 @@ aquis_equities_orders_atp_v4_0.ioi_add_message.dissect = function(buffer, offset
   end
 end
 
--- Trade Ref
-aquis_equities_orders_atp_v4_0.trade_ref = {}
-
--- Size: Trade Ref
-aquis_equities_orders_atp_v4_0.trade_ref.size = 4
-
--- Display: Trade Ref
-aquis_equities_orders_atp_v4_0.trade_ref.display = function(value)
-  return "Trade Ref: "..value
-end
-
--- Dissect: Trade Ref
-aquis_equities_orders_atp_v4_0.trade_ref.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.trade_ref.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.trade_ref.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_ref, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Bust Message
 aquis_equities_orders_atp_v4_0.trade_bust_message = {}
 
@@ -1414,68 +2279,6 @@ aquis_equities_orders_atp_v4_0.trade_flags.dissect = function(buffer, offset, pa
   return offset + size, value
 end
 
--- Liq Indicator
-aquis_equities_orders_atp_v4_0.liq_indicator = {}
-
--- Size: Liq Indicator
-aquis_equities_orders_atp_v4_0.liq_indicator.size = 1
-
--- Display: Liq Indicator
-aquis_equities_orders_atp_v4_0.liq_indicator.display = function(value)
-  if value == 1 then
-    return "Liq Indicator: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Liq Indicator: Removed Liquidity (2)"
-  end
-  if value == 3 then
-    return "Liq Indicator: Removed Liquidity Hidden Quantity (3)"
-  end
-  if value == 4 then
-    return "Liq Indicator: Auction Ma C (4)"
-  end
-  if value == 6 then
-    return "Liq Indicator: Auction On Demand (6)"
-  end
-
-  return "Liq Indicator: Unknown("..value..")"
-end
-
--- Dissect: Liq Indicator
-aquis_equities_orders_atp_v4_0.liq_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.liq_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.liq_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.liq_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Ccp Code
-aquis_equities_orders_atp_v4_0.ccp_code = {}
-
--- Size: Ccp Code
-aquis_equities_orders_atp_v4_0.ccp_code.size = 1
-
--- Display: Ccp Code
-aquis_equities_orders_atp_v4_0.ccp_code.display = function(value)
-  return "Ccp Code: "..value
-end
-
--- Dissect: Ccp Code
-aquis_equities_orders_atp_v4_0.ccp_code.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.ccp_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.ccp_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.ccp_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Message
 aquis_equities_orders_atp_v4_0.trade_message = {}
 
@@ -1554,29 +2357,6 @@ aquis_equities_orders_atp_v4_0.trade_message.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return aquis_equities_orders_atp_v4_0.trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Request Ref
-aquis_equities_orders_atp_v4_0.request_ref = {}
-
--- Size: Request Ref
-aquis_equities_orders_atp_v4_0.request_ref.size = 4
-
--- Display: Request Ref
-aquis_equities_orders_atp_v4_0.request_ref.display = function(value)
-  return "Request Ref: "..value
-end
-
--- Dissect: Request Ref
-aquis_equities_orders_atp_v4_0.request_ref.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.request_ref.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.request_ref.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.request_ref, range, value, display)
-
-  return offset + length, value
 end
 
 -- Status
@@ -1720,71 +2500,6 @@ aquis_equities_orders_atp_v4_0.trade_capture_flags.dissect = function(buffer, of
   return offset + size, value
 end
 
--- Trade Capture Type
-aquis_equities_orders_atp_v4_0.trade_capture_type = {}
-
--- Size: Trade Capture Type
-aquis_equities_orders_atp_v4_0.trade_capture_type.size = 1
-
--- Display: Trade Capture Type
-aquis_equities_orders_atp_v4_0.trade_capture_type.display = function(value)
-  if value == 1 then
-    return "Trade Capture Type: Lis Cross (1)"
-  end
-  if value == 2 then
-    return "Trade Capture Type: Lis Cross No Clearing (2)"
-  end
-  if value == 3 then
-    return "Trade Capture Type: Vwap Benchmark Cross (3)"
-  end
-  if value == 4 then
-    return "Trade Capture Type: Vwap Benchmark Cross No Clearing (4)"
-  end
-  if value == 5 then
-    return "Trade Capture Type: Twap Benchmark Cross (5)"
-  end
-  if value == 6 then
-    return "Trade Capture Type: Twap Benchmark Cross No Clearing (6)"
-  end
-
-  return "Trade Capture Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Capture Type
-aquis_equities_orders_atp_v4_0.trade_capture_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.trade_capture_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.trade_capture_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.trade_capture_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id U 324
-aquis_equities_orders_atp_v4_0.security_id_u_324 = {}
-
--- Size: Security Id U 324
-aquis_equities_orders_atp_v4_0.security_id_u_324.size = 4
-
--- Display: Security Id U 324
-aquis_equities_orders_atp_v4_0.security_id_u_324.display = function(value)
-  return "Security Id U 324: "..value
-end
-
--- Dissect: Security Id U 324
-aquis_equities_orders_atp_v4_0.security_id_u_324.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.security_id_u_324.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.security_id_u_324.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.security_id_u_324, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Capture Message
 aquis_equities_orders_atp_v4_0.trade_capture_message = {}
 
@@ -1849,52 +2564,6 @@ aquis_equities_orders_atp_v4_0.trade_capture_message.dissect = function(buffer, 
   end
 end
 
--- New Aqx Ord Id
-aquis_equities_orders_atp_v4_0.new_aqx_ord_id = {}
-
--- Size: New Aqx Ord Id
-aquis_equities_orders_atp_v4_0.new_aqx_ord_id.size = 4
-
--- Display: New Aqx Ord Id
-aquis_equities_orders_atp_v4_0.new_aqx_ord_id.display = function(value)
-  return "New Aqx Ord Id: "..value
-end
-
--- Dissect: New Aqx Ord Id
-aquis_equities_orders_atp_v4_0.new_aqx_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.new_aqx_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.new_aqx_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.new_aqx_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Aqx Ord Id
-aquis_equities_orders_atp_v4_0.orig_aqx_ord_id = {}
-
--- Size: Orig Aqx Ord Id
-aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.size = 4
-
--- Display: Orig Aqx Ord Id
-aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.display = function(value)
-  return "Orig Aqx Ord Id: "..value
-end
-
--- Dissect: Orig Aqx Ord Id
-aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.orig_aqx_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.orig_aqx_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Iceberg Order Refresh Message
 aquis_equities_orders_atp_v4_0.iceberg_order_refresh_message = {}
 
@@ -1945,29 +2614,6 @@ aquis_equities_orders_atp_v4_0.iceberg_order_refresh_message.dissect = function(
     -- Skip element, add fields directly
     return aquis_equities_orders_atp_v4_0.iceberg_order_refresh_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Order Modify Response Flags U 81
-aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81 = {}
-
--- Size: Order Modify Response Flags U 81
-aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.size = 1
-
--- Display: Order Modify Response Flags U 81
-aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.display = function(value)
-  return "Order Modify Response Flags U 81: "..value
-end
-
--- Dissect: Order Modify Response Flags U 81
-aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.order_modify_response_flags_u_81.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_modify_response_flags_u_81, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Modify Response Message
@@ -2136,52 +2782,6 @@ aquis_equities_orders_atp_v4_0.order_add_response_flags.dissect = function(buffe
   return offset + size, value
 end
 
--- Traded Quantity
-aquis_equities_orders_atp_v4_0.traded_quantity = {}
-
--- Size: Traded Quantity
-aquis_equities_orders_atp_v4_0.traded_quantity.size = 4
-
--- Display: Traded Quantity
-aquis_equities_orders_atp_v4_0.traded_quantity.display = function(value)
-  return "Traded Quantity: "..value
-end
-
--- Dissect: Traded Quantity
-aquis_equities_orders_atp_v4_0.traded_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.traded_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.traded_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.traded_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Data Id
-aquis_equities_orders_atp_v4_0.market_data_id = {}
-
--- Size: Market Data Id
-aquis_equities_orders_atp_v4_0.market_data_id.size = 4
-
--- Display: Market Data Id
-aquis_equities_orders_atp_v4_0.market_data_id.display = function(value)
-  return "Market Data Id: "..value
-end
-
--- Dissect: Market Data Id
-aquis_equities_orders_atp_v4_0.market_data_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.market_data_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.market_data_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.market_data_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Add Response Message
 aquis_equities_orders_atp_v4_0.order_add_response_message = {}
 
@@ -2244,52 +2844,6 @@ aquis_equities_orders_atp_v4_0.order_add_response_message.dissect = function(buf
     -- Skip element, add fields directly
     return aquis_equities_orders_atp_v4_0.order_add_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reserved U 648
-aquis_equities_orders_atp_v4_0.reserved_u_648 = {}
-
--- Size: Reserved U 648
-aquis_equities_orders_atp_v4_0.reserved_u_648.size = 8
-
--- Display: Reserved U 648
-aquis_equities_orders_atp_v4_0.reserved_u_648.display = function(value)
-  return "Reserved U 648: "..value
-end
-
--- Dissect: Reserved U 648
-aquis_equities_orders_atp_v4_0.reserved_u_648.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.reserved_u_648.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_orders_atp_v4_0.reserved_u_648.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.reserved_u_648, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Quantity
-aquis_equities_orders_atp_v4_0.display_quantity = {}
-
--- Size: Display Quantity
-aquis_equities_orders_atp_v4_0.display_quantity.size = 4
-
--- Display: Display Quantity
-aquis_equities_orders_atp_v4_0.display_quantity.display = function(value)
-  return "Display Quantity: "..value
-end
-
--- Dissect: Display Quantity
-aquis_equities_orders_atp_v4_0.display_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.display_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.display_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.display_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Modify Extended Message
@@ -2544,75 +3098,6 @@ aquis_equities_orders_atp_v4_0.order_cancel_message.dissect = function(buffer, o
   end
 end
 
--- Peg Difference
-aquis_equities_orders_atp_v4_0.peg_difference = {}
-
--- Size: Peg Difference
-aquis_equities_orders_atp_v4_0.peg_difference.size = 8
-
--- Display: Peg Difference
-aquis_equities_orders_atp_v4_0.peg_difference.display = function(value)
-  return "Peg Difference: "..value
-end
-
--- Dissect: Peg Difference
-aquis_equities_orders_atp_v4_0.peg_difference.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.peg_difference.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = aquis_equities_orders_atp_v4_0.peg_difference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.peg_difference, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved U 162
-aquis_equities_orders_atp_v4_0.reserved_u_162 = {}
-
--- Size: Reserved U 162
-aquis_equities_orders_atp_v4_0.reserved_u_162.size = 2
-
--- Display: Reserved U 162
-aquis_equities_orders_atp_v4_0.reserved_u_162.display = function(value)
-  return "Reserved U 162: "..value
-end
-
--- Dissect: Reserved U 162
-aquis_equities_orders_atp_v4_0.reserved_u_162.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.reserved_u_162.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.reserved_u_162.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.reserved_u_162, range, value, display)
-
-  return offset + length, value
-end
-
--- Designated Order Id
-aquis_equities_orders_atp_v4_0.designated_order_id = {}
-
--- Size: Designated Order Id
-aquis_equities_orders_atp_v4_0.designated_order_id.size = 8
-
--- Display: Designated Order Id
-aquis_equities_orders_atp_v4_0.designated_order_id.display = function(value)
-  return "Designated Order Id: "..value
-end
-
--- Dissect: Designated Order Id
-aquis_equities_orders_atp_v4_0.designated_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.designated_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_orders_atp_v4_0.designated_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.designated_order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Extended Order Flags
 aquis_equities_orders_atp_v4_0.extended_order_flags = {}
 
@@ -2671,57 +3156,6 @@ aquis_equities_orders_atp_v4_0.extended_order_flags.dissect = function(buffer, o
   end
 
   return offset + size, value
-end
-
--- Order Type
-aquis_equities_orders_atp_v4_0.order_type = {}
-
--- Size: Order Type
-aquis_equities_orders_atp_v4_0.order_type.size = 1
-
--- Display: Order Type
-aquis_equities_orders_atp_v4_0.order_type.display = function(value)
-  if value == 1 then
-    return "Order Type: Limit Order (1)"
-  end
-  if value == 2 then
-    return "Order Type: Auction On Demand Limit Order (2)"
-  end
-  if value == 3 then
-    return "Order Type: Auction On Demand Mid Pegged Limit (3)"
-  end
-  if value == 4 then
-    return "Order Type: Auction On Demand Near Touch Pegged (4)"
-  end
-  if value == 6 then
-    return "Order Type: Market At Close (6)"
-  end
-  if value == 8 then
-    return "Order Type: Post Only Cancel Replace (8)"
-  end
-  if value == 9 then
-    return "Order Type: Post Only (9)"
-  end
-  if value == 10 then
-    return "Order Type: Restricted Pocr Order (10)"
-  end
-  if value == 11 then
-    return "Order Type: Restricted Post Only Order (11)"
-  end
-
-  return "Order Type: Unknown("..value..")"
-end
-
--- Dissect: Order Type
-aquis_equities_orders_atp_v4_0.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.order_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.order_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.order_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Add Extended Message
@@ -2952,90 +3386,6 @@ aquis_equities_orders_atp_v4_0.order_add_message.dissect = function(buffer, offs
   end
 end
 
--- Reason Text
-aquis_equities_orders_atp_v4_0.reason_text = {}
-
--- Size: Reason Text
-aquis_equities_orders_atp_v4_0.reason_text.size = 32
-
--- Display: Reason Text
-aquis_equities_orders_atp_v4_0.reason_text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reason Text: No Value"
-  end
-
-  return "Reason Text: "..value
-end
-
--- Dissect: Reason Text
-aquis_equities_orders_atp_v4_0.reason_text.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.reason_text.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_orders_atp_v4_0.reason_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.reason_text, range, value, display)
-
-  return offset + length, value
-end
-
--- Logout Reason Code
-aquis_equities_orders_atp_v4_0.logout_reason_code = {}
-
--- Size: Logout Reason Code
-aquis_equities_orders_atp_v4_0.logout_reason_code.size = 1
-
--- Display: Logout Reason Code
-aquis_equities_orders_atp_v4_0.logout_reason_code.display = function(value)
-  if value == 0 then
-    return "Logout Reason Code: User Requested (0)"
-  end
-  if value == 1 then
-    return "Logout Reason Code: Admin (1)"
-  end
-  if value == 2 then
-    return "Logout Reason Code: Disconnect (2)"
-  end
-  if value == 3 then
-    return "Logout Reason Code: End Of Day (3)"
-  end
-  if value == 4 then
-    return "Logout Reason Code: Inactivity Timeout (4)"
-  end
-  if value == 5 then
-    return "Logout Reason Code: Protocol Error (5)"
-  end
-  if value == 6 then
-    return "Logout Reason Code: Sequence Number Error (6)"
-  end
-
-  return "Logout Reason Code: Unknown("..value..")"
-end
-
--- Dissect: Logout Reason Code
-aquis_equities_orders_atp_v4_0.logout_reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.logout_reason_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.logout_reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.logout_reason_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logout Message
 aquis_equities_orders_atp_v4_0.logout_message = {}
 
@@ -3080,71 +3430,6 @@ aquis_equities_orders_atp_v4_0.logout_message.dissect = function(buffer, offset,
   end
 end
 
--- Client Seq No
-aquis_equities_orders_atp_v4_0.client_seq_no = {}
-
--- Size: Client Seq No
-aquis_equities_orders_atp_v4_0.client_seq_no.size = 4
-
--- Display: Client Seq No
-aquis_equities_orders_atp_v4_0.client_seq_no.display = function(value)
-  return "Client Seq No: "..value
-end
-
--- Dissect: Client Seq No
-aquis_equities_orders_atp_v4_0.client_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.client_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.client_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.client_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Result Code
-aquis_equities_orders_atp_v4_0.result_code = {}
-
--- Size: Result Code
-aquis_equities_orders_atp_v4_0.result_code.size = 1
-
--- Display: Result Code
-aquis_equities_orders_atp_v4_0.result_code.display = function(value)
-  if value == 0 then
-    return "Result Code: Success (0)"
-  end
-  if value == 1 then
-    return "Result Code: Already Logged In (1)"
-  end
-  if value == 2 then
-    return "Result Code: Sequence Number Error (2)"
-  end
-  if value == 3 then
-    return "Result Code: Unsupported Protocol (3)"
-  end
-  if value == 4 then
-    return "Result Code: Failed Authentication (4)"
-  end
-  if value == 5 then
-    return "Result Code: Unknown Source Network (5)"
-  end
-
-  return "Result Code: Unknown("..value..")"
-end
-
--- Dissect: Result Code
-aquis_equities_orders_atp_v4_0.result_code.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.result_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.result_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.result_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Response Message
 aquis_equities_orders_atp_v4_0.login_response_message = {}
 
@@ -3187,153 +3472,6 @@ aquis_equities_orders_atp_v4_0.login_response_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return aquis_equities_orders_atp_v4_0.login_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Atp Seq No
-aquis_equities_orders_atp_v4_0.atp_seq_no = {}
-
--- Size: Atp Seq No
-aquis_equities_orders_atp_v4_0.atp_seq_no.size = 4
-
--- Display: Atp Seq No
-aquis_equities_orders_atp_v4_0.atp_seq_no.display = function(value)
-  return "Atp Seq No: "..value
-end
-
--- Dissect: Atp Seq No
-aquis_equities_orders_atp_v4_0.atp_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.atp_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.atp_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.atp_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Inactivity Timeout
-aquis_equities_orders_atp_v4_0.inactivity_timeout = {}
-
--- Size: Inactivity Timeout
-aquis_equities_orders_atp_v4_0.inactivity_timeout.size = 2
-
--- Display: Inactivity Timeout
-aquis_equities_orders_atp_v4_0.inactivity_timeout.display = function(value)
-  return "Inactivity Timeout: "..value
-end
-
--- Dissect: Inactivity Timeout
-aquis_equities_orders_atp_v4_0.inactivity_timeout.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.inactivity_timeout.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.inactivity_timeout.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.inactivity_timeout, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-aquis_equities_orders_atp_v4_0.password = {}
-
--- Size: Password
-aquis_equities_orders_atp_v4_0.password.size = 16
-
--- Display: Password
-aquis_equities_orders_atp_v4_0.password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Password: No Value"
-  end
-
-  return "Password: "..value
-end
-
--- Dissect: Password
-aquis_equities_orders_atp_v4_0.password.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.password.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_orders_atp_v4_0.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Sender Id
-aquis_equities_orders_atp_v4_0.sender_id = {}
-
--- Size: Sender Id
-aquis_equities_orders_atp_v4_0.sender_id.size = 16
-
--- Display: Sender Id
-aquis_equities_orders_atp_v4_0.sender_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sender Id: No Value"
-  end
-
-  return "Sender Id: "..value
-end
-
--- Dissect: Sender Id
-aquis_equities_orders_atp_v4_0.sender_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.sender_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_orders_atp_v4_0.sender_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.sender_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Protocol Version
-aquis_equities_orders_atp_v4_0.protocol_version = {}
-
--- Size: Protocol Version
-aquis_equities_orders_atp_v4_0.protocol_version.size = 2
-
--- Display: Protocol Version
-aquis_equities_orders_atp_v4_0.protocol_version.display = function(value)
-  return "Protocol Version: "..value
-end
-
--- Dissect: Protocol Version
-aquis_equities_orders_atp_v4_0.protocol_version.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.protocol_version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.protocol_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.protocol_version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Message
@@ -3483,139 +3621,6 @@ aquis_equities_orders_atp_v4_0.payload.dissect = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Msg Seq No
-aquis_equities_orders_atp_v4_0.msg_seq_no = {}
-
--- Size: Msg Seq No
-aquis_equities_orders_atp_v4_0.msg_seq_no.size = 4
-
--- Display: Msg Seq No
-aquis_equities_orders_atp_v4_0.msg_seq_no.display = function(value)
-  return "Msg Seq No: "..value
-end
-
--- Dissect: Msg Seq No
-aquis_equities_orders_atp_v4_0.msg_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.msg_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.msg_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.msg_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-aquis_equities_orders_atp_v4_0.msg_type = {}
-
--- Size: Msg Type
-aquis_equities_orders_atp_v4_0.msg_type.size = 1
-
--- Display: Msg Type
-aquis_equities_orders_atp_v4_0.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Login Message (1)"
-  end
-  if value == 2 then
-    return "Msg Type: Login Response Message (2)"
-  end
-  if value == 0 then
-    return "Msg Type: Heartbeat (0)"
-  end
-  if value == 3 then
-    return "Msg Type: Logout Request Message (3)"
-  end
-  if value == 4 then
-    return "Msg Type: Logout Message (4)"
-  end
-  if value == 5 then
-    return "Msg Type: Order Add Message (5)"
-  end
-  if value == 21 then
-    return "Msg Type: Order Add Extended Message (21)"
-  end
-  if value == 7 then
-    return "Msg Type: Order Cancel Message (7)"
-  end
-  if value == 9 then
-    return "Msg Type: Order Modify Message (9)"
-  end
-  if value == 22 then
-    return "Msg Type: Order Modify Extended Message (22)"
-  end
-  if value == 6 then
-    return "Msg Type: Order Add Response Message (6)"
-  end
-  if value == 8 then
-    return "Msg Type: Order Cancel Response Message (8)"
-  end
-  if value == 10 then
-    return "Msg Type: Order Modify Response Message (10)"
-  end
-  if value == 23 then
-    return "Msg Type: Iceberg Order Refresh Message (23)"
-  end
-  if value == 17 then
-    return "Msg Type: Trade Capture Message (17)"
-  end
-  if value == 18 then
-    return "Msg Type: Trade Capture Response Message (18)"
-  end
-  if value == 11 then
-    return "Msg Type: Trade Message (11)"
-  end
-  if value == 12 then
-    return "Msg Type: Trade Bust Message (12)"
-  end
-  if value == 27 then
-    return "Msg Type: Ioi Add Message (27)"
-  end
-  if value == 28 then
-    return "Msg Type: Ioi Invite Message (28)"
-  end
-  if value == 29 then
-    return "Msg Type: Ioi Firmup Message (29)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-aquis_equities_orders_atp_v4_0.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_orders_atp_v4_0.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.msg_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Length
-aquis_equities_orders_atp_v4_0.msg_length = {}
-
--- Size: Msg Length
-aquis_equities_orders_atp_v4_0.msg_length.size = 2
-
--- Display: Msg Length
-aquis_equities_orders_atp_v4_0.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-aquis_equities_orders_atp_v4_0.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_orders_atp_v4_0.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_orders_atp_v4_0.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_orders_atp_v4_0.fields.msg_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header

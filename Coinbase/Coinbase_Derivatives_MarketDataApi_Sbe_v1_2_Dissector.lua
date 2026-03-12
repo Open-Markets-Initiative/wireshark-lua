@@ -311,60 +311,520 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Coinbase Derivatives MarketDataApi Sbe 1.2
+-- Coinbase Derivatives MarketDataApi Sbe 1.2 Fields
 -----------------------------------------------------------------------
 
--- Padding
-coinbase_derivatives_marketdataapi_sbe_v1_2.padding = {}
+-- Aggressor Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id = {}
 
--- Display: Padding
-coinbase_derivatives_marketdataapi_sbe_v1_2.padding.display = function(value)
-  return "Padding: "..value
+-- Size: Aggressor Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.size = 8
+
+-- Display: Aggressor Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.display = function(value)
+  return "Aggressor Order Id: "..value
 end
 
--- Dissect runtime sized field: Padding
-coinbase_derivatives_marketdataapi_sbe_v1_2.padding.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.padding.display(value, packet, parent, size)
+-- Dissect: Aggressor Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.padding, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.aggressor_order_id, range, value, display)
 
-  return offset + size, value
+  return offset + length, value
 end
 
--- Reason
-coinbase_derivatives_marketdataapi_sbe_v1_2.reason = {}
+-- Aggressor Receive Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time = {}
 
--- Size: Reason
-coinbase_derivatives_marketdataapi_sbe_v1_2.reason.size = 1
+-- Size: Aggressor Receive Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.size = 8
 
--- Display: Reason
-coinbase_derivatives_marketdataapi_sbe_v1_2.reason.display = function(value)
-  if value == 1 then
-    return "Reason: Seq Too Low (1)"
-  end
-  if value == 2 then
-    return "Reason: Seq Too High (2)"
-  end
-  if value == 3 then
-    return "Reason: Rate Limit Exceeded (3)"
-  end
-  if value == 4 then
-    return "Reason: Other Error (4)"
-  end
-
-  return "Reason: Unknown("..value..")"
+-- Display: Aggressor Receive Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.display = function(value)
+  return "Aggressor Receive Time: "..value
 end
 
--- Dissect: Reason
-coinbase_derivatives_marketdataapi_sbe_v1_2.reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.reason.size
+-- Dissect: Aggressor Receive Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num = {}
+
+-- Size: Begin Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.size = 8
+
+-- Display: Begin Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.display = function(value)
+  return "Begin Seq Num: "..value
+end
+
+-- Dissect: Begin Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price = {}
+
+-- Size: Best Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size = 8
+
+-- Display: Best Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Best Ask Implied Price: No Value"
+  end
+
+  return "Best Ask Implied Price: "..value
+end
+
+-- Dissect: Best Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty = {}
+
+-- Size: Best Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size = 4
+
+-- Display: Best Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.display = function(value)
+  return "Best Ask Implied Qty: "..value
+end
+
+-- Dissect: Best Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.reason.display(value, buffer, offset, packet, parent)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.reason, range, value, display)
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price = {}
+
+-- Size: Best Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size = 8
+
+-- Display: Best Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Best Bid Implied Price: No Value"
+  end
+
+  return "Best Bid Implied Price: "..value
+end
+
+-- Dissect: Best Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty = {}
+
+-- Size: Best Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size = 4
+
+-- Display: Best Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.display = function(value)
+  return "Best Bid Implied Qty: "..value
+end
+
+-- Dissect: Best Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_price = {}
+
+-- Size: Best Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.size = 8
+
+-- Display: Best Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Best Price: No Value"
+  end
+
+  return "Best Price: "..value
+end
+
+-- Dissect: Best Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty = {}
+
+-- Size: Best Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.size = 4
+
+-- Display: Best Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.display = function(value)
+  return "Best Qty: "..value
+end
+
+-- Dissect: Best Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.block_length = {}
+
+-- Size: Block Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.size = 2
+
+-- Display: Block Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id = {}
+
+-- Size: Buy Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size = 8
+
+-- Display: Buy Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Buy Order Id: No Value"
+  end
+
+  return "Buy Order Id: "..value
+end
+
+-- Dissect: Buy Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.buy_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cfi Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code = {}
+
+-- Size: Cfi Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size = 8
+
+-- Display: Cfi Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cfi Code: No Value"
+  end
+
+  return "Cfi Code: "..value
+end
+
+-- Dissect: Cfi Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.cfi_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id = {}
+
+-- Size: Channel Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.size = 2
+
+-- Display: Channel Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Close Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.close_price = {}
+
+-- Size: Close Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.size = 8
+
+-- Display: Close Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Close Price: No Value"
+  end
+
+  return "Close Price: "..value
+end
+
+-- Dissect: Close Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size
+coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size = {}
+
+-- Size: Contract Size
+coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size = 4
+
+-- Display: Contract Size
+coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.display = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+coinbase_derivatives_marketdataapi_sbe_v1_2.currency = {}
+
+-- Size: Currency
+coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size = 8
+
+-- Display: Currency
+coinbase_derivatives_marketdataapi_sbe_v1_2.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+coinbase_derivatives_marketdataapi_sbe_v1_2.currency.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Day Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price = {}
+
+-- Size: Day Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.size = 8
+
+-- Display: Day Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Day Open Price: No Value"
+  end
+
+  return "Day Open Price: "..value
+end
+
+-- Dissect: Day Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.day_open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deepest Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price = {}
+
+-- Size: Deepest Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.size = 8
+
+-- Display: Deepest Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.display = function(value)
+  return "Deepest Price: "..value
+end
+
+-- Dissect: Deepest Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.deepest_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Description
+coinbase_derivatives_marketdataapi_sbe_v1_2.description = {}
+
+-- Size: Description
+coinbase_derivatives_marketdataapi_sbe_v1_2.description.size = 32
+
+-- Display: Description
+coinbase_derivatives_marketdataapi_sbe_v1_2.description.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Description: No Value"
+  end
+
+  return "Description: "..value
+end
+
+-- Dissect: Description
+coinbase_derivatives_marketdataapi_sbe_v1_2.description.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.description.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.description.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.description, range, value, display)
 
   return offset + length, value
 end
@@ -408,6 +868,1159 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.details.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- First Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date = {}
+
+-- Size: First Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size = 2
+
+-- Display: First Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.display = function(value)
+  return "First Trading Session Date: "..value
+end
+
+-- Dissect: First Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.first_trading_session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Frame Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length = {}
+
+-- Size: Frame Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.size = 2
+
+-- Display: Frame Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.display = function(value)
+  return "Frame Length: "..value
+end
+
+-- Dissect: Frame Length
+coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.frame_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.high_price = {}
+
+-- Size: High Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.size = 8
+
+-- Display: High Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "High Price: No Value"
+  end
+
+  return "High Price: "..value
+end
+
+-- Dissect: High Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price = {}
+
+-- Size: Indicative Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.size = 8
+
+-- Display: Indicative Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Indicative Open Price: No Value"
+  end
+
+  return "Indicative Open Price: "..value
+end
+
+-- Dissect: Indicative Open Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.indicative_open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num = {}
+
+-- Size: Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.size = 4
+
+-- Display: Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.display = function(value)
+  return "Instr Seq Num: "..value
+end
+
+-- Dissect: Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instr_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags = {}
+
+-- Size: Instrument Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.size = 1
+
+-- Display: Instrument Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.display = function(value)
+  return "Instrument Flags: "..value
+end
+
+-- Dissect: Instrument Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_flags, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id = {}
+
+-- Size: Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.size = 4
+
+-- Display: Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.display = function(value)
+  return "Instrument Id: "..value
+end
+
+-- Dissect: Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Side
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side = {}
+
+-- Size: Instrument Side
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.size = 1
+
+-- Display: Instrument Side
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.display = function(value)
+  return "Instrument Side: "..value
+end
+
+-- Dissect: Instrument Side
+coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num = {}
+
+-- Size: Last Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size = 4
+
+-- Display: Last Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.display = function(value)
+  return "Last Instr Seq Num: "..value
+end
+
+-- Dissect: Last Instr Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_instr_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price = {}
+
+-- Size: Last Trade Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.size = 8
+
+-- Display: Last Trade Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Last Trade Price: No Value"
+  end
+
+  return "Last Trade Price: "..value
+end
+
+-- Dissect: Last Trade Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty = {}
+
+-- Size: Last Trade Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.size = 4
+
+-- Display: Last Trade Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.display = function(value)
+  return "Last Trade Qty: "..value
+end
+
+-- Dissect: Last Trade Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time = {}
+
+-- Size: Last Trade Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.size = 8
+
+-- Display: Last Trade Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Last Trade Time: No Value"
+  end
+
+  return "Last Trade Time: "..value
+end
+
+-- Dissect: Last Trade Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date = {}
+
+-- Size: Last Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size = 2
+
+-- Display: Last Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.display = function(value)
+  return "Last Trading Session Date: "..value
+end
+
+-- Dissect: Last Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trading_session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg 1 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id = {}
+
+-- Size: Leg 1 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size = 4
+
+-- Display: Leg 1 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.display = function(value)
+  return "Leg 1 Instrument Id: "..value
+end
+
+-- Dissect: Leg 1 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg 2 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id = {}
+
+-- Size: Leg 2 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size = 4
+
+-- Display: Leg 2 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.display = function(value)
+  return "Leg 2 Instrument Id: "..value
+end
+
+-- Dissect: Leg 2 Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Down Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price = {}
+
+-- Size: Limit Down Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size = 8
+
+-- Display: Limit Down Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.display = function(value)
+  return "Limit Down Price: "..value
+end
+
+-- Dissect: Limit Down Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.limit_down_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Up Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price = {}
+
+-- Size: Limit Up Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size = 8
+
+-- Display: Limit Up Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.display = function(value)
+  return "Limit Up Price: "..value
+end
+
+-- Dissect: Limit Up Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.limit_up_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.low_price = {}
+
+-- Size: Low Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.size = 8
+
+-- Display: Low Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Low Price: No Value"
+  end
+
+  return "Low Price: "..value
+end
+
+-- Dissect: Low Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.match_id = {}
+
+-- Size: Match Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size = 8
+
+-- Display: Match Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.display = function(value)
+  return "Match Id: "..value
+end
+
+-- Dissect: Match Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.message_count = {}
+
+-- Size: Message Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size = 1
+
+-- Display: Message Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price = {}
+
+-- Size: New Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.size = 8
+
+-- Display: New Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.display = function(value)
+  return "New Leg 1 Price: "..value
+end
+
+-- Dissect: New Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.new_leg_1_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price = {}
+
+-- Size: New Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.size = 8
+
+-- Display: New Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.display = function(value)
+  return "New Leg 2 Price: "..value
+end
+
+-- Dissect: New Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.new_leg_2_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_price = {}
+
+-- Size: New Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size = 8
+
+-- Display: New Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.display = function(value)
+  return "New Price: "..value
+end
+
+-- Dissect: New Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.new_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price = {}
+
+-- Size: Next Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size = 8
+
+-- Display: Next Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Next Ask Implied Price: No Value"
+  end
+
+  return "Next Ask Implied Price: "..value
+end
+
+-- Dissect: Next Ask Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty = {}
+
+-- Size: Next Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size = 4
+
+-- Display: Next Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.display = function(value)
+  return "Next Ask Implied Qty: "..value
+end
+
+-- Dissect: Next Ask Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price = {}
+
+-- Size: Next Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size = 8
+
+-- Display: Next Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Next Bid Implied Price: No Value"
+  end
+
+  return "Next Bid Implied Price: "..value
+end
+
+-- Dissect: Next Bid Implied Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty = {}
+
+-- Size: Next Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size = 4
+
+-- Display: Next Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.display = function(value)
+  return "Next Bid Implied Qty: "..value
+end
+
+-- Dissect: Next Bid Implied Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_price = {}
+
+-- Size: Next Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.size = 8
+
+-- Display: Next Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Next Price: No Value"
+  end
+
+  return "Next Price: "..value
+end
+
+-- Dissect: Next Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty = {}
+
+-- Size: Next Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.size = 4
+
+-- Display: Next Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.display = function(value)
+  return "Next Qty: "..value
+end
+
+-- Dissect: Next Qty
+coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Old Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price = {}
+
+-- Size: Old Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.size = 8
+
+-- Display: Old Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.display = function(value)
+  return "Old Leg 1 Price: "..value
+end
+
+-- Dissect: Old Leg 1 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.old_leg_1_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Old Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price = {}
+
+-- Size: Old Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.size = 8
+
+-- Display: Old Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.display = function(value)
+  return "Old Leg 2 Price: "..value
+end
+
+-- Dissect: Old Leg 2 Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.old_leg_2_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Old Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_price = {}
+
+-- Size: Old Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size = 8
+
+-- Display: Old Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.display = function(value)
+  return "Old Price: "..value
+end
+
+-- Dissect: Old Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.old_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest = {}
+
+-- Size: Open Interest
+coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.size = 4
+
+-- Display: Open Interest
+coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_count = {}
+
+-- Size: Order Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size = 4
+
+-- Display: Order Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.display = function(value)
+  return "Order Count: "..value
+end
+
+-- Dissect: Order Count
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_id = {}
+
+-- Size: Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size = 8
+
+-- Display: Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags = {}
+
+-- Size: Packet Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.size = 1
+
+-- Display: Packet Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.display = function(value)
+  return "Packet Flags: "..value
+end
+
+-- Dissect: Packet Flags
+coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.packet_flags, range, value, display)
+
+  return offset + length, value
+end
+
+-- Padding
+coinbase_derivatives_marketdataapi_sbe_v1_2.padding = {}
+
+-- Display: Padding
+coinbase_derivatives_marketdataapi_sbe_v1_2.padding.display = function(value)
+  return "Padding: "..value
+end
+
+-- Dissect runtime sized field: Padding
+coinbase_derivatives_marketdataapi_sbe_v1_2.padding.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.padding.display(value, packet, parent, size)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.padding, range, value, display)
+
+  return offset + size, value
+end
+
+-- Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.price = {}
+
+-- Size: Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.price.size = 8
+
+-- Display: Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.price.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = coinbase_derivatives_marketdataapi_sbe_v1_2.price.translate(raw)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Increment
+coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment = {}
+
+-- Size: Price Increment
+coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size = 8
+
+-- Display: Price Increment
+coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.display = function(value)
+  return "Price Increment: "..value
+end
+
+-- Dissect: Price Increment
+coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price_increment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price = {}
+
+-- Size: Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size = 8
+
+-- Display: Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Prior Settlement Price: No Value"
+  end
+
+  return "Prior Settlement Price: "..value
+end
+
+-- Dissect: Prior Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.prior_settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_code = {}
+
+-- Size: Product Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size = 8
+
+-- Display: Product Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product Code: No Value"
+  end
+
+  return "Product Code: "..value
+end
+
+-- Dissect: Product Code
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Group
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_group = {}
+
+-- Size: Product Group
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size = 1
+
+-- Display: Product Group
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.display = function(value)
+  if value == 0 then
+    return "Product Group: Currency (0)"
+  end
+  if value == 1 then
+    return "Product Group: Equity (1)"
+  end
+  if value == 2 then
+    return "Product Group: Energy (2)"
+  end
+  if value == 3 then
+    return "Product Group: Metals (3)"
+  end
+  if value == 4 then
+    return "Product Group: Interest Rate (4)"
+  end
+  if value == 5 then
+    return "Product Group: Agriculture (5)"
+  end
+
+  return "Product Group: Unknown("..value..")"
+end
+
+-- Dissect: Product Group
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_id = {}
+
+-- Size: Product Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size = 4
+
+-- Display: Product Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+coinbase_derivatives_marketdataapi_sbe_v1_2.quantity = {}
+
+-- Size: Quantity
+coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size = 4
+
+-- Display: Quantity
+coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+coinbase_derivatives_marketdataapi_sbe_v1_2.reason = {}
+
+-- Size: Reason
+coinbase_derivatives_marketdataapi_sbe_v1_2.reason.size = 1
+
+-- Display: Reason
+coinbase_derivatives_marketdataapi_sbe_v1_2.reason.display = function(value)
+  if value == 1 then
+    return "Reason: Seq Too Low (1)"
+  end
+  if value == 2 then
+    return "Reason: Seq Too High (2)"
+  end
+  if value == 3 then
+    return "Reason: Rate Limit Exceeded (3)"
+  end
+  if value == 4 then
+    return "Reason: Other Error (4)"
+  end
+
+  return "Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reason
+coinbase_derivatives_marketdataapi_sbe_v1_2.reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.reason.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+coinbase_derivatives_marketdataapi_sbe_v1_2.reserved = {}
+
+-- Size: Reserved
+coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.size = 2
+
+-- Display: Reserved
+coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
 -- Retry Delay Nanos
 coinbase_derivatives_marketdataapi_sbe_v1_2.retry_delay_nanos = {}
 
@@ -430,6 +2043,597 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.retry_delay_nanos.dissect = function
 
   return offset + length, value
 end
+
+-- Schema Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id = {}
+
+-- Size: Schema Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.size = 2
+
+-- Display: Schema Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.display = function(value)
+  if value == 1201 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id = {}
+
+-- Size: Sell Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size = 8
+
+-- Display: Sell Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Sell Order Id: No Value"
+  end
+
+  return "Sell Order Id: "..value
+end
+
+-- Dissect: Sell Order Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.sell_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time = {}
+
+-- Size: Sending Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size = 8
+
+-- Display: Sending Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num = {}
+
+-- Size: Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.size = 8
+
+-- Display: Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price = {}
+
+-- Size: Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size = 8
+
+-- Display: Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Settlement Price: No Value"
+  end
+
+  return "Settlement Price: "..value
+end
+
+-- Dissect: Settlement Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Snapshot Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id = {}
+
+-- Size: Snapshot Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.size = 4
+
+-- Display: Snapshot Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.display = function(value)
+  return "Snapshot Instrument Id: "..value
+end
+
+-- Dissect: Snapshot Instrument Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.snapshot_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Snapshot Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num = {}
+
+-- Size: Snapshot Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size = 2
+
+-- Display: Snapshot Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.display = function(value)
+  return "Snapshot Seq Num: "..value
+end
+
+-- Dissect: Snapshot Seq Num
+coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.snapshot_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Spread Buy Convention
+coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention = {}
+
+-- Size: Spread Buy Convention
+coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size = 1
+
+-- Display: Spread Buy Convention
+coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.display = function(value)
+  if value == 1 then
+    return "Spread Buy Convention: Use Far Bid (1)"
+  end
+  if value == -1 then
+    return "Spread Buy Convention: Use Near Bid (-1)"
+  end
+
+  return "Spread Buy Convention: Unknown("..value..")"
+end
+
+-- Dissect: Spread Buy Convention
+coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.spread_buy_convention, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stat Type
+coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type = {}
+
+-- Size: Stat Type
+coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.size = 1
+
+-- Display: Stat Type
+coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Stat Type: No Value"
+  end
+
+  if value == "4" then
+    return "Stat Type: Day Opening Price (4)"
+  end
+  if value == "5" then
+    return "Stat Type: Closing Price (5)"
+  end
+  if value == "6" then
+    return "Stat Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "Stat Type: Trading Session High Price (7)"
+  end
+  if value == "8" then
+    return "Stat Type: Trading Session Low Price (8)"
+  end
+  if value == "F" then
+    return "Stat Type: Reference Price (F)"
+  end
+  if value == "I" then
+    return "Stat Type: Indicative Opening Price (I)"
+  end
+
+  return "Stat Type: Unknown("..value..")"
+end
+
+-- Dissect: Stat Type
+coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.stat_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+coinbase_derivatives_marketdataapi_sbe_v1_2.symbol = {}
+
+-- Size: Symbol
+coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size = 24
+
+-- Display: Symbol
+coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.template_id = {}
+
+-- Size: Template Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.size = 2
+
+-- Display: Template Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.display = function(value)
+  if value == 10 then
+    return "Template Id: Outright Instrument Definition Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Spread Instrument Definition Message (11)"
+  end
+  if value == 17 then
+    return "Template Id: Trading Status Update Message (17)"
+  end
+  if value == 20 then
+    return "Template Id: Order Put Message (20)"
+  end
+  if value == 21 then
+    return "Template Id: Order Delete Message (21)"
+  end
+  if value == 22 then
+    return "Template Id: Implied Order Update Message (22)"
+  end
+  if value == 33 then
+    return "Template Id: Trade Summary Message (33)"
+  end
+  if value == 30 then
+    return "Template Id: Trade Message (30)"
+  end
+  if value == 31 then
+    return "Template Id: Trade Amend Message (31)"
+  end
+  if value == 34 then
+    return "Template Id: Spread Trade Amend Message (34)"
+  end
+  if value == 32 then
+    return "Template Id: Trade Bust Message (32)"
+  end
+  if value == 40 then
+    return "Template Id: Market Stat Message (40)"
+  end
+  if value == 41 then
+    return "Template Id: Trade Session Volume Message (41)"
+  end
+  if value == 42 then
+    return "Template Id: Open Interest Message (42)"
+  end
+  if value == 110 then
+    return "Template Id: Start Of Outright Instrument Snapshot Message (110)"
+  end
+  if value == 111 then
+    return "Template Id: Start Of Spread Instrument Snapshot Message (111)"
+  end
+  if value == 120 then
+    return "Template Id: Order Snapshot Message (120)"
+  end
+  if value == 122 then
+    return "Template Id: End Of Snapshot Message (122)"
+  end
+  if value == 200 then
+    return "Template Id: Retransmit Request Message (200)"
+  end
+  if value == 202 then
+    return "Template Id: Retransmit Reject Message (202)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Volume
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume = {}
+
+-- Size: Trade Volume
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size = 4
+
+-- Display: Trade Volume
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.display = function(value)
+  return "Trade Volume: "..value
+end
+
+-- Dissect: Trade Volume
+coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date = {}
+
+-- Size: Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size = 2
+
+-- Display: Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.display = function(value)
+  return "Trading Session Date: "..value
+end
+
+-- Dissect: Trading Session Date
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trading_session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status = {}
+
+-- Size: Trading Status
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size = 1
+
+-- Display: Trading Status
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.display = function(value)
+  if value == 0 then
+    return "Trading Status: Pre Open (0)"
+  end
+  if value == 1 then
+    return "Trading Status: Open (1)"
+  end
+  if value == 2 then
+    return "Trading Status: Halt (2)"
+  end
+  if value == 3 then
+    return "Trading Status: Pause (3)"
+  end
+  if value == 4 then
+    return "Trading Status: Close (4)"
+  end
+  if value == 5 then
+    return "Trading Status: Pre Open No Cancel (5)"
+  end
+  if value == 6 then
+    return "Trading Status: Expired (6)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time = {}
+
+-- Size: Transact Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size = 8
+
+-- Display: Transact Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+coinbase_derivatives_marketdataapi_sbe_v1_2.version = {}
+
+-- Size: Version
+coinbase_derivatives_marketdataapi_sbe_v1_2.version.size = 2
+
+-- Display: Version
+coinbase_derivatives_marketdataapi_sbe_v1_2.version.display = function(value)
+  if value == 2 then
+    return "Version: Version 1.2"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+coinbase_derivatives_marketdataapi_sbe_v1_2.version.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price = {}
+
+-- Size: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size = 8
+
+-- Display: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.display = function(value)
+  return "Vwap Price: "..value
+end
+
+-- Dissect: Vwap Price
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional = {}
+
+-- Size: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size = 8
+
+-- Display: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Vwap Price Optional: No Value"
+  end
+
+  return "Vwap Price Optional: "..value
+end
+
+-- Dissect: Vwap Price Optional
+coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Coinbase Derivatives MarketDataApi Sbe 1.2
+-----------------------------------------------------------------------
 
 -- Retransmit Reject Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message = {}
@@ -477,52 +2681,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.dissect = 
     -- Skip element, add fields directly
     return coinbase_derivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Message Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.message_count = {}
-
--- Size: Message Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size = 1
-
--- Display: Message Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num = {}
-
--- Size: Begin Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.size = 8
-
--- Display: Begin Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmit Request Message
@@ -610,628 +2768,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.definition_flags.dissect = function(
   end
 
   return offset + size, value
-end
-
--- Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price = {}
-
--- Size: Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size = 8
-
--- Display: Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Prior Settlement Price: No Value"
-  end
-
-  return "Prior Settlement Price: "..value
-end
-
--- Dissect: Prior Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.prior_settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.prior_settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty = {}
-
--- Size: Next Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size = 4
-
--- Display: Next Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.display = function(value)
-  return "Next Ask Implied Qty: "..value
-end
-
--- Dissect: Next Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty = {}
-
--- Size: Next Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size = 4
-
--- Display: Next Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.display = function(value)
-  return "Next Bid Implied Qty: "..value
-end
-
--- Dissect: Next Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty = {}
-
--- Size: Best Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size = 4
-
--- Display: Best Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.display = function(value)
-  return "Best Ask Implied Qty: "..value
-end
-
--- Dissect: Best Ask Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty = {}
-
--- Size: Best Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size = 4
-
--- Display: Best Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.display = function(value)
-  return "Best Bid Implied Qty: "..value
-end
-
--- Dissect: Best Bid Implied Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Interest
-coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest = {}
-
--- Size: Open Interest
-coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.size = 4
-
--- Display: Open Interest
-coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.display = function(value)
-  return "Open Interest: "..value
-end
-
--- Dissect: Open Interest
-coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.open_interest, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty = {}
-
--- Size: Last Trade Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.size = 4
-
--- Display: Last Trade Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.display = function(value)
-  return "Last Trade Qty: "..value
-end
-
--- Dissect: Last Trade Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Limit Up Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price = {}
-
--- Size: Limit Up Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size = 8
-
--- Display: Limit Up Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.display = function(value)
-  return "Limit Up Price: "..value
-end
-
--- Dissect: Limit Up Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_up_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.limit_up_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Limit Down Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price = {}
-
--- Size: Limit Down Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size = 8
-
--- Display: Limit Down Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.display = function(value)
-  return "Limit Down Price: "..value
-end
-
--- Dissect: Limit Down Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.limit_down_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.limit_down_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price = {}
-
--- Size: Next Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size = 8
-
--- Display: Next Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Next Ask Implied Price: No Value"
-  end
-
-  return "Next Ask Implied Price: "..value
-end
-
--- Dissect: Next Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_ask_implied_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_ask_implied_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price = {}
-
--- Size: Next Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size = 8
-
--- Display: Next Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Next Bid Implied Price: No Value"
-  end
-
-  return "Next Bid Implied Price: "..value
-end
-
--- Dissect: Next Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_bid_implied_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_bid_implied_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price = {}
-
--- Size: Best Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size = 8
-
--- Display: Best Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Best Ask Implied Price: No Value"
-  end
-
-  return "Best Ask Implied Price: "..value
-end
-
--- Dissect: Best Ask Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_ask_implied_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price = {}
-
--- Size: Best Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size = 8
-
--- Display: Best Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Best Bid Implied Price: No Value"
-  end
-
-  return "Best Bid Implied Price: "..value
-end
-
--- Dissect: Best Bid Implied Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_bid_implied_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_bid_implied_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time = {}
-
--- Size: Last Trade Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.size = 8
-
--- Display: Last Trade Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Last Trade Time: No Value"
-  end
-
-  return "Last Trade Time: "..value
-end
-
--- Dissect: Last Trade Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price = {}
-
--- Size: Last Trade Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.size = 8
-
--- Display: Last Trade Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Last Trade Price: No Value"
-  end
-
-  return "Last Trade Price: "..value
-end
-
--- Dissect: Last Trade Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price = {}
-
--- Size: Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size = 8
-
--- Display: Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Settlement Price: No Value"
-  end
-
-  return "Settlement Price: "..value
-end
-
--- Dissect: Settlement Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Vwap Price Optional
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional = {}
-
--- Size: Vwap Price Optional
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size = 8
-
--- Display: Vwap Price Optional
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Vwap Price Optional: No Value"
-  end
-
-  return "Vwap Price Optional: "..value
-end
-
--- Dissect: Vwap Price Optional
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.high_price = {}
-
--- Size: High Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.size = 8
-
--- Display: High Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "High Price: No Value"
-  end
-
-  return "High Price: "..value
-end
-
--- Dissect: High Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.low_price = {}
-
--- Size: Low Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.size = 8
-
--- Display: Low Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Low Price: No Value"
-  end
-
-  return "Low Price: "..value
-end
-
--- Dissect: Low Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Close Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.close_price = {}
-
--- Size: Close Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.size = 8
-
--- Display: Close Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Close Price: No Value"
-  end
-
-  return "Close Price: "..value
-end
-
--- Dissect: Close Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.close_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Day Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price = {}
-
--- Size: Day Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.size = 8
-
--- Display: Day Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Day Open Price: No Value"
-  end
-
-  return "Day Open Price: "..value
-end
-
--- Dissect: Day Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.day_open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.day_open_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Indicative Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price = {}
-
--- Size: Indicative Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.size = 8
-
--- Display: Indicative Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Indicative Open Price: No Value"
-  end
-
-  return "Indicative Open Price: "..value
-end
-
--- Dissect: Indicative Open Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.indicative_open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.indicative_open_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Volume
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume = {}
-
--- Size: Trade Volume
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size = 4
-
--- Display: Trade Volume
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.display = function(value)
-  return "Trade Volume: "..value
-end
-
--- Dissect: Trade Volume
-coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.trade_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trade_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Snapshot Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num = {}
-
--- Size: Snapshot Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size = 2
-
--- Display: Snapshot Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.display = function(value)
-  return "Snapshot Seq Num: "..value
-end
-
--- Dissect: Snapshot Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.snapshot_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- End Of Snapshot Message
@@ -1370,108 +2906,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.end_of_snapshot_message.dissect = fu
   end
 end
 
--- Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.price = {}
-
--- Size: Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.price.size = 8
-
--- Display: Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.price.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = coinbase_derivatives_marketdataapi_sbe_v1_2.price.translate(raw)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_id = {}
-
--- Size: Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size = 8
-
--- Display: Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time = {}
-
--- Size: Transact Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size = 8
-
--- Display: Transact Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity
-coinbase_derivatives_marketdataapi_sbe_v1_2.quantity = {}
-
--- Size: Quantity
-coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size = 4
-
--- Display: Quantity
-coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Snapshot Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message = {}
 
@@ -1526,548 +2960,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.dissect = fun
     -- Skip element, add fields directly
     return coinbase_derivatives_marketdataapi_sbe_v1_2.order_snapshot_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Spread Buy Convention
-coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention = {}
-
--- Size: Spread Buy Convention
-coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size = 1
-
--- Display: Spread Buy Convention
-coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.display = function(value)
-  if value == 1 then
-    return "Spread Buy Convention: Use Far Bid (1)"
-  end
-  if value == -1 then
-    return "Spread Buy Convention: Use Near Bid (-1)"
-  end
-
-  return "Spread Buy Convention: Unknown("..value..")"
-end
-
--- Dissect: Spread Buy Convention
-coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.spread_buy_convention.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.spread_buy_convention, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg 2 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id = {}
-
--- Size: Leg 2 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size = 4
-
--- Display: Leg 2 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.display = function(value)
-  return "Leg 2 Instrument Id: "..value
-end
-
--- Dissect: Leg 2 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_2_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg 1 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id = {}
-
--- Size: Leg 1 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size = 4
-
--- Display: Leg 1 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.display = function(value)
-  return "Leg 1 Instrument Id: "..value
-end
-
--- Dissect: Leg 1 Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.leg_1_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status = {}
-
--- Size: Trading Status
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size = 1
-
--- Display: Trading Status
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.display = function(value)
-  if value == 0 then
-    return "Trading Status: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Trading Status: Open (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halt (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Pause (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Close (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Pre Open No Cancel (5)"
-  end
-  if value == 6 then
-    return "Trading Status: Expired (6)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Group
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_group = {}
-
--- Size: Product Group
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size = 1
-
--- Display: Product Group
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.display = function(value)
-  if value == 0 then
-    return "Product Group: Currency (0)"
-  end
-  if value == 1 then
-    return "Product Group: Equity (1)"
-  end
-  if value == 2 then
-    return "Product Group: Energy (2)"
-  end
-  if value == 3 then
-    return "Product Group: Metals (3)"
-  end
-  if value == 4 then
-    return "Product Group: Interest Rate (4)"
-  end
-  if value == 5 then
-    return "Product Group: Agriculture (5)"
-  end
-
-  return "Product Group: Unknown("..value..")"
-end
-
--- Dissect: Product Group
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.product_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date = {}
-
--- Size: Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size = 2
-
--- Display: Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.display = function(value)
-  return "Trading Session Date: "..value
-end
-
--- Dissect: Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.trading_session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.trading_session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date = {}
-
--- Size: Last Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size = 2
-
--- Display: Last Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.display = function(value)
-  return "Last Trading Session Date: "..value
-end
-
--- Dissect: Last Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_trading_session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_trading_session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- First Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date = {}
-
--- Size: First Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size = 2
-
--- Display: First Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.display = function(value)
-  return "First Trading Session Date: "..value
-end
-
--- Dissect: First Trading Session Date
-coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.first_trading_session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.first_trading_session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_count = {}
-
--- Size: Order Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size = 4
-
--- Display: Order Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.display = function(value)
-  return "Order Count: "..value
-end
-
--- Dissect: Order Count
-coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.order_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.order_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Size
-coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size = {}
-
--- Size: Contract Size
-coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size = 4
-
--- Display: Contract Size
-coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.display = function(value)
-  return "Contract Size: "..value
-end
-
--- Dissect: Contract Size
-coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.contract_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.contract_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_id = {}
-
--- Size: Product Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size = 4
-
--- Display: Product Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-coinbase_derivatives_marketdataapi_sbe_v1_2.currency = {}
-
--- Size: Currency
-coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size = 8
-
--- Display: Currency
-coinbase_derivatives_marketdataapi_sbe_v1_2.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-coinbase_derivatives_marketdataapi_sbe_v1_2.currency.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Cfi Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code = {}
-
--- Size: Cfi Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size = 8
-
--- Display: Cfi Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cfi Code: No Value"
-  end
-
-  return "Cfi Code: "..value
-end
-
--- Dissect: Cfi Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.cfi_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.cfi_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Increment
-coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment = {}
-
--- Size: Price Increment
-coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size = 8
-
--- Display: Price Increment
-coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.display = function(value)
-  return "Price Increment: "..value
-end
-
--- Dissect: Price Increment
-coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.price_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.price_increment, range, value, display)
-
-  return offset + length, value
-end
-
--- Description
-coinbase_derivatives_marketdataapi_sbe_v1_2.description = {}
-
--- Size: Description
-coinbase_derivatives_marketdataapi_sbe_v1_2.description.size = 32
-
--- Display: Description
-coinbase_derivatives_marketdataapi_sbe_v1_2.description.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Description: No Value"
-  end
-
-  return "Description: "..value
-end
-
--- Dissect: Description
-coinbase_derivatives_marketdataapi_sbe_v1_2.description.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.description.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.description.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.description, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_code = {}
-
--- Size: Product Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size = 8
-
--- Display: Product Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Product Code: No Value"
-  end
-
-  return "Product Code: "..value
-end
-
--- Dissect: Product Code
-coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.product_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.product_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-coinbase_derivatives_marketdataapi_sbe_v1_2.symbol = {}
-
--- Size: Symbol
-coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size = 24
-
--- Display: Symbol
-coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num = {}
-
--- Size: Last Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size = 4
-
--- Display: Last Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.display = function(value)
-  return "Last Instr Seq Num: "..value
-end
-
--- Dissect: Last Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.last_instr_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.last_instr_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Start Of Spread Instrument Snapshot Message
@@ -2282,121 +3174,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.start_of_outright_instrument_snapsho
   end
 end
 
--- Reserved
-coinbase_derivatives_marketdataapi_sbe_v1_2.reserved = {}
-
--- Size: Reserved
-coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.size = 2
-
--- Display: Reserved
-coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num = {}
-
--- Size: Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.size = 4
-
--- Display: Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.display = function(value)
-  return "Instr Seq Num: "..value
-end
-
--- Dissect: Instr Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instr_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instr_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id = {}
-
--- Size: Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.size = 4
-
--- Display: Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.display = function(value)
-  return "Instrument Id: "..value
-end
-
--- Dissect: Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Side
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side = {}
-
--- Size: Instrument Side
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.size = 1
-
--- Display: Instrument Side
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.display = function(value)
-  return "Instrument Side: "..value
-end
-
--- Dissect: Instrument Side
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags = {}
-
--- Size: Instrument Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.size = 1
-
--- Display: Instrument Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.display = function(value)
-  return "Instrument Flags: "..value
-end
-
--- Dissect: Instrument Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.instrument_flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.instrument_flags, range, value, display)
-
-  return offset + length, value
-end
-
 -- Instr Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.instr_header = {}
 
@@ -2505,29 +3282,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.open_interest_message.dissect = func
   end
 end
 
--- Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price = {}
-
--- Size: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size = 8
-
--- Display: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.display = function(value)
-  return "Vwap Price: "..value
-end
-
--- Dissect: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.vwap_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.vwap_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Session Volume Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message = {}
 
@@ -2576,64 +3330,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.trade_session_volume_message.dissect
   end
 end
 
--- Stat Type
-coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type = {}
-
--- Size: Stat Type
-coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.size = 1
-
--- Display: Stat Type
-coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Stat Type: No Value"
-  end
-
-  if value == "4" then
-    return "Stat Type: Day Opening Price (4)"
-  end
-  if value == "5" then
-    return "Stat Type: Closing Price (5)"
-  end
-  if value == "6" then
-    return "Stat Type: Settlement Price (6)"
-  end
-  if value == "7" then
-    return "Stat Type: Trading Session High Price (7)"
-  end
-  if value == "8" then
-    return "Stat Type: Trading Session Low Price (8)"
-  end
-  if value == "F" then
-    return "Stat Type: Reference Price (F)"
-  end
-  if value == "I" then
-    return "Stat Type: Indicative Opening Price (I)"
-  end
-
-  return "Stat Type: Unknown("..value..")"
-end
-
--- Dissect: Stat Type
-coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.stat_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.stat_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Stat Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message = {}
 
@@ -2680,85 +3376,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.dissect = functi
     -- Skip element, add fields directly
     return coinbase_derivatives_marketdataapi_sbe_v1_2.market_stat_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sell Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id = {}
-
--- Size: Sell Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size = 8
-
--- Display: Sell Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Sell Order Id: No Value"
-  end
-
-  return "Sell Order Id: "..value
-end
-
--- Dissect: Sell Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.sell_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.sell_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id = {}
-
--- Size: Buy Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size = 8
-
--- Display: Buy Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Buy Order Id: No Value"
-  end
-
-  return "Buy Order Id: "..value
-end
-
--- Dissect: Buy Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.buy_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.buy_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.match_id = {}
-
--- Size: Match Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size = 8
-
--- Display: Match Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.display = function(value)
-  return "Match Id: "..value
-end
-
--- Dissect: Match Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.match_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Bust Message
@@ -2811,144 +3428,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.dissect = functio
     -- Skip element, add fields directly
     return coinbase_derivatives_marketdataapi_sbe_v1_2.trade_bust_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- New Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price = {}
-
--- Size: New Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.size = 8
-
--- Display: New Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.display = function(value)
-  return "New Leg 2 Price: "..value
-end
-
--- Dissect: New Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_2_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.new_leg_2_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Old Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price = {}
-
--- Size: Old Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.size = 8
-
--- Display: Old Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.display = function(value)
-  return "Old Leg 2 Price: "..value
-end
-
--- Dissect: Old Leg 2 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_2_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.old_leg_2_price, range, value, display)
-
-  return offset + length, value
-end
-
--- New Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price = {}
-
--- Size: New Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.size = 8
-
--- Display: New Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.display = function(value)
-  return "New Leg 1 Price: "..value
-end
-
--- Dissect: New Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.new_leg_1_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.new_leg_1_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Old Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price = {}
-
--- Size: Old Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.size = 8
-
--- Display: Old Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.display = function(value)
-  return "Old Leg 1 Price: "..value
-end
-
--- Dissect: Old Leg 1 Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.old_leg_1_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.old_leg_1_price, range, value, display)
-
-  return offset + length, value
-end
-
--- New Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_price = {}
-
--- Size: New Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size = 8
-
--- Display: New Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.display = function(value)
-  return "New Price: "..value
-end
-
--- Dissect: New Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.new_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.new_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Old Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_price = {}
-
--- Size: Old Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size = 8
-
--- Display: Old Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.display = function(value)
-  return "Old Price: "..value
-end
-
--- Dissect: Old Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.old_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.old_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Spread Trade Amend Message
@@ -3147,75 +3626,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.trade_message.dissect = function(buf
   end
 end
 
--- Deepest Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price = {}
-
--- Size: Deepest Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.size = 8
-
--- Display: Deepest Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.display = function(value)
-  return "Deepest Price: "..value
-end
-
--- Dissect: Deepest Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.deepest_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.deepest_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Receive Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time = {}
-
--- Size: Aggressor Receive Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.size = 8
-
--- Display: Aggressor Receive Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.display = function(value)
-  return "Aggressor Receive Time: "..value
-end
-
--- Dissect: Aggressor Receive Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_receive_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id = {}
-
--- Size: Aggressor Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.size = 8
-
--- Display: Aggressor Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.display = function(value)
-  return "Aggressor Order Id: "..value
-end
-
--- Dissect: Aggressor Order Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.aggressor_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.aggressor_order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Summary Message
 coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message = {}
 
@@ -3274,108 +3684,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.dissect = func
     -- Skip element, add fields directly
     return coinbase_derivatives_marketdataapi_sbe_v1_2.trade_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Next Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty = {}
-
--- Size: Next Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.size = 4
-
--- Display: Next Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.display = function(value)
-  return "Next Qty: "..value
-end
-
--- Dissect: Next Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty = {}
-
--- Size: Best Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.size = 4
-
--- Display: Best Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.display = function(value)
-  return "Best Qty: "..value
-end
-
--- Dissect: Best Qty
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_price = {}
-
--- Size: Next Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.size = 8
-
--- Display: Next Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Next Price: No Value"
-  end
-
-  return "Next Price: "..value
-end
-
--- Dissect: Next Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.next_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.next_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_price = {}
-
--- Size: Best Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.size = 8
-
--- Display: Best Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Best Price: No Value"
-  end
-
-  return "Best Price: "..value
-end
-
--- Dissect: Best Price
-coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.best_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.best_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Implied Order Update Message
@@ -3899,190 +4207,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.payload.dissect = function(buffer, o
   return offset
 end
 
--- Version
-coinbase_derivatives_marketdataapi_sbe_v1_2.version = {}
-
--- Size: Version
-coinbase_derivatives_marketdataapi_sbe_v1_2.version.size = 2
-
--- Display: Version
-coinbase_derivatives_marketdataapi_sbe_v1_2.version.display = function(value)
-  if value == 2 then
-    return "Version: Version 1.2"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-coinbase_derivatives_marketdataapi_sbe_v1_2.version.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id = {}
-
--- Size: Schema Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.size = 2
-
--- Display: Schema Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.display = function(value)
-  if value == 1201 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.template_id = {}
-
--- Size: Template Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.size = 2
-
--- Display: Template Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.display = function(value)
-  if value == 10 then
-    return "Template Id: Outright Instrument Definition Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Spread Instrument Definition Message (11)"
-  end
-  if value == 17 then
-    return "Template Id: Trading Status Update Message (17)"
-  end
-  if value == 20 then
-    return "Template Id: Order Put Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Order Delete Message (21)"
-  end
-  if value == 22 then
-    return "Template Id: Implied Order Update Message (22)"
-  end
-  if value == 33 then
-    return "Template Id: Trade Summary Message (33)"
-  end
-  if value == 30 then
-    return "Template Id: Trade Message (30)"
-  end
-  if value == 31 then
-    return "Template Id: Trade Amend Message (31)"
-  end
-  if value == 34 then
-    return "Template Id: Spread Trade Amend Message (34)"
-  end
-  if value == 32 then
-    return "Template Id: Trade Bust Message (32)"
-  end
-  if value == 40 then
-    return "Template Id: Market Stat Message (40)"
-  end
-  if value == 41 then
-    return "Template Id: Trade Session Volume Message (41)"
-  end
-  if value == 42 then
-    return "Template Id: Open Interest Message (42)"
-  end
-  if value == 110 then
-    return "Template Id: Start Of Outright Instrument Snapshot Message (110)"
-  end
-  if value == 111 then
-    return "Template Id: Start Of Spread Instrument Snapshot Message (111)"
-  end
-  if value == 120 then
-    return "Template Id: Order Snapshot Message (120)"
-  end
-  if value == 122 then
-    return "Template Id: End Of Snapshot Message (122)"
-  end
-  if value == 200 then
-    return "Template Id: Retransmit Request Message (200)"
-  end
-  if value == 202 then
-    return "Template Id: Retransmit Reject Message (202)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.block_length = {}
-
--- Size: Block Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.size = 2
-
--- Display: Block Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Frame Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length = {}
-
--- Size: Frame Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.size = 2
-
--- Display: Frame Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.display = function(value)
-  return "Frame Length: "..value
-end
-
--- Dissect: Frame Length
-coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.frame_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.frame_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 coinbase_derivatives_marketdataapi_sbe_v1_2.message_header = {}
 
@@ -4191,125 +4315,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2.sbe_message.dissect = function(buffe
 
     return index
   end
-end
-
--- Snapshot Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id = {}
-
--- Size: Snapshot Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.size = 4
-
--- Display: Snapshot Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.display = function(value)
-  return "Snapshot Instrument Id: "..value
-end
-
--- Dissect: Snapshot Instrument Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.snapshot_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.snapshot_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags = {}
-
--- Size: Packet Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.size = 1
-
--- Display: Packet Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.display = function(value)
-  return "Packet Flags: "..value
-end
-
--- Dissect: Packet Flags
-coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.packet_flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.packet_flags, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id = {}
-
--- Size: Channel Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.size = 2
-
--- Display: Channel Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num = {}
-
--- Size: Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.size = 8
-
--- Display: Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Sending Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time = {}
-
--- Size: Sending Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size = 8
-
--- Display: Sending Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_2.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_marketdataapi_sbe_v1_2.fields.sending_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

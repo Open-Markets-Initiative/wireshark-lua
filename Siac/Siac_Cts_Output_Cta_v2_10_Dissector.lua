@@ -617,8 +617,177 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Siac Cts Output Cta 2.10
+-- Siac Cts Output Cta 2.10 Fields
 -----------------------------------------------------------------------
+
+-- Administrative Message Type
+siac_cts_output_cta_v2_10.administrative_message_type = {}
+
+-- Size: Administrative Message Type
+siac_cts_output_cta_v2_10.administrative_message_type.size = 1
+
+-- Display: Administrative Message Type
+siac_cts_output_cta_v2_10.administrative_message_type.display = function(value)
+  if value == "A" then
+    return "Administrative Message Type: Start Of End Of Day Message (A)"
+  end
+  if value == "B" then
+    return "Administrative Message Type: End Of End Of Day Message (B)"
+  end
+  if value == "C" then
+    return "Administrative Message Type: Start Of Start Of Day Message (C)"
+  end
+  if value == "D" then
+    return "Administrative Message Type: End Of Start Of Day Message (D)"
+  end
+
+  return "Administrative Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Administrative Message Type
+siac_cts_output_cta_v2_10.administrative_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.administrative_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.administrative_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.administrative_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Lower Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price = {}
+
+-- Size: Auction Collar Lower Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.size = 8
+
+-- Display: Auction Collar Lower Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.display = function(value)
+  return "Auction Collar Lower Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Lower Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Lower Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Reference Price
+siac_cts_output_cta_v2_10.auction_collar_reference_price = {}
+
+-- Size: Auction Collar Reference Price
+siac_cts_output_cta_v2_10.auction_collar_reference_price.size = 8
+
+-- Display: Auction Collar Reference Price
+siac_cts_output_cta_v2_10.auction_collar_reference_price.display = function(value)
+  return "Auction Collar Reference Price: "..value
+end
+
+-- Translate: Auction Collar Reference Price
+siac_cts_output_cta_v2_10.auction_collar_reference_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Reference Price
+siac_cts_output_cta_v2_10.auction_collar_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.auction_collar_reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.auction_collar_reference_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Upper Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price = {}
+
+-- Size: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.size = 8
+
+-- Display: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.display = function(value)
+  return "Auction Collar Upper Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Upper Threshold Price
+siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Index Value
+siac_cts_output_cta_v2_10.bid_index_value = {}
+
+-- Size: Bid Index Value
+siac_cts_output_cta_v2_10.bid_index_value.size = 8
+
+-- Display: Bid Index Value
+siac_cts_output_cta_v2_10.bid_index_value.display = function(value)
+  return "Bid Index Value: "..value
+end
+
+-- Dissect: Bid Index Value
+siac_cts_output_cta_v2_10.bid_index_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.bid_index_value.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.bid_index_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.bid_index_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Checksum
+siac_cts_output_cta_v2_10.block_checksum = {}
+
+-- Size: Block Checksum
+siac_cts_output_cta_v2_10.block_checksum.size = 2
+
+-- Display: Block Checksum
+siac_cts_output_cta_v2_10.block_checksum.display = function(value)
+  return "Block Checksum: "..value
+end
+
+-- Dissect: Block Checksum
+siac_cts_output_cta_v2_10.block_checksum.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.block_checksum.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.block_checksum.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_checksum, range, value, display)
+
+  return offset + length, value
+end
 
 -- Block Pad Byte
 siac_cts_output_cta_v2_10.block_pad_byte = {}
@@ -643,41 +812,399 @@ siac_cts_output_cta_v2_10.block_pad_byte.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Tick
-siac_cts_output_cta_v2_10.tick = {}
+-- Block Sequence Number
+siac_cts_output_cta_v2_10.block_sequence_number = {}
 
--- Size: Tick
-siac_cts_output_cta_v2_10.tick.size = 1
+-- Size: Block Sequence Number
+siac_cts_output_cta_v2_10.block_sequence_number.size = 4
 
--- Display: Tick
-siac_cts_output_cta_v2_10.tick.display = function(value)
-  if value == " " then
-    return "Tick: Not Applicable (<whitespace>)"
-  end
-  if value == "1" then
-    return "Tick: Upward (1)"
-  end
-  if value == "2" then
-    return "Tick: Downward (2)"
-  end
-  if value == "3" then
-    return "Tick: Unchanged Upward (3)"
-  end
-  if value == "4" then
-    return "Tick: Unchanged Downward (4)"
-  end
-
-  return "Tick: Unknown("..value..")"
+-- Display: Block Sequence Number
+siac_cts_output_cta_v2_10.block_sequence_number.display = function(value)
+  return "Block Sequence Number: "..value
 end
 
--- Dissect: Tick
-siac_cts_output_cta_v2_10.tick.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.tick.size
+-- Dissect: Block Sequence Number
+siac_cts_output_cta_v2_10.block_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.block_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.block_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Size
+siac_cts_output_cta_v2_10.block_size = {}
+
+-- Size: Block Size
+siac_cts_output_cta_v2_10.block_size.size = 2
+
+-- Display: Block Size
+siac_cts_output_cta_v2_10.block_size.display = function(value)
+  return "Block Size: "..value
+end
+
+-- Dissect: Block Size
+siac_cts_output_cta_v2_10.block_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.block_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.block_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Volume
+siac_cts_output_cta_v2_10.buy_volume = {}
+
+-- Size: Buy Volume
+siac_cts_output_cta_v2_10.buy_volume.size = 4
+
+-- Display: Buy Volume
+siac_cts_output_cta_v2_10.buy_volume.display = function(value)
+  return "Buy Volume: "..value
+end
+
+-- Dissect: Buy Volume
+siac_cts_output_cta_v2_10.buy_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.buy_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.buy_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.buy_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Error Action
+siac_cts_output_cta_v2_10.cancel_error_action = {}
+
+-- Size: Cancel Error Action
+siac_cts_output_cta_v2_10.cancel_error_action.size = 1
+
+-- Display: Cancel Error Action
+siac_cts_output_cta_v2_10.cancel_error_action.display = function(value)
+  if value == "1" then
+    return "Cancel Error Action: Cancel (1)"
+  end
+  if value == "2" then
+    return "Cancel Error Action: Error (2)"
+  end
+
+  return "Cancel Error Action: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Error Action
+siac_cts_output_cta_v2_10.cancel_error_action.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.cancel_error_action.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cts_output_cta_v2_10.tick.display(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v2_10.cancel_error_action.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.tick, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.cancel_error_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated High Low Last Indicator
+siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator = {}
+
+-- Size: Consolidated High Low Last Indicator
+siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.size = 1
+
+-- Display: Consolidated High Low Last Indicator
+siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.display = function(value)
+  if value == "A" then
+    return "Consolidated High Low Last Indicator: None (A)"
+  end
+  if value == "B" then
+    return "Consolidated High Low Last Indicator: High (B)"
+  end
+  if value == "C" then
+    return "Consolidated High Low Last Indicator: Low (C)"
+  end
+  if value == "D" then
+    return "Consolidated High Low Last Indicator: Last (D)"
+  end
+  if value == "E" then
+    return "Consolidated High Low Last Indicator: High Last (E)"
+  end
+  if value == "F" then
+    return "Consolidated High Low Last Indicator: Low Last (F)"
+  end
+  if value == "G" then
+    return "Consolidated High Low Last Indicator: High Low Last (G)"
+  end
+  if value == "H" then
+    return "Consolidated High Low Last Indicator: High Low (H)"
+  end
+
+  return "Consolidated High Low Last Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Consolidated High Low Last Indicator
+siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Control Message Type
+siac_cts_output_cta_v2_10.control_message_type = {}
+
+-- Size: Control Message Type
+siac_cts_output_cta_v2_10.control_message_type.size = 1
+
+-- Display: Control Message Type
+siac_cts_output_cta_v2_10.control_message_type.display = function(value)
+  if value == "A" then
+    return "Control Message Type: Start Of Day Message (A)"
+  end
+  if value == "L" then
+    return "Control Message Type: Reset Block Sequence Number Message (L)"
+  end
+  if value == "P" then
+    return "Control Message Type: Disaster Recovery Data Center Activation Message (P)"
+  end
+  if value == "T" then
+    return "Control Message Type: Line Integrity Message (T)"
+  end
+  if value == "Z" then
+    return "Control Message Type: End Of Day Message (Z)"
+  end
+
+  return "Control Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Control Message Type
+siac_cts_output_cta_v2_10.control_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.control_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.control_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.control_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossing Session 1 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume = {}
+
+-- Size: Crossing Session 1 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.size = 8
+
+-- Display: Crossing Session 1 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.display = function(value)
+  return "Crossing Session 1 Total Trades Volume: "..value
+end
+
+-- Dissect: Crossing Session 1 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossing Session 2 Dollar Value
+siac_cts_output_cta_v2_10.crossing_session_2_dollar_value = {}
+
+-- Size: Crossing Session 2 Dollar Value
+siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.size = 8
+
+-- Display: Crossing Session 2 Dollar Value
+siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.display = function(value)
+  return "Crossing Session 2 Dollar Value: "..value
+end
+
+-- Dissect: Crossing Session 2 Dollar Value
+siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossing Session 2 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume = {}
+
+-- Size: Crossing Session 2 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.size = 8
+
+-- Display: Crossing Session 2 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.display = function(value)
+  return "Crossing Session 2 Total Trades Volume: "..value
+end
+
+-- Dissect: Crossing Session 2 Total Trades Volume
+siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_total_trades_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Data Feed Indicator
+siac_cts_output_cta_v2_10.data_feed_indicator = {}
+
+-- Size: Data Feed Indicator
+siac_cts_output_cta_v2_10.data_feed_indicator.size = 1
+
+-- Display: Data Feed Indicator
+siac_cts_output_cta_v2_10.data_feed_indicator.display = function(value)
+  return "Data Feed Indicator: "..value
+end
+
+-- Dissect: Data Feed Indicator
+siac_cts_output_cta_v2_10.data_feed_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.data_feed_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.data_feed_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.data_feed_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Dollar Value
+siac_cts_output_cta_v2_10.dollar_value = {}
+
+-- Size: Dollar Value
+siac_cts_output_cta_v2_10.dollar_value.size = 8
+
+-- Display: Dollar Value
+siac_cts_output_cta_v2_10.dollar_value.display = function(value)
+  return "Dollar Value: "..value
+end
+
+-- Dissect: Dollar Value
+siac_cts_output_cta_v2_10.dollar_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.dollar_value.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.dollar_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.dollar_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_10.extended_hours_or_sequence_type = {}
+
+-- Size: Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.size = 1
+
+-- Display: Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.display = function(value)
+  if value == " " then
+    return "Extended Hours Or Sequence Type: Not Extended Hours Or Sold Out Of Sequence (<whitespace>)"
+  end
+  if value == "L" then
+    return "Extended Hours Or Sequence Type: Sold Last (L)"
+  end
+  if value == "T" then
+    return "Extended Hours Or Sequence Type: Extended Hours Trade (T)"
+  end
+  if value == "U" then
+    return "Extended Hours Or Sequence Type: Extended Hours Sold (U)"
+  end
+  if value == "Z" then
+    return "Extended Hours Or Sequence Type: Sold Out Of Sequence (Z)"
+  end
+
+  return "Extended Hours Or Sequence Type: Unknown("..value..")"
+end
+
+-- Dissect: Extended Hours Or Sequence Type
+siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+siac_cts_output_cta_v2_10.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+siac_cts_output_cta_v2_10.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+siac_cts_output_cta_v2_10.financial_status_indicator.display = function(value)
+  if value == "0" then
+    return "Financial Status Indicator: Not Applicable (0)"
+  end
+  if value == "1" then
+    return "Financial Status Indicator: Bankrupt (1)"
+  end
+  if value == "2" then
+    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
+  end
+  if value == "3" then
+    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
+  end
+  if value == "4" then
+    return "Financial Status Indicator: Late Filing (4)"
+  end
+  if value == "5" then
+    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
+  end
+  if value == "6" then
+    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
+  end
+  if value == "7" then
+    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
+  end
+  if value == "8" then
+    return "Financial Status Indicator: Creations Suspended (8)"
+  end
+  if value == "9" then
+    return "Financial Status Indicator: Redemptions Suspended (9)"
+  end
+  if value == "A" then
+    return "Financial Status Indicator: Liquidation (A)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Financial Status Indicator
+siac_cts_output_cta_v2_10.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.financial_status_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.financial_status_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -705,60 +1232,234 @@ siac_cts_output_cta_v2_10.fractional_total_volume.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Open Price
-siac_cts_output_cta_v2_10.open_price = {}
+-- Fractional Trade Total Volume
+siac_cts_output_cta_v2_10.fractional_trade_total_volume = {}
 
--- Size: Open Price
-siac_cts_output_cta_v2_10.open_price.size = 8
+-- Size: Fractional Trade Total Volume
+siac_cts_output_cta_v2_10.fractional_trade_total_volume.size = 8
 
--- Display: Open Price
-siac_cts_output_cta_v2_10.open_price.display = function(value)
-  return "Open Price: "..value
+-- Display: Fractional Trade Total Volume
+siac_cts_output_cta_v2_10.fractional_trade_total_volume.display = function(value)
+  return "Fractional Trade Total Volume: "..value
 end
 
--- Translate: Open Price
-siac_cts_output_cta_v2_10.open_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Open Price
-siac_cts_output_cta_v2_10.open_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.open_price.size
+-- Dissect: Fractional Trade Total Volume
+siac_cts_output_cta_v2_10.fractional_trade_total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.fractional_trade_total_volume.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.open_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.open_price.display(value, buffer, offset, packet, parent)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.fractional_trade_total_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.open_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Low Price
-siac_cts_output_cta_v2_10.low_price = {}
+-- Fractional Trade Volume
+siac_cts_output_cta_v2_10.fractional_trade_volume = {}
 
--- Size: Low Price
-siac_cts_output_cta_v2_10.low_price.size = 8
+-- Size: Fractional Trade Volume
+siac_cts_output_cta_v2_10.fractional_trade_volume.size = 8
 
--- Display: Low Price
-siac_cts_output_cta_v2_10.low_price.display = function(value)
-  return "Low Price: "..value
+-- Display: Fractional Trade Volume
+siac_cts_output_cta_v2_10.fractional_trade_volume.display = function(value)
+  return "Fractional Trade Volume: "..value
 end
 
--- Translate: Low Price
-siac_cts_output_cta_v2_10.low_price.translate = function(raw)
+-- Dissect: Fractional Trade Volume
+siac_cts_output_cta_v2_10.fractional_trade_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.fractional_trade_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.fractional_trade_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fractional Trade Volume Short
+siac_cts_output_cta_v2_10.fractional_trade_volume_short = {}
+
+-- Size: Fractional Trade Volume Short
+siac_cts_output_cta_v2_10.fractional_trade_volume_short.size = 4
+
+-- Display: Fractional Trade Volume Short
+siac_cts_output_cta_v2_10.fractional_trade_volume_short.display = function(value)
+  return "Fractional Trade Volume Short: "..value
+end
+
+-- Dissect: Fractional Trade Volume Short
+siac_cts_output_cta_v2_10.fractional_trade_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.fractional_trade_volume_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.fractional_trade_volume_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Future Use
+siac_cts_output_cta_v2_10.future_use = {}
+
+-- Size: Future Use
+siac_cts_output_cta_v2_10.future_use.size = 62
+
+-- Display: Future Use
+siac_cts_output_cta_v2_10.future_use.display = function(value)
+  return "Future Use: "..value
+end
+
+-- Dissect: Future Use
+siac_cts_output_cta_v2_10.future_use.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.future_use.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.future_use.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.future_use, range, value, display)
+
+  return offset + length, value
+end
+
+-- Halt Reason
+siac_cts_output_cta_v2_10.halt_reason = {}
+
+-- Size: Halt Reason
+siac_cts_output_cta_v2_10.halt_reason.size = 1
+
+-- Display: Halt Reason
+siac_cts_output_cta_v2_10.halt_reason.display = function(value)
+  if value == " " then
+    return "Halt Reason: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Halt Reason: Additional Information Requested (A)"
+  end
+  if value == "C" then
+    return "Halt Reason: Regulatory Concern (C)"
+  end
+  if value == "D" then
+    return "Halt Reason: News Released (D)"
+  end
+  if value == "E" then
+    return "Halt Reason: Merger Effective (E)"
+  end
+  if value == "F" then
+    return "Halt Reason: Etf Component Prices Not Available (F)"
+  end
+  if value == "I" then
+    return "Halt Reason: Order Imbalance (I)"
+  end
+  if value == "M" then
+    return "Halt Reason: Limit Up Limit Down Trading Pause (M)"
+  end
+  if value == "N" then
+    return "Halt Reason: Corporate Action (N)"
+  end
+  if value == "O" then
+    return "Halt Reason: New Security Offering (O)"
+  end
+  if value == "P" then
+    return "Halt Reason: News Pending (P)"
+  end
+  if value == "V" then
+    return "Halt Reason: Intraday Indicative Value Not Available (V)"
+  end
+  if value == "X" then
+    return "Halt Reason: Operational (X)"
+  end
+  if value == "Y" then
+    return "Halt Reason: Subpenny Trading (Y)"
+  end
+  if value == "1" then
+    return "Halt Reason: Market Wide Circuit Breaker Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Halt Reason: Market Wide Circuit Breaker Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Halt Reason: Market Wide Circuit Breaker Level 3 Breached (3)"
+  end
+
+  return "Halt Reason: Unknown("..value..")"
+end
+
+-- Dissect: Halt Reason
+siac_cts_output_cta_v2_10.halt_reason.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.halt_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.halt_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.halt_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Held Trade Indicator
+siac_cts_output_cta_v2_10.held_trade_indicator = {}
+
+-- Size: Held Trade Indicator
+siac_cts_output_cta_v2_10.held_trade_indicator.size = 1
+
+-- Display: Held Trade Indicator
+siac_cts_output_cta_v2_10.held_trade_indicator.display = function(value)
+  if value == " " then
+    return "Held Trade Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Held Trade Indicator: Cannot Be Used As A Last Sale For Both Participant And Consolidated Basis (A)"
+  end
+  if value == "B" then
+    return "Held Trade Indicator: Can Be Used As A Last Sale For Participant But Not Consolidated Basis (B)"
+  end
+  if value == "C" then
+    return "Held Trade Indicator: Can Be Used As A Last Sale For Participant And Consolidated Basis (C)"
+  end
+
+  return "Held Trade Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Held Trade Indicator
+siac_cts_output_cta_v2_10.held_trade_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.held_trade_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.held_trade_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.held_trade_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Indication Price Upper Limit Price Band
+siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band = {}
+
+-- Size: High Indication Price Upper Limit Price Band
+siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.size = 8
+
+-- Display: High Indication Price Upper Limit Price Band
+siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.display = function(value)
+  return "High Indication Price Upper Limit Price Band: "..value
+end
+
+-- Translate: High Indication Price Upper Limit Price Band
+siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Low Price
-siac_cts_output_cta_v2_10.low_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.low_price.size
+-- Dissect: High Indication Price Upper Limit Price Band
+siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.low_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.low_price.display(value, buffer, offset, packet, parent)
+  local value = siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.translate(raw)
+  local display = siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.low_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_band, range, value, display)
 
   return offset + length, value
 end
@@ -792,120 +1493,200 @@ siac_cts_output_cta_v2_10.high_price.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Last Price
-siac_cts_output_cta_v2_10.last_price = {}
+-- Index Message Type
+siac_cts_output_cta_v2_10.index_message_type = {}
 
--- Size: Last Price
-siac_cts_output_cta_v2_10.last_price.size = 8
+-- Size: Index Message Type
+siac_cts_output_cta_v2_10.index_message_type.size = 1
 
--- Display: Last Price
-siac_cts_output_cta_v2_10.last_price.display = function(value)
-  return "Last Price: "..value
-end
-
--- Translate: Last Price
-siac_cts_output_cta_v2_10.last_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Last Price
-siac_cts_output_cta_v2_10.last_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.last_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.last_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.last_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Close Price Date
-siac_cts_output_cta_v2_10.previous_close_price_date = {}
-
--- Size: Previous Close Price Date
-siac_cts_output_cta_v2_10.previous_close_price_date.size = 4
-
--- Display: Previous Close Price Date
-siac_cts_output_cta_v2_10.previous_close_price_date.display = function(value)
-  return "Previous Close Price Date: "..value
-end
-
--- Dissect: Previous Close Price Date
-siac_cts_output_cta_v2_10.previous_close_price_date.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.previous_close_price_date.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.previous_close_price_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.previous_close_price_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Fractional Participant Data
-siac_cts_output_cta_v2_10.fractional_participant_data = {}
-
--- Size: Fractional Participant Data
-siac_cts_output_cta_v2_10.fractional_participant_data.size =
-  siac_cts_output_cta_v2_10.previous_close_price_date.size + 
-  siac_cts_output_cta_v2_10.last_price.size + 
-  siac_cts_output_cta_v2_10.high_price.size + 
-  siac_cts_output_cta_v2_10.low_price.size + 
-  siac_cts_output_cta_v2_10.open_price.size + 
-  siac_cts_output_cta_v2_10.fractional_total_volume.size + 
-  siac_cts_output_cta_v2_10.tick.size
-
--- Display: Fractional Participant Data
-siac_cts_output_cta_v2_10.fractional_participant_data.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Fractional Participant Data
-siac_cts_output_cta_v2_10.fractional_participant_data.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Previous Close Price Date: Integer
-  index, previous_close_price_date = siac_cts_output_cta_v2_10.previous_close_price_date.dissect(buffer, index, packet, parent)
-
-  -- Last Price: Long
-  index, last_price = siac_cts_output_cta_v2_10.last_price.dissect(buffer, index, packet, parent)
-
-  -- High Price: Long
-  index, high_price = siac_cts_output_cta_v2_10.high_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price: Long
-  index, low_price = siac_cts_output_cta_v2_10.low_price.dissect(buffer, index, packet, parent)
-
-  -- Open Price: Long
-  index, open_price = siac_cts_output_cta_v2_10.open_price.dissect(buffer, index, packet, parent)
-
-  -- Fractional Total Volume: Long
-  index, fractional_total_volume = siac_cts_output_cta_v2_10.fractional_total_volume.dissect(buffer, index, packet, parent)
-
-  -- Tick: Char
-  index, tick = siac_cts_output_cta_v2_10.tick.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Fractional Participant Data
-siac_cts_output_cta_v2_10.fractional_participant_data.dissect = function(buffer, offset, packet, parent)
-  if show.fractional_participant_data then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_participant_data, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_10.fractional_participant_data.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_10.fractional_participant_data.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_10.fractional_participant_data.fields(buffer, offset, packet, parent)
+-- Display: Index Message Type
+siac_cts_output_cta_v2_10.index_message_type.display = function(value)
+  if value == "I" then
+    return "Index Message Type: Index Message (I)"
   end
+  if value == "Q" then
+    return "Index Message Type: Bid And Offer Index Message (Q)"
+  end
+
+  return "Index Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Index Message Type
+siac_cts_output_cta_v2_10.index_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.index_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.index_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Index Symbol
+siac_cts_output_cta_v2_10.index_symbol = {}
+
+-- Size: Index Symbol
+siac_cts_output_cta_v2_10.index_symbol.size = 11
+
+-- Display: Index Symbol
+siac_cts_output_cta_v2_10.index_symbol.display = function(value)
+  return "Index Symbol: "..value
+end
+
+-- Dissect: Index Symbol
+siac_cts_output_cta_v2_10.index_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.index_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.index_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Index Value
+siac_cts_output_cta_v2_10.index_value = {}
+
+-- Size: Index Value
+siac_cts_output_cta_v2_10.index_value.size = 8
+
+-- Display: Index Value
+siac_cts_output_cta_v2_10.index_value.display = function(value)
+  return "Index Value: "..value
+end
+
+-- Dissect: Index Value
+siac_cts_output_cta_v2_10.index_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.index_value.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.index_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initiating Participant Id
+siac_cts_output_cta_v2_10.initiating_participant_id = {}
+
+-- Size: Initiating Participant Id
+siac_cts_output_cta_v2_10.initiating_participant_id.size = 1
+
+-- Display: Initiating Participant Id
+siac_cts_output_cta_v2_10.initiating_participant_id.display = function(value)
+  if value == "A" then
+    return "Initiating Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Initiating Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Initiating Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Initiating Participant Id: Adf (D)"
+  end
+  if value == "H" then
+    return "Initiating Participant Id: Miax (H)"
+  end
+  if value == "I" then
+    return "Initiating Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Initiating Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Initiating Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Initiating Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Initiating Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Initiating Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Initiating Participant Id: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "Initiating Participant Id: Cts (S)"
+  end
+  if value == "T" then
+    return "Initiating Participant Id: Nasdaq (T)"
+  end
+  if value == "U" then
+    return "Initiating Participant Id: Members Exchange (U)"
+  end
+  if value == "V" then
+    return "Initiating Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Initiating Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Initiating Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Initiating Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Initiating Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Initiating Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Initiating Participant Id
+siac_cts_output_cta_v2_10.initiating_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.initiating_participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.initiating_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.initiating_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+siac_cts_output_cta_v2_10.instrument_type = {}
+
+-- Size: Instrument Type
+siac_cts_output_cta_v2_10.instrument_type.size = 1
+
+-- Display: Instrument Type
+siac_cts_output_cta_v2_10.instrument_type.display = function(value)
+  if value == "0" then
+    return "Instrument Type: Cta Eligible Equity (0)"
+  end
+  if value == "1" then
+    return "Instrument Type: Local Issue (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Corporate Bond (2)"
+  end
+  if value == "3" then
+    return "Instrument Type: Government Bond (3)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+siac_cts_output_cta_v2_10.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.instrument_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.instrument_type, range, value, display)
+
+  return offset + length, value
 end
 
 -- Last Participant Id
@@ -986,888 +1767,269 @@ siac_cts_output_cta_v2_10.last_participant_id.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Fractional Consolidated Data
-siac_cts_output_cta_v2_10.fractional_consolidated_data = {}
+-- Last Price
+siac_cts_output_cta_v2_10.last_price = {}
 
--- Size: Fractional Consolidated Data
-siac_cts_output_cta_v2_10.fractional_consolidated_data.size =
-  siac_cts_output_cta_v2_10.previous_close_price_date.size + 
-  siac_cts_output_cta_v2_10.last_participant_id.size + 
-  siac_cts_output_cta_v2_10.last_price.size + 
-  siac_cts_output_cta_v2_10.high_price.size + 
-  siac_cts_output_cta_v2_10.low_price.size + 
-  siac_cts_output_cta_v2_10.fractional_total_volume.size + 
-  siac_cts_output_cta_v2_10.tick.size
+-- Size: Last Price
+siac_cts_output_cta_v2_10.last_price.size = 8
 
--- Display: Fractional Consolidated Data
-siac_cts_output_cta_v2_10.fractional_consolidated_data.display = function(packet, parent, length)
-  return ""
+-- Display: Last Price
+siac_cts_output_cta_v2_10.last_price.display = function(value)
+  return "Last Price: "..value
 end
 
--- Dissect Fields: Fractional Consolidated Data
-siac_cts_output_cta_v2_10.fractional_consolidated_data.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Previous Close Price Date: Integer
-  index, previous_close_price_date = siac_cts_output_cta_v2_10.previous_close_price_date.dissect(buffer, index, packet, parent)
-
-  -- Last Participant Id: Char
-  index, last_participant_id = siac_cts_output_cta_v2_10.last_participant_id.dissect(buffer, index, packet, parent)
-
-  -- Last Price: Long
-  index, last_price = siac_cts_output_cta_v2_10.last_price.dissect(buffer, index, packet, parent)
-
-  -- High Price: Long
-  index, high_price = siac_cts_output_cta_v2_10.high_price.dissect(buffer, index, packet, parent)
-
-  -- Low Price: Long
-  index, low_price = siac_cts_output_cta_v2_10.low_price.dissect(buffer, index, packet, parent)
-
-  -- Fractional Total Volume: Long
-  index, fractional_total_volume = siac_cts_output_cta_v2_10.fractional_total_volume.dissect(buffer, index, packet, parent)
-
-  -- Tick: Char
-  index, tick = siac_cts_output_cta_v2_10.tick.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Fractional Consolidated Data
-siac_cts_output_cta_v2_10.fractional_consolidated_data.dissect = function(buffer, offset, packet, parent)
-  if show.fractional_consolidated_data then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_consolidated_data, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_10.fractional_consolidated_data.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_10.fractional_consolidated_data.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_10.fractional_consolidated_data.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Financial Status Indicator
-siac_cts_output_cta_v2_10.financial_status_indicator = {}
-
--- Size: Financial Status Indicator
-siac_cts_output_cta_v2_10.financial_status_indicator.size = 1
-
--- Display: Financial Status Indicator
-siac_cts_output_cta_v2_10.financial_status_indicator.display = function(value)
-  if value == "0" then
-    return "Financial Status Indicator: Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Financial Status Indicator: Bankrupt (1)"
-  end
-  if value == "2" then
-    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
-  end
-  if value == "3" then
-    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
-  end
-  if value == "4" then
-    return "Financial Status Indicator: Late Filing (4)"
-  end
-  if value == "5" then
-    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
-  end
-  if value == "6" then
-    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
-  end
-  if value == "7" then
-    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
-  end
-  if value == "8" then
-    return "Financial Status Indicator: Creations Suspended (8)"
-  end
-  if value == "9" then
-    return "Financial Status Indicator: Redemptions Suspended (9)"
-  end
-  if value == "A" then
-    return "Financial Status Indicator: Liquidation (A)"
-  end
-
-  return "Financial Status Indicator: Unknown("..value..")"
-end
-
--- Dissect: Financial Status Indicator
-siac_cts_output_cta_v2_10.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.financial_status_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.financial_status_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.financial_status_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Primary Listing Market Participant Id
-siac_cts_output_cta_v2_10.primary_listing_market_participant_id = {}
-
--- Size: Primary Listing Market Participant Id
-siac_cts_output_cta_v2_10.primary_listing_market_participant_id.size = 1
-
--- Display: Primary Listing Market Participant Id
-siac_cts_output_cta_v2_10.primary_listing_market_participant_id.display = function(value)
-  if value == "A" then
-    return "Primary Listing Market Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Primary Listing Market Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Primary Listing Market Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Primary Listing Market Participant Id: Finra Adf (D)"
-  end
-  if value == "I" then
-    return "Primary Listing Market Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Primary Listing Market Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Primary Listing Market Participant Id: Cboe Edgx (K)"
-  end
-  if value == "M" then
-    return "Primary Listing Market Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Primary Listing Market Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Primary Listing Market Participant Id: Nyse Arca (P)"
-  end
-  if value == "T" then
-    return "Primary Listing Market Participant Id: Nasdaq (T)"
-  end
-  if value == "V" then
-    return "Primary Listing Market Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Primary Listing Market Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Primary Listing Market Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Primary Listing Market Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Primary Listing Market Participant Id: Cboe Bzx (Z)"
-  end
-
-  return "Primary Listing Market Participant Id: Unknown("..value..")"
-end
-
--- Dissect: Primary Listing Market Participant Id
-siac_cts_output_cta_v2_10.primary_listing_market_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.primary_listing_market_participant_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.primary_listing_market_participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Restriction Indicator
-siac_cts_output_cta_v2_10.short_sale_restriction_indicator = {}
-
--- Size: Short Sale Restriction Indicator
-siac_cts_output_cta_v2_10.short_sale_restriction_indicator.size = 1
-
--- Display: Short Sale Restriction Indicator
-siac_cts_output_cta_v2_10.short_sale_restriction_indicator.display = function(value)
-  if value == " " then
-    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
-  end
-  if value == "A" then
-    return "Short Sale Restriction Indicator: Activated (A)"
-  end
-  if value == "C" then
-    return "Short Sale Restriction Indicator: Continued (C)"
-  end
-  if value == "D" then
-    return "Short Sale Restriction Indicator: Deactivated (D)"
-  end
-  if value == "E" then
-    return "Short Sale Restriction Indicator: Restriction In Effect (E)"
-  end
-
-  return "Short Sale Restriction Indicator: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction Indicator
-siac_cts_output_cta_v2_10.short_sale_restriction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.short_sale_restriction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.short_sale_restriction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.short_sale_restriction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Cancel Error Action
-siac_cts_output_cta_v2_10.cancel_error_action = {}
-
--- Size: Cancel Error Action
-siac_cts_output_cta_v2_10.cancel_error_action.size = 1
-
--- Display: Cancel Error Action
-siac_cts_output_cta_v2_10.cancel_error_action.display = function(value)
-  if value == "1" then
-    return "Cancel Error Action: Cancel (1)"
-  end
-  if value == "2" then
-    return "Cancel Error Action: Error (2)"
-  end
-
-  return "Cancel Error Action: Unknown("..value..")"
-end
-
--- Dissect: Cancel Error Action
-siac_cts_output_cta_v2_10.cancel_error_action.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.cancel_error_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.cancel_error_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.cancel_error_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Nanoseconds
-siac_cts_output_cta_v2_10.nanoseconds = {}
-
--- Size: Nanoseconds
-siac_cts_output_cta_v2_10.nanoseconds.size = 4
-
--- Display: Nanoseconds
-siac_cts_output_cta_v2_10.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-siac_cts_output_cta_v2_10.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Seconds
-siac_cts_output_cta_v2_10.seconds = {}
-
--- Size: Seconds
-siac_cts_output_cta_v2_10.seconds.size = 4
-
--- Display: Seconds
-siac_cts_output_cta_v2_10.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-siac_cts_output_cta_v2_10.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp 2
-siac_cts_output_cta_v2_10.timestamp_2 = {}
-
--- Size: Timestamp 2
-siac_cts_output_cta_v2_10.timestamp_2.size =
-  siac_cts_output_cta_v2_10.seconds.size + 
-  siac_cts_output_cta_v2_10.nanoseconds.size
-
--- Display: Timestamp 2
-siac_cts_output_cta_v2_10.timestamp_2.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Timestamp 2
-siac_cts_output_cta_v2_10.timestamp_2.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: Integer
-  index, seconds = siac_cts_output_cta_v2_10.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: Integer
-  index, nanoseconds = siac_cts_output_cta_v2_10.nanoseconds.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Timestamp 2
-siac_cts_output_cta_v2_10.timestamp_2.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_2 then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.timestamp_2, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_10.timestamp_2.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_10.timestamp_2.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_10.timestamp_2.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Original Participant Reference Number
-siac_cts_output_cta_v2_10.original_participant_reference_number = {}
-
--- Size: Original Participant Reference Number
-siac_cts_output_cta_v2_10.original_participant_reference_number.size = 8
-
--- Display: Original Participant Reference Number
-siac_cts_output_cta_v2_10.original_participant_reference_number.display = function(value)
-  return "Original Participant Reference Number: "..value
-end
-
--- Dissect: Original Participant Reference Number
-siac_cts_output_cta_v2_10.original_participant_reference_number.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.original_participant_reference_number.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.original_participant_reference_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.original_participant_reference_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Reporting Facility Id
-siac_cts_output_cta_v2_10.trade_reporting_facility_id = {}
-
--- Size: Trade Reporting Facility Id
-siac_cts_output_cta_v2_10.trade_reporting_facility_id.size = 1
-
--- Display: Trade Reporting Facility Id
-siac_cts_output_cta_v2_10.trade_reporting_facility_id.display = function(value)
-  if value == " " then
-    return "Trade Reporting Facility Id: Not Applicable (<whitespace>)"
-  end
-  if value == "B" then
-    return "Trade Reporting Facility Id: Finra Nasdaq Chicago (B)"
-  end
-  if value == "N" then
-    return "Trade Reporting Facility Id: Finra Nyse (N)"
-  end
-  if value == "B" then
-    return "Trade Reporting Facility Id: Finra Nasdaq Carteret (B)"
-  end
-
-  return "Trade Reporting Facility Id: Unknown("..value..")"
-end
-
--- Dissect: Trade Reporting Facility Id
-siac_cts_output_cta_v2_10.trade_reporting_facility_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_reporting_facility_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.trade_reporting_facility_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Through Exempt Indicator
-siac_cts_output_cta_v2_10.trade_through_exempt_indicator = {}
-
--- Size: Trade Through Exempt Indicator
-siac_cts_output_cta_v2_10.trade_through_exempt_indicator.size = 1
-
--- Display: Trade Through Exempt Indicator
-siac_cts_output_cta_v2_10.trade_through_exempt_indicator.display = function(value)
-  if value == "0" then
-    return "Trade Through Exempt Indicator: Not A Trade Through Exemption (0)"
-  end
-  if value == "1" then
-    return "Trade Through Exempt Indicator: Trade Through Exemption (1)"
-  end
-
-  return "Trade Through Exempt Indicator: Unknown("..value..")"
-end
-
--- Dissect: Trade Through Exempt Indicator
-siac_cts_output_cta_v2_10.trade_through_exempt_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_through_exempt_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.trade_through_exempt_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Stock Indicator
-siac_cts_output_cta_v2_10.stop_stock_indicator = {}
-
--- Size: Stop Stock Indicator
-siac_cts_output_cta_v2_10.stop_stock_indicator.size = 1
-
--- Display: Stop Stock Indicator
-siac_cts_output_cta_v2_10.stop_stock_indicator.display = function(value)
-  if value == "0" then
-    return "Stop Stock Indicator: Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Stop Stock Indicator: Stop Stock (1)"
-  end
-
-  return "Stop Stock Indicator: Unknown("..value..")"
-end
-
--- Dissect: Stop Stock Indicator
-siac_cts_output_cta_v2_10.stop_stock_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.stop_stock_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.stop_stock_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.stop_stock_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Sellers Sale Days
-siac_cts_output_cta_v2_10.sellers_sale_days = {}
-
--- Size: Sellers Sale Days
-siac_cts_output_cta_v2_10.sellers_sale_days.size = 1
-
--- Display: Sellers Sale Days
-siac_cts_output_cta_v2_10.sellers_sale_days.display = function(value)
-  return "Sellers Sale Days: "..value
-end
-
--- Dissect: Sellers Sale Days
-siac_cts_output_cta_v2_10.sellers_sale_days.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.sellers_sale_days.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.sellers_sale_days.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.sellers_sale_days, range, value, display)
-
-  return offset + length, value
-end
-
--- Fractional Trade Volume
-siac_cts_output_cta_v2_10.fractional_trade_volume = {}
-
--- Size: Fractional Trade Volume
-siac_cts_output_cta_v2_10.fractional_trade_volume.size = 8
-
--- Display: Fractional Trade Volume
-siac_cts_output_cta_v2_10.fractional_trade_volume.display = function(value)
-  return "Fractional Trade Volume: "..value
-end
-
--- Dissect: Fractional Trade Volume
-siac_cts_output_cta_v2_10.fractional_trade_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.fractional_trade_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.fractional_trade_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price
-siac_cts_output_cta_v2_10.trade_price = {}
-
--- Size: Trade Price
-siac_cts_output_cta_v2_10.trade_price.size = 8
-
--- Display: Trade Price
-siac_cts_output_cta_v2_10.trade_price.display = function(value)
-  return "Trade Price: "..value
-end
-
--- Translate: Trade Price
-siac_cts_output_cta_v2_10.trade_price.translate = function(raw)
+-- Translate: Last Price
+siac_cts_output_cta_v2_10.last_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Trade Price
-siac_cts_output_cta_v2_10.trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_price.size
+-- Dissect: Last Price
+siac_cts_output_cta_v2_10.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.last_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.trade_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.trade_price.display(value, buffer, offset, packet, parent)
+  local value = siac_cts_output_cta_v2_10.last_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.last_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_price, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.last_price, range, value, display)
 
   return offset + length, value
 end
 
--- Sro Trade Detail
-siac_cts_output_cta_v2_10.sro_trade_detail = {}
+-- Limit Up Limit Down Indicator
+siac_cts_output_cta_v2_10.limit_up_limit_down_indicator = {}
 
--- Size: Sro Trade Detail
-siac_cts_output_cta_v2_10.sro_trade_detail.size = 1
+-- Size: Limit Up Limit Down Indicator
+siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.size = 1
 
--- Display: Sro Trade Detail
-siac_cts_output_cta_v2_10.sro_trade_detail.display = function(value)
+-- Display: Limit Up Limit Down Indicator
+siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.display = function(value)
   if value == " " then
-    return "Sro Trade Detail: No Sro Required Trade Detail (<whitespace>)"
+    return "Limit Up Limit Down Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Limit Up Limit Down Indicator: Limit Up Limit Down Price Band (A)"
   end
   if value == "B" then
-    return "Sro Trade Detail: Average Price Trade (B)"
-  end
-  if value == "E" then
-    return "Sro Trade Detail: Automatic Execution (E)"
-  end
-  if value == "H" then
-    return "Sro Trade Detail: Price Variation Trade (H)"
-  end
-  if value == "I" then
-    return "Sro Trade Detail: Odd Lot Trade (I)"
-  end
-  if value == "K" then
-    return "Sro Trade Detail: Rule 127 Or 155 (K)"
-  end
-  if value == "M" then
-    return "Sro Trade Detail: Market Center Official Close (M)"
-  end
-  if value == "P" then
-    return "Sro Trade Detail: Prior Reference Price (P)"
-  end
-  if value == "Q" then
-    return "Sro Trade Detail: Market Center Official Open (Q)"
-  end
-  if value == "V" then
-    return "Sro Trade Detail: Contingent Trade (V)"
-  end
-  if value == "X" then
-    return "Sro Trade Detail: Cross Trade (X)"
-  end
-
-  return "Sro Trade Detail: Unknown("..value..")"
-end
-
--- Dissect: Sro Trade Detail
-siac_cts_output_cta_v2_10.sro_trade_detail.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.sro_trade_detail.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.sro_trade_detail.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.sro_trade_detail, range, value, display)
-
-  return offset + length, value
-end
-
--- Extended Hours Or Sequence Type
-siac_cts_output_cta_v2_10.extended_hours_or_sequence_type = {}
-
--- Size: Extended Hours Or Sequence Type
-siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.size = 1
-
--- Display: Extended Hours Or Sequence Type
-siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.display = function(value)
-  if value == " " then
-    return "Extended Hours Or Sequence Type: Not Extended Hours Or Sold Out Of Sequence (<whitespace>)"
-  end
-  if value == "L" then
-    return "Extended Hours Or Sequence Type: Sold Last (L)"
-  end
-  if value == "T" then
-    return "Extended Hours Or Sequence Type: Extended Hours Trade (T)"
-  end
-  if value == "U" then
-    return "Extended Hours Or Sequence Type: Extended Hours Sold (U)"
-  end
-  if value == "Z" then
-    return "Extended Hours Or Sequence Type: Sold Out Of Sequence (Z)"
-  end
-
-  return "Extended Hours Or Sequence Type: Unknown("..value..")"
-end
-
--- Dissect: Extended Hours Or Sequence Type
-siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Through Exempt Reason
-siac_cts_output_cta_v2_10.trade_through_exempt_reason = {}
-
--- Size: Trade Through Exempt Reason
-siac_cts_output_cta_v2_10.trade_through_exempt_reason.size = 1
-
--- Display: Trade Through Exempt Reason
-siac_cts_output_cta_v2_10.trade_through_exempt_reason.display = function(value)
-  if value == " " then
-    return "Trade Through Exempt Reason: No Reason (<whitespace>)"
-  end
-  if value == "F" then
-    return "Trade Through Exempt Reason: Intermarket Sweep Order (F)"
-  end
-  if value == "O" then
-    return "Trade Through Exempt Reason: Market Center Opening Trade (O)"
-  end
-  if value == "4" then
-    return "Trade Through Exempt Reason: Derivatively Priced (4)"
-  end
-  if value == "5" then
-    return "Trade Through Exempt Reason: Market Center Reopening Trade (5)"
-  end
-  if value == "6" then
-    return "Trade Through Exempt Reason: Market Center Closing Trade (6)"
-  end
-  if value == "7" then
-    return "Trade Through Exempt Reason: Qualified Contingent Trade (7)"
-  end
-  if value == "8" then
-    return "Trade Through Exempt Reason: Reserved (8)"
-  end
-  if value == "9" then
-    return "Trade Through Exempt Reason: Corrected Consolidated Close Price As Per Listing Market (9)"
-  end
-
-  return "Trade Through Exempt Reason: Unknown("..value..")"
-end
-
--- Dissect: Trade Through Exempt Reason
-siac_cts_output_cta_v2_10.trade_through_exempt_reason.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_through_exempt_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.trade_through_exempt_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Type
-siac_cts_output_cta_v2_10.settlement_type = {}
-
--- Size: Settlement Type
-siac_cts_output_cta_v2_10.settlement_type.size = 1
-
--- Display: Settlement Type
-siac_cts_output_cta_v2_10.settlement_type.display = function(value)
-  if value == " " then
-    return "Settlement Type: Regular Settlement (<whitespace>)"
+    return "Limit Up Limit Down Indicator: Republished Limit Up Limit Down Price Band (B)"
   end
   if value == "C" then
-    return "Settlement Type: Cash Trade (C)"
+    return "Limit Up Limit Down Indicator: National Best Bid Limit State Entered (C)"
+  end
+  if value == "D" then
+    return "Limit Up Limit Down Indicator: National Best Bid Limit State Exited (D)"
+  end
+  if value == "E" then
+    return "Limit Up Limit Down Indicator: National Best Offer Limit State Entered (E)"
+  end
+  if value == "F" then
+    return "Limit Up Limit Down Indicator: National Best Offer Limit State Exited (F)"
+  end
+  if value == "G" then
+    return "Limit Up Limit Down Indicator: National Best Bid And National Best Offer Limit State Entered (G)"
+  end
+  if value == "H" then
+    return "Limit Up Limit Down Indicator: National Best Bid And National Best Offer Limit State Exited (H)"
+  end
+  if value == "I" then
+    return "Limit Up Limit Down Indicator: National Best Bid Limit State Entered And National Best Offer Limit State Exited (I)"
+  end
+  if value == "J" then
+    return "Limit Up Limit Down Indicator: National Best Bid Limit State Exited And National Best Offer Limit State Entered (J)"
+  end
+
+  return "Limit Up Limit Down Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Limit Up Limit Down Indicator
+siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.limit_up_limit_down_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Indication Price Lower Limit Price Band
+siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band = {}
+
+-- Size: Low Indication Price Lower Limit Price Band
+siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.size = 8
+
+-- Display: Low Indication Price Lower Limit Price Band
+siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.display = function(value)
+  return "Low Indication Price Lower Limit Price Band: "..value
+end
+
+-- Translate: Low Indication Price Lower Limit Price Band
+siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Low Indication Price Lower Limit Price Band
+siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.translate(raw)
+  local display = siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+siac_cts_output_cta_v2_10.low_price = {}
+
+-- Size: Low Price
+siac_cts_output_cta_v2_10.low_price.size = 8
+
+-- Display: Low Price
+siac_cts_output_cta_v2_10.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Translate: Low Price
+siac_cts_output_cta_v2_10.low_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Low Price
+siac_cts_output_cta_v2_10.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.low_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.low_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Status Message Type
+siac_cts_output_cta_v2_10.market_status_message_type = {}
+
+-- Size: Market Status Message Type
+siac_cts_output_cta_v2_10.market_status_message_type.size = 1
+
+-- Display: Market Status Message Type
+siac_cts_output_cta_v2_10.market_status_message_type.display = function(value)
+  if value == "M" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
+  end
+  if value == "L" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
   end
   if value == "N" then
-    return "Settlement Type: Next Day Trade (N)"
+    return "Market Status Message Type: Approximate Adjusted Volume Market Center Message (N)"
   end
-  if value == "R" then
-    return "Settlement Type: Seller (R)"
+  if value == "V" then
+    return "Market Status Message Type: Fractional Approximate Adjusted Volume Market Center Message (V)"
+  end
+  if value == "O" then
+    return "Market Status Message Type: Approximate Trades And Total Dollar Value Message (O)"
+  end
+  if value == "P" then
+    return "Market Status Message Type: Crossing Session Summary Message (P)"
   end
 
-  return "Settlement Type: Unknown("..value..")"
+  return "Market Status Message Type: Unknown("..value..")"
 end
 
--- Dissect: Settlement Type
-siac_cts_output_cta_v2_10.settlement_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.settlement_type.size
+-- Dissect: Market Status Message Type
+siac_cts_output_cta_v2_10.market_status_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.market_status_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cts_output_cta_v2_10.settlement_type.display(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v2_10.market_status_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.settlement_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.market_status_message_type, range, value, display)
 
   return offset + length, value
 end
 
--- Sale Conditions
-siac_cts_output_cta_v2_10.sale_conditions = {}
+-- Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator = {}
 
--- Size: Sale Conditions
-siac_cts_output_cta_v2_10.sale_conditions.size =
-  siac_cts_output_cta_v2_10.settlement_type.size + 
-  siac_cts_output_cta_v2_10.trade_through_exempt_reason.size + 
-  siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.size + 
-  siac_cts_output_cta_v2_10.sro_trade_detail.size
+-- Size: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.size = 1
 
--- Display: Sale Conditions
-siac_cts_output_cta_v2_10.sale_conditions.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sale Conditions
-siac_cts_output_cta_v2_10.sale_conditions.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Settlement Type: Char
-  index, settlement_type = siac_cts_output_cta_v2_10.settlement_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Through Exempt Reason: Char
-  index, trade_through_exempt_reason = siac_cts_output_cta_v2_10.trade_through_exempt_reason.dissect(buffer, index, packet, parent)
-
-  -- Extended Hours Or Sequence Type: Char
-  index, extended_hours_or_sequence_type = siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.dissect(buffer, index, packet, parent)
-
-  -- Sro Trade Detail: Char
-  index, sro_trade_detail = siac_cts_output_cta_v2_10.sro_trade_detail.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sale Conditions
-siac_cts_output_cta_v2_10.sale_conditions.dissect = function(buffer, offset, packet, parent)
-  if show.sale_conditions then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_conditions, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_10.sale_conditions.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_10.sale_conditions.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_10.sale_conditions.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Instrument Type
-siac_cts_output_cta_v2_10.instrument_type = {}
-
--- Size: Instrument Type
-siac_cts_output_cta_v2_10.instrument_type.size = 1
-
--- Display: Instrument Type
-siac_cts_output_cta_v2_10.instrument_type.display = function(value)
-  if value == "0" then
-    return "Instrument Type: Cta Eligible Equity (0)"
+-- Display: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.display = function(value)
+  if value == " " then
+    return "Market Wide Circuit Breaker Level Indicator: Not Applicable (<whitespace>)"
   end
   if value == "1" then
-    return "Instrument Type: Local Issue (1)"
+    return "Market Wide Circuit Breaker Level Indicator: Level 1 Breached (1)"
   end
   if value == "2" then
-    return "Instrument Type: Corporate Bond (2)"
+    return "Market Wide Circuit Breaker Level Indicator: Level 2 Breached (2)"
   end
   if value == "3" then
-    return "Instrument Type: Government Bond (3)"
+    return "Market Wide Circuit Breaker Level Indicator: Level 3 Breached (3)"
   end
 
-  return "Instrument Type: Unknown("..value..")"
+  return "Market Wide Circuit Breaker Level Indicator: Unknown("..value..")"
 end
 
--- Dissect: Instrument Type
-siac_cts_output_cta_v2_10.instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.instrument_type.size
+-- Dissect: Market Wide Circuit Breaker Level Indicator
+siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cts_output_cta_v2_10.instrument_type.display(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.instrument_type, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Security Symbol
-siac_cts_output_cta_v2_10.security_symbol = {}
+-- Message Category
+siac_cts_output_cta_v2_10.message_category = {}
 
--- Size: Security Symbol
-siac_cts_output_cta_v2_10.security_symbol.size = 11
+-- Size: Message Category
+siac_cts_output_cta_v2_10.message_category.size = 1
 
--- Display: Security Symbol
-siac_cts_output_cta_v2_10.security_symbol.display = function(value)
-  return "Security Symbol: "..value
+-- Display: Message Category
+siac_cts_output_cta_v2_10.message_category.display = function(value)
+  if value == "A" then
+    return "Message Category: Administrative (A)"
+  end
+  if value == "C" then
+    return "Message Category: Control (C)"
+  end
+  if value == "I" then
+    return "Message Category: Index (I)"
+  end
+  if value == "M" then
+    return "Message Category: Market Status (M)"
+  end
+  if value == "P" then
+    return "Message Category: Prior Day (P)"
+  end
+  if value == "S" then
+    return "Message Category: Summary (S)"
+  end
+  if value == "T" then
+    return "Message Category: Trade (T)"
+  end
+
+  return "Message Category: Unknown("..value..")"
 end
 
--- Dissect: Security Symbol
-siac_cts_output_cta_v2_10.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.security_symbol.size
+-- Dissect: Message Category
+siac_cts_output_cta_v2_10.message_category.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.message_category.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cts_output_cta_v2_10.security_symbol.display(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v2_10.message_category.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Reference Number
-siac_cts_output_cta_v2_10.participant_reference_number = {}
-
--- Size: Participant Reference Number
-siac_cts_output_cta_v2_10.participant_reference_number.size = 8
-
--- Display: Participant Reference Number
-siac_cts_output_cta_v2_10.participant_reference_number.display = function(value)
-  return "Participant Reference Number: "..value
-end
-
--- Dissect: Participant Reference Number
-siac_cts_output_cta_v2_10.participant_reference_number.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.participant_reference_number.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.participant_reference_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_reference_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Transaction Id
-siac_cts_output_cta_v2_10.transaction_id = {}
-
--- Size: Transaction Id
-siac_cts_output_cta_v2_10.transaction_id.size = 4
-
--- Display: Transaction Id
-siac_cts_output_cta_v2_10.transaction_id.display = function(value)
-  return "Transaction Id: "..value
-end
-
--- Dissect: Transaction Id
-siac_cts_output_cta_v2_10.transaction_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.transaction_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.transaction_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.transaction_id, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_category, range, value, display)
 
   return offset + length, value
 end
@@ -1895,48 +2057,263 @@ siac_cts_output_cta_v2_10.message_id.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Timestamp 1
-siac_cts_output_cta_v2_10.timestamp_1 = {}
+-- Message Length
+siac_cts_output_cta_v2_10.message_length = {}
 
--- Size: Timestamp 1
-siac_cts_output_cta_v2_10.timestamp_1.size =
-  siac_cts_output_cta_v2_10.seconds.size + 
-  siac_cts_output_cta_v2_10.nanoseconds.size
+-- Size: Message Length
+siac_cts_output_cta_v2_10.message_length.size = 2
 
--- Display: Timestamp 1
-siac_cts_output_cta_v2_10.timestamp_1.display = function(packet, parent, length)
-  return ""
+-- Display: Message Length
+siac_cts_output_cta_v2_10.message_length.display = function(value)
+  return "Message Length: "..value
 end
 
--- Dissect Fields: Timestamp 1
-siac_cts_output_cta_v2_10.timestamp_1.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Message Length
+siac_cts_output_cta_v2_10.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.message_length.display(value, buffer, offset, packet, parent)
 
-  -- Seconds: Integer
-  index, seconds = siac_cts_output_cta_v2_10.seconds.dissect(buffer, index, packet, parent)
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_length, range, value, display)
 
-  -- Nanoseconds: Integer
-  index, nanoseconds = siac_cts_output_cta_v2_10.nanoseconds.dissect(buffer, index, packet, parent)
-
-  return index
+  return offset + length, value
 end
 
--- Dissect: Timestamp 1
-siac_cts_output_cta_v2_10.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.timestamp_1 then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.timestamp_1, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_10.timestamp_1.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_10.timestamp_1.display(packet, parent, length)
-    parent:append_text(display)
+-- Messages In Block
+siac_cts_output_cta_v2_10.messages_in_block = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_10.timestamp_1.fields(buffer, offset, packet, parent)
-  end
+-- Size: Messages In Block
+siac_cts_output_cta_v2_10.messages_in_block.size = 1
+
+-- Display: Messages In Block
+siac_cts_output_cta_v2_10.messages_in_block.display = function(value)
+  return "Messages In Block: "..value
+end
+
+-- Dissect: Messages In Block
+siac_cts_output_cta_v2_10.messages_in_block.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.messages_in_block.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.messages_in_block.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.messages_in_block, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 1
+siac_cts_output_cta_v2_10.mwcb_level_1 = {}
+
+-- Size: Mwcb Level 1
+siac_cts_output_cta_v2_10.mwcb_level_1.size = 8
+
+-- Display: Mwcb Level 1
+siac_cts_output_cta_v2_10.mwcb_level_1.display = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cts_output_cta_v2_10.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.mwcb_level_1.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.mwcb_level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 2
+siac_cts_output_cta_v2_10.mwcb_level_2 = {}
+
+-- Size: Mwcb Level 2
+siac_cts_output_cta_v2_10.mwcb_level_2.size = 8
+
+-- Display: Mwcb Level 2
+siac_cts_output_cta_v2_10.mwcb_level_2.display = function(value)
+  return "Mwcb Level 2: "..value
+end
+
+-- Dissect: Mwcb Level 2
+siac_cts_output_cta_v2_10.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.mwcb_level_2.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.mwcb_level_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 3
+siac_cts_output_cta_v2_10.mwcb_level_3 = {}
+
+-- Size: Mwcb Level 3
+siac_cts_output_cta_v2_10.mwcb_level_3.size = 8
+
+-- Display: Mwcb Level 3
+siac_cts_output_cta_v2_10.mwcb_level_3.display = function(value)
+  return "Mwcb Level 3: "..value
+end
+
+-- Dissect: Mwcb Level 3
+siac_cts_output_cta_v2_10.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.mwcb_level_3.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.mwcb_level_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+siac_cts_output_cta_v2_10.nanoseconds = {}
+
+-- Size: Nanoseconds
+siac_cts_output_cta_v2_10.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+siac_cts_output_cta_v2_10.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+siac_cts_output_cta_v2_10.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Extensions
+siac_cts_output_cta_v2_10.number_of_extensions = {}
+
+-- Size: Number Of Extensions
+siac_cts_output_cta_v2_10.number_of_extensions.size = 1
+
+-- Display: Number Of Extensions
+siac_cts_output_cta_v2_10.number_of_extensions.display = function(value)
+  return "Number Of Extensions: "..value
+end
+
+-- Dissect: Number Of Extensions
+siac_cts_output_cta_v2_10.number_of_extensions.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.number_of_extensions.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.number_of_extensions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.number_of_extensions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Participants
+siac_cts_output_cta_v2_10.number_of_participants = {}
+
+-- Size: Number Of Participants
+siac_cts_output_cta_v2_10.number_of_participants.size = 1
+
+-- Display: Number Of Participants
+siac_cts_output_cta_v2_10.number_of_participants.display = function(value)
+  return "Number Of Participants: "..value
+end
+
+-- Dissect: Number Of Participants
+siac_cts_output_cta_v2_10.number_of_participants.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.number_of_participants.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.number_of_participants.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.number_of_participants, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Index Value
+siac_cts_output_cta_v2_10.offer_index_value = {}
+
+-- Size: Offer Index Value
+siac_cts_output_cta_v2_10.offer_index_value.size = 8
+
+-- Display: Offer Index Value
+siac_cts_output_cta_v2_10.offer_index_value.display = function(value)
+  return "Offer Index Value: "..value
+end
+
+-- Dissect: Offer Index Value
+siac_cts_output_cta_v2_10.offer_index_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.offer_index_value.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.offer_index_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.offer_index_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+siac_cts_output_cta_v2_10.open_price = {}
+
+-- Size: Open Price
+siac_cts_output_cta_v2_10.open_price.size = 8
+
+-- Display: Open Price
+siac_cts_output_cta_v2_10.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Translate: Open Price
+siac_cts_output_cta_v2_10.open_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Open Price
+siac_cts_output_cta_v2_10.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.open_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.open_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Participant Reference Number
+siac_cts_output_cta_v2_10.original_participant_reference_number = {}
+
+-- Size: Original Participant Reference Number
+siac_cts_output_cta_v2_10.original_participant_reference_number.size = 8
+
+-- Display: Original Participant Reference Number
+siac_cts_output_cta_v2_10.original_participant_reference_number.display = function(value)
+  return "Original Participant Reference Number: "..value
+end
+
+-- Dissect: Original Participant Reference Number
+siac_cts_output_cta_v2_10.original_participant_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.original_participant_reference_number.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.original_participant_reference_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.original_participant_reference_number, range, value, display)
+
+  return offset + length, value
 end
 
 -- Participant Id
@@ -2021,6 +2398,1571 @@ siac_cts_output_cta_v2_10.participant_id.dissect = function(buffer, offset, pack
   parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Participant Open High Low Last Indicator
+siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator = {}
+
+-- Size: Participant Open High Low Last Indicator
+siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.size = 1
+
+-- Display: Participant Open High Low Last Indicator
+siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.display = function(value)
+  if value == "A" then
+    return "Participant Open High Low Last Indicator: None (A)"
+  end
+  if value == "B" then
+    return "Participant Open High Low Last Indicator: High (B)"
+  end
+  if value == "C" then
+    return "Participant Open High Low Last Indicator: Low (C)"
+  end
+  if value == "D" then
+    return "Participant Open High Low Last Indicator: Last (D)"
+  end
+  if value == "E" then
+    return "Participant Open High Low Last Indicator: High Last (E)"
+  end
+  if value == "F" then
+    return "Participant Open High Low Last Indicator: Low Last (F)"
+  end
+  if value == "G" then
+    return "Participant Open High Low Last Indicator: Unused (G)"
+  end
+  if value == "H" then
+    return "Participant Open High Low Last Indicator: Open (H)"
+  end
+  if value == "I" then
+    return "Participant Open High Low Last Indicator: Open High (I)"
+  end
+  if value == "J" then
+    return "Participant Open High Low Last Indicator: Open Low (J)"
+  end
+  if value == "K" then
+    return "Participant Open High Low Last Indicator: Open High Low Last (K)"
+  end
+  if value == "L" then
+    return "Participant Open High Low Last Indicator: Open Last (L)"
+  end
+  if value == "M" then
+    return "Participant Open High Low Last Indicator: Open High Low (M)"
+  end
+  if value == "N" then
+    return "Participant Open High Low Last Indicator: Open High Last (N)"
+  end
+  if value == "O" then
+    return "Participant Open High Low Last Indicator: Open Low Last (O)"
+  end
+  if value == "P" then
+    return "Participant Open High Low Last Indicator: High Low (P)"
+  end
+  if value == "Q" then
+    return "Participant Open High Low Last Indicator: High Low Last (Q)"
+  end
+
+  return "Participant Open High Low Last Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Participant Open High Low Last Indicator
+siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Reference Number
+siac_cts_output_cta_v2_10.participant_reference_number = {}
+
+-- Size: Participant Reference Number
+siac_cts_output_cta_v2_10.participant_reference_number.size = 8
+
+-- Display: Participant Reference Number
+siac_cts_output_cta_v2_10.participant_reference_number.display = function(value)
+  return "Participant Reference Number: "..value
+end
+
+-- Dissect: Participant Reference Number
+siac_cts_output_cta_v2_10.participant_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.participant_reference_number.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cts_output_cta_v2_10.participant_reference_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Close Price
+siac_cts_output_cta_v2_10.previous_close_price = {}
+
+-- Size: Previous Close Price
+siac_cts_output_cta_v2_10.previous_close_price.size = 8
+
+-- Display: Previous Close Price
+siac_cts_output_cta_v2_10.previous_close_price.display = function(value)
+  return "Previous Close Price: "..value
+end
+
+-- Translate: Previous Close Price
+siac_cts_output_cta_v2_10.previous_close_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Previous Close Price
+siac_cts_output_cta_v2_10.previous_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.previous_close_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.previous_close_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.previous_close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.previous_close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Close Price Date
+siac_cts_output_cta_v2_10.previous_close_price_date = {}
+
+-- Size: Previous Close Price Date
+siac_cts_output_cta_v2_10.previous_close_price_date.size = 4
+
+-- Display: Previous Close Price Date
+siac_cts_output_cta_v2_10.previous_close_price_date.display = function(value)
+  return "Previous Close Price Date: "..value
+end
+
+-- Dissect: Previous Close Price Date
+siac_cts_output_cta_v2_10.previous_close_price_date.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.previous_close_price_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.previous_close_price_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.previous_close_price_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Listing Market Participant Id
+siac_cts_output_cta_v2_10.primary_listing_market_participant_id = {}
+
+-- Size: Primary Listing Market Participant Id
+siac_cts_output_cta_v2_10.primary_listing_market_participant_id.size = 1
+
+-- Display: Primary Listing Market Participant Id
+siac_cts_output_cta_v2_10.primary_listing_market_participant_id.display = function(value)
+  if value == "A" then
+    return "Primary Listing Market Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Primary Listing Market Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Primary Listing Market Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Primary Listing Market Participant Id: Finra Adf (D)"
+  end
+  if value == "I" then
+    return "Primary Listing Market Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Primary Listing Market Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Primary Listing Market Participant Id: Cboe Edgx (K)"
+  end
+  if value == "M" then
+    return "Primary Listing Market Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Primary Listing Market Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Primary Listing Market Participant Id: Nyse Arca (P)"
+  end
+  if value == "T" then
+    return "Primary Listing Market Participant Id: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Primary Listing Market Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Primary Listing Market Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Primary Listing Market Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Primary Listing Market Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Primary Listing Market Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Primary Listing Market Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Primary Listing Market Participant Id
+siac_cts_output_cta_v2_10.primary_listing_market_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.primary_listing_market_participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.primary_listing_market_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.primary_listing_market_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Day Message Type
+siac_cts_output_cta_v2_10.prior_day_message_type = {}
+
+-- Size: Prior Day Message Type
+siac_cts_output_cta_v2_10.prior_day_message_type.size = 1
+
+-- Display: Prior Day Message Type
+siac_cts_output_cta_v2_10.prior_day_message_type.display = function(value)
+  if value == "C" then
+    return "Prior Day Message Type: Prior Day Trade Correction Message (C)"
+  end
+  if value == "O" then
+    return "Prior Day Message Type: Fractional Prior Day Trade Correction Message (O)"
+  end
+  if value == "L" then
+    return "Prior Day Message Type: Prior Day Trade Message (L)"
+  end
+  if value == "R" then
+    return "Prior Day Message Type: Fractional Prior Day Trade Message (R)"
+  end
+  if value == "X" then
+    return "Prior Day Message Type: Prior Day Trade Message (X)"
+  end
+  if value == "E" then
+    return "Prior Day Message Type: Fractional Prior Day Trade Message (E)"
+  end
+
+  return "Prior Day Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Prior Day Message Type
+siac_cts_output_cta_v2_10.prior_day_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.prior_day_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.prior_day_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+siac_cts_output_cta_v2_10.reserved = {}
+
+-- Size: Reserved
+siac_cts_output_cta_v2_10.reserved.size = 1
+
+-- Display: Reserved
+siac_cts_output_cta_v2_10.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+siac_cts_output_cta_v2_10.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmission Indicator
+siac_cts_output_cta_v2_10.retransmission_indicator = {}
+
+-- Size: Retransmission Indicator
+siac_cts_output_cta_v2_10.retransmission_indicator.size = 1
+
+-- Display: Retransmission Indicator
+siac_cts_output_cta_v2_10.retransmission_indicator.display = function(value)
+  if value == "O" then
+    return "Retransmission Indicator: Original (O)"
+  end
+  if value == "V" then
+    return "Retransmission Indicator: Retransmitted (V)"
+  end
+
+  return "Retransmission Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Retransmission Indicator
+siac_cts_output_cta_v2_10.retransmission_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.retransmission_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.retransmission_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sale Condition
+siac_cts_output_cta_v2_10.sale_condition = {}
+
+-- Size: Sale Condition
+siac_cts_output_cta_v2_10.sale_condition.size = 1
+
+-- Display: Sale Condition
+siac_cts_output_cta_v2_10.sale_condition.display = function(value)
+  if value == " " then
+    return "Sale Condition: Regular Sale (<whitespace>)"
+  end
+  if value == "B" then
+    return "Sale Condition: Average Price Trade (B)"
+  end
+  if value == "C" then
+    return "Sale Condition: Cash Trade (C)"
+  end
+  if value == "E" then
+    return "Sale Condition: Automatic Execution (E)"
+  end
+  if value == "F" then
+    return "Sale Condition: Intermarket Sweep Order (F)"
+  end
+  if value == "H" then
+    return "Sale Condition: Price Variation Trade (H)"
+  end
+  if value == "I" then
+    return "Sale Condition: Odd Lot Trade (I)"
+  end
+  if value == "K" then
+    return "Sale Condition: Rule 127 Or 155 (K)"
+  end
+  if value == "L" then
+    return "Sale Condition: Sold Last (L)"
+  end
+  if value == "M" then
+    return "Sale Condition: Market Center Official Close (M)"
+  end
+  if value == "N" then
+    return "Sale Condition: Next Day Trade (N)"
+  end
+  if value == "O" then
+    return "Sale Condition: Market Center Opening Trade (O)"
+  end
+  if value == "P" then
+    return "Sale Condition: Prior Reference Price (P)"
+  end
+  if value == "Q" then
+    return "Sale Condition: Market Center Official Open (Q)"
+  end
+  if value == "R" then
+    return "Sale Condition: Seller (R)"
+  end
+  if value == "T" then
+    return "Sale Condition: Extended Hours Trade (T)"
+  end
+  if value == "U" then
+    return "Sale Condition: Extended Hours Sold (U)"
+  end
+  if value == "V" then
+    return "Sale Condition: Contingent Trade (V)"
+  end
+  if value == "X" then
+    return "Sale Condition: Cross Trade (X)"
+  end
+  if value == "Z" then
+    return "Sale Condition: Sold (Z)"
+  end
+  if value == "4" then
+    return "Sale Condition: Derivatively Priced (4)"
+  end
+  if value == "5" then
+    return "Sale Condition: Market Center Reopening Trade (5)"
+  end
+  if value == "6" then
+    return "Sale Condition: Market Center Closing Trade (6)"
+  end
+  if value == "7" then
+    return "Sale Condition: Qualified Contingent Trade (7)"
+  end
+  if value == "8" then
+    return "Sale Condition: Reserved (8)"
+  end
+  if value == "9" then
+    return "Sale Condition: Corrected Consolidated Close Price As Per Listing Market (9)"
+  end
+
+  return "Sale Condition: Unknown("..value..")"
+end
+
+-- Dissect: Sale Condition
+siac_cts_output_cta_v2_10.sale_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.sale_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.sale_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sale Condition Category
+siac_cts_output_cta_v2_10.sale_condition_category = {}
+
+-- Size: Sale Condition Category
+siac_cts_output_cta_v2_10.sale_condition_category.size = 1
+
+-- Display: Sale Condition Category
+siac_cts_output_cta_v2_10.sale_condition_category.display = function(value)
+  if value == " " then
+    return "Sale Condition Category: Not Applicable (<whitespace>)"
+  end
+  if value == "1" then
+    return "Sale Condition Category: Category 1 (1)"
+  end
+  if value == "2" then
+    return "Sale Condition Category: Category 2 (2)"
+  end
+  if value == "3" then
+    return "Sale Condition Category: Category 3 (3)"
+  end
+  if value == "4" then
+    return "Sale Condition Category: Category 4 (4)"
+  end
+
+  return "Sale Condition Category: Unknown("..value..")"
+end
+
+-- Dissect: Sale Condition Category
+siac_cts_output_cta_v2_10.sale_condition_category.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.sale_condition_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.sale_condition_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_condition_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+siac_cts_output_cta_v2_10.seconds = {}
+
+-- Size: Seconds
+siac_cts_output_cta_v2_10.seconds.size = 4
+
+-- Display: Seconds
+siac_cts_output_cta_v2_10.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+siac_cts_output_cta_v2_10.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+siac_cts_output_cta_v2_10.security_status = {}
+
+-- Size: Security Status
+siac_cts_output_cta_v2_10.security_status.size = 1
+
+-- Display: Security Status
+siac_cts_output_cta_v2_10.security_status.display = function(value)
+  if value == " " then
+    return "Security Status: Not Applicable (<whitespace>)"
+  end
+  if value == "2" then
+    return "Security Status: Trading Halt (2)"
+  end
+  if value == "3" then
+    return "Security Status: Resume (3)"
+  end
+  if value == "5" then
+    return "Security Status: Price Indication (5)"
+  end
+  if value == "6" then
+    return "Security Status: Trading Range Indication (6)"
+  end
+  if value == "7" then
+    return "Security Status: Market Imbalance Buy (7)"
+  end
+  if value == "8" then
+    return "Security Status: Market Imbalance Sell (8)"
+  end
+  if value == "9" then
+    return "Security Status: Market On Close Imbalance Buy (9)"
+  end
+  if value == "A" then
+    return "Security Status: Market On Close Imbalance Sell (A)"
+  end
+  if value == "C" then
+    return "Security Status: No Market Imbalance (C)"
+  end
+  if value == "D" then
+    return "Security Status: No Market On Close Imbalance (D)"
+  end
+  if value == "E" then
+    return "Security Status: Short Sale Restriction (E)"
+  end
+  if value == "F" then
+    return "Security Status: Limit Up Limit Down (F)"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+siac_cts_output_cta_v2_10.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.security_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+siac_cts_output_cta_v2_10.security_symbol = {}
+
+-- Size: Security Symbol
+siac_cts_output_cta_v2_10.security_symbol.size = 11
+
+-- Display: Security Symbol
+siac_cts_output_cta_v2_10.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+siac_cts_output_cta_v2_10.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.security_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol Short
+siac_cts_output_cta_v2_10.security_symbol_short = {}
+
+-- Size: Security Symbol Short
+siac_cts_output_cta_v2_10.security_symbol_short.size = 5
+
+-- Display: Security Symbol Short
+siac_cts_output_cta_v2_10.security_symbol_short.display = function(value)
+  return "Security Symbol Short: "..value
+end
+
+-- Dissect: Security Symbol Short
+siac_cts_output_cta_v2_10.security_symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.security_symbol_short.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.security_symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Volume
+siac_cts_output_cta_v2_10.sell_volume = {}
+
+-- Size: Sell Volume
+siac_cts_output_cta_v2_10.sell_volume.size = 4
+
+-- Display: Sell Volume
+siac_cts_output_cta_v2_10.sell_volume.display = function(value)
+  return "Sell Volume: "..value
+end
+
+-- Dissect: Sell Volume
+siac_cts_output_cta_v2_10.sell_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.sell_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.sell_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sell_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sellers Sale Days
+siac_cts_output_cta_v2_10.sellers_sale_days = {}
+
+-- Size: Sellers Sale Days
+siac_cts_output_cta_v2_10.sellers_sale_days.size = 1
+
+-- Display: Sellers Sale Days
+siac_cts_output_cta_v2_10.sellers_sale_days.display = function(value)
+  return "Sellers Sale Days: "..value
+end
+
+-- Dissect: Sellers Sale Days
+siac_cts_output_cta_v2_10.sellers_sale_days.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.sellers_sale_days.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.sellers_sale_days.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sellers_sale_days, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Type
+siac_cts_output_cta_v2_10.settlement_type = {}
+
+-- Size: Settlement Type
+siac_cts_output_cta_v2_10.settlement_type.size = 1
+
+-- Display: Settlement Type
+siac_cts_output_cta_v2_10.settlement_type.display = function(value)
+  if value == " " then
+    return "Settlement Type: Regular Settlement (<whitespace>)"
+  end
+  if value == "C" then
+    return "Settlement Type: Cash Trade (C)"
+  end
+  if value == "N" then
+    return "Settlement Type: Next Day Trade (N)"
+  end
+  if value == "R" then
+    return "Settlement Type: Seller (R)"
+  end
+
+  return "Settlement Type: Unknown("..value..")"
+end
+
+-- Dissect: Settlement Type
+siac_cts_output_cta_v2_10.settlement_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.settlement_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.settlement_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.settlement_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction Indicator
+siac_cts_output_cta_v2_10.short_sale_restriction_indicator = {}
+
+-- Size: Short Sale Restriction Indicator
+siac_cts_output_cta_v2_10.short_sale_restriction_indicator.size = 1
+
+-- Display: Short Sale Restriction Indicator
+siac_cts_output_cta_v2_10.short_sale_restriction_indicator.display = function(value)
+  if value == " " then
+    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
+  end
+  if value == "A" then
+    return "Short Sale Restriction Indicator: Activated (A)"
+  end
+  if value == "C" then
+    return "Short Sale Restriction Indicator: Continued (C)"
+  end
+  if value == "D" then
+    return "Short Sale Restriction Indicator: Deactivated (D)"
+  end
+  if value == "E" then
+    return "Short Sale Restriction Indicator: Restriction In Effect (E)"
+  end
+
+  return "Short Sale Restriction Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction Indicator
+siac_cts_output_cta_v2_10.short_sale_restriction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.short_sale_restriction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.short_sale_restriction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.short_sale_restriction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sro Trade Detail
+siac_cts_output_cta_v2_10.sro_trade_detail = {}
+
+-- Size: Sro Trade Detail
+siac_cts_output_cta_v2_10.sro_trade_detail.size = 1
+
+-- Display: Sro Trade Detail
+siac_cts_output_cta_v2_10.sro_trade_detail.display = function(value)
+  if value == " " then
+    return "Sro Trade Detail: No Sro Required Trade Detail (<whitespace>)"
+  end
+  if value == "B" then
+    return "Sro Trade Detail: Average Price Trade (B)"
+  end
+  if value == "E" then
+    return "Sro Trade Detail: Automatic Execution (E)"
+  end
+  if value == "H" then
+    return "Sro Trade Detail: Price Variation Trade (H)"
+  end
+  if value == "I" then
+    return "Sro Trade Detail: Odd Lot Trade (I)"
+  end
+  if value == "K" then
+    return "Sro Trade Detail: Rule 127 Or 155 (K)"
+  end
+  if value == "M" then
+    return "Sro Trade Detail: Market Center Official Close (M)"
+  end
+  if value == "P" then
+    return "Sro Trade Detail: Prior Reference Price (P)"
+  end
+  if value == "Q" then
+    return "Sro Trade Detail: Market Center Official Open (Q)"
+  end
+  if value == "V" then
+    return "Sro Trade Detail: Contingent Trade (V)"
+  end
+  if value == "X" then
+    return "Sro Trade Detail: Cross Trade (X)"
+  end
+
+  return "Sro Trade Detail: Unknown("..value..")"
+end
+
+-- Dissect: Sro Trade Detail
+siac_cts_output_cta_v2_10.sro_trade_detail.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.sro_trade_detail.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.sro_trade_detail.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.sro_trade_detail, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Stock Indicator
+siac_cts_output_cta_v2_10.stop_stock_indicator = {}
+
+-- Size: Stop Stock Indicator
+siac_cts_output_cta_v2_10.stop_stock_indicator.size = 1
+
+-- Display: Stop Stock Indicator
+siac_cts_output_cta_v2_10.stop_stock_indicator.display = function(value)
+  if value == "0" then
+    return "Stop Stock Indicator: Not Applicable (0)"
+  end
+  if value == "1" then
+    return "Stop Stock Indicator: Stop Stock (1)"
+  end
+
+  return "Stop Stock Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Stop Stock Indicator
+siac_cts_output_cta_v2_10.stop_stock_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.stop_stock_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.stop_stock_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.stop_stock_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Summary Message Type
+siac_cts_output_cta_v2_10.summary_message_type = {}
+
+-- Size: Summary Message Type
+siac_cts_output_cta_v2_10.summary_message_type.size = 1
+
+-- Display: Summary Message Type
+siac_cts_output_cta_v2_10.summary_message_type.display = function(value)
+  if value == "A" then
+    return "Summary Message Type: Consolidated Start Of Day Summary Message (A)"
+  end
+  if value == "B" then
+    return "Summary Message Type: Participant Start Of Day Summary Message (B)"
+  end
+  if value == "C" then
+    return "Summary Message Type: Consolidated End Of Day Summary Message (C)"
+  end
+  if value == "T" then
+    return "Summary Message Type: Fractional Consolidated End Of Day Summary Message (T)"
+  end
+  if value == "D" then
+    return "Summary Message Type: Participant End Of Day Summary Message (D)"
+  end
+  if value == "P" then
+    return "Summary Message Type: Fractional Participant End Of Day Summary Message (P)"
+  end
+
+  return "Summary Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Summary Message Type
+siac_cts_output_cta_v2_10.summary_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.summary_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.summary_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.summary_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick
+siac_cts_output_cta_v2_10.tick = {}
+
+-- Size: Tick
+siac_cts_output_cta_v2_10.tick.size = 1
+
+-- Display: Tick
+siac_cts_output_cta_v2_10.tick.display = function(value)
+  if value == " " then
+    return "Tick: Not Applicable (<whitespace>)"
+  end
+  if value == "1" then
+    return "Tick: Upward (1)"
+  end
+  if value == "2" then
+    return "Tick: Downward (2)"
+  end
+  if value == "3" then
+    return "Tick: Unchanged Upward (3)"
+  end
+  if value == "4" then
+    return "Tick: Unchanged Downward (4)"
+  end
+
+  return "Tick: Unknown("..value..")"
+end
+
+-- Dissect: Tick
+siac_cts_output_cta_v2_10.tick.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.tick.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.tick.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.tick, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Trades
+siac_cts_output_cta_v2_10.total_trades = {}
+
+-- Size: Total Trades
+siac_cts_output_cta_v2_10.total_trades.size = 4
+
+-- Display: Total Trades
+siac_cts_output_cta_v2_10.total_trades.display = function(value)
+  return "Total Trades: "..value
+end
+
+-- Dissect: Total Trades
+siac_cts_output_cta_v2_10.total_trades.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.total_trades.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.total_trades.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_trades, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume
+siac_cts_output_cta_v2_10.total_volume = {}
+
+-- Size: Total Volume
+siac_cts_output_cta_v2_10.total_volume.size = 8
+
+-- Display: Total Volume
+siac_cts_output_cta_v2_10.total_volume.display = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+siac_cts_output_cta_v2_10.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.total_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.total_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume Short
+siac_cts_output_cta_v2_10.total_volume_short = {}
+
+-- Size: Total Volume Short
+siac_cts_output_cta_v2_10.total_volume_short.size = 4
+
+-- Display: Total Volume Short
+siac_cts_output_cta_v2_10.total_volume_short.display = function(value)
+  return "Total Volume Short: "..value
+end
+
+-- Dissect: Total Volume Short
+siac_cts_output_cta_v2_10.total_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.total_volume_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.total_volume_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_volume_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Message Type
+siac_cts_output_cta_v2_10.trade_message_type = {}
+
+-- Size: Trade Message Type
+siac_cts_output_cta_v2_10.trade_message_type.size = 1
+
+-- Display: Trade Message Type
+siac_cts_output_cta_v2_10.trade_message_type.display = function(value)
+  if value == "A" then
+    return "Trade Message Type: Auction Status Message (A)"
+  end
+  if value == "C" then
+    return "Trade Message Type: Trade Correction Message (C)"
+  end
+  if value == "O" then
+    return "Trade Message Type: Fractional Trade Correction Message (O)"
+  end
+  if value == "L" then
+    return "Trade Message Type: Long Trade Message (L)"
+  end
+  if value == "R" then
+    return "Trade Message Type: Fractional Long Trade Message (R)"
+  end
+  if value == "S" then
+    return "Trade Message Type: Trading Status Message (S)"
+  end
+  if value == "T" then
+    return "Trade Message Type: Short Trade Message (T)"
+  end
+  if value == "H" then
+    return "Trade Message Type: Fractional Short Trade Message (H)"
+  end
+  if value == "X" then
+    return "Trade Message Type: Trade Cancel Error Message (X)"
+  end
+  if value == "E" then
+    return "Trade Message Type: Fractional Trade Cancel Error Message (E)"
+  end
+
+  return "Trade Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Trade Message Type
+siac_cts_output_cta_v2_10.trade_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.trade_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price
+siac_cts_output_cta_v2_10.trade_price = {}
+
+-- Size: Trade Price
+siac_cts_output_cta_v2_10.trade_price.size = 8
+
+-- Display: Trade Price
+siac_cts_output_cta_v2_10.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Translate: Trade Price
+siac_cts_output_cta_v2_10.trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Trade Price
+siac_cts_output_cta_v2_10.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_10.trade_price.translate(raw)
+  local display = siac_cts_output_cta_v2_10.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price Short
+siac_cts_output_cta_v2_10.trade_price_short = {}
+
+-- Size: Trade Price Short
+siac_cts_output_cta_v2_10.trade_price_short.size = 2
+
+-- Display: Trade Price Short
+siac_cts_output_cta_v2_10.trade_price_short.display = function(value)
+  return "Trade Price Short: "..value
+end
+
+-- Translate: Trade Price Short
+siac_cts_output_cta_v2_10.trade_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Trade Price Short
+siac_cts_output_cta_v2_10.trade_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = siac_cts_output_cta_v2_10.trade_price_short.translate(raw)
+  local display = siac_cts_output_cta_v2_10.trade_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Reporting Facility Id
+siac_cts_output_cta_v2_10.trade_reporting_facility_id = {}
+
+-- Size: Trade Reporting Facility Id
+siac_cts_output_cta_v2_10.trade_reporting_facility_id.size = 1
+
+-- Display: Trade Reporting Facility Id
+siac_cts_output_cta_v2_10.trade_reporting_facility_id.display = function(value)
+  if value == " " then
+    return "Trade Reporting Facility Id: Not Applicable (<whitespace>)"
+  end
+  if value == "B" then
+    return "Trade Reporting Facility Id: Finra Nasdaq Chicago (B)"
+  end
+  if value == "N" then
+    return "Trade Reporting Facility Id: Finra Nyse (N)"
+  end
+  if value == "B" then
+    return "Trade Reporting Facility Id: Finra Nasdaq Carteret (B)"
+  end
+
+  return "Trade Reporting Facility Id: Unknown("..value..")"
+end
+
+-- Dissect: Trade Reporting Facility Id
+siac_cts_output_cta_v2_10.trade_reporting_facility_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_reporting_facility_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.trade_reporting_facility_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_reporting_facility_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Through Exempt Indicator
+siac_cts_output_cta_v2_10.trade_through_exempt_indicator = {}
+
+-- Size: Trade Through Exempt Indicator
+siac_cts_output_cta_v2_10.trade_through_exempt_indicator.size = 1
+
+-- Display: Trade Through Exempt Indicator
+siac_cts_output_cta_v2_10.trade_through_exempt_indicator.display = function(value)
+  if value == "0" then
+    return "Trade Through Exempt Indicator: Not A Trade Through Exemption (0)"
+  end
+  if value == "1" then
+    return "Trade Through Exempt Indicator: Trade Through Exemption (1)"
+  end
+
+  return "Trade Through Exempt Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Trade Through Exempt Indicator
+siac_cts_output_cta_v2_10.trade_through_exempt_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_through_exempt_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.trade_through_exempt_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Through Exempt Reason
+siac_cts_output_cta_v2_10.trade_through_exempt_reason = {}
+
+-- Size: Trade Through Exempt Reason
+siac_cts_output_cta_v2_10.trade_through_exempt_reason.size = 1
+
+-- Display: Trade Through Exempt Reason
+siac_cts_output_cta_v2_10.trade_through_exempt_reason.display = function(value)
+  if value == " " then
+    return "Trade Through Exempt Reason: No Reason (<whitespace>)"
+  end
+  if value == "F" then
+    return "Trade Through Exempt Reason: Intermarket Sweep Order (F)"
+  end
+  if value == "O" then
+    return "Trade Through Exempt Reason: Market Center Opening Trade (O)"
+  end
+  if value == "4" then
+    return "Trade Through Exempt Reason: Derivatively Priced (4)"
+  end
+  if value == "5" then
+    return "Trade Through Exempt Reason: Market Center Reopening Trade (5)"
+  end
+  if value == "6" then
+    return "Trade Through Exempt Reason: Market Center Closing Trade (6)"
+  end
+  if value == "7" then
+    return "Trade Through Exempt Reason: Qualified Contingent Trade (7)"
+  end
+  if value == "8" then
+    return "Trade Through Exempt Reason: Reserved (8)"
+  end
+  if value == "9" then
+    return "Trade Through Exempt Reason: Corrected Consolidated Close Price As Per Listing Market (9)"
+  end
+
+  return "Trade Through Exempt Reason: Unknown("..value..")"
+end
+
+-- Dissect: Trade Through Exempt Reason
+siac_cts_output_cta_v2_10.trade_through_exempt_reason.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_through_exempt_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cts_output_cta_v2_10.trade_through_exempt_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_through_exempt_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Total Volume
+siac_cts_output_cta_v2_10.trade_total_volume = {}
+
+-- Size: Trade Total Volume
+siac_cts_output_cta_v2_10.trade_total_volume.size = 8
+
+-- Display: Trade Total Volume
+siac_cts_output_cta_v2_10.trade_total_volume.display = function(value)
+  return "Trade Total Volume: "..value
+end
+
+-- Dissect: Trade Total Volume
+siac_cts_output_cta_v2_10.trade_total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_total_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = siac_cts_output_cta_v2_10.trade_total_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Volume
+siac_cts_output_cta_v2_10.trade_volume = {}
+
+-- Size: Trade Volume
+siac_cts_output_cta_v2_10.trade_volume.size = 4
+
+-- Display: Trade Volume
+siac_cts_output_cta_v2_10.trade_volume.display = function(value)
+  return "Trade Volume: "..value
+end
+
+-- Dissect: Trade Volume
+siac_cts_output_cta_v2_10.trade_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.trade_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Volume Short
+siac_cts_output_cta_v2_10.trade_volume_short = {}
+
+-- Size: Trade Volume Short
+siac_cts_output_cta_v2_10.trade_volume_short.size = 2
+
+-- Display: Trade Volume Short
+siac_cts_output_cta_v2_10.trade_volume_short.display = function(value)
+  return "Trade Volume Short: "..value
+end
+
+-- Dissect: Trade Volume Short
+siac_cts_output_cta_v2_10.trade_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.trade_volume_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.trade_volume_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_volume_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Id
+siac_cts_output_cta_v2_10.transaction_id = {}
+
+-- Size: Transaction Id
+siac_cts_output_cta_v2_10.transaction_id.size = 4
+
+-- Display: Transaction Id
+siac_cts_output_cta_v2_10.transaction_id.display = function(value)
+  return "Transaction Id: "..value
+end
+
+-- Dissect: Transaction Id
+siac_cts_output_cta_v2_10.transaction_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.transaction_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.transaction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.transaction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+siac_cts_output_cta_v2_10.version = {}
+
+-- Size: Version
+siac_cts_output_cta_v2_10.version.size = 1
+
+-- Display: Version
+siac_cts_output_cta_v2_10.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+siac_cts_output_cta_v2_10.version.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_10.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cts_output_cta_v2_10.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_10.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Siac Cts Output Cta 2.10
+-----------------------------------------------------------------------
+
+-- Fractional Participant Data
+siac_cts_output_cta_v2_10.fractional_participant_data = {}
+
+-- Size: Fractional Participant Data
+siac_cts_output_cta_v2_10.fractional_participant_data.size =
+  siac_cts_output_cta_v2_10.previous_close_price_date.size + 
+  siac_cts_output_cta_v2_10.last_price.size + 
+  siac_cts_output_cta_v2_10.high_price.size + 
+  siac_cts_output_cta_v2_10.low_price.size + 
+  siac_cts_output_cta_v2_10.open_price.size + 
+  siac_cts_output_cta_v2_10.fractional_total_volume.size + 
+  siac_cts_output_cta_v2_10.tick.size
+
+-- Display: Fractional Participant Data
+siac_cts_output_cta_v2_10.fractional_participant_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fractional Participant Data
+siac_cts_output_cta_v2_10.fractional_participant_data.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Previous Close Price Date: Integer
+  index, previous_close_price_date = siac_cts_output_cta_v2_10.previous_close_price_date.dissect(buffer, index, packet, parent)
+
+  -- Last Price: Long
+  index, last_price = siac_cts_output_cta_v2_10.last_price.dissect(buffer, index, packet, parent)
+
+  -- High Price: Long
+  index, high_price = siac_cts_output_cta_v2_10.high_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price: Long
+  index, low_price = siac_cts_output_cta_v2_10.low_price.dissect(buffer, index, packet, parent)
+
+  -- Open Price: Long
+  index, open_price = siac_cts_output_cta_v2_10.open_price.dissect(buffer, index, packet, parent)
+
+  -- Fractional Total Volume: Long
+  index, fractional_total_volume = siac_cts_output_cta_v2_10.fractional_total_volume.dissect(buffer, index, packet, parent)
+
+  -- Tick: Char
+  index, tick = siac_cts_output_cta_v2_10.tick.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Participant Data
+siac_cts_output_cta_v2_10.fractional_participant_data.dissect = function(buffer, offset, packet, parent)
+  if show.fractional_participant_data then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_participant_data, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_10.fractional_participant_data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_10.fractional_participant_data.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_10.fractional_participant_data.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Fractional Consolidated Data
+siac_cts_output_cta_v2_10.fractional_consolidated_data = {}
+
+-- Size: Fractional Consolidated Data
+siac_cts_output_cta_v2_10.fractional_consolidated_data.size =
+  siac_cts_output_cta_v2_10.previous_close_price_date.size + 
+  siac_cts_output_cta_v2_10.last_participant_id.size + 
+  siac_cts_output_cta_v2_10.last_price.size + 
+  siac_cts_output_cta_v2_10.high_price.size + 
+  siac_cts_output_cta_v2_10.low_price.size + 
+  siac_cts_output_cta_v2_10.fractional_total_volume.size + 
+  siac_cts_output_cta_v2_10.tick.size
+
+-- Display: Fractional Consolidated Data
+siac_cts_output_cta_v2_10.fractional_consolidated_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fractional Consolidated Data
+siac_cts_output_cta_v2_10.fractional_consolidated_data.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Previous Close Price Date: Integer
+  index, previous_close_price_date = siac_cts_output_cta_v2_10.previous_close_price_date.dissect(buffer, index, packet, parent)
+
+  -- Last Participant Id: Char
+  index, last_participant_id = siac_cts_output_cta_v2_10.last_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Last Price: Long
+  index, last_price = siac_cts_output_cta_v2_10.last_price.dissect(buffer, index, packet, parent)
+
+  -- High Price: Long
+  index, high_price = siac_cts_output_cta_v2_10.high_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price: Long
+  index, low_price = siac_cts_output_cta_v2_10.low_price.dissect(buffer, index, packet, parent)
+
+  -- Fractional Total Volume: Long
+  index, fractional_total_volume = siac_cts_output_cta_v2_10.fractional_total_volume.dissect(buffer, index, packet, parent)
+
+  -- Tick: Char
+  index, tick = siac_cts_output_cta_v2_10.tick.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Consolidated Data
+siac_cts_output_cta_v2_10.fractional_consolidated_data.dissect = function(buffer, offset, packet, parent)
+  if show.fractional_consolidated_data then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_consolidated_data, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_10.fractional_consolidated_data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_10.fractional_consolidated_data.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_10.fractional_consolidated_data.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Timestamp 2
+siac_cts_output_cta_v2_10.timestamp_2 = {}
+
+-- Size: Timestamp 2
+siac_cts_output_cta_v2_10.timestamp_2.size =
+  siac_cts_output_cta_v2_10.seconds.size + 
+  siac_cts_output_cta_v2_10.nanoseconds.size
+
+-- Display: Timestamp 2
+siac_cts_output_cta_v2_10.timestamp_2.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Timestamp 2
+siac_cts_output_cta_v2_10.timestamp_2.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: Integer
+  index, seconds = siac_cts_output_cta_v2_10.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = siac_cts_output_cta_v2_10.nanoseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Timestamp 2
+siac_cts_output_cta_v2_10.timestamp_2.dissect = function(buffer, offset, packet, parent)
+  if show.timestamp_2 then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.timestamp_2, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_10.timestamp_2.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_10.timestamp_2.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_10.timestamp_2.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sale Conditions
+siac_cts_output_cta_v2_10.sale_conditions = {}
+
+-- Size: Sale Conditions
+siac_cts_output_cta_v2_10.sale_conditions.size =
+  siac_cts_output_cta_v2_10.settlement_type.size + 
+  siac_cts_output_cta_v2_10.trade_through_exempt_reason.size + 
+  siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.size + 
+  siac_cts_output_cta_v2_10.sro_trade_detail.size
+
+-- Display: Sale Conditions
+siac_cts_output_cta_v2_10.sale_conditions.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sale Conditions
+siac_cts_output_cta_v2_10.sale_conditions.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Settlement Type: Char
+  index, settlement_type = siac_cts_output_cta_v2_10.settlement_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Through Exempt Reason: Char
+  index, trade_through_exempt_reason = siac_cts_output_cta_v2_10.trade_through_exempt_reason.dissect(buffer, index, packet, parent)
+
+  -- Extended Hours Or Sequence Type: Char
+  index, extended_hours_or_sequence_type = siac_cts_output_cta_v2_10.extended_hours_or_sequence_type.dissect(buffer, index, packet, parent)
+
+  -- Sro Trade Detail: Char
+  index, sro_trade_detail = siac_cts_output_cta_v2_10.sro_trade_detail.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sale Conditions
+siac_cts_output_cta_v2_10.sale_conditions.dissect = function(buffer, offset, packet, parent)
+  if show.sale_conditions then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_conditions, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_10.sale_conditions.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_10.sale_conditions.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_10.sale_conditions.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Timestamp 1
+siac_cts_output_cta_v2_10.timestamp_1 = {}
+
+-- Size: Timestamp 1
+siac_cts_output_cta_v2_10.timestamp_1.size =
+  siac_cts_output_cta_v2_10.seconds.size + 
+  siac_cts_output_cta_v2_10.nanoseconds.size
+
+-- Display: Timestamp 1
+siac_cts_output_cta_v2_10.timestamp_1.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Timestamp 1
+siac_cts_output_cta_v2_10.timestamp_1.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: Integer
+  index, seconds = siac_cts_output_cta_v2_10.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = siac_cts_output_cta_v2_10.nanoseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Timestamp 1
+siac_cts_output_cta_v2_10.timestamp_1.dissect = function(buffer, offset, packet, parent)
+  if show.timestamp_1 then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.timestamp_1, buffer(offset, 0))
+    local index = siac_cts_output_cta_v2_10.timestamp_1.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cts_output_cta_v2_10.timestamp_1.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cts_output_cta_v2_10.timestamp_1.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Fractional Trade Cancel Error Message
@@ -2134,29 +4076,6 @@ siac_cts_output_cta_v2_10.fractional_trade_cancel_error_message.dissect = functi
 
     return index
   end
-end
-
--- Total Volume Short
-siac_cts_output_cta_v2_10.total_volume_short = {}
-
--- Size: Total Volume Short
-siac_cts_output_cta_v2_10.total_volume_short.size = 4
-
--- Display: Total Volume Short
-siac_cts_output_cta_v2_10.total_volume_short.display = function(value)
-  return "Total Volume Short: "..value
-end
-
--- Dissect: Total Volume Short
-siac_cts_output_cta_v2_10.total_volume_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.total_volume_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.total_volume_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_volume_short, range, value, display)
-
-  return offset + length, value
 end
 
 -- Participant Data
@@ -2287,29 +4206,6 @@ siac_cts_output_cta_v2_10.consolidated_data.dissect = function(buffer, offset, p
   end
 end
 
--- Trade Volume
-siac_cts_output_cta_v2_10.trade_volume = {}
-
--- Size: Trade Volume
-siac_cts_output_cta_v2_10.trade_volume.size = 4
-
--- Display: Trade Volume
-siac_cts_output_cta_v2_10.trade_volume.display = function(value)
-  return "Trade Volume: "..value
-end
-
--- Dissect: Trade Volume
-siac_cts_output_cta_v2_10.trade_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.trade_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Cancel Error Message
 siac_cts_output_cta_v2_10.trade_cancel_error_message = {}
 
@@ -2423,345 +4319,6 @@ siac_cts_output_cta_v2_10.trade_cancel_error_message.dissect = function(buffer, 
   end
 end
 
--- Participant Open High Low Last Indicator
-siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator = {}
-
--- Size: Participant Open High Low Last Indicator
-siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.size = 1
-
--- Display: Participant Open High Low Last Indicator
-siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.display = function(value)
-  if value == "A" then
-    return "Participant Open High Low Last Indicator: None (A)"
-  end
-  if value == "B" then
-    return "Participant Open High Low Last Indicator: High (B)"
-  end
-  if value == "C" then
-    return "Participant Open High Low Last Indicator: Low (C)"
-  end
-  if value == "D" then
-    return "Participant Open High Low Last Indicator: Last (D)"
-  end
-  if value == "E" then
-    return "Participant Open High Low Last Indicator: High Last (E)"
-  end
-  if value == "F" then
-    return "Participant Open High Low Last Indicator: Low Last (F)"
-  end
-  if value == "G" then
-    return "Participant Open High Low Last Indicator: Unused (G)"
-  end
-  if value == "H" then
-    return "Participant Open High Low Last Indicator: Open (H)"
-  end
-  if value == "I" then
-    return "Participant Open High Low Last Indicator: Open High (I)"
-  end
-  if value == "J" then
-    return "Participant Open High Low Last Indicator: Open Low (J)"
-  end
-  if value == "K" then
-    return "Participant Open High Low Last Indicator: Open High Low Last (K)"
-  end
-  if value == "L" then
-    return "Participant Open High Low Last Indicator: Open Last (L)"
-  end
-  if value == "M" then
-    return "Participant Open High Low Last Indicator: Open High Low (M)"
-  end
-  if value == "N" then
-    return "Participant Open High Low Last Indicator: Open High Last (N)"
-  end
-  if value == "O" then
-    return "Participant Open High Low Last Indicator: Open Low Last (O)"
-  end
-  if value == "P" then
-    return "Participant Open High Low Last Indicator: High Low (P)"
-  end
-  if value == "Q" then
-    return "Participant Open High Low Last Indicator: High Low Last (Q)"
-  end
-
-  return "Participant Open High Low Last Indicator: Unknown("..value..")"
-end
-
--- Dissect: Participant Open High Low Last Indicator
-siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.participant_open_high_low_last_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.participant_open_high_low_last_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Consolidated High Low Last Indicator
-siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator = {}
-
--- Size: Consolidated High Low Last Indicator
-siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.size = 1
-
--- Display: Consolidated High Low Last Indicator
-siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.display = function(value)
-  if value == "A" then
-    return "Consolidated High Low Last Indicator: None (A)"
-  end
-  if value == "B" then
-    return "Consolidated High Low Last Indicator: High (B)"
-  end
-  if value == "C" then
-    return "Consolidated High Low Last Indicator: Low (C)"
-  end
-  if value == "D" then
-    return "Consolidated High Low Last Indicator: Last (D)"
-  end
-  if value == "E" then
-    return "Consolidated High Low Last Indicator: High Last (E)"
-  end
-  if value == "F" then
-    return "Consolidated High Low Last Indicator: Low Last (F)"
-  end
-  if value == "G" then
-    return "Consolidated High Low Last Indicator: High Low Last (G)"
-  end
-  if value == "H" then
-    return "Consolidated High Low Last Indicator: High Low (H)"
-  end
-
-  return "Consolidated High Low Last Indicator: Unknown("..value..")"
-end
-
--- Dissect: Consolidated High Low Last Indicator
-siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.consolidated_high_low_last_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.consolidated_high_low_last_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Fractional Trade Volume Short
-siac_cts_output_cta_v2_10.fractional_trade_volume_short = {}
-
--- Size: Fractional Trade Volume Short
-siac_cts_output_cta_v2_10.fractional_trade_volume_short.size = 4
-
--- Display: Fractional Trade Volume Short
-siac_cts_output_cta_v2_10.fractional_trade_volume_short.display = function(value)
-  return "Fractional Trade Volume Short: "..value
-end
-
--- Dissect: Fractional Trade Volume Short
-siac_cts_output_cta_v2_10.fractional_trade_volume_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.fractional_trade_volume_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.fractional_trade_volume_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_volume_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price Short
-siac_cts_output_cta_v2_10.trade_price_short = {}
-
--- Size: Trade Price Short
-siac_cts_output_cta_v2_10.trade_price_short.size = 2
-
--- Display: Trade Price Short
-siac_cts_output_cta_v2_10.trade_price_short.display = function(value)
-  return "Trade Price Short: "..value
-end
-
--- Translate: Trade Price Short
-siac_cts_output_cta_v2_10.trade_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Trade Price Short
-siac_cts_output_cta_v2_10.trade_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = siac_cts_output_cta_v2_10.trade_price_short.translate(raw)
-  local display = siac_cts_output_cta_v2_10.trade_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Sale Condition Category
-siac_cts_output_cta_v2_10.sale_condition_category = {}
-
--- Size: Sale Condition Category
-siac_cts_output_cta_v2_10.sale_condition_category.size = 1
-
--- Display: Sale Condition Category
-siac_cts_output_cta_v2_10.sale_condition_category.display = function(value)
-  if value == " " then
-    return "Sale Condition Category: Not Applicable (<whitespace>)"
-  end
-  if value == "1" then
-    return "Sale Condition Category: Category 1 (1)"
-  end
-  if value == "2" then
-    return "Sale Condition Category: Category 2 (2)"
-  end
-  if value == "3" then
-    return "Sale Condition Category: Category 3 (3)"
-  end
-  if value == "4" then
-    return "Sale Condition Category: Category 4 (4)"
-  end
-
-  return "Sale Condition Category: Unknown("..value..")"
-end
-
--- Dissect: Sale Condition Category
-siac_cts_output_cta_v2_10.sale_condition_category.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.sale_condition_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.sale_condition_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_condition_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Sale Condition
-siac_cts_output_cta_v2_10.sale_condition = {}
-
--- Size: Sale Condition
-siac_cts_output_cta_v2_10.sale_condition.size = 1
-
--- Display: Sale Condition
-siac_cts_output_cta_v2_10.sale_condition.display = function(value)
-  if value == " " then
-    return "Sale Condition: Regular Sale (<whitespace>)"
-  end
-  if value == "B" then
-    return "Sale Condition: Average Price Trade (B)"
-  end
-  if value == "C" then
-    return "Sale Condition: Cash Trade (C)"
-  end
-  if value == "E" then
-    return "Sale Condition: Automatic Execution (E)"
-  end
-  if value == "F" then
-    return "Sale Condition: Intermarket Sweep Order (F)"
-  end
-  if value == "H" then
-    return "Sale Condition: Price Variation Trade (H)"
-  end
-  if value == "I" then
-    return "Sale Condition: Odd Lot Trade (I)"
-  end
-  if value == "K" then
-    return "Sale Condition: Rule 127 Or 155 (K)"
-  end
-  if value == "L" then
-    return "Sale Condition: Sold Last (L)"
-  end
-  if value == "M" then
-    return "Sale Condition: Market Center Official Close (M)"
-  end
-  if value == "N" then
-    return "Sale Condition: Next Day Trade (N)"
-  end
-  if value == "O" then
-    return "Sale Condition: Market Center Opening Trade (O)"
-  end
-  if value == "P" then
-    return "Sale Condition: Prior Reference Price (P)"
-  end
-  if value == "Q" then
-    return "Sale Condition: Market Center Official Open (Q)"
-  end
-  if value == "R" then
-    return "Sale Condition: Seller (R)"
-  end
-  if value == "T" then
-    return "Sale Condition: Extended Hours Trade (T)"
-  end
-  if value == "U" then
-    return "Sale Condition: Extended Hours Sold (U)"
-  end
-  if value == "V" then
-    return "Sale Condition: Contingent Trade (V)"
-  end
-  if value == "X" then
-    return "Sale Condition: Cross Trade (X)"
-  end
-  if value == "Z" then
-    return "Sale Condition: Sold (Z)"
-  end
-  if value == "4" then
-    return "Sale Condition: Derivatively Priced (4)"
-  end
-  if value == "5" then
-    return "Sale Condition: Market Center Reopening Trade (5)"
-  end
-  if value == "6" then
-    return "Sale Condition: Market Center Closing Trade (6)"
-  end
-  if value == "7" then
-    return "Sale Condition: Qualified Contingent Trade (7)"
-  end
-  if value == "8" then
-    return "Sale Condition: Reserved (8)"
-  end
-  if value == "9" then
-    return "Sale Condition: Corrected Consolidated Close Price As Per Listing Market (9)"
-  end
-
-  return "Sale Condition: Unknown("..value..")"
-end
-
--- Dissect: Sale Condition
-siac_cts_output_cta_v2_10.sale_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.sale_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.sale_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.sale_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol Short
-siac_cts_output_cta_v2_10.security_symbol_short = {}
-
--- Size: Security Symbol Short
-siac_cts_output_cta_v2_10.security_symbol_short.size = 5
-
--- Display: Security Symbol Short
-siac_cts_output_cta_v2_10.security_symbol_short.display = function(value)
-  return "Security Symbol Short: "..value
-end
-
--- Dissect: Security Symbol Short
-siac_cts_output_cta_v2_10.security_symbol_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.security_symbol_short.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.security_symbol_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_symbol_short, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fractional Short Trade Message
 siac_cts_output_cta_v2_10.fractional_short_trade_message = {}
 
@@ -2848,29 +4405,6 @@ siac_cts_output_cta_v2_10.fractional_short_trade_message.dissect = function(buff
   end
 end
 
--- Trade Volume Short
-siac_cts_output_cta_v2_10.trade_volume_short = {}
-
--- Size: Trade Volume Short
-siac_cts_output_cta_v2_10.trade_volume_short.size = 2
-
--- Display: Trade Volume Short
-siac_cts_output_cta_v2_10.trade_volume_short.display = function(value)
-  return "Trade Volume Short: "..value
-end
-
--- Dissect: Trade Volume Short
-siac_cts_output_cta_v2_10.trade_volume_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_volume_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.trade_volume_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_volume_short, range, value, display)
-
-  return offset + length, value
-end
-
 -- Short Trade Message
 siac_cts_output_cta_v2_10.short_trade_message = {}
 
@@ -2955,305 +4489,6 @@ siac_cts_output_cta_v2_10.short_trade_message.dissect = function(buffer, offset,
 
     return index
   end
-end
-
--- Limit Up Limit Down Indicator
-siac_cts_output_cta_v2_10.limit_up_limit_down_indicator = {}
-
--- Size: Limit Up Limit Down Indicator
-siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.size = 1
-
--- Display: Limit Up Limit Down Indicator
-siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.display = function(value)
-  if value == " " then
-    return "Limit Up Limit Down Indicator: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Limit Up Limit Down Indicator: Limit Up Limit Down Price Band (A)"
-  end
-  if value == "B" then
-    return "Limit Up Limit Down Indicator: Republished Limit Up Limit Down Price Band (B)"
-  end
-  if value == "C" then
-    return "Limit Up Limit Down Indicator: National Best Bid Limit State Entered (C)"
-  end
-  if value == "D" then
-    return "Limit Up Limit Down Indicator: National Best Bid Limit State Exited (D)"
-  end
-  if value == "E" then
-    return "Limit Up Limit Down Indicator: National Best Offer Limit State Entered (E)"
-  end
-  if value == "F" then
-    return "Limit Up Limit Down Indicator: National Best Offer Limit State Exited (F)"
-  end
-  if value == "G" then
-    return "Limit Up Limit Down Indicator: National Best Bid And National Best Offer Limit State Entered (G)"
-  end
-  if value == "H" then
-    return "Limit Up Limit Down Indicator: National Best Bid And National Best Offer Limit State Exited (H)"
-  end
-  if value == "I" then
-    return "Limit Up Limit Down Indicator: National Best Bid Limit State Entered And National Best Offer Limit State Exited (I)"
-  end
-  if value == "J" then
-    return "Limit Up Limit Down Indicator: National Best Bid Limit State Exited And National Best Offer Limit State Entered (J)"
-  end
-
-  return "Limit Up Limit Down Indicator: Unknown("..value..")"
-end
-
--- Dissect: Limit Up Limit Down Indicator
-siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.limit_up_limit_down_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.limit_up_limit_down_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Halt Reason
-siac_cts_output_cta_v2_10.halt_reason = {}
-
--- Size: Halt Reason
-siac_cts_output_cta_v2_10.halt_reason.size = 1
-
--- Display: Halt Reason
-siac_cts_output_cta_v2_10.halt_reason.display = function(value)
-  if value == " " then
-    return "Halt Reason: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Halt Reason: Additional Information Requested (A)"
-  end
-  if value == "C" then
-    return "Halt Reason: Regulatory Concern (C)"
-  end
-  if value == "D" then
-    return "Halt Reason: News Released (D)"
-  end
-  if value == "E" then
-    return "Halt Reason: Merger Effective (E)"
-  end
-  if value == "F" then
-    return "Halt Reason: Etf Component Prices Not Available (F)"
-  end
-  if value == "I" then
-    return "Halt Reason: Order Imbalance (I)"
-  end
-  if value == "M" then
-    return "Halt Reason: Limit Up Limit Down Trading Pause (M)"
-  end
-  if value == "N" then
-    return "Halt Reason: Corporate Action (N)"
-  end
-  if value == "O" then
-    return "Halt Reason: New Security Offering (O)"
-  end
-  if value == "P" then
-    return "Halt Reason: News Pending (P)"
-  end
-  if value == "V" then
-    return "Halt Reason: Intraday Indicative Value Not Available (V)"
-  end
-  if value == "X" then
-    return "Halt Reason: Operational (X)"
-  end
-  if value == "Y" then
-    return "Halt Reason: Subpenny Trading (Y)"
-  end
-  if value == "1" then
-    return "Halt Reason: Market Wide Circuit Breaker Level 1 Breached (1)"
-  end
-  if value == "2" then
-    return "Halt Reason: Market Wide Circuit Breaker Level 2 Breached (2)"
-  end
-  if value == "3" then
-    return "Halt Reason: Market Wide Circuit Breaker Level 3 Breached (3)"
-  end
-
-  return "Halt Reason: Unknown("..value..")"
-end
-
--- Dissect: Halt Reason
-siac_cts_output_cta_v2_10.halt_reason.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.halt_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.halt_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.halt_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Status
-siac_cts_output_cta_v2_10.security_status = {}
-
--- Size: Security Status
-siac_cts_output_cta_v2_10.security_status.size = 1
-
--- Display: Security Status
-siac_cts_output_cta_v2_10.security_status.display = function(value)
-  if value == " " then
-    return "Security Status: Not Applicable (<whitespace>)"
-  end
-  if value == "2" then
-    return "Security Status: Trading Halt (2)"
-  end
-  if value == "3" then
-    return "Security Status: Resume (3)"
-  end
-  if value == "5" then
-    return "Security Status: Price Indication (5)"
-  end
-  if value == "6" then
-    return "Security Status: Trading Range Indication (6)"
-  end
-  if value == "7" then
-    return "Security Status: Market Imbalance Buy (7)"
-  end
-  if value == "8" then
-    return "Security Status: Market Imbalance Sell (8)"
-  end
-  if value == "9" then
-    return "Security Status: Market On Close Imbalance Buy (9)"
-  end
-  if value == "A" then
-    return "Security Status: Market On Close Imbalance Sell (A)"
-  end
-  if value == "C" then
-    return "Security Status: No Market Imbalance (C)"
-  end
-  if value == "D" then
-    return "Security Status: No Market On Close Imbalance (D)"
-  end
-  if value == "E" then
-    return "Security Status: Short Sale Restriction (E)"
-  end
-  if value == "F" then
-    return "Security Status: Limit Up Limit Down (F)"
-  end
-
-  return "Security Status: Unknown("..value..")"
-end
-
--- Dissect: Security Status
-siac_cts_output_cta_v2_10.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.security_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.security_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Volume
-siac_cts_output_cta_v2_10.sell_volume = {}
-
--- Size: Sell Volume
-siac_cts_output_cta_v2_10.sell_volume.size = 4
-
--- Display: Sell Volume
-siac_cts_output_cta_v2_10.sell_volume.display = function(value)
-  return "Sell Volume: "..value
-end
-
--- Dissect: Sell Volume
-siac_cts_output_cta_v2_10.sell_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.sell_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.sell_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.sell_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Volume
-siac_cts_output_cta_v2_10.buy_volume = {}
-
--- Size: Buy Volume
-siac_cts_output_cta_v2_10.buy_volume.size = 4
-
--- Display: Buy Volume
-siac_cts_output_cta_v2_10.buy_volume.display = function(value)
-  return "Buy Volume: "..value
-end
-
--- Dissect: Buy Volume
-siac_cts_output_cta_v2_10.buy_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.buy_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.buy_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.buy_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Indication Price Lower Limit Price Band
-siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band = {}
-
--- Size: Low Indication Price Lower Limit Price Band
-siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.size = 8
-
--- Display: Low Indication Price Lower Limit Price Band
-siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.display = function(value)
-  return "Low Indication Price Lower Limit Price Band: "..value
-end
-
--- Translate: Low Indication Price Lower Limit Price Band
-siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Low Indication Price Lower Limit Price Band
-siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.translate(raw)
-  local display = siac_cts_output_cta_v2_10.low_indication_price_lower_limit_price_band.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.low_indication_price_lower_limit_price_band, range, value, display)
-
-  return offset + length, value
-end
-
--- High Indication Price Upper Limit Price Band
-siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band = {}
-
--- Size: High Indication Price Upper Limit Price Band
-siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.size = 8
-
--- Display: High Indication Price Upper Limit Price Band
-siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.display = function(value)
-  return "High Indication Price Upper Limit Price Band: "..value
-end
-
--- Translate: High Indication Price Upper Limit Price Band
-siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: High Indication Price Upper Limit Price Band
-siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.translate(raw)
-  local display = siac_cts_output_cta_v2_10.high_indication_price_upper_limit_price_band.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.high_indication_price_upper_limit_price_band, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trading Status Message
@@ -3355,42 +4590,6 @@ siac_cts_output_cta_v2_10.trading_status_message.dissect = function(buffer, offs
 
     return index
   end
-end
-
--- Held Trade Indicator
-siac_cts_output_cta_v2_10.held_trade_indicator = {}
-
--- Size: Held Trade Indicator
-siac_cts_output_cta_v2_10.held_trade_indicator.size = 1
-
--- Display: Held Trade Indicator
-siac_cts_output_cta_v2_10.held_trade_indicator.display = function(value)
-  if value == " " then
-    return "Held Trade Indicator: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Held Trade Indicator: Cannot Be Used As A Last Sale For Both Participant And Consolidated Basis (A)"
-  end
-  if value == "B" then
-    return "Held Trade Indicator: Can Be Used As A Last Sale For Participant But Not Consolidated Basis (B)"
-  end
-  if value == "C" then
-    return "Held Trade Indicator: Can Be Used As A Last Sale For Participant And Consolidated Basis (C)"
-  end
-
-  return "Held Trade Indicator: Unknown("..value..")"
-end
-
--- Dissect: Held Trade Indicator
-siac_cts_output_cta_v2_10.held_trade_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.held_trade_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.held_trade_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.held_trade_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Fractional Long Trade Message
@@ -4059,139 +5258,6 @@ siac_cts_output_cta_v2_10.trade_correction_message.dissect = function(buffer, of
   end
 end
 
--- Future Use
-siac_cts_output_cta_v2_10.future_use = {}
-
--- Size: Future Use
-siac_cts_output_cta_v2_10.future_use.size = 62
-
--- Display: Future Use
-siac_cts_output_cta_v2_10.future_use.display = function(value)
-  return "Future Use: "..value
-end
-
--- Dissect: Future Use
-siac_cts_output_cta_v2_10.future_use.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.future_use.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.future_use.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.future_use, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Extensions
-siac_cts_output_cta_v2_10.number_of_extensions = {}
-
--- Size: Number Of Extensions
-siac_cts_output_cta_v2_10.number_of_extensions.size = 1
-
--- Display: Number Of Extensions
-siac_cts_output_cta_v2_10.number_of_extensions.display = function(value)
-  return "Number Of Extensions: "..value
-end
-
--- Dissect: Number Of Extensions
-siac_cts_output_cta_v2_10.number_of_extensions.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.number_of_extensions.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.number_of_extensions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.number_of_extensions, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Collar Lower Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price = {}
-
--- Size: Auction Collar Lower Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.size = 8
-
--- Display: Auction Collar Lower Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.display = function(value)
-  return "Auction Collar Lower Threshold Price: "..value
-end
-
--- Translate: Auction Collar Lower Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Auction Collar Lower Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.auction_collar_lower_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_lower_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Collar Upper Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price = {}
-
--- Size: Auction Collar Upper Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.size = 8
-
--- Display: Auction Collar Upper Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.display = function(value)
-  return "Auction Collar Upper Threshold Price: "..value
-end
-
--- Translate: Auction Collar Upper Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Auction Collar Upper Threshold Price
-siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Collar Reference Price
-siac_cts_output_cta_v2_10.auction_collar_reference_price = {}
-
--- Size: Auction Collar Reference Price
-siac_cts_output_cta_v2_10.auction_collar_reference_price.size = 8
-
--- Display: Auction Collar Reference Price
-siac_cts_output_cta_v2_10.auction_collar_reference_price.display = function(value)
-  return "Auction Collar Reference Price: "..value
-end
-
--- Translate: Auction Collar Reference Price
-siac_cts_output_cta_v2_10.auction_collar_reference_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Auction Collar Reference Price
-siac_cts_output_cta_v2_10.auction_collar_reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.auction_collar_reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.auction_collar_reference_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.auction_collar_reference_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Auction Status Message
 siac_cts_output_cta_v2_10.auction_status_message = {}
 
@@ -4333,60 +5399,6 @@ siac_cts_output_cta_v2_10.trade_payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Trade Message Type
-siac_cts_output_cta_v2_10.trade_message_type = {}
-
--- Size: Trade Message Type
-siac_cts_output_cta_v2_10.trade_message_type.size = 1
-
--- Display: Trade Message Type
-siac_cts_output_cta_v2_10.trade_message_type.display = function(value)
-  if value == "A" then
-    return "Trade Message Type: Auction Status Message (A)"
-  end
-  if value == "C" then
-    return "Trade Message Type: Trade Correction Message (C)"
-  end
-  if value == "O" then
-    return "Trade Message Type: Fractional Trade Correction Message (O)"
-  end
-  if value == "L" then
-    return "Trade Message Type: Long Trade Message (L)"
-  end
-  if value == "R" then
-    return "Trade Message Type: Fractional Long Trade Message (R)"
-  end
-  if value == "S" then
-    return "Trade Message Type: Trading Status Message (S)"
-  end
-  if value == "T" then
-    return "Trade Message Type: Short Trade Message (T)"
-  end
-  if value == "H" then
-    return "Trade Message Type: Fractional Short Trade Message (H)"
-  end
-  if value == "X" then
-    return "Trade Message Type: Trade Cancel Error Message (X)"
-  end
-  if value == "E" then
-    return "Trade Message Type: Fractional Trade Cancel Error Message (E)"
-  end
-
-  return "Trade Message Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Message Type
-siac_cts_output_cta_v2_10.trade_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.trade_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade
 siac_cts_output_cta_v2_10.trade = {}
 
@@ -4438,90 +5450,6 @@ siac_cts_output_cta_v2_10.trade.dissect = function(buffer, offset, packet, paren
 
     return index
   end
-end
-
--- Initiating Participant Id
-siac_cts_output_cta_v2_10.initiating_participant_id = {}
-
--- Size: Initiating Participant Id
-siac_cts_output_cta_v2_10.initiating_participant_id.size = 1
-
--- Display: Initiating Participant Id
-siac_cts_output_cta_v2_10.initiating_participant_id.display = function(value)
-  if value == "A" then
-    return "Initiating Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Initiating Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Initiating Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Initiating Participant Id: Adf (D)"
-  end
-  if value == "H" then
-    return "Initiating Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "Initiating Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Initiating Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Initiating Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Initiating Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Initiating Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Initiating Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Initiating Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Initiating Participant Id: Cts (S)"
-  end
-  if value == "T" then
-    return "Initiating Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "Initiating Participant Id: Members Exchange (U)"
-  end
-  if value == "V" then
-    return "Initiating Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Initiating Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Initiating Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Initiating Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Initiating Participant Id: Cboe Bzx (Z)"
-  end
-
-  return "Initiating Participant Id: Unknown("..value..")"
-end
-
--- Dissect: Initiating Participant Id
-siac_cts_output_cta_v2_10.initiating_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.initiating_participant_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.initiating_participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.initiating_participant_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Fractional Participant End Of Day Summary Message
@@ -4616,29 +5544,6 @@ siac_cts_output_cta_v2_10.fractional_participant_end_of_day_summary_message.diss
   end
 end
 
--- Total Volume
-siac_cts_output_cta_v2_10.total_volume = {}
-
--- Size: Total Volume
-siac_cts_output_cta_v2_10.total_volume.size = 8
-
--- Display: Total Volume
-siac_cts_output_cta_v2_10.total_volume.display = function(value)
-  return "Total Volume: "..value
-end
-
--- Dissect: Total Volume
-siac_cts_output_cta_v2_10.total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.total_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.total_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Participant End Of Day Summary Message
 siac_cts_output_cta_v2_10.participant_end_of_day_summary_message = {}
 
@@ -4729,29 +5634,6 @@ siac_cts_output_cta_v2_10.participant_end_of_day_summary_message.dissect = funct
 
     return index
   end
-end
-
--- Number Of Participants
-siac_cts_output_cta_v2_10.number_of_participants = {}
-
--- Size: Number Of Participants
-siac_cts_output_cta_v2_10.number_of_participants.size = 1
-
--- Display: Number Of Participants
-siac_cts_output_cta_v2_10.number_of_participants.display = function(value)
-  return "Number Of Participants: "..value
-end
-
--- Dissect: Number Of Participants
-siac_cts_output_cta_v2_10.number_of_participants.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.number_of_participants.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.number_of_participants.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.number_of_participants, range, value, display)
-
-  return offset + length, value
 end
 
 -- Fractional Consolidated End Of Day Summary Message
@@ -4948,35 +5830,6 @@ siac_cts_output_cta_v2_10.consolidated_end_of_day_summary_message.dissect = func
 
     return index
   end
-end
-
--- Previous Close Price
-siac_cts_output_cta_v2_10.previous_close_price = {}
-
--- Size: Previous Close Price
-siac_cts_output_cta_v2_10.previous_close_price.size = 8
-
--- Display: Previous Close Price
-siac_cts_output_cta_v2_10.previous_close_price.display = function(value)
-  return "Previous Close Price: "..value
-end
-
--- Translate: Previous Close Price
-siac_cts_output_cta_v2_10.previous_close_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Previous Close Price
-siac_cts_output_cta_v2_10.previous_close_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.previous_close_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cts_output_cta_v2_10.previous_close_price.translate(raw)
-  local display = siac_cts_output_cta_v2_10.previous_close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.previous_close_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Participant Start Of Day Summary Message
@@ -5176,48 +6029,6 @@ siac_cts_output_cta_v2_10.summary_payload.dissect = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Summary Message Type
-siac_cts_output_cta_v2_10.summary_message_type = {}
-
--- Size: Summary Message Type
-siac_cts_output_cta_v2_10.summary_message_type.size = 1
-
--- Display: Summary Message Type
-siac_cts_output_cta_v2_10.summary_message_type.display = function(value)
-  if value == "A" then
-    return "Summary Message Type: Consolidated Start Of Day Summary Message (A)"
-  end
-  if value == "B" then
-    return "Summary Message Type: Participant Start Of Day Summary Message (B)"
-  end
-  if value == "C" then
-    return "Summary Message Type: Consolidated End Of Day Summary Message (C)"
-  end
-  if value == "T" then
-    return "Summary Message Type: Fractional Consolidated End Of Day Summary Message (T)"
-  end
-  if value == "D" then
-    return "Summary Message Type: Participant End Of Day Summary Message (D)"
-  end
-  if value == "P" then
-    return "Summary Message Type: Fractional Participant End Of Day Summary Message (P)"
-  end
-
-  return "Summary Message Type: Unknown("..value..")"
-end
-
--- Dissect: Summary Message Type
-siac_cts_output_cta_v2_10.summary_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.summary_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.summary_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.summary_message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Summary
@@ -5966,48 +6777,6 @@ siac_cts_output_cta_v2_10.prior_day_payload.dissect = function(buffer, offset, p
   return offset
 end
 
--- Prior Day Message Type
-siac_cts_output_cta_v2_10.prior_day_message_type = {}
-
--- Size: Prior Day Message Type
-siac_cts_output_cta_v2_10.prior_day_message_type.size = 1
-
--- Display: Prior Day Message Type
-siac_cts_output_cta_v2_10.prior_day_message_type.display = function(value)
-  if value == "C" then
-    return "Prior Day Message Type: Prior Day Trade Correction Message (C)"
-  end
-  if value == "O" then
-    return "Prior Day Message Type: Fractional Prior Day Trade Correction Message (O)"
-  end
-  if value == "L" then
-    return "Prior Day Message Type: Prior Day Trade Message (L)"
-  end
-  if value == "R" then
-    return "Prior Day Message Type: Fractional Prior Day Trade Message (R)"
-  end
-  if value == "X" then
-    return "Prior Day Message Type: Prior Day Trade Message (X)"
-  end
-  if value == "E" then
-    return "Prior Day Message Type: Fractional Prior Day Trade Message (E)"
-  end
-
-  return "Prior Day Message Type: Unknown("..value..")"
-end
-
--- Dissect: Prior Day Message Type
-siac_cts_output_cta_v2_10.prior_day_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.prior_day_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.prior_day_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.prior_day_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Prior Day
 siac_cts_output_cta_v2_10.prior_day = {}
 
@@ -6059,75 +6828,6 @@ siac_cts_output_cta_v2_10.prior_day.dissect = function(buffer, offset, packet, p
 
     return index
   end
-end
-
--- Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume = {}
-
--- Size: Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.size = 8
-
--- Display: Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.display = function(value)
-  return "Crossing Session 2 Total Trades Volume: "..value
-end
-
--- Dissect: Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.crossing_session_2_total_trades_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_total_trades_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_10.crossing_session_2_dollar_value = {}
-
--- Size: Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.size = 8
-
--- Display: Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.display = function(value)
-  return "Crossing Session 2 Dollar Value: "..value
-end
-
--- Dissect: Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.crossing_session_2_dollar_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_2_dollar_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume = {}
-
--- Size: Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.size = 8
-
--- Display: Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.display = function(value)
-  return "Crossing Session 1 Total Trades Volume: "..value
-end
-
--- Dissect: Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.crossing_session_1_total_trades_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.crossing_session_1_total_trades_volume, range, value, display)
-
-  return offset + length, value
 end
 
 -- Crossing Session Summary Message
@@ -6201,52 +6901,6 @@ siac_cts_output_cta_v2_10.crossing_session_summary_message.dissect = function(bu
   end
 end
 
--- Dollar Value
-siac_cts_output_cta_v2_10.dollar_value = {}
-
--- Size: Dollar Value
-siac_cts_output_cta_v2_10.dollar_value.size = 8
-
--- Display: Dollar Value
-siac_cts_output_cta_v2_10.dollar_value.display = function(value)
-  return "Dollar Value: "..value
-end
-
--- Dissect: Dollar Value
-siac_cts_output_cta_v2_10.dollar_value.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.dollar_value.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.dollar_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.dollar_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Trades
-siac_cts_output_cta_v2_10.total_trades = {}
-
--- Size: Total Trades
-siac_cts_output_cta_v2_10.total_trades.size = 4
-
--- Display: Total Trades
-siac_cts_output_cta_v2_10.total_trades.display = function(value)
-  return "Total Trades: "..value
-end
-
--- Dissect: Total Trades
-siac_cts_output_cta_v2_10.total_trades.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.total_trades.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.total_trades.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.total_trades, range, value, display)
-
-  return offset + length, value
-end
-
 -- Approximate Trades And Total Dollar Value Message
 siac_cts_output_cta_v2_10.approximate_trades_and_total_dollar_value_message = {}
 
@@ -6313,29 +6967,6 @@ siac_cts_output_cta_v2_10.approximate_trades_and_total_dollar_value_message.diss
 
     return index
   end
-end
-
--- Fractional Trade Total Volume
-siac_cts_output_cta_v2_10.fractional_trade_total_volume = {}
-
--- Size: Fractional Trade Total Volume
-siac_cts_output_cta_v2_10.fractional_trade_total_volume.size = 8
-
--- Display: Fractional Trade Total Volume
-siac_cts_output_cta_v2_10.fractional_trade_total_volume.display = function(value)
-  return "Fractional Trade Total Volume: "..value
-end
-
--- Dissect: Fractional Trade Total Volume
-siac_cts_output_cta_v2_10.fractional_trade_total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.fractional_trade_total_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.fractional_trade_total_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.fractional_trade_total_volume, range, value, display)
-
-  return offset + length, value
 end
 
 -- Fractional Participants
@@ -6458,29 +7089,6 @@ siac_cts_output_cta_v2_10.fractional_approximate_adjusted_volume_market_center_m
   end
 end
 
--- Trade Total Volume
-siac_cts_output_cta_v2_10.trade_total_volume = {}
-
--- Size: Trade Total Volume
-siac_cts_output_cta_v2_10.trade_total_volume.size = 8
-
--- Display: Trade Total Volume
-siac_cts_output_cta_v2_10.trade_total_volume.display = function(value)
-  return "Trade Total Volume: "..value
-end
-
--- Dissect: Trade Total Volume
-siac_cts_output_cta_v2_10.trade_total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.trade_total_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_10.trade_total_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.trade_total_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Participants
 siac_cts_output_cta_v2_10.participants = {}
 
@@ -6601,65 +7209,6 @@ siac_cts_output_cta_v2_10.approximate_adjusted_volume_market_center_message.diss
   end
 end
 
--- Reserved
-siac_cts_output_cta_v2_10.reserved = {}
-
--- Size: Reserved
-siac_cts_output_cta_v2_10.reserved.size = 1
-
--- Display: Reserved
-siac_cts_output_cta_v2_10.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-siac_cts_output_cta_v2_10.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Wide Circuit Breaker Level Indicator
-siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator = {}
-
--- Size: Market Wide Circuit Breaker Level Indicator
-siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.size = 1
-
--- Display: Market Wide Circuit Breaker Level Indicator
-siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.display = function(value)
-  if value == " " then
-    return "Market Wide Circuit Breaker Level Indicator: Not Applicable (<whitespace>)"
-  end
-  if value == "1" then
-    return "Market Wide Circuit Breaker Level Indicator: Level 1 Breached (1)"
-  end
-  if value == "2" then
-    return "Market Wide Circuit Breaker Level Indicator: Level 2 Breached (2)"
-  end
-  if value == "3" then
-    return "Market Wide Circuit Breaker Level Indicator: Level 3 Breached (3)"
-  end
-
-  return "Market Wide Circuit Breaker Level Indicator: Unknown("..value..")"
-end
-
--- Dissect: Market Wide Circuit Breaker Level Indicator
-siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.market_wide_circuit_breaker_level_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.market_wide_circuit_breaker_level_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Wide Circuit Breaker Status Message
 siac_cts_output_cta_v2_10.market_wide_circuit_breaker_status_message = {}
 
@@ -6726,75 +7275,6 @@ siac_cts_output_cta_v2_10.market_wide_circuit_breaker_status_message.dissect = f
 
     return index
   end
-end
-
--- Mwcb Level 3
-siac_cts_output_cta_v2_10.mwcb_level_3 = {}
-
--- Size: Mwcb Level 3
-siac_cts_output_cta_v2_10.mwcb_level_3.size = 8
-
--- Display: Mwcb Level 3
-siac_cts_output_cta_v2_10.mwcb_level_3.display = function(value)
-  return "Mwcb Level 3: "..value
-end
-
--- Dissect: Mwcb Level 3
-siac_cts_output_cta_v2_10.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.mwcb_level_3.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.mwcb_level_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 2
-siac_cts_output_cta_v2_10.mwcb_level_2 = {}
-
--- Size: Mwcb Level 2
-siac_cts_output_cta_v2_10.mwcb_level_2.size = 8
-
--- Display: Mwcb Level 2
-siac_cts_output_cta_v2_10.mwcb_level_2.display = function(value)
-  return "Mwcb Level 2: "..value
-end
-
--- Dissect: Mwcb Level 2
-siac_cts_output_cta_v2_10.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.mwcb_level_2.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.mwcb_level_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 1
-siac_cts_output_cta_v2_10.mwcb_level_1 = {}
-
--- Size: Mwcb Level 1
-siac_cts_output_cta_v2_10.mwcb_level_1.size = 8
-
--- Display: Mwcb Level 1
-siac_cts_output_cta_v2_10.mwcb_level_1.display = function(value)
-  return "Mwcb Level 1: "..value
-end
-
--- Dissect: Mwcb Level 1
-siac_cts_output_cta_v2_10.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.mwcb_level_1.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.mwcb_level_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.mwcb_level_1, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Wide Circuit Breaker Decline Level Status Message
@@ -6904,48 +7384,6 @@ siac_cts_output_cta_v2_10.market_status_payload.dissect = function(buffer, offse
   return offset
 end
 
--- Market Status Message Type
-siac_cts_output_cta_v2_10.market_status_message_type = {}
-
--- Size: Market Status Message Type
-siac_cts_output_cta_v2_10.market_status_message_type.size = 1
-
--- Display: Market Status Message Type
-siac_cts_output_cta_v2_10.market_status_message_type.display = function(value)
-  if value == "M" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
-  end
-  if value == "L" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
-  end
-  if value == "N" then
-    return "Market Status Message Type: Approximate Adjusted Volume Market Center Message (N)"
-  end
-  if value == "V" then
-    return "Market Status Message Type: Fractional Approximate Adjusted Volume Market Center Message (V)"
-  end
-  if value == "O" then
-    return "Market Status Message Type: Approximate Trades And Total Dollar Value Message (O)"
-  end
-  if value == "P" then
-    return "Market Status Message Type: Crossing Session Summary Message (P)"
-  end
-
-  return "Market Status Message Type: Unknown("..value..")"
-end
-
--- Dissect: Market Status Message Type
-siac_cts_output_cta_v2_10.market_status_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.market_status_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.market_status_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.market_status_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Status
 siac_cts_output_cta_v2_10.market_status = {}
 
@@ -6997,75 +7435,6 @@ siac_cts_output_cta_v2_10.market_status.dissect = function(buffer, offset, packe
 
     return index
   end
-end
-
--- Offer Index Value
-siac_cts_output_cta_v2_10.offer_index_value = {}
-
--- Size: Offer Index Value
-siac_cts_output_cta_v2_10.offer_index_value.size = 8
-
--- Display: Offer Index Value
-siac_cts_output_cta_v2_10.offer_index_value.display = function(value)
-  return "Offer Index Value: "..value
-end
-
--- Dissect: Offer Index Value
-siac_cts_output_cta_v2_10.offer_index_value.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.offer_index_value.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.offer_index_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.offer_index_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Index Value
-siac_cts_output_cta_v2_10.bid_index_value = {}
-
--- Size: Bid Index Value
-siac_cts_output_cta_v2_10.bid_index_value.size = 8
-
--- Display: Bid Index Value
-siac_cts_output_cta_v2_10.bid_index_value.display = function(value)
-  return "Bid Index Value: "..value
-end
-
--- Dissect: Bid Index Value
-siac_cts_output_cta_v2_10.bid_index_value.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.bid_index_value.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.bid_index_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.bid_index_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Index Symbol
-siac_cts_output_cta_v2_10.index_symbol = {}
-
--- Size: Index Symbol
-siac_cts_output_cta_v2_10.index_symbol.size = 11
-
--- Display: Index Symbol
-siac_cts_output_cta_v2_10.index_symbol.display = function(value)
-  return "Index Symbol: "..value
-end
-
--- Dissect: Index Symbol
-siac_cts_output_cta_v2_10.index_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.index_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.index_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bid And Offer Index Message
@@ -7137,29 +7506,6 @@ siac_cts_output_cta_v2_10.bid_and_offer_index_message.dissect = function(buffer,
 
     return index
   end
-end
-
--- Index Value
-siac_cts_output_cta_v2_10.index_value = {}
-
--- Size: Index Value
-siac_cts_output_cta_v2_10.index_value.size = 8
-
--- Display: Index Value
-siac_cts_output_cta_v2_10.index_value.display = function(value)
-  return "Index Value: "..value
-end
-
--- Dissect: Index Value
-siac_cts_output_cta_v2_10.index_value.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.index_value.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cts_output_cta_v2_10.index_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_value, range, value, display)
-
-  return offset + length, value
 end
 
 -- Index Message
@@ -7245,36 +7591,6 @@ siac_cts_output_cta_v2_10.index_payload.dissect = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Index Message Type
-siac_cts_output_cta_v2_10.index_message_type = {}
-
--- Size: Index Message Type
-siac_cts_output_cta_v2_10.index_message_type.size = 1
-
--- Display: Index Message Type
-siac_cts_output_cta_v2_10.index_message_type.display = function(value)
-  if value == "I" then
-    return "Index Message Type: Index Message (I)"
-  end
-  if value == "Q" then
-    return "Index Message Type: Bid And Offer Index Message (Q)"
-  end
-
-  return "Index Message Type: Unknown("..value..")"
-end
-
--- Dissect: Index Message Type
-siac_cts_output_cta_v2_10.index_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.index_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.index_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.index_message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Index
@@ -7669,45 +7985,6 @@ siac_cts_output_cta_v2_10.control_payload.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Control Message Type
-siac_cts_output_cta_v2_10.control_message_type = {}
-
--- Size: Control Message Type
-siac_cts_output_cta_v2_10.control_message_type.size = 1
-
--- Display: Control Message Type
-siac_cts_output_cta_v2_10.control_message_type.display = function(value)
-  if value == "A" then
-    return "Control Message Type: Start Of Day Message (A)"
-  end
-  if value == "L" then
-    return "Control Message Type: Reset Block Sequence Number Message (L)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation Message (P)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity Message (T)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Day Message (Z)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
-end
-
--- Dissect: Control Message Type
-siac_cts_output_cta_v2_10.control_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.control_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.control_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Control
 siac_cts_output_cta_v2_10.control = {}
 
@@ -8034,42 +8311,6 @@ siac_cts_output_cta_v2_10.administrative_payload.dissect = function(buffer, offs
   return offset
 end
 
--- Administrative Message Type
-siac_cts_output_cta_v2_10.administrative_message_type = {}
-
--- Size: Administrative Message Type
-siac_cts_output_cta_v2_10.administrative_message_type.size = 1
-
--- Display: Administrative Message Type
-siac_cts_output_cta_v2_10.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: Start Of End Of Day Message (A)"
-  end
-  if value == "B" then
-    return "Administrative Message Type: End Of End Of Day Message (B)"
-  end
-  if value == "C" then
-    return "Administrative Message Type: Start Of Start Of Day Message (C)"
-  end
-  if value == "D" then
-    return "Administrative Message Type: End Of Start Of Day Message (D)"
-  end
-
-  return "Administrative Message Type: Unknown("..value..")"
-end
-
--- Dissect: Administrative Message Type
-siac_cts_output_cta_v2_10.administrative_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.administrative_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.administrative_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.administrative_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Administrative
 siac_cts_output_cta_v2_10.administrative = {}
 
@@ -8158,74 +8399,6 @@ siac_cts_output_cta_v2_10.payload.dissect = function(buffer, offset, packet, par
   end
 
   return offset
-end
-
--- Message Category
-siac_cts_output_cta_v2_10.message_category = {}
-
--- Size: Message Category
-siac_cts_output_cta_v2_10.message_category.size = 1
-
--- Display: Message Category
-siac_cts_output_cta_v2_10.message_category.display = function(value)
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
-  if value == "I" then
-    return "Message Category: Index (I)"
-  end
-  if value == "M" then
-    return "Message Category: Market Status (M)"
-  end
-  if value == "P" then
-    return "Message Category: Prior Day (P)"
-  end
-  if value == "S" then
-    return "Message Category: Summary (S)"
-  end
-  if value == "T" then
-    return "Message Category: Trade (T)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-siac_cts_output_cta_v2_10.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-siac_cts_output_cta_v2_10.message_length = {}
-
--- Size: Message Length
-siac_cts_output_cta_v2_10.message_length.size = 2
-
--- Display: Message Length
-siac_cts_output_cta_v2_10.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-siac_cts_output_cta_v2_10.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -8323,29 +8496,6 @@ siac_cts_output_cta_v2_10.message.dissect = function(buffer, offset, packet, par
   end
 end
 
--- Block Checksum
-siac_cts_output_cta_v2_10.block_checksum = {}
-
--- Size: Block Checksum
-siac_cts_output_cta_v2_10.block_checksum.size = 2
-
--- Display: Block Checksum
-siac_cts_output_cta_v2_10.block_checksum.display = function(value)
-  return "Block Checksum: "..value
-end
-
--- Dissect: Block Checksum
-siac_cts_output_cta_v2_10.block_checksum.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.block_checksum.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.block_checksum.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_checksum, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sip Block Timestamp
 siac_cts_output_cta_v2_10.sip_block_timestamp = {}
 
@@ -8388,151 +8538,6 @@ siac_cts_output_cta_v2_10.sip_block_timestamp.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return siac_cts_output_cta_v2_10.sip_block_timestamp.fields(buffer, offset, packet, parent)
   end
-end
-
--- Messages In Block
-siac_cts_output_cta_v2_10.messages_in_block = {}
-
--- Size: Messages In Block
-siac_cts_output_cta_v2_10.messages_in_block.size = 1
-
--- Display: Messages In Block
-siac_cts_output_cta_v2_10.messages_in_block.display = function(value)
-  return "Messages In Block: "..value
-end
-
--- Dissect: Messages In Block
-siac_cts_output_cta_v2_10.messages_in_block.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.messages_in_block.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.messages_in_block.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.messages_in_block, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Sequence Number
-siac_cts_output_cta_v2_10.block_sequence_number = {}
-
--- Size: Block Sequence Number
-siac_cts_output_cta_v2_10.block_sequence_number.size = 4
-
--- Display: Block Sequence Number
-siac_cts_output_cta_v2_10.block_sequence_number.display = function(value)
-  return "Block Sequence Number: "..value
-end
-
--- Dissect: Block Sequence Number
-siac_cts_output_cta_v2_10.block_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.block_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.block_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmission Indicator
-siac_cts_output_cta_v2_10.retransmission_indicator = {}
-
--- Size: Retransmission Indicator
-siac_cts_output_cta_v2_10.retransmission_indicator.size = 1
-
--- Display: Retransmission Indicator
-siac_cts_output_cta_v2_10.retransmission_indicator.display = function(value)
-  if value == "O" then
-    return "Retransmission Indicator: Original (O)"
-  end
-  if value == "V" then
-    return "Retransmission Indicator: Retransmitted (V)"
-  end
-
-  return "Retransmission Indicator: Unknown("..value..")"
-end
-
--- Dissect: Retransmission Indicator
-siac_cts_output_cta_v2_10.retransmission_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.retransmission_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.retransmission_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Data Feed Indicator
-siac_cts_output_cta_v2_10.data_feed_indicator = {}
-
--- Size: Data Feed Indicator
-siac_cts_output_cta_v2_10.data_feed_indicator.size = 1
-
--- Display: Data Feed Indicator
-siac_cts_output_cta_v2_10.data_feed_indicator.display = function(value)
-  return "Data Feed Indicator: "..value
-end
-
--- Dissect: Data Feed Indicator
-siac_cts_output_cta_v2_10.data_feed_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.data_feed_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cts_output_cta_v2_10.data_feed_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.data_feed_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Size
-siac_cts_output_cta_v2_10.block_size = {}
-
--- Size: Block Size
-siac_cts_output_cta_v2_10.block_size.size = 2
-
--- Display: Block Size
-siac_cts_output_cta_v2_10.block_size.display = function(value)
-  return "Block Size: "..value
-end
-
--- Dissect: Block Size
-siac_cts_output_cta_v2_10.block_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.block_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.block_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-siac_cts_output_cta_v2_10.version = {}
-
--- Size: Version
-siac_cts_output_cta_v2_10.version.size = 1
-
--- Display: Version
-siac_cts_output_cta_v2_10.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-siac_cts_output_cta_v2_10.version.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_10.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Block Header

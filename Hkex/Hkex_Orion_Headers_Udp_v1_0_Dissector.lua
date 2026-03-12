@@ -79,28 +79,74 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Hkex Orion Headers Udp 1.0
+-- Hkex Orion Headers Udp 1.0 Fields
 -----------------------------------------------------------------------
 
--- Payload
-hkex_orion_headers_udp_v1_0.payload = {}
+-- Compression Mode
+hkex_orion_headers_udp_v1_0.compression_mode = {}
 
--- Size: Payload
-hkex_orion_headers_udp_v1_0.payload.size = 0
+-- Size: Compression Mode
+hkex_orion_headers_udp_v1_0.compression_mode.size = 1
 
--- Display: Payload
-hkex_orion_headers_udp_v1_0.payload.display = function(value)
-  return "Payload: "..value
+-- Display: Compression Mode
+hkex_orion_headers_udp_v1_0.compression_mode.display = function(value)
+  return "Compression Mode: "..value
 end
 
--- Dissect: Payload
-hkex_orion_headers_udp_v1_0.payload.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.payload.size
+-- Dissect: Compression Mode
+hkex_orion_headers_udp_v1_0.compression_mode.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.compression_mode.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = hkex_orion_headers_udp_v1_0.payload.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = hkex_orion_headers_udp_v1_0.compression_mode.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.payload, range, value, display)
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.compression_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Count
+hkex_orion_headers_udp_v1_0.msg_count = {}
+
+-- Size: Msg Count
+hkex_orion_headers_udp_v1_0.msg_count.size = 1
+
+-- Display: Msg Count
+hkex_orion_headers_udp_v1_0.msg_count.display = function(value)
+  return "Msg Count: "..value
+end
+
+-- Dissect: Msg Count
+hkex_orion_headers_udp_v1_0.msg_count.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.msg_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = hkex_orion_headers_udp_v1_0.msg_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.msg_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Size
+hkex_orion_headers_udp_v1_0.msg_size = {}
+
+-- Size: Msg Size
+hkex_orion_headers_udp_v1_0.msg_size.size = 2
+
+-- Display: Msg Size
+hkex_orion_headers_udp_v1_0.msg_size.display = function(value)
+  return "Msg Size: "..value
+end
+
+-- Dissect: Msg Size
+hkex_orion_headers_udp_v1_0.msg_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.msg_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_orion_headers_udp_v1_0.msg_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.msg_size, range, value, display)
 
   return offset + length, value
 end
@@ -128,28 +174,106 @@ hkex_orion_headers_udp_v1_0.msg_type.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Msg Size
-hkex_orion_headers_udp_v1_0.msg_size = {}
+-- Payload
+hkex_orion_headers_udp_v1_0.payload = {}
 
--- Size: Msg Size
-hkex_orion_headers_udp_v1_0.msg_size.size = 2
+-- Size: Payload
+hkex_orion_headers_udp_v1_0.payload.size = 0
 
--- Display: Msg Size
-hkex_orion_headers_udp_v1_0.msg_size.display = function(value)
-  return "Msg Size: "..value
+-- Display: Payload
+hkex_orion_headers_udp_v1_0.payload.display = function(value)
+  return "Payload: "..value
 end
 
--- Dissect: Msg Size
-hkex_orion_headers_udp_v1_0.msg_size.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.msg_size.size
+-- Dissect: Payload
+hkex_orion_headers_udp_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.payload.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_orion_headers_udp_v1_0.msg_size.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = hkex_orion_headers_udp_v1_0.payload.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.msg_size, range, value, display)
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.payload, range, value, display)
 
   return offset + length, value
 end
+
+-- Pkt Size
+hkex_orion_headers_udp_v1_0.pkt_size = {}
+
+-- Size: Pkt Size
+hkex_orion_headers_udp_v1_0.pkt_size.size = 2
+
+-- Display: Pkt Size
+hkex_orion_headers_udp_v1_0.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+hkex_orion_headers_udp_v1_0.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_orion_headers_udp_v1_0.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Time
+hkex_orion_headers_udp_v1_0.send_time = {}
+
+-- Size: Send Time
+hkex_orion_headers_udp_v1_0.send_time.size = 8
+
+-- Display: Send Time
+hkex_orion_headers_udp_v1_0.send_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Send Time
+hkex_orion_headers_udp_v1_0.send_time.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.send_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_orion_headers_udp_v1_0.send_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.send_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+hkex_orion_headers_udp_v1_0.seq_num = {}
+
+-- Size: Seq Num
+hkex_orion_headers_udp_v1_0.seq_num.size = 4
+
+-- Display: Seq Num
+hkex_orion_headers_udp_v1_0.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+hkex_orion_headers_udp_v1_0.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_orion_headers_udp_v1_0.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_orion_headers_udp_v1_0.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Hkex Orion Headers Udp 1.0
+-----------------------------------------------------------------------
 
 -- Msg Header
 hkex_orion_headers_udp_v1_0.msg_header = {}
@@ -241,125 +365,6 @@ hkex_orion_headers_udp_v1_0.message.dissect = function(buffer, offset, packet, p
 
     return index
   end
-end
-
--- Send Time
-hkex_orion_headers_udp_v1_0.send_time = {}
-
--- Size: Send Time
-hkex_orion_headers_udp_v1_0.send_time.size = 8
-
--- Display: Send Time
-hkex_orion_headers_udp_v1_0.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Send Time
-hkex_orion_headers_udp_v1_0.send_time.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.send_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = hkex_orion_headers_udp_v1_0.send_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.send_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq Num
-hkex_orion_headers_udp_v1_0.seq_num = {}
-
--- Size: Seq Num
-hkex_orion_headers_udp_v1_0.seq_num.size = 4
-
--- Display: Seq Num
-hkex_orion_headers_udp_v1_0.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-hkex_orion_headers_udp_v1_0.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_orion_headers_udp_v1_0.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Compression Mode
-hkex_orion_headers_udp_v1_0.compression_mode = {}
-
--- Size: Compression Mode
-hkex_orion_headers_udp_v1_0.compression_mode.size = 1
-
--- Display: Compression Mode
-hkex_orion_headers_udp_v1_0.compression_mode.display = function(value)
-  return "Compression Mode: "..value
-end
-
--- Dissect: Compression Mode
-hkex_orion_headers_udp_v1_0.compression_mode.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.compression_mode.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = hkex_orion_headers_udp_v1_0.compression_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.compression_mode, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Count
-hkex_orion_headers_udp_v1_0.msg_count = {}
-
--- Size: Msg Count
-hkex_orion_headers_udp_v1_0.msg_count.size = 1
-
--- Display: Msg Count
-hkex_orion_headers_udp_v1_0.msg_count.display = function(value)
-  return "Msg Count: "..value
-end
-
--- Dissect: Msg Count
-hkex_orion_headers_udp_v1_0.msg_count.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.msg_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = hkex_orion_headers_udp_v1_0.msg_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.msg_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Pkt Size
-hkex_orion_headers_udp_v1_0.pkt_size = {}
-
--- Size: Pkt Size
-hkex_orion_headers_udp_v1_0.pkt_size.size = 2
-
--- Display: Pkt Size
-hkex_orion_headers_udp_v1_0.pkt_size.display = function(value)
-  return "Pkt Size: "..value
-end
-
--- Dissect: Pkt Size
-hkex_orion_headers_udp_v1_0.pkt_size.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_orion_headers_udp_v1_0.pkt_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_orion_headers_udp_v1_0.pkt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_orion_headers_udp_v1_0.fields.pkt_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

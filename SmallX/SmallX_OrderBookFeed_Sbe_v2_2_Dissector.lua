@@ -397,8 +397,1024 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect SmallX OrderBookFeed Sbe 2.2
+-- SmallX OrderBookFeed Sbe 2.2 Fields
 -----------------------------------------------------------------------
+
+-- Aggressor Side
+smallx_orderbookfeed_sbe_v2_2.aggressor_side = {}
+
+-- Size: Aggressor Side
+smallx_orderbookfeed_sbe_v2_2.aggressor_side.size = 1
+
+-- Display: Aggressor Side
+smallx_orderbookfeed_sbe_v2_2.aggressor_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Aggressor Side: No Value"
+  end
+
+  if value == "N" then
+    return "Aggressor Side: No Aggressor (N)"
+  end
+  if value == "B" then
+    return "Aggressor Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Aggressor Side: Sell (S)"
+  end
+
+  return "Aggressor Side: Unknown("..value..")"
+end
+
+-- Dissect: Aggressor Side
+smallx_orderbookfeed_sbe_v2_2.aggressor_side.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.aggressor_side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.aggressor_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.aggressor_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+smallx_orderbookfeed_sbe_v2_2.block_length = {}
+
+-- Size: Block Length
+smallx_orderbookfeed_sbe_v2_2.block_length.size = 2
+
+-- Display: Block Length
+smallx_orderbookfeed_sbe_v2_2.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+smallx_orderbookfeed_sbe_v2_2.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Order Id
+smallx_orderbookfeed_sbe_v2_2.buy_order_id = {}
+
+-- Size: Buy Order Id
+smallx_orderbookfeed_sbe_v2_2.buy_order_id.size = 8
+
+-- Display: Buy Order Id
+smallx_orderbookfeed_sbe_v2_2.buy_order_id.display = function(value)
+  return "Buy Order Id: "..value
+end
+
+-- Dissect: Buy Order Id
+smallx_orderbookfeed_sbe_v2_2.buy_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.buy_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.buy_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.buy_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cfi Code
+smallx_orderbookfeed_sbe_v2_2.cfi_code = {}
+
+-- Size: Cfi Code
+smallx_orderbookfeed_sbe_v2_2.cfi_code.size = 6
+
+-- Display: Cfi Code
+smallx_orderbookfeed_sbe_v2_2.cfi_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cfi Code: No Value"
+  end
+
+  return "Cfi Code: "..value
+end
+
+-- Dissect: Cfi Code
+smallx_orderbookfeed_sbe_v2_2.cfi_code.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.cfi_code.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.cfi_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.cfi_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+smallx_orderbookfeed_sbe_v2_2.channel_id = {}
+
+-- Size: Channel Id
+smallx_orderbookfeed_sbe_v2_2.channel_id.size = 1
+
+-- Display: Channel Id
+smallx_orderbookfeed_sbe_v2_2.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+smallx_orderbookfeed_sbe_v2_2.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Close Price
+smallx_orderbookfeed_sbe_v2_2.close_price = {}
+
+-- Size: Close Price
+smallx_orderbookfeed_sbe_v2_2.close_price.size = 8
+
+-- Display: Close Price
+smallx_orderbookfeed_sbe_v2_2.close_price.display = function(value)
+  return "Close Price: "..value
+end
+
+-- Translate: Close Price
+smallx_orderbookfeed_sbe_v2_2.close_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Close Price
+smallx_orderbookfeed_sbe_v2_2.close_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.close_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.close_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+smallx_orderbookfeed_sbe_v2_2.currency = {}
+
+-- Size: Currency
+smallx_orderbookfeed_sbe_v2_2.currency.size = 3
+
+-- Display: Currency
+smallx_orderbookfeed_sbe_v2_2.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+smallx_orderbookfeed_sbe_v2_2.currency.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery
+smallx_orderbookfeed_sbe_v2_2.delivery = {}
+
+-- Size: Delivery
+smallx_orderbookfeed_sbe_v2_2.delivery.size = 1
+
+-- Display: Delivery
+smallx_orderbookfeed_sbe_v2_2.delivery.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Delivery: No Value"
+  end
+
+  if value == "C" then
+    return "Delivery: Cash (C)"
+  end
+  if value == "P" then
+    return "Delivery: Physical (P)"
+  end
+
+  return "Delivery: Unknown("..value..")"
+end
+
+-- Dissect: Delivery
+smallx_orderbookfeed_sbe_v2_2.delivery.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.delivery.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.delivery.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.delivery, range, value, display)
+
+  return offset + length, value
+end
+
+-- Description
+smallx_orderbookfeed_sbe_v2_2.description = {}
+
+-- Size: Description
+smallx_orderbookfeed_sbe_v2_2.description.size = 120
+
+-- Display: Description
+smallx_orderbookfeed_sbe_v2_2.description.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Description: No Value"
+  end
+
+  return "Description: "..value
+end
+
+-- Dissect: Description
+smallx_orderbookfeed_sbe_v2_2.description.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.description.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.description.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.description, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exercise Style
+smallx_orderbookfeed_sbe_v2_2.exercise_style = {}
+
+-- Size: Exercise Style
+smallx_orderbookfeed_sbe_v2_2.exercise_style.size = 1
+
+-- Display: Exercise Style
+smallx_orderbookfeed_sbe_v2_2.exercise_style.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exercise Style: No Value"
+  end
+
+  if value == "E" then
+    return "Exercise Style: European (E)"
+  end
+  if value == "A" then
+    return "Exercise Style: American (A)"
+  end
+  if value == "N" then
+    return "Exercise Style: Not Option (N)"
+  end
+
+  return "Exercise Style: Unknown("..value..")"
+end
+
+-- Dissect: Exercise Style
+smallx_orderbookfeed_sbe_v2_2.exercise_style.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.exercise_style.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.exercise_style.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.exercise_style, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Date
+smallx_orderbookfeed_sbe_v2_2.expiration_date = {}
+
+-- Size: Expiration Date
+smallx_orderbookfeed_sbe_v2_2.expiration_date.size = 2
+
+-- Display: Expiration Date
+smallx_orderbookfeed_sbe_v2_2.expiration_date.display = function(value)
+  return "Expiration Date: "..value
+end
+
+-- Dissect: Expiration Date
+smallx_orderbookfeed_sbe_v2_2.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.expiration_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.expiration_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.expiration_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Style
+smallx_orderbookfeed_sbe_v2_2.expiration_style = {}
+
+-- Size: Expiration Style
+smallx_orderbookfeed_sbe_v2_2.expiration_style.size = 1
+
+-- Display: Expiration Style
+smallx_orderbookfeed_sbe_v2_2.expiration_style.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Expiration Style: No Value"
+  end
+
+  if value == "S" then
+    return "Expiration Style: Standard (S)"
+  end
+  if value == "D" then
+    return "Expiration Style: Daily (D)"
+  end
+  if value == "W" then
+    return "Expiration Style: Weekly (W)"
+  end
+  if value == "Q" then
+    return "Expiration Style: Quaterly (Q)"
+  end
+
+  return "Expiration Style: Unknown("..value..")"
+end
+
+-- Dissect: Expiration Style
+smallx_orderbookfeed_sbe_v2_2.expiration_style.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.expiration_style.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.expiration_style.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.expiration_style, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.first_trading_session_date = {}
+
+-- Size: First Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size = 2
+
+-- Display: First Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.display = function(value)
+  return "First Trading Session Date: "..value
+end
+
+-- Dissect: First Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.first_trading_session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Frame Length
+smallx_orderbookfeed_sbe_v2_2.frame_length = {}
+
+-- Size: Frame Length
+smallx_orderbookfeed_sbe_v2_2.frame_length.size = 1
+
+-- Display: Frame Length
+smallx_orderbookfeed_sbe_v2_2.frame_length.display = function(value)
+  return "Frame Length: "..value
+end
+
+-- Dissect: Frame Length
+smallx_orderbookfeed_sbe_v2_2.frame_length.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.frame_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.frame_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.frame_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price
+smallx_orderbookfeed_sbe_v2_2.high_price = {}
+
+-- Size: High Price
+smallx_orderbookfeed_sbe_v2_2.high_price.size = 8
+
+-- Display: High Price
+smallx_orderbookfeed_sbe_v2_2.high_price.display = function(value)
+  return "High Price: "..value
+end
+
+-- Translate: High Price
+smallx_orderbookfeed_sbe_v2_2.high_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: High Price
+smallx_orderbookfeed_sbe_v2_2.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.high_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.high_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Incarnation
+smallx_orderbookfeed_sbe_v2_2.incarnation = {}
+
+-- Size: Incarnation
+smallx_orderbookfeed_sbe_v2_2.incarnation.size = 2
+
+-- Display: Incarnation
+smallx_orderbookfeed_sbe_v2_2.incarnation.display = function(value)
+  return "Incarnation: "..value
+end
+
+-- Dissect: Incarnation
+smallx_orderbookfeed_sbe_v2_2.incarnation.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.incarnation.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.incarnation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Index Count
+smallx_orderbookfeed_sbe_v2_2.index_count = {}
+
+-- Size: Index Count
+smallx_orderbookfeed_sbe_v2_2.index_count.size = 4
+
+-- Display: Index Count
+smallx_orderbookfeed_sbe_v2_2.index_count.display = function(value)
+  return "Index Count: "..value
+end
+
+-- Dissect: Index Count
+smallx_orderbookfeed_sbe_v2_2.index_count.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.index_count.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.index_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.index_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Index Symbol
+smallx_orderbookfeed_sbe_v2_2.index_symbol = {}
+
+-- Size: Index Symbol
+smallx_orderbookfeed_sbe_v2_2.index_symbol.size = 20
+
+-- Display: Index Symbol
+smallx_orderbookfeed_sbe_v2_2.index_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Index Symbol: No Value"
+  end
+
+  return "Index Symbol: "..value
+end
+
+-- Dissect: Index Symbol
+smallx_orderbookfeed_sbe_v2_2.index_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.index_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.index_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.index_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Id
+smallx_orderbookfeed_sbe_v2_2.instrument_id = {}
+
+-- Size: Instrument Id
+smallx_orderbookfeed_sbe_v2_2.instrument_id.size = 4
+
+-- Display: Instrument Id
+smallx_orderbookfeed_sbe_v2_2.instrument_id.display = function(value)
+  return "Instrument Id: "..value
+end
+
+-- Dissect: Instrument Id
+smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Message No
+smallx_orderbookfeed_sbe_v2_2.instrument_message_no = {}
+
+-- Size: Instrument Message No
+smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size = 8
+
+-- Display: Instrument Message No
+smallx_orderbookfeed_sbe_v2_2.instrument_message_no.display = function(value)
+  return "Instrument Message No: "..value
+end
+
+-- Dissect: Instrument Message No
+smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_message_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Trading Status
+smallx_orderbookfeed_sbe_v2_2.instrument_trading_status = {}
+
+-- Size: Instrument Trading Status
+smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size = 1
+
+-- Display: Instrument Trading Status
+smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Trading Status: No Value"
+  end
+
+  if value == "C" then
+    return "Instrument Trading Status: Closed (C)"
+  end
+  if value == "P" then
+    return "Instrument Trading Status: Pre Open (P)"
+  end
+  if value == "N" then
+    return "Instrument Trading Status: Pre Open Nc (N)"
+  end
+  if value == "O" then
+    return "Instrument Trading Status: Open (O)"
+  end
+  if value == "U" then
+    return "Instrument Trading Status: Paused (U)"
+  end
+  if value == "H" then
+    return "Instrument Trading Status: Halted (H)"
+  end
+
+  return "Instrument Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Trading Status
+smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+smallx_orderbookfeed_sbe_v2_2.instrument_type = {}
+
+-- Size: Instrument Type
+smallx_orderbookfeed_sbe_v2_2.instrument_type.size = 1
+
+-- Display: Instrument Type
+smallx_orderbookfeed_sbe_v2_2.instrument_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Type: No Value"
+  end
+
+  if value == "F" then
+    return "Instrument Type: Futures (F)"
+  end
+  if value == "O" then
+    return "Instrument Type: Option (O)"
+  end
+  if value == "M" then
+    return "Instrument Type: Mleg (M)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+smallx_orderbookfeed_sbe_v2_2.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.instrument_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Update Action
+smallx_orderbookfeed_sbe_v2_2.instrument_update_action = {}
+
+-- Size: Instrument Update Action
+smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size = 1
+
+-- Display: Instrument Update Action
+smallx_orderbookfeed_sbe_v2_2.instrument_update_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Update Action: No Value"
+  end
+
+  if value == "A" then
+    return "Instrument Update Action: Add (A)"
+  end
+  if value == "D" then
+    return "Instrument Update Action: Delete (D)"
+  end
+  if value == "M" then
+    return "Instrument Update Action: Modify (M)"
+  end
+
+  return "Instrument Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Update Action
+smallx_orderbookfeed_sbe_v2_2.instrument_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.instrument_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Incremental Message Seq
+smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq = {}
+
+-- Size: Last Incremental Message Seq
+smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size = 8
+
+-- Display: Last Incremental Message Seq
+smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.display = function(value)
+  return "Last Incremental Message Seq: "..value
+end
+
+-- Dissect: Last Incremental Message Seq
+smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_incremental_message_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Price
+smallx_orderbookfeed_sbe_v2_2.last_trade_price = {}
+
+-- Size: Last Trade Price
+smallx_orderbookfeed_sbe_v2_2.last_trade_price.size = 8
+
+-- Display: Last Trade Price
+smallx_orderbookfeed_sbe_v2_2.last_trade_price.display = function(value)
+  return "Last Trade Price: "..value
+end
+
+-- Translate: Last Trade Price
+smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Last Trade Price
+smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Size
+smallx_orderbookfeed_sbe_v2_2.last_trade_size = {}
+
+-- Size: Last Trade Size
+smallx_orderbookfeed_sbe_v2_2.last_trade_size.size = 8
+
+-- Display: Last Trade Size
+smallx_orderbookfeed_sbe_v2_2.last_trade_size.display = function(value)
+  return "Last Trade Size: "..value
+end
+
+-- Translate: Last Trade Size
+smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Last Trade Size
+smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Time Timestamp
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp = {}
+
+-- Size: Last Trade Time Timestamp
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size = 8
+
+-- Display: Last Trade Time Timestamp
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.display = function(value)
+  return "Last Trade Time Timestamp: "..value
+end
+
+-- Dissect: Last Trade Time Timestamp
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Time Timestamp Optional
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional = {}
+
+-- Size: Last Trade Time Timestamp Optional
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size = 8
+
+-- Display: Last Trade Time Timestamp Optional
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.display = function(value)
+  return "Last Trade Time Timestamp Optional: "..value
+end
+
+-- Dissect: Last Trade Time Timestamp Optional
+smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.last_trading_session_date = {}
+
+-- Size: Last Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size = 2
+
+-- Display: Last Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.display = function(value)
+  return "Last Trading Session Date: "..value
+end
+
+-- Dissect: Last Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trading_session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Instrument Id
+smallx_orderbookfeed_sbe_v2_2.leg_instrument_id = {}
+
+-- Size: Leg Instrument Id
+smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size = 4
+
+-- Display: Leg Instrument Id
+smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.display = function(value)
+  return "Leg Instrument Id: "..value
+end
+
+-- Dissect: Leg Instrument Id
+smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Product
+smallx_orderbookfeed_sbe_v2_2.leg_product = {}
+
+-- Size: Leg Product
+smallx_orderbookfeed_sbe_v2_2.leg_product.size = 8
+
+-- Display: Leg Product
+smallx_orderbookfeed_sbe_v2_2.leg_product.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Product: No Value"
+  end
+
+  return "Leg Product: "..value
+end
+
+-- Dissect: Leg Product
+smallx_orderbookfeed_sbe_v2_2.leg_product.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.leg_product.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.leg_product.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_product, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Quantity
+smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity = {}
+
+-- Size: Leg Ratio Quantity
+smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size = 8
+
+-- Display: Leg Ratio Quantity
+smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.display = function(value)
+  return "Leg Ratio Quantity: "..value
+end
+
+-- Translate: Leg Ratio Quantity
+smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Leg Ratio Quantity
+smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_ratio_quantity, range, value, display)
+
+  return offset + length, value
+end
 
 -- Leg Side
 smallx_orderbookfeed_sbe_v2_2.leg_side = {}
@@ -443,74 +1459,6 @@ smallx_orderbookfeed_sbe_v2_2.leg_side.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Leg Ratio Quantity
-smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity = {}
-
--- Size: Leg Ratio Quantity
-smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size = 8
-
--- Display: Leg Ratio Quantity
-smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.display = function(value)
-  return "Leg Ratio Quantity: "..value
-end
-
--- Translate: Leg Ratio Quantity
-smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Leg Ratio Quantity
-smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.leg_ratio_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_ratio_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Product
-smallx_orderbookfeed_sbe_v2_2.leg_product = {}
-
--- Size: Leg Product
-smallx_orderbookfeed_sbe_v2_2.leg_product.size = 8
-
--- Display: Leg Product
-smallx_orderbookfeed_sbe_v2_2.leg_product.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Product: No Value"
-  end
-
-  return "Leg Product: "..value
-end
-
--- Dissect: Leg Product
-smallx_orderbookfeed_sbe_v2_2.leg_product.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.leg_product.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.leg_product.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_product, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Symbol
 smallx_orderbookfeed_sbe_v2_2.leg_symbol = {}
 
@@ -550,28 +1498,1420 @@ smallx_orderbookfeed_sbe_v2_2.leg_symbol.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Leg Instrument Id
-smallx_orderbookfeed_sbe_v2_2.leg_instrument_id = {}
+-- Low Price
+smallx_orderbookfeed_sbe_v2_2.low_price = {}
 
--- Size: Leg Instrument Id
-smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size = 4
+-- Size: Low Price
+smallx_orderbookfeed_sbe_v2_2.low_price.size = 8
 
--- Display: Leg Instrument Id
-smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.display = function(value)
-  return "Leg Instrument Id: "..value
+-- Display: Low Price
+smallx_orderbookfeed_sbe_v2_2.low_price.display = function(value)
+  return "Low Price: "..value
 end
 
--- Dissect: Leg Instrument Id
-smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.leg_instrument_id.display(value, buffer, offset, packet, parent)
+-- Translate: Low Price
+smallx_orderbookfeed_sbe_v2_2.low_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
 
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.leg_instrument_id, range, value, display)
+-- Dissect: Low Price
+smallx_orderbookfeed_sbe_v2_2.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.low_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.low_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.low_price, range, value, display)
 
   return offset + length, value
 end
+
+-- Maturity Date
+smallx_orderbookfeed_sbe_v2_2.maturity_date = {}
+
+-- Size: Maturity Date
+smallx_orderbookfeed_sbe_v2_2.maturity_date.size = 2
+
+-- Display: Maturity Date
+smallx_orderbookfeed_sbe_v2_2.maturity_date.display = function(value)
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+smallx_orderbookfeed_sbe_v2_2.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+smallx_orderbookfeed_sbe_v2_2.message_count = {}
+
+-- Size: Message Count
+smallx_orderbookfeed_sbe_v2_2.message_count.size = 1
+
+-- Display: Message Count
+smallx_orderbookfeed_sbe_v2_2.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+smallx_orderbookfeed_sbe_v2_2.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Sequence
+smallx_orderbookfeed_sbe_v2_2.message_sequence = {}
+
+-- Size: Message Sequence
+smallx_orderbookfeed_sbe_v2_2.message_sequence.size = 4
+
+-- Display: Message Sequence
+smallx_orderbookfeed_sbe_v2_2.message_sequence.display = function(value)
+  return "Message Sequence: "..value
+end
+
+-- Dissect: Message Sequence
+smallx_orderbookfeed_sbe_v2_2.message_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.message_sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.message_sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.message_sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+smallx_orderbookfeed_sbe_v2_2.num_in_group = {}
+
+-- Size: Num In Group
+smallx_orderbookfeed_sbe_v2_2.num_in_group.size = 1
+
+-- Display: Num In Group
+smallx_orderbookfeed_sbe_v2_2.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+smallx_orderbookfeed_sbe_v2_2.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+smallx_orderbookfeed_sbe_v2_2.open_interest = {}
+
+-- Size: Open Interest
+smallx_orderbookfeed_sbe_v2_2.open_interest.size = 8
+
+-- Display: Open Interest
+smallx_orderbookfeed_sbe_v2_2.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Translate: Open Interest
+smallx_orderbookfeed_sbe_v2_2.open_interest.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Open Interest
+smallx_orderbookfeed_sbe_v2_2.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.open_interest.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.open_interest.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+smallx_orderbookfeed_sbe_v2_2.open_price = {}
+
+-- Size: Open Price
+smallx_orderbookfeed_sbe_v2_2.open_price.size = 8
+
+-- Display: Open Price
+smallx_orderbookfeed_sbe_v2_2.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Translate: Open Price
+smallx_orderbookfeed_sbe_v2_2.open_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Open Price
+smallx_orderbookfeed_sbe_v2_2.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.open_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.open_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price Type
+smallx_orderbookfeed_sbe_v2_2.open_price_type = {}
+
+-- Size: Open Price Type
+smallx_orderbookfeed_sbe_v2_2.open_price_type.size = 1
+
+-- Display: Open Price Type
+smallx_orderbookfeed_sbe_v2_2.open_price_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Open Price Type: No Value"
+  end
+
+  if value == "I" then
+    return "Open Price Type: Indicative (I)"
+  end
+  if value == "T" then
+    return "Open Price Type: Traded (T)"
+  end
+  if value == "N" then
+    return "Open Price Type: No Price (N)"
+  end
+
+  return "Open Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Open Price Type
+smallx_orderbookfeed_sbe_v2_2.open_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.open_price_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.open_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+smallx_orderbookfeed_sbe_v2_2.order_id = {}
+
+-- Size: Order Id
+smallx_orderbookfeed_sbe_v2_2.order_id.size = 8
+
+-- Display: Order Id
+smallx_orderbookfeed_sbe_v2_2.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+smallx_orderbookfeed_sbe_v2_2.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Priority
+smallx_orderbookfeed_sbe_v2_2.order_priority = {}
+
+-- Size: Order Priority
+smallx_orderbookfeed_sbe_v2_2.order_priority.size = 8
+
+-- Display: Order Priority
+smallx_orderbookfeed_sbe_v2_2.order_priority.display = function(value)
+  return "Order Priority: "..value
+end
+
+-- Dissect: Order Priority
+smallx_orderbookfeed_sbe_v2_2.order_priority.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.order_priority.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.order_priority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Priority Optional
+smallx_orderbookfeed_sbe_v2_2.order_priority_optional = {}
+
+-- Size: Order Priority Optional
+smallx_orderbookfeed_sbe_v2_2.order_priority_optional.size = 8
+
+-- Display: Order Priority Optional
+smallx_orderbookfeed_sbe_v2_2.order_priority_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Order Priority Optional: No Value"
+  end
+
+  return "Order Priority Optional: "..value
+end
+
+-- Dissect: Order Priority Optional
+smallx_orderbookfeed_sbe_v2_2.order_priority_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.order_priority_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.order_priority_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Update Action
+smallx_orderbookfeed_sbe_v2_2.order_update_action = {}
+
+-- Size: Order Update Action
+smallx_orderbookfeed_sbe_v2_2.order_update_action.size = 1
+
+-- Display: Order Update Action
+smallx_orderbookfeed_sbe_v2_2.order_update_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Update Action: No Value"
+  end
+
+  if value == "N" then
+    return "Order Update Action: New (N)"
+  end
+  if value == "U" then
+    return "Order Update Action: Update (U)"
+  end
+  if value == "D" then
+    return "Order Update Action: Delete (D)"
+  end
+
+  return "Order Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Order Update Action
+smallx_orderbookfeed_sbe_v2_2.order_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.order_update_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.order_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+smallx_orderbookfeed_sbe_v2_2.price = {}
+
+-- Size: Price
+smallx_orderbookfeed_sbe_v2_2.price.size = 8
+
+-- Display: Price
+smallx_orderbookfeed_sbe_v2_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+smallx_orderbookfeed_sbe_v2_2.price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Price
+smallx_orderbookfeed_sbe_v2_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Increment
+smallx_orderbookfeed_sbe_v2_2.price_increment = {}
+
+-- Size: Price Increment
+smallx_orderbookfeed_sbe_v2_2.price_increment.size = 8
+
+-- Display: Price Increment
+smallx_orderbookfeed_sbe_v2_2.price_increment.display = function(value)
+  return "Price Increment: "..value
+end
+
+-- Translate: Price Increment
+smallx_orderbookfeed_sbe_v2_2.price_increment.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Price Increment
+smallx_orderbookfeed_sbe_v2_2.price_increment.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.price_increment.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.price_increment.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.price_increment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_increment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Multiplier
+smallx_orderbookfeed_sbe_v2_2.price_multiplier = {}
+
+-- Size: Price Multiplier
+smallx_orderbookfeed_sbe_v2_2.price_multiplier.size = 8
+
+-- Display: Price Multiplier
+smallx_orderbookfeed_sbe_v2_2.price_multiplier.display = function(value)
+  return "Price Multiplier: "..value
+end
+
+-- Translate: Price Multiplier
+smallx_orderbookfeed_sbe_v2_2.price_multiplier.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Price Multiplier
+smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.price_multiplier.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.price_multiplier.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.price_multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_multiplier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Optional
+smallx_orderbookfeed_sbe_v2_2.price_optional = {}
+
+-- Size: Price Optional
+smallx_orderbookfeed_sbe_v2_2.price_optional.size = 8
+
+-- Display: Price Optional
+smallx_orderbookfeed_sbe_v2_2.price_optional.display = function(value)
+  return "Price Optional: "..value
+end
+
+-- Translate: Price Optional
+smallx_orderbookfeed_sbe_v2_2.price_optional.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Price Optional
+smallx_orderbookfeed_sbe_v2_2.price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.price_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.price_optional.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.price_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product
+smallx_orderbookfeed_sbe_v2_2.product = {}
+
+-- Size: Product
+smallx_orderbookfeed_sbe_v2_2.product.size = 8
+
+-- Display: Product
+smallx_orderbookfeed_sbe_v2_2.product.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product: No Value"
+  end
+
+  return "Product: "..value
+end
+
+-- Dissect: Product
+smallx_orderbookfeed_sbe_v2_2.product.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.product.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.product.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.product, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+smallx_orderbookfeed_sbe_v2_2.put_or_call = {}
+
+-- Size: Put Or Call
+smallx_orderbookfeed_sbe_v2_2.put_or_call.size = 1
+
+-- Display: Put Or Call
+smallx_orderbookfeed_sbe_v2_2.put_or_call.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Put Or Call: No Value"
+  end
+
+  if value == "P" then
+    return "Put Or Call: Put (P)"
+  end
+  if value == "C" then
+    return "Put Or Call: Call (C)"
+  end
+  if value == "N" then
+    return "Put Or Call: Not Option (N)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+smallx_orderbookfeed_sbe_v2_2.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.put_or_call.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+smallx_orderbookfeed_sbe_v2_2.schema_id = {}
+
+-- Size: Schema Id
+smallx_orderbookfeed_sbe_v2_2.schema_id.size = 2
+
+-- Display: Schema Id
+smallx_orderbookfeed_sbe_v2_2.schema_id.display = function(value)
+  if value == 1 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+smallx_orderbookfeed_sbe_v2_2.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Id
+smallx_orderbookfeed_sbe_v2_2.sell_order_id = {}
+
+-- Size: Sell Order Id
+smallx_orderbookfeed_sbe_v2_2.sell_order_id.size = 8
+
+-- Display: Sell Order Id
+smallx_orderbookfeed_sbe_v2_2.sell_order_id.display = function(value)
+  return "Sell Order Id: "..value
+end
+
+-- Dissect: Sell Order Id
+smallx_orderbookfeed_sbe_v2_2.sell_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.sell_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.sell_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.sell_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Date
+smallx_orderbookfeed_sbe_v2_2.session_date = {}
+
+-- Size: Session Date
+smallx_orderbookfeed_sbe_v2_2.session_date.size = 2
+
+-- Display: Session Date
+smallx_orderbookfeed_sbe_v2_2.session_date.display = function(value)
+  return "Session Date: "..value
+end
+
+-- Dissect: Session Date
+smallx_orderbookfeed_sbe_v2_2.session_date.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price
+smallx_orderbookfeed_sbe_v2_2.settlement_price = {}
+
+-- Size: Settlement Price
+smallx_orderbookfeed_sbe_v2_2.settlement_price.size = 8
+
+-- Display: Settlement Price
+smallx_orderbookfeed_sbe_v2_2.settlement_price.display = function(value)
+  return "Settlement Price: "..value
+end
+
+-- Translate: Settlement Price
+smallx_orderbookfeed_sbe_v2_2.settlement_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Settlement Price
+smallx_orderbookfeed_sbe_v2_2.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.settlement_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.settlement_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price Type
+smallx_orderbookfeed_sbe_v2_2.settlement_price_type = {}
+
+-- Size: Settlement Price Type
+smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size = 1
+
+-- Display: Settlement Price Type
+smallx_orderbookfeed_sbe_v2_2.settlement_price_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Settlement Price Type: No Value"
+  end
+
+  if value == "F" then
+    return "Settlement Price Type: Final (F)"
+  end
+  if value == "P" then
+    return "Settlement Price Type: Preliminary (P)"
+  end
+  if value == "N" then
+    return "Settlement Price Type: No Price (N)"
+  end
+
+  return "Settlement Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Settlement Price Type
+smallx_orderbookfeed_sbe_v2_2.settlement_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.settlement_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.settlement_price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Shares Per Contract
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract = {}
+
+-- Size: Shares Per Contract
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size = 8
+
+-- Display: Shares Per Contract
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display = function(value)
+  return "Shares Per Contract: "..value
+end
+
+-- Translate: Shares Per Contract
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Shares Per Contract
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.shares_per_contract, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+smallx_orderbookfeed_sbe_v2_2.side = {}
+
+-- Size: Side
+smallx_orderbookfeed_sbe_v2_2.side.size = 1
+
+-- Display: Side
+smallx_orderbookfeed_sbe_v2_2.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+smallx_orderbookfeed_sbe_v2_2.side.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+smallx_orderbookfeed_sbe_v2_2.size = {}
+
+-- Size: Size
+smallx_orderbookfeed_sbe_v2_2.size.size = 8
+
+-- Display: Size
+smallx_orderbookfeed_sbe_v2_2.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Translate: Size
+smallx_orderbookfeed_sbe_v2_2.size.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Size
+smallx_orderbookfeed_sbe_v2_2.size.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.size.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.size.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Snapshot Instruments Count
+smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count = {}
+
+-- Size: Snapshot Instruments Count
+smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size = 4
+
+-- Display: Snapshot Instruments Count
+smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.display = function(value)
+  return "Snapshot Instruments Count: "..value
+end
+
+-- Dissect: Snapshot Instruments Count
+smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_instruments_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+smallx_orderbookfeed_sbe_v2_2.source = {}
+
+-- Size: Source
+smallx_orderbookfeed_sbe_v2_2.source.size = 1
+
+-- Display: Source
+smallx_orderbookfeed_sbe_v2_2.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+smallx_orderbookfeed_sbe_v2_2.source.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Spread Symbol
+smallx_orderbookfeed_sbe_v2_2.spread_symbol = {}
+
+-- Size: Spread Symbol
+smallx_orderbookfeed_sbe_v2_2.spread_symbol.size = 120
+
+-- Display: Spread Symbol
+smallx_orderbookfeed_sbe_v2_2.spread_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Spread Symbol: No Value"
+  end
+
+  return "Spread Symbol: "..value
+end
+
+-- Dissect: Spread Symbol
+smallx_orderbookfeed_sbe_v2_2.spread_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.spread_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.spread_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.spread_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Type
+smallx_orderbookfeed_sbe_v2_2.strategy_type = {}
+
+-- Size: Strategy Type
+smallx_orderbookfeed_sbe_v2_2.strategy_type.size = 1
+
+-- Display: Strategy Type
+smallx_orderbookfeed_sbe_v2_2.strategy_type.display = function(value)
+  if value == 0 then
+    return "Strategy Type: Custom (0)"
+  end
+  if value == 1 then
+    return "Strategy Type: Futures Calendar (1)"
+  end
+  if value == 2 then
+    return "Strategy Type: Futures Inter Commodity (2)"
+  end
+  if value == 3 then
+    return "Strategy Type: Covered (3)"
+  end
+  if value == 4 then
+    return "Strategy Type: Option Butterfly (4)"
+  end
+  if value == 5 then
+    return "Strategy Type: Option Vertical (5)"
+  end
+  if value == 6 then
+    return "Strategy Type: Option Strangle (6)"
+  end
+  if value == 7 then
+    return "Strategy Type: Option Straddle (7)"
+  end
+  if value == 8 then
+    return "Strategy Type: Option Diagonal (8)"
+  end
+  if value == 9 then
+    return "Strategy Type: Option Calendar (9)"
+  end
+  if value == 10 then
+    return "Strategy Type: Option Iron Condor (10)"
+  end
+  if value == 11 then
+    return "Strategy Type: Protective Put (11)"
+  end
+
+  return "Strategy Type: Unknown("..value..")"
+end
+
+-- Dissect: Strategy Type
+smallx_orderbookfeed_sbe_v2_2.strategy_type.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.strategy_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.strategy_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strategy_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+smallx_orderbookfeed_sbe_v2_2.strike_price = {}
+
+-- Size: Strike Price
+smallx_orderbookfeed_sbe_v2_2.strike_price.size = 8
+
+-- Display: Strike Price
+smallx_orderbookfeed_sbe_v2_2.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+smallx_orderbookfeed_sbe_v2_2.strike_price.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Strike Price
+smallx_orderbookfeed_sbe_v2_2.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.strike_price.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+smallx_orderbookfeed_sbe_v2_2.symbol = {}
+
+-- Size: Symbol
+smallx_orderbookfeed_sbe_v2_2.symbol.size = 25
+
+-- Display: Symbol
+smallx_orderbookfeed_sbe_v2_2.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+smallx_orderbookfeed_sbe_v2_2.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+smallx_orderbookfeed_sbe_v2_2.template_id = {}
+
+-- Size: Template Id
+smallx_orderbookfeed_sbe_v2_2.template_id.size = 2
+
+-- Display: Template Id
+smallx_orderbookfeed_sbe_v2_2.template_id.display = function(value)
+  if value == 3 then
+    return "Template Id: Instrument Trading Status Incremental Message (3)"
+  end
+  if value == 4 then
+    return "Template Id: Trades Incremental Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Trade Correct Message (5)"
+  end
+  if value == 6 then
+    return "Template Id: Trade Bust Message (6)"
+  end
+  if value == 7 then
+    return "Template Id: Order Book Incremental Message (7)"
+  end
+  if value == 8 then
+    return "Template Id: Market Summary Incremental Message (8)"
+  end
+  if value == 11 then
+    return "Template Id: Order Book Snapshot Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Market Summary Snapshot Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Index Value Snapshot Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Single Instrument Definition Incremental V 2 Message (14)"
+  end
+  if value == 15 then
+    return "Template Id: Multileg Definition Incremental V 2 Message (15)"
+  end
+  if value == 16 then
+    return "Template Id: Single Instrument Definition Snapshot V 2 Message (16)"
+  end
+  if value == 17 then
+    return "Template Id: Multileg Definition Snapshot V 2 Message (17)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+smallx_orderbookfeed_sbe_v2_2.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+smallx_orderbookfeed_sbe_v2_2.time = {}
+
+-- Size: Time
+smallx_orderbookfeed_sbe_v2_2.time.size = 8
+
+-- Display: Time
+smallx_orderbookfeed_sbe_v2_2.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+smallx_orderbookfeed_sbe_v2_2.time.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume Quantity
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity = {}
+
+-- Size: Total Volume Quantity
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.size = 8
+
+-- Display: Total Volume Quantity
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.display = function(value)
+  return "Total Volume Quantity: "..value
+end
+
+-- Translate: Total Volume Quantity
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Total Volume Quantity
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume Quantity Optional
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional = {}
+
+-- Size: Total Volume Quantity Optional
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size = 8
+
+-- Display: Total Volume Quantity Optional
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display = function(value)
+  return "Total Volume Quantity Optional: "..value
+end
+
+-- Translate: Total Volume Quantity Optional
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate = function(raw)
+  return raw:tonumber()
+end
+
+-- Dissect: Total Volume Quantity Optional
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+smallx_orderbookfeed_sbe_v2_2.trade_id = {}
+
+-- Size: Trade Id
+smallx_orderbookfeed_sbe_v2_2.trade_id.size = 8
+
+-- Display: Trade Id
+smallx_orderbookfeed_sbe_v2_2.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+smallx_orderbookfeed_sbe_v2_2.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id Optional
+smallx_orderbookfeed_sbe_v2_2.trade_id_optional = {}
+
+-- Size: Trade Id Optional
+smallx_orderbookfeed_sbe_v2_2.trade_id_optional.size = 8
+
+-- Display: Trade Id Optional
+smallx_orderbookfeed_sbe_v2_2.trade_id_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Trade Id Optional: No Value"
+  end
+
+  return "Trade Id Optional: "..value
+end
+
+-- Dissect: Trade Id Optional
+smallx_orderbookfeed_sbe_v2_2.trade_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.trade_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.trade_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Update Action
+smallx_orderbookfeed_sbe_v2_2.trade_update_action = {}
+
+-- Size: Trade Update Action
+smallx_orderbookfeed_sbe_v2_2.trade_update_action.size = 1
+
+-- Display: Trade Update Action
+smallx_orderbookfeed_sbe_v2_2.trade_update_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Update Action: No Value"
+  end
+
+  if value == "N" then
+    return "Trade Update Action: New (N)"
+  end
+  if value == "D" then
+    return "Trade Update Action: Delete (D)"
+  end
+
+  return "Trade Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Trade Update Action
+smallx_orderbookfeed_sbe_v2_2.trade_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.trade_update_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.trade_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.trading_session_date = {}
+
+-- Size: Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.trading_session_date.size = 2
+
+-- Display: Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.trading_session_date.display = function(value)
+  return "Trading Session Date: "..value
+end
+
+-- Dissect: Trading Session Date
+smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.trading_session_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trading_session_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+smallx_orderbookfeed_sbe_v2_2.transact_time = {}
+
+-- Size: Transact Time
+smallx_orderbookfeed_sbe_v2_2.transact_time.size = 8
+
+-- Display: Transact Time
+smallx_orderbookfeed_sbe_v2_2.transact_time.display = function(value)
+  return "Transact Time: "..value
+end
+
+-- Dissect: Transact Time
+smallx_orderbookfeed_sbe_v2_2.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = smallx_orderbookfeed_sbe_v2_2.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Instrument Id
+smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id = {}
+
+-- Size: Underlying Instrument Id
+smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size = 4
+
+-- Display: Underlying Instrument Id
+smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.display = function(value)
+  return "Underlying Instrument Id: "..value
+end
+
+-- Dissect: Underlying Instrument Id
+smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+smallx_orderbookfeed_sbe_v2_2.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size = 25
+
+-- Display: Underlying Symbol
+smallx_orderbookfeed_sbe_v2_2.underlying_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Symbol: No Value"
+  end
+
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+smallx_orderbookfeed_sbe_v2_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = smallx_orderbookfeed_sbe_v2_2.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Value
+smallx_orderbookfeed_sbe_v2_2.value = {}
+
+-- Size: Value
+smallx_orderbookfeed_sbe_v2_2.value.size = 8
+
+-- Display: Value
+smallx_orderbookfeed_sbe_v2_2.value.display = function(value)
+  return "Value: "..value
+end
+
+-- Translate: Value
+smallx_orderbookfeed_sbe_v2_2.value.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Value
+smallx_orderbookfeed_sbe_v2_2.value.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.value.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = smallx_orderbookfeed_sbe_v2_2.value.translate(raw)
+  local display = smallx_orderbookfeed_sbe_v2_2.value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+smallx_orderbookfeed_sbe_v2_2.version = {}
+
+-- Size: Version
+smallx_orderbookfeed_sbe_v2_2.version.size = 2
+
+-- Display: Version
+smallx_orderbookfeed_sbe_v2_2.version.display = function(value)
+  if value == 6 then
+    return "Version: Version "
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+smallx_orderbookfeed_sbe_v2_2.version.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_orderbookfeed_sbe_v2_2.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_orderbookfeed_sbe_v2_2.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect SmallX OrderBookFeed Sbe 2.2
+-----------------------------------------------------------------------
 
 -- Legs Group
 smallx_orderbookfeed_sbe_v2_2.legs_group = {}
@@ -633,52 +2973,6 @@ smallx_orderbookfeed_sbe_v2_2.legs_group.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return smallx_orderbookfeed_sbe_v2_2.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
   end
-end
-
--- Num In Group
-smallx_orderbookfeed_sbe_v2_2.num_in_group = {}
-
--- Size: Num In Group
-smallx_orderbookfeed_sbe_v2_2.num_in_group.size = 1
-
--- Display: Num In Group
-smallx_orderbookfeed_sbe_v2_2.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-smallx_orderbookfeed_sbe_v2_2.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-smallx_orderbookfeed_sbe_v2_2.block_length = {}
-
--- Size: Block Length
-smallx_orderbookfeed_sbe_v2_2.block_length.size = 2
-
--- Display: Block Length
-smallx_orderbookfeed_sbe_v2_2.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-smallx_orderbookfeed_sbe_v2_2.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.block_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Group Dimension
@@ -782,464 +3076,6 @@ smallx_orderbookfeed_sbe_v2_2.legs_groups.dissect = function(buffer, offset, pac
   end
 end
 
--- Strategy Type
-smallx_orderbookfeed_sbe_v2_2.strategy_type = {}
-
--- Size: Strategy Type
-smallx_orderbookfeed_sbe_v2_2.strategy_type.size = 1
-
--- Display: Strategy Type
-smallx_orderbookfeed_sbe_v2_2.strategy_type.display = function(value)
-  if value == 0 then
-    return "Strategy Type: Custom (0)"
-  end
-  if value == 1 then
-    return "Strategy Type: Futures Calendar (1)"
-  end
-  if value == 2 then
-    return "Strategy Type: Futures Inter Commodity (2)"
-  end
-  if value == 3 then
-    return "Strategy Type: Covered (3)"
-  end
-  if value == 4 then
-    return "Strategy Type: Option Butterfly (4)"
-  end
-  if value == 5 then
-    return "Strategy Type: Option Vertical (5)"
-  end
-  if value == 6 then
-    return "Strategy Type: Option Strangle (6)"
-  end
-  if value == 7 then
-    return "Strategy Type: Option Straddle (7)"
-  end
-  if value == 8 then
-    return "Strategy Type: Option Diagonal (8)"
-  end
-  if value == 9 then
-    return "Strategy Type: Option Calendar (9)"
-  end
-  if value == 10 then
-    return "Strategy Type: Option Iron Condor (10)"
-  end
-  if value == 11 then
-    return "Strategy Type: Protective Put (11)"
-  end
-
-  return "Strategy Type: Unknown("..value..")"
-end
-
--- Dissect: Strategy Type
-smallx_orderbookfeed_sbe_v2_2.strategy_type.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.strategy_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.strategy_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strategy_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Multiplier
-smallx_orderbookfeed_sbe_v2_2.price_multiplier = {}
-
--- Size: Price Multiplier
-smallx_orderbookfeed_sbe_v2_2.price_multiplier.size = 8
-
--- Display: Price Multiplier
-smallx_orderbookfeed_sbe_v2_2.price_multiplier.display = function(value)
-  return "Price Multiplier: "..value
-end
-
--- Translate: Price Multiplier
-smallx_orderbookfeed_sbe_v2_2.price_multiplier.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Price Multiplier
-smallx_orderbookfeed_sbe_v2_2.price_multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.price_multiplier.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.price_multiplier.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.price_multiplier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Increment
-smallx_orderbookfeed_sbe_v2_2.price_increment = {}
-
--- Size: Price Increment
-smallx_orderbookfeed_sbe_v2_2.price_increment.size = 8
-
--- Display: Price Increment
-smallx_orderbookfeed_sbe_v2_2.price_increment.display = function(value)
-  return "Price Increment: "..value
-end
-
--- Translate: Price Increment
-smallx_orderbookfeed_sbe_v2_2.price_increment.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Price Increment
-smallx_orderbookfeed_sbe_v2_2.price_increment.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.price_increment.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.price_increment.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.price_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_increment, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-smallx_orderbookfeed_sbe_v2_2.currency = {}
-
--- Size: Currency
-smallx_orderbookfeed_sbe_v2_2.currency.size = 3
-
--- Display: Currency
-smallx_orderbookfeed_sbe_v2_2.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-smallx_orderbookfeed_sbe_v2_2.currency.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Cfi Code
-smallx_orderbookfeed_sbe_v2_2.cfi_code = {}
-
--- Size: Cfi Code
-smallx_orderbookfeed_sbe_v2_2.cfi_code.size = 6
-
--- Display: Cfi Code
-smallx_orderbookfeed_sbe_v2_2.cfi_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cfi Code: No Value"
-  end
-
-  return "Cfi Code: "..value
-end
-
--- Dissect: Cfi Code
-smallx_orderbookfeed_sbe_v2_2.cfi_code.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.cfi_code.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.cfi_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.cfi_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Date
-smallx_orderbookfeed_sbe_v2_2.expiration_date = {}
-
--- Size: Expiration Date
-smallx_orderbookfeed_sbe_v2_2.expiration_date.size = 2
-
--- Display: Expiration Date
-smallx_orderbookfeed_sbe_v2_2.expiration_date.display = function(value)
-  return "Expiration Date: "..value
-end
-
--- Dissect: Expiration Date
-smallx_orderbookfeed_sbe_v2_2.expiration_date.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.expiration_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.expiration_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.expiration_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.last_trading_session_date = {}
-
--- Size: Last Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size = 2
-
--- Display: Last Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.display = function(value)
-  return "Last Trading Session Date: "..value
-end
-
--- Dissect: Last Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trading_session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trading_session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- First Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.first_trading_session_date = {}
-
--- Size: First Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size = 2
-
--- Display: First Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.display = function(value)
-  return "First Trading Session Date: "..value
-end
-
--- Dissect: First Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.first_trading_session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.first_trading_session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-smallx_orderbookfeed_sbe_v2_2.maturity_date = {}
-
--- Size: Maturity Date
-smallx_orderbookfeed_sbe_v2_2.maturity_date.size = 2
-
--- Display: Maturity Date
-smallx_orderbookfeed_sbe_v2_2.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-smallx_orderbookfeed_sbe_v2_2.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Type
-smallx_orderbookfeed_sbe_v2_2.instrument_type = {}
-
--- Size: Instrument Type
-smallx_orderbookfeed_sbe_v2_2.instrument_type.size = 1
-
--- Display: Instrument Type
-smallx_orderbookfeed_sbe_v2_2.instrument_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Type: No Value"
-  end
-
-  if value == "F" then
-    return "Instrument Type: Futures (F)"
-  end
-  if value == "O" then
-    return "Instrument Type: Option (O)"
-  end
-  if value == "M" then
-    return "Instrument Type: Mleg (M)"
-  end
-
-  return "Instrument Type: Unknown("..value..")"
-end
-
--- Dissect: Instrument Type
-smallx_orderbookfeed_sbe_v2_2.instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.instrument_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.instrument_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Description
-smallx_orderbookfeed_sbe_v2_2.description = {}
-
--- Size: Description
-smallx_orderbookfeed_sbe_v2_2.description.size = 120
-
--- Display: Description
-smallx_orderbookfeed_sbe_v2_2.description.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Description: No Value"
-  end
-
-  return "Description: "..value
-end
-
--- Dissect: Description
-smallx_orderbookfeed_sbe_v2_2.description.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.description.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.description.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.description, range, value, display)
-
-  return offset + length, value
-end
-
--- Spread Symbol
-smallx_orderbookfeed_sbe_v2_2.spread_symbol = {}
-
--- Size: Spread Symbol
-smallx_orderbookfeed_sbe_v2_2.spread_symbol.size = 120
-
--- Display: Spread Symbol
-smallx_orderbookfeed_sbe_v2_2.spread_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Spread Symbol: No Value"
-  end
-
-  return "Spread Symbol: "..value
-end
-
--- Dissect: Spread Symbol
-smallx_orderbookfeed_sbe_v2_2.spread_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.spread_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.spread_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.spread_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Incremental Message Seq
-smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq = {}
-
--- Size: Last Incremental Message Seq
-smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size = 8
-
--- Display: Last Incremental Message Seq
-smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.display = function(value)
-  return "Last Incremental Message Seq: "..value
-end
-
--- Dissect: Last Incremental Message Seq
-smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.last_incremental_message_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_incremental_message_seq, range, value, display)
-
-  return offset + length, value
-end
-
--- Snapshot Instruments Count
-smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count = {}
-
--- Size: Snapshot Instruments Count
-smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size = 4
-
--- Display: Snapshot Instruments Count
-smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.display = function(value)
-  return "Snapshot Instruments Count: "..value
-end
-
--- Dissect: Snapshot Instruments Count
-smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.snapshot_instruments_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_instruments_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Snapshot Message Instructions
 smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions = {}
 
@@ -1337,153 +3173,6 @@ smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect = function(b
   end
 
   return offset + size, value
-end
-
--- Instrument Trading Status
-smallx_orderbookfeed_sbe_v2_2.instrument_trading_status = {}
-
--- Size: Instrument Trading Status
-smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size = 1
-
--- Display: Instrument Trading Status
-smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Trading Status: No Value"
-  end
-
-  if value == "C" then
-    return "Instrument Trading Status: Closed (C)"
-  end
-  if value == "P" then
-    return "Instrument Trading Status: Pre Open (P)"
-  end
-  if value == "N" then
-    return "Instrument Trading Status: Pre Open Nc (N)"
-  end
-  if value == "O" then
-    return "Instrument Trading Status: Open (O)"
-  end
-  if value == "U" then
-    return "Instrument Trading Status: Paused (U)"
-  end
-  if value == "H" then
-    return "Instrument Trading Status: Halted (H)"
-  end
-
-  return "Instrument Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Instrument Trading Status
-smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.instrument_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.trading_session_date = {}
-
--- Size: Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.trading_session_date.size = 2
-
--- Display: Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.trading_session_date.display = function(value)
-  return "Trading Session Date: "..value
-end
-
--- Dissect: Trading Session Date
-smallx_orderbookfeed_sbe_v2_2.trading_session_date.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.trading_session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.trading_session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trading_session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-smallx_orderbookfeed_sbe_v2_2.transact_time = {}
-
--- Size: Transact Time
-smallx_orderbookfeed_sbe_v2_2.transact_time.size = 8
-
--- Display: Transact Time
-smallx_orderbookfeed_sbe_v2_2.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
--- Dissect: Transact Time
-smallx_orderbookfeed_sbe_v2_2.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Message No
-smallx_orderbookfeed_sbe_v2_2.instrument_message_no = {}
-
--- Size: Instrument Message No
-smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size = 8
-
--- Display: Instrument Message No
-smallx_orderbookfeed_sbe_v2_2.instrument_message_no.display = function(value)
-  return "Instrument Message No: "..value
-end
-
--- Dissect: Instrument Message No
-smallx_orderbookfeed_sbe_v2_2.instrument_message_no.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.instrument_message_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_message_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Id
-smallx_orderbookfeed_sbe_v2_2.instrument_id = {}
-
--- Size: Instrument Id
-smallx_orderbookfeed_sbe_v2_2.instrument_id.size = 4
-
--- Display: Instrument Id
-smallx_orderbookfeed_sbe_v2_2.instrument_id.display = function(value)
-  return "Instrument Id: "..value
-end
-
--- Dissect: Instrument Id
-smallx_orderbookfeed_sbe_v2_2.instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Multileg Definition Snapshot V 2 Message
@@ -1629,388 +3318,6 @@ smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.dissect =
     -- Skip element, add fields directly
     return smallx_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Delivery
-smallx_orderbookfeed_sbe_v2_2.delivery = {}
-
--- Size: Delivery
-smallx_orderbookfeed_sbe_v2_2.delivery.size = 1
-
--- Display: Delivery
-smallx_orderbookfeed_sbe_v2_2.delivery.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Delivery: No Value"
-  end
-
-  if value == "C" then
-    return "Delivery: Cash (C)"
-  end
-  if value == "P" then
-    return "Delivery: Physical (P)"
-  end
-
-  return "Delivery: Unknown("..value..")"
-end
-
--- Dissect: Delivery
-smallx_orderbookfeed_sbe_v2_2.delivery.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.delivery.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.delivery.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.delivery, range, value, display)
-
-  return offset + length, value
-end
-
--- Exercise Style
-smallx_orderbookfeed_sbe_v2_2.exercise_style = {}
-
--- Size: Exercise Style
-smallx_orderbookfeed_sbe_v2_2.exercise_style.size = 1
-
--- Display: Exercise Style
-smallx_orderbookfeed_sbe_v2_2.exercise_style.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Exercise Style: No Value"
-  end
-
-  if value == "E" then
-    return "Exercise Style: European (E)"
-  end
-  if value == "A" then
-    return "Exercise Style: American (A)"
-  end
-  if value == "N" then
-    return "Exercise Style: Not Option (N)"
-  end
-
-  return "Exercise Style: Unknown("..value..")"
-end
-
--- Dissect: Exercise Style
-smallx_orderbookfeed_sbe_v2_2.exercise_style.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.exercise_style.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.exercise_style.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.exercise_style, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Style
-smallx_orderbookfeed_sbe_v2_2.expiration_style = {}
-
--- Size: Expiration Style
-smallx_orderbookfeed_sbe_v2_2.expiration_style.size = 1
-
--- Display: Expiration Style
-smallx_orderbookfeed_sbe_v2_2.expiration_style.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Expiration Style: No Value"
-  end
-
-  if value == "S" then
-    return "Expiration Style: Standard (S)"
-  end
-  if value == "D" then
-    return "Expiration Style: Daily (D)"
-  end
-  if value == "W" then
-    return "Expiration Style: Weekly (W)"
-  end
-  if value == "Q" then
-    return "Expiration Style: Quaterly (Q)"
-  end
-
-  return "Expiration Style: Unknown("..value..")"
-end
-
--- Dissect: Expiration Style
-smallx_orderbookfeed_sbe_v2_2.expiration_style.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.expiration_style.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.expiration_style.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.expiration_style, range, value, display)
-
-  return offset + length, value
-end
-
--- Shares Per Contract
-smallx_orderbookfeed_sbe_v2_2.shares_per_contract = {}
-
--- Size: Shares Per Contract
-smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size = 8
-
--- Display: Shares Per Contract
-smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display = function(value)
-  return "Shares Per Contract: "..value
-end
-
--- Translate: Shares Per Contract
-smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Shares Per Contract
-smallx_orderbookfeed_sbe_v2_2.shares_per_contract.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.shares_per_contract, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-smallx_orderbookfeed_sbe_v2_2.strike_price = {}
-
--- Size: Strike Price
-smallx_orderbookfeed_sbe_v2_2.strike_price.size = 8
-
--- Display: Strike Price
-smallx_orderbookfeed_sbe_v2_2.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-smallx_orderbookfeed_sbe_v2_2.strike_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Strike Price
-smallx_orderbookfeed_sbe_v2_2.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.strike_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Put Or Call
-smallx_orderbookfeed_sbe_v2_2.put_or_call = {}
-
--- Size: Put Or Call
-smallx_orderbookfeed_sbe_v2_2.put_or_call.size = 1
-
--- Display: Put Or Call
-smallx_orderbookfeed_sbe_v2_2.put_or_call.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Put Or Call: No Value"
-  end
-
-  if value == "P" then
-    return "Put Or Call: Put (P)"
-  end
-  if value == "C" then
-    return "Put Or Call: Call (C)"
-  end
-  if value == "N" then
-    return "Put Or Call: Not Option (N)"
-  end
-
-  return "Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Put Or Call
-smallx_orderbookfeed_sbe_v2_2.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.put_or_call.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Instrument Id
-smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id = {}
-
--- Size: Underlying Instrument Id
-smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size = 4
-
--- Display: Underlying Instrument Id
-smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.display = function(value)
-  return "Underlying Instrument Id: "..value
-end
-
--- Dissect: Underlying Instrument Id
-smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.underlying_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-smallx_orderbookfeed_sbe_v2_2.underlying_symbol = {}
-
--- Size: Underlying Symbol
-smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size = 25
-
--- Display: Underlying Symbol
-smallx_orderbookfeed_sbe_v2_2.underlying_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Symbol: No Value"
-  end
-
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-smallx_orderbookfeed_sbe_v2_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.underlying_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Product
-smallx_orderbookfeed_sbe_v2_2.product = {}
-
--- Size: Product
-smallx_orderbookfeed_sbe_v2_2.product.size = 8
-
--- Display: Product
-smallx_orderbookfeed_sbe_v2_2.product.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Product: No Value"
-  end
-
-  return "Product: "..value
-end
-
--- Dissect: Product
-smallx_orderbookfeed_sbe_v2_2.product.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.product.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.product.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.product, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-smallx_orderbookfeed_sbe_v2_2.symbol = {}
-
--- Size: Symbol
-smallx_orderbookfeed_sbe_v2_2.symbol.size = 25
-
--- Display: Symbol
-smallx_orderbookfeed_sbe_v2_2.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-smallx_orderbookfeed_sbe_v2_2.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Instrument Definition Snapshot V 2 Message
@@ -2159,52 +3466,6 @@ smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.
     -- Skip element, add fields directly
     return smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Instrument Update Action
-smallx_orderbookfeed_sbe_v2_2.instrument_update_action = {}
-
--- Size: Instrument Update Action
-smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size = 1
-
--- Display: Instrument Update Action
-smallx_orderbookfeed_sbe_v2_2.instrument_update_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Update Action: No Value"
-  end
-
-  if value == "A" then
-    return "Instrument Update Action: Add (A)"
-  end
-  if value == "D" then
-    return "Instrument Update Action: Delete (D)"
-  end
-  if value == "M" then
-    return "Instrument Update Action: Modify (M)"
-  end
-
-  return "Instrument Update Action: Unknown("..value..")"
-end
-
--- Dissect: Instrument Update Action
-smallx_orderbookfeed_sbe_v2_2.instrument_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.instrument_update_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.instrument_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.instrument_update_action, range, value, display)
-
-  return offset + length, value
 end
 
 -- Incremental Message Instructions
@@ -2576,236 +3837,6 @@ smallx_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_messa
   end
 end
 
--- Close Price
-smallx_orderbookfeed_sbe_v2_2.close_price = {}
-
--- Size: Close Price
-smallx_orderbookfeed_sbe_v2_2.close_price.size = 8
-
--- Display: Close Price
-smallx_orderbookfeed_sbe_v2_2.close_price.display = function(value)
-  return "Close Price: "..value
-end
-
--- Translate: Close Price
-smallx_orderbookfeed_sbe_v2_2.close_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Close Price
-smallx_orderbookfeed_sbe_v2_2.close_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.close_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.close_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.close_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Price
-smallx_orderbookfeed_sbe_v2_2.low_price = {}
-
--- Size: Low Price
-smallx_orderbookfeed_sbe_v2_2.low_price.size = 8
-
--- Display: Low Price
-smallx_orderbookfeed_sbe_v2_2.low_price.display = function(value)
-  return "Low Price: "..value
-end
-
--- Translate: Low Price
-smallx_orderbookfeed_sbe_v2_2.low_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Low Price
-smallx_orderbookfeed_sbe_v2_2.low_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.low_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.low_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price
-smallx_orderbookfeed_sbe_v2_2.high_price = {}
-
--- Size: High Price
-smallx_orderbookfeed_sbe_v2_2.high_price.size = 8
-
--- Display: High Price
-smallx_orderbookfeed_sbe_v2_2.high_price.display = function(value)
-  return "High Price: "..value
-end
-
--- Translate: High Price
-smallx_orderbookfeed_sbe_v2_2.high_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: High Price
-smallx_orderbookfeed_sbe_v2_2.high_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.high_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.high_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Price
-smallx_orderbookfeed_sbe_v2_2.open_price = {}
-
--- Size: Open Price
-smallx_orderbookfeed_sbe_v2_2.open_price.size = 8
-
--- Display: Open Price
-smallx_orderbookfeed_sbe_v2_2.open_price.display = function(value)
-  return "Open Price: "..value
-end
-
--- Translate: Open Price
-smallx_orderbookfeed_sbe_v2_2.open_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Open Price
-smallx_orderbookfeed_sbe_v2_2.open_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.open_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.open_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Date
-smallx_orderbookfeed_sbe_v2_2.session_date = {}
-
--- Size: Session Date
-smallx_orderbookfeed_sbe_v2_2.session_date.size = 2
-
--- Display: Session Date
-smallx_orderbookfeed_sbe_v2_2.session_date.display = function(value)
-  return "Session Date: "..value
-end
-
--- Dissect: Session Date
-smallx_orderbookfeed_sbe_v2_2.session_date.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.session_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.session_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.session_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Value
-smallx_orderbookfeed_sbe_v2_2.value = {}
-
--- Size: Value
-smallx_orderbookfeed_sbe_v2_2.value.size = 8
-
--- Display: Value
-smallx_orderbookfeed_sbe_v2_2.value.display = function(value)
-  return "Value: "..value
-end
-
--- Translate: Value
-smallx_orderbookfeed_sbe_v2_2.value.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Value
-smallx_orderbookfeed_sbe_v2_2.value.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.value.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.value.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.value, range, value, display)
-
-  return offset + length, value
-end
-
--- Index Symbol
-smallx_orderbookfeed_sbe_v2_2.index_symbol = {}
-
--- Size: Index Symbol
-smallx_orderbookfeed_sbe_v2_2.index_symbol.size = 20
-
--- Display: Index Symbol
-smallx_orderbookfeed_sbe_v2_2.index_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Index Symbol: No Value"
-  end
-
-  return "Index Symbol: "..value
-end
-
--- Dissect: Index Symbol
-smallx_orderbookfeed_sbe_v2_2.index_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.index_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.index_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.index_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Index Count
-smallx_orderbookfeed_sbe_v2_2.index_count = {}
-
--- Size: Index Count
-smallx_orderbookfeed_sbe_v2_2.index_count.size = 4
-
--- Display: Index Count
-smallx_orderbookfeed_sbe_v2_2.index_count.display = function(value)
-  return "Index Count: "..value
-end
-
--- Dissect: Index Count
-smallx_orderbookfeed_sbe_v2_2.index_count.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.index_count.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.index_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.index_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Index Value Snapshot Message
 smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message = {}
 
@@ -2884,266 +3915,6 @@ smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.dissect = function(bu
     -- Skip element, add fields directly
     return smallx_orderbookfeed_sbe_v2_2.index_value_snapshot_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Settlement Price Type
-smallx_orderbookfeed_sbe_v2_2.settlement_price_type = {}
-
--- Size: Settlement Price Type
-smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size = 1
-
--- Display: Settlement Price Type
-smallx_orderbookfeed_sbe_v2_2.settlement_price_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Settlement Price Type: No Value"
-  end
-
-  if value == "F" then
-    return "Settlement Price Type: Final (F)"
-  end
-  if value == "P" then
-    return "Settlement Price Type: Preliminary (P)"
-  end
-  if value == "N" then
-    return "Settlement Price Type: No Price (N)"
-  end
-
-  return "Settlement Price Type: Unknown("..value..")"
-end
-
--- Dissect: Settlement Price Type
-smallx_orderbookfeed_sbe_v2_2.settlement_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.settlement_price_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.settlement_price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.settlement_price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Price
-smallx_orderbookfeed_sbe_v2_2.settlement_price = {}
-
--- Size: Settlement Price
-smallx_orderbookfeed_sbe_v2_2.settlement_price.size = 8
-
--- Display: Settlement Price
-smallx_orderbookfeed_sbe_v2_2.settlement_price.display = function(value)
-  return "Settlement Price: "..value
-end
-
--- Translate: Settlement Price
-smallx_orderbookfeed_sbe_v2_2.settlement_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Settlement Price
-smallx_orderbookfeed_sbe_v2_2.settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.settlement_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.settlement_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Interest
-smallx_orderbookfeed_sbe_v2_2.open_interest = {}
-
--- Size: Open Interest
-smallx_orderbookfeed_sbe_v2_2.open_interest.size = 8
-
--- Display: Open Interest
-smallx_orderbookfeed_sbe_v2_2.open_interest.display = function(value)
-  return "Open Interest: "..value
-end
-
--- Translate: Open Interest
-smallx_orderbookfeed_sbe_v2_2.open_interest.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Open Interest
-smallx_orderbookfeed_sbe_v2_2.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.open_interest.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.open_interest.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.open_interest.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_interest, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Price Type
-smallx_orderbookfeed_sbe_v2_2.open_price_type = {}
-
--- Size: Open Price Type
-smallx_orderbookfeed_sbe_v2_2.open_price_type.size = 1
-
--- Display: Open Price Type
-smallx_orderbookfeed_sbe_v2_2.open_price_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Open Price Type: No Value"
-  end
-
-  if value == "I" then
-    return "Open Price Type: Indicative (I)"
-  end
-  if value == "T" then
-    return "Open Price Type: Traded (T)"
-  end
-  if value == "N" then
-    return "Open Price Type: No Price (N)"
-  end
-
-  return "Open Price Type: Unknown("..value..")"
-end
-
--- Dissect: Open Price Type
-smallx_orderbookfeed_sbe_v2_2.open_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.open_price_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.open_price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Volume Quantity Optional
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional = {}
-
--- Size: Total Volume Quantity Optional
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size = 8
-
--- Display: Total Volume Quantity Optional
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display = function(value)
-  return "Total Volume Quantity Optional: "..value
-end
-
--- Translate: Total Volume Quantity Optional
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Total Volume Quantity Optional
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Time Timestamp
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp = {}
-
--- Size: Last Trade Time Timestamp
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size = 8
-
--- Display: Last Trade Time Timestamp
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.display = function(value)
-  return "Last Trade Time Timestamp: "..value
-end
-
--- Dissect: Last Trade Time Timestamp
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Size
-smallx_orderbookfeed_sbe_v2_2.last_trade_size = {}
-
--- Size: Last Trade Size
-smallx_orderbookfeed_sbe_v2_2.last_trade_size.size = 8
-
--- Display: Last Trade Size
-smallx_orderbookfeed_sbe_v2_2.last_trade_size.display = function(value)
-  return "Last Trade Size: "..value
-end
-
--- Translate: Last Trade Size
-smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Last Trade Size
-smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Price
-smallx_orderbookfeed_sbe_v2_2.last_trade_price = {}
-
--- Size: Last Trade Price
-smallx_orderbookfeed_sbe_v2_2.last_trade_price.size = 8
-
--- Display: Last Trade Price
-smallx_orderbookfeed_sbe_v2_2.last_trade_price.display = function(value)
-  return "Last Trade Price: "..value
-end
-
--- Translate: Last Trade Price
-smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Last Trade Price
-smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Summary Snapshot Message
@@ -3262,29 +4033,6 @@ smallx_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.dissect = function
   end
 end
 
--- Time
-smallx_orderbookfeed_sbe_v2_2.time = {}
-
--- Size: Time
-smallx_orderbookfeed_sbe_v2_2.time.size = 8
-
--- Display: Time
-smallx_orderbookfeed_sbe_v2_2.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-smallx_orderbookfeed_sbe_v2_2.time.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Attributes
 smallx_orderbookfeed_sbe_v2_2.order_attributes = {}
 
@@ -3326,153 +4074,6 @@ smallx_orderbookfeed_sbe_v2_2.order_attributes.dissect = function(buffer, offset
   end
 
   return offset + size, value
-end
-
--- Order Priority
-smallx_orderbookfeed_sbe_v2_2.order_priority = {}
-
--- Size: Order Priority
-smallx_orderbookfeed_sbe_v2_2.order_priority.size = 8
-
--- Display: Order Priority
-smallx_orderbookfeed_sbe_v2_2.order_priority.display = function(value)
-  return "Order Priority: "..value
-end
-
--- Dissect: Order Priority
-smallx_orderbookfeed_sbe_v2_2.order_priority.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.order_priority.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.order_priority.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority, range, value, display)
-
-  return offset + length, value
-end
-
--- Size
-smallx_orderbookfeed_sbe_v2_2.size = {}
-
--- Size: Size
-smallx_orderbookfeed_sbe_v2_2.size.size = 8
-
--- Display: Size
-smallx_orderbookfeed_sbe_v2_2.size.display = function(value)
-  return "Size: "..value
-end
-
--- Translate: Size
-smallx_orderbookfeed_sbe_v2_2.size.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Size
-smallx_orderbookfeed_sbe_v2_2.size.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.size.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.size.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.size, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-smallx_orderbookfeed_sbe_v2_2.price = {}
-
--- Size: Price
-smallx_orderbookfeed_sbe_v2_2.price.size = 8
-
--- Display: Price
-smallx_orderbookfeed_sbe_v2_2.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-smallx_orderbookfeed_sbe_v2_2.price.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Price
-smallx_orderbookfeed_sbe_v2_2.price.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-smallx_orderbookfeed_sbe_v2_2.side = {}
-
--- Size: Side
-smallx_orderbookfeed_sbe_v2_2.side.size = 1
-
--- Display: Side
-smallx_orderbookfeed_sbe_v2_2.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-smallx_orderbookfeed_sbe_v2_2.side.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-smallx_orderbookfeed_sbe_v2_2.order_id = {}
-
--- Size: Order Id
-smallx_orderbookfeed_sbe_v2_2.order_id.size = 8
-
--- Display: Order Id
-smallx_orderbookfeed_sbe_v2_2.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-smallx_orderbookfeed_sbe_v2_2.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Snaphot Orders Group
@@ -3779,137 +4380,6 @@ smallx_orderbookfeed_sbe_v2_2.market_summary_incremental_message.dissect = funct
   end
 end
 
--- Order Priority Optional
-smallx_orderbookfeed_sbe_v2_2.order_priority_optional = {}
-
--- Size: Order Priority Optional
-smallx_orderbookfeed_sbe_v2_2.order_priority_optional.size = 8
-
--- Display: Order Priority Optional
-smallx_orderbookfeed_sbe_v2_2.order_priority_optional.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Order Priority Optional: No Value"
-  end
-
-  return "Order Priority Optional: "..value
-end
-
--- Dissect: Order Priority Optional
-smallx_orderbookfeed_sbe_v2_2.order_priority_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.order_priority_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.order_priority_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Optional
-smallx_orderbookfeed_sbe_v2_2.price_optional = {}
-
--- Size: Price Optional
-smallx_orderbookfeed_sbe_v2_2.price_optional.size = 8
-
--- Display: Price Optional
-smallx_orderbookfeed_sbe_v2_2.price_optional.display = function(value)
-  return "Price Optional: "..value
-end
-
--- Translate: Price Optional
-smallx_orderbookfeed_sbe_v2_2.price_optional.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Price Optional
-smallx_orderbookfeed_sbe_v2_2.price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.price_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.price_optional.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.price_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id Optional
-smallx_orderbookfeed_sbe_v2_2.trade_id_optional = {}
-
--- Size: Trade Id Optional
-smallx_orderbookfeed_sbe_v2_2.trade_id_optional.size = 8
-
--- Display: Trade Id Optional
-smallx_orderbookfeed_sbe_v2_2.trade_id_optional.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Trade Id Optional: No Value"
-  end
-
-  return "Trade Id Optional: "..value
-end
-
--- Dissect: Trade Id Optional
-smallx_orderbookfeed_sbe_v2_2.trade_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.trade_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.trade_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Update Action
-smallx_orderbookfeed_sbe_v2_2.order_update_action = {}
-
--- Size: Order Update Action
-smallx_orderbookfeed_sbe_v2_2.order_update_action.size = 1
-
--- Display: Order Update Action
-smallx_orderbookfeed_sbe_v2_2.order_update_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Order Update Action: No Value"
-  end
-
-  if value == "N" then
-    return "Order Update Action: New (N)"
-  end
-  if value == "U" then
-    return "Order Update Action: Update (U)"
-  end
-  if value == "D" then
-    return "Order Update Action: Delete (D)"
-  end
-
-  return "Order Update Action: Unknown("..value..")"
-end
-
--- Dissect: Order Update Action
-smallx_orderbookfeed_sbe_v2_2.order_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.order_update_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.order_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_update_action, range, value, display)
-
-  return offset + length, value
-end
-
 -- Incremetal Orders Group
 smallx_orderbookfeed_sbe_v2_2.incremetal_orders_group = {}
 
@@ -4166,121 +4636,6 @@ smallx_orderbookfeed_sbe_v2_2.trade_conditions.dissect = function(buffer, offset
   return offset + size, value
 end
 
--- Sell Order Id
-smallx_orderbookfeed_sbe_v2_2.sell_order_id = {}
-
--- Size: Sell Order Id
-smallx_orderbookfeed_sbe_v2_2.sell_order_id.size = 8
-
--- Display: Sell Order Id
-smallx_orderbookfeed_sbe_v2_2.sell_order_id.display = function(value)
-  return "Sell Order Id: "..value
-end
-
--- Dissect: Sell Order Id
-smallx_orderbookfeed_sbe_v2_2.sell_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.sell_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.sell_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.sell_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Order Id
-smallx_orderbookfeed_sbe_v2_2.buy_order_id = {}
-
--- Size: Buy Order Id
-smallx_orderbookfeed_sbe_v2_2.buy_order_id.size = 8
-
--- Display: Buy Order Id
-smallx_orderbookfeed_sbe_v2_2.buy_order_id.display = function(value)
-  return "Buy Order Id: "..value
-end
-
--- Dissect: Buy Order Id
-smallx_orderbookfeed_sbe_v2_2.buy_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.buy_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.buy_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.buy_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Side
-smallx_orderbookfeed_sbe_v2_2.aggressor_side = {}
-
--- Size: Aggressor Side
-smallx_orderbookfeed_sbe_v2_2.aggressor_side.size = 1
-
--- Display: Aggressor Side
-smallx_orderbookfeed_sbe_v2_2.aggressor_side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Aggressor Side: No Value"
-  end
-
-  if value == "N" then
-    return "Aggressor Side: No Aggressor (N)"
-  end
-  if value == "B" then
-    return "Aggressor Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Aggressor Side: Sell (S)"
-  end
-
-  return "Aggressor Side: Unknown("..value..")"
-end
-
--- Dissect: Aggressor Side
-smallx_orderbookfeed_sbe_v2_2.aggressor_side.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.aggressor_side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.aggressor_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.aggressor_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-smallx_orderbookfeed_sbe_v2_2.trade_id = {}
-
--- Size: Trade Id
-smallx_orderbookfeed_sbe_v2_2.trade_id.size = 8
-
--- Display: Trade Id
-smallx_orderbookfeed_sbe_v2_2.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-smallx_orderbookfeed_sbe_v2_2.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Bust Group
 smallx_orderbookfeed_sbe_v2_2.trade_bust_group = {}
 
@@ -4412,58 +4767,6 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_groups.dissect = function(buffer, offse
   end
 end
 
--- Total Volume Quantity
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity = {}
-
--- Size: Total Volume Quantity
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.size = 8
-
--- Display: Total Volume Quantity
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.display = function(value)
-  return "Total Volume Quantity: "..value
-end
-
--- Translate: Total Volume Quantity
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.translate = function(raw)
-  return raw:tonumber()
-end
-
--- Dissect: Total Volume Quantity
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Time Timestamp Optional
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional = {}
-
--- Size: Last Trade Time Timestamp Optional
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size = 8
-
--- Display: Last Trade Time Timestamp Optional
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.display = function(value)
-  return "Last Trade Time Timestamp Optional: "..value
-end
-
--- Dissect: Last Trade Time Timestamp Optional
-smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Bust Message
 smallx_orderbookfeed_sbe_v2_2.trade_bust_message = {}
 
@@ -4557,49 +4860,6 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_message.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return smallx_orderbookfeed_sbe_v2_2.trade_bust_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Update Action
-smallx_orderbookfeed_sbe_v2_2.trade_update_action = {}
-
--- Size: Trade Update Action
-smallx_orderbookfeed_sbe_v2_2.trade_update_action.size = 1
-
--- Display: Trade Update Action
-smallx_orderbookfeed_sbe_v2_2.trade_update_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trade Update Action: No Value"
-  end
-
-  if value == "N" then
-    return "Trade Update Action: New (N)"
-  end
-  if value == "D" then
-    return "Trade Update Action: Delete (D)"
-  end
-
-  return "Trade Update Action: Unknown("..value..")"
-end
-
--- Dissect: Trade Update Action
-smallx_orderbookfeed_sbe_v2_2.trade_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.trade_update_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = smallx_orderbookfeed_sbe_v2_2.trade_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_update_action, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Correct Group
@@ -5175,123 +5435,6 @@ smallx_orderbookfeed_sbe_v2_2.payload.dissect = function(buffer, offset, packet,
   return offset
 end
 
--- Version
-smallx_orderbookfeed_sbe_v2_2.version = {}
-
--- Size: Version
-smallx_orderbookfeed_sbe_v2_2.version.size = 2
-
--- Display: Version
-smallx_orderbookfeed_sbe_v2_2.version.display = function(value)
-  if value == 6 then
-    return "Version: Version "
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-smallx_orderbookfeed_sbe_v2_2.version.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-smallx_orderbookfeed_sbe_v2_2.schema_id = {}
-
--- Size: Schema Id
-smallx_orderbookfeed_sbe_v2_2.schema_id.size = 2
-
--- Display: Schema Id
-smallx_orderbookfeed_sbe_v2_2.schema_id.display = function(value)
-  if value == 1 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-smallx_orderbookfeed_sbe_v2_2.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-smallx_orderbookfeed_sbe_v2_2.template_id = {}
-
--- Size: Template Id
-smallx_orderbookfeed_sbe_v2_2.template_id.size = 2
-
--- Display: Template Id
-smallx_orderbookfeed_sbe_v2_2.template_id.display = function(value)
-  if value == 3 then
-    return "Template Id: Instrument Trading Status Incremental Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Trades Incremental Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Trade Correct Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Trade Bust Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Order Book Incremental Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Market Summary Incremental Message (8)"
-  end
-  if value == 11 then
-    return "Template Id: Order Book Snapshot Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Market Summary Snapshot Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Index Value Snapshot Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Single Instrument Definition Incremental V 2 Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Multileg Definition Incremental V 2 Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Single Instrument Definition Snapshot V 2 Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Multileg Definition Snapshot V 2 Message (17)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-smallx_orderbookfeed_sbe_v2_2.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 smallx_orderbookfeed_sbe_v2_2.message_header = {}
 
@@ -5344,29 +5487,6 @@ smallx_orderbookfeed_sbe_v2_2.message_header.dissect = function(buffer, offset, 
   end
 end
 
--- Frame Length
-smallx_orderbookfeed_sbe_v2_2.frame_length = {}
-
--- Size: Frame Length
-smallx_orderbookfeed_sbe_v2_2.frame_length.size = 1
-
--- Display: Frame Length
-smallx_orderbookfeed_sbe_v2_2.frame_length.display = function(value)
-  return "Frame Length: "..value
-end
-
--- Dissect: Frame Length
-smallx_orderbookfeed_sbe_v2_2.frame_length.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.frame_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.frame_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.frame_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Frame
 smallx_orderbookfeed_sbe_v2_2.sbe_frame = {}
 
@@ -5413,52 +5533,6 @@ smallx_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, offset, packe
 
     return index
   end
-end
-
--- Message Count
-smallx_orderbookfeed_sbe_v2_2.message_count = {}
-
--- Size: Message Count
-smallx_orderbookfeed_sbe_v2_2.message_count.size = 1
-
--- Display: Message Count
-smallx_orderbookfeed_sbe_v2_2.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-smallx_orderbookfeed_sbe_v2_2.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Sequence
-smallx_orderbookfeed_sbe_v2_2.message_sequence = {}
-
--- Size: Message Sequence
-smallx_orderbookfeed_sbe_v2_2.message_sequence.size = 4
-
--- Display: Message Sequence
-smallx_orderbookfeed_sbe_v2_2.message_sequence.display = function(value)
-  return "Message Sequence: "..value
-end
-
--- Dissect: Message Sequence
-smallx_orderbookfeed_sbe_v2_2.message_sequence.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.message_sequence.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.message_sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.message_sequence, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Flags
@@ -5516,75 +5590,6 @@ smallx_orderbookfeed_sbe_v2_2.packet_flags.dissect = function(buffer, offset, pa
   end
 
   return offset + size, value
-end
-
--- Source
-smallx_orderbookfeed_sbe_v2_2.source = {}
-
--- Size: Source
-smallx_orderbookfeed_sbe_v2_2.source.size = 1
-
--- Display: Source
-smallx_orderbookfeed_sbe_v2_2.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-smallx_orderbookfeed_sbe_v2_2.source.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Incarnation
-smallx_orderbookfeed_sbe_v2_2.incarnation = {}
-
--- Size: Incarnation
-smallx_orderbookfeed_sbe_v2_2.incarnation.size = 2
-
--- Display: Incarnation
-smallx_orderbookfeed_sbe_v2_2.incarnation.display = function(value)
-  return "Incarnation: "..value
-end
-
--- Dissect: Incarnation
-smallx_orderbookfeed_sbe_v2_2.incarnation.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.incarnation.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_orderbookfeed_sbe_v2_2.incarnation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incarnation, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-smallx_orderbookfeed_sbe_v2_2.channel_id = {}
-
--- Size: Channel Id
-smallx_orderbookfeed_sbe_v2_2.channel_id.size = 1
-
--- Display: Channel Id
-smallx_orderbookfeed_sbe_v2_2.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-smallx_orderbookfeed_sbe_v2_2.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_orderbookfeed_sbe_v2_2.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_orderbookfeed_sbe_v2_2.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.channel_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

@@ -137,91 +137,97 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Amex Equities OpenBook Ultra 2.1.b
+-- Nyse Amex Equities OpenBook Ultra 2.1.b Fields
 -----------------------------------------------------------------------
 
--- Next Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number = {}
+-- Chg Qty
+nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty = {}
 
--- Size: Next Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size = 4
+-- Size: Chg Qty
+nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.size = 4
 
--- Display: Next Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.display = function(value)
-  return "Next Sequence Number: "..value
+-- Display: Chg Qty
+nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.display = function(value)
+  return "Chg Qty: "..value
 end
 
--- Dissect: Next Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+-- Dissect: Chg Qty
+nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty, range, value, display)
 
   return offset + length, value
 end
 
--- Sequence Number Reset Message
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
+-- Delta Size
+nyse_amex_equities_openbook_ultra_v2_1_b.delta_size = {}
 
--- Size: Sequence Number Reset Message
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size =
-  nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+-- Size: Delta Size
+nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.size = 2
 
--- Display: Sequence Number Reset Message
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display = function(packet, parent, length)
-  return ""
+-- Display: Delta Size
+nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.display = function(value)
+  return "Delta Size: "..value
 end
 
--- Dissect Fields: Sequence Number Reset Message
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 4 Byte Signed Fixed Width Integer
-  index, next_sequence_number = nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sequence Number Reset Message
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Link Id 3
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3 = {}
-
--- Size: Link Id 3
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.size = 4
-
--- Display: Link Id 3
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.display = function(value)
-  return "Link Id 3: "..value
-end
-
--- Dissect: Link Id 3
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.size
+-- Dissect: Delta Size
+nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Link Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.link_flag = {}
+
+-- Size: Link Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.size = 1
+
+-- Display: Link Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.display = function(value)
+  return "Link Flag: "..value
+end
+
+-- Dissect: Link Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Link Id 1
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1 = {}
+
+-- Size: Link Id 1
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.size = 4
+
+-- Display: Link Id 1
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.display = function(value)
+  return "Link Id 1: "..value
+end
+
+-- Dissect: Link Id 1
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1, range, value, display)
 
   return offset + length, value
 end
@@ -249,25 +255,279 @@ nyse_amex_equities_openbook_ultra_v2_1_b.link_id_2.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Link Id 1
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1 = {}
+-- Link Id 3
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3 = {}
 
--- Size: Link Id 1
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.size = 4
+-- Size: Link Id 3
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.size = 4
 
--- Display: Link Id 1
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.display = function(value)
-  return "Link Id 1: "..value
+-- Display: Link Id 3
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.display = function(value)
+  return "Link Id 3: "..value
 end
 
--- Dissect: Link Id 1
-nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.size
+-- Dissect: Link Id 3
+nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_1.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.link_id_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_1, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_id_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nyse_amex_equities_openbook_ultra_v2_1_b.message_count = {}
+
+-- Size: Message Count
+nyse_amex_equities_openbook_ultra_v2_1_b.message_count.size = 1
+
+-- Display: Message Count
+nyse_amex_equities_openbook_ultra_v2_1_b.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nyse_amex_equities_openbook_ultra_v2_1_b.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_amex_equities_openbook_ultra_v2_1_b.message_type = {}
+
+-- Size: Message Type
+nyse_amex_equities_openbook_ultra_v2_1_b.message_type.size = 2
+
+-- Display: Message Type
+nyse_amex_equities_openbook_ultra_v2_1_b.message_type.display = function(value)
+  if value == 230 then
+    return "Message Type: Full Update Message (230)"
+  end
+  if value == 231 then
+    return "Message Type: Delta Update Message (231)"
+  end
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Heartbeat Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_amex_equities_openbook_ultra_v2_1_b.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nyse_amex_equities_openbook_ultra_v2_1_b.mpv = {}
+
+-- Size: Mpv
+nyse_amex_equities_openbook_ultra_v2_1_b.mpv.size = 2
+
+-- Display: Mpv
+nyse_amex_equities_openbook_ultra_v2_1_b.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Dissect: Mpv
+nyse_amex_equities_openbook_ultra_v2_1_b.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.mpv.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number = {}
+
+-- Size: Next Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size = 4
+
+-- Display: Next Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.display = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Orders
+nyse_amex_equities_openbook_ultra_v2_1_b.num_orders = {}
+
+-- Size: Num Orders
+nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size = 2
+
+-- Display: Num Orders
+nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.display = function(value)
+  return "Num Orders: "..value
+end
+
+-- Dissect: Num Orders
+nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Size
+nyse_amex_equities_openbook_ultra_v2_1_b.packet_size = {}
+
+-- Size: Packet Size
+nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.size = 2
+
+-- Display: Packet Size
+nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.display = function(value)
+  return "Packet Size: "..value
+end
+
+-- Dissect: Packet Size
+nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Numerator
+nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator = {}
+
+-- Size: Price Numerator
+nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size = 4
+
+-- Display: Price Numerator
+nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.display = function(value)
+  return "Price Numerator: "..value
+end
+
+-- Dissect: Price Numerator
+nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale Code
+nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code = {}
+
+-- Size: Price Scale Code
+nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.size = 1
+
+-- Display: Price Scale Code
+nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.display = function(value)
+  return "Price Scale Code: "..value
+end
+
+-- Dissect: Price Scale Code
+nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_amex_equities_openbook_ultra_v2_1_b.product_id = {}
+
+-- Size: Product Id
+nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size = 1
+
+-- Display: Product Id
+nyse_amex_equities_openbook_ultra_v2_1_b.product_id.display = function(value)
+  if value == 62 then
+    return "Product Id: Amex OpenBook Ultra"
+  end
+
+  return "Product Id: Unknown("..value..")"
+end
+
+-- Dissect: Product Id
+nyse_amex_equities_openbook_ultra_v2_1_b.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition = {}
+
+-- Size: Quote Condition
+nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.size = 1
+
+-- Display: Quote Condition
+nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.display = function(value)
+  if value == " " then
+    return "Quote Condition: No Special Quote Condition (<whitespace>)"
+  end
+  if value == "W" then
+    return "Quote Condition: Slow Quote (W)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
@@ -308,6 +568,75 @@ nyse_amex_equities_openbook_ultra_v2_1_b.reason_code.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Reserved 1
+nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1 = {}
+
+-- Size: Reserved 1
+nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.size = 1
+
+-- Display: Reserved 1
+nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmission Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag = {}
+
+-- Size: Retransmission Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.size = 1
+
+-- Display: Retransmission Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.display = function(value)
+  return "Retransmission Flag: "..value
+end
+
+-- Dissect: Retransmission Flag
+nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number = {}
+
+-- Size: Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.size = 4
+
+-- Display: Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Side
 nyse_amex_equities_openbook_ultra_v2_1_b.side = {}
 
@@ -338,48 +667,251 @@ nyse_amex_equities_openbook_ultra_v2_1_b.side.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Num Orders
-nyse_amex_equities_openbook_ultra_v2_1_b.num_orders = {}
+-- Source Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num = {}
 
--- Size: Num Orders
-nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size = 2
+-- Size: Source Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.size = 4
 
--- Display: Num Orders
-nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.display = function(value)
-  return "Num Orders: "..value
+-- Display: Source Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.display = function(value)
+  return "Source Seq Num: "..value
 end
 
--- Dissect: Num Orders
-nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.size
+-- Dissect: Source Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.num_orders.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.num_orders, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Chg Qty
-nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty = {}
+-- Source Session Id
+nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id = {}
 
--- Size: Chg Qty
-nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.size = 4
+-- Size: Source Session Id
+nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.size = 1
 
--- Display: Chg Qty
-nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.display = function(value)
-  return "Chg Qty: "..value
+-- Display: Source Session Id
+nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.display = function(value)
+  return "Source Session Id: "..value
 end
 
--- Dissect: Chg Qty
-nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.size
+-- Dissect: Source Session Id
+nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.chg_qty.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.chg_qty, range, value, display)
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time = {}
+
+-- Size: Source Time
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time.size = 4
+
+-- Display: Source Time
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time.display = function(value)
+  return "Source Time: "..value
+end
+
+-- Dissect: Source Time
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_time.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time Micro Secs
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs = {}
+
+-- Size: Source Time Micro Secs
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size = 2
+
+-- Display: Source Time Micro Secs
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.display = function(value)
+  return "Source Time Micro Secs: "..value
+end
+
+-- Dissect: Source Time Micro Secs
+nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol = {}
+
+-- Size: Symbol
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol.size = 11
+
+-- Display: Symbol
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Index
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index = {}
+
+-- Size: Symbol Index
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.size = 4
+
+-- Display: Symbol Index
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.display = function(value)
+  return "Symbol Index: "..value
+end
+
+-- Dissect: Symbol Index
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num = {}
+
+-- Size: Symbol Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.size = 4
+
+-- Display: Symbol Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.display = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nyse_amex_equities_openbook_ultra_v2_1_b.timestamp = {}
+
+-- Size: Timestamp
+nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.size = 4
+
+-- Display: Timestamp
+nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+nyse_amex_equities_openbook_ultra_v2_1_b.trading_status = {}
+
+-- Size: Trading Status
+nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.size = 1
+
+-- Display: Trading Status
+nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.display = function(value)
+  if value == "P" then
+    return "Trading Status: Pre Opening (P)"
+  end
+  if value == "E" then
+    return "Trading Status: Early Session (E)"
+  end
+  if value == "O" then
+    return "Trading Status: Core Session (O)"
+  end
+  if value == "L" then
+    return "Trading Status: Late Session (L)"
+  end
+  if value == "X" then
+    return "Trading Status: Closed (X)"
+  end
+  if value == "H" then
+    return "Trading Status: Halted (H)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Update Size
+nyse_amex_equities_openbook_ultra_v2_1_b.update_size = {}
+
+-- Size: Update Size
+nyse_amex_equities_openbook_ultra_v2_1_b.update_size.size = 2
+
+-- Display: Update Size
+nyse_amex_equities_openbook_ultra_v2_1_b.update_size.display = function(value)
+  return "Update Size: "..value
+end
+
+-- Dissect: Update Size
+nyse_amex_equities_openbook_ultra_v2_1_b.update_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_equities_openbook_ultra_v2_1_b.update_size.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nyse_amex_equities_openbook_ultra_v2_1_b.update_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size, range, value, display)
 
   return offset + length, value
 end
@@ -407,27 +939,49 @@ nyse_amex_equities_openbook_ultra_v2_1_b.volume.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Price Numerator
-nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator = {}
 
--- Size: Price Numerator
-nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size = 4
+-----------------------------------------------------------------------
+-- Dissect Nyse Amex Equities OpenBook Ultra 2.1.b
+-----------------------------------------------------------------------
 
--- Display: Price Numerator
-nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.display = function(value)
-  return "Price Numerator: "..value
+-- Sequence Number Reset Message
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
+
+-- Size: Sequence Number Reset Message
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.size =
+  nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.size
+
+-- Display: Sequence Number Reset Message
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect: Price Numerator
-nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.price_numerator.display(value, buffer, offset, packet, parent)
+-- Dissect Fields: Sequence Number Reset Message
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
 
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_numerator, range, value, display)
+  -- Next Sequence Number: 4 Byte Signed Fixed Width Integer
+  index, next_sequence_number = nyse_amex_equities_openbook_ultra_v2_1_b.next_sequence_number.dissect(buffer, index, packet, parent)
 
-  return offset + length, value
+  return index
+end
+
+-- Dissect: Sequence Number Reset Message
+nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
+  if show.sequence_number_reset_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Delta Price Point
@@ -500,239 +1054,6 @@ nyse_amex_equities_openbook_ultra_v2_1_b.delta_price_point.dissect = function(bu
     -- Skip element, add fields directly
     return nyse_amex_equities_openbook_ultra_v2_1_b.delta_price_point.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price Scale Code
-nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code = {}
-
--- Size: Price Scale Code
-nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.size = 1
-
--- Display: Price Scale Code
-nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
-end
-
--- Dissect: Price Scale Code
-nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.price_scale_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.price_scale_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status
-nyse_amex_equities_openbook_ultra_v2_1_b.trading_status = {}
-
--- Size: Trading Status
-nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.size = 1
-
--- Display: Trading Status
-nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.display = function(value)
-  if value == "P" then
-    return "Trading Status: Pre Opening (P)"
-  end
-  if value == "E" then
-    return "Trading Status: Early Session (E)"
-  end
-  if value == "O" then
-    return "Trading Status: Core Session (O)"
-  end
-  if value == "L" then
-    return "Trading Status: Late Session (L)"
-  end
-  if value == "X" then
-    return "Trading Status: Closed (X)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition = {}
-
--- Size: Quote Condition
-nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.size = 1
-
--- Display: Quote Condition
-nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.display = function(value)
-  if value == " " then
-    return "Quote Condition: No Special Quote Condition (<whitespace>)"
-  end
-  if value == "W" then
-    return "Quote Condition: Slow Quote (W)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Session Id
-nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id = {}
-
--- Size: Source Session Id
-nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.size = 1
-
--- Display: Source Session Id
-nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.display = function(value)
-  return "Source Session Id: "..value
-end
-
--- Dissect: Source Session Id
-nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num = {}
-
--- Size: Source Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.size = 4
-
--- Display: Source Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.display = function(value)
-  return "Source Seq Num: "..value
-end
-
--- Dissect: Source Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Time Micro Secs
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs = {}
-
--- Size: Source Time Micro Secs
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size = 2
-
--- Display: Source Time Micro Secs
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.display = function(value)
-  return "Source Time Micro Secs: "..value
-end
-
--- Dissect: Source Time Micro Secs
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_time_micro_secs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time_micro_secs, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Time
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time = {}
-
--- Size: Source Time
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time.size = 4
-
--- Display: Source Time
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time.display = function(value)
-  return "Source Time: "..value
-end
-
--- Dissect: Source Time
-nyse_amex_equities_openbook_ultra_v2_1_b.source_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.source_time.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.source_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.source_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Index
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index = {}
-
--- Size: Symbol Index
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.size = 4
-
--- Display: Symbol Index
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.display = function(value)
-  return "Symbol Index: "..value
-end
-
--- Dissect: Symbol Index
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_index, range, value, display)
-
-  return offset + length, value
-end
-
--- Delta Size
-nyse_amex_equities_openbook_ultra_v2_1_b.delta_size = {}
-
--- Size: Delta Size
-nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.size = 2
-
--- Display: Delta Size
-nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.display = function(value)
-  return "Delta Size: "..value
-end
-
--- Dissect: Delta Size
-nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.delta_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.delta_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Delta Update Message
@@ -857,29 +1178,6 @@ nyse_amex_equities_openbook_ultra_v2_1_b.delta_update_messages.dissect = functio
   end
 end
 
--- Reserved 1
-nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1 = {}
-
--- Size: Reserved 1
-nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.size = 1
-
--- Display: Reserved 1
-nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Full Price Point
 nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point = {}
 
@@ -934,98 +1232,6 @@ nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point.dissect = function(buf
     -- Skip element, add fields directly
     return nyse_amex_equities_openbook_ultra_v2_1_b.full_price_point.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mpv
-nyse_amex_equities_openbook_ultra_v2_1_b.mpv = {}
-
--- Size: Mpv
-nyse_amex_equities_openbook_ultra_v2_1_b.mpv.size = 2
-
--- Display: Mpv
-nyse_amex_equities_openbook_ultra_v2_1_b.mpv.display = function(value)
-  return "Mpv: "..value
-end
-
--- Dissect: Mpv
-nyse_amex_equities_openbook_ultra_v2_1_b.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.mpv.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol = {}
-
--- Size: Symbol
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol.size = 11
-
--- Display: Symbol
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num = {}
-
--- Size: Symbol Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.size = 4
-
--- Display: Symbol Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.display = function(value)
-  return "Symbol Seq Num: "..value
-end
-
--- Dissect: Symbol Seq Num
-nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.symbol_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Update Size
-nyse_amex_equities_openbook_ultra_v2_1_b.update_size = {}
-
--- Size: Update Size
-nyse_amex_equities_openbook_ultra_v2_1_b.update_size.size = 2
-
--- Display: Update Size
-nyse_amex_equities_openbook_ultra_v2_1_b.update_size.display = function(value)
-  return "Update Size: "..value
-end
-
--- Dissect: Update Size
-nyse_amex_equities_openbook_ultra_v2_1_b.update_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.update_size.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.update_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.update_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Full Update Message
@@ -1182,207 +1388,6 @@ nyse_amex_equities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offs
   end
 
   return offset
-end
-
--- Link Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.link_flag = {}
-
--- Size: Link Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.size = 1
-
--- Display: Link Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.display = function(value)
-  return "Link Flag: "..value
-end
-
--- Dissect: Link Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.link_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.link_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Count
-nyse_amex_equities_openbook_ultra_v2_1_b.message_count = {}
-
--- Size: Message Count
-nyse_amex_equities_openbook_ultra_v2_1_b.message_count.size = 1
-
--- Display: Message Count
-nyse_amex_equities_openbook_ultra_v2_1_b.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nyse_amex_equities_openbook_ultra_v2_1_b.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmission Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag = {}
-
--- Size: Retransmission Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.size = 1
-
--- Display: Retransmission Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.display = function(value)
-  return "Retransmission Flag: "..value
-end
-
--- Dissect: Retransmission Flag
-nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.retransmission_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.retransmission_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-nyse_amex_equities_openbook_ultra_v2_1_b.product_id = {}
-
--- Size: Product Id
-nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size = 1
-
--- Display: Product Id
-nyse_amex_equities_openbook_ultra_v2_1_b.product_id.display = function(value)
-  if value == 62 then
-    return "Product Id: Amex OpenBook Ultra"
-  end
-
-  return "Product Id: Unknown("..value..")"
-end
-
--- Dissect: Product Id
-nyse_amex_equities_openbook_ultra_v2_1_b.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.product_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-nyse_amex_equities_openbook_ultra_v2_1_b.timestamp = {}
-
--- Size: Timestamp
-nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.size = 4
-
--- Display: Timestamp
-nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number = {}
-
--- Size: Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.size = 4
-
--- Display: Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-nyse_amex_equities_openbook_ultra_v2_1_b.message_type = {}
-
--- Size: Message Type
-nyse_amex_equities_openbook_ultra_v2_1_b.message_type.size = 2
-
--- Display: Message Type
-nyse_amex_equities_openbook_ultra_v2_1_b.message_type.display = function(value)
-  if value == 230 then
-    return "Message Type: Full Update Message (230)"
-  end
-  if value == 231 then
-    return "Message Type: Delta Update Message (231)"
-  end
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Heartbeat Message (2)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nyse_amex_equities_openbook_ultra_v2_1_b.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Size
-nyse_amex_equities_openbook_ultra_v2_1_b.packet_size = {}
-
--- Size: Packet Size
-nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.size = 2
-
--- Display: Packet Size
-nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.display = function(value)
-  return "Packet Size: "..value
-end
-
--- Dissect: Packet Size
-nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_equities_openbook_ultra_v2_1_b.packet_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_equities_openbook_ultra_v2_1_b.fields.packet_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

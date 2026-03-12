@@ -160,8 +160,31 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Options StreamProtocol Pillar 1.6
+-- Nyse Options StreamProtocol Pillar 1.6 Fields
 -----------------------------------------------------------------------
+
+-- Access
+nyse_options_streamprotocol_pillar_v1_6.access = {}
+
+-- Size: Access
+nyse_options_streamprotocol_pillar_v1_6.access.size = 1
+
+-- Display: Access
+nyse_options_streamprotocol_pillar_v1_6.access.display = function(value)
+  return "Access: "..value
+end
+
+-- Dissect: Access
+nyse_options_streamprotocol_pillar_v1_6.access.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.access.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.access.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.access, range, value, display)
+
+  return offset + length, value
+end
 
 -- Data
 nyse_options_streamprotocol_pillar_v1_6.data = {}
@@ -180,6 +203,273 @@ nyse_options_streamprotocol_pillar_v1_6.data.dissect = function(buffer, offset, 
   parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.data, range, value, display)
 
   return offset + size, value
+end
+
+-- End Seq
+nyse_options_streamprotocol_pillar_v1_6.end_seq = {}
+
+-- Size: End Seq
+nyse_options_streamprotocol_pillar_v1_6.end_seq.size = 8
+
+-- Display: End Seq
+nyse_options_streamprotocol_pillar_v1_6.end_seq.display = function(value)
+  return "End Seq: "..value
+end
+
+-- Dissect: End Seq
+nyse_options_streamprotocol_pillar_v1_6.end_seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.end_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_options_streamprotocol_pillar_v1_6.end_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.end_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mic
+nyse_options_streamprotocol_pillar_v1_6.mic = {}
+
+-- Size: Mic
+nyse_options_streamprotocol_pillar_v1_6.mic.size = 4
+
+-- Display: Mic
+nyse_options_streamprotocol_pillar_v1_6.mic.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mic: No Value"
+  end
+
+  return "Mic: "..value
+end
+
+-- Dissect: Mic
+nyse_options_streamprotocol_pillar_v1_6.mic.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.mic.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_options_streamprotocol_pillar_v1_6.mic.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.mic, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mode
+nyse_options_streamprotocol_pillar_v1_6.mode = {}
+
+-- Size: Mode
+nyse_options_streamprotocol_pillar_v1_6.mode.size = 1
+
+-- Display: Mode
+nyse_options_streamprotocol_pillar_v1_6.mode.display = function(value)
+  return "Mode: "..value
+end
+
+-- Dissect: Mode
+nyse_options_streamprotocol_pillar_v1_6.mode.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.mode.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+nyse_options_streamprotocol_pillar_v1_6.msg_length = {}
+
+-- Size: Msg Length
+nyse_options_streamprotocol_pillar_v1_6.msg_length.size = 2
+
+-- Display: Msg Length
+nyse_options_streamprotocol_pillar_v1_6.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+nyse_options_streamprotocol_pillar_v1_6.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+nyse_options_streamprotocol_pillar_v1_6.msg_type = {}
+
+-- Size: Msg Type
+nyse_options_streamprotocol_pillar_v1_6.msg_type.size = 2
+
+-- Display: Msg Type
+nyse_options_streamprotocol_pillar_v1_6.msg_type.display = function(value)
+  if value == 0x0201 then
+    return "Msg Type: Login (0x0201)"
+  end
+  if value == 0x0202 then
+    return "Msg Type: Login Response (0x0202)"
+  end
+  if value == 0x0203 then
+    return "Msg Type: Stream Avail (0x0203)"
+  end
+  if value == 0x0204 then
+    return "Msg Type: Heartbeat (0x0204)"
+  end
+  if value == 0x0205 then
+    return "Msg Type: Open (0x0205)"
+  end
+  if value == 0x0206 then
+    return "Msg Type: Open Response (0x0206)"
+  end
+  if value == 0x0207 then
+    return "Msg Type: Close (0x0207)"
+  end
+  if value == 0x0208 then
+    return "Msg Type: Close Response (0x0208)"
+  end
+  if value == 0x0905 then
+    return "Msg Type: Seq Msg (0x0905)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+nyse_options_streamprotocol_pillar_v1_6.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Seq
+nyse_options_streamprotocol_pillar_v1_6.next_seq = {}
+
+-- Size: Next Seq
+nyse_options_streamprotocol_pillar_v1_6.next_seq.size = 8
+
+-- Display: Next Seq
+nyse_options_streamprotocol_pillar_v1_6.next_seq.display = function(value)
+  return "Next Seq: "..value
+end
+
+-- Dissect: Next Seq
+nyse_options_streamprotocol_pillar_v1_6.next_seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.next_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_options_streamprotocol_pillar_v1_6.next_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.next_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nyse_options_streamprotocol_pillar_v1_6.password = {}
+
+-- Size: Password
+nyse_options_streamprotocol_pillar_v1_6.password.size = 32
+
+-- Display: Password
+nyse_options_streamprotocol_pillar_v1_6.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nyse_options_streamprotocol_pillar_v1_6.password.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_options_streamprotocol_pillar_v1_6.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+nyse_options_streamprotocol_pillar_v1_6.reserved_4 = {}
+
+-- Size: Reserved 4
+nyse_options_streamprotocol_pillar_v1_6.reserved_4.size = 4
+
+-- Display: Reserved 4
+nyse_options_streamprotocol_pillar_v1_6.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+nyse_options_streamprotocol_pillar_v1_6.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_streamprotocol_pillar_v1_6.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq
+nyse_options_streamprotocol_pillar_v1_6.seq = {}
+
+-- Size: Seq
+nyse_options_streamprotocol_pillar_v1_6.seq.size = 8
+
+-- Display: Seq
+nyse_options_streamprotocol_pillar_v1_6.seq.display = function(value)
+  return "Seq: "..value
+end
+
+-- Dissect: Seq
+nyse_options_streamprotocol_pillar_v1_6.seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_options_streamprotocol_pillar_v1_6.seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq, range, value, display)
+
+  return offset + length, value
 end
 
 -- Seq Msg Length
@@ -227,6 +517,211 @@ nyse_options_streamprotocol_pillar_v1_6.seq_msg_type.dissect = function(buffer, 
 
   return offset + length, value
 end
+
+-- Sess
+nyse_options_streamprotocol_pillar_v1_6.sess = {}
+
+-- Size: Sess
+nyse_options_streamprotocol_pillar_v1_6.sess.size = 4
+
+-- Display: Sess
+nyse_options_streamprotocol_pillar_v1_6.sess.display = function(value)
+  return "Sess: "..value
+end
+
+-- Dissect: Sess
+nyse_options_streamprotocol_pillar_v1_6.sess.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.sess.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.sess.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.sess, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Seq
+nyse_options_streamprotocol_pillar_v1_6.start_seq = {}
+
+-- Size: Start Seq
+nyse_options_streamprotocol_pillar_v1_6.start_seq.size = 8
+
+-- Display: Start Seq
+nyse_options_streamprotocol_pillar_v1_6.start_seq.display = function(value)
+  return "Start Seq: "..value
+end
+
+-- Dissect: Start Seq
+nyse_options_streamprotocol_pillar_v1_6.start_seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.start_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_options_streamprotocol_pillar_v1_6.start_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.start_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+nyse_options_streamprotocol_pillar_v1_6.status = {}
+
+-- Size: Status
+nyse_options_streamprotocol_pillar_v1_6.status.size = 1
+
+-- Display: Status
+nyse_options_streamprotocol_pillar_v1_6.status.display = function(value)
+  if value == 0 then
+    return "Status: Request Processed Successfully (0)"
+  end
+  if value == 18 then
+    return "Status: Not Logged In (18)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+nyse_options_streamprotocol_pillar_v1_6.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nyse_options_streamprotocol_pillar_v1_6.timestamp = {}
+
+-- Size: Timestamp
+nyse_options_streamprotocol_pillar_v1_6.timestamp.size = 8
+
+-- Display: Timestamp
+nyse_options_streamprotocol_pillar_v1_6.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+nyse_options_streamprotocol_pillar_v1_6.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_options_streamprotocol_pillar_v1_6.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- User
+nyse_options_streamprotocol_pillar_v1_6.user = {}
+
+-- Size: User
+nyse_options_streamprotocol_pillar_v1_6.user.size = 4
+
+-- Display: User
+nyse_options_streamprotocol_pillar_v1_6.user.display = function(value)
+  return "User: "..value
+end
+
+-- Dissect: User
+nyse_options_streamprotocol_pillar_v1_6.user.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.user.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_streamprotocol_pillar_v1_6.user.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.user, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+nyse_options_streamprotocol_pillar_v1_6.username = {}
+
+-- Size: Username
+nyse_options_streamprotocol_pillar_v1_6.username.size = 16
+
+-- Display: Username
+nyse_options_streamprotocol_pillar_v1_6.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nyse_options_streamprotocol_pillar_v1_6.username.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.username.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_options_streamprotocol_pillar_v1_6.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nyse_options_streamprotocol_pillar_v1_6.version = {}
+
+-- Size: Version
+nyse_options_streamprotocol_pillar_v1_6.version.size = 20
+
+-- Display: Version
+nyse_options_streamprotocol_pillar_v1_6.version.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Version: No Value"
+  end
+
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nyse_options_streamprotocol_pillar_v1_6.version.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_streamprotocol_pillar_v1_6.version.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_options_streamprotocol_pillar_v1_6.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Options StreamProtocol Pillar 1.6
+-----------------------------------------------------------------------
 
 -- Seq Msg Header
 nyse_options_streamprotocol_pillar_v1_6.seq_msg_header = {}
@@ -320,121 +815,6 @@ nyse_options_streamprotocol_pillar_v1_6.sequenced_message.dissect = function(buf
   end
 end
 
--- Timestamp
-nyse_options_streamprotocol_pillar_v1_6.timestamp = {}
-
--- Size: Timestamp
-nyse_options_streamprotocol_pillar_v1_6.timestamp.size = 8
-
--- Display: Timestamp
-nyse_options_streamprotocol_pillar_v1_6.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_options_streamprotocol_pillar_v1_6.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_options_streamprotocol_pillar_v1_6.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 4
-nyse_options_streamprotocol_pillar_v1_6.reserved_4 = {}
-
--- Size: Reserved 4
-nyse_options_streamprotocol_pillar_v1_6.reserved_4.size = 4
-
--- Display: Reserved 4
-nyse_options_streamprotocol_pillar_v1_6.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-nyse_options_streamprotocol_pillar_v1_6.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_streamprotocol_pillar_v1_6.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq
-nyse_options_streamprotocol_pillar_v1_6.seq = {}
-
--- Size: Seq
-nyse_options_streamprotocol_pillar_v1_6.seq.size = 8
-
--- Display: Seq
-nyse_options_streamprotocol_pillar_v1_6.seq.display = function(value)
-  return "Seq: "..value
-end
-
--- Dissect: Seq
-nyse_options_streamprotocol_pillar_v1_6.seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_options_streamprotocol_pillar_v1_6.seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.seq, range, value, display)
-
-  return offset + length, value
-end
-
--- User
-nyse_options_streamprotocol_pillar_v1_6.user = {}
-
--- Size: User
-nyse_options_streamprotocol_pillar_v1_6.user.size = 4
-
--- Display: User
-nyse_options_streamprotocol_pillar_v1_6.user.display = function(value)
-  return "User: "..value
-end
-
--- Dissect: User
-nyse_options_streamprotocol_pillar_v1_6.user.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.user.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.user.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.user, range, value, display)
-
-  return offset + length, value
-end
-
--- Sess
-nyse_options_streamprotocol_pillar_v1_6.sess = {}
-
--- Size: Sess
-nyse_options_streamprotocol_pillar_v1_6.sess.size = 4
-
--- Display: Sess
-nyse_options_streamprotocol_pillar_v1_6.sess.display = function(value)
-  return "Sess: "..value
-end
-
--- Dissect: Sess
-nyse_options_streamprotocol_pillar_v1_6.sess.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.sess.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.sess.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.sess, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Id
 nyse_options_streamprotocol_pillar_v1_6.stream_id = {}
 
@@ -521,80 +901,6 @@ nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.dissect = function(buffer, of
     -- Skip element, add fields directly
     return nyse_options_streamprotocol_pillar_v1_6.seq_msg_id.fields(buffer, offset, packet, parent)
   end
-end
-
--- Msg Length
-nyse_options_streamprotocol_pillar_v1_6.msg_length = {}
-
--- Size: Msg Length
-nyse_options_streamprotocol_pillar_v1_6.msg_length.size = 2
-
--- Display: Msg Length
-nyse_options_streamprotocol_pillar_v1_6.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-nyse_options_streamprotocol_pillar_v1_6.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-nyse_options_streamprotocol_pillar_v1_6.msg_type = {}
-
--- Size: Msg Type
-nyse_options_streamprotocol_pillar_v1_6.msg_type.size = 2
-
--- Display: Msg Type
-nyse_options_streamprotocol_pillar_v1_6.msg_type.display = function(value)
-  if value == 0x0201 then
-    return "Msg Type: Login (0x0201)"
-  end
-  if value == 0x0202 then
-    return "Msg Type: Login Response (0x0202)"
-  end
-  if value == 0x0203 then
-    return "Msg Type: Stream Avail (0x0203)"
-  end
-  if value == 0x0204 then
-    return "Msg Type: Heartbeat (0x0204)"
-  end
-  if value == 0x0205 then
-    return "Msg Type: Open (0x0205)"
-  end
-  if value == 0x0206 then
-    return "Msg Type: Open Response (0x0206)"
-  end
-  if value == 0x0207 then
-    return "Msg Type: Close (0x0207)"
-  end
-  if value == 0x0208 then
-    return "Msg Type: Close Response (0x0208)"
-  end
-  if value == 0x0905 then
-    return "Msg Type: Seq Msg (0x0905)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-nyse_options_streamprotocol_pillar_v1_6.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.msg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Msg Header
@@ -712,36 +1018,6 @@ nyse_options_streamprotocol_pillar_v1_6.seq_msg.dissect = function(buffer, offse
   end
 end
 
--- Status
-nyse_options_streamprotocol_pillar_v1_6.status = {}
-
--- Size: Status
-nyse_options_streamprotocol_pillar_v1_6.status.size = 1
-
--- Display: Status
-nyse_options_streamprotocol_pillar_v1_6.status.display = function(value)
-  if value == 0 then
-    return "Status: Request Processed Successfully (0)"
-  end
-  if value == 18 then
-    return "Status: Not Logged In (18)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-nyse_options_streamprotocol_pillar_v1_6.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Close Response
 nyse_options_streamprotocol_pillar_v1_6.close_response = {}
 
@@ -851,29 +1127,6 @@ nyse_options_streamprotocol_pillar_v1_6.close.dissect = function(buffer, offset,
   end
 end
 
--- Access
-nyse_options_streamprotocol_pillar_v1_6.access = {}
-
--- Size: Access
-nyse_options_streamprotocol_pillar_v1_6.access.size = 1
-
--- Display: Access
-nyse_options_streamprotocol_pillar_v1_6.access.display = function(value)
-  return "Access: "..value
-end
-
--- Dissect: Access
-nyse_options_streamprotocol_pillar_v1_6.access.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.access.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.access.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.access, range, value, display)
-
-  return offset + length, value
-end
-
 -- Open Response
 nyse_options_streamprotocol_pillar_v1_6.open_response = {}
 
@@ -931,75 +1184,6 @@ nyse_options_streamprotocol_pillar_v1_6.open_response.dissect = function(buffer,
 
     return index
   end
-end
-
--- Mode
-nyse_options_streamprotocol_pillar_v1_6.mode = {}
-
--- Size: Mode
-nyse_options_streamprotocol_pillar_v1_6.mode.size = 1
-
--- Display: Mode
-nyse_options_streamprotocol_pillar_v1_6.mode.display = function(value)
-  return "Mode: "..value
-end
-
--- Dissect: Mode
-nyse_options_streamprotocol_pillar_v1_6.mode.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.mode.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_options_streamprotocol_pillar_v1_6.mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.mode, range, value, display)
-
-  return offset + length, value
-end
-
--- End Seq
-nyse_options_streamprotocol_pillar_v1_6.end_seq = {}
-
--- Size: End Seq
-nyse_options_streamprotocol_pillar_v1_6.end_seq.size = 8
-
--- Display: End Seq
-nyse_options_streamprotocol_pillar_v1_6.end_seq.display = function(value)
-  return "End Seq: "..value
-end
-
--- Dissect: End Seq
-nyse_options_streamprotocol_pillar_v1_6.end_seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.end_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_options_streamprotocol_pillar_v1_6.end_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.end_seq, range, value, display)
-
-  return offset + length, value
-end
-
--- Start Seq
-nyse_options_streamprotocol_pillar_v1_6.start_seq = {}
-
--- Size: Start Seq
-nyse_options_streamprotocol_pillar_v1_6.start_seq.size = 8
-
--- Display: Start Seq
-nyse_options_streamprotocol_pillar_v1_6.start_seq.display = function(value)
-  return "Start Seq: "..value
-end
-
--- Dissect: Start Seq
-nyse_options_streamprotocol_pillar_v1_6.start_seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.start_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_options_streamprotocol_pillar_v1_6.start_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.start_seq, range, value, display)
-
-  return offset + length, value
 end
 
 -- Open
@@ -1117,29 +1301,6 @@ nyse_options_streamprotocol_pillar_v1_6.heartbeat.dissect = function(buffer, off
   end
 end
 
--- Next Seq
-nyse_options_streamprotocol_pillar_v1_6.next_seq = {}
-
--- Size: Next Seq
-nyse_options_streamprotocol_pillar_v1_6.next_seq.size = 8
-
--- Display: Next Seq
-nyse_options_streamprotocol_pillar_v1_6.next_seq.display = function(value)
-  return "Next Seq: "..value
-end
-
--- Dissect: Next Seq
-nyse_options_streamprotocol_pillar_v1_6.next_seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.next_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_options_streamprotocol_pillar_v1_6.next_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.next_seq, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Avail
 nyse_options_streamprotocol_pillar_v1_6.stream_avail = {}
 
@@ -1199,45 +1360,6 @@ nyse_options_streamprotocol_pillar_v1_6.stream_avail.dissect = function(buffer, 
   end
 end
 
--- Username
-nyse_options_streamprotocol_pillar_v1_6.username = {}
-
--- Size: Username
-nyse_options_streamprotocol_pillar_v1_6.username.size = 16
-
--- Display: Username
-nyse_options_streamprotocol_pillar_v1_6.username.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Username: No Value"
-  end
-
-  return "Username: "..value
-end
-
--- Dissect: Username
-nyse_options_streamprotocol_pillar_v1_6.username.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.username.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_options_streamprotocol_pillar_v1_6.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Response
 nyse_options_streamprotocol_pillar_v1_6.login_response = {}
 
@@ -1292,123 +1414,6 @@ nyse_options_streamprotocol_pillar_v1_6.login_response.dissect = function(buffer
 
     return index
   end
-end
-
--- Version
-nyse_options_streamprotocol_pillar_v1_6.version = {}
-
--- Size: Version
-nyse_options_streamprotocol_pillar_v1_6.version.size = 20
-
--- Display: Version
-nyse_options_streamprotocol_pillar_v1_6.version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Version: No Value"
-  end
-
-  return "Version: "..value
-end
-
--- Dissect: Version
-nyse_options_streamprotocol_pillar_v1_6.version.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.version.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_options_streamprotocol_pillar_v1_6.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Mic
-nyse_options_streamprotocol_pillar_v1_6.mic = {}
-
--- Size: Mic
-nyse_options_streamprotocol_pillar_v1_6.mic.size = 4
-
--- Display: Mic
-nyse_options_streamprotocol_pillar_v1_6.mic.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mic: No Value"
-  end
-
-  return "Mic: "..value
-end
-
--- Dissect: Mic
-nyse_options_streamprotocol_pillar_v1_6.mic.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.mic.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_options_streamprotocol_pillar_v1_6.mic.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.mic, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-nyse_options_streamprotocol_pillar_v1_6.password = {}
-
--- Size: Password
-nyse_options_streamprotocol_pillar_v1_6.password.size = 32
-
--- Display: Password
-nyse_options_streamprotocol_pillar_v1_6.password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Password: No Value"
-  end
-
-  return "Password: "..value
-end
-
--- Dissect: Password
-nyse_options_streamprotocol_pillar_v1_6.password.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6.password.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_options_streamprotocol_pillar_v1_6.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_streamprotocol_pillar_v1_6.fields.password, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Message

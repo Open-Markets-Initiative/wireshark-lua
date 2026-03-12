@@ -144,80 +144,35 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect BruceAts Equities BestBidAndOffer Itch 1.0
+-- BruceAts Equities BestBidAndOffer Itch 1.0 Fields
 -----------------------------------------------------------------------
 
--- Best Offer Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size = {}
+-- Authenticity
+bruceats_equities_bestbidandoffer_itch_v1_0.authenticity = {}
 
--- Size: Best Offer Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.size = 4
+-- Size: Authenticity
+bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.size = 1
 
--- Display: Best Offer Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.display = function(value)
-  return "Best Offer Size: "..value
+-- Display: Authenticity
+bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.display = function(value)
+  if value == "P" then
+    return "Authenticity: Live Production (P)"
+  end
+  if value == "T" then
+    return "Authenticity: Test (T)"
+  end
+
+  return "Authenticity: Unknown("..value..")"
 end
 
--- Dissect: Best Offer Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.size
+-- Dissect: Authenticity
+bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.best_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Price
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price = {}
-
--- Size: Best Offer Price
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.size = 8
-
--- Display: Best Offer Price
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.display = function(value)
-  return "Best Offer Price: "..value
-end
-
--- Translate: Best Offer Price
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Best Offer Price
-bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.translate(raw)
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.best_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size = {}
-
--- Size: Best Bid Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.size = 4
-
--- Display: Best Bid Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.display = function(value)
-  return "Best Bid Size: "..value
-end
-
--- Dissect: Best Bid Size
-bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.best_bid_size, range, value, display)
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.authenticity, range, value, display)
 
   return offset + length, value
 end
@@ -251,6 +206,371 @@ bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_price.dissect = function(bu
   return offset + length, value
 end
 
+-- Best Bid Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size = {}
+
+-- Size: Best Bid Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.size = 4
+
+-- Display: Best Bid Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.display = function(value)
+  return "Best Bid Size: "..value
+end
+
+-- Dissect: Best Bid Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.best_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.best_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Price
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price = {}
+
+-- Size: Best Offer Price
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.size = 8
+
+-- Display: Best Offer Price
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.display = function(value)
+  return "Best Offer Price: "..value
+end
+
+-- Translate: Best Offer Price
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Best Offer Price
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.translate(raw)
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.best_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size = {}
+
+-- Size: Best Offer Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.size = 4
+
+-- Display: Best Offer Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.display = function(value)
+  return "Best Offer Size: "..value
+end
+
+-- Dissect: Best Offer Size
+bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.best_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.best_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+bruceats_equities_bestbidandoffer_itch_v1_0.event_code = {}
+
+-- Size: Event Code
+bruceats_equities_bestbidandoffer_itch_v1_0.event_code.size = 1
+
+-- Display: Event Code
+bruceats_equities_bestbidandoffer_itch_v1_0.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Transmissions (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Market Hours (Q)"
+  end
+  if value == "M" then
+    return "Event Code: End Of Market Hours (M)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Transmissions (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+bruceats_equities_bestbidandoffer_itch_v1_0.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Category
+bruceats_equities_bestbidandoffer_itch_v1_0.market_category = {}
+
+-- Size: Market Category
+bruceats_equities_bestbidandoffer_itch_v1_0.market_category.size = 1
+
+-- Display: Market Category
+bruceats_equities_bestbidandoffer_itch_v1_0.market_category.display = function(value)
+  if value == "A" then
+    return "Market Category: Nyse American (A)"
+  end
+  if value == "N" then
+    return "Market Category: Nyse (N)"
+  end
+  if value == "P" then
+    return "Market Category: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Market Category: Nasdaq (Q)"
+  end
+  if value == "V" then
+    return "Market Category: Investors Exchange Llc (V)"
+  end
+  if value == "Z" then
+    return "Market Category: Cboe Bzx (Z)"
+  end
+  if value == " " then
+    return "Market Category: Not Available (<whitespace>)"
+  end
+
+  return "Market Category: Unknown("..value..")"
+end
+
+-- Dissect: Market Category
+bruceats_equities_bestbidandoffer_itch_v1_0.market_category.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.market_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.market_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.market_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+bruceats_equities_bestbidandoffer_itch_v1_0.message_count = {}
+
+-- Size: Message Count
+bruceats_equities_bestbidandoffer_itch_v1_0.message_count.size = 2
+
+-- Display: Message Count
+bruceats_equities_bestbidandoffer_itch_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+bruceats_equities_bestbidandoffer_itch_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+bruceats_equities_bestbidandoffer_itch_v1_0.message_length = {}
+
+-- Size: Message Length
+bruceats_equities_bestbidandoffer_itch_v1_0.message_length.size = 2
+
+-- Display: Message Length
+bruceats_equities_bestbidandoffer_itch_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+bruceats_equities_bestbidandoffer_itch_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+bruceats_equities_bestbidandoffer_itch_v1_0.message_type = {}
+
+-- Size: Message Type
+bruceats_equities_bestbidandoffer_itch_v1_0.message_type.size = 1
+
+-- Display: Message Type
+bruceats_equities_bestbidandoffer_itch_v1_0.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "R" then
+    return "Message Type: Stock Directory (R)"
+  end
+  if value == "H" then
+    return "Message Type: Stock Trading Action (H)"
+  end
+  if value == "Y" then
+    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator (Y)"
+  end
+  if value == "Q" then
+    return "Message Type: Quotation Message (Q)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+bruceats_equities_bestbidandoffer_itch_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test In Place (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Reg Sho Restriction In Effect (1)"
+  end
+  if value == "2" then
+    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size = {}
+
+-- Size: Round Lot Size
+bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.size = 8
+
+-- Display: Sequence Number
+bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+bruceats_equities_bestbidandoffer_itch_v1_0.session = {}
+
+-- Size: Session
+bruceats_equities_bestbidandoffer_itch_v1_0.session.size = 10
+
+-- Display: Session
+bruceats_equities_bestbidandoffer_itch_v1_0.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+bruceats_equities_bestbidandoffer_itch_v1_0.session.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
 -- Stock
 bruceats_equities_bestbidandoffer_itch_v1_0.stock = {}
 
@@ -270,6 +590,29 @@ bruceats_equities_bestbidandoffer_itch_v1_0.stock.dissect = function(buffer, off
   local display = bruceats_equities_bestbidandoffer_itch_v1_0.stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.stock, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Locate
+bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate = {}
+
+-- Size: Stock Locate
+bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.size = 2
+
+-- Display: Stock Locate
+bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.display = function(value)
+  return "Stock Locate: "..value
+end
+
+-- Dissect: Stock Locate
+bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.stock_locate, range, value, display)
 
   return offset + length, value
 end
@@ -301,28 +644,40 @@ bruceats_equities_bestbidandoffer_itch_v1_0.timestamp.dissect = function(buffer,
   return offset + length, value
 end
 
--- Stock Locate
-bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate = {}
+-- Trading State
+bruceats_equities_bestbidandoffer_itch_v1_0.trading_state = {}
 
--- Size: Stock Locate
-bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.size = 2
+-- Size: Trading State
+bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.size = 1
 
--- Display: Stock Locate
-bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.display = function(value)
-  return "Stock Locate: "..value
+-- Display: Trading State
+bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.display = function(value)
+  if value == "H" then
+    return "Trading State: Halted (H)"
+  end
+  if value == "T" then
+    return "Trading State: Trading (T)"
+  end
+
+  return "Trading State: Unknown("..value..")"
 end
 
--- Dissect: Stock Locate
-bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.size
+-- Dissect: Trading State
+bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.stock_locate.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.stock_locate, range, value, display)
+  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.trading_state, range, value, display)
 
   return offset + length, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect BruceAts Equities BestBidAndOffer Itch 1.0
+-----------------------------------------------------------------------
 
 -- Quotation Message
 bruceats_equities_bestbidandoffer_itch_v1_0.quotation_message = {}
@@ -388,39 +743,6 @@ bruceats_equities_bestbidandoffer_itch_v1_0.quotation_message.dissect = function
   end
 end
 
--- Reg Sho Action
-bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action = {}
-
--- Size: Reg Sho Action
-bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.size = 1
-
--- Display: Reg Sho Action
-bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
-  end
-
-  return "Reg Sho Action: Unknown("..value..")"
-end
-
--- Dissect: Reg Sho Action
-bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.reg_sho_action, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reg Sho Short Sale Price Test Restricted Indicator
 bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_short_sale_price_test_restricted_indicator = {}
 
@@ -473,36 +795,6 @@ bruceats_equities_bestbidandoffer_itch_v1_0.reg_sho_short_sale_price_test_restri
   end
 end
 
--- Trading State
-bruceats_equities_bestbidandoffer_itch_v1_0.trading_state = {}
-
--- Size: Trading State
-bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.size = 1
-
--- Display: Trading State
-bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-
-  return "Trading State: Unknown("..value..")"
-end
-
--- Dissect: Trading State
-bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stock Trading Action
 bruceats_equities_bestbidandoffer_itch_v1_0.stock_trading_action = {}
 
@@ -553,104 +845,6 @@ bruceats_equities_bestbidandoffer_itch_v1_0.stock_trading_action.dissect = funct
     -- Skip element, add fields directly
     return bruceats_equities_bestbidandoffer_itch_v1_0.stock_trading_action.fields(buffer, offset, packet, parent)
   end
-end
-
--- Authenticity
-bruceats_equities_bestbidandoffer_itch_v1_0.authenticity = {}
-
--- Size: Authenticity
-bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.size = 1
-
--- Display: Authenticity
-bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
-
-  return "Authenticity: Unknown("..value..")"
-end
-
--- Dissect: Authenticity
-bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.authenticity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.authenticity, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size = {}
-
--- Size: Round Lot Size
-bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.size = 4
-
--- Display: Round Lot Size
-bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Category
-bruceats_equities_bestbidandoffer_itch_v1_0.market_category = {}
-
--- Size: Market Category
-bruceats_equities_bestbidandoffer_itch_v1_0.market_category.size = 1
-
--- Display: Market Category
-bruceats_equities_bestbidandoffer_itch_v1_0.market_category.display = function(value)
-  if value == "A" then
-    return "Market Category: Nyse American (A)"
-  end
-  if value == "N" then
-    return "Market Category: Nyse (N)"
-  end
-  if value == "P" then
-    return "Market Category: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Market Category: Nasdaq (Q)"
-  end
-  if value == "V" then
-    return "Market Category: Investors Exchange Llc (V)"
-  end
-  if value == "Z" then
-    return "Market Category: Cboe Bzx (Z)"
-  end
-  if value == " " then
-    return "Market Category: Not Available (<whitespace>)"
-  end
-
-  return "Market Category: Unknown("..value..")"
-end
-
--- Dissect: Market Category
-bruceats_equities_bestbidandoffer_itch_v1_0.market_category.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.market_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.market_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.market_category, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stock Directory
@@ -711,48 +905,6 @@ bruceats_equities_bestbidandoffer_itch_v1_0.stock_directory.dissect = function(b
     -- Skip element, add fields directly
     return bruceats_equities_bestbidandoffer_itch_v1_0.stock_directory.fields(buffer, offset, packet, parent)
   end
-end
-
--- Event Code
-bruceats_equities_bestbidandoffer_itch_v1_0.event_code = {}
-
--- Size: Event Code
-bruceats_equities_bestbidandoffer_itch_v1_0.event_code.size = 1
-
--- Display: Event Code
-bruceats_equities_bestbidandoffer_itch_v1_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-bruceats_equities_bestbidandoffer_itch_v1_0.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.event_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- System Event Message
@@ -830,68 +982,6 @@ bruceats_equities_bestbidandoffer_itch_v1_0.payload.dissect = function(buffer, o
   end
 
   return offset
-end
-
--- Message Type
-bruceats_equities_bestbidandoffer_itch_v1_0.message_type = {}
-
--- Size: Message Type
-bruceats_equities_bestbidandoffer_itch_v1_0.message_type.size = 1
-
--- Display: Message Type
-bruceats_equities_bestbidandoffer_itch_v1_0.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator (Y)"
-  end
-  if value == "Q" then
-    return "Message Type: Quotation Message (Q)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-bruceats_equities_bestbidandoffer_itch_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-bruceats_equities_bestbidandoffer_itch_v1_0.message_length = {}
-
--- Size: Message Length
-bruceats_equities_bestbidandoffer_itch_v1_0.message_length.size = 2
-
--- Display: Message Length
-bruceats_equities_bestbidandoffer_itch_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-bruceats_equities_bestbidandoffer_itch_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -1027,91 +1117,6 @@ bruceats_equities_bestbidandoffer_itch_v1_0.messages.dissect = function(buffer, 
   end
 
   return offset
-end
-
--- Message Count
-bruceats_equities_bestbidandoffer_itch_v1_0.message_count = {}
-
--- Size: Message Count
-bruceats_equities_bestbidandoffer_itch_v1_0.message_count.size = 2
-
--- Display: Message Count
-bruceats_equities_bestbidandoffer_itch_v1_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-bruceats_equities_bestbidandoffer_itch_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.size = 8
-
--- Display: Sequence Number
-bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-bruceats_equities_bestbidandoffer_itch_v1_0.session = {}
-
--- Size: Session
-bruceats_equities_bestbidandoffer_itch_v1_0.session.size = 10
-
--- Display: Session
-bruceats_equities_bestbidandoffer_itch_v1_0.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-bruceats_equities_bestbidandoffer_itch_v1_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = bruceats_equities_bestbidandoffer_itch_v1_0.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = bruceats_equities_bestbidandoffer_itch_v1_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bruceats_equities_bestbidandoffer_itch_v1_0.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

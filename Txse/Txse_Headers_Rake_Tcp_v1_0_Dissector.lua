@@ -113,8 +113,282 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Txse Headers Rake Tcp 1.0
+-- Txse Headers Rake Tcp 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Highest Known Sequence Number
+txse_headers_rake_tcp_v1_0.highest_known_sequence_number = {}
+
+-- Size: Highest Known Sequence Number
+txse_headers_rake_tcp_v1_0.highest_known_sequence_number.size = 8
+
+-- Display: Highest Known Sequence Number
+txse_headers_rake_tcp_v1_0.highest_known_sequence_number.display = function(value)
+  return "Highest Known Sequence Number: "..value
+end
+
+-- Dissect: Highest Known Sequence Number
+txse_headers_rake_tcp_v1_0.highest_known_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.highest_known_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_headers_rake_tcp_v1_0.highest_known_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.highest_known_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logon Response Code
+txse_headers_rake_tcp_v1_0.logon_response_code = {}
+
+-- Size: Logon Response Code
+txse_headers_rake_tcp_v1_0.logon_response_code.size = 1
+
+-- Display: Logon Response Code
+txse_headers_rake_tcp_v1_0.logon_response_code.display = function(value)
+  if value == 0 then
+    return "Logon Response Code: Success (0)"
+  end
+  if value == 1 then
+    return "Logon Response Code: Incorrect Sender Comp (1)"
+  end
+  if value == 2 then
+    return "Logon Response Code: Incorrect Session (2)"
+  end
+  if value == 3 then
+    return "Logon Response Code: Invalid Next Sequence (3)"
+  end
+  if value == 4 then
+    return "Logon Response Code: Invalid Configuration (4)"
+  end
+  if value == 5 then
+    return "Logon Response Code: Incorrect Token (5)"
+  end
+
+  return "Logon Response Code: Unknown("..value..")"
+end
+
+-- Dissect: Logon Response Code
+txse_headers_rake_tcp_v1_0.logon_response_code.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.logon_response_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_headers_rake_tcp_v1_0.logon_response_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.logon_response_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Member Token
+txse_headers_rake_tcp_v1_0.member_token = {}
+
+-- Size: Member Token
+txse_headers_rake_tcp_v1_0.member_token.size = 8
+
+-- Display: Member Token
+txse_headers_rake_tcp_v1_0.member_token.display = function(value)
+  return "Member Token: "..value
+end
+
+-- Dissect: Member Token
+txse_headers_rake_tcp_v1_0.member_token.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.member_token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = txse_headers_rake_tcp_v1_0.member_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.member_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+txse_headers_rake_tcp_v1_0.message_length = {}
+
+-- Size: Message Length
+txse_headers_rake_tcp_v1_0.message_length.size = 2
+
+-- Display: Message Length
+txse_headers_rake_tcp_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+txse_headers_rake_tcp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = txse_headers_rake_tcp_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Sequence Number
+txse_headers_rake_tcp_v1_0.next_sequence_number = {}
+
+-- Size: Next Sequence Number
+txse_headers_rake_tcp_v1_0.next_sequence_number.size = 8
+
+-- Display: Next Sequence Number
+txse_headers_rake_tcp_v1_0.next_sequence_number.display = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+txse_headers_rake_tcp_v1_0.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.next_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_headers_rake_tcp_v1_0.next_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Stream Ids
+txse_headers_rake_tcp_v1_0.number_stream_ids = {}
+
+-- Size: Number Stream Ids
+txse_headers_rake_tcp_v1_0.number_stream_ids.size = 1
+
+-- Display: Number Stream Ids
+txse_headers_rake_tcp_v1_0.number_stream_ids.display = function(value)
+  return "Number Stream Ids: "..value
+end
+
+-- Dissect: Number Stream Ids
+txse_headers_rake_tcp_v1_0.number_stream_ids.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.number_stream_ids.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_headers_rake_tcp_v1_0.number_stream_ids.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.number_stream_ids, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+txse_headers_rake_tcp_v1_0.packet_type = {}
+
+-- Size: Packet Type
+txse_headers_rake_tcp_v1_0.packet_type.size = 1
+
+-- Display: Packet Type
+txse_headers_rake_tcp_v1_0.packet_type.display = function(value)
+  if value == 53 then
+    return "Packet Type: Logon Request Packet (53)"
+  end
+  if value == 55 then
+    return "Packet Type: Member Heartbeat Packet (55)"
+  end
+  if value == 54 then
+    return "Packet Type: Tcp Unsequenced Message (54)"
+  end
+  if value == 48 then
+    return "Packet Type: Debug Message (48)"
+  end
+  if value == 52 then
+    return "Packet Type: End Of Session Message (52)"
+  end
+  if value == 49 then
+    return "Packet Type: Logon Response Message (49)"
+  end
+  if value == 51 then
+    return "Packet Type: Server Heartbeat Message (51)"
+  end
+  if value == 50 then
+    return "Packet Type: Tcp Sequenced Message (50)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+txse_headers_rake_tcp_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = txse_headers_rake_tcp_v1_0.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rake Instance
+txse_headers_rake_tcp_v1_0.rake_instance = {}
+
+-- Size: Rake Instance
+txse_headers_rake_tcp_v1_0.rake_instance.size = 4
+
+-- Display: Rake Instance
+txse_headers_rake_tcp_v1_0.rake_instance.display = function(value)
+  return "Rake Instance: "..value
+end
+
+-- Dissect: Rake Instance
+txse_headers_rake_tcp_v1_0.rake_instance.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.rake_instance.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_headers_rake_tcp_v1_0.rake_instance.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.rake_instance, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+txse_headers_rake_tcp_v1_0.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+txse_headers_rake_tcp_v1_0.requested_sequence_number.size = 8
+
+-- Display: Requested Sequence Number
+txse_headers_rake_tcp_v1_0.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+txse_headers_rake_tcp_v1_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_headers_rake_tcp_v1_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Comp
+txse_headers_rake_tcp_v1_0.sender_comp = {}
+
+-- Size: Sender Comp
+txse_headers_rake_tcp_v1_0.sender_comp.size = 8
+
+-- Display: Sender Comp
+txse_headers_rake_tcp_v1_0.sender_comp.display = function(value)
+  return "Sender Comp: "..value
+end
+
+-- Dissect: Sender Comp
+txse_headers_rake_tcp_v1_0.sender_comp.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.sender_comp.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = txse_headers_rake_tcp_v1_0.sender_comp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.sender_comp, range, value, display)
+
+  return offset + length, value
+end
 
 -- Sequenced Message
 txse_headers_rake_tcp_v1_0.sequenced_message = {}
@@ -158,6 +432,29 @@ txse_headers_rake_tcp_v1_0.sequenced_message_type.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Session
+txse_headers_rake_tcp_v1_0.session = {}
+
+-- Size: Session
+txse_headers_rake_tcp_v1_0.session.size = 8
+
+-- Display: Session
+txse_headers_rake_tcp_v1_0.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+txse_headers_rake_tcp_v1_0.session.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.session.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_headers_rake_tcp_v1_0.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
 -- Stream Id
 txse_headers_rake_tcp_v1_0.stream_id = {}
 
@@ -180,6 +477,72 @@ txse_headers_rake_tcp_v1_0.stream_id.dissect = function(buffer, offset, packet, 
 
   return offset + length, value
 end
+
+-- Text
+txse_headers_rake_tcp_v1_0.text = {}
+
+-- Display: Text
+txse_headers_rake_tcp_v1_0.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect runtime sized field: Text
+txse_headers_rake_tcp_v1_0.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = txse_headers_rake_tcp_v1_0.text.display(value, packet, parent, size)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Unsequenced Message
+txse_headers_rake_tcp_v1_0.unsequenced_message = {}
+
+-- Display: Unsequenced Message
+txse_headers_rake_tcp_v1_0.unsequenced_message.display = function(value)
+  return "Unsequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Unsequenced Message
+txse_headers_rake_tcp_v1_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = txse_headers_rake_tcp_v1_0.unsequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.unsequenced_message, range, value, display)
+
+  return offset + size, value
+end
+
+-- Unsequenced Message Type
+txse_headers_rake_tcp_v1_0.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+txse_headers_rake_tcp_v1_0.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+txse_headers_rake_tcp_v1_0.unsequenced_message_type.display = function(value)
+  return "Unsequenced Message Type: "..value
+end
+
+-- Dissect: Unsequenced Message Type
+txse_headers_rake_tcp_v1_0.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = txse_headers_rake_tcp_v1_0.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_headers_rake_tcp_v1_0.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Txse Headers Rake Tcp 1.0
+-----------------------------------------------------------------------
 
 -- Tcp Sequenced Message
 txse_headers_rake_tcp_v1_0.tcp_sequenced_message = {}
@@ -243,163 +606,6 @@ txse_headers_rake_tcp_v1_0.tcp_sequenced_message.dissect = function(buffer, offs
   end
 end
 
--- Rake Instance
-txse_headers_rake_tcp_v1_0.rake_instance = {}
-
--- Size: Rake Instance
-txse_headers_rake_tcp_v1_0.rake_instance.size = 4
-
--- Display: Rake Instance
-txse_headers_rake_tcp_v1_0.rake_instance.display = function(value)
-  return "Rake Instance: "..value
-end
-
--- Dissect: Rake Instance
-txse_headers_rake_tcp_v1_0.rake_instance.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.rake_instance.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_headers_rake_tcp_v1_0.rake_instance.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.rake_instance, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Stream Ids
-txse_headers_rake_tcp_v1_0.number_stream_ids = {}
-
--- Size: Number Stream Ids
-txse_headers_rake_tcp_v1_0.number_stream_ids.size = 1
-
--- Display: Number Stream Ids
-txse_headers_rake_tcp_v1_0.number_stream_ids.display = function(value)
-  return "Number Stream Ids: "..value
-end
-
--- Dissect: Number Stream Ids
-txse_headers_rake_tcp_v1_0.number_stream_ids.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.number_stream_ids.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_headers_rake_tcp_v1_0.number_stream_ids.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.number_stream_ids, range, value, display)
-
-  return offset + length, value
-end
-
--- Logon Response Code
-txse_headers_rake_tcp_v1_0.logon_response_code = {}
-
--- Size: Logon Response Code
-txse_headers_rake_tcp_v1_0.logon_response_code.size = 1
-
--- Display: Logon Response Code
-txse_headers_rake_tcp_v1_0.logon_response_code.display = function(value)
-  if value == 0 then
-    return "Logon Response Code: Success (0)"
-  end
-  if value == 1 then
-    return "Logon Response Code: Incorrect Sender Comp (1)"
-  end
-  if value == 2 then
-    return "Logon Response Code: Incorrect Session (2)"
-  end
-  if value == 3 then
-    return "Logon Response Code: Invalid Next Sequence (3)"
-  end
-  if value == 4 then
-    return "Logon Response Code: Invalid Configuration (4)"
-  end
-  if value == 5 then
-    return "Logon Response Code: Incorrect Token (5)"
-  end
-
-  return "Logon Response Code: Unknown("..value..")"
-end
-
--- Dissect: Logon Response Code
-txse_headers_rake_tcp_v1_0.logon_response_code.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.logon_response_code.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_headers_rake_tcp_v1_0.logon_response_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.logon_response_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Highest Known Sequence Number
-txse_headers_rake_tcp_v1_0.highest_known_sequence_number = {}
-
--- Size: Highest Known Sequence Number
-txse_headers_rake_tcp_v1_0.highest_known_sequence_number.size = 8
-
--- Display: Highest Known Sequence Number
-txse_headers_rake_tcp_v1_0.highest_known_sequence_number.display = function(value)
-  return "Highest Known Sequence Number: "..value
-end
-
--- Dissect: Highest Known Sequence Number
-txse_headers_rake_tcp_v1_0.highest_known_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.highest_known_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_headers_rake_tcp_v1_0.highest_known_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.highest_known_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Sequence Number
-txse_headers_rake_tcp_v1_0.next_sequence_number = {}
-
--- Size: Next Sequence Number
-txse_headers_rake_tcp_v1_0.next_sequence_number.size = 8
-
--- Display: Next Sequence Number
-txse_headers_rake_tcp_v1_0.next_sequence_number.display = function(value)
-  return "Next Sequence Number: "..value
-end
-
--- Dissect: Next Sequence Number
-txse_headers_rake_tcp_v1_0.next_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.next_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_headers_rake_tcp_v1_0.next_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.next_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-txse_headers_rake_tcp_v1_0.session = {}
-
--- Size: Session
-txse_headers_rake_tcp_v1_0.session.size = 8
-
--- Display: Session
-txse_headers_rake_tcp_v1_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-txse_headers_rake_tcp_v1_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.session.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_headers_rake_tcp_v1_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logon Response Message
 txse_headers_rake_tcp_v1_0.logon_response_message = {}
 
@@ -460,25 +666,6 @@ txse_headers_rake_tcp_v1_0.logon_response_message.dissect = function(buffer, off
   end
 end
 
--- Text
-txse_headers_rake_tcp_v1_0.text = {}
-
--- Display: Text
-txse_headers_rake_tcp_v1_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect runtime sized field: Text
-txse_headers_rake_tcp_v1_0.text.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = txse_headers_rake_tcp_v1_0.text.display(value, packet, parent, size)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.text, range, value, display)
-
-  return offset + size, value
-end
-
 -- Debug Message
 txse_headers_rake_tcp_v1_0.debug_message = {}
 
@@ -529,48 +716,6 @@ txse_headers_rake_tcp_v1_0.debug_message.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return txse_headers_rake_tcp_v1_0.debug_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Unsequenced Message
-txse_headers_rake_tcp_v1_0.unsequenced_message = {}
-
--- Display: Unsequenced Message
-txse_headers_rake_tcp_v1_0.unsequenced_message.display = function(value)
-  return "Unsequenced Message: "..value
-end
-
--- Dissect runtime sized field: Unsequenced Message
-txse_headers_rake_tcp_v1_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = txse_headers_rake_tcp_v1_0.unsequenced_message.display(value, packet, parent, size)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.unsequenced_message, range, value, display)
-
-  return offset + size, value
-end
-
--- Unsequenced Message Type
-txse_headers_rake_tcp_v1_0.unsequenced_message_type = {}
-
--- Size: Unsequenced Message Type
-txse_headers_rake_tcp_v1_0.unsequenced_message_type.size = 1
-
--- Display: Unsequenced Message Type
-txse_headers_rake_tcp_v1_0.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
-end
-
--- Dissect: Unsequenced Message Type
-txse_headers_rake_tcp_v1_0.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.unsequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_headers_rake_tcp_v1_0.unsequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.unsequenced_message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tcp Unsequenced Message
@@ -630,75 +775,6 @@ txse_headers_rake_tcp_v1_0.tcp_unsequenced_message.dissect = function(buffer, of
 
     return index
   end
-end
-
--- Requested Sequence Number
-txse_headers_rake_tcp_v1_0.requested_sequence_number = {}
-
--- Size: Requested Sequence Number
-txse_headers_rake_tcp_v1_0.requested_sequence_number.size = 8
-
--- Display: Requested Sequence Number
-txse_headers_rake_tcp_v1_0.requested_sequence_number.display = function(value)
-  return "Requested Sequence Number: "..value
-end
-
--- Dissect: Requested Sequence Number
-txse_headers_rake_tcp_v1_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.requested_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_headers_rake_tcp_v1_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.requested_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Member Token
-txse_headers_rake_tcp_v1_0.member_token = {}
-
--- Size: Member Token
-txse_headers_rake_tcp_v1_0.member_token.size = 8
-
--- Display: Member Token
-txse_headers_rake_tcp_v1_0.member_token.display = function(value)
-  return "Member Token: "..value
-end
-
--- Dissect: Member Token
-txse_headers_rake_tcp_v1_0.member_token.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.member_token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = txse_headers_rake_tcp_v1_0.member_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.member_token, range, value, display)
-
-  return offset + length, value
-end
-
--- Sender Comp
-txse_headers_rake_tcp_v1_0.sender_comp = {}
-
--- Size: Sender Comp
-txse_headers_rake_tcp_v1_0.sender_comp.size = 8
-
--- Display: Sender Comp
-txse_headers_rake_tcp_v1_0.sender_comp.display = function(value)
-  return "Sender Comp: "..value
-end
-
--- Dissect: Sender Comp
-txse_headers_rake_tcp_v1_0.sender_comp.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.sender_comp.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = txse_headers_rake_tcp_v1_0.sender_comp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.sender_comp, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon Request Packet
@@ -784,77 +860,6 @@ txse_headers_rake_tcp_v1_0.payload.dissect = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Packet Type
-txse_headers_rake_tcp_v1_0.packet_type = {}
-
--- Size: Packet Type
-txse_headers_rake_tcp_v1_0.packet_type.size = 1
-
--- Display: Packet Type
-txse_headers_rake_tcp_v1_0.packet_type.display = function(value)
-  if value == 53 then
-    return "Packet Type: Logon Request Packet (53)"
-  end
-  if value == 55 then
-    return "Packet Type: Member Heartbeat Packet (55)"
-  end
-  if value == 54 then
-    return "Packet Type: Tcp Unsequenced Message (54)"
-  end
-  if value == 48 then
-    return "Packet Type: Debug Message (48)"
-  end
-  if value == 52 then
-    return "Packet Type: End Of Session Message (52)"
-  end
-  if value == 49 then
-    return "Packet Type: Logon Response Message (49)"
-  end
-  if value == 51 then
-    return "Packet Type: Server Heartbeat Message (51)"
-  end
-  if value == 50 then
-    return "Packet Type: Tcp Sequenced Message (50)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-txse_headers_rake_tcp_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = txse_headers_rake_tcp_v1_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-txse_headers_rake_tcp_v1_0.message_length = {}
-
--- Size: Message Length
-txse_headers_rake_tcp_v1_0.message_length.size = 2
-
--- Display: Message Length
-txse_headers_rake_tcp_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-txse_headers_rake_tcp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = txse_headers_rake_tcp_v1_0.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = txse_headers_rake_tcp_v1_0.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_headers_rake_tcp_v1_0.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Rake Message Header

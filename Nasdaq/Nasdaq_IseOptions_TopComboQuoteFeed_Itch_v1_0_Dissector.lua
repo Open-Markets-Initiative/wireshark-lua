@@ -212,28 +212,607 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq IseOptions TopComboQuoteFeed Itch 1.0
+-- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Fields
 -----------------------------------------------------------------------
 
--- Trade Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition = {}
+-- Ask Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size = {}
 
--- Size: Trade Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.size = 1
+-- Size: Ask Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.size = 4
 
--- Display: Trade Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.display = function(value)
-  return "Trade Condition: "..value
+-- Display: Ask Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.display = function(value)
+  return "Ask Cust Size: "..value
 end
 
--- Dissect: Trade Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.size
+-- Dissect: Ask Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size = {}
+
+-- Size: Ask Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.size = 4
+
+-- Display: Ask Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.display = function(value)
+  return "Ask Market Size: "..value
+end
+
+-- Dissect: Ask Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_market_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size = {}
+
+-- Size: Ask Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.size = 4
+
+-- Display: Ask Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.display = function(value)
+  return "Ask Ntt Market Size: "..value
+end
+
+-- Dissect: Ask Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_ntt_market_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size = {}
+
+-- Size: Ask Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.size = 4
+
+-- Display: Ask Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.display = function(value)
+  return "Ask Ntt Size: "..value
+end
+
+-- Dissect: Ask Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_ntt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price = {}
+
+-- Size: Ask Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size = 4
+
+-- Display: Ask Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.display = function(value)
+  return "Ask Price: "..value
+end
+
+-- Translate: Ask Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Ask Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.translate(raw)
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size = {}
+
+-- Size: Ask Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.size = 4
+
+-- Display: Ask Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.display = function(value)
+  return "Ask Pro Cust Size: "..value
+end
+
+-- Dissect: Ask Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_pro_cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size = {}
+
+-- Size: Ask Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.size = 4
+
+-- Display: Ask Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.display = function(value)
+  return "Ask Size: "..value
+end
+
+-- Dissect: Ask Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size = {}
+
+-- Size: Bid Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.size = 4
+
+-- Display: Bid Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.display = function(value)
+  return "Bid Cust Size: "..value
+end
+
+-- Dissect: Bid Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size = {}
+
+-- Size: Bid Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.size = 4
+
+-- Display: Bid Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.display = function(value)
+  return "Bid Market Size: "..value
+end
+
+-- Dissect: Bid Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_market_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size = {}
+
+-- Size: Bid Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.size = 4
+
+-- Display: Bid Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.display = function(value)
+  return "Bid Ntt Market Size: "..value
+end
+
+-- Dissect: Bid Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_ntt_market_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size = {}
+
+-- Size: Bid Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.size = 4
+
+-- Display: Bid Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.display = function(value)
+  return "Bid Ntt Size: "..value
+end
+
+-- Dissect: Bid Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_ntt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price = {}
+
+-- Size: Bid Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size = 4
+
+-- Display: Bid Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Bid Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.translate(raw)
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size = {}
+
+-- Size: Bid Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.size = 4
+
+-- Display: Bid Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.display = function(value)
+  return "Bid Pro Cust Size: "..value
+end
+
+-- Dissect: Bid Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_pro_cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size = {}
+
+-- Size: Bid Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.size = 4
+
+-- Display: Bid Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day = {}
+
+-- Size: Current Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size = 1
+
+-- Display: Current Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.display = function(value)
+  return "Current Day: "..value
+end
+
+-- Dissect: Current Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month = {}
+
+-- Size: Current Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size = 1
+
+-- Display: Current Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.display = function(value)
+  return "Current Month: "..value
+end
+
+-- Dissect: Current Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt In Effect (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading Resumed (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.trade_condition, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year = {}
+
+-- Size: Current Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.size = 2
+
+-- Display: Current Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.display = function(value)
+  return "Current Year: "..value
+end
+
+-- Dissect: Current Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size = {}
+
+-- Size: Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size = 4
+
+-- Display: Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.display = function(value)
+  return "Cust Size: "..value
+end
+
+-- Dissect: Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code = {}
+
+-- Size: Event Code
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Opening Process (Q)"
+  end
+  if value == "N" then
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
+  end
+  if value == "L" then
+    return "Event Code: Start Of Late Hours Closing Process (L)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+  if value == "W" then
+    return "Event Code: End Of Wco Early Closing (W)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day = {}
+
+-- Size: Expiration Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.size = 1
+
+-- Display: Expiration Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.display = function(value)
+  return "Expiration Day: "..value
+end
+
+-- Dissect: Expiration Day
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month = {}
+
+-- Size: Expiration Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.size = 1
+
+-- Display: Expiration Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.display = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year = {}
+
+-- Size: Expiration Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.size = 1
+
+-- Display: Expiration Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.display = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Explicit Strike Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price = {}
+
+-- Size: Explicit Strike Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size = 8
+
+-- Display: Explicit Strike Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.display = function(value)
+  return "Explicit Strike Price: "..value
+end
+
+-- Translate: Explicit Strike Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Explicit Strike Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.translate(raw)
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -261,29 +840,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Low
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low = {}
-
--- Size: Low
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size = 8
-
--- Display: Low
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.display = function(value)
-  return "Low: "..value
-end
-
--- Dissect: Low
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.low, range, value, display)
-
-  return offset + length, value
-end
-
 -- High
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high = {}
 
@@ -303,52 +859,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.dissect = function(buffer, of
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.high, range, value, display)
-
-  return offset + length, value
-end
-
--- Volume
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume = {}
-
--- Size: Volume
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.size = 4
-
--- Display: Volume
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size = {}
-
--- Size: Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size = 4
-
--- Display: Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.display = function(value)
-  return "Size: "..value
-end
-
--- Dissect: Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -382,6 +892,593 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.dissect = function(buff
   return offset + length, value
 end
 
+-- Leg Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id = {}
+
+-- Size: Leg Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.size = 1
+
+-- Display: Leg Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.display = function(value)
+  return "Leg Id: "..value
+end
+
+-- Dissect: Leg Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio = {}
+
+-- Size: Leg Ratio
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low = {}
+
+-- Size: Low
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size = 8
+
+-- Display: Low
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.display = function(value)
+  return "Low: "..value
+end
+
+-- Dissect: Low
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.low, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size = {}
+
+-- Size: Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size = 4
+
+-- Display: Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.display = function(value)
+  return "Market Size: "..value
+end
+
+-- Dissect: Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.market_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count = {}
+
+-- Size: Message Count
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length = {}
+
+-- Size: Message Length
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type = {}
+
+-- Size: Message Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "R" then
+    return "Message Type: Complex Strategy Directory Message (R)"
+  end
+  if value == "O" then
+    return "Message Type: Strategy Open Closed Message (O)"
+  end
+  if value == "H" then
+    return "Message Type: Strategy Trading Action Message (H)"
+  end
+  if value == "C" then
+    return "Message Type: Strategy Best Bid And Ask Update (C)"
+  end
+  if value == "D" then
+    return "Message Type: Strategy Best Bid Update (D)"
+  end
+  if value == "E" then
+    return "Message Type: Strategy Best Ask Update (E)"
+  end
+  if value == "t" then
+    return "Message Type: Complex Strategy Ticker Message (t)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size = {}
+
+-- Size: Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size = 4
+
+-- Display: Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.display = function(value)
+  return "Ntt Market Size: "..value
+end
+
+-- Dissect: Ntt Market Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ntt_market_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size = {}
+
+-- Size: Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size = 4
+
+-- Display: Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.display = function(value)
+  return "Ntt Size: "..value
+end
+
+-- Dissect: Ntt Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ntt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Legs
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs = {}
+
+-- Size: Number Of Legs
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.size = 1
+
+-- Display: Number Of Legs
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state = {}
+
+-- Size: Open State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size = 1
+
+-- Display: Open State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.display = function(value)
+  if value == "Y" then
+    return "Open State: Open (Y)"
+  end
+  if value == "N" then
+    return "Open State: Closed (N)"
+  end
+
+  return "Open State: Unknown("..value..")"
+end
+
+-- Dissect: Open State
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id = {}
+
+-- Size: Option Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type = {}
+
+-- Size: Option Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+  if value == " " then
+    return "Option Type: Na (<whitespace>)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price = {}
+
+-- Size: Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size = 4
+
+-- Display: Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.translate(raw)
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size = {}
+
+-- Size: Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size = 4
+
+-- Display: Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.display = function(value)
+  return "Pro Cust Size: "..value
+end
+
+-- Dissect: Pro Cust Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.pro_cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition = {}
+
+-- Size: Quote Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size = 1
+
+-- Display: Quote Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.display = function(value)
+  if value == " " then
+    return "Quote Condition: Regular Quote (<whitespace>)"
+  end
+  if value == "X" then
+    return "Quote Condition: Halted (X)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.size = 6
+
+-- Display: Security Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session = {}
+
+-- Size: Session
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.size = 10
+
+-- Display: Session
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side = {}
+
+-- Size: Side
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.size = 1
+
+-- Display: Side
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+  if value == " " then
+    return "Side: Hidden (<whitespace>)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size = {}
+
+-- Size: Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size = 4
+
+-- Display: Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source = {}
+
+-- Size: Source
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.size = 1
+
+-- Display: Source
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
 -- Strategy Id
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id = {}
 
@@ -401,6 +1498,80 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect = function(buf
   local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type = {}
+
+-- Size: Strategy Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.size = 1
+
+-- Display: Strategy Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.display = function(value)
+  if value == "V" then
+    return "Strategy Type: Vertical Spread (V)"
+  end
+  if value == "T" then
+    return "Strategy Type: Time Spread (T)"
+  end
+  if value == "D" then
+    return "Strategy Type: Diagonal Spread (D)"
+  end
+  if value == "S" then
+    return "Strategy Type: Straddle (S)"
+  end
+  if value == "G" then
+    return "Strategy Type: Strangle (G)"
+  end
+  if value == "C" then
+    return "Strategy Type: Combo (C)"
+  end
+  if value == "R" then
+    return "Strategy Type: Risk Reversal (R)"
+  end
+  if value == "A" then
+    return "Strategy Type: Ratio Spread (A)"
+  end
+  if value == "U" then
+    return "Strategy Type: Custom (U)"
+  end
+
+  return "Strategy Type: Unknown("..value..")"
+end
+
+-- Dissect: Strategy Type
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Subversion
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion = {}
+
+-- Size: Subversion
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size = 1
+
+-- Display: Subversion
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.display = function(value)
+  return "Subversion: "..value
+end
+
+-- Dissect: Subversion
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.subversion, range, value, display)
 
   return offset + length, value
 end
@@ -427,6 +1598,103 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect = function(buffe
 
   return offset + length, value
 end
+
+-- Trade Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition = {}
+
+-- Size: Trade Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.size = 1
+
+-- Display: Trade Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.display = function(value)
+  return "Trade Condition: "..value
+end
+
+-- Dissect: Trade Condition
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version = {}
+
+-- Size: Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size = 1
+
+-- Display: Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume = {}
+
+-- Size: Volume
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.size = 4
+
+-- Display: Volume
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq IseOptions TopComboQuoteFeed Itch 1.0
+-----------------------------------------------------------------------
 
 -- Complex Strategy Ticker Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message = {}
@@ -498,180 +1766,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.di
     -- Skip element, add fields directly
     return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size = {}
-
--- Size: Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size = 4
-
--- Display: Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.display = function(value)
-  return "Ntt Market Size: "..value
-end
-
--- Dissect: Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ntt_market_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size = {}
-
--- Size: Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size = 4
-
--- Display: Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.display = function(value)
-  return "Market Size: "..value
-end
-
--- Dissect: Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.market_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size = {}
-
--- Size: Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size = 4
-
--- Display: Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.display = function(value)
-  return "Ntt Size: "..value
-end
-
--- Dissect: Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ntt_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size = {}
-
--- Size: Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size = 4
-
--- Display: Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.display = function(value)
-  return "Pro Cust Size: "..value
-end
-
--- Dissect: Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.pro_cust_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size = {}
-
--- Size: Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size = 4
-
--- Display: Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.display = function(value)
-  return "Cust Size: "..value
-end
-
--- Dissect: Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.cust_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price = {}
-
--- Size: Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size = 4
-
--- Display: Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.translate(raw)
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition = {}
-
--- Size: Quote Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size = 1
-
--- Display: Quote Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.display = function(value)
-  if value == " " then
-    return "Quote Condition: Regular Quote (<whitespace>)"
-  end
-  if value == "X" then
-    return "Quote Condition: Halted (X)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.quote_condition, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Best Ask Update
@@ -826,340 +1920,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.dissect =
   end
 end
 
--- Ask Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size = {}
-
--- Size: Ask Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.size = 4
-
--- Display: Ask Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.display = function(value)
-  return "Ask Ntt Market Size: "..value
-end
-
--- Dissect: Ask Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_ntt_market_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size = {}
-
--- Size: Ask Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.size = 4
-
--- Display: Ask Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.display = function(value)
-  return "Ask Market Size: "..value
-end
-
--- Dissect: Ask Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_market_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size = {}
-
--- Size: Ask Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.size = 4
-
--- Display: Ask Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.display = function(value)
-  return "Ask Ntt Size: "..value
-end
-
--- Dissect: Ask Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_ntt_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size = {}
-
--- Size: Ask Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.size = 4
-
--- Display: Ask Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.display = function(value)
-  return "Ask Pro Cust Size: "..value
-end
-
--- Dissect: Ask Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_pro_cust_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size = {}
-
--- Size: Ask Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.size = 4
-
--- Display: Ask Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.display = function(value)
-  return "Ask Cust Size: "..value
-end
-
--- Dissect: Ask Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_cust_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size = {}
-
--- Size: Ask Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.size = 4
-
--- Display: Ask Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.display = function(value)
-  return "Ask Size: "..value
-end
-
--- Dissect: Ask Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price = {}
-
--- Size: Ask Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size = 4
-
--- Display: Ask Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.display = function(value)
-  return "Ask Price: "..value
-end
-
--- Translate: Ask Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Ask Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.translate(raw)
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size = {}
-
--- Size: Bid Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.size = 4
-
--- Display: Bid Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.display = function(value)
-  return "Bid Ntt Market Size: "..value
-end
-
--- Dissect: Bid Ntt Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_ntt_market_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size = {}
-
--- Size: Bid Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.size = 4
-
--- Display: Bid Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.display = function(value)
-  return "Bid Market Size: "..value
-end
-
--- Dissect: Bid Market Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_market_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size = {}
-
--- Size: Bid Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.size = 4
-
--- Display: Bid Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.display = function(value)
-  return "Bid Ntt Size: "..value
-end
-
--- Dissect: Bid Ntt Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_ntt_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size = {}
-
--- Size: Bid Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.size = 4
-
--- Display: Bid Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.display = function(value)
-  return "Bid Pro Cust Size: "..value
-end
-
--- Dissect: Bid Pro Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_pro_cust_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size = {}
-
--- Size: Bid Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.size = 4
-
--- Display: Bid Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.display = function(value)
-  return "Bid Cust Size: "..value
-end
-
--- Dissect: Bid Cust Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_cust_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size = {}
-
--- Size: Bid Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.size = 4
-
--- Display: Bid Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price = {}
-
--- Size: Bid Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size = 4
-
--- Display: Bid Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Bid Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.translate(raw)
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Best Bid And Ask Update
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update = {}
 
@@ -1264,36 +2024,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.d
   end
 end
 
--- Current Trading State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading Resumed (T)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Trading Action Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message = {}
 
@@ -1342,36 +2072,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.di
   end
 end
 
--- Open State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state = {}
-
--- Size: Open State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size = 1
-
--- Display: Open State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed (N)"
-  end
-
-  return "Open State: Unknown("..value..")"
-end
-
--- Dissect: Open State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.open_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Open Closed Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message = {}
 
@@ -1418,262 +2118,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.disse
     -- Skip element, add fields directly
     return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Ratio
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio = {}
-
--- Size: Leg Ratio
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.size = 4
-
--- Display: Leg Ratio
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.display = function(value)
-  return "Leg Ratio: "..value
-end
-
--- Dissect: Leg Ratio
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side = {}
-
--- Size: Side
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.size = 1
-
--- Display: Side
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == " " then
-    return "Side: Hidden (<whitespace>)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type = {}
-
--- Size: Option Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.size = 1
-
--- Display: Option Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == " " then
-    return "Option Type: Na (<whitespace>)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Explicit Strike Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price = {}
-
--- Size: Explicit Strike Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size = 8
-
--- Display: Explicit Strike Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.display = function(value)
-  return "Explicit Strike Price: "..value
-end
-
--- Translate: Explicit Strike Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Explicit Strike Price
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.translate(raw)
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day = {}
-
--- Size: Expiration Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.size = 1
-
--- Display: Expiration Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.display = function(value)
-  return "Expiration Day: "..value
-end
-
--- Dissect: Expiration Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month = {}
-
--- Size: Expiration Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.size = 1
-
--- Display: Expiration Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.display = function(value)
-  return "Expiration Month: "..value
-end
-
--- Dissect: Expiration Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year = {}
-
--- Size: Expiration Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.size = 1
-
--- Display: Expiration Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.display = function(value)
-  return "Expiration Year: "..value
-end
-
--- Dissect: Expiration Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.expiration_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id = {}
-
--- Size: Leg Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.size = 1
-
--- Display: Leg Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.display = function(value)
-  return "Leg Id: "..value
-end
-
--- Dissect: Leg Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol = {}
-
--- Size: Security Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.size = 6
-
--- Display: Security Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.security_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id = {}
-
--- Size: Option Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.size = 4
-
--- Display: Option Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.display = function(value)
-  return "Option Id: "..value
-end
-
--- Dissect: Option Id
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.option_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Leg Information
@@ -1758,126 +2202,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.dissect = function
   end
 end
 
--- Number Of Legs
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs = {}
-
--- Size: Number Of Legs
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.size = 1
-
--- Display: Number Of Legs
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.display = function(value)
-  return "Number Of Legs: "..value
-end
-
--- Dissect: Number Of Legs
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.number_of_legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.size = 13
-
--- Display: Underlying Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Source
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source = {}
-
--- Size: Source
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.size = 1
-
--- Display: Source
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type = {}
-
--- Size: Strategy Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.size = 1
-
--- Display: Strategy Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.display = function(value)
-  if value == "V" then
-    return "Strategy Type: Vertical Spread (V)"
-  end
-  if value == "T" then
-    return "Strategy Type: Time Spread (T)"
-  end
-  if value == "D" then
-    return "Strategy Type: Diagonal Spread (D)"
-  end
-  if value == "S" then
-    return "Strategy Type: Straddle (S)"
-  end
-  if value == "G" then
-    return "Strategy Type: Strangle (G)"
-  end
-  if value == "C" then
-    return "Strategy Type: Combo (C)"
-  end
-  if value == "R" then
-    return "Strategy Type: Risk Reversal (R)"
-  end
-  if value == "A" then
-    return "Strategy Type: Ratio Spread (A)"
-  end
-  if value == "U" then
-    return "Strategy Type: Custom (U)"
-  end
-
-  return "Strategy Type: Unknown("..value..")"
-end
-
--- Dissect: Strategy Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.strategy_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Strategy Directory Message
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message = {}
 
@@ -1955,169 +2279,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message
     -- Skip element, add fields directly
     return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion = {}
-
--- Size: Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size = 1
-
--- Display: Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.display = function(value)
-  return "Subversion: "..value
-end
-
--- Dissect: Subversion
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.subversion, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version = {}
-
--- Size: Version
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size = 1
-
--- Display: Version
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day = {}
-
--- Size: Current Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size = 1
-
--- Display: Current Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.display = function(value)
-  return "Current Day: "..value
-end
-
--- Dissect: Current Day
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month = {}
-
--- Size: Current Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size = 1
-
--- Display: Current Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.display = function(value)
-  return "Current Month: "..value
-end
-
--- Dissect: Current Month
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year = {}
-
--- Size: Current Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.size = 2
-
--- Display: Current Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.display = function(value)
-  return "Current Year: "..value
-end
-
--- Dissect: Current Year
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.current_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Code
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code = {}
-
--- Size: Event Code
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size = 1
-
--- Display: Event Code
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.event_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- System Event Message
@@ -2223,77 +2384,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dissect = function(buffer,
   end
 
   return offset
-end
-
--- Message Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type = {}
-
--- Size: Message Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size = 1
-
--- Display: Message Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Complex Strategy Directory Message (R)"
-  end
-  if value == "O" then
-    return "Message Type: Strategy Open Closed Message (O)"
-  end
-  if value == "H" then
-    return "Message Type: Strategy Trading Action Message (H)"
-  end
-  if value == "C" then
-    return "Message Type: Strategy Best Bid And Ask Update (C)"
-  end
-  if value == "D" then
-    return "Message Type: Strategy Best Bid Update (D)"
-  end
-  if value == "E" then
-    return "Message Type: Strategy Best Ask Update (E)"
-  end
-  if value == "t" then
-    return "Message Type: Complex Strategy Ticker Message (t)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length = {}
-
--- Size: Message Length
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.size = 2
-
--- Display: Message Length
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2429,91 +2519,6 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dissect = function(buffer
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count = {}
-
--- Size: Message Count
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.size = 2
-
--- Display: Message Count
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session = {}
-
--- Size: Session
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.size = 10
-
--- Display: Session
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

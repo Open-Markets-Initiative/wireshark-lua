@@ -198,8 +198,417 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Jnx Equities Pts Itch 1.7
+-- Jnx Equities Pts Itch 1.7 Fields
 -----------------------------------------------------------------------
+
+-- Attribution
+jnx_equities_pts_itch_v1_7.attribution = {}
+
+-- Size: Attribution
+jnx_equities_pts_itch_v1_7.attribution.size = 4
+
+-- Display: Attribution
+jnx_equities_pts_itch_v1_7.attribution.display = function(value)
+  return "Attribution: "..value
+end
+
+-- Dissect: Attribution
+jnx_equities_pts_itch_v1_7.attribution.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.attribution.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_equities_pts_itch_v1_7.attribution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.attribution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Indicator
+jnx_equities_pts_itch_v1_7.buy_sell_indicator = {}
+
+-- Size: Buy Sell Indicator
+jnx_equities_pts_itch_v1_7.buy_sell_indicator.size = 1
+
+-- Display: Buy Sell Indicator
+jnx_equities_pts_itch_v1_7.buy_sell_indicator.display = function(value)
+  if value == "B" then
+    return "Buy Sell Indicator: Buy (B)"
+  end
+  if value == "S" then
+    return "Buy Sell Indicator: Sell (S)"
+  end
+
+  return "Buy Sell Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Buy Sell Indicator
+jnx_equities_pts_itch_v1_7.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.buy_sell_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_equities_pts_itch_v1_7.buy_sell_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+jnx_equities_pts_itch_v1_7.executed_quantity = {}
+
+-- Size: Executed Quantity
+jnx_equities_pts_itch_v1_7.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+jnx_equities_pts_itch_v1_7.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+jnx_equities_pts_itch_v1_7.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_equities_pts_itch_v1_7.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group
+jnx_equities_pts_itch_v1_7.group = {}
+
+-- Size: Group
+jnx_equities_pts_itch_v1_7.group.size = 4
+
+-- Display: Group
+jnx_equities_pts_itch_v1_7.group.display = function(value)
+  if value == "DAY" then
+    return "Group: Daytime Market (DAY)"
+  end
+  if value == "NGHT" then
+    return "Group: Nighttime Market (NGHT)"
+  end
+  if value == "DAYX" then
+    return "Group: X Market (DAYX)"
+  end
+  if value == "DAYU" then
+    return "Group: U Market (DAYU)"
+  end
+
+  return "Group: Unknown("..value..")"
+end
+
+-- Dissect: Group
+jnx_equities_pts_itch_v1_7.group.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.group.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_equities_pts_itch_v1_7.group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Price Limit
+jnx_equities_pts_itch_v1_7.lower_price_limit = {}
+
+-- Size: Lower Price Limit
+jnx_equities_pts_itch_v1_7.lower_price_limit.size = 4
+
+-- Display: Lower Price Limit
+jnx_equities_pts_itch_v1_7.lower_price_limit.display = function(value)
+  return "Lower Price Limit: "..value
+end
+
+-- Translate: Lower Price Limit
+jnx_equities_pts_itch_v1_7.lower_price_limit.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Lower Price Limit
+jnx_equities_pts_itch_v1_7.lower_price_limit.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.lower_price_limit.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_equities_pts_itch_v1_7.lower_price_limit.translate(raw)
+  local display = jnx_equities_pts_itch_v1_7.lower_price_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.lower_price_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Number
+jnx_equities_pts_itch_v1_7.match_number = {}
+
+-- Size: Match Number
+jnx_equities_pts_itch_v1_7.match_number.size = 8
+
+-- Display: Match Number
+jnx_equities_pts_itch_v1_7.match_number.display = function(value)
+  return "Match Number: "..value
+end
+
+-- Dissect: Match Number
+jnx_equities_pts_itch_v1_7.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.match_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_equities_pts_itch_v1_7.match_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+jnx_equities_pts_itch_v1_7.message_count = {}
+
+-- Size: Message Count
+jnx_equities_pts_itch_v1_7.message_count.size = 2
+
+-- Display: Message Count
+jnx_equities_pts_itch_v1_7.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+jnx_equities_pts_itch_v1_7.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_equities_pts_itch_v1_7.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+jnx_equities_pts_itch_v1_7.message_length = {}
+
+-- Size: Message Length
+jnx_equities_pts_itch_v1_7.message_length.size = 2
+
+-- Display: Message Length
+jnx_equities_pts_itch_v1_7.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+jnx_equities_pts_itch_v1_7.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_equities_pts_itch_v1_7.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+jnx_equities_pts_itch_v1_7.message_type = {}
+
+-- Size: Message Type
+jnx_equities_pts_itch_v1_7.message_type.size = 1
+
+-- Display: Message Type
+jnx_equities_pts_itch_v1_7.message_type.display = function(value)
+  if value == "T" then
+    return "Message Type: Timestamp Seconds Message (T)"
+  end
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "L" then
+    return "Message Type: Price Tick Size Message (L)"
+  end
+  if value == "R" then
+    return "Message Type: Orderbook Directory Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Trading State Message (H)"
+  end
+  if value == "Y" then
+    return "Message Type: Short Selling Price Restriction State Message (Y)"
+  end
+  if value == "A" then
+    return "Message Type: Order Added Without Attributes Message (A)"
+  end
+  if value == "F" then
+    return "Message Type: Order Added With Attributes Message (F)"
+  end
+  if value == "E" then
+    return "Message Type: Order Executed Message (E)"
+  end
+  if value == "D" then
+    return "Message Type: Order Deleted Message (D)"
+  end
+  if value == "U" then
+    return "Message Type: Order Replaced Message (U)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+jnx_equities_pts_itch_v1_7.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_equities_pts_itch_v1_7.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Order Number
+jnx_equities_pts_itch_v1_7.new_order_number = {}
+
+-- Size: New Order Number
+jnx_equities_pts_itch_v1_7.new_order_number.size = 8
+
+-- Display: New Order Number
+jnx_equities_pts_itch_v1_7.new_order_number.display = function(value)
+  return "New Order Number: "..value
+end
+
+-- Dissect: New Order Number
+jnx_equities_pts_itch_v1_7.new_order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.new_order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_equities_pts_itch_v1_7.new_order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.new_order_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Number
+jnx_equities_pts_itch_v1_7.order_number = {}
+
+-- Size: Order Number
+jnx_equities_pts_itch_v1_7.order_number.size = 8
+
+-- Display: Order Number
+jnx_equities_pts_itch_v1_7.order_number.display = function(value)
+  return "Order Number: "..value
+end
+
+-- Dissect: Order Number
+jnx_equities_pts_itch_v1_7.order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_equities_pts_itch_v1_7.order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+jnx_equities_pts_itch_v1_7.order_type = {}
+
+-- Size: Order Type
+jnx_equities_pts_itch_v1_7.order_type.size = 1
+
+-- Display: Order Type
+jnx_equities_pts_itch_v1_7.order_type.display = function(value)
+  if value == "Q" then
+    return "Order Type: Dlp Order (Q)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+jnx_equities_pts_itch_v1_7.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_equities_pts_itch_v1_7.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orderbook Code
+jnx_equities_pts_itch_v1_7.orderbook_code = {}
+
+-- Size: Orderbook Code
+jnx_equities_pts_itch_v1_7.orderbook_code.size = 12
+
+-- Display: Orderbook Code
+jnx_equities_pts_itch_v1_7.orderbook_code.display = function(value)
+  return "Orderbook Code: "..value
+end
+
+-- Dissect: Orderbook Code
+jnx_equities_pts_itch_v1_7.orderbook_code.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.orderbook_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_equities_pts_itch_v1_7.orderbook_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.orderbook_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orderbook Id
+jnx_equities_pts_itch_v1_7.orderbook_id = {}
+
+-- Size: Orderbook Id
+jnx_equities_pts_itch_v1_7.orderbook_id.size = 4
+
+-- Display: Orderbook Id
+jnx_equities_pts_itch_v1_7.orderbook_id.display = function(value)
+  return "Orderbook Id: "..value
+end
+
+-- Dissect: Orderbook Id
+jnx_equities_pts_itch_v1_7.orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.orderbook_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_equities_pts_itch_v1_7.orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Order Number
+jnx_equities_pts_itch_v1_7.original_order_number = {}
+
+-- Size: Original Order Number
+jnx_equities_pts_itch_v1_7.original_order_number.size = 8
+
+-- Display: Original Order Number
+jnx_equities_pts_itch_v1_7.original_order_number.display = function(value)
+  return "Original Order Number: "..value
+end
+
+-- Dissect: Original Order Number
+jnx_equities_pts_itch_v1_7.original_order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.original_order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_equities_pts_itch_v1_7.original_order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.original_order_number, range, value, display)
+
+  return offset + length, value
+end
 
 -- Price
 jnx_equities_pts_itch_v1_7.price = {}
@@ -230,6 +639,122 @@ jnx_equities_pts_itch_v1_7.price.dissect = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
+-- Price Decimals
+jnx_equities_pts_itch_v1_7.price_decimals = {}
+
+-- Size: Price Decimals
+jnx_equities_pts_itch_v1_7.price_decimals.size = 4
+
+-- Display: Price Decimals
+jnx_equities_pts_itch_v1_7.price_decimals.display = function(value)
+  return "Price Decimals: "..value
+end
+
+-- Translate: Price Decimals
+jnx_equities_pts_itch_v1_7.price_decimals.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Decimals
+jnx_equities_pts_itch_v1_7.price_decimals.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.price_decimals.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_equities_pts_itch_v1_7.price_decimals.translate(raw)
+  local display = jnx_equities_pts_itch_v1_7.price_decimals.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_decimals, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Start
+jnx_equities_pts_itch_v1_7.price_start = {}
+
+-- Size: Price Start
+jnx_equities_pts_itch_v1_7.price_start.size = 4
+
+-- Display: Price Start
+jnx_equities_pts_itch_v1_7.price_start.display = function(value)
+  return "Price Start: "..value
+end
+
+-- Translate: Price Start
+jnx_equities_pts_itch_v1_7.price_start.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Start
+jnx_equities_pts_itch_v1_7.price_start.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.price_start.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_equities_pts_itch_v1_7.price_start.translate(raw)
+  local display = jnx_equities_pts_itch_v1_7.price_start.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_start, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Tick Size
+jnx_equities_pts_itch_v1_7.price_tick_size = {}
+
+-- Size: Price Tick Size
+jnx_equities_pts_itch_v1_7.price_tick_size.size = 4
+
+-- Display: Price Tick Size
+jnx_equities_pts_itch_v1_7.price_tick_size.display = function(value)
+  return "Price Tick Size: "..value
+end
+
+-- Translate: Price Tick Size
+jnx_equities_pts_itch_v1_7.price_tick_size.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Tick Size
+jnx_equities_pts_itch_v1_7.price_tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.price_tick_size.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_equities_pts_itch_v1_7.price_tick_size.translate(raw)
+  local display = jnx_equities_pts_itch_v1_7.price_tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Tick Size Table Id
+jnx_equities_pts_itch_v1_7.price_tick_size_table_id = {}
+
+-- Size: Price Tick Size Table Id
+jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size = 4
+
+-- Display: Price Tick Size Table Id
+jnx_equities_pts_itch_v1_7.price_tick_size_table_id.display = function(value)
+  return "Price Tick Size Table Id: "..value
+end
+
+-- Translate: Price Tick Size Table Id
+jnx_equities_pts_itch_v1_7.price_tick_size_table_id.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Price Tick Size Table Id
+jnx_equities_pts_itch_v1_7.price_tick_size_table_id.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.translate(raw)
+  local display = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size_table_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Quantity
 jnx_equities_pts_itch_v1_7.quantity = {}
 
@@ -253,48 +778,140 @@ jnx_equities_pts_itch_v1_7.quantity.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- New Order Number
-jnx_equities_pts_itch_v1_7.new_order_number = {}
+-- Round Lot Size
+jnx_equities_pts_itch_v1_7.round_lot_size = {}
 
--- Size: New Order Number
-jnx_equities_pts_itch_v1_7.new_order_number.size = 8
+-- Size: Round Lot Size
+jnx_equities_pts_itch_v1_7.round_lot_size.size = 4
 
--- Display: New Order Number
-jnx_equities_pts_itch_v1_7.new_order_number.display = function(value)
-  return "New Order Number: "..value
+-- Display: Round Lot Size
+jnx_equities_pts_itch_v1_7.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
 end
 
--- Dissect: New Order Number
-jnx_equities_pts_itch_v1_7.new_order_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.new_order_number.size
+-- Dissect: Round Lot Size
+jnx_equities_pts_itch_v1_7.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.round_lot_size.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_equities_pts_itch_v1_7.new_order_number.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = jnx_equities_pts_itch_v1_7.round_lot_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.new_order_number, range, value, display)
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.round_lot_size, range, value, display)
 
   return offset + length, value
 end
 
--- Original Order Number
-jnx_equities_pts_itch_v1_7.original_order_number = {}
+-- Sequence Number
+jnx_equities_pts_itch_v1_7.sequence_number = {}
 
--- Size: Original Order Number
-jnx_equities_pts_itch_v1_7.original_order_number.size = 8
+-- Size: Sequence Number
+jnx_equities_pts_itch_v1_7.sequence_number.size = 8
 
--- Display: Original Order Number
-jnx_equities_pts_itch_v1_7.original_order_number.display = function(value)
-  return "Original Order Number: "..value
+-- Display: Sequence Number
+jnx_equities_pts_itch_v1_7.sequence_number.display = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Original Order Number
-jnx_equities_pts_itch_v1_7.original_order_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.original_order_number.size
+-- Dissect: Sequence Number
+jnx_equities_pts_itch_v1_7.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = jnx_equities_pts_itch_v1_7.original_order_number.display(value, buffer, offset, packet, parent)
+  local display = jnx_equities_pts_itch_v1_7.sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.original_order_number, range, value, display)
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+jnx_equities_pts_itch_v1_7.session = {}
+
+-- Size: Session
+jnx_equities_pts_itch_v1_7.session.size = 10
+
+-- Display: Session
+jnx_equities_pts_itch_v1_7.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+jnx_equities_pts_itch_v1_7.session.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = jnx_equities_pts_itch_v1_7.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Selling State
+jnx_equities_pts_itch_v1_7.short_selling_state = {}
+
+-- Size: Short Selling State
+jnx_equities_pts_itch_v1_7.short_selling_state.size = 1
+
+-- Display: Short Selling State
+jnx_equities_pts_itch_v1_7.short_selling_state.display = function(value)
+  if value == "0" then
+    return "Short Selling State: No Price Restriction (0)"
+  end
+  if value == "1" then
+    return "Short Selling State: Price Restriction In Effect (1)"
+  end
+
+  return "Short Selling State: Unknown("..value..")"
+end
+
+-- Dissect: Short Selling State
+jnx_equities_pts_itch_v1_7.short_selling_state.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.short_selling_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_equities_pts_itch_v1_7.short_selling_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.short_selling_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Event
+jnx_equities_pts_itch_v1_7.system_event = {}
+
+-- Size: System Event
+jnx_equities_pts_itch_v1_7.system_event.size = 1
+
+-- Display: System Event
+jnx_equities_pts_itch_v1_7.system_event.display = function(value)
+  return "System Event: "..value
+end
+
+-- Dissect: System Event
+jnx_equities_pts_itch_v1_7.system_event.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.system_event.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_equities_pts_itch_v1_7.system_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.system_event, range, value, display)
 
   return offset + length, value
 end
@@ -321,6 +938,93 @@ jnx_equities_pts_itch_v1_7.timestamp_nanoseconds.dissect = function(buffer, offs
 
   return offset + length, value
 end
+
+-- Timestamp Seconds
+jnx_equities_pts_itch_v1_7.timestamp_seconds = {}
+
+-- Size: Timestamp Seconds
+jnx_equities_pts_itch_v1_7.timestamp_seconds.size = 4
+
+-- Display: Timestamp Seconds
+jnx_equities_pts_itch_v1_7.timestamp_seconds.display = function(value)
+  return "Timestamp Seconds: "..value
+end
+
+-- Dissect: Timestamp Seconds
+jnx_equities_pts_itch_v1_7.timestamp_seconds.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.timestamp_seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_equities_pts_itch_v1_7.timestamp_seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.timestamp_seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading State
+jnx_equities_pts_itch_v1_7.trading_state = {}
+
+-- Size: Trading State
+jnx_equities_pts_itch_v1_7.trading_state.size = 1
+
+-- Display: Trading State
+jnx_equities_pts_itch_v1_7.trading_state.display = function(value)
+  if value == "T" then
+    return "Trading State: Trading (T)"
+  end
+  if value == "V" then
+    return "Trading State: Suspended (V)"
+  end
+
+  return "Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Trading State
+jnx_equities_pts_itch_v1_7.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_equities_pts_itch_v1_7.trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Upper Price Limit
+jnx_equities_pts_itch_v1_7.upper_price_limit = {}
+
+-- Size: Upper Price Limit
+jnx_equities_pts_itch_v1_7.upper_price_limit.size = 4
+
+-- Display: Upper Price Limit
+jnx_equities_pts_itch_v1_7.upper_price_limit.display = function(value)
+  return "Upper Price Limit: "..value
+end
+
+-- Translate: Upper Price Limit
+jnx_equities_pts_itch_v1_7.upper_price_limit.translate = function(raw)
+  return raw/10
+end
+
+-- Dissect: Upper Price Limit
+jnx_equities_pts_itch_v1_7.upper_price_limit.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_equities_pts_itch_v1_7.upper_price_limit.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = jnx_equities_pts_itch_v1_7.upper_price_limit.translate(raw)
+  local display = jnx_equities_pts_itch_v1_7.upper_price_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.upper_price_limit, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Jnx Equities Pts Itch 1.7
+-----------------------------------------------------------------------
 
 -- Order Replaced Message
 jnx_equities_pts_itch_v1_7.order_replaced_message = {}
@@ -378,29 +1082,6 @@ jnx_equities_pts_itch_v1_7.order_replaced_message.dissect = function(buffer, off
   end
 end
 
--- Order Number
-jnx_equities_pts_itch_v1_7.order_number = {}
-
--- Size: Order Number
-jnx_equities_pts_itch_v1_7.order_number.size = 8
-
--- Display: Order Number
-jnx_equities_pts_itch_v1_7.order_number.display = function(value)
-  return "Order Number: "..value
-end
-
--- Dissect: Order Number
-jnx_equities_pts_itch_v1_7.order_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.order_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_equities_pts_itch_v1_7.order_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Deleted Message
 jnx_equities_pts_itch_v1_7.order_deleted_message = {}
 
@@ -443,52 +1124,6 @@ jnx_equities_pts_itch_v1_7.order_deleted_message.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return jnx_equities_pts_itch_v1_7.order_deleted_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Match Number
-jnx_equities_pts_itch_v1_7.match_number = {}
-
--- Size: Match Number
-jnx_equities_pts_itch_v1_7.match_number.size = 8
-
--- Display: Match Number
-jnx_equities_pts_itch_v1_7.match_number.display = function(value)
-  return "Match Number: "..value
-end
-
--- Dissect: Match Number
-jnx_equities_pts_itch_v1_7.match_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.match_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_equities_pts_itch_v1_7.match_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.match_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Executed Quantity
-jnx_equities_pts_itch_v1_7.executed_quantity = {}
-
--- Size: Executed Quantity
-jnx_equities_pts_itch_v1_7.executed_quantity.size = 4
-
--- Display: Executed Quantity
-jnx_equities_pts_itch_v1_7.executed_quantity.display = function(value)
-  return "Executed Quantity: "..value
-end
-
--- Dissect: Executed Quantity
-jnx_equities_pts_itch_v1_7.executed_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.executed_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_equities_pts_itch_v1_7.executed_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.executed_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed Message
@@ -541,145 +1176,6 @@ jnx_equities_pts_itch_v1_7.order_executed_message.dissect = function(buffer, off
     -- Skip element, add fields directly
     return jnx_equities_pts_itch_v1_7.order_executed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Order Type
-jnx_equities_pts_itch_v1_7.order_type = {}
-
--- Size: Order Type
-jnx_equities_pts_itch_v1_7.order_type.size = 1
-
--- Display: Order Type
-jnx_equities_pts_itch_v1_7.order_type.display = function(value)
-  if value == "Q" then
-    return "Order Type: Dlp Order (Q)"
-  end
-
-  return "Order Type: Unknown("..value..")"
-end
-
--- Dissect: Order Type
-jnx_equities_pts_itch_v1_7.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.order_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_equities_pts_itch_v1_7.order_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.order_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Attribution
-jnx_equities_pts_itch_v1_7.attribution = {}
-
--- Size: Attribution
-jnx_equities_pts_itch_v1_7.attribution.size = 4
-
--- Display: Attribution
-jnx_equities_pts_itch_v1_7.attribution.display = function(value)
-  return "Attribution: "..value
-end
-
--- Dissect: Attribution
-jnx_equities_pts_itch_v1_7.attribution.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.attribution.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_equities_pts_itch_v1_7.attribution.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.attribution, range, value, display)
-
-  return offset + length, value
-end
-
--- Group
-jnx_equities_pts_itch_v1_7.group = {}
-
--- Size: Group
-jnx_equities_pts_itch_v1_7.group.size = 4
-
--- Display: Group
-jnx_equities_pts_itch_v1_7.group.display = function(value)
-  if value == "DAY" then
-    return "Group: Daytime Market (DAY)"
-  end
-  if value == "NGHT" then
-    return "Group: Nighttime Market (NGHT)"
-  end
-  if value == "DAYX" then
-    return "Group: X Market (DAYX)"
-  end
-  if value == "DAYU" then
-    return "Group: U Market (DAYU)"
-  end
-
-  return "Group: Unknown("..value..")"
-end
-
--- Dissect: Group
-jnx_equities_pts_itch_v1_7.group.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.group.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_equities_pts_itch_v1_7.group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.group, range, value, display)
-
-  return offset + length, value
-end
-
--- Orderbook Id
-jnx_equities_pts_itch_v1_7.orderbook_id = {}
-
--- Size: Orderbook Id
-jnx_equities_pts_itch_v1_7.orderbook_id.size = 4
-
--- Display: Orderbook Id
-jnx_equities_pts_itch_v1_7.orderbook_id.display = function(value)
-  return "Orderbook Id: "..value
-end
-
--- Dissect: Orderbook Id
-jnx_equities_pts_itch_v1_7.orderbook_id.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.orderbook_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_equities_pts_itch_v1_7.orderbook_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.orderbook_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Sell Indicator
-jnx_equities_pts_itch_v1_7.buy_sell_indicator = {}
-
--- Size: Buy Sell Indicator
-jnx_equities_pts_itch_v1_7.buy_sell_indicator.size = 1
-
--- Display: Buy Sell Indicator
-jnx_equities_pts_itch_v1_7.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
-
-  return "Buy Sell Indicator: Unknown("..value..")"
-end
-
--- Dissect: Buy Sell Indicator
-jnx_equities_pts_itch_v1_7.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.buy_sell_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_equities_pts_itch_v1_7.buy_sell_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.buy_sell_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Added With Attributes Message
@@ -818,36 +1314,6 @@ jnx_equities_pts_itch_v1_7.order_added_without_attributes_message.dissect = func
   end
 end
 
--- Short Selling State
-jnx_equities_pts_itch_v1_7.short_selling_state = {}
-
--- Size: Short Selling State
-jnx_equities_pts_itch_v1_7.short_selling_state.size = 1
-
--- Display: Short Selling State
-jnx_equities_pts_itch_v1_7.short_selling_state.display = function(value)
-  if value == "0" then
-    return "Short Selling State: No Price Restriction (0)"
-  end
-  if value == "1" then
-    return "Short Selling State: Price Restriction In Effect (1)"
-  end
-
-  return "Short Selling State: Unknown("..value..")"
-end
-
--- Dissect: Short Selling State
-jnx_equities_pts_itch_v1_7.short_selling_state.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.short_selling_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_equities_pts_itch_v1_7.short_selling_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.short_selling_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Short Selling Price Restriction State Message
 jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message = {}
 
@@ -900,36 +1366,6 @@ jnx_equities_pts_itch_v1_7.short_selling_price_restriction_state_message.dissect
   end
 end
 
--- Trading State
-jnx_equities_pts_itch_v1_7.trading_state = {}
-
--- Size: Trading State
-jnx_equities_pts_itch_v1_7.trading_state.size = 1
-
--- Display: Trading State
-jnx_equities_pts_itch_v1_7.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
-
-  return "Trading State: Unknown("..value..")"
-end
-
--- Dissect: Trading State
-jnx_equities_pts_itch_v1_7.trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_equities_pts_itch_v1_7.trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading State Message
 jnx_equities_pts_itch_v1_7.trading_state_message = {}
 
@@ -980,168 +1416,6 @@ jnx_equities_pts_itch_v1_7.trading_state_message.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return jnx_equities_pts_itch_v1_7.trading_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Lower Price Limit
-jnx_equities_pts_itch_v1_7.lower_price_limit = {}
-
--- Size: Lower Price Limit
-jnx_equities_pts_itch_v1_7.lower_price_limit.size = 4
-
--- Display: Lower Price Limit
-jnx_equities_pts_itch_v1_7.lower_price_limit.display = function(value)
-  return "Lower Price Limit: "..value
-end
-
--- Translate: Lower Price Limit
-jnx_equities_pts_itch_v1_7.lower_price_limit.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Lower Price Limit
-jnx_equities_pts_itch_v1_7.lower_price_limit.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.lower_price_limit.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = jnx_equities_pts_itch_v1_7.lower_price_limit.translate(raw)
-  local display = jnx_equities_pts_itch_v1_7.lower_price_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.lower_price_limit, range, value, display)
-
-  return offset + length, value
-end
-
--- Upper Price Limit
-jnx_equities_pts_itch_v1_7.upper_price_limit = {}
-
--- Size: Upper Price Limit
-jnx_equities_pts_itch_v1_7.upper_price_limit.size = 4
-
--- Display: Upper Price Limit
-jnx_equities_pts_itch_v1_7.upper_price_limit.display = function(value)
-  return "Upper Price Limit: "..value
-end
-
--- Translate: Upper Price Limit
-jnx_equities_pts_itch_v1_7.upper_price_limit.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Upper Price Limit
-jnx_equities_pts_itch_v1_7.upper_price_limit.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.upper_price_limit.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = jnx_equities_pts_itch_v1_7.upper_price_limit.translate(raw)
-  local display = jnx_equities_pts_itch_v1_7.upper_price_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.upper_price_limit, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Decimals
-jnx_equities_pts_itch_v1_7.price_decimals = {}
-
--- Size: Price Decimals
-jnx_equities_pts_itch_v1_7.price_decimals.size = 4
-
--- Display: Price Decimals
-jnx_equities_pts_itch_v1_7.price_decimals.display = function(value)
-  return "Price Decimals: "..value
-end
-
--- Translate: Price Decimals
-jnx_equities_pts_itch_v1_7.price_decimals.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Price Decimals
-jnx_equities_pts_itch_v1_7.price_decimals.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.price_decimals.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = jnx_equities_pts_itch_v1_7.price_decimals.translate(raw)
-  local display = jnx_equities_pts_itch_v1_7.price_decimals.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_decimals, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Tick Size Table Id
-jnx_equities_pts_itch_v1_7.price_tick_size_table_id = {}
-
--- Size: Price Tick Size Table Id
-jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size = 4
-
--- Display: Price Tick Size Table Id
-jnx_equities_pts_itch_v1_7.price_tick_size_table_id.display = function(value)
-  return "Price Tick Size Table Id: "..value
-end
-
--- Translate: Price Tick Size Table Id
-jnx_equities_pts_itch_v1_7.price_tick_size_table_id.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Price Tick Size Table Id
-jnx_equities_pts_itch_v1_7.price_tick_size_table_id.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.translate(raw)
-  local display = jnx_equities_pts_itch_v1_7.price_tick_size_table_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size_table_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-jnx_equities_pts_itch_v1_7.round_lot_size = {}
-
--- Size: Round Lot Size
-jnx_equities_pts_itch_v1_7.round_lot_size.size = 4
-
--- Display: Round Lot Size
-jnx_equities_pts_itch_v1_7.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-jnx_equities_pts_itch_v1_7.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_equities_pts_itch_v1_7.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Orderbook Code
-jnx_equities_pts_itch_v1_7.orderbook_code = {}
-
--- Size: Orderbook Code
-jnx_equities_pts_itch_v1_7.orderbook_code.size = 12
-
--- Display: Orderbook Code
-jnx_equities_pts_itch_v1_7.orderbook_code.display = function(value)
-  return "Orderbook Code: "..value
-end
-
--- Dissect: Orderbook Code
-jnx_equities_pts_itch_v1_7.orderbook_code.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.orderbook_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_equities_pts_itch_v1_7.orderbook_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.orderbook_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- Orderbook Directory Message
@@ -1216,64 +1490,6 @@ jnx_equities_pts_itch_v1_7.orderbook_directory_message.dissect = function(buffer
   end
 end
 
--- Price Start
-jnx_equities_pts_itch_v1_7.price_start = {}
-
--- Size: Price Start
-jnx_equities_pts_itch_v1_7.price_start.size = 4
-
--- Display: Price Start
-jnx_equities_pts_itch_v1_7.price_start.display = function(value)
-  return "Price Start: "..value
-end
-
--- Translate: Price Start
-jnx_equities_pts_itch_v1_7.price_start.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Price Start
-jnx_equities_pts_itch_v1_7.price_start.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.price_start.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = jnx_equities_pts_itch_v1_7.price_start.translate(raw)
-  local display = jnx_equities_pts_itch_v1_7.price_start.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_start, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Tick Size
-jnx_equities_pts_itch_v1_7.price_tick_size = {}
-
--- Size: Price Tick Size
-jnx_equities_pts_itch_v1_7.price_tick_size.size = 4
-
--- Display: Price Tick Size
-jnx_equities_pts_itch_v1_7.price_tick_size.display = function(value)
-  return "Price Tick Size: "..value
-end
-
--- Translate: Price Tick Size
-jnx_equities_pts_itch_v1_7.price_tick_size.translate = function(raw)
-  return raw/10
-end
-
--- Dissect: Price Tick Size
-jnx_equities_pts_itch_v1_7.price_tick_size.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.price_tick_size.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = jnx_equities_pts_itch_v1_7.price_tick_size.translate(raw)
-  local display = jnx_equities_pts_itch_v1_7.price_tick_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.price_tick_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Price Tick Size Message
 jnx_equities_pts_itch_v1_7.price_tick_size_message = {}
 
@@ -1326,29 +1542,6 @@ jnx_equities_pts_itch_v1_7.price_tick_size_message.dissect = function(buffer, of
   end
 end
 
--- System Event
-jnx_equities_pts_itch_v1_7.system_event = {}
-
--- Size: System Event
-jnx_equities_pts_itch_v1_7.system_event.size = 1
-
--- Display: System Event
-jnx_equities_pts_itch_v1_7.system_event.display = function(value)
-  return "System Event: "..value
-end
-
--- Dissect: System Event
-jnx_equities_pts_itch_v1_7.system_event.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.system_event.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_equities_pts_itch_v1_7.system_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.system_event, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 jnx_equities_pts_itch_v1_7.system_event_message = {}
 
@@ -1395,29 +1588,6 @@ jnx_equities_pts_itch_v1_7.system_event_message.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return jnx_equities_pts_itch_v1_7.system_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Timestamp Seconds
-jnx_equities_pts_itch_v1_7.timestamp_seconds = {}
-
--- Size: Timestamp Seconds
-jnx_equities_pts_itch_v1_7.timestamp_seconds.size = 4
-
--- Display: Timestamp Seconds
-jnx_equities_pts_itch_v1_7.timestamp_seconds.display = function(value)
-  return "Timestamp Seconds: "..value
-end
-
--- Dissect: Timestamp Seconds
-jnx_equities_pts_itch_v1_7.timestamp_seconds.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.timestamp_seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_equities_pts_itch_v1_7.timestamp_seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.timestamp_seconds, range, value, display)
-
-  return offset + length, value
 end
 
 -- Timestamp Seconds Message
@@ -1511,86 +1681,6 @@ jnx_equities_pts_itch_v1_7.payload.dissect = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Message Type
-jnx_equities_pts_itch_v1_7.message_type = {}
-
--- Size: Message Type
-jnx_equities_pts_itch_v1_7.message_type.size = 1
-
--- Display: Message Type
-jnx_equities_pts_itch_v1_7.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Timestamp Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Message Type: Price Tick Size Message (L)"
-  end
-  if value == "R" then
-    return "Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading State Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Short Selling Price Restriction State Message (Y)"
-  end
-  if value == "A" then
-    return "Message Type: Order Added Without Attributes Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Order Added With Attributes Message (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "D" then
-    return "Message Type: Order Deleted Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replaced Message (U)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-jnx_equities_pts_itch_v1_7.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_equities_pts_itch_v1_7.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-jnx_equities_pts_itch_v1_7.message_length = {}
-
--- Size: Message Length
-jnx_equities_pts_itch_v1_7.message_length.size = 2
-
--- Display: Message Length
-jnx_equities_pts_itch_v1_7.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-jnx_equities_pts_itch_v1_7.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_equities_pts_itch_v1_7.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -1726,91 +1816,6 @@ jnx_equities_pts_itch_v1_7.messages.dissect = function(buffer, offset, packet, p
   end
 
   return offset
-end
-
--- Message Count
-jnx_equities_pts_itch_v1_7.message_count = {}
-
--- Size: Message Count
-jnx_equities_pts_itch_v1_7.message_count.size = 2
-
--- Display: Message Count
-jnx_equities_pts_itch_v1_7.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-jnx_equities_pts_itch_v1_7.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_equities_pts_itch_v1_7.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-jnx_equities_pts_itch_v1_7.sequence_number = {}
-
--- Size: Sequence Number
-jnx_equities_pts_itch_v1_7.sequence_number.size = 8
-
--- Display: Sequence Number
-jnx_equities_pts_itch_v1_7.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-jnx_equities_pts_itch_v1_7.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_equities_pts_itch_v1_7.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-jnx_equities_pts_itch_v1_7.session = {}
-
--- Size: Session
-jnx_equities_pts_itch_v1_7.session.size = 10
-
--- Display: Session
-jnx_equities_pts_itch_v1_7.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-jnx_equities_pts_itch_v1_7.session.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_equities_pts_itch_v1_7.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = jnx_equities_pts_itch_v1_7.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_equities_pts_itch_v1_7.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

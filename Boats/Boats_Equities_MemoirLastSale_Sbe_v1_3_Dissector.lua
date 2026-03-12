@@ -177,84 +177,55 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Boats Equities MemoirLastSale Sbe 1.3
+-- Boats Equities MemoirLastSale Sbe 1.3 Fields
 -----------------------------------------------------------------------
 
--- Corrected Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4 = {}
+-- Block Length
+boats_equities_memoirlastsale_sbe_v1_3.block_length = {}
 
--- Size: Corrected Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size = 1
+-- Size: Block Length
+boats_equities_memoirlastsale_sbe_v1_3.block_length.size = 2
 
--- Display: Corrected Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Corrected Sale Condition 4: No Value"
-  end
-
-  if value == "H" then
-    return "Corrected Sale Condition 4: Price Variation (H)"
-  end
-  if value == "I" then
-    return "Corrected Sale Condition 4: Odd Lot (I)"
-  end
-  if value == "X" then
-    return "Corrected Sale Condition 4: Cross (X)"
-  end
-  if value == " " then
-    return "Corrected Sale Condition 4: Not Applicable (<whitespace>)"
-  end
-
-  return "Corrected Sale Condition 4: Unknown("..value..")"
+-- Display: Block Length
+boats_equities_memoirlastsale_sbe_v1_3.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Corrected Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
+-- Dissect: Block Length
+boats_equities_memoirlastsale_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.block_length.size
   local range = buffer(offset, length)
-
-  -- parse as byte
   local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
 
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_4, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
 end
 
--- Corrected Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3 = {}
+-- Corrected Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1 = {}
 
--- Size: Corrected Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size = 1
+-- Size: Corrected Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size = 1
 
--- Display: Corrected Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.display = function(value)
+-- Display: Corrected Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Corrected Sale Condition 3: No Value"
+    return "Corrected Sale Condition 1: No Value"
   end
 
-  if value == "T" then
-    return "Corrected Sale Condition 3: Form T (T)"
-  end
-  if value == " " then
-    return "Corrected Sale Condition 3: Not Applicable (<whitespace>)"
+  if value == "@" then
+    return "Corrected Sale Condition 1: Regular (@)"
   end
 
-  return "Corrected Sale Condition 3: Unknown("..value..")"
+  return "Corrected Sale Condition 1: Unknown("..value..")"
 end
 
--- Dissect: Corrected Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size
+-- Dissect: Corrected Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -265,9 +236,9 @@ boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.dissect = func
     value = range:string()
   end
 
-  local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.display(value, buffer, offset, packet, parent)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_3, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1, range, value, display)
 
   return offset + length, value
 end
@@ -315,29 +286,32 @@ boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_2.dissect = func
   return offset + length, value
 end
 
--- Corrected Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1 = {}
+-- Corrected Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3 = {}
 
--- Size: Corrected Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size = 1
+-- Size: Corrected Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size = 1
 
--- Display: Corrected Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.display = function(value)
+-- Display: Corrected Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Corrected Sale Condition 1: No Value"
+    return "Corrected Sale Condition 3: No Value"
   end
 
-  if value == "@" then
-    return "Corrected Sale Condition 1: Regular (@)"
+  if value == "T" then
+    return "Corrected Sale Condition 3: Form T (T)"
+  end
+  if value == " " then
+    return "Corrected Sale Condition 3: Not Applicable (<whitespace>)"
   end
 
-  return "Corrected Sale Condition 1: Unknown("..value..")"
+  return "Corrected Sale Condition 3: Unknown("..value..")"
 end
 
--- Dissect: Corrected Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.size
+-- Dissect: Corrected Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -348,9 +322,58 @@ boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.dissect = func
     value = range:string()
   end
 
-  local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_1.display(value, buffer, offset, packet, parent)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4 = {}
+
+-- Size: Corrected Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size = 1
+
+-- Display: Corrected Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Corrected Sale Condition 4: No Value"
+  end
+
+  if value == "H" then
+    return "Corrected Sale Condition 4: Price Variation (H)"
+  end
+  if value == "I" then
+    return "Corrected Sale Condition 4: Odd Lot (I)"
+  end
+  if value == "X" then
+    return "Corrected Sale Condition 4: Cross (X)"
+  end
+  if value == " " then
+    return "Corrected Sale Condition 4: Not Applicable (<whitespace>)"
+  end
+
+  return "Corrected Sale Condition 4: Unknown("..value..")"
+end
+
+-- Dissect: Corrected Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.corrected_sale_condition_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_4, range, value, display)
 
   return offset + length, value
 end
@@ -407,81 +430,219 @@ boats_equities_memoirlastsale_sbe_v1_3.corrected_trade_qty.dissect = function(bu
   return offset + length, value
 end
 
--- Original Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4 = {}
+-- Header Length
+boats_equities_memoirlastsale_sbe_v1_3.header_length = {}
 
--- Size: Original Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size = 1
+-- Size: Header Length
+boats_equities_memoirlastsale_sbe_v1_3.header_length.size = 1
 
--- Display: Original Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Original Sale Condition 4: No Value"
-  end
-
-  if value == "H" then
-    return "Original Sale Condition 4: Price Variation (H)"
-  end
-  if value == "I" then
-    return "Original Sale Condition 4: Odd Lot (I)"
-  end
-  if value == "X" then
-    return "Original Sale Condition 4: Cross (X)"
-  end
-  if value == " " then
-    return "Original Sale Condition 4: Not Applicable (<whitespace>)"
-  end
-
-  return "Original Sale Condition 4: Unknown("..value..")"
+-- Display: Header Length
+boats_equities_memoirlastsale_sbe_v1_3.header_length.display = function(value)
+  return "Header Length: "..value
 end
 
--- Dissect: Original Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size
+-- Dissect: Header Length
+boats_equities_memoirlastsale_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.header_length.size
   local range = buffer(offset, length)
-
-  -- parse as byte
   local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
 
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.header_length, range, value, display)
 
   return offset + length, value
 end
 
--- Original Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3 = {}
+-- Is Test Symbol
+boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol = {}
 
--- Size: Original Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size = 1
+-- Size: Is Test Symbol
+boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size = 1
 
--- Display: Original Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Original Sale Condition 3: No Value"
+-- Display: Is Test Symbol
+boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.display = function(value)
+  if value == 0 then
+    return "Is Test Symbol: False (0)"
+  end
+  if value == 1 then
+    return "Is Test Symbol: True (1)"
   end
 
-  if value == "T" then
-    return "Original Sale Condition 3: Form T (T)"
-  end
-  if value == " " then
-    return "Original Sale Condition 3: Not Applicable (<whitespace>)"
-  end
-
-  return "Original Sale Condition 3: Unknown("..value..")"
+  return "Is Test Symbol: Unknown("..value..")"
 end
 
--- Dissect: Original Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size
+-- Dissect: Is Test Symbol
+boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.is_test_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price
+boats_equities_memoirlastsale_sbe_v1_3.last_price = {}
+
+-- Size: Last Price
+boats_equities_memoirlastsale_sbe_v1_3.last_price.size = 8
+
+-- Display: Last Price
+boats_equities_memoirlastsale_sbe_v1_3.last_price.display = function(value)
+  return "Last Price: "..value
+end
+
+-- Translate: Last Price
+boats_equities_memoirlastsale_sbe_v1_3.last_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Last Price
+boats_equities_memoirlastsale_sbe_v1_3.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.last_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memoirlastsale_sbe_v1_3.last_price.translate(raw)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+boats_equities_memoirlastsale_sbe_v1_3.message_count = {}
+
+-- Size: Message Count
+boats_equities_memoirlastsale_sbe_v1_3.message_count.size = 2
+
+-- Display: Message Count
+boats_equities_memoirlastsale_sbe_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+boats_equities_memoirlastsale_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+boats_equities_memoirlastsale_sbe_v1_3.message_length = {}
+
+-- Size: Message Length
+boats_equities_memoirlastsale_sbe_v1_3.message_length.size = 2
+
+-- Display: Message Length
+boats_equities_memoirlastsale_sbe_v1_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+boats_equities_memoirlastsale_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+boats_equities_memoirlastsale_sbe_v1_3.message_type = {}
+
+-- Size: Message Type
+boats_equities_memoirlastsale_sbe_v1_3.message_type.size = 1
+
+-- Display: Message Type
+boats_equities_memoirlastsale_sbe_v1_3.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat Message (0)"
+  end
+  if value == 1 then
+    return "Message Type: Session Shutdown Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Sequenced Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+boats_equities_memoirlastsale_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+boats_equities_memoirlastsale_sbe_v1_3.mpv = {}
+
+-- Size: Mpv
+boats_equities_memoirlastsale_sbe_v1_3.mpv.size = 8
+
+-- Display: Mpv
+boats_equities_memoirlastsale_sbe_v1_3.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Translate: Mpv
+boats_equities_memoirlastsale_sbe_v1_3.mpv.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Mpv
+boats_equities_memoirlastsale_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.mpv.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memoirlastsale_sbe_v1_3.mpv.translate(raw)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1 = {}
+
+-- Size: Original Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size = 1
+
+-- Display: Original Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Original Sale Condition 1: No Value"
+  end
+
+  if value == "@" then
+    return "Original Sale Condition 1: Regular (@)"
+  end
+
+  return "Original Sale Condition 1: Unknown("..value..")"
+end
+
+-- Dissect: Original Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -492,9 +653,9 @@ boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.dissect = funct
     value = range:string()
   end
 
-  local display = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.display(value, buffer, offset, packet, parent)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_3, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_1, range, value, display)
 
   return offset + length, value
 end
@@ -542,29 +703,32 @@ boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_2.dissect = funct
   return offset + length, value
 end
 
--- Original Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1 = {}
+-- Original Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3 = {}
 
--- Size: Original Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size = 1
+-- Size: Original Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size = 1
 
--- Display: Original Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.display = function(value)
+-- Display: Original Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Original Sale Condition 1: No Value"
+    return "Original Sale Condition 3: No Value"
   end
 
-  if value == "@" then
-    return "Original Sale Condition 1: Regular (@)"
+  if value == "T" then
+    return "Original Sale Condition 3: Form T (T)"
+  end
+  if value == " " then
+    return "Original Sale Condition 3: Not Applicable (<whitespace>)"
   end
 
-  return "Original Sale Condition 1: Unknown("..value..")"
+  return "Original Sale Condition 3: Unknown("..value..")"
 end
 
--- Dissect: Original Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.size
+-- Dissect: Original Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -575,9 +739,58 @@ boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.dissect = funct
     value = range:string()
   end
 
-  local display = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_1.display(value, buffer, offset, packet, parent)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_1, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4 = {}
+
+-- Size: Original Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size = 1
+
+-- Display: Original Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Original Sale Condition 4: No Value"
+  end
+
+  if value == "H" then
+    return "Original Sale Condition 4: Price Variation (H)"
+  end
+  if value == "I" then
+    return "Original Sale Condition 4: Odd Lot (I)"
+  end
+  if value == "X" then
+    return "Original Sale Condition 4: Cross (X)"
+  end
+  if value == " " then
+    return "Original Sale Condition 4: Not Applicable (<whitespace>)"
+  end
+
+  return "Original Sale Condition 4: Unknown("..value..")"
+end
+
+-- Dissect: Original Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.original_sale_condition_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4, range, value, display)
 
   return offset + length, value
 end
@@ -634,25 +847,227 @@ boats_equities_memoirlastsale_sbe_v1_3.original_trade_qty.dissect = function(buf
   return offset + length, value
 end
 
--- Trade Id
-boats_equities_memoirlastsale_sbe_v1_3.trade_id = {}
+-- Round Lot
+boats_equities_memoirlastsale_sbe_v1_3.round_lot = {}
 
--- Size: Trade Id
-boats_equities_memoirlastsale_sbe_v1_3.trade_id.size = 8
+-- Size: Round Lot
+boats_equities_memoirlastsale_sbe_v1_3.round_lot.size = 4
 
--- Display: Trade Id
-boats_equities_memoirlastsale_sbe_v1_3.trade_id.display = function(value)
-  return "Trade Id: "..value
+-- Display: Round Lot
+boats_equities_memoirlastsale_sbe_v1_3.round_lot.display = function(value)
+  return "Round Lot: "..value
 end
 
--- Dissect: Trade Id
-boats_equities_memoirlastsale_sbe_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.trade_id.size
+-- Dissect: Round Lot
+boats_equities_memoirlastsale_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.round_lot.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.trade_id.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_id, range, value, display)
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1 = {}
+
+-- Size: Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size = 1
+
+-- Display: Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 1: No Value"
+  end
+
+  if value == "@" then
+    return "Sale Condition 1: Regular (@)"
+  end
+
+  return "Sale Condition 1: Unknown("..value..")"
+end
+
+-- Dissect: Sale Condition 1
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sale Condition 2
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2 = {}
+
+-- Size: Sale Condition 2
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size = 1
+
+-- Display: Sale Condition 2
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 2: No Value"
+  end
+
+  if value == "F" then
+    return "Sale Condition 2: Intermarket Sweep (F)"
+  end
+  if value == " " then
+    return "Sale Condition 2: Not Applicable (<whitespace>)"
+  end
+
+  return "Sale Condition 2: Unknown("..value..")"
+end
+
+-- Dissect: Sale Condition 2
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3 = {}
+
+-- Size: Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size = 1
+
+-- Display: Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 3: No Value"
+  end
+
+  if value == "T" then
+    return "Sale Condition 3: Form T (T)"
+  end
+  if value == " " then
+    return "Sale Condition 3: Not Applicable (<whitespace>)"
+  end
+
+  return "Sale Condition 3: Unknown("..value..")"
+end
+
+-- Dissect: Sale Condition 3
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4 = {}
+
+-- Size: Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size = 1
+
+-- Display: Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sale Condition 4: No Value"
+  end
+
+  if value == "H" then
+    return "Sale Condition 4: Price Variation (H)"
+  end
+  if value == "I" then
+    return "Sale Condition 4: Odd Lot (I)"
+  end
+  if value == "X" then
+    return "Sale Condition 4: Cross (X)"
+  end
+  if value == " " then
+    return "Sale Condition 4: Not Applicable (<whitespace>)"
+  end
+
+  return "Sale Condition 4: Unknown("..value..")"
+end
+
+-- Dissect: Sale Condition 4
+boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+boats_equities_memoirlastsale_sbe_v1_3.schema_id = {}
+
+-- Size: Schema Id
+boats_equities_memoirlastsale_sbe_v1_3.schema_id.size = 1
+
+-- Display: Schema Id
+boats_equities_memoirlastsale_sbe_v1_3.schema_id.display = function(value)
+  if value == 4 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+boats_equities_memoirlastsale_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -680,6 +1095,300 @@ boats_equities_memoirlastsale_sbe_v1_3.security_id.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Security Trading Status
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status = {}
+
+-- Size: Security Trading Status
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.size = 1
+
+-- Display: Security Trading Status
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == "H" then
+    return "Security Trading Status: Halted (H)"
+  end
+  if value == "P" then
+    return "Security Trading Status: Paused (P)"
+  end
+  if value == "Q" then
+    return "Security Trading Status: Quoting (Q)"
+  end
+  if value == "T" then
+    return "Security Trading Status: Trading (T)"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status Reason
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason = {}
+
+-- Size: Security Trading Status Reason
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size = 1
+
+-- Display: Security Trading Status Reason
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status Reason: No Value"
+  end
+
+  if value == "X" then
+    return "Security Trading Status Reason: None (X)"
+  end
+  if value == "R" then
+    return "Security Trading Status Reason: Regulatory (R)"
+  end
+  if value == "A" then
+    return "Security Trading Status Reason: Administrative (A)"
+  end
+
+  return "Security Trading Status Reason: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status Reason
+boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+boats_equities_memoirlastsale_sbe_v1_3.sequence_number = {}
+
+-- Size: Sequence Number
+boats_equities_memoirlastsale_sbe_v1_3.sequence_number.size = 8
+
+-- Display: Sequence Number
+boats_equities_memoirlastsale_sbe_v1_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+boats_equities_memoirlastsale_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+boats_equities_memoirlastsale_sbe_v1_3.session_id = {}
+
+-- Size: Session Id
+boats_equities_memoirlastsale_sbe_v1_3.session_id.size = 8
+
+-- Display: Session Id
+boats_equities_memoirlastsale_sbe_v1_3.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+boats_equities_memoirlastsale_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction
+boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction = {}
+
+-- Size: Short Sale Restriction
+boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size = 1
+
+-- Display: Short Sale Restriction
+boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.display = function(value)
+  if value == 0 then
+    return "Short Sale Restriction: False (0)"
+  end
+  if value == 1 then
+    return "Short Sale Restriction: True (1)"
+  end
+
+  return "Short Sale Restriction: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction
+boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.short_sale_restriction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+boats_equities_memoirlastsale_sbe_v1_3.symbol = {}
+
+-- Size: Symbol
+boats_equities_memoirlastsale_sbe_v1_3.symbol.size = 6
+
+-- Display: Symbol
+boats_equities_memoirlastsale_sbe_v1_3.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+boats_equities_memoirlastsale_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Sfx
+boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx = {}
+
+-- Size: Symbol Sfx
+boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size = 6
+
+-- Display: Symbol Sfx
+boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Sfx: No Value"
+  end
+
+  return "Symbol Sfx: "..value
+end
+
+-- Dissect: Symbol Sfx
+boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.symbol_sfx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+boats_equities_memoirlastsale_sbe_v1_3.template_id = {}
+
+-- Size: Template Id
+boats_equities_memoirlastsale_sbe_v1_3.template_id.size = 1
+
+-- Display: Template Id
+boats_equities_memoirlastsale_sbe_v1_3.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: Instrument Directory Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Reg Sho Restriction Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Security Trading Status Message (3)"
+  end
+  if value == 5 then
+    return "Template Id: Trading Session Status Message (5)"
+  end
+  if value == 10 then
+    return "Template Id: Trade Report Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Trade Cancel Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Trade Correct Message (12)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+boats_equities_memoirlastsale_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Timestamp
 boats_equities_memoirlastsale_sbe_v1_3.timestamp = {}
 
@@ -702,6 +1411,162 @@ boats_equities_memoirlastsale_sbe_v1_3.timestamp.dissect = function(buffer, offs
 
   return offset + length, value
 end
+
+-- Trade Id
+boats_equities_memoirlastsale_sbe_v1_3.trade_id = {}
+
+-- Size: Trade Id
+boats_equities_memoirlastsale_sbe_v1_3.trade_id.size = 8
+
+-- Display: Trade Id
+boats_equities_memoirlastsale_sbe_v1_3.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+boats_equities_memoirlastsale_sbe_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price
+boats_equities_memoirlastsale_sbe_v1_3.trade_price = {}
+
+-- Size: Trade Price
+boats_equities_memoirlastsale_sbe_v1_3.trade_price.size = 8
+
+-- Display: Trade Price
+boats_equities_memoirlastsale_sbe_v1_3.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Translate: Trade Price
+boats_equities_memoirlastsale_sbe_v1_3.trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Trade Price
+boats_equities_memoirlastsale_sbe_v1_3.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = boats_equities_memoirlastsale_sbe_v1_3.trade_price.translate(raw)
+  local display = boats_equities_memoirlastsale_sbe_v1_3.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Qty
+boats_equities_memoirlastsale_sbe_v1_3.trade_qty = {}
+
+-- Size: Trade Qty
+boats_equities_memoirlastsale_sbe_v1_3.trade_qty.size = 4
+
+-- Display: Trade Qty
+boats_equities_memoirlastsale_sbe_v1_3.trade_qty.display = function(value)
+  return "Trade Qty: "..value
+end
+
+-- Dissect: Trade Qty
+boats_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.trade_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.trade_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session
+boats_equities_memoirlastsale_sbe_v1_3.trading_session = {}
+
+-- Size: Trading Session
+boats_equities_memoirlastsale_sbe_v1_3.trading_session.size = 1
+
+-- Display: Trading Session
+boats_equities_memoirlastsale_sbe_v1_3.trading_session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
+  if value == "1" then
+    return "Trading Session: Opening (1)"
+  end
+  if value == "2" then
+    return "Trading Session: Trading (2)"
+  end
+  if value == "3" then
+    return "Trading Session: Post Trading (3)"
+  end
+  if value == "4" then
+    return "Trading Session: Closed (4)"
+  end
+
+  return "Trading Session: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session
+boats_equities_memoirlastsale_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.trading_session.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = boats_equities_memoirlastsale_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+boats_equities_memoirlastsale_sbe_v1_3.version = {}
+
+-- Size: Version
+boats_equities_memoirlastsale_sbe_v1_3.version.size = 2
+
+-- Display: Version
+boats_equities_memoirlastsale_sbe_v1_3.version.display = function(value)
+  if value == 259 then
+    return "Version: Version 1.3"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+boats_equities_memoirlastsale_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = boats_equities_memoirlastsale_sbe_v1_3.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_equities_memoirlastsale_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Boats Equities MemoirLastSale Sbe 1.3
+-----------------------------------------------------------------------
 
 -- Trade Correct Message
 boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message = {}
@@ -799,233 +1664,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_correct_message.dissect = function(
   end
 end
 
--- Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4 = {}
-
--- Size: Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size = 1
-
--- Display: Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Sale Condition 4: No Value"
-  end
-
-  if value == "H" then
-    return "Sale Condition 4: Price Variation (H)"
-  end
-  if value == "I" then
-    return "Sale Condition 4: Odd Lot (I)"
-  end
-  if value == "X" then
-    return "Sale Condition 4: Cross (X)"
-  end
-  if value == " " then
-    return "Sale Condition 4: Not Applicable (<whitespace>)"
-  end
-
-  return "Sale Condition 4: Unknown("..value..")"
-end
-
--- Dissect: Sale Condition 4
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3 = {}
-
--- Size: Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size = 1
-
--- Display: Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Sale Condition 3: No Value"
-  end
-
-  if value == "T" then
-    return "Sale Condition 3: Form T (T)"
-  end
-  if value == " " then
-    return "Sale Condition 3: Not Applicable (<whitespace>)"
-  end
-
-  return "Sale Condition 3: Unknown("..value..")"
-end
-
--- Dissect: Sale Condition 3
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Sale Condition 2
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2 = {}
-
--- Size: Sale Condition 2
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size = 1
-
--- Display: Sale Condition 2
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Sale Condition 2: No Value"
-  end
-
-  if value == "F" then
-    return "Sale Condition 2: Intermarket Sweep (F)"
-  end
-  if value == " " then
-    return "Sale Condition 2: Not Applicable (<whitespace>)"
-  end
-
-  return "Sale Condition 2: Unknown("..value..")"
-end
-
--- Dissect: Sale Condition 2
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1 = {}
-
--- Size: Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size = 1
-
--- Display: Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Sale Condition 1: No Value"
-  end
-
-  if value == "@" then
-    return "Sale Condition 1: Regular (@)"
-  end
-
-  return "Sale Condition 1: Unknown("..value..")"
-end
-
--- Dissect: Sale Condition 1
-boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.sale_condition_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sale_condition_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Price
-boats_equities_memoirlastsale_sbe_v1_3.last_price = {}
-
--- Size: Last Price
-boats_equities_memoirlastsale_sbe_v1_3.last_price.size = 8
-
--- Display: Last Price
-boats_equities_memoirlastsale_sbe_v1_3.last_price.display = function(value)
-  return "Last Price: "..value
-end
-
--- Translate: Last Price
-boats_equities_memoirlastsale_sbe_v1_3.last_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Last Price
-boats_equities_memoirlastsale_sbe_v1_3.last_price.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.last_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memoirlastsale_sbe_v1_3.last_price.translate(raw)
-  local display = boats_equities_memoirlastsale_sbe_v1_3.last_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Qty
-boats_equities_memoirlastsale_sbe_v1_3.trade_qty = {}
-
--- Size: Trade Qty
-boats_equities_memoirlastsale_sbe_v1_3.trade_qty.size = 4
-
--- Display: Trade Qty
-boats_equities_memoirlastsale_sbe_v1_3.trade_qty.display = function(value)
-  return "Trade Qty: "..value
-end
-
--- Dissect: Trade Qty
-boats_equities_memoirlastsale_sbe_v1_3.trade_qty.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.trade_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.trade_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Cancel Message
 boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message = {}
 
@@ -1096,35 +1734,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.dissect = function(b
     -- Skip element, add fields directly
     return boats_equities_memoirlastsale_sbe_v1_3.trade_cancel_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Price
-boats_equities_memoirlastsale_sbe_v1_3.trade_price = {}
-
--- Size: Trade Price
-boats_equities_memoirlastsale_sbe_v1_3.trade_price.size = 8
-
--- Display: Trade Price
-boats_equities_memoirlastsale_sbe_v1_3.trade_price.display = function(value)
-  return "Trade Price: "..value
-end
-
--- Translate: Trade Price
-boats_equities_memoirlastsale_sbe_v1_3.trade_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Trade Price
-boats_equities_memoirlastsale_sbe_v1_3.trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.trade_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memoirlastsale_sbe_v1_3.trade_price.translate(raw)
-  local display = boats_equities_memoirlastsale_sbe_v1_3.trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trade_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Report Message
@@ -1199,55 +1808,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trade_report_message.dissect = function(b
   end
 end
 
--- Trading Session
-boats_equities_memoirlastsale_sbe_v1_3.trading_session = {}
-
--- Size: Trading Session
-boats_equities_memoirlastsale_sbe_v1_3.trading_session.size = 1
-
--- Display: Trading Session
-boats_equities_memoirlastsale_sbe_v1_3.trading_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trading Session: No Value"
-  end
-
-  if value == "1" then
-    return "Trading Session: Opening (1)"
-  end
-  if value == "2" then
-    return "Trading Session: Trading (2)"
-  end
-  if value == "3" then
-    return "Trading Session: Post Trading (3)"
-  end
-  if value == "4" then
-    return "Trading Session: Closed (4)"
-  end
-
-  return "Trading Session: Unknown("..value..")"
-end
-
--- Dissect: Trading Session
-boats_equities_memoirlastsale_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.trading_session.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.trading_session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Session Status Message
 boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message = {}
 
@@ -1290,101 +1850,6 @@ boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.dissect = 
     -- Skip element, add fields directly
     return boats_equities_memoirlastsale_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Security Trading Status Reason
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason = {}
-
--- Size: Security Trading Status Reason
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size = 1
-
--- Display: Security Trading Status Reason
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Trading Status Reason: No Value"
-  end
-
-  if value == "X" then
-    return "Security Trading Status Reason: None (X)"
-  end
-  if value == "R" then
-    return "Security Trading Status Reason: Regulatory (R)"
-  end
-  if value == "A" then
-    return "Security Trading Status Reason: Administrative (A)"
-  end
-
-  return "Security Trading Status Reason: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status Reason
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Trading Status
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status = {}
-
--- Size: Security Trading Status
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.size = 1
-
--- Display: Security Trading Status
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Trading Status: No Value"
-  end
-
-  if value == "H" then
-    return "Security Trading Status: Halted (H)"
-  end
-  if value == "P" then
-    return "Security Trading Status: Paused (P)"
-  end
-  if value == "Q" then
-    return "Security Trading Status: Quoting (Q)"
-  end
-  if value == "T" then
-    return "Security Trading Status: Trading (T)"
-  end
-
-  return "Security Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status
-boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.security_trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Trading Status Message
@@ -1439,36 +1904,6 @@ boats_equities_memoirlastsale_sbe_v1_3.security_trading_status_message.dissect =
   end
 end
 
--- Short Sale Restriction
-boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction = {}
-
--- Size: Short Sale Restriction
-boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size = 1
-
--- Display: Short Sale Restriction
-boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
-
-  return "Short Sale Restriction: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction
-boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.short_sale_restriction, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reg Sho Restriction Message
 boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message = {}
 
@@ -1515,166 +1950,6 @@ boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.dissect = fun
     -- Skip element, add fields directly
     return boats_equities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mpv
-boats_equities_memoirlastsale_sbe_v1_3.mpv = {}
-
--- Size: Mpv
-boats_equities_memoirlastsale_sbe_v1_3.mpv.size = 8
-
--- Display: Mpv
-boats_equities_memoirlastsale_sbe_v1_3.mpv.display = function(value)
-  return "Mpv: "..value
-end
-
--- Translate: Mpv
-boats_equities_memoirlastsale_sbe_v1_3.mpv.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Mpv
-boats_equities_memoirlastsale_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.mpv.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = boats_equities_memoirlastsale_sbe_v1_3.mpv.translate(raw)
-  local display = boats_equities_memoirlastsale_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Test Symbol
-boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol = {}
-
--- Size: Is Test Symbol
-boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size = 1
-
--- Display: Is Test Symbol
-boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
-
-  return "Is Test Symbol: Unknown("..value..")"
-end
-
--- Dissect: Is Test Symbol
-boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.is_test_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot
-boats_equities_memoirlastsale_sbe_v1_3.round_lot = {}
-
--- Size: Round Lot
-boats_equities_memoirlastsale_sbe_v1_3.round_lot.size = 4
-
--- Display: Round Lot
-boats_equities_memoirlastsale_sbe_v1_3.round_lot.display = function(value)
-  return "Round Lot: "..value
-end
-
--- Dissect: Round Lot
-boats_equities_memoirlastsale_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.round_lot.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.round_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Sfx
-boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx = {}
-
--- Size: Symbol Sfx
-boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size = 6
-
--- Display: Symbol Sfx
-boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Sfx: No Value"
-  end
-
-  return "Symbol Sfx: "..value
-end
-
--- Dissect: Symbol Sfx
-boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.symbol_sfx, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-boats_equities_memoirlastsale_sbe_v1_3.symbol = {}
-
--- Size: Symbol
-boats_equities_memoirlastsale_sbe_v1_3.symbol.size = 6
-
--- Display: Symbol
-boats_equities_memoirlastsale_sbe_v1_3.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-boats_equities_memoirlastsale_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = boats_equities_memoirlastsale_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Directory Message
@@ -1778,128 +2053,6 @@ boats_equities_memoirlastsale_sbe_v1_3.payload.dissect = function(buffer, offset
   return offset
 end
 
--- Version
-boats_equities_memoirlastsale_sbe_v1_3.version = {}
-
--- Size: Version
-boats_equities_memoirlastsale_sbe_v1_3.version.size = 2
-
--- Display: Version
-boats_equities_memoirlastsale_sbe_v1_3.version.display = function(value)
-  if value == 259 then
-    return "Version: Version 1.3"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-boats_equities_memoirlastsale_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-boats_equities_memoirlastsale_sbe_v1_3.schema_id = {}
-
--- Size: Schema Id
-boats_equities_memoirlastsale_sbe_v1_3.schema_id.size = 1
-
--- Display: Schema Id
-boats_equities_memoirlastsale_sbe_v1_3.schema_id.display = function(value)
-  if value == 4 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-boats_equities_memoirlastsale_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-boats_equities_memoirlastsale_sbe_v1_3.template_id = {}
-
--- Size: Template Id
-boats_equities_memoirlastsale_sbe_v1_3.template_id.size = 1
-
--- Display: Template Id
-boats_equities_memoirlastsale_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Trade Report Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Trade Cancel Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Trade Correct Message (12)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-boats_equities_memoirlastsale_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-boats_equities_memoirlastsale_sbe_v1_3.block_length = {}
-
--- Size: Block Length
-boats_equities_memoirlastsale_sbe_v1_3.block_length.size = 2
-
--- Display: Block Length
-boats_equities_memoirlastsale_sbe_v1_3.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-boats_equities_memoirlastsale_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 boats_equities_memoirlastsale_sbe_v1_3.sbe_header = {}
 
@@ -1997,29 +2150,6 @@ boats_equities_memoirlastsale_sbe_v1_3.sbe_message.dissect = function(buffer, of
   end
 end
 
--- Message Length
-boats_equities_memoirlastsale_sbe_v1_3.message_length = {}
-
--- Size: Message Length
-boats_equities_memoirlastsale_sbe_v1_3.message_length.size = 2
-
--- Display: Message Length
-boats_equities_memoirlastsale_sbe_v1_3.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-boats_equities_memoirlastsale_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 boats_equities_memoirlastsale_sbe_v1_3.message = {}
 
@@ -2072,29 +2202,6 @@ boats_equities_memoirlastsale_sbe_v1_3.message.dissect = function(buffer, offset
 
     return index
   end
-end
-
--- Message Count
-boats_equities_memoirlastsale_sbe_v1_3.message_count = {}
-
--- Size: Message Count
-boats_equities_memoirlastsale_sbe_v1_3.message_count.size = 2
-
--- Display: Message Count
-boats_equities_memoirlastsale_sbe_v1_3.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-boats_equities_memoirlastsale_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Message
@@ -2169,108 +2276,6 @@ boats_equities_memoirlastsale_sbe_v1_3.sequenced_messages.dissect = function(buf
   end
 
   return offset
-end
-
--- Sequence Number
-boats_equities_memoirlastsale_sbe_v1_3.sequence_number = {}
-
--- Size: Sequence Number
-boats_equities_memoirlastsale_sbe_v1_3.sequence_number.size = 8
-
--- Display: Sequence Number
-boats_equities_memoirlastsale_sbe_v1_3.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-boats_equities_memoirlastsale_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-boats_equities_memoirlastsale_sbe_v1_3.session_id = {}
-
--- Size: Session Id
-boats_equities_memoirlastsale_sbe_v1_3.session_id.size = 8
-
--- Display: Session Id
-boats_equities_memoirlastsale_sbe_v1_3.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-boats_equities_memoirlastsale_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Header Length
-boats_equities_memoirlastsale_sbe_v1_3.header_length = {}
-
--- Size: Header Length
-boats_equities_memoirlastsale_sbe_v1_3.header_length.size = 1
-
--- Display: Header Length
-boats_equities_memoirlastsale_sbe_v1_3.header_length.display = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-boats_equities_memoirlastsale_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.header_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.header_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-boats_equities_memoirlastsale_sbe_v1_3.message_type = {}
-
--- Size: Message Type
-boats_equities_memoirlastsale_sbe_v1_3.message_type.size = 1
-
--- Display: Message Type
-boats_equities_memoirlastsale_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-boats_equities_memoirlastsale_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_equities_memoirlastsale_sbe_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_equities_memoirlastsale_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_equities_memoirlastsale_sbe_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

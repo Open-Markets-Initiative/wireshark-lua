@@ -65,26 +65,30 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Aquis Equities TcpHeader Atp 1.0
+-- Aquis Equities TcpHeader Atp 1.0 Fields
 -----------------------------------------------------------------------
 
--- Payload
-aquis_equities_tcpheader_atp_v1_0.payload = {}
+-- Msg Length
+aquis_equities_tcpheader_atp_v1_0.msg_length = {}
 
--- Display: Payload
-aquis_equities_tcpheader_atp_v1_0.payload.display = function(value)
-  return "Payload: "..value
+-- Size: Msg Length
+aquis_equities_tcpheader_atp_v1_0.msg_length.size = 2
+
+-- Display: Msg Length
+aquis_equities_tcpheader_atp_v1_0.msg_length.display = function(value)
+  return "Msg Length: "..value
 end
 
--- Dissect runtime sized field: Payload
-aquis_equities_tcpheader_atp_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = aquis_equities_tcpheader_atp_v1_0.payload.display(value, packet, parent, size)
+-- Dissect: Msg Length
+aquis_equities_tcpheader_atp_v1_0.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_tcpheader_atp_v1_0.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_tcpheader_atp_v1_0.msg_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_equities_tcpheader_atp_v1_0.fields.payload, range, value, display)
+  parent:add(omi_aquis_equities_tcpheader_atp_v1_0.fields.msg_length, range, value, display)
 
-  return offset + size, value
+  return offset + length, value
 end
 
 -- Msg Seq No
@@ -133,28 +137,29 @@ aquis_equities_tcpheader_atp_v1_0.msg_type.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Msg Length
-aquis_equities_tcpheader_atp_v1_0.msg_length = {}
+-- Payload
+aquis_equities_tcpheader_atp_v1_0.payload = {}
 
--- Size: Msg Length
-aquis_equities_tcpheader_atp_v1_0.msg_length.size = 2
-
--- Display: Msg Length
-aquis_equities_tcpheader_atp_v1_0.msg_length.display = function(value)
-  return "Msg Length: "..value
+-- Display: Payload
+aquis_equities_tcpheader_atp_v1_0.payload.display = function(value)
+  return "Payload: "..value
 end
 
--- Dissect: Msg Length
-aquis_equities_tcpheader_atp_v1_0.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_tcpheader_atp_v1_0.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_tcpheader_atp_v1_0.msg_length.display(value, buffer, offset, packet, parent)
+-- Dissect runtime sized field: Payload
+aquis_equities_tcpheader_atp_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = aquis_equities_tcpheader_atp_v1_0.payload.display(value, packet, parent, size)
 
-  parent:add(omi_aquis_equities_tcpheader_atp_v1_0.fields.msg_length, range, value, display)
+  parent:add(omi_aquis_equities_tcpheader_atp_v1_0.fields.payload, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis Equities TcpHeader Atp 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 aquis_equities_tcpheader_atp_v1_0.message_header = {}

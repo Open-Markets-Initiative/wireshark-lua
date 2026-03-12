@@ -166,28 +166,367 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Miax PearlEquities TopOfMarket Mach 1.1.a
+-- Miax PearlEquities TopOfMarket Mach 1.1.a Fields
 -----------------------------------------------------------------------
 
--- Size
-miax_pearlequities_topofmarket_mach_v1_1_a.size = {}
+-- Bid Price
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_price = {}
 
--- Size: Size
-miax_pearlequities_topofmarket_mach_v1_1_a.size.size = 4
+-- Size: Bid Price
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size = 2
 
--- Display: Size
-miax_pearlequities_topofmarket_mach_v1_1_a.size.display = function(value)
-  return "Size: "..value
+-- Display: Bid Price
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.display = function(value)
+  return "Bid Price: "..value
 end
 
--- Dissect: Size
-miax_pearlequities_topofmarket_mach_v1_1_a.size.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.size.size
+-- Translate: Bid Price
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.translate(raw)
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_size = {}
+
+-- Size: Bid Size
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size = 2
+
+-- Display: Bid Size
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.size.display(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.size, range, value, display)
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Time
+miax_pearlequities_topofmarket_mach_v1_1_a.closing_time = {}
+
+-- Size: Closing Time
+miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size = 8
+
+-- Display: Closing Time
+miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.display = function(value)
+  return "Closing Time: "..value
+end
+
+-- Dissect: Closing Time
+miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.closing_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Correction Number
+miax_pearlequities_topofmarket_mach_v1_1_a.correction_number = {}
+
+-- Size: Correction Number
+miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size = 1
+
+-- Display: Correction Number
+miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.display = function(value)
+  return "Correction Number: "..value
+end
+
+-- Dissect: Correction Number
+miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.correction_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Flags
+miax_pearlequities_topofmarket_mach_v1_1_a.flags = {}
+
+-- Size: Flags
+miax_pearlequities_topofmarket_mach_v1_1_a.flags.size = 0
+
+-- Display: Flags
+miax_pearlequities_topofmarket_mach_v1_1_a.flags.display = function(value)
+  return "Flags: "..value
+end
+
+-- Dissect: Flags
+miax_pearlequities_topofmarket_mach_v1_1_a.flags.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.flags.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.flags, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+miax_pearlequities_topofmarket_mach_v1_1_a.lot_size = {}
+
+-- Size: Lot Size
+miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size = 2
+
+-- Display: Lot Size
+miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market State
+miax_pearlequities_topofmarket_mach_v1_1_a.market_state = {}
+
+-- Size: Market State
+miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size = 1
+
+-- Display: Market State
+miax_pearlequities_topofmarket_mach_v1_1_a.market_state.display = function(value)
+  if value == 1 then
+    return "Market State: Pre Opening (1)"
+  end
+  if value == 2 then
+    return "Market State: Early Trading (2)"
+  end
+  if value == 3 then
+    return "Market State: Regular Trading (3)"
+  end
+  if value == 4 then
+    return "Market State: After Hours Trading (4)"
+  end
+
+  return "Market State: Unknown("..value..")"
+end
+
+-- Dissect: Market State
+miax_pearlequities_topofmarket_mach_v1_1_a.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.market_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+miax_pearlequities_topofmarket_mach_v1_1_a.message_type = {}
+
+-- Size: Message Type
+miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size = 1
+
+-- Display: Message Type
+miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display = function(value)
+  if value == "49" then
+    return "Message Type: System Time Message (49)"
+  end
+  if value == "1" then
+    return "Message Type: Symbol Update Message (1)"
+  end
+  if value == "83" then
+    return "Message Type: System State Message (83)"
+  end
+  if value == "4" then
+    return "Message Type: Security Trading Status Notification Message (4)"
+  end
+  if value == "2" then
+    return "Message Type: Compact Top Of Market Best Bid And Offer Message (2)"
+  end
+  if value == "3" then
+    return "Message Type: Wide Top Of Market Best Bid And Offer Message (3)"
+  end
+  if value == "10" then
+    return "Message Type: Last Sale Message (10)"
+  end
+  if value == "11" then
+    return "Message Type: Trade Cancel Message (11)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+miax_pearlequities_topofmarket_mach_v1_1_a.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_price = {}
+
+-- Size: Offer Price
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size = 2
+
+-- Display: Offer Price
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.display = function(value)
+  return "Offer Price: "..value
+end
+
+-- Translate: Offer Price
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Offer Price
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.translate(raw)
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_size = {}
+
+-- Size: Offer Size
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size = 2
+
+-- Display: Offer Size
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.display = function(value)
+  return "Offer Size: "..value
+end
+
+-- Dissect: Offer Size
+miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Time
+miax_pearlequities_topofmarket_mach_v1_1_a.opening_time = {}
+
+-- Size: Opening Time
+miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size = 8
+
+-- Display: Opening Time
+miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.display = function(value)
+  return "Opening Time: "..value
+end
+
+-- Dissect: Opening Time
+miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Length
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_length = {}
+
+-- Size: Packet Length
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.size = 2
+
+-- Display: Packet Length
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_type = {}
+
+-- Size: Packet Type
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.size = 1
+
+-- Display: Packet Type
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.display = function(value)
+  if value == 0 then
+    return "Packet Type: Heartbeat (0)"
+  end
+  if value == 1 then
+    return "Packet Type: Start Of Session (1)"
+  end
+  if value == 2 then
+    return "Packet Type: End Of Session (2)"
+  end
+  if value == 3 then
+    return "Packet Type: Application Message (3)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -221,48 +560,225 @@ miax_pearlequities_topofmarket_mach_v1_1_a.price.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Correction Number
-miax_pearlequities_topofmarket_mach_v1_1_a.correction_number = {}
+-- Primary Market Code
+miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code = {}
 
--- Size: Correction Number
-miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size = 1
+-- Size: Primary Market Code
+miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size = 1
 
--- Display: Correction Number
-miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.display = function(value)
-  return "Correction Number: "..value
+-- Display: Primary Market Code
+miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.display = function(value)
+  if value == "A" then
+    return "Primary Market Code: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Primary Market Code: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Primary Market Code: Nyse National (C)"
+  end
+  if value == "H" then
+    return "Primary Market Code: Miax Pearl Equities (H)"
+  end
+  if value == "I" then
+    return "Primary Market Code: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Primary Market Code: Cboe Edga Exchange (J)"
+  end
+  if value == "K" then
+    return "Primary Market Code: Cboe Edgx Exchange (K)"
+  end
+  if value == "L" then
+    return "Primary Market Code: Long Term Stock Exchange (L)"
+  end
+  if value == "M" then
+    return "Primary Market Code: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Primary Market Code: New York Stock Exchange (N)"
+  end
+  if value == "P" then
+    return "Primary Market Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Primary Market Code: Nasdaq (Q)"
+  end
+  if value == "U" then
+    return "Primary Market Code: Members Exchange (U)"
+  end
+  if value == "V" then
+    return "Primary Market Code: Investors Exchange (V)"
+  end
+  if value == "W" then
+    return "Primary Market Code: Cboe Stock Exchange (W)"
+  end
+  if value == "X" then
+    return "Primary Market Code: Nasdaq Phlx (X)"
+  end
+  if value == "Y" then
+    return "Primary Market Code: Cboe Byx Exchange (Y)"
+  end
+  if value == "Z" then
+    return "Primary Market Code: Cboe Bzx Exchange (Z)"
+  end
+
+  return "Primary Market Code: Unknown("..value..")"
 end
 
--- Dissect: Correction Number
-miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.size
+-- Dissect: Primary Market Code
+miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.correction_number.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.correction_number, range, value, display)
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.primary_market_code, range, value, display)
 
   return offset + length, value
 end
 
--- Trade Id
-miax_pearlequities_topofmarket_mach_v1_1_a.trade_id = {}
+-- Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1 = {}
 
--- Size: Trade Id
-miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size = 8
+-- Size: Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size = 1
 
--- Display: Trade Id
-miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.display = function(value)
-  return "Trade Id: "..value
+-- Display: Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Trade Id
-miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size
+-- Dissect: Reserved 1
+miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number = {}
+
+-- Size: Sequence Number
+miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.size = 8
+
+-- Display: Sequence Number
+miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.display(value, buffer, offset, packet, parent)
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_id, range, value, display)
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+miax_pearlequities_topofmarket_mach_v1_1_a.session_id = {}
+
+-- Size: Session Id
+miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size = 1
+
+-- Display: Session Id
+miax_pearlequities_topofmarket_mach_v1_1_a.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+miax_pearlequities_topofmarket_mach_v1_1_a.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Number
+miax_pearlequities_topofmarket_mach_v1_1_a.session_number = {}
+
+-- Size: Session Number
+miax_pearlequities_topofmarket_mach_v1_1_a.session_number.size = 1
+
+-- Display: Session Number
+miax_pearlequities_topofmarket_mach_v1_1_a.session_number.display = function(value)
+  return "Session Number: "..value
+end
+
+-- Dissect: Session Number
+miax_pearlequities_topofmarket_mach_v1_1_a.session_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.session_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.session_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction
+miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction = {}
+
+-- Size: Short Sale Restriction
+miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size = 1
+
+-- Display: Short Sale Restriction
+miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.display = function(value)
+  if value == "Y" then
+    return "Short Sale Restriction: Ssr In Effect (Y)"
+  end
+  if value == "N" then
+    return "Short Sale Restriction: Ssr Not In Effect (N)"
+  end
+
+  return "Short Sale Restriction: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction
+miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.short_sale_restriction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+miax_pearlequities_topofmarket_mach_v1_1_a.size = {}
+
+-- Size: Size
+miax_pearlequities_topofmarket_mach_v1_1_a.size.size = 4
+
+-- Display: Size
+miax_pearlequities_topofmarket_mach_v1_1_a.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+miax_pearlequities_topofmarket_mach_v1_1_a.size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.size, range, value, display)
 
   return offset + length, value
 end
@@ -290,6 +806,95 @@ miax_pearlequities_topofmarket_mach_v1_1_a.symbol_id.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- System Status
+miax_pearlequities_topofmarket_mach_v1_1_a.system_status = {}
+
+-- Size: System Status
+miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size = 1
+
+-- Display: System Status
+miax_pearlequities_topofmarket_mach_v1_1_a.system_status.display = function(value)
+  if value == "S" then
+    return "System Status: Start (S)"
+  end
+  if value == "C" then
+    return "System Status: End (C)"
+  end
+  if value == "1" then
+    return "System Status: Start (1)"
+  end
+  if value == "2" then
+    return "System Status: End (2)"
+  end
+
+  return "System Status: Unknown("..value..")"
+end
+
+-- Dissect: System Status
+miax_pearlequities_topofmarket_mach_v1_1_a.system_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.system_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Test Security Indicator
+miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator = {}
+
+-- Size: Test Security Indicator
+miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size = 1
+
+-- Display: Test Security Indicator
+miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.display = function(value)
+  if value == "Y" then
+    return "Test Security Indicator: Yes (Y)"
+  end
+  if value == "N" then
+    return "Test Security Indicator: No (N)"
+  end
+
+  return "Test Security Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Test Security Indicator
+miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.test_security_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ticker Symbol
+miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol = {}
+
+-- Size: Ticker Symbol
+miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size = 11
+
+-- Display: Ticker Symbol
+miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.display = function(value)
+  return "Ticker Symbol: "..value
+end
+
+-- Dissect: Ticker Symbol
+miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.ticker_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Timestamp
 miax_pearlequities_topofmarket_mach_v1_1_a.timestamp = {}
 
@@ -312,6 +917,96 @@ miax_pearlequities_topofmarket_mach_v1_1_a.timestamp.dissect = function(buffer, 
 
   return offset + length, value
 end
+
+-- To M Version
+miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version = {}
+
+-- Size: To M Version
+miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size = 8
+
+-- Display: To M Version
+miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.display = function(value)
+  return "To M Version: "..value
+end
+
+-- Dissect: To M Version
+miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.to_m_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+miax_pearlequities_topofmarket_mach_v1_1_a.trade_id = {}
+
+-- Size: Trade Id
+miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size = 8
+
+-- Display: Trade Id
+miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+miax_pearlequities_topofmarket_mach_v1_1_a.trading_status = {}
+
+-- Size: Trading Status
+miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size = 1
+
+-- Display: Trading Status
+miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.display = function(value)
+  if value == 1 then
+    return "Trading Status: Pre Open (1)"
+  end
+  if value == 2 then
+    return "Trading Status: Trading (2)"
+  end
+  if value == 3 then
+    return "Trading Status: Halt (3)"
+  end
+  if value == 4 then
+    return "Trading Status: Operational Halt (4)"
+  end
+  if value == 5 then
+    return "Trading Status: Closed (5)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Miax PearlEquities TopOfMarket Mach 1.1.a
+-----------------------------------------------------------------------
 
 -- Trade Cancel Message
 miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message = {}
@@ -371,29 +1066,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.dissect = functi
     -- Skip element, add fields directly
     return miax_pearlequities_topofmarket_mach_v1_1_a.trade_cancel_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Flags
-miax_pearlequities_topofmarket_mach_v1_1_a.flags = {}
-
--- Size: Flags
-miax_pearlequities_topofmarket_mach_v1_1_a.flags.size = 0
-
--- Display: Flags
-miax_pearlequities_topofmarket_mach_v1_1_a.flags.display = function(value)
-  return "Flags: "..value
-end
-
--- Dissect: Flags
-miax_pearlequities_topofmarket_mach_v1_1_a.flags.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.flags.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.flags, range, value, display)
-
-  return offset + length, value
 end
 
 -- Last Sale Message
@@ -458,110 +1130,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.dissect = function(
     -- Skip element, add fields directly
     return miax_pearlequities_topofmarket_mach_v1_1_a.last_sale_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offer Size
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_size = {}
-
--- Size: Offer Size
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size = 2
-
--- Display: Offer Size
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.display = function(value)
-  return "Offer Size: "..value
-end
-
--- Dissect: Offer Size
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_price = {}
-
--- Size: Offer Price
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size = 2
-
--- Display: Offer Price
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.display = function(value)
-  return "Offer Price: "..value
-end
-
--- Translate: Offer Price
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price
-miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.translate(raw)
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_size = {}
-
--- Size: Bid Size
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size = 2
-
--- Display: Bid Size
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_price = {}
-
--- Size: Bid Price
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size = 2
-
--- Display: Bid Price
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price
-miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.translate(raw)
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.bid_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Wide Top Of Market Best Bid And Offer Message
@@ -684,111 +1252,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.compact_top_of_market_best_bid_and_of
   end
 end
 
--- Short Sale Restriction
-miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction = {}
-
--- Size: Short Sale Restriction
-miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size = 1
-
--- Display: Short Sale Restriction
-miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.display = function(value)
-  if value == "Y" then
-    return "Short Sale Restriction: Ssr In Effect (Y)"
-  end
-  if value == "N" then
-    return "Short Sale Restriction: Ssr Not In Effect (N)"
-  end
-
-  return "Short Sale Restriction: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction
-miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.short_sale_restriction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.short_sale_restriction, range, value, display)
-
-  return offset + length, value
-end
-
--- Market State
-miax_pearlequities_topofmarket_mach_v1_1_a.market_state = {}
-
--- Size: Market State
-miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size = 1
-
--- Display: Market State
-miax_pearlequities_topofmarket_mach_v1_1_a.market_state.display = function(value)
-  if value == 1 then
-    return "Market State: Pre Opening (1)"
-  end
-  if value == 2 then
-    return "Market State: Early Trading (2)"
-  end
-  if value == 3 then
-    return "Market State: Regular Trading (3)"
-  end
-  if value == 4 then
-    return "Market State: After Hours Trading (4)"
-  end
-
-  return "Market State: Unknown("..value..")"
-end
-
--- Dissect: Market State
-miax_pearlequities_topofmarket_mach_v1_1_a.market_state.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.market_state.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.market_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status
-miax_pearlequities_topofmarket_mach_v1_1_a.trading_status = {}
-
--- Size: Trading Status
-miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size = 1
-
--- Display: Trading Status
-miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Trading (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Halt (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Operational Halt (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Closed (5)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trading_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Trading Status Notification Message
 miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_message = {}
 
@@ -845,88 +1308,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.security_trading_status_notification_
   end
 end
 
--- System Status
-miax_pearlequities_topofmarket_mach_v1_1_a.system_status = {}
-
--- Size: System Status
-miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size = 1
-
--- Display: System Status
-miax_pearlequities_topofmarket_mach_v1_1_a.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start (S)"
-  end
-  if value == "C" then
-    return "System Status: End (C)"
-  end
-  if value == "1" then
-    return "System Status: Start (1)"
-  end
-  if value == "2" then
-    return "System Status: End (2)"
-  end
-
-  return "System Status: Unknown("..value..")"
-end
-
--- Dissect: System Status
-miax_pearlequities_topofmarket_mach_v1_1_a.system_status.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.system_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-miax_pearlequities_topofmarket_mach_v1_1_a.session_id = {}
-
--- Size: Session Id
-miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size = 1
-
--- Display: Session Id
-miax_pearlequities_topofmarket_mach_v1_1_a.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-miax_pearlequities_topofmarket_mach_v1_1_a.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- To M Version
-miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version = {}
-
--- Size: To M Version
-miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size = 8
-
--- Display: To M Version
-miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.display = function(value)
-  return "To M Version: "..value
-end
-
--- Dissect: To M Version
-miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.to_m_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.to_m_version, range, value, display)
-
-  return offset + length, value
-end
-
 -- System State Message
 miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message = {}
 
@@ -977,229 +1358,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.dissect = functi
     -- Skip element, add fields directly
     return miax_pearlequities_topofmarket_mach_v1_1_a.system_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Primary Market Code
-miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code = {}
-
--- Size: Primary Market Code
-miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size = 1
-
--- Display: Primary Market Code
-miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.display = function(value)
-  if value == "A" then
-    return "Primary Market Code: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Primary Market Code: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Primary Market Code: Nyse National (C)"
-  end
-  if value == "H" then
-    return "Primary Market Code: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Primary Market Code: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Primary Market Code: Cboe Edga Exchange (J)"
-  end
-  if value == "K" then
-    return "Primary Market Code: Cboe Edgx Exchange (K)"
-  end
-  if value == "L" then
-    return "Primary Market Code: Long Term Stock Exchange (L)"
-  end
-  if value == "M" then
-    return "Primary Market Code: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Primary Market Code: New York Stock Exchange (N)"
-  end
-  if value == "P" then
-    return "Primary Market Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Primary Market Code: Nasdaq (Q)"
-  end
-  if value == "U" then
-    return "Primary Market Code: Members Exchange (U)"
-  end
-  if value == "V" then
-    return "Primary Market Code: Investors Exchange (V)"
-  end
-  if value == "W" then
-    return "Primary Market Code: Cboe Stock Exchange (W)"
-  end
-  if value == "X" then
-    return "Primary Market Code: Nasdaq Phlx (X)"
-  end
-  if value == "Y" then
-    return "Primary Market Code: Cboe Byx Exchange (Y)"
-  end
-  if value == "Z" then
-    return "Primary Market Code: Cboe Bzx Exchange (Z)"
-  end
-
-  return "Primary Market Code: Unknown("..value..")"
-end
-
--- Dissect: Primary Market Code
-miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.primary_market_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.primary_market_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Time
-miax_pearlequities_topofmarket_mach_v1_1_a.closing_time = {}
-
--- Size: Closing Time
-miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size = 8
-
--- Display: Closing Time
-miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.display = function(value)
-  return "Closing Time: "..value
-end
-
--- Dissect: Closing Time
-miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.closing_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.closing_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Time
-miax_pearlequities_topofmarket_mach_v1_1_a.opening_time = {}
-
--- Size: Opening Time
-miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size = 8
-
--- Display: Opening Time
-miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.display = function(value)
-  return "Opening Time: "..value
-end
-
--- Dissect: Opening Time
-miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.opening_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size
-miax_pearlequities_topofmarket_mach_v1_1_a.lot_size = {}
-
--- Size: Lot Size
-miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size = 2
-
--- Display: Lot Size
-miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1
-miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1 = {}
-
--- Size: Reserved 1
-miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size = 1
-
--- Display: Reserved 1
-miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Test Security Indicator
-miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator = {}
-
--- Size: Test Security Indicator
-miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size = 1
-
--- Display: Test Security Indicator
-miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.display = function(value)
-  if value == "Y" then
-    return "Test Security Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Security Indicator: No (N)"
-  end
-
-  return "Test Security Indicator: Unknown("..value..")"
-end
-
--- Dissect: Test Security Indicator
-miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.test_security_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.test_security_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Ticker Symbol
-miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol = {}
-
--- Size: Ticker Symbol
-miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size = 11
-
--- Display: Ticker Symbol
-miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.display = function(value)
-  return "Ticker Symbol: "..value
-end
-
--- Dissect: Ticker Symbol
-miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.ticker_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.ticker_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Symbol Update Message
@@ -1359,54 +1517,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.data.dissect = function(buffer, offse
   return offset
 end
 
--- Message Type
-miax_pearlequities_topofmarket_mach_v1_1_a.message_type = {}
-
--- Size: Message Type
-miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size = 1
-
--- Display: Message Type
-miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display = function(value)
-  if value == "49" then
-    return "Message Type: System Time Message (49)"
-  end
-  if value == "1" then
-    return "Message Type: Symbol Update Message (1)"
-  end
-  if value == "83" then
-    return "Message Type: System State Message (83)"
-  end
-  if value == "4" then
-    return "Message Type: Security Trading Status Notification Message (4)"
-  end
-  if value == "2" then
-    return "Message Type: Compact Top Of Market Best Bid And Offer Message (2)"
-  end
-  if value == "3" then
-    return "Message Type: Wide Top Of Market Best Bid And Offer Message (3)"
-  end
-  if value == "10" then
-    return "Message Type: Last Sale Message (10)"
-  end
-  if value == "11" then
-    return "Message Type: Trade Cancel Message (11)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-miax_pearlequities_topofmarket_mach_v1_1_a.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Application Message
 miax_pearlequities_topofmarket_mach_v1_1_a.application_message = {}
 
@@ -1471,111 +1581,6 @@ miax_pearlequities_topofmarket_mach_v1_1_a.payload.dissect = function(buffer, of
   end
 
   return offset
-end
-
--- Session Number
-miax_pearlequities_topofmarket_mach_v1_1_a.session_number = {}
-
--- Size: Session Number
-miax_pearlequities_topofmarket_mach_v1_1_a.session_number.size = 1
-
--- Display: Session Number
-miax_pearlequities_topofmarket_mach_v1_1_a.session_number.display = function(value)
-  return "Session Number: "..value
-end
-
--- Dissect: Session Number
-miax_pearlequities_topofmarket_mach_v1_1_a.session_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.session_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.session_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_type = {}
-
--- Size: Packet Type
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.size = 1
-
--- Display: Packet Type
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_length = {}
-
--- Size: Packet Length
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.size = 2
-
--- Display: Packet Length
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number = {}
-
--- Size: Sequence Number
-miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.size = 8
-
--- Display: Sequence Number
-miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = miax_pearlequities_topofmarket_mach_v1_1_a.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message

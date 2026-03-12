@@ -594,8 +594,1613 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Amex Options BinaryGateway Pillar 3.25
+-- Nyse Amex Options BinaryGateway Pillar 3.25 Fields
 -----------------------------------------------------------------------
+
+-- Access
+nyse_amex_options_binarygateway_pillar_v3_25.access = {}
+
+-- Size: Access
+nyse_amex_options_binarygateway_pillar_v3_25.access.size = 1
+
+-- Display: Access
+nyse_amex_options_binarygateway_pillar_v3_25.access.display = function(value)
+  return "Access: "..value
+end
+
+-- Dissect: Access
+nyse_amex_options_binarygateway_pillar_v3_25.access.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.access.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.access.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.access, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ack Status
+nyse_amex_options_binarygateway_pillar_v3_25.ack_status = {}
+
+-- Size: Ack Status
+nyse_amex_options_binarygateway_pillar_v3_25.ack_status.size = 1
+
+-- Display: Ack Status
+nyse_amex_options_binarygateway_pillar_v3_25.ack_status.display = function(value)
+  if value == 0 then
+    return "Ack Status: Unsolicited (0)"
+  end
+  if value == 1 then
+    return "Ack Status: User Request Valid (1)"
+  end
+  if value == 2 then
+    return "Ack Status: User Request Invalid (2)"
+  end
+
+  return "Ack Status: Unknown("..value..")"
+end
+
+-- Dissect: Ack Status
+nyse_amex_options_binarygateway_pillar_v3_25.ack_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.ack_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.ack_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ack_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.ack_type = {}
+
+-- Size: Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.ack_type.size = 1
+
+-- Display: Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.ack_type.display = function(value)
+  if value == 1 then
+    return "Ack Type: New Interest (1)"
+  end
+  if value == 2 then
+    return "Ack Type: Order Priority Update New Order Id (2)"
+  end
+  if value == 3 then
+    return "Ack Type: Order Priority Update Same Order Id (3)"
+  end
+  if value == 4 then
+    return "Ack Type: Bulk Cancel Ack (4)"
+  end
+  if value == 5 then
+    return "Ack Type: Pending Cancel (5)"
+  end
+  if value == 6 then
+    return "Ack Type: Pending Replace (6)"
+  end
+  if value == 7 then
+    return "Ack Type: Pending Modify (7)"
+  end
+  if value == 8 then
+    return "Ack Type: Replaced (8)"
+  end
+  if value == 9 then
+    return "Ack Type: Modified (9)"
+  end
+  if value == 11 then
+    return "Ack Type: Canceled (11)"
+  end
+  if value == 12 then
+    return "Ack Type: Done For Day (12)"
+  end
+  if value == 17 then
+    return "Ack Type: Gtc Renewal Or Restatement (17)"
+  end
+  if value == 18 then
+    return "Ack Type: Individual Market Maker Quote Reject (18)"
+  end
+
+  return "Ack Type: Unknown("..value..")"
+end
+
+-- Dissect: Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.ack_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.ack_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.ack_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ack_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Allocation Pct
+nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct = {}
+
+-- Size: Allocation Pct
+nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.size = 1
+
+-- Display: Allocation Pct
+nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.display = function(value)
+  return "Allocation Pct: "..value
+end
+
+-- Dissect: Allocation Pct
+nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.allocation_pct, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appointment Status
+nyse_amex_options_binarygateway_pillar_v3_25.appointment_status = {}
+
+-- Size: Appointment Status
+nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.size = 1
+
+-- Display: Appointment Status
+nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.display = function(value)
+  if value == 0 then
+    return "Appointment Status: Not Appointed (0)"
+  end
+  if value == 1 then
+    return "Appointment Status: Appointed (1)"
+  end
+
+  return "Appointment Status: Unknown("..value..")"
+end
+
+-- Dissect: Appointment Status
+nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.appointment_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+nyse_amex_options_binarygateway_pillar_v3_25.auction_id = {}
+
+-- Size: Auction Id
+nyse_amex_options_binarygateway_pillar_v3_25.auction_id.size = 8
+
+-- Display: Auction Id
+nyse_amex_options_binarygateway_pillar_v3_25.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+nyse_amex_options_binarygateway_pillar_v3_25.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bitfield Order Instructions
+nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions = {}
+
+-- Size: Bitfield Order Instructions
+nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.size = 16
+
+-- Display: Bitfield Order Instructions
+nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.display = function(value)
+  return "Bitfield Order Instructions: "..value
+end
+
+-- Dissect: Bitfield Order Instructions
+nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bitfield_order_instructions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Blocked By Breach Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator = {}
+
+-- Size: Blocked By Breach Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.size = 1
+
+-- Display: Blocked By Breach Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.display = function(value)
+  if value == 0 then
+    return "Blocked By Breach Indicator: Not Blocked By Breach (0)"
+  end
+  if value == 1 then
+    return "Blocked By Breach Indicator: Blocked By Breach (1)"
+  end
+  if value == 2 then
+    return "Blocked By Breach Indicator: Blocked By Arbitrage Check (2)"
+  end
+  if value == 3 then
+    return "Blocked By Breach Indicator: Blocked By Intrinsic Value Check (3)"
+  end
+
+  return "Blocked By Breach Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Blocked By Breach Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.blocked_by_breach_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Blocked By Kill Switch Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator = {}
+
+-- Size: Blocked By Kill Switch Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.size = 1
+
+-- Display: Blocked By Kill Switch Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.display = function(value)
+  if value == 0 then
+    return "Blocked By Kill Switch Indicator: Not Blocked By Kill Switch (0)"
+  end
+  if value == 1 then
+    return "Blocked By Kill Switch Indicator: Blocked By Kill Switch (1)"
+  end
+
+  return "Blocked By Kill Switch Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Blocked By Kill Switch Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.blocked_by_kill_switch_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bold Designation
+nyse_amex_options_binarygateway_pillar_v3_25.bold_designation = {}
+
+-- Size: Bold Designation
+nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.size = 1
+
+-- Display: Bold Designation
+nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display = function(value)
+  if value == 0 then
+    return "Bold Designation: Not Applicable (0)"
+  end
+  if value == 4 then
+    return "Bold Designation: Expose Order Info Only (4)"
+  end
+  if value == 5 then
+    return "Bold Designation: Expose Order Info And Capacity (5)"
+  end
+  if value == 6 then
+    return "Bold Designation: Expose Order Info And Participant Id (6)"
+  end
+  if value == 7 then
+    return "Bold Designation: Expose Order Info Capacity And Participant Id (7)"
+  end
+  if value == 8 then
+    return "Bold Designation: No Bold Defaulting (8)"
+  end
+
+  return "Bold Designation: Unknown("..value..")"
+end
+
+-- Dissect: Bold Designation
+nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bold_designation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Breach Action Request
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request = {}
+
+-- Size: Breach Action Request
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.size = 1
+
+-- Display: Breach Action Request
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.display = function(value)
+  if value == 0 then
+    return "Breach Action Request: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Breach Action Request: Notifications Only (1)"
+  end
+  if value == 2 then
+    return "Breach Action Request: Cancel And Block (2)"
+  end
+  if value == 3 then
+    return "Breach Action Request: Block Only (3)"
+  end
+
+  return "Breach Action Request: Unknown("..value..")"
+end
+
+-- Dissect: Breach Action Request
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.breach_action_request, range, value, display)
+
+  return offset + length, value
+end
+
+-- Breach Action Response
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response = {}
+
+-- Size: Breach Action Response
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.size = 1
+
+-- Display: Breach Action Response
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.display = function(value)
+  if value == 0 then
+    return "Breach Action Response: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Breach Action Response: Notifications Only (1)"
+  end
+  if value == 2 then
+    return "Breach Action Response: Cancel Non Auction Orders And Block (2)"
+  end
+  if value == 3 then
+    return "Breach Action Response: Block (3)"
+  end
+
+  return "Breach Action Response: Unknown("..value..")"
+end
+
+-- Dissect: Breach Action Response
+nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.breach_action_response, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bulk Action
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_action = {}
+
+-- Size: Bulk Action
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.size = 1
+
+-- Display: Bulk Action
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.display = function(value)
+  if value == 0 then
+    return "Bulk Action: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Bulk Action: Cancel Single Leg Only (1)"
+  end
+  if value == 2 then
+    return "Bulk Action: Cancel Complex Only (2)"
+  end
+  if value == 3 then
+    return "Bulk Action: Cancel Single And Complex (3)"
+  end
+  if value == 4 then
+    return "Bulk Action: Block And Cancel (4)"
+  end
+  if value == 5 then
+    return "Bulk Action: Unblock (5)"
+  end
+
+  return "Bulk Action: Unknown("..value..")"
+end
+
+-- Dissect: Bulk Action
+nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bust Correct Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator = {}
+
+-- Size: Bust Correct Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.size = 1
+
+-- Display: Bust Correct Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.display = function(value)
+  if value == 0 then
+    return "Bust Correct Indicator: Trade Bust (0)"
+  end
+  if value == 1 then
+    return "Bust Correct Indicator: Trade Correction (1)"
+  end
+
+  return "Bust Correct Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Bust Correct Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bust_correct_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel On Disconnect
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect = {}
+
+-- Size: Cancel On Disconnect
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.size = 1
+
+-- Display: Cancel On Disconnect
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.display = function(value)
+  if value == 1 then
+    return "Cancel On Disconnect: Cancel Day Orders (1)"
+  end
+  if value == 2 then
+    return "Cancel On Disconnect: Cancel All Orders (2)"
+  end
+
+  return "Cancel On Disconnect: Unknown("..value..")"
+end
+
+-- Dissect: Cancel On Disconnect
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cancel_on_disconnect, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Scope
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope = {}
+
+-- Size: Cancel Scope
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.size = 1
+
+-- Display: Cancel Scope
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.display = function(value)
+  if value == 0 then
+    return "Cancel Scope: Orders Only (0)"
+  end
+  if value == 1 then
+    return "Cancel Scope: Quotes Only (1)"
+  end
+  if value == 2 then
+    return "Cancel Scope: Orders And Quotes (2)"
+  end
+
+  return "Cancel Scope: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Scope
+nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cancel_scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+nyse_amex_options_binarygateway_pillar_v3_25.channel_id = {}
+
+-- Size: Channel Id
+nyse_amex_options_binarygateway_pillar_v3_25.channel_id.size = 1
+
+-- Display: Channel Id
+nyse_amex_options_binarygateway_pillar_v3_25.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+nyse_amex_options_binarygateway_pillar_v3_25.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id = {}
+
+-- Size: Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.size = 8
+
+-- Display: Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.display = function(value)
+  return "Cl Ord Id: "..value
+end
+
+-- Dissect: Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account = {}
+
+-- Size: Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.size = 5
+
+-- Display: Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Account: No Value"
+  end
+
+  return "Clearing Account: "..value
+end
+
+-- Dissect: Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered = {}
+
+-- Size: Clearing Account Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.size = 5
+
+-- Display: Clearing Account Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Account Covered: No Value"
+  end
+
+  return "Clearing Account Covered: "..value
+end
+
+-- Dissect: Clearing Account Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_account_covered, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed = {}
+
+-- Size: Clearing Account Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.size = 5
+
+-- Display: Clearing Account Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Account Exposed: No Value"
+  end
+
+  return "Clearing Account Exposed: "..value
+end
+
+-- Dissect: Clearing Account Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_account_exposed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm = {}
+
+-- Size: Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.size = 5
+
+-- Display: Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Firm: No Value"
+  end
+
+  return "Clearing Firm: "..value
+end
+
+-- Dissect: Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Firm Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered = {}
+
+-- Size: Clearing Firm Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.size = 5
+
+-- Display: Clearing Firm Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Firm Covered: No Value"
+  end
+
+  return "Clearing Firm Covered: "..value
+end
+
+-- Dissect: Clearing Firm Covered
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_firm_covered, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Firm Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed = {}
+
+-- Size: Clearing Firm Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.size = 5
+
+-- Display: Clearing Firm Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Firm Exposed: No Value"
+  end
+
+  return "Clearing Firm Exposed: "..value
+end
+
+-- Dissect: Clearing Firm Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_firm_exposed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Number
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_number = {}
+
+-- Size: Clearing Number
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.size = 5
+
+-- Display: Clearing Number
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Number: No Value"
+  end
+
+  return "Clearing Number: "..value
+end
+
+-- Dissect: Clearing Number
+nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Only Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator = {}
+
+-- Size: Closing Only Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.size = 1
+
+-- Display: Closing Only Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.display = function(value)
+  if value == 0 then
+    return "Closing Only Indicator: Standard Series (0)"
+  end
+  if value == 1 then
+    return "Closing Only Indicator: Closing Only Series (1)"
+  end
+
+  return "Closing Only Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Closing Only Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.closing_only_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account = {}
+
+-- Size: Contra Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.size = 5
+
+-- Display: Contra Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Clearing Account: No Value"
+  end
+
+  return "Contra Clearing Account: "..value
+end
+
+-- Dissect: Contra Clearing Account
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm = {}
+
+-- Size: Contra Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.size = 5
+
+-- Display: Contra Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Clearing Firm: No Value"
+  end
+
+  return "Contra Clearing Firm: "..value
+end
+
+-- Dissect: Contra Clearing Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_clearing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered = {}
+
+-- Size: Contra Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.size = 1
+
+-- Display: Contra Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.display = function(value)
+  if value == 0 then
+    return "Contra Covered Or Uncovered: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Contra Covered Or Uncovered: Exposed (1)"
+  end
+  if value == 2 then
+    return "Contra Covered Or Uncovered: Covered (2)"
+  end
+
+  return "Contra Covered Or Uncovered: Unknown("..value..")"
+end
+
+-- Dissect: Contra Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_covered_or_uncovered, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Cross Type
+nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type = {}
+
+-- Size: Contra Cross Type
+nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size = 2
+
+-- Display: Contra Cross Type
+nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display = function(value)
+  if value == 0 then
+    return "Contra Cross Type: Not Applicable (0)"
+  end
+  if value == 5 then
+    return "Contra Cross Type: Price Improvement Cube (5)"
+  end
+  if value == 7 then
+    return "Contra Cross Type: Aoncube Solicitation (7)"
+  end
+  if value == 10 then
+    return "Contra Cross Type: Qcc (10)"
+  end
+  if value == 11 then
+    return "Contra Cross Type: Customer To Customer Cross (11)"
+  end
+
+  return "Contra Cross Type: Unknown("..value..")"
+end
+
+-- Dissect: Contra Cross Type
+nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Customer Or Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm = {}
+
+-- Size: Contra Customer Or Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.size = 1
+
+-- Display: Contra Customer Or Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.display = function(value)
+  if value == 0 then
+    return "Contra Customer Or Firm: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Contra Customer Or Firm: Customer (1)"
+  end
+  if value == 2 then
+    return "Contra Customer Or Firm: Firm (2)"
+  end
+  if value == 3 then
+    return "Contra Customer Or Firm: Broker (3)"
+  end
+  if value == 4 then
+    return "Contra Customer Or Firm: Market Maker (4)"
+  end
+  if value == 5 then
+    return "Contra Customer Or Firm: Away Market Maker (5)"
+  end
+  if value == 6 then
+    return "Contra Customer Or Firm: Prof Customer (6)"
+  end
+
+  return "Contra Customer Or Firm: Unknown("..value..")"
+end
+
+-- Dissect: Contra Customer Or Firm
+nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_customer_or_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker = {}
+
+-- Size: Contra Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.size = 10
+
+-- Display: Contra Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Market Maker: No Value"
+  end
+
+  return "Contra Market Maker: "..value
+end
+
+-- Dissect: Contra Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_market_maker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid = {}
+
+-- Size: Contra Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.size = 4
+
+-- Display: Contra Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Mpid: No Value"
+  end
+
+  return "Contra Mpid: "..value
+end
+
+-- Dissect: Contra Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close = {}
+
+-- Size: Contra Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.size = 1
+
+-- Display: Contra Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.display = function(value)
+  if value == 0 then
+    return "Contra Open Close: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Contra Open Close: Open (1)"
+  end
+  if value == 2 then
+    return "Contra Open Close: Close (2)"
+  end
+
+  return "Contra Open Close: Unknown("..value..")"
+end
+
+-- Dissect: Contra Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_open_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier = {}
+
+-- Size: Contract Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.size = 4
+
+-- Display: Contract Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.display = function(value)
+  return "Contract Multiplier: "..value
+end
+
+-- Dissect: Contract Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contract_multiplier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count Calculation
+nyse_amex_options_binarygateway_pillar_v3_25.count_calculation = {}
+
+-- Size: Count Calculation
+nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.size = 4
+
+-- Display: Count Calculation
+nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.display = function(value)
+  return "Count Calculation: "..value
+end
+
+-- Dissect: Count Calculation
+nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.count_calculation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count Limit
+nyse_amex_options_binarygateway_pillar_v3_25.count_limit = {}
+
+-- Size: Count Limit
+nyse_amex_options_binarygateway_pillar_v3_25.count_limit.size = 4
+
+-- Display: Count Limit
+nyse_amex_options_binarygateway_pillar_v3_25.count_limit.display = function(value)
+  return "Count Limit: "..value
+end
+
+-- Dissect: Count Limit
+nyse_amex_options_binarygateway_pillar_v3_25.count_limit.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.count_limit.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.count_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.count_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered = {}
+
+-- Size: Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.size = 1
+
+-- Display: Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.display = function(value)
+  if value == 0 then
+    return "Covered Or Uncovered: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Covered Or Uncovered: Exposed (1)"
+  end
+  if value == 2 then
+    return "Covered Or Uncovered: Covered (2)"
+  end
+
+  return "Covered Or Uncovered: Unknown("..value..")"
+end
+
+-- Dissect: Covered Or Uncovered
+nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.covered_or_uncovered, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id
+nyse_amex_options_binarygateway_pillar_v3_25.cross_id = {}
+
+-- Size: Cross Id
+nyse_amex_options_binarygateway_pillar_v3_25.cross_id.size = 8
+
+-- Display: Cross Id
+nyse_amex_options_binarygateway_pillar_v3_25.cross_id.display = function(value)
+  return "Cross Id: "..value
+end
+
+-- Dissect: Cross Id
+nyse_amex_options_binarygateway_pillar_v3_25.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cum Qty
+nyse_amex_options_binarygateway_pillar_v3_25.cum_qty = {}
+
+-- Size: Cum Qty
+nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.size = 4
+
+-- Display: Cum Qty
+nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.display = function(value)
+  return "Cum Qty: "..value
+end
+
+-- Dissect: Cum Qty
+nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cum_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deal Id
+nyse_amex_options_binarygateway_pillar_v3_25.deal_id = {}
+
+-- Size: Deal Id
+nyse_amex_options_binarygateway_pillar_v3_25.deal_id.size = 8
+
+-- Display: Deal Id
+nyse_amex_options_binarygateway_pillar_v3_25.deal_id.display = function(value)
+  return "Deal Id: "..value
+end
+
+-- Dissect: Deal Id
+nyse_amex_options_binarygateway_pillar_v3_25.deal_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.deal_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.deal_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.deal_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deliver To Comp Id
+nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id = {}
+
+-- Size: Deliver To Comp Id
+nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.size = 5
+
+-- Display: Deliver To Comp Id
+nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Deliver To Comp Id: No Value"
+  end
+
+  return "Deliver To Comp Id: "..value
+end
+
+-- Dissect: Deliver To Comp Id
+nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.deliver_to_comp_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq
+nyse_amex_options_binarygateway_pillar_v3_25.end_seq = {}
+
+-- Size: End Seq
+nyse_amex_options_binarygateway_pillar_v3_25.end_seq.size = 8
+
+-- Display: End Seq
+nyse_amex_options_binarygateway_pillar_v3_25.end_seq.display = function(value)
+  return "End Seq: "..value
+end
+
+-- Dissect: End Seq
+nyse_amex_options_binarygateway_pillar_v3_25.end_seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.end_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.end_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.end_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group Id
+nyse_amex_options_binarygateway_pillar_v3_25.group_id = {}
+
+-- Size: Group Id
+nyse_amex_options_binarygateway_pillar_v3_25.group_id.size = 4
+
+-- Display: Group Id
+nyse_amex_options_binarygateway_pillar_v3_25.group_id.display = function(value)
+  return "Group Id: "..value
+end
+
+-- Dissect: Group Id
+nyse_amex_options_binarygateway_pillar_v3_25.group_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.group_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ioc Attribution
+nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution = {}
+
+-- Size: Ioc Attribution
+nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.size = 1
+
+-- Display: Ioc Attribution
+nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.display = function(value)
+  if value == 0 then
+    return "Ioc Attribution: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Ioc Attribution: Include Ioc (1)"
+  end
+  if value == 2 then
+    return "Ioc Attribution: Exclude Ioc (2)"
+  end
+
+  return "Ioc Attribution: Unknown("..value..")"
+end
+
+-- Dissect: Ioc Attribution
+nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ioc_attribution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+nyse_amex_options_binarygateway_pillar_v3_25.last_px = {}
+
+-- Size: Last Px
+nyse_amex_options_binarygateway_pillar_v3_25.last_px.size = 8
+
+-- Display: Last Px
+nyse_amex_options_binarygateway_pillar_v3_25.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+nyse_amex_options_binarygateway_pillar_v3_25.last_px.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Last Px
+nyse_amex_options_binarygateway_pillar_v3_25.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.last_px.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+nyse_amex_options_binarygateway_pillar_v3_25.last_qty = {}
+
+-- Size: Last Qty
+nyse_amex_options_binarygateway_pillar_v3_25.last_qty.size = 4
+
+-- Display: Last Qty
+nyse_amex_options_binarygateway_pillar_v3_25.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+nyse_amex_options_binarygateway_pillar_v3_25.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty = {}
+
+-- Size: Leaves Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close = {}
+
+-- Size: Leg Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.size = 8
+
+-- Display: Leg Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.display = function(value)
+  if value == 0 then
+    return "Leg Open Close: Open (0)"
+  end
+  if value == 1 then
+    return "Leg Open Close: Close (1)"
+  end
+
+  return "Leg Open Close: Unknown("..value..")"
+end
+
+-- Dissect: Leg Open Close
+nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_open_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty = {}
+
+-- Size: Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.size = 2
+
+-- Display: Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.display = function(value)
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
 
 -- Leg Side
 nyse_amex_options_binarygateway_pillar_v3_25.leg_side = {}
@@ -627,29 +2232,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.leg_side.dissect = function(buffer,
   return offset + length, value
 end
 
--- Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty = {}
-
--- Size: Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.size = 2
-
--- Display: Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.display = function(value)
-  return "Leg Ratio Qty: "..value
-end
-
--- Dissect: Leg Ratio Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Symbol Id
 nyse_amex_options_binarygateway_pillar_v3_25.leg_symbol_id = {}
 
@@ -673,125 +2255,1324 @@ nyse_amex_options_binarygateway_pillar_v3_25.leg_symbol_id.dissect = function(bu
   return offset + length, value
 end
 
--- Leg Group
-nyse_amex_options_binarygateway_pillar_v3_25.leg_group = {}
+-- Legal Width Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier = {}
 
--- Size: Leg Group
-nyse_amex_options_binarygateway_pillar_v3_25.leg_group.size =
-  nyse_amex_options_binarygateway_pillar_v3_25.leg_symbol_id.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.size + 
-  nyse_amex_options_binarygateway_pillar_v3_25.leg_side.size
+-- Size: Legal Width Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.size = 1
 
--- Display: Leg Group
-nyse_amex_options_binarygateway_pillar_v3_25.leg_group.display = function(packet, parent, length)
-  return ""
+-- Display: Legal Width Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.display = function(value)
+  return "Legal Width Multiplier: "..value
 end
 
--- Dissect Fields: Leg Group
-nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields = function(buffer, offset, packet, parent, leg_group_index)
-  local index = offset
+-- Dissect: Legal Width Multiplier
+nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.display(value, buffer, offset, packet, parent)
 
-  -- Implicit Leg Group Index
-  if leg_group_index ~= nil then
-    local iteration = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_group_index, leg_group_index)
-    iteration:set_generated()
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.legal_width_multiplier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator = {}
+
+-- Size: Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.size = 4
+
+-- Display: Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Liquidity Indicator: No Value"
   end
 
-  -- Leg Symbol Id: u32
-  index, leg_symbol_id = nyse_amex_options_binarygateway_pillar_v3_25.leg_symbol_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: u16
-  index, leg_ratio_qty = nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: u8
-  index, leg_side = nyse_amex_options_binarygateway_pillar_v3_25.leg_side.dissect(buffer, index, packet, parent)
-
-  return index
+  return "Liquidity Indicator: "..value
 end
 
--- Dissect: Leg Group
-nyse_amex_options_binarygateway_pillar_v3_25.leg_group.dissect = function(buffer, offset, packet, parent, leg_group_index)
-  if show.leg_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_group, buffer(offset, 0))
-    local index = nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.leg_group.display(packet, parent, length)
-    parent:append_text(display)
+-- Dissect: Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.size
+  local range = buffer(offset, length)
 
-    return index, parent
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
   else
-    -- Skip element, add fields directly
-    return nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
+    value = range:string()
   end
-end
 
--- Repeating Groups
-nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups = {}
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.display(value, buffer, offset, packet, parent)
 
--- Size: Repeating Groups
-nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.size = 1
-
--- Display: Repeating Groups
-nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.display = function(value)
-  return "Repeating Groups: "..value
-end
-
--- Dissect: Repeating Groups
-nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.repeating_groups, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.liquidity_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Side U 81
-nyse_amex_options_binarygateway_pillar_v3_25.side_u_81 = {}
+-- Listed Mic
+nyse_amex_options_binarygateway_pillar_v3_25.listed_mic = {}
 
--- Size: Side U 81
-nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.size = 1
+-- Size: Listed Mic
+nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.size = 4
 
--- Display: Side U 81
-nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.display = function(value)
-  return "Side U 81: "..value
+-- Display: Listed Mic
+nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Listed Mic: No Value"
+  end
+
+  return "Listed Mic: "..value
 end
 
--- Dissect: Side U 81
-nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.size
+-- Dissect: Listed Mic
+nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.side_u_81, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.listed_mic, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_id = {}
+-- Locate Reqd U 81
+nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81 = {}
 
--- Size: Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.size = 4
+-- Size: Locate Reqd U 81
+nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.size = 1
 
--- Display: Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.display = function(value)
-  return "Symbol Id: "..value
+-- Display: Locate Reqd U 81
+nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.display = function(value)
+  return "Locate Reqd U 81: "..value
 end
 
--- Dissect: Symbol Id
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.size
+-- Dissect: Locate Reqd U 81
+nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.symbol_id, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.locate_reqd_u_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.market_maker = {}
+
+-- Size: Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.market_maker.size = 10
+
+-- Display: Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.market_maker.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Maker: No Value"
+  end
+
+  return "Market Maker: "..value
+end
+
+-- Dissect: Market Maker
+nyse_amex_options_binarygateway_pillar_v3_25.market_maker.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.market_maker.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.market_maker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.market_maker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+nyse_amex_options_binarygateway_pillar_v3_25.maturity_date = {}
+
+-- Size: Maturity Date
+nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.size = 8
+
+-- Display: Maturity Date
+nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Maturity Date: No Value"
+  end
+
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Floor
+nyse_amex_options_binarygateway_pillar_v3_25.max_floor = {}
+
+-- Size: Max Floor
+nyse_amex_options_binarygateway_pillar_v3_25.max_floor.size = 4
+
+-- Display: Max Floor
+nyse_amex_options_binarygateway_pillar_v3_25.max_floor.display = function(value)
+  return "Max Floor: "..value
+end
+
+-- Dissect: Max Floor
+nyse_amex_options_binarygateway_pillar_v3_25.max_floor.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.max_floor.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.max_floor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_floor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Order Price
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_price = {}
+
+-- Size: Max Order Price
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.size = 8
+
+-- Display: Max Order Price
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.display = function(value)
+  return "Max Order Price: "..value
+end
+
+-- Translate: Max Order Price
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Max Order Price
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Order Quantity
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity = {}
+
+-- Size: Max Order Quantity
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.size = 4
+
+-- Display: Max Order Quantity
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.display = function(value)
+  return "Max Order Quantity: "..value
+end
+
+-- Dissect: Max Order Quantity
+nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mic
+nyse_amex_options_binarygateway_pillar_v3_25.mic = {}
+
+-- Size: Mic
+nyse_amex_options_binarygateway_pillar_v3_25.mic.size = 4
+
+-- Display: Mic
+nyse_amex_options_binarygateway_pillar_v3_25.mic.display = function(value)
+  if value == "AMXO" then
+    return "Mic: Nyse American Options (AMXO)"
+  end
+
+  return "Mic: Unknown("..value..")"
+end
+
+-- Dissect: Mic
+nyse_amex_options_binarygateway_pillar_v3_25.mic.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mic.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mic.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mic, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+nyse_amex_options_binarygateway_pillar_v3_25.min_qty = {}
+
+-- Size: Min Qty
+nyse_amex_options_binarygateway_pillar_v3_25.min_qty.size = 4
+
+-- Display: Min Qty
+nyse_amex_options_binarygateway_pillar_v3_25.min_qty.display = function(value)
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+nyse_amex_options_binarygateway_pillar_v3_25.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mm Sent Time
+nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time = {}
+
+-- Size: Mm Sent Time
+nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.size = 8
+
+-- Display: Mm Sent Time
+nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Mm Sent Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Mm Sent Time
+nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_sent_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mm Type
+nyse_amex_options_binarygateway_pillar_v3_25.mm_type = {}
+
+-- Size: Mm Type
+nyse_amex_options_binarygateway_pillar_v3_25.mm_type.size = 1
+
+-- Display: Mm Type
+nyse_amex_options_binarygateway_pillar_v3_25.mm_type.display = function(value)
+  if value == 1 then
+    return "Mm Type: Nyse Arca Options Lead Market Maker (1)"
+  end
+  if value == 2 then
+    return "Mm Type: Nyse Arca Options Market Maker (2)"
+  end
+  if value == 1 then
+    return "Mm Type: Nyse American Options Market Maker (1)"
+  end
+  if value == 2 then
+    return "Mm Type: Nyse American Options Specialist (2)"
+  end
+  if value == 3 then
+    return "Mm Type: Nyse American Optionse Specialist (3)"
+  end
+  if value == 4 then
+    return "Mm Type: Nyse American Options Domm (4)"
+  end
+  if value == 5 then
+    return "Mm Type: Nyse American Options Specialist And Domm (5)"
+  end
+  if value == 6 then
+    return "Mm Type: Nyse American Optionse Specialist And Domm (6)"
+  end
+
+  return "Mm Type: Unknown("..value..")"
+end
+
+-- Dissect: Mm Type
+nyse_amex_options_binarygateway_pillar_v3_25.mm_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mm_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mm_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mode
+nyse_amex_options_binarygateway_pillar_v3_25.mode = {}
+
+-- Size: Mode
+nyse_amex_options_binarygateway_pillar_v3_25.mode.size = 1
+
+-- Display: Mode
+nyse_amex_options_binarygateway_pillar_v3_25.mode.display = function(value)
+  return "Mode: "..value
+end
+
+-- Dissect: Mode
+nyse_amex_options_binarygateway_pillar_v3_25.mode.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mode.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mp Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id = {}
+
+-- Size: Mp Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.size = 4
+
+-- Display: Mp Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mp Sub Id: No Value"
+  end
+
+  return "Mp Sub Id: "..value
+end
+
+-- Dissect: Mp Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mp_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.mpid = {}
+
+-- Size: Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.mpid.size = 4
+
+-- Display: Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.mpid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mpid: No Value"
+  end
+
+  return "Mpid: "..value
+end
+
+-- Dissect: Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpid Status
+nyse_amex_options_binarygateway_pillar_v3_25.mpid_status = {}
+
+-- Size: Mpid Status
+nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.size = 1
+
+-- Display: Mpid Status
+nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.display = function(value)
+  if value == 1 then
+    return "Mpid Status: Active (1)"
+  end
+  if value == 2 then
+    return "Mpid Status: Inactive (2)"
+  end
+  if value == 3 then
+    return "Mpid Status: Prospect (3)"
+  end
+
+  return "Mpid Status: Unknown("..value..")"
+end
+
+-- Dissect: Mpid Status
+nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv Class Id
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id = {}
+
+-- Size: Mpv Class Id
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.size = 2
+
+-- Display: Mpv Class Id
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.display = function(value)
+  return "Mpv Class Id: "..value
+end
+
+-- Dissect: Mpv Class Id
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpv_class_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv Class Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name = {}
+
+-- Size: Mpv Class Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.size = 20
+
+-- Display: Mpv Class Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mpv Class Name: No Value"
+  end
+
+  return "Mpv Class Name: "..value
+end
+
+-- Dissect: Mpv Class Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpv_class_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv Level Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name = {}
+
+-- Size: Mpv Level Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.size = 24
+
+-- Display: Mpv Level Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.display = function(value)
+  return "Mpv Level Name: "..value
+end
+
+-- Dissect: Mpv Level Name
+nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpv_level_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.msg_length = {}
+
+-- Size: Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.msg_length.size = 2
+
+-- Display: Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.msg_type = {}
+
+-- Size: Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.msg_type.size = 2
+
+-- Display: Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.msg_type.display = function(value)
+  if value == 0x0201 then
+    return "Msg Type: Login (0x0201)"
+  end
+  if value == 0x0202 then
+    return "Msg Type: Login Response (0x0202)"
+  end
+  if value == 0x0203 then
+    return "Msg Type: Stream Avail (0x0203)"
+  end
+  if value == 0x0204 then
+    return "Msg Type: Heartbeat (0x0204)"
+  end
+  if value == 0x0205 then
+    return "Msg Type: Open (0x0205)"
+  end
+  if value == 0x0206 then
+    return "Msg Type: Open Response (0x0206)"
+  end
+  if value == 0x0207 then
+    return "Msg Type: Close (0x0207)"
+  end
+  if value == 0x0208 then
+    return "Msg Type: Close Response (0x0208)"
+  end
+  if value == 0x0905 then
+    return "Msg Type: Seq Msg (0x0905)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Multileg Reporting Type
+nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type = {}
+
+-- Size: Multileg Reporting Type
+nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.size = 1
+
+-- Display: Multileg Reporting Type
+nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.display = function(value)
+  if value == 1 then
+    return "Multileg Reporting Type: Single Leg Security (1)"
+  end
+  if value == 2 then
+    return "Multileg Reporting Type: Individual Leg Of Multi Leg Security (2)"
+  end
+  if value == 3 then
+    return "Multileg Reporting Type: Multi Leg Security (3)"
+  end
+
+  return "Multileg Reporting Type: Unknown("..value..")"
+end
+
+-- Dissect: Multileg Reporting Type
+nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.multileg_reporting_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Seq
+nyse_amex_options_binarygateway_pillar_v3_25.next_seq = {}
+
+-- Size: Next Seq
+nyse_amex_options_binarygateway_pillar_v3_25.next_seq.size = 8
+
+-- Display: Next Seq
+nyse_amex_options_binarygateway_pillar_v3_25.next_seq.display = function(value)
+  return "Next Seq: "..value
+end
+
+-- Dissect: Next Seq
+nyse_amex_options_binarygateway_pillar_v3_25.next_seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.next_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.next_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.next_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nyse Symbol
+nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol = {}
+
+-- Size: Nyse Symbol
+nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.size = 24
+
+-- Display: Nyse Symbol
+nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.display = function(value)
+  return "Nyse Symbol: "..value
+end
+
+-- Dissect: Nyse Symbol
+nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.nyse_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Occ Symbol Root
+nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root = {}
+
+-- Size: Occ Symbol Root
+nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.size = 24
+
+-- Display: Occ Symbol Root
+nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.display = function(value)
+  return "Occ Symbol Root: "..value
+end
+
+-- Dissect: Occ Symbol Root
+nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.occ_symbol_root, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close U 81
+nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81 = {}
+
+-- Size: Open Close U 81
+nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.size = 1
+
+-- Display: Open Close U 81
+nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.display = function(value)
+  return "Open Close U 81: "..value
+end
+
+-- Dissect: Open Close U 81
+nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open_close_u_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Optional Data
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data = {}
+
+-- Size: Optional Data
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data.size = 16
+
+-- Display: Optional Data
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Optional Data: No Value"
+  end
+
+  return "Optional Data: "..value
+end
+
+-- Dissect: Optional Data
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.optional_data.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.optional_data.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data, range, value, display)
+
+  return offset + length, value
+end
+
+-- Optional Data Covered
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered = {}
+
+-- Size: Optional Data Covered
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.size = 16
+
+-- Display: Optional Data Covered
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Optional Data Covered: No Value"
+  end
+
+  return "Optional Data Covered: "..value
+end
+
+-- Dissect: Optional Data Covered
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data_covered, range, value, display)
+
+  return offset + length, value
+end
+
+-- Optional Data Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed = {}
+
+-- Size: Optional Data Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.size = 16
+
+-- Display: Optional Data Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Optional Data Exposed: No Value"
+  end
+
+  return "Optional Data Exposed: "..value
+end
+
+-- Dissect: Optional Data Exposed
+nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data_exposed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price = {}
+
+-- Size: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size = 8
+
+-- Display: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.display = function(value)
+  return "Order Entry Limit Price: "..value
+end
+
+-- Translate: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Order Entry Limit Price
+nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_entry_limit_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+nyse_amex_options_binarygateway_pillar_v3_25.order_id = {}
+
+-- Size: Order Id
+nyse_amex_options_binarygateway_pillar_v3_25.order_id.size = 8
+
+-- Display: Order Id
+nyse_amex_options_binarygateway_pillar_v3_25.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+nyse_amex_options_binarygateway_pillar_v3_25.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Priority Update Ack Subscription
+nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription = {}
+
+-- Size: Order Priority Update Ack Subscription
+nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.size = 1
+
+-- Display: Order Priority Update Ack Subscription
+nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.display = function(value)
+  if value == 0 then
+    return "Order Priority Update Ack Subscription: Not Subscribed (0)"
+  end
+  if value == 1 then
+    return "Order Priority Update Ack Subscription: Order Priority Update Only (1)"
+  end
+  if value == 2 then
+    return "Order Priority Update Ack Subscription: Order Priority Update And Repricing (2)"
+  end
+
+  return "Order Priority Update Ack Subscription: Unknown("..value..")"
+end
+
+-- Dissect: Order Priority Update Ack Subscription
+nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_priority_update_ack_subscription, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+nyse_amex_options_binarygateway_pillar_v3_25.order_qty = {}
+
+-- Size: Order Qty
+nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size = 4
+
+-- Display: Order Qty
+nyse_amex_options_binarygateway_pillar_v3_25.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id = {}
+
+-- Size: Orig Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.size = 8
+
+-- Display: Orig Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.display = function(value)
+  return "Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Orig Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Type
+nyse_amex_options_binarygateway_pillar_v3_25.participant_type = {}
+
+-- Size: Participant Type
+nyse_amex_options_binarygateway_pillar_v3_25.participant_type.size = 1
+
+-- Display: Participant Type
+nyse_amex_options_binarygateway_pillar_v3_25.participant_type.display = function(value)
+  if value == 0 then
+    return "Participant Type: Not Applicable (0)"
+  end
+
+  return "Participant Type: Unknown("..value..")"
+end
+
+-- Dissect: Participant Type
+nyse_amex_options_binarygateway_pillar_v3_25.participant_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.participant_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.participant_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.participant_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nyse_amex_options_binarygateway_pillar_v3_25.password = {}
+
+-- Size: Password
+nyse_amex_options_binarygateway_pillar_v3_25.password.size = 32
+
+-- Display: Password
+nyse_amex_options_binarygateway_pillar_v3_25.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nyse_amex_options_binarygateway_pillar_v3_25.password.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentage Limit
+nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit = {}
+
+-- Size: Percentage Limit
+nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.size = 4
+
+-- Display: Percentage Limit
+nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.display = function(value)
+  return "Percentage Limit: "..value
+end
+
+-- Dissect: Percentage Limit
+nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.percentage_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pre Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator = {}
+
+-- Size: Pre Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.size = 4
+
+-- Display: Pre Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.display = function(value)
+  if value == "0" then
+    return "Pre Liquidity Indicator: None (0)"
+  end
+  if value == "1" then
+    return "Pre Liquidity Indicator: Local Market Candidate (1)"
+  end
+  if value == "4" then
+    return "Pre Liquidity Indicator: Join Nbbo Candidate (4)"
+  end
+  if value == "5" then
+    return "Pre Liquidity Indicator: Set Nbbo Candidate (5)"
+  end
+
+  return "Pre Liquidity Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Pre Liquidity Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.pre_liquidity_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nyse_amex_options_binarygateway_pillar_v3_25.price = {}
+
+-- Size: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.size = 8
+
+-- Display: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price
+nyse_amex_options_binarygateway_pillar_v3_25.price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale
+nyse_amex_options_binarygateway_pillar_v3_25.price_scale = {}
+
+-- Size: Price Scale
+nyse_amex_options_binarygateway_pillar_v3_25.price_scale.size = 1
+
+-- Display: Price Scale
+nyse_amex_options_binarygateway_pillar_v3_25.price_scale.display = function(value)
+  if value == 0 then
+    return "Price Scale: No Decimals (0)"
+  end
+  if value == 2 then
+    return "Price Scale: Two Decimals (2)"
+  end
+
+  return "Price Scale: Unknown("..value..")"
+end
+
+-- Dissect: Price Scale
+nyse_amex_options_binarygateway_pillar_v3_25.price_scale.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.price_scale.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.price_scale.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_scale, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+nyse_amex_options_binarygateway_pillar_v3_25.put_or_call = {}
+
+-- Size: Put Or Call
+nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.size = 1
+
+-- Display: Put Or Call
+nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.display = function(value)
+  if value == 0 then
+    return "Put Or Call: Put (0)"
+  end
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quoting Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv = {}
+
+-- Size: Quoting Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.size = 8
+
+-- Display: Quoting Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.display = function(value)
+  return "Quoting Mpv: "..value
+end
+
+-- Translate: Quoting Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Quoting Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quoting_mpv, range, value, display)
 
   return offset + length, value
 end
@@ -1741,145 +4522,25 @@ nyse_amex_options_binarygateway_pillar_v3_25.reason_code.dissect = function(buff
   return offset + length, value
 end
 
--- Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id = {}
+-- Ref Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id = {}
 
--- Size: Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.size = 8
+-- Size: Ref Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.size = 8
 
--- Display: Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.display = function(value)
-  return "Cl Ord Id: "..value
+-- Display: Ref Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.display = function(value)
+  return "Ref Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.size
+-- Dissect: Ref Cl Ord Id
+nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time Timestamp 8
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8 = {}
-
--- Size: Transact Time Timestamp 8
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.size = 8
-
--- Display: Transact Time Timestamp 8
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time Timestamp 8: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time Timestamp 8
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.transact_time_timestamp_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Complex Series Request Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message = {}
-
--- Read runtime size of: Complex Series Request Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
-
-  return seq_msg_length - 4
-end
-
--- Display: Complex Series Request Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Complex Series Request Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields = function(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
-  local index = offset
-
-  -- Transact Time Timestamp 8: Timestamp
-  index, transact_time_timestamp_8 = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: u64
-  index, cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Reason Code: u16
-  index, reason_code = nyse_amex_options_binarygateway_pillar_v3_25.reason_code.dissect(buffer, index, packet, parent)
-
-  -- Symbol Id: u32
-  index, symbol_id = nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.dissect(buffer, index, packet, parent)
-
-  -- Side U 81: u8
-  index, side_u_81 = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.dissect(buffer, index, packet, parent)
-
-  -- Repeating Groups: u8
-  index, repeating_groups = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.dissect(buffer, index, packet, parent)
-
-  -- Repeating: Leg Group
-  for leg_group_index = 1, repeating_groups do
-    index, leg_group = nyse_amex_options_binarygateway_pillar_v3_25.leg_group.dissect(buffer, index, packet, parent, leg_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Complex Series Request Acknowledgement Message
-nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
-  local size_of_complex_series_request_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.size(buffer, offset)
-  local index = offset + size_of_complex_series_request_acknowledgement_message
-
-  -- Optionally add group/struct element to protocol tree
-  if show.complex_series_request_acknowledgement_message then
-    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.complex_series_request_acknowledgement_message, buffer(offset, 0))
-    local current = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
-    parent:set_len(size_of_complex_series_request_acknowledgement_message)
-    local display = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
-
-    return index
-  end
-end
-
--- Reserved 200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_200 = {}
-
--- Size: Reserved 200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size = 200
-
--- Display: Reserved 200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display = function(value)
-  return "Reserved 200: "..value
-end
-
--- Dissect: Reserved 200
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ref_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
@@ -1944,98 +4605,329 @@ nyse_amex_options_binarygateway_pillar_v3_25.reinstatement_required_by_self.diss
   return offset + length, value
 end
 
--- Blocked By Kill Switch Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator = {}
+-- Reject Type
+nyse_amex_options_binarygateway_pillar_v3_25.reject_type = {}
 
--- Size: Blocked By Kill Switch Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.size = 1
+-- Size: Reject Type
+nyse_amex_options_binarygateway_pillar_v3_25.reject_type.size = 1
 
--- Display: Blocked By Kill Switch Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.display = function(value)
-  if value == 0 then
-    return "Blocked By Kill Switch Indicator: Not Blocked By Kill Switch (0)"
-  end
+-- Display: Reject Type
+nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display = function(value)
   if value == 1 then
-    return "Blocked By Kill Switch Indicator: Blocked By Kill Switch (1)"
-  end
-
-  return "Blocked By Kill Switch Indicator: Unknown("..value..")"
-end
-
--- Dissect: Blocked By Kill Switch Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_kill_switch_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.blocked_by_kill_switch_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Blocked By Breach Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator = {}
-
--- Size: Blocked By Breach Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.size = 1
-
--- Display: Blocked By Breach Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.display = function(value)
-  if value == 0 then
-    return "Blocked By Breach Indicator: Not Blocked By Breach (0)"
-  end
-  if value == 1 then
-    return "Blocked By Breach Indicator: Blocked By Breach (1)"
+    return "Reject Type: Order Or Cancel Replace Reject (1)"
   end
   if value == 2 then
-    return "Blocked By Breach Indicator: Blocked By Arbitrage Check (2)"
+    return "Reject Type: Modify Request Reject (2)"
   end
   if value == 3 then
-    return "Blocked By Breach Indicator: Blocked By Intrinsic Value Check (3)"
+    return "Reject Type: Cancel Request Reject (3)"
+  end
+  if value == 5 then
+    return "Reject Type: New Bulk Quote Reject (5)"
+  end
+  if value == 7 then
+    return "Reject Type: Risk Limit Update Request Reject (7)"
+  end
+  if value == 8 then
+    return "Reject Type: Bulk Cancel Request Reject Options (8)"
+  end
+  if value == 9 then
+    return "Reject Type: Cross Order Reject (9)"
+  end
+  if value == 10 then
+    return "Reject Type: New Complex Series Request Reject (10)"
+  end
+  if value == 11 then
+    return "Reject Type: Risk Action Request Reject (11)"
   end
 
-  return "Blocked By Breach Indicator: Unknown("..value..")"
+  return "Reject Type: Unknown("..value..")"
 end
 
--- Dissect: Blocked By Breach Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.size
+-- Dissect: Reject Type
+nyse_amex_options_binarygateway_pillar_v3_25.reject_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reject_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.blocked_by_breach_indicator.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.blocked_by_breach_indicator, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reject_type, range, value, display)
 
   return offset + length, value
 end
 
--- Threshold Breach Level
-nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level = {}
+-- Repeating Groups
+nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups = {}
 
--- Size: Threshold Breach Level
-nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.size = 1
+-- Size: Repeating Groups
+nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.size = 1
 
--- Display: Threshold Breach Level
-nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.display = function(value)
-  if value == 0 then
-    return "Threshold Breach Level: Not Applicable (0)"
-  end
-  if value == 4 then
-    return "Threshold Breach Level: Greater Than 100 Percent (4)"
-  end
-
-  return "Threshold Breach Level: Unknown("..value..")"
+-- Display: Repeating Groups
+nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.display = function(value)
+  return "Repeating Groups: "..value
 end
 
--- Dissect: Threshold Breach Level
-nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.size
+-- Dissect: Repeating Groups
+nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.threshold_breach_level, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.repeating_groups, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1 = {}
+
+-- Size: Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size = 1
+
+-- Display: Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16 = {}
+
+-- Size: Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size = 16
+
+-- Display: Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display = function(value)
+  return "Reserved 16: "..value
+end
+
+-- Dissect: Reserved 16
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190 = {}
+
+-- Size: Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size = 190
+
+-- Display: Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display = function(value)
+  return "Reserved 190: "..value
+end
+
+-- Dissect: Reserved 190
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199 = {}
+
+-- Size: Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size = 199
+
+-- Display: Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display = function(value)
+  return "Reserved 199: "..value
+end
+
+-- Dissect: Reserved 199
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20 = {}
+
+-- Size: Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size = 20
+
+-- Display: Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display = function(value)
+  return "Reserved 20: "..value
+end
+
+-- Dissect: Reserved 20
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200 = {}
+
+-- Size: Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size = 200
+
+-- Display: Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display = function(value)
+  return "Reserved 200: "..value
+end
+
+-- Dissect: Reserved 200
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_200.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_200, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4 = {}
+
+-- Size: Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size = 4
+
+-- Display: Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49 = {}
+
+-- Size: Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size = 49
+
+-- Display: Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display = function(value)
+  return "Reserved 49: "..value
+end
+
+-- Dissect: Reserved 49
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50 = {}
+
+-- Size: Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size = 50
+
+-- Display: Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display = function(value)
+  return "Reserved 50: "..value
+end
+
+-- Dissect: Reserved 50
+nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type = {}
+
+-- Size: Risk Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.size = 1
+
+-- Display: Risk Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.display = function(value)
+  return "Risk Ack Type: "..value
+end
+
+-- Dissect: Risk Ack Type
+nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_ack_type, range, value, display)
 
   return offset + length, value
 end
@@ -2091,278 +4983,32 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_type.dissect = function
   return offset + length, value
 end
 
--- Count Calculation
-nyse_amex_options_binarygateway_pillar_v3_25.count_calculation = {}
+-- Risk Control Activation
+nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation = {}
 
--- Size: Count Calculation
-nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.size = 4
+-- Size: Risk Control Activation
+nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.size = 1
 
--- Display: Count Calculation
-nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.display = function(value)
-  return "Count Calculation: "..value
-end
-
--- Dissect: Count Calculation
-nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.count_calculation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.count_calculation, range, value, display)
-
-  return offset + length, value
-end
-
--- Usd Calculation 4
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4 = {}
-
--- Size: Usd Calculation 4
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.size = 8
-
--- Display: Usd Calculation 4
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.display = function(value)
-  return "Usd Calculation 4: "..value
-end
-
--- Dissect: Usd Calculation 4
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Usd Calculation 3
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3 = {}
-
--- Size: Usd Calculation 3
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.size = 8
-
--- Display: Usd Calculation 3
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.display = function(value)
-  return "Usd Calculation 3: "..value
-end
-
--- Dissect: Usd Calculation 3
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Usd Calculation 2
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2 = {}
-
--- Size: Usd Calculation 2
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.size = 8
-
--- Display: Usd Calculation 2
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.display = function(value)
-  return "Usd Calculation 2: "..value
-end
-
--- Dissect: Usd Calculation 2
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Usd Calculation 1
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1 = {}
-
--- Size: Usd Calculation 1
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.size = 8
-
--- Display: Usd Calculation 1
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.display = function(value)
-  return "Usd Calculation 1: "..value
-end
-
--- Dissect: Usd Calculation 1
-nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Ioc Attribution
-nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution = {}
-
--- Size: Ioc Attribution
-nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.size = 1
-
--- Display: Ioc Attribution
-nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.display = function(value)
+-- Display: Risk Control Activation
+nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.display = function(value)
   if value == 0 then
-    return "Ioc Attribution: Not Applicable (0)"
+    return "Risk Control Activation: Off (0)"
   end
   if value == 1 then
-    return "Ioc Attribution: Include Ioc (1)"
-  end
-  if value == 2 then
-    return "Ioc Attribution: Exclude Ioc (2)"
+    return "Risk Control Activation: On (1)"
   end
 
-  return "Ioc Attribution: Unknown("..value..")"
+  return "Risk Control Activation: Unknown("..value..")"
 end
 
--- Dissect: Ioc Attribution
-nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.size
+-- Dissect: Risk Control Activation
+nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.ioc_attribution.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ioc_attribution, range, value, display)
-
-  return offset + length, value
-end
-
--- Breach Action Response
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response = {}
-
--- Size: Breach Action Response
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.size = 1
-
--- Display: Breach Action Response
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.display = function(value)
-  if value == 0 then
-    return "Breach Action Response: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Breach Action Response: Notifications Only (1)"
-  end
-  if value == 2 then
-    return "Breach Action Response: Cancel Non Auction Orders And Block (2)"
-  end
-  if value == 3 then
-    return "Breach Action Response: Block (3)"
-  end
-
-  return "Breach Action Response: Unknown("..value..")"
-end
-
--- Dissect: Breach Action Response
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_response.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.breach_action_response, range, value, display)
-
-  return offset + length, value
-end
-
--- Count Limit
-nyse_amex_options_binarygateway_pillar_v3_25.count_limit = {}
-
--- Size: Count Limit
-nyse_amex_options_binarygateway_pillar_v3_25.count_limit.size = 4
-
--- Display: Count Limit
-nyse_amex_options_binarygateway_pillar_v3_25.count_limit.display = function(value)
-  return "Count Limit: "..value
-end
-
--- Dissect: Count Limit
-nyse_amex_options_binarygateway_pillar_v3_25.count_limit.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.count_limit.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.count_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.count_limit, range, value, display)
-
-  return offset + length, value
-end
-
--- Percentage Limit
-nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit = {}
-
--- Size: Percentage Limit
-nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.size = 4
-
--- Display: Percentage Limit
-nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.display = function(value)
-  return "Percentage Limit: "..value
-end
-
--- Dissect: Percentage Limit
-nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.percentage_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.percentage_limit, range, value, display)
-
-  return offset + length, value
-end
-
--- Time Limit
-nyse_amex_options_binarygateway_pillar_v3_25.time_limit = {}
-
--- Size: Time Limit
-nyse_amex_options_binarygateway_pillar_v3_25.time_limit.size = 4
-
--- Display: Time Limit
-nyse_amex_options_binarygateway_pillar_v3_25.time_limit.display = function(value)
-  return "Time Limit: "..value
-end
-
--- Dissect: Time Limit
-nyse_amex_options_binarygateway_pillar_v3_25.time_limit.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.time_limit.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.time_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.time_limit, range, value, display)
-
-  return offset + length, value
-end
-
--- Usd Limit
-nyse_amex_options_binarygateway_pillar_v3_25.usd_limit = {}
-
--- Size: Usd Limit
-nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.size = 8
-
--- Display: Usd Limit
-nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.display = function(value)
-  return "Usd Limit: "..value
-end
-
--- Dissect: Usd Limit
-nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_limit, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_activation, range, value, display)
 
   return offset + length, value
 end
@@ -2448,6 +5094,75 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_type.dissect = functio
   return offset + length, value
 end
 
+-- Risk Minimum Value
+nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value = {}
+
+-- Size: Risk Minimum Value
+nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.size = 8
+
+-- Display: Risk Minimum Value
+nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.display = function(value)
+  return "Risk Minimum Value: "..value
+end
+
+-- Dissect: Risk Minimum Value
+nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_minimum_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Range Id
+nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id = {}
+
+-- Size: Risk Range Id
+nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.size = 1
+
+-- Display: Risk Range Id
+nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.display = function(value)
+  return "Risk Range Id: "..value
+end
+
+-- Dissect: Risk Range Id
+nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_range_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk User Crd
+nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd = {}
+
+-- Size: Risk User Crd
+nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.size = 4
+
+-- Display: Risk User Crd
+nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.display = function(value)
+  return "Risk User Crd: "..value
+end
+
+-- Dissect: Risk User Crd
+nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_user_crd, range, value, display)
+
+  return offset + length, value
+end
+
 -- Risk User Type
 nyse_amex_options_binarygateway_pillar_v3_25.risk_user_type = {}
 
@@ -2481,48 +5196,454 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_user_type.dissect = function(b
   return offset + length, value
 end
 
--- Risk User Crd
-nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd = {}
+-- Self Trade Prevention
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention = {}
 
--- Size: Risk User Crd
-nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.size = 4
+-- Size: Self Trade Prevention
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.size = 1
 
--- Display: Risk User Crd
-nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.display = function(value)
-  return "Risk User Crd: "..value
+-- Display: Self Trade Prevention
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.display = function(value)
+  if value == 1 then
+    return "Self Trade Prevention: No Self Trade Prevention (1)"
+  end
+  if value == 2 then
+    return "Self Trade Prevention: Cancel Newest (2)"
+  end
+  if value == 3 then
+    return "Self Trade Prevention: Cancel Oldest (3)"
+  end
+  if value == 4 then
+    return "Self Trade Prevention: Cancel Both (4)"
+  end
+
+  return "Self Trade Prevention: Unknown("..value..")"
 end
 
--- Dissect: Risk User Crd
-nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.size
+-- Dissect: Self Trade Prevention
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_user_crd.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_user_crd, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.self_trade_prevention, range, value, display)
 
   return offset + length, value
 end
 
--- Clearing Number
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_number = {}
+-- Self Trade Type U 81
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81 = {}
 
--- Size: Clearing Number
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.size = 5
+-- Size: Self Trade Type U 81
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.size = 1
 
--- Display: Clearing Number
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Number: No Value"
-  end
-
-  return "Clearing Number: "..value
+-- Display: Self Trade Type U 81
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.display = function(value)
+  return "Self Trade Type U 81: "..value
 end
 
--- Dissect: Clearing Number
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.size
+-- Dissect: Self Trade Type U 81
+nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.self_trade_type_u_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq
+nyse_amex_options_binarygateway_pillar_v3_25.seq = {}
+
+-- Size: Seq
+nyse_amex_options_binarygateway_pillar_v3_25.seq.size = 8
+
+-- Display: Seq
+nyse_amex_options_binarygateway_pillar_v3_25.seq.display = function(value)
+  return "Seq: "..value
+end
+
+-- Dissect: Seq
+nyse_amex_options_binarygateway_pillar_v3_25.seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length = {}
+
+-- Size: Seq Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.size = 2
+
+-- Display: Seq Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.display = function(value)
+  return "Seq Msg Length: "..value
+end
+
+-- Dissect: Seq Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type = {}
+
+-- Size: Seq Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.size = 2
+
+-- Display: Seq Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.display = function(value)
+  if value == 0x0220 then
+    return "Seq Msg Type: Session Configuration Request Message (0x0220)"
+  end
+  if value == 0x0282 then
+    return "Seq Msg Type: Sequenced Filler Message (0x0282)"
+  end
+  if value == 0x0248 then
+    return "Seq Msg Type: New Order Message (0x0248)"
+  end
+  if value == 0x0250 then
+    return "Seq Msg Type: Order Cancel Request Message (0x0250)"
+  end
+  if value == 0x0251 then
+    return "Seq Msg Type: Order Modify Request Message (0x0251)"
+  end
+  if value == 0x0243 then
+    return "Seq Msg Type: New Bulk Quote Type 243 Message (0x0243)"
+  end
+  if value == 0x0259 then
+    return "Seq Msg Type: New Bulk Quote Type 259 Message (0x0259)"
+  end
+  if value == 0x0222 then
+    return "Seq Msg Type: New Order Cross Message (0x0222)"
+  end
+  if value == 0x0223 then
+    return "Seq Msg Type: Bulk Cancel Request Type 223 Message (0x0223)"
+  end
+  if value == 0x0224 then
+    return "Seq Msg Type: Bulk Cancel Request Type 224 Message (0x0224)"
+  end
+  if value == 0x0330 then
+    return "Seq Msg Type: Risk Limit Update Request Message (0x0330)"
+  end
+  if value == 0x0331 then
+    return "Seq Msg Type: Risk Action Request Message (0x0331)"
+  end
+  if value == 0x0357 then
+    return "Seq Msg Type: New Complex Series Request Message (0x0357)"
+  end
+  if value == 0x0233 then
+    return "Seq Msg Type: Underlying Symbol Reference Data Message (0x0233)"
+  end
+  if value == 0x0234 then
+    return "Seq Msg Type: Series Reference Data Message (0x0234)"
+  end
+  if value == 0x0230 then
+    return "Seq Msg Type: Minimum Price Variant Class Reference Data Message (0x0230)"
+  end
+  if value == 0x0231 then
+    return "Seq Msg Type: Minimum Price Variant Level Reference Data Message (0x0231)"
+  end
+  if value == 0x0272 then
+    return "Seq Msg Type: Mpid Configuration Message (0x0272)"
+  end
+  if value == 0x0833 then
+    return "Seq Msg Type: Options Market Maker Symbol Appointment Reference Data Message (0x0833)"
+  end
+  if value == 0x0221 then
+    return "Seq Msg Type: Session Configuration Acknowledgement Message (0x0221)"
+  end
+  if value == 0x0269 then
+    return "Seq Msg Type: Order And Cancel Replace Acknowledgement Message (0x0269)"
+  end
+  if value == 0x0294 then
+    return "Seq Msg Type: Bulk Quote Acknowledgment Type 294 Message (0x0294)"
+  end
+  if value == 0x0308 then
+    return "Seq Msg Type: Bulk Quote Acknowledgment Message (0x0308)"
+  end
+  if value == 0x0278 then
+    return "Seq Msg Type: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message (0x0278)"
+  end
+  if value == 0x0268 then
+    return "Seq Msg Type: Order Priority Update Acknowledgment Message (0x0268)"
+  end
+  if value == 0x0295 then
+    return "Seq Msg Type: Execution Report Message (0x0295)"
+  end
+  if value == 0x0293 then
+    return "Seq Msg Type: Trade Bust Correct Message (0x0293)"
+  end
+  if value == 0x0267 then
+    return "Seq Msg Type: Application Layer Reject Message (0x0267)"
+  end
+  if value == 0x0332 then
+    return "Seq Msg Type: Risk Control Acknowledgement Message (0x0332)"
+  end
+  if value == 0x0333 then
+    return "Seq Msg Type: Risk Control Alert Message (0x0333)"
+  end
+  if value == 0x0358 then
+    return "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)"
+  end
+
+  return "Seq Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Seq Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index = {}
+
+-- Size: Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index.size = 4
+
+-- Display: Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index.display = function(value)
+  return "Series Index: "..value
+end
+
+-- Dissect: Series Index
+nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.series_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.series_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Type
+nyse_amex_options_binarygateway_pillar_v3_25.series_type = {}
+
+-- Size: Series Type
+nyse_amex_options_binarygateway_pillar_v3_25.series_type.size = 1
+
+-- Display: Series Type
+nyse_amex_options_binarygateway_pillar_v3_25.series_type.display = function(value)
+  if value == 0 then
+    return "Series Type: Standard (0)"
+  end
+
+  return "Series Type: Unknown("..value..")"
+end
+
+-- Dissect: Series Type
+nyse_amex_options_binarygateway_pillar_v3_25.series_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.series_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.series_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sess
+nyse_amex_options_binarygateway_pillar_v3_25.sess = {}
+
+-- Size: Sess
+nyse_amex_options_binarygateway_pillar_v3_25.sess.size = 4
+
+-- Display: Sess
+nyse_amex_options_binarygateway_pillar_v3_25.sess.display = function(value)
+  return "Sess: "..value
+end
+
+-- Dissect: Sess
+nyse_amex_options_binarygateway_pillar_v3_25.sess.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.sess.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.sess.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sess, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side U 81
+nyse_amex_options_binarygateway_pillar_v3_25.side_u_81 = {}
+
+-- Size: Side U 81
+nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.size = 1
+
+-- Display: Side U 81
+nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.display = function(value)
+  return "Side U 81: "..value
+end
+
+-- Dissect: Side U 81
+nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.side_u_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Seq
+nyse_amex_options_binarygateway_pillar_v3_25.start_seq = {}
+
+-- Size: Start Seq
+nyse_amex_options_binarygateway_pillar_v3_25.start_seq.size = 8
+
+-- Display: Start Seq
+nyse_amex_options_binarygateway_pillar_v3_25.start_seq.display = function(value)
+  return "Start Seq: "..value
+end
+
+-- Dissect: Start Seq
+nyse_amex_options_binarygateway_pillar_v3_25.start_seq.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.start_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.start_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.start_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+nyse_amex_options_binarygateway_pillar_v3_25.status = {}
+
+-- Size: Status
+nyse_amex_options_binarygateway_pillar_v3_25.status.size = 1
+
+-- Display: Status
+nyse_amex_options_binarygateway_pillar_v3_25.status.display = function(value)
+  if value == 0 then
+    return "Status: Request Processed Successfully (0)"
+  end
+  if value == 18 then
+    return "Status: Not Logged In (18)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+nyse_amex_options_binarygateway_pillar_v3_25.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Px
+nyse_amex_options_binarygateway_pillar_v3_25.stop_px = {}
+
+-- Size: Stop Px
+nyse_amex_options_binarygateway_pillar_v3_25.stop_px.size = 8
+
+-- Display: Stop Px
+nyse_amex_options_binarygateway_pillar_v3_25.stop_px.display = function(value)
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+nyse_amex_options_binarygateway_pillar_v3_25.stop_px.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Stop Px
+nyse_amex_options_binarygateway_pillar_v3_25.stop_px.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.stop_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.stop_px.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.stop_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.stop_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nyse_amex_options_binarygateway_pillar_v3_25.strike_price = {}
+
+-- Size: Strike Price
+nyse_amex_options_binarygateway_pillar_v3_25.strike_price.size = 8
+
+-- Display: Strike Price
+nyse_amex_options_binarygateway_pillar_v3_25.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+nyse_amex_options_binarygateway_pillar_v3_25.strike_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Strike Price
+nyse_amex_options_binarygateway_pillar_v3_25.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.strike_price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.sub_id = {}
+
+-- Size: Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.sub_id.size = 4
+
+-- Display: Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.sub_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sub Id: No Value"
+  end
+
+  return "Sub Id: "..value
+end
+
+-- Dissect: Sub Id
+nyse_amex_options_binarygateway_pillar_v3_25.sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.sub_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2536,32 +5657,131 @@ nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.dissect = function(
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_number.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.sub_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_number, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sub_id, range, value, display)
 
   return offset + length, value
 end
 
--- Mp Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id = {}
+-- Sub Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length = {}
 
--- Size: Mp Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.size = 4
+-- Size: Sub Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.size = 2
 
--- Display: Mp Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mp Sub Id: No Value"
-  end
-
-  return "Mp Sub Id: "..value
+-- Display: Sub Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.display = function(value)
+  return "Sub Msg Length: "..value
 end
 
--- Dissect: Mp Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.size
+-- Dissect: Sub Msg Length
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sub_msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sub Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type = {}
+
+-- Size: Sub Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.size = 2
+
+-- Display: Sub Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.display = function(value)
+  return "Sub Msg Type: "..value
+end
+
+-- Dissect: Sub Msg Type
+nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sub_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Eligibility
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility = {}
+
+-- Size: Symbol Eligibility
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.size = 1
+
+-- Display: Symbol Eligibility
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.display = function(value)
+  if value == 1 then
+    return "Symbol Eligibility: All Symbols (1)"
+  end
+  if value == 2 then
+    return "Symbol Eligibility: Test Symbols Only (2)"
+  end
+
+  return "Symbol Eligibility: Unknown("..value..")"
+end
+
+-- Dissect: Symbol Eligibility
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.symbol_eligibility, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_id = {}
+
+-- Size: Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.size = 4
+
+-- Display: Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.display = function(value)
+  return "Symbol Id: "..value
+end
+
+-- Dissect: Symbol Id
+nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.symbol_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Cancel Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid = {}
+
+-- Size: Target Cancel Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.size = 4
+
+-- Display: Target Cancel Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Cancel Mpid: No Value"
+  end
+
+  return "Target Cancel Mpid: "..value
+end
+
+-- Dissect: Target Cancel Mpid
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2575,32 +5795,535 @@ nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.dissect = function(buffer
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mp_sub_id.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mp_sub_id, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.target_cancel_mpid, range, value, display)
 
   return offset + length, value
 end
 
--- Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.market_maker = {}
+-- Target Cancel Username
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username = {}
 
--- Size: Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.market_maker.size = 10
+-- Size: Target Cancel Username
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.size = 16
 
--- Display: Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.market_maker.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Market Maker: No Value"
-  end
-
-  return "Market Maker: "..value
+-- Display: Target Cancel Username
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.display = function(value)
+  return "Target Cancel Username: "..value
 end
 
--- Dissect: Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.market_maker.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.market_maker.size
+-- Dissect: Target Cancel Username
+nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.target_cancel_username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Test Symbol Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator = {}
+
+-- Size: Test Symbol Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.size = 1
+
+-- Display: Test Symbol Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.display = function(value)
+  if value == 0 then
+    return "Test Symbol Indicator: Production (0)"
+  end
+  if value == 1 then
+    return "Test Symbol Indicator: Test (1)"
+  end
+
+  return "Test Symbol Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Test Symbol Indicator
+nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.test_symbol_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Threshold Breach Level
+nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level = {}
+
+-- Size: Threshold Breach Level
+nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.size = 1
+
+-- Display: Threshold Breach Level
+nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.display = function(value)
+  if value == 0 then
+    return "Threshold Breach Level: Not Applicable (0)"
+  end
+  if value == 4 then
+    return "Threshold Breach Level: Greater Than 100 Percent (4)"
+  end
+
+  return "Threshold Breach Level: Unknown("..value..")"
+end
+
+-- Dissect: Threshold Breach Level
+nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.threshold_breach_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.threshold_breach_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Throttle Preference
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference = {}
+
+-- Size: Throttle Preference
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.size = 1
+
+-- Display: Throttle Preference
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.display = function(value)
+  if value == 0 then
+    return "Throttle Preference: Queue When Throttled (0)"
+  end
+  if value == 1 then
+    return "Throttle Preference: Reject When Throttled (1)"
+  end
+
+  return "Throttle Preference: Unknown("..value..")"
+end
+
+-- Dissect: Throttle Preference
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_preference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Throttle Threshold
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold = {}
+
+-- Size: Throttle Threshold
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.size = 2
+
+-- Display: Throttle Threshold
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.display = function(value)
+  return "Throttle Threshold: "..value
+end
+
+-- Dissect: Throttle Threshold
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_threshold, range, value, display)
+
+  return offset + length, value
+end
+
+-- Throttle Window
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_window = {}
+
+-- Size: Throttle Window
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.size = 2
+
+-- Display: Throttle Window
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.display = function(value)
+  return "Throttle Window: "..value
+end
+
+-- Dissect: Throttle Window
+nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_window, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Limit
+nyse_amex_options_binarygateway_pillar_v3_25.time_limit = {}
+
+-- Size: Time Limit
+nyse_amex_options_binarygateway_pillar_v3_25.time_limit.size = 4
+
+-- Display: Time Limit
+nyse_amex_options_binarygateway_pillar_v3_25.time_limit.display = function(value)
+  return "Time Limit: "..value
+end
+
+-- Dissect: Time Limit
+nyse_amex_options_binarygateway_pillar_v3_25.time_limit.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.time_limit.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.time_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.time_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nyse_amex_options_binarygateway_pillar_v3_25.timestamp = {}
+
+-- Size: Timestamp
+nyse_amex_options_binarygateway_pillar_v3_25.timestamp.size = 8
+
+-- Display: Timestamp
+nyse_amex_options_binarygateway_pillar_v3_25.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+nyse_amex_options_binarygateway_pillar_v3_25.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv = {}
+
+-- Size: Trading Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.size = 8
+
+-- Display: Trading Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.display = function(value)
+  return "Trading Mpv: "..value
+end
+
+-- Translate: Trading Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Trading Mpv
+nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.trading_mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time Timestamp 8
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8 = {}
+
+-- Size: Transact Time Timestamp 8
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.size = 8
+
+-- Display: Transact Time Timestamp 8
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time Timestamp 8: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time Timestamp 8
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.transact_time_timestamp_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time U 648
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648 = {}
+
+-- Size: Transact Time U 648
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.size = 8
+
+-- Display: Transact Time U 648
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.display = function(value)
+  return "Transact Time U 648: "..value
+end
+
+-- Dissect: Transact Time U 648
+nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.transact_time_u_648, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Type
+nyse_amex_options_binarygateway_pillar_v3_25.underlying_type = {}
+
+-- Size: Underlying Type
+nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.size = 1
+
+-- Display: Underlying Type
+nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.display = function(value)
+  if value == "A" then
+    return "Underlying Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Underlying Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Underlying Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Underlying Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Underlying Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Underlying Type: Ads (H)"
+  end
+  if value == "I" then
+    return "Underlying Type: Units (I)"
+  end
+  if value == "M" then
+    return "Underlying Type: Miscellaneous (M)"
+  end
+  if value == "L" then
+    return "Underlying Type: Index Linked Notes (L)"
+  end
+  if value == "N" then
+    return "Underlying Type: Bonds (N)"
+  end
+  if value == "O" then
+    return "Underlying Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Underlying Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Underlying Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Underlying Type: Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Underlying Type: Structured Notes (T)"
+  end
+  if value == "U" then
+    return "Underlying Type: Closed End Fund (U)"
+  end
+  if value == "W" then
+    return "Underlying Type: Warrant (W)"
+  end
+  if value == "X" then
+    return "Underlying Type: Index (X)"
+  end
+  if value == "Z" then
+    return "Underlying Type: Options (Z)"
+  end
+
+  return "Underlying Type: Unknown("..value..")"
+end
+
+-- Dissect: Underlying Type
+nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.underlying_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Usd Calculation 1
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1 = {}
+
+-- Size: Usd Calculation 1
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.size = 8
+
+-- Display: Usd Calculation 1
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.display = function(value)
+  return "Usd Calculation 1: "..value
+end
+
+-- Dissect: Usd Calculation 1
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Usd Calculation 2
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2 = {}
+
+-- Size: Usd Calculation 2
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.size = 8
+
+-- Display: Usd Calculation 2
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.display = function(value)
+  return "Usd Calculation 2: "..value
+end
+
+-- Dissect: Usd Calculation 2
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Usd Calculation 3
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3 = {}
+
+-- Size: Usd Calculation 3
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.size = 8
+
+-- Display: Usd Calculation 3
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.display = function(value)
+  return "Usd Calculation 3: "..value
+end
+
+-- Dissect: Usd Calculation 3
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Usd Calculation 4
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4 = {}
+
+-- Size: Usd Calculation 4
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.size = 8
+
+-- Display: Usd Calculation 4
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.display = function(value)
+  return "Usd Calculation 4: "..value
+end
+
+-- Dissect: Usd Calculation 4
+nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_calculation_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_calculation_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Usd Limit
+nyse_amex_options_binarygateway_pillar_v3_25.usd_limit = {}
+
+-- Size: Usd Limit
+nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.size = 8
+
+-- Display: Usd Limit
+nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.display = function(value)
+  return "Usd Limit: "..value
+end
+
+-- Dissect: Usd Limit
+nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.usd_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.usd_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- User
+nyse_amex_options_binarygateway_pillar_v3_25.user = {}
+
+-- Size: User
+nyse_amex_options_binarygateway_pillar_v3_25.user.size = 4
+
+-- Display: User
+nyse_amex_options_binarygateway_pillar_v3_25.user.display = function(value)
+  return "User: "..value
+end
+
+-- Dissect: User
+nyse_amex_options_binarygateway_pillar_v3_25.user.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.user.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.user.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Data
+nyse_amex_options_binarygateway_pillar_v3_25.user_data = {}
+
+-- Size: User Data
+nyse_amex_options_binarygateway_pillar_v3_25.user_data.size = 10
+
+-- Display: User Data
+nyse_amex_options_binarygateway_pillar_v3_25.user_data.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "User Data: No Value"
+  end
+
+  return "User Data: "..value
+end
+
+-- Dissect: User Data
+nyse_amex_options_binarygateway_pillar_v3_25.user_data.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.user_data.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2614,32 +6337,124 @@ nyse_amex_options_binarygateway_pillar_v3_25.market_maker.dissect = function(buf
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.market_maker.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.user_data.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.market_maker, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user_data, range, value, display)
 
   return offset + length, value
 end
 
--- Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.mpid = {}
+-- User Session Status
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_status = {}
 
--- Size: Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.mpid.size = 4
+-- Size: User Session Status
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.size = 1
 
--- Display: Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.mpid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mpid: No Value"
+-- Display: User Session Status
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.display = function(value)
+  if value == 1 then
+    return "User Session Status: Active (1)"
+  end
+  if value == 2 then
+    return "User Session Status: Inactive (2)"
+  end
+  if value == 3 then
+    return "User Session Status: Prospect (3)"
   end
 
-  return "Mpid: "..value
+  return "User Session Status: Unknown("..value..")"
 end
 
--- Dissect: Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.mpid.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpid.size
+-- Dissect: User Session Status
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user_session_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Session Type
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_type = {}
+
+-- Size: User Session Type
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.size = 1
+
+-- Display: User Session Type
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.display = function(value)
+  if value == 1 then
+    return "User Session Type: Customer (1)"
+  end
+  if value == 2 then
+    return "User Session Type: Service Bureau (2)"
+  end
+  if value == 4 then
+    return "User Session Type: Options Market Maker (4)"
+  end
+  if value == 12 then
+    return "User Session Type: Risk Admin (12)"
+  end
+
+  return "User Session Type: Unknown("..value..")"
+end
+
+-- Dissect: User Session Type
+nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user_session_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+nyse_amex_options_binarygateway_pillar_v3_25.username = {}
+
+-- Size: Username
+nyse_amex_options_binarygateway_pillar_v3_25.username.size = 16
+
+-- Display: Username
+nyse_amex_options_binarygateway_pillar_v3_25.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nyse_amex_options_binarygateway_pillar_v3_25.username.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nyse_amex_options_binarygateway_pillar_v3_25.version = {}
+
+-- Size: Version
+nyse_amex_options_binarygateway_pillar_v3_25.version.size = 20
+
+-- Display: Version
+nyse_amex_options_binarygateway_pillar_v3_25.version.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Version: No Value"
+  end
+
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nyse_amex_options_binarygateway_pillar_v3_25.version.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.version.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2653,11 +6468,199 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpid.dissect = function(buffer, off
     value = range:string()
   end
 
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpid.display(value, buffer, offset, packet, parent)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid, range, value, display)
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.version, range, value, display)
 
   return offset + length, value
+end
+
+-- Working Away From Display
+nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display = {}
+
+-- Size: Working Away From Display
+nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.size = 1
+
+-- Display: Working Away From Display
+nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.display = function(value)
+  if value == 0 then
+    return "Working Away From Display: Equal To Display Price (0)"
+  end
+  if value == 1 then
+    return "Working Away From Display: Away From Display Price (1)"
+  end
+
+  return "Working Away From Display: Unknown("..value..")"
+end
+
+-- Dissect: Working Away From Display
+nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.working_away_from_display, range, value, display)
+
+  return offset + length, value
+end
+
+-- Working Price
+nyse_amex_options_binarygateway_pillar_v3_25.working_price = {}
+
+-- Size: Working Price
+nyse_amex_options_binarygateway_pillar_v3_25.working_price.size = 8
+
+-- Display: Working Price
+nyse_amex_options_binarygateway_pillar_v3_25.working_price.display = function(value)
+  return "Working Price: "..value
+end
+
+-- Translate: Working Price
+nyse_amex_options_binarygateway_pillar_v3_25.working_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Working Price
+nyse_amex_options_binarygateway_pillar_v3_25.working_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amex_options_binarygateway_pillar_v3_25.working_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = nyse_amex_options_binarygateway_pillar_v3_25.working_price.translate(raw)
+  local display = nyse_amex_options_binarygateway_pillar_v3_25.working_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.working_price, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Amex Options BinaryGateway Pillar 3.25
+-----------------------------------------------------------------------
+
+-- Leg Group
+nyse_amex_options_binarygateway_pillar_v3_25.leg_group = {}
+
+-- Size: Leg Group
+nyse_amex_options_binarygateway_pillar_v3_25.leg_group.size =
+  nyse_amex_options_binarygateway_pillar_v3_25.leg_symbol_id.size + 
+  nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.size + 
+  nyse_amex_options_binarygateway_pillar_v3_25.leg_side.size
+
+-- Display: Leg Group
+nyse_amex_options_binarygateway_pillar_v3_25.leg_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Leg Group
+nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields = function(buffer, offset, packet, parent, leg_group_index)
+  local index = offset
+
+  -- Implicit Leg Group Index
+  if leg_group_index ~= nil then
+    local iteration = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_group_index, leg_group_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Symbol Id: u32
+  index, leg_symbol_id = nyse_amex_options_binarygateway_pillar_v3_25.leg_symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: u16
+  index, leg_ratio_qty = nyse_amex_options_binarygateway_pillar_v3_25.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: u8
+  index, leg_side = nyse_amex_options_binarygateway_pillar_v3_25.leg_side.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg Group
+nyse_amex_options_binarygateway_pillar_v3_25.leg_group.dissect = function(buffer, offset, packet, parent, leg_group_index)
+  if show.leg_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_group, buffer(offset, 0))
+    local index = nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.leg_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amex_options_binarygateway_pillar_v3_25.leg_group.fields(buffer, offset, packet, parent, leg_group_index)
+  end
+end
+
+-- Complex Series Request Acknowledgement Message
+nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message = {}
+
+-- Read runtime size of: Complex Series Request Acknowledgement Message
+nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(offset - 2, 2):le_uint()
+
+  return seq_msg_length - 4
+end
+
+-- Display: Complex Series Request Acknowledgement Message
+nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Series Request Acknowledgement Message
+nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields = function(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+  local index = offset
+
+  -- Transact Time Timestamp 8: Timestamp
+  index, transact_time_timestamp_8 = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_timestamp_8.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: u64
+  index, cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_25.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Reason Code: u16
+  index, reason_code = nyse_amex_options_binarygateway_pillar_v3_25.reason_code.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: u32
+  index, symbol_id = nyse_amex_options_binarygateway_pillar_v3_25.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Side U 81: u8
+  index, side_u_81 = nyse_amex_options_binarygateway_pillar_v3_25.side_u_81.dissect(buffer, index, packet, parent)
+
+  -- Repeating Groups: u8
+  index, repeating_groups = nyse_amex_options_binarygateway_pillar_v3_25.repeating_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Leg Group
+  for leg_group_index = 1, repeating_groups do
+    index, leg_group = nyse_amex_options_binarygateway_pillar_v3_25.leg_group.dissect(buffer, index, packet, parent, leg_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Complex Series Request Acknowledgement Message
+nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.dissect = function(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+  local size_of_complex_series_request_acknowledgement_message = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.size(buffer, offset)
+  local index = offset + size_of_complex_series_request_acknowledgement_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.complex_series_request_acknowledgement_message then
+    parent = parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.complex_series_request_acknowledgement_message, buffer(offset, 0))
+    local current = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+    parent:set_len(size_of_complex_series_request_acknowledgement_message)
+    local display = nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amex_options_binarygateway_pillar_v3_25.complex_series_request_acknowledgement_message.fields(buffer, offset, packet, parent, size_of_complex_series_request_acknowledgement_message)
+
+    return index
+  end
 end
 
 -- Risk Control Alert Message
@@ -2783,181 +6786,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_alert_message.dissect 
 
     return index
   end
-end
-
--- Reserved 190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_190 = {}
-
--- Size: Reserved 190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size = 190
-
--- Display: Reserved 190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display = function(value)
-  return "Reserved 190: "..value
-end
-
--- Dissect: Reserved 190
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_190.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_190, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Scale
-nyse_amex_options_binarygateway_pillar_v3_25.price_scale = {}
-
--- Size: Price Scale
-nyse_amex_options_binarygateway_pillar_v3_25.price_scale.size = 1
-
--- Display: Price Scale
-nyse_amex_options_binarygateway_pillar_v3_25.price_scale.display = function(value)
-  if value == 0 then
-    return "Price Scale: No Decimals (0)"
-  end
-  if value == 2 then
-    return "Price Scale: Two Decimals (2)"
-  end
-
-  return "Price Scale: Unknown("..value..")"
-end
-
--- Dissect: Price Scale
-nyse_amex_options_binarygateway_pillar_v3_25.price_scale.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.price_scale.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.price_scale.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price_scale, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Minimum Value
-nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value = {}
-
--- Size: Risk Minimum Value
-nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.size = 8
-
--- Display: Risk Minimum Value
-nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.display = function(value)
-  return "Risk Minimum Value: "..value
-end
-
--- Dissect: Risk Minimum Value
-nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_minimum_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_minimum_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Range Id
-nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id = {}
-
--- Size: Risk Range Id
-nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.size = 1
-
--- Display: Risk Range Id
-nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.display = function(value)
-  return "Risk Range Id: "..value
-end
-
--- Dissect: Risk Range Id
-nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_range_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_range_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Control Activation
-nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation = {}
-
--- Size: Risk Control Activation
-nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.size = 1
-
--- Display: Risk Control Activation
-nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.display = function(value)
-  if value == 0 then
-    return "Risk Control Activation: Off (0)"
-  end
-  if value == 1 then
-    return "Risk Control Activation: On (1)"
-  end
-
-  return "Risk Control Activation: Unknown("..value..")"
-end
-
--- Dissect: Risk Control Activation
-nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_control_activation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_control_activation, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type = {}
-
--- Size: Risk Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.size = 1
-
--- Display: Risk Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.display = function(value)
-  return "Risk Ack Type: "..value
-end
-
--- Dissect: Risk Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.risk_ack_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.risk_ack_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4 = {}
-
--- Size: Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size = 4
-
--- Display: Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_4, range, value, display)
-
-  return offset + length, value
 end
 
 -- Risk Control Acknowledgement Message
@@ -3103,96 +6931,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_control_acknowledgement_messag
   end
 end
 
--- User Data
-nyse_amex_options_binarygateway_pillar_v3_25.user_data = {}
-
--- Size: User Data
-nyse_amex_options_binarygateway_pillar_v3_25.user_data.size = 10
-
--- Display: User Data
-nyse_amex_options_binarygateway_pillar_v3_25.user_data.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "User Data: No Value"
-  end
-
-  return "User Data: "..value
-end
-
--- Dissect: User Data
-nyse_amex_options_binarygateway_pillar_v3_25.user_data.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.user_data.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.user_data.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user_data, range, value, display)
-
-  return offset + length, value
-end
-
--- Reject Type
-nyse_amex_options_binarygateway_pillar_v3_25.reject_type = {}
-
--- Size: Reject Type
-nyse_amex_options_binarygateway_pillar_v3_25.reject_type.size = 1
-
--- Display: Reject Type
-nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display = function(value)
-  if value == 1 then
-    return "Reject Type: Order Or Cancel Replace Reject (1)"
-  end
-  if value == 2 then
-    return "Reject Type: Modify Request Reject (2)"
-  end
-  if value == 3 then
-    return "Reject Type: Cancel Request Reject (3)"
-  end
-  if value == 5 then
-    return "Reject Type: New Bulk Quote Reject (5)"
-  end
-  if value == 7 then
-    return "Reject Type: Risk Limit Update Request Reject (7)"
-  end
-  if value == 8 then
-    return "Reject Type: Bulk Cancel Request Reject Options (8)"
-  end
-  if value == 9 then
-    return "Reject Type: Cross Order Reject (9)"
-  end
-  if value == 10 then
-    return "Reject Type: New Complex Series Request Reject (10)"
-  end
-  if value == 11 then
-    return "Reject Type: Risk Action Request Reject (11)"
-  end
-
-  return "Reject Type: Unknown("..value..")"
-end
-
--- Dissect: Reject Type
-nyse_amex_options_binarygateway_pillar_v3_25.reject_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reject_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reject_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reject_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Application Layer Reject Message
 nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message = {}
 
@@ -3262,180 +7000,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.application_layer_reject_message.di
 
     return index
   end
-end
-
--- Bust Correct Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator = {}
-
--- Size: Bust Correct Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.size = 1
-
--- Display: Bust Correct Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.display = function(value)
-  if value == 0 then
-    return "Bust Correct Indicator: Trade Bust (0)"
-  end
-  if value == 1 then
-    return "Bust Correct Indicator: Trade Correction (1)"
-  end
-
-  return "Bust Correct Indicator: Unknown("..value..")"
-end
-
--- Dissect: Bust Correct Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.bust_correct_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bust_correct_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty
-nyse_amex_options_binarygateway_pillar_v3_25.last_qty = {}
-
--- Size: Last Qty
-nyse_amex_options_binarygateway_pillar_v3_25.last_qty.size = 4
-
--- Display: Last Qty
-nyse_amex_options_binarygateway_pillar_v3_25.last_qty.display = function(value)
-  return "Last Qty: "..value
-end
-
--- Dissect: Last Qty
-nyse_amex_options_binarygateway_pillar_v3_25.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.last_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-nyse_amex_options_binarygateway_pillar_v3_25.last_px = {}
-
--- Size: Last Px
-nyse_amex_options_binarygateway_pillar_v3_25.last_px.size = 8
-
--- Display: Last Px
-nyse_amex_options_binarygateway_pillar_v3_25.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-nyse_amex_options_binarygateway_pillar_v3_25.last_px.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Last Px
-nyse_amex_options_binarygateway_pillar_v3_25.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.last_px.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Deal Id
-nyse_amex_options_binarygateway_pillar_v3_25.deal_id = {}
-
--- Size: Deal Id
-nyse_amex_options_binarygateway_pillar_v3_25.deal_id.size = 8
-
--- Display: Deal Id
-nyse_amex_options_binarygateway_pillar_v3_25.deal_id.display = function(value)
-  return "Deal Id: "..value
-end
-
--- Dissect: Deal Id
-nyse_amex_options_binarygateway_pillar_v3_25.deal_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.deal_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.deal_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.deal_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq
-nyse_amex_options_binarygateway_pillar_v3_25.seq = {}
-
--- Size: Seq
-nyse_amex_options_binarygateway_pillar_v3_25.seq.size = 8
-
--- Display: Seq
-nyse_amex_options_binarygateway_pillar_v3_25.seq.display = function(value)
-  return "Seq: "..value
-end
-
--- Dissect: Seq
-nyse_amex_options_binarygateway_pillar_v3_25.seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq, range, value, display)
-
-  return offset + length, value
-end
-
--- User
-nyse_amex_options_binarygateway_pillar_v3_25.user = {}
-
--- Size: User
-nyse_amex_options_binarygateway_pillar_v3_25.user.size = 4
-
--- Display: User
-nyse_amex_options_binarygateway_pillar_v3_25.user.display = function(value)
-  return "User: "..value
-end
-
--- Dissect: User
-nyse_amex_options_binarygateway_pillar_v3_25.user.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.user.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.user.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user, range, value, display)
-
-  return offset + length, value
-end
-
--- Sess
-nyse_amex_options_binarygateway_pillar_v3_25.sess = {}
-
--- Size: Sess
-nyse_amex_options_binarygateway_pillar_v3_25.sess.size = 4
-
--- Display: Sess
-nyse_amex_options_binarygateway_pillar_v3_25.sess.display = function(value)
-  return "Sess: "..value
-end
-
--- Dissect: Sess
-nyse_amex_options_binarygateway_pillar_v3_25.sess.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.sess.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.sess.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sess, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stream Id
@@ -3526,29 +7090,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.ref_seq_msg_id.dissect = function(b
   end
 end
 
--- Order Id
-nyse_amex_options_binarygateway_pillar_v3_25.order_id = {}
-
--- Size: Order Id
-nyse_amex_options_binarygateway_pillar_v3_25.order_id.size = 8
-
--- Display: Order Id
-nyse_amex_options_binarygateway_pillar_v3_25.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-nyse_amex_options_binarygateway_pillar_v3_25.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Bust Correct Message
 nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message = {}
 
@@ -3630,260 +7171,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.trade_bust_correct_message.dissect 
 
     return index
   end
-end
-
--- Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account = {}
-
--- Size: Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.size = 5
-
--- Display: Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Account: No Value"
-  end
-
-  return "Clearing Account: "..value
-end
-
--- Dissect: Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Optional Data
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data = {}
-
--- Size: Optional Data
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data.size = 16
-
--- Display: Optional Data
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Optional Data: No Value"
-  end
-
-  return "Optional Data: "..value
-end
-
--- Dissect: Optional Data
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.optional_data.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.optional_data.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm = {}
-
--- Size: Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.size = 5
-
--- Display: Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Firm: No Value"
-  end
-
-  return "Clearing Firm: "..value
-end
-
--- Dissect: Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Deliver To Comp Id
-nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id = {}
-
--- Size: Deliver To Comp Id
-nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.size = 5
-
--- Display: Deliver To Comp Id
-nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Deliver To Comp Id: No Value"
-  end
-
-  return "Deliver To Comp Id: "..value
-end
-
--- Dissect: Deliver To Comp Id
-nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.deliver_to_comp_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.deliver_to_comp_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Floor
-nyse_amex_options_binarygateway_pillar_v3_25.max_floor = {}
-
--- Size: Max Floor
-nyse_amex_options_binarygateway_pillar_v3_25.max_floor.size = 4
-
--- Display: Max Floor
-nyse_amex_options_binarygateway_pillar_v3_25.max_floor.display = function(value)
-  return "Max Floor: "..value
-end
-
--- Dissect: Max Floor
-nyse_amex_options_binarygateway_pillar_v3_25.max_floor.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.max_floor.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.max_floor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_floor, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Px
-nyse_amex_options_binarygateway_pillar_v3_25.stop_px = {}
-
--- Size: Stop Px
-nyse_amex_options_binarygateway_pillar_v3_25.stop_px.size = 8
-
--- Display: Stop Px
-nyse_amex_options_binarygateway_pillar_v3_25.stop_px.display = function(value)
-  return "Stop Px: "..value
-end
-
--- Translate: Stop Px
-nyse_amex_options_binarygateway_pillar_v3_25.stop_px.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Stop Px
-nyse_amex_options_binarygateway_pillar_v3_25.stop_px.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.stop_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.stop_px.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.stop_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Sub Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length = {}
-
--- Size: Sub Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.size = 2
-
--- Display: Sub Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.display = function(value)
-  return "Sub Msg Length: "..value
-end
-
--- Dissect: Sub Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sub_msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Sub Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type = {}
-
--- Size: Sub Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.size = 2
-
--- Display: Sub Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.display = function(value)
-  return "Sub Msg Type: "..value
-end
-
--- Dissect: Sub Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.sub_msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sub_msg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sub Msg Header
@@ -3992,628 +7279,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.optional_order_add_on.dissect = fun
     -- Skip element, add fields directly
     return nyse_amex_options_binarygateway_pillar_v3_25.optional_order_add_on.fields(buffer, offset, packet, parent)
   end
-end
-
--- Open Close U 81
-nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81 = {}
-
--- Size: Open Close U 81
-nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.size = 1
-
--- Display: Open Close U 81
-nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.display = function(value)
-  return "Open Close U 81: "..value
-end
-
--- Dissect: Open Close U 81
-nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.open_close_u_81.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.open_close_u_81, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Id
-nyse_amex_options_binarygateway_pillar_v3_25.cross_id = {}
-
--- Size: Cross Id
-nyse_amex_options_binarygateway_pillar_v3_25.cross_id.size = 8
-
--- Display: Cross Id
-nyse_amex_options_binarygateway_pillar_v3_25.cross_id.display = function(value)
-  return "Cross Id: "..value
-end
-
--- Dissect: Cross Id
-nyse_amex_options_binarygateway_pillar_v3_25.cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.cross_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cross_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered = {}
-
--- Size: Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.size = 1
-
--- Display: Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.display = function(value)
-  if value == 0 then
-    return "Covered Or Uncovered: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Covered Or Uncovered: Exposed (1)"
-  end
-  if value == 2 then
-    return "Covered Or Uncovered: Covered (2)"
-  end
-
-  return "Covered Or Uncovered: Unknown("..value..")"
-end
-
--- Dissect: Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.covered_or_uncovered.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.covered_or_uncovered, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered = {}
-
--- Size: Contra Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.size = 1
-
--- Display: Contra Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.display = function(value)
-  if value == 0 then
-    return "Contra Covered Or Uncovered: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Contra Covered Or Uncovered: Exposed (1)"
-  end
-  if value == 2 then
-    return "Contra Covered Or Uncovered: Covered (2)"
-  end
-
-  return "Contra Covered Or Uncovered: Unknown("..value..")"
-end
-
--- Dissect: Contra Covered Or Uncovered
-nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_covered_or_uncovered.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_covered_or_uncovered, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Cross Type
-nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type = {}
-
--- Size: Contra Cross Type
-nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size = 2
-
--- Display: Contra Cross Type
-nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display = function(value)
-  if value == 0 then
-    return "Contra Cross Type: Not Applicable (0)"
-  end
-  if value == 5 then
-    return "Contra Cross Type: Price Improvement Cube (5)"
-  end
-  if value == 7 then
-    return "Contra Cross Type: Aoncube Solicitation (7)"
-  end
-  if value == 10 then
-    return "Contra Cross Type: Qcc (10)"
-  end
-  if value == 11 then
-    return "Contra Cross Type: Customer To Customer Cross (11)"
-  end
-
-  return "Contra Cross Type: Unknown("..value..")"
-end
-
--- Dissect: Contra Cross Type
-nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_cross_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account = {}
-
--- Size: Contra Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.size = 5
-
--- Display: Contra Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contra Clearing Account: No Value"
-  end
-
-  return "Contra Clearing Account: "..value
-end
-
--- Dissect: Contra Clearing Account
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_clearing_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Customer Or Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm = {}
-
--- Size: Contra Customer Or Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.size = 1
-
--- Display: Contra Customer Or Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.display = function(value)
-  if value == 0 then
-    return "Contra Customer Or Firm: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Contra Customer Or Firm: Customer (1)"
-  end
-  if value == 2 then
-    return "Contra Customer Or Firm: Firm (2)"
-  end
-  if value == 3 then
-    return "Contra Customer Or Firm: Broker (3)"
-  end
-  if value == 4 then
-    return "Contra Customer Or Firm: Market Maker (4)"
-  end
-  if value == 5 then
-    return "Contra Customer Or Firm: Away Market Maker (5)"
-  end
-  if value == 6 then
-    return "Contra Customer Or Firm: Prof Customer (6)"
-  end
-
-  return "Contra Customer Or Firm: Unknown("..value..")"
-end
-
--- Dissect: Contra Customer Or Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_customer_or_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_customer_or_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close = {}
-
--- Size: Contra Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.size = 1
-
--- Display: Contra Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.display = function(value)
-  if value == 0 then
-    return "Contra Open Close: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Contra Open Close: Open (1)"
-  end
-  if value == 2 then
-    return "Contra Open Close: Close (2)"
-  end
-
-  return "Contra Open Close: Unknown("..value..")"
-end
-
--- Dissect: Contra Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_open_close.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_open_close, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid = {}
-
--- Size: Contra Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.size = 4
-
--- Display: Contra Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contra Mpid: No Value"
-  end
-
-  return "Contra Mpid: "..value
-end
-
--- Dissect: Contra Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_mpid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_mpid, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm = {}
-
--- Size: Contra Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.size = 5
-
--- Display: Contra Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contra Clearing Firm: No Value"
-  end
-
-  return "Contra Clearing Firm: "..value
-end
-
--- Dissect: Contra Clearing Firm
-nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_clearing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_clearing_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Contra Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker = {}
-
--- Size: Contra Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.size = 10
-
--- Display: Contra Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contra Market Maker: No Value"
-  end
-
-  return "Contra Market Maker: "..value
-end
-
--- Dissect: Contra Market Maker
-nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contra_market_maker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contra_market_maker, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Type
-nyse_amex_options_binarygateway_pillar_v3_25.participant_type = {}
-
--- Size: Participant Type
-nyse_amex_options_binarygateway_pillar_v3_25.participant_type.size = 1
-
--- Display: Participant Type
-nyse_amex_options_binarygateway_pillar_v3_25.participant_type.display = function(value)
-  if value == 0 then
-    return "Participant Type: Not Applicable (0)"
-  end
-
-  return "Participant Type: Unknown("..value..")"
-end
-
--- Dissect: Participant Type
-nyse_amex_options_binarygateway_pillar_v3_25.participant_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.participant_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.participant_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.participant_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Locate Reqd U 81
-nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81 = {}
-
--- Size: Locate Reqd U 81
-nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.size = 1
-
--- Display: Locate Reqd U 81
-nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.display = function(value)
-  return "Locate Reqd U 81: "..value
-end
-
--- Dissect: Locate Reqd U 81
-nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.locate_reqd_u_81.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.locate_reqd_u_81, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 2
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1 = {}
-
--- Size: Reserved 1
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size = 1
-
--- Display: Reserved 1
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Multileg Reporting Type
-nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type = {}
-
--- Size: Multileg Reporting Type
-nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.size = 1
-
--- Display: Multileg Reporting Type
-nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.display = function(value)
-  if value == 1 then
-    return "Multileg Reporting Type: Single Leg Security (1)"
-  end
-  if value == 2 then
-    return "Multileg Reporting Type: Individual Leg Of Multi Leg Security (2)"
-  end
-  if value == 3 then
-    return "Multileg Reporting Type: Multi Leg Security (3)"
-  end
-
-  return "Multileg Reporting Type: Unknown("..value..")"
-end
-
--- Dissect: Multileg Reporting Type
-nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.multileg_reporting_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.multileg_reporting_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator = {}
-
--- Size: Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.size = 4
-
--- Display: Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Liquidity Indicator: No Value"
-  end
-
-  return "Liquidity Indicator: "..value
-end
-
--- Dissect: Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.liquidity_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.liquidity_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Cum Qty
-nyse_amex_options_binarygateway_pillar_v3_25.cum_qty = {}
-
--- Size: Cum Qty
-nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.size = 4
-
--- Display: Cum Qty
-nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.display = function(value)
-  return "Cum Qty: "..value
-end
-
--- Dissect: Cum Qty
-nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.cum_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leaves Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty = {}
-
--- Size: Leaves Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.size = 4
-
--- Display: Leaves Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time U 648
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648 = {}
-
--- Size: Transact Time U 648
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.size = 8
-
--- Display: Transact Time U 648
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.display = function(value)
-  return "Transact Time U 648: "..value
-end
-
--- Dissect: Transact Time U 648
-nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.transact_time_u_648.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.transact_time_u_648, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Message
@@ -4768,198 +7433,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.execution_report_message.dissect = 
   end
 end
 
--- Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.ack_type = {}
-
--- Size: Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.ack_type.size = 1
-
--- Display: Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.ack_type.display = function(value)
-  if value == 1 then
-    return "Ack Type: New Interest (1)"
-  end
-  if value == 2 then
-    return "Ack Type: Order Priority Update New Order Id (2)"
-  end
-  if value == 3 then
-    return "Ack Type: Order Priority Update Same Order Id (3)"
-  end
-  if value == 4 then
-    return "Ack Type: Bulk Cancel Ack (4)"
-  end
-  if value == 5 then
-    return "Ack Type: Pending Cancel (5)"
-  end
-  if value == 6 then
-    return "Ack Type: Pending Replace (6)"
-  end
-  if value == 7 then
-    return "Ack Type: Pending Modify (7)"
-  end
-  if value == 8 then
-    return "Ack Type: Replaced (8)"
-  end
-  if value == 9 then
-    return "Ack Type: Modified (9)"
-  end
-  if value == 11 then
-    return "Ack Type: Canceled (11)"
-  end
-  if value == 12 then
-    return "Ack Type: Done For Day (12)"
-  end
-  if value == 17 then
-    return "Ack Type: Gtc Renewal Or Restatement (17)"
-  end
-  if value == 18 then
-    return "Ack Type: Individual Market Maker Quote Reject (18)"
-  end
-
-  return "Ack Type: Unknown("..value..")"
-end
-
--- Dissect: Ack Type
-nyse_amex_options_binarygateway_pillar_v3_25.ack_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.ack_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.ack_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ack_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Pre Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator = {}
-
--- Size: Pre Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.size = 4
-
--- Display: Pre Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.display = function(value)
-  if value == "0" then
-    return "Pre Liquidity Indicator: None (0)"
-  end
-  if value == "1" then
-    return "Pre Liquidity Indicator: Local Market Candidate (1)"
-  end
-  if value == "4" then
-    return "Pre Liquidity Indicator: Join Nbbo Candidate (4)"
-  end
-  if value == "5" then
-    return "Pre Liquidity Indicator: Set Nbbo Candidate (5)"
-  end
-
-  return "Pre Liquidity Indicator: Unknown("..value..")"
-end
-
--- Dissect: Pre Liquidity Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.pre_liquidity_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.pre_liquidity_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Working Away From Display
-nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display = {}
-
--- Size: Working Away From Display
-nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.size = 1
-
--- Display: Working Away From Display
-nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.display = function(value)
-  if value == 0 then
-    return "Working Away From Display: Equal To Display Price (0)"
-  end
-  if value == 1 then
-    return "Working Away From Display: Away From Display Price (1)"
-  end
-
-  return "Working Away From Display: Unknown("..value..")"
-end
-
--- Dissect: Working Away From Display
-nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.working_away_from_display.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.working_away_from_display, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-nyse_amex_options_binarygateway_pillar_v3_25.order_qty = {}
-
--- Size: Order Qty
-nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size = 4
-
--- Display: Order Qty
-nyse_amex_options_binarygateway_pillar_v3_25.order_qty.display = function(value)
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-nyse_amex_options_binarygateway_pillar_v3_25.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Working Price
-nyse_amex_options_binarygateway_pillar_v3_25.working_price = {}
-
--- Size: Working Price
-nyse_amex_options_binarygateway_pillar_v3_25.working_price.size = 8
-
--- Display: Working Price
-nyse_amex_options_binarygateway_pillar_v3_25.working_price.display = function(value)
-  return "Working Price: "..value
-end
-
--- Translate: Working Price
-nyse_amex_options_binarygateway_pillar_v3_25.working_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Working Price
-nyse_amex_options_binarygateway_pillar_v3_25.working_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.working_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.working_price.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.working_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.working_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Priority Update Acknowledgment Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgment_message = {}
 
@@ -5040,166 +7513,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_acknowledgmen
   end
 end
 
--- Cancel Scope
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope = {}
-
--- Size: Cancel Scope
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.size = 1
-
--- Display: Cancel Scope
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.display = function(value)
-  if value == 0 then
-    return "Cancel Scope: Orders Only (0)"
-  end
-  if value == 1 then
-    return "Cancel Scope: Quotes Only (1)"
-  end
-  if value == 2 then
-    return "Cancel Scope: Orders And Quotes (2)"
-  end
-
-  return "Cancel Scope: Unknown("..value..")"
-end
-
--- Dissect: Cancel Scope
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.cancel_scope.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cancel_scope, range, value, display)
-
-  return offset + length, value
-end
-
--- Bulk Action
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_action = {}
-
--- Size: Bulk Action
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.size = 1
-
--- Display: Bulk Action
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.display = function(value)
-  if value == 0 then
-    return "Bulk Action: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Bulk Action: Cancel Single Leg Only (1)"
-  end
-  if value == 2 then
-    return "Bulk Action: Cancel Complex Only (2)"
-  end
-  if value == 3 then
-    return "Bulk Action: Cancel Single And Complex (3)"
-  end
-  if value == 4 then
-    return "Bulk Action: Block And Cancel (4)"
-  end
-  if value == 5 then
-    return "Bulk Action: Unblock (5)"
-  end
-
-  return "Bulk Action: Unknown("..value..")"
-end
-
--- Dissect: Bulk Action
-nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.bulk_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bulk_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Target Cancel Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid = {}
-
--- Size: Target Cancel Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.size = 4
-
--- Display: Target Cancel Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Target Cancel Mpid: No Value"
-  end
-
-  return "Target Cancel Mpid: "..value
-end
-
--- Dissect: Target Cancel Mpid
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_mpid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.target_cancel_mpid, range, value, display)
-
-  return offset + length, value
-end
-
--- Target Cancel Username
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username = {}
-
--- Size: Target Cancel Username
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.size = 16
-
--- Display: Target Cancel Username
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.display = function(value)
-  return "Target Cancel Username: "..value
-end
-
--- Dissect: Target Cancel Username
-nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.target_cancel_username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.target_cancel_username, range, value, display)
-
-  return offset + length, value
-end
-
--- Group Id
-nyse_amex_options_binarygateway_pillar_v3_25.group_id = {}
-
--- Size: Group Id
-nyse_amex_options_binarygateway_pillar_v3_25.group_id.size = 4
-
--- Display: Group Id
-nyse_amex_options_binarygateway_pillar_v3_25.group_id.display = function(value)
-  return "Group Id: "..value
-end
-
--- Dissect: Group Id
-nyse_amex_options_binarygateway_pillar_v3_25.group_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.group_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.group_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Bitfield Flow Indicator
 nyse_amex_options_binarygateway_pillar_v3_25.bitfield_flow_indicator = {}
 
@@ -5241,81 +7554,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.bitfield_flow_indicator.dissect = f
   end
 
   return offset + size, value
-end
-
--- Price
-nyse_amex_options_binarygateway_pillar_v3_25.price = {}
-
--- Size: Price
-nyse_amex_options_binarygateway_pillar_v3_25.price.size = 8
-
--- Display: Price
-nyse_amex_options_binarygateway_pillar_v3_25.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-nyse_amex_options_binarygateway_pillar_v3_25.price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price
-nyse_amex_options_binarygateway_pillar_v3_25.price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.price.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id = {}
-
--- Size: Orig Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.size = 8
-
--- Display: Orig Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.display = function(value)
-  return "Orig Cl Ord Id: "..value
-end
-
--- Dissect: Orig Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.orig_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id = {}
-
--- Size: Ref Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.size = 8
-
--- Display: Ref Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.display = function(value)
-  return "Ref Cl Ord Id: "..value
-end
-
--- Dissect: Ref Cl Ord Id
-nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.ref_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ref_cl_ord_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
@@ -5426,68 +7664,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_single_complex_modify_cancel_
 
     return index
   end
-end
-
--- Self Trade Type U 81
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81 = {}
-
--- Size: Self Trade Type U 81
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.size = 1
-
--- Display: Self Trade Type U 81
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.display = function(value)
-  return "Self Trade Type U 81: "..value
-end
-
--- Dissect: Self Trade Type U 81
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_type_u_81.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.self_trade_type_u_81, range, value, display)
-
-  return offset + length, value
-end
-
--- Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.sub_id = {}
-
--- Size: Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.sub_id.size = 4
-
--- Display: Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.sub_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sub Id: No Value"
-  end
-
-  return "Sub Id: "..value
-end
-
--- Dissect: Sub Id
-nyse_amex_options_binarygateway_pillar_v3_25.sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.sub_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.sub_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bulk Quote Acknowledgment Message
@@ -5644,105 +7820,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_quote_acknowledgment_type_294_
   end
 end
 
--- Auction Id
-nyse_amex_options_binarygateway_pillar_v3_25.auction_id = {}
-
--- Size: Auction Id
-nyse_amex_options_binarygateway_pillar_v3_25.auction_id.size = 8
-
--- Display: Auction Id
-nyse_amex_options_binarygateway_pillar_v3_25.auction_id.display = function(value)
-  return "Auction Id: "..value
-end
-
--- Dissect: Auction Id
-nyse_amex_options_binarygateway_pillar_v3_25.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.auction_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.auction_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.auction_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close = {}
-
--- Size: Leg Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.size = 8
-
--- Display: Leg Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.display = function(value)
-  if value == 0 then
-    return "Leg Open Close: Open (0)"
-  end
-  if value == 1 then
-    return "Leg Open Close: Close (1)"
-  end
-
-  return "Leg Open Close: Unknown("..value..")"
-end
-
--- Dissect: Leg Open Close
-nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.leg_open_close.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.leg_open_close, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Qty
-nyse_amex_options_binarygateway_pillar_v3_25.min_qty = {}
-
--- Size: Min Qty
-nyse_amex_options_binarygateway_pillar_v3_25.min_qty.size = 4
-
--- Display: Min Qty
-nyse_amex_options_binarygateway_pillar_v3_25.min_qty.display = function(value)
-  return "Min Qty: "..value
-end
-
--- Dissect: Min Qty
-nyse_amex_options_binarygateway_pillar_v3_25.min_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.min_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.min_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.min_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Bitfield Order Instructions
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions = {}
-
--- Size: Bitfield Order Instructions
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.size = 16
-
--- Display: Bitfield Order Instructions
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.display = function(value)
-  return "Bitfield Order Instructions: "..value
-end
-
--- Dissect: Bitfield Order Instructions
-nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.bitfield_order_instructions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bitfield_order_instructions, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order And Cancel Replace Acknowledgement Message
 nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledgement_message = {}
 
@@ -5868,451 +7945,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.order_and_cancel_replace_acknowledg
   end
 end
 
--- Reserved 49
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_49 = {}
-
--- Size: Reserved 49
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size = 49
-
--- Display: Reserved 49
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display = function(value)
-  return "Reserved 49: "..value
-end
-
--- Dissect: Reserved 49
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_49.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_49, range, value, display)
-
-  return offset + length, value
-end
-
--- Bold Designation
-nyse_amex_options_binarygateway_pillar_v3_25.bold_designation = {}
-
--- Size: Bold Designation
-nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.size = 1
-
--- Display: Bold Designation
-nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display = function(value)
-  if value == 0 then
-    return "Bold Designation: Not Applicable (0)"
-  end
-  if value == 4 then
-    return "Bold Designation: Expose Order Info Only (4)"
-  end
-  if value == 5 then
-    return "Bold Designation: Expose Order Info And Capacity (5)"
-  end
-  if value == 6 then
-    return "Bold Designation: Expose Order Info And Participant Id (6)"
-  end
-  if value == 7 then
-    return "Bold Designation: Expose Order Info Capacity And Participant Id (7)"
-  end
-  if value == 8 then
-    return "Bold Designation: No Bold Defaulting (8)"
-  end
-
-  return "Bold Designation: Unknown("..value..")"
-end
-
--- Dissect: Bold Designation
-nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.bold_designation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.bold_designation, range, value, display)
-
-  return offset + length, value
-end
-
--- Ack Status
-nyse_amex_options_binarygateway_pillar_v3_25.ack_status = {}
-
--- Size: Ack Status
-nyse_amex_options_binarygateway_pillar_v3_25.ack_status.size = 1
-
--- Display: Ack Status
-nyse_amex_options_binarygateway_pillar_v3_25.ack_status.display = function(value)
-  if value == 0 then
-    return "Ack Status: Unsolicited (0)"
-  end
-  if value == 1 then
-    return "Ack Status: User Request Valid (1)"
-  end
-  if value == 2 then
-    return "Ack Status: User Request Invalid (2)"
-  end
-
-  return "Ack Status: Unknown("..value..")"
-end
-
--- Dissect: Ack Status
-nyse_amex_options_binarygateway_pillar_v3_25.ack_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.ack_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.ack_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.ack_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Priority Update Ack Subscription
-nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription = {}
-
--- Size: Order Priority Update Ack Subscription
-nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.size = 1
-
--- Display: Order Priority Update Ack Subscription
-nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.display = function(value)
-  if value == 0 then
-    return "Order Priority Update Ack Subscription: Not Subscribed (0)"
-  end
-  if value == 1 then
-    return "Order Priority Update Ack Subscription: Order Priority Update Only (1)"
-  end
-  if value == 2 then
-    return "Order Priority Update Ack Subscription: Order Priority Update And Repricing (2)"
-  end
-
-  return "Order Priority Update Ack Subscription: Unknown("..value..")"
-end
-
--- Dissect: Order Priority Update Ack Subscription
-nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_priority_update_ack_subscription.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_priority_update_ack_subscription, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Trade Prevention
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention = {}
-
--- Size: Self Trade Prevention
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.size = 1
-
--- Display: Self Trade Prevention
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.display = function(value)
-  if value == 1 then
-    return "Self Trade Prevention: No Self Trade Prevention (1)"
-  end
-  if value == 2 then
-    return "Self Trade Prevention: Cancel Newest (2)"
-  end
-  if value == 3 then
-    return "Self Trade Prevention: Cancel Oldest (3)"
-  end
-  if value == 4 then
-    return "Self Trade Prevention: Cancel Both (4)"
-  end
-
-  return "Self Trade Prevention: Unknown("..value..")"
-end
-
--- Dissect: Self Trade Prevention
-nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.self_trade_prevention.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.self_trade_prevention, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Order Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity = {}
-
--- Size: Max Order Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.size = 4
-
--- Display: Max Order Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.display = function(value)
-  return "Max Order Quantity: "..value
-end
-
--- Dissect: Max Order Quantity
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.max_order_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Eligibility
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility = {}
-
--- Size: Symbol Eligibility
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.size = 1
-
--- Display: Symbol Eligibility
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.display = function(value)
-  if value == 1 then
-    return "Symbol Eligibility: All Symbols (1)"
-  end
-  if value == 2 then
-    return "Symbol Eligibility: Test Symbols Only (2)"
-  end
-
-  return "Symbol Eligibility: Unknown("..value..")"
-end
-
--- Dissect: Symbol Eligibility
-nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.symbol_eligibility.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.symbol_eligibility, range, value, display)
-
-  return offset + length, value
-end
-
--- Throttle Threshold
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold = {}
-
--- Size: Throttle Threshold
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.size = 2
-
--- Display: Throttle Threshold
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.display = function(value)
-  return "Throttle Threshold: "..value
-end
-
--- Dissect: Throttle Threshold
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.throttle_threshold.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_threshold, range, value, display)
-
-  return offset + length, value
-end
-
--- Throttle Window
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_window = {}
-
--- Size: Throttle Window
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.size = 2
-
--- Display: Throttle Window
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.display = function(value)
-  return "Throttle Window: "..value
-end
-
--- Dissect: Throttle Window
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.throttle_window.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_window, range, value, display)
-
-  return offset + length, value
-end
-
--- Throttle Preference
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference = {}
-
--- Size: Throttle Preference
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.size = 1
-
--- Display: Throttle Preference
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.display = function(value)
-  if value == 0 then
-    return "Throttle Preference: Queue When Throttled (0)"
-  end
-  if value == 1 then
-    return "Throttle Preference: Reject When Throttled (1)"
-  end
-
-  return "Throttle Preference: Unknown("..value..")"
-end
-
--- Dissect: Throttle Preference
-nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.throttle_preference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.throttle_preference, range, value, display)
-
-  return offset + length, value
-end
-
--- Cancel On Disconnect
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect = {}
-
--- Size: Cancel On Disconnect
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.size = 1
-
--- Display: Cancel On Disconnect
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.display = function(value)
-  if value == 1 then
-    return "Cancel On Disconnect: Cancel Day Orders (1)"
-  end
-  if value == 2 then
-    return "Cancel On Disconnect: Cancel All Orders (2)"
-  end
-
-  return "Cancel On Disconnect: Unknown("..value..")"
-end
-
--- Dissect: Cancel On Disconnect
-nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.cancel_on_disconnect.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.cancel_on_disconnect, range, value, display)
-
-  return offset + length, value
-end
-
--- Mic
-nyse_amex_options_binarygateway_pillar_v3_25.mic = {}
-
--- Size: Mic
-nyse_amex_options_binarygateway_pillar_v3_25.mic.size = 4
-
--- Display: Mic
-nyse_amex_options_binarygateway_pillar_v3_25.mic.display = function(value)
-  if value == "AMXO" then
-    return "Mic: Nyse American Options (AMXO)"
-  end
-
-  return "Mic: Unknown("..value..")"
-end
-
--- Dissect: Mic
-nyse_amex_options_binarygateway_pillar_v3_25.mic.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mic.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mic.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mic, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-nyse_amex_options_binarygateway_pillar_v3_25.username = {}
-
--- Size: Username
-nyse_amex_options_binarygateway_pillar_v3_25.username.size = 16
-
--- Display: Username
-nyse_amex_options_binarygateway_pillar_v3_25.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-nyse_amex_options_binarygateway_pillar_v3_25.username.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.username.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
--- User Session Status
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_status = {}
-
--- Size: User Session Status
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.size = 1
-
--- Display: User Session Status
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.display = function(value)
-  if value == 1 then
-    return "User Session Status: Active (1)"
-  end
-  if value == 2 then
-    return "User Session Status: Inactive (2)"
-  end
-  if value == 3 then
-    return "User Session Status: Prospect (3)"
-  end
-
-  return "User Session Status: Unknown("..value..")"
-end
-
--- Dissect: User Session Status
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.user_session_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user_session_status, range, value, display)
-
-  return offset + length, value
-end
-
--- User Session Type
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_type = {}
-
--- Size: User Session Type
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.size = 1
-
--- Display: User Session Type
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.display = function(value)
-  if value == 1 then
-    return "User Session Type: Customer (1)"
-  end
-  if value == 2 then
-    return "User Session Type: Service Bureau (2)"
-  end
-  if value == 4 then
-    return "User Session Type: Options Market Maker (4)"
-  end
-  if value == 12 then
-    return "User Session Type: Risk Admin (12)"
-  end
-
-  return "User Session Type: Unknown("..value..")"
-end
-
--- Dissect: User Session Type
-nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.user_session_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.user_session_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Session Configuration Acknowledgement Message
 nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgement_message = {}
 
@@ -6408,130 +8040,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.session_configuration_acknowledgeme
   end
 end
 
--- Reserved 50
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_50 = {}
-
--- Size: Reserved 50
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size = 50
-
--- Display: Reserved 50
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display = function(value)
-  return "Reserved 50: "..value
-end
-
--- Dissect: Reserved 50
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_50.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_50, range, value, display)
-
-  return offset + length, value
-end
-
--- Appointment Status
-nyse_amex_options_binarygateway_pillar_v3_25.appointment_status = {}
-
--- Size: Appointment Status
-nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.size = 1
-
--- Display: Appointment Status
-nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.display = function(value)
-  if value == 0 then
-    return "Appointment Status: Not Appointed (0)"
-  end
-  if value == 1 then
-    return "Appointment Status: Appointed (1)"
-  end
-
-  return "Appointment Status: Unknown("..value..")"
-end
-
--- Dissect: Appointment Status
-nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.appointment_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.appointment_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Mm Type
-nyse_amex_options_binarygateway_pillar_v3_25.mm_type = {}
-
--- Size: Mm Type
-nyse_amex_options_binarygateway_pillar_v3_25.mm_type.size = 1
-
--- Display: Mm Type
-nyse_amex_options_binarygateway_pillar_v3_25.mm_type.display = function(value)
-  if value == 1 then
-    return "Mm Type: Nyse Arca Options Lead Market Maker (1)"
-  end
-  if value == 2 then
-    return "Mm Type: Nyse Arca Options Market Maker (2)"
-  end
-  if value == 1 then
-    return "Mm Type: Nyse American Options Market Maker (1)"
-  end
-  if value == 2 then
-    return "Mm Type: Nyse American Options Specialist (2)"
-  end
-  if value == 3 then
-    return "Mm Type: Nyse American Optionse Specialist (3)"
-  end
-  if value == 4 then
-    return "Mm Type: Nyse American Options Domm (4)"
-  end
-  if value == 5 then
-    return "Mm Type: Nyse American Options Specialist And Domm (5)"
-  end
-  if value == 6 then
-    return "Mm Type: Nyse American Optionse Specialist And Domm (6)"
-  end
-
-  return "Mm Type: Unknown("..value..")"
-end
-
--- Dissect: Mm Type
-nyse_amex_options_binarygateway_pillar_v3_25.mm_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mm_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mm_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Nyse Symbol
-nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol = {}
-
--- Size: Nyse Symbol
-nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.size = 24
-
--- Display: Nyse Symbol
-nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.display = function(value)
-  return "Nyse Symbol: "..value
-end
-
--- Dissect: Nyse Symbol
-nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.nyse_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.nyse_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Options Market Maker Symbol Appointment Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appointment_reference_data_message = {}
 
@@ -6603,39 +8111,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.options_market_maker_symbol_appoint
   end
 end
 
--- Mpid Status
-nyse_amex_options_binarygateway_pillar_v3_25.mpid_status = {}
-
--- Size: Mpid Status
-nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.size = 1
-
--- Display: Mpid Status
-nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.display = function(value)
-  if value == 1 then
-    return "Mpid Status: Active (1)"
-  end
-  if value == 2 then
-    return "Mpid Status: Inactive (2)"
-  end
-  if value == 3 then
-    return "Mpid Status: Prospect (3)"
-  end
-
-  return "Mpid Status: Unknown("..value..")"
-end
-
--- Dissect: Mpid Status
-nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpid_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpid_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mpid Configuration Message
 nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message = {}
 
@@ -6696,139 +8171,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.mpid_configuration_message.dissect 
 
     return index
   end
-end
-
--- Mpv Class Id
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id = {}
-
--- Size: Mpv Class Id
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.size = 2
-
--- Display: Mpv Class Id
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.display = function(value)
-  return "Mpv Class Id: "..value
-end
-
--- Dissect: Mpv Class Id
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpv_class_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv = {}
-
--- Size: Trading Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.size = 8
-
--- Display: Trading Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.display = function(value)
-  return "Trading Mpv: "..value
-end
-
--- Translate: Trading Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Trading Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.trading_mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.trading_mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Quoting Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv = {}
-
--- Size: Quoting Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.size = 8
-
--- Display: Quoting Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.display = function(value)
-  return "Quoting Mpv: "..value
-end
-
--- Translate: Quoting Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Quoting Mpv
-nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.quoting_mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.quoting_mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Entry Limit Price
-nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price = {}
-
--- Size: Order Entry Limit Price
-nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size = 8
-
--- Display: Order Entry Limit Price
-nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.display = function(value)
-  return "Order Entry Limit Price: "..value
-end
-
--- Translate: Order Entry Limit Price
-nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Order Entry Limit Price
-nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.order_entry_limit_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.order_entry_limit_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Mpv Level Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name = {}
-
--- Size: Mpv Level Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.size = 24
-
--- Display: Mpv Level Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.display = function(value)
-  return "Mpv Level Name: "..value
-end
-
--- Dissect: Mpv Level Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpv_level_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpv_level_name, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mpv Level Definition
@@ -6945,45 +8287,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_level_referen
   end
 end
 
--- Mpv Class Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name = {}
-
--- Size: Mpv Class Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.size = 20
-
--- Display: Mpv Class Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mpv Class Name: No Value"
-  end
-
-  return "Mpv Class Name: "..value
-end
-
--- Dissect: Mpv Class Name
-nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mpv_class_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mpv_class_name, range, value, display)
-
-  return offset + length, value
-end
-
 -- Minimum Price Variant Class Reference Data Message
 nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_reference_data_message = {}
 
@@ -7038,230 +8341,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.minimum_price_variant_class_referen
 
     return index
   end
-end
-
--- Closing Only Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator = {}
-
--- Size: Closing Only Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.size = 1
-
--- Display: Closing Only Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.display = function(value)
-  if value == 0 then
-    return "Closing Only Indicator: Standard Series (0)"
-  end
-  if value == 1 then
-    return "Closing Only Indicator: Closing Only Series (1)"
-  end
-
-  return "Closing Only Indicator: Unknown("..value..")"
-end
-
--- Dissect: Closing Only Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.closing_only_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.closing_only_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Series Type
-nyse_amex_options_binarygateway_pillar_v3_25.series_type = {}
-
--- Size: Series Type
-nyse_amex_options_binarygateway_pillar_v3_25.series_type.size = 1
-
--- Display: Series Type
-nyse_amex_options_binarygateway_pillar_v3_25.series_type.display = function(value)
-  if value == 0 then
-    return "Series Type: Standard (0)"
-  end
-
-  return "Series Type: Unknown("..value..")"
-end
-
--- Dissect: Series Type
-nyse_amex_options_binarygateway_pillar_v3_25.series_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.series_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.series_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier = {}
-
--- Size: Contract Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.size = 4
-
--- Display: Contract Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.display = function(value)
-  return "Contract Multiplier: "..value
-end
-
--- Dissect: Contract Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.contract_multiplier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.contract_multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-nyse_amex_options_binarygateway_pillar_v3_25.maturity_date = {}
-
--- Size: Maturity Date
-nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.size = 8
-
--- Display: Maturity Date
-nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Maturity Date: No Value"
-  end
-
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-nyse_amex_options_binarygateway_pillar_v3_25.strike_price = {}
-
--- Size: Strike Price
-nyse_amex_options_binarygateway_pillar_v3_25.strike_price.size = 8
-
--- Display: Strike Price
-nyse_amex_options_binarygateway_pillar_v3_25.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-nyse_amex_options_binarygateway_pillar_v3_25.strike_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Strike Price
-nyse_amex_options_binarygateway_pillar_v3_25.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.strike_price.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Put Or Call
-nyse_amex_options_binarygateway_pillar_v3_25.put_or_call = {}
-
--- Size: Put Or Call
-nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.size = 1
-
--- Display: Put Or Call
-nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-
-  return "Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Put Or Call
-nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Occ Symbol Root
-nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root = {}
-
--- Size: Occ Symbol Root
-nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.size = 24
-
--- Display: Occ Symbol Root
-nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.display = function(value)
-  return "Occ Symbol Root: "..value
-end
-
--- Dissect: Occ Symbol Root
-nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.occ_symbol_root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.occ_symbol_root, range, value, display)
-
-  return offset + length, value
-end
-
--- Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index = {}
-
--- Size: Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index.size = 4
-
--- Display: Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index.display = function(value)
-  return "Series Index: "..value
-end
-
--- Dissect: Series Index
-nyse_amex_options_binarygateway_pillar_v3_25.series_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.series_index.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.series_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.series_index, range, value, display)
-
-  return offset + length, value
 end
 
 -- Series Reference Data Message
@@ -7339,231 +8418,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.series_reference_data_message.disse
 
     return index
   end
-end
-
--- Legal Width Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier = {}
-
--- Size: Legal Width Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.size = 1
-
--- Display: Legal Width Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.display = function(value)
-  return "Legal Width Multiplier: "..value
-end
-
--- Dissect: Legal Width Multiplier
-nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.legal_width_multiplier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.legal_width_multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-nyse_amex_options_binarygateway_pillar_v3_25.channel_id = {}
-
--- Size: Channel Id
-nyse_amex_options_binarygateway_pillar_v3_25.channel_id.size = 1
-
--- Display: Channel Id
-nyse_amex_options_binarygateway_pillar_v3_25.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-nyse_amex_options_binarygateway_pillar_v3_25.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Test Symbol Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator = {}
-
--- Size: Test Symbol Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.size = 1
-
--- Display: Test Symbol Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.display = function(value)
-  if value == 0 then
-    return "Test Symbol Indicator: Production (0)"
-  end
-  if value == 1 then
-    return "Test Symbol Indicator: Test (1)"
-  end
-
-  return "Test Symbol Indicator: Unknown("..value..")"
-end
-
--- Dissect: Test Symbol Indicator
-nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.test_symbol_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.test_symbol_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Order Price
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_price = {}
-
--- Size: Max Order Price
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.size = 8
-
--- Display: Max Order Price
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.display = function(value)
-  return "Max Order Price: "..value
-end
-
--- Translate: Max Order Price
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Max Order Price
-nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.translate(raw)
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.max_order_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.max_order_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Type
-nyse_amex_options_binarygateway_pillar_v3_25.underlying_type = {}
-
--- Size: Underlying Type
-nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.size = 1
-
--- Display: Underlying Type
-nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.display = function(value)
-  if value == "A" then
-    return "Underlying Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Underlying Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Underlying Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Underlying Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Underlying Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Underlying Type: Ads (H)"
-  end
-  if value == "I" then
-    return "Underlying Type: Units (I)"
-  end
-  if value == "M" then
-    return "Underlying Type: Miscellaneous (M)"
-  end
-  if value == "L" then
-    return "Underlying Type: Index Linked Notes (L)"
-  end
-  if value == "N" then
-    return "Underlying Type: Bonds (N)"
-  end
-  if value == "O" then
-    return "Underlying Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Underlying Type: Preferred Stock (P)"
-  end
-  if value == "R" then
-    return "Underlying Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Underlying Type: Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Underlying Type: Structured Notes (T)"
-  end
-  if value == "U" then
-    return "Underlying Type: Closed End Fund (U)"
-  end
-  if value == "W" then
-    return "Underlying Type: Warrant (W)"
-  end
-  if value == "X" then
-    return "Underlying Type: Index (X)"
-  end
-  if value == "Z" then
-    return "Underlying Type: Options (Z)"
-  end
-
-  return "Underlying Type: Unknown("..value..")"
-end
-
--- Dissect: Underlying Type
-nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.underlying_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.underlying_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Listed Mic
-nyse_amex_options_binarygateway_pillar_v3_25.listed_mic = {}
-
--- Size: Listed Mic
-nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.size = 4
-
--- Display: Listed Mic
-nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Listed Mic: No Value"
-  end
-
-  return "Listed Mic: "..value
-end
-
--- Dissect: Listed Mic
-nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.listed_mic.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.listed_mic, range, value, display)
-
-  return offset + length, value
 end
 
 -- Underlying Symbol Reference Data Message
@@ -7752,29 +8606,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.new_complex_series_request_message.
   end
 end
 
--- Reserved 199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_199 = {}
-
--- Size: Reserved 199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size = 199
-
--- Display: Reserved 199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display = function(value)
-  return "Reserved 199: "..value
-end
-
--- Dissect: Reserved 199
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_199.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_199, range, value, display)
-
-  return offset + length, value
-end
-
 -- Risk Action Request Message
 nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message = {}
 
@@ -7859,42 +8690,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_action_request_message.dissect
 
     return index
   end
-end
-
--- Breach Action Request
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request = {}
-
--- Size: Breach Action Request
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.size = 1
-
--- Display: Breach Action Request
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.display = function(value)
-  if value == 0 then
-    return "Breach Action Request: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Breach Action Request: Notifications Only (1)"
-  end
-  if value == 2 then
-    return "Breach Action Request: Cancel And Block (2)"
-  end
-  if value == 3 then
-    return "Breach Action Request: Block Only (3)"
-  end
-
-  return "Breach Action Request: Unknown("..value..")"
-end
-
--- Dissect: Breach Action Request
-nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.breach_action_request.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.breach_action_request, range, value, display)
-
-  return offset + length, value
 end
 
 -- Risk Limit Update Request Message
@@ -8007,29 +8802,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.risk_limit_update_request_message.d
   end
 end
 
--- Reserved 20
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_20 = {}
-
--- Size: Reserved 20
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size = 20
-
--- Display: Reserved 20
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display = function(value)
-  return "Reserved 20: "..value
-end
-
--- Dissect: Reserved 20
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_20.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_20, range, value, display)
-
-  return offset + length, value
-end
-
 -- Bulk Cancel Request Type 224 Message
 nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_message = {}
 
@@ -8102,33 +8874,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.bulk_cancel_request_type_224_messag
 
     return index
   end
-end
-
--- Mm Sent Time
-nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time = {}
-
--- Size: Mm Sent Time
-nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.size = 8
-
--- Display: Mm Sent Time
-nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Mm Sent Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Mm Sent Time
-nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mm_sent_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mm_sent_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bulk Cancel Request Type 223 Message
@@ -8467,286 +9212,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.exposed.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nyse_amex_options_binarygateway_pillar_v3_25.exposed.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reserved 16
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_16 = {}
-
--- Size: Reserved 16
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size = 16
-
--- Display: Reserved 16
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display = function(value)
-  return "Reserved 16: "..value
-end
-
--- Dissect: Reserved 16
-nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.reserved_16.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.reserved_16, range, value, display)
-
-  return offset + length, value
-end
-
--- Optional Data Covered
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered = {}
-
--- Size: Optional Data Covered
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.size = 16
-
--- Display: Optional Data Covered
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Optional Data Covered: No Value"
-  end
-
-  return "Optional Data Covered: "..value
-end
-
--- Dissect: Optional Data Covered
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_covered.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data_covered, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Account Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered = {}
-
--- Size: Clearing Account Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.size = 5
-
--- Display: Clearing Account Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Account Covered: No Value"
-  end
-
-  return "Clearing Account Covered: "..value
-end
-
--- Dissect: Clearing Account Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_covered.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_account_covered, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Firm Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered = {}
-
--- Size: Clearing Firm Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.size = 5
-
--- Display: Clearing Firm Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Firm Covered: No Value"
-  end
-
-  return "Clearing Firm Covered: "..value
-end
-
--- Dissect: Clearing Firm Covered
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_covered.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_firm_covered, range, value, display)
-
-  return offset + length, value
-end
-
--- Optional Data Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed = {}
-
--- Size: Optional Data Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.size = 16
-
--- Display: Optional Data Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Optional Data Exposed: No Value"
-  end
-
-  return "Optional Data Exposed: "..value
-end
-
--- Dissect: Optional Data Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.optional_data_exposed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.optional_data_exposed, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Account Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed = {}
-
--- Size: Clearing Account Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.size = 5
-
--- Display: Clearing Account Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Account Exposed: No Value"
-  end
-
-  return "Clearing Account Exposed: "..value
-end
-
--- Dissect: Clearing Account Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_account_exposed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_account_exposed, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Firm Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed = {}
-
--- Size: Clearing Firm Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.size = 5
-
--- Display: Clearing Firm Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Firm Exposed: No Value"
-  end
-
-  return "Clearing Firm Exposed: "..value
-end
-
--- Dissect: Clearing Firm Exposed
-nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.clearing_firm_exposed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.clearing_firm_exposed, range, value, display)
-
-  return offset + length, value
-end
-
--- Allocation Pct
-nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct = {}
-
--- Size: Allocation Pct
-nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.size = 1
-
--- Display: Allocation Pct
-nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.display = function(value)
-  return "Allocation Pct: "..value
-end
-
--- Dissect: Allocation Pct
-nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.allocation_pct.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.allocation_pct, range, value, display)
-
-  return offset + length, value
 end
 
 -- New Order Cross Message
@@ -9397,146 +9862,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.sequenced_message.dissect = functio
   return offset
 end
 
--- Seq Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length = {}
-
--- Size: Seq Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.size = 2
-
--- Display: Seq Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.display = function(value)
-  return "Seq Msg Length: "..value
-end
-
--- Dissect: Seq Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type = {}
-
--- Size: Seq Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.size = 2
-
--- Display: Seq Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.display = function(value)
-  if value == 0x0220 then
-    return "Seq Msg Type: Session Configuration Request Message (0x0220)"
-  end
-  if value == 0x0282 then
-    return "Seq Msg Type: Sequenced Filler Message (0x0282)"
-  end
-  if value == 0x0248 then
-    return "Seq Msg Type: New Order Message (0x0248)"
-  end
-  if value == 0x0250 then
-    return "Seq Msg Type: Order Cancel Request Message (0x0250)"
-  end
-  if value == 0x0251 then
-    return "Seq Msg Type: Order Modify Request Message (0x0251)"
-  end
-  if value == 0x0243 then
-    return "Seq Msg Type: New Bulk Quote Type 243 Message (0x0243)"
-  end
-  if value == 0x0259 then
-    return "Seq Msg Type: New Bulk Quote Type 259 Message (0x0259)"
-  end
-  if value == 0x0222 then
-    return "Seq Msg Type: New Order Cross Message (0x0222)"
-  end
-  if value == 0x0223 then
-    return "Seq Msg Type: Bulk Cancel Request Type 223 Message (0x0223)"
-  end
-  if value == 0x0224 then
-    return "Seq Msg Type: Bulk Cancel Request Type 224 Message (0x0224)"
-  end
-  if value == 0x0330 then
-    return "Seq Msg Type: Risk Limit Update Request Message (0x0330)"
-  end
-  if value == 0x0331 then
-    return "Seq Msg Type: Risk Action Request Message (0x0331)"
-  end
-  if value == 0x0357 then
-    return "Seq Msg Type: New Complex Series Request Message (0x0357)"
-  end
-  if value == 0x0233 then
-    return "Seq Msg Type: Underlying Symbol Reference Data Message (0x0233)"
-  end
-  if value == 0x0234 then
-    return "Seq Msg Type: Series Reference Data Message (0x0234)"
-  end
-  if value == 0x0230 then
-    return "Seq Msg Type: Minimum Price Variant Class Reference Data Message (0x0230)"
-  end
-  if value == 0x0231 then
-    return "Seq Msg Type: Minimum Price Variant Level Reference Data Message (0x0231)"
-  end
-  if value == 0x0272 then
-    return "Seq Msg Type: Mpid Configuration Message (0x0272)"
-  end
-  if value == 0x0833 then
-    return "Seq Msg Type: Options Market Maker Symbol Appointment Reference Data Message (0x0833)"
-  end
-  if value == 0x0221 then
-    return "Seq Msg Type: Session Configuration Acknowledgement Message (0x0221)"
-  end
-  if value == 0x0269 then
-    return "Seq Msg Type: Order And Cancel Replace Acknowledgement Message (0x0269)"
-  end
-  if value == 0x0294 then
-    return "Seq Msg Type: Bulk Quote Acknowledgment Type 294 Message (0x0294)"
-  end
-  if value == 0x0308 then
-    return "Seq Msg Type: Bulk Quote Acknowledgment Message (0x0308)"
-  end
-  if value == 0x0278 then
-    return "Seq Msg Type: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message (0x0278)"
-  end
-  if value == 0x0268 then
-    return "Seq Msg Type: Order Priority Update Acknowledgment Message (0x0268)"
-  end
-  if value == 0x0295 then
-    return "Seq Msg Type: Execution Report Message (0x0295)"
-  end
-  if value == 0x0293 then
-    return "Seq Msg Type: Trade Bust Correct Message (0x0293)"
-  end
-  if value == 0x0267 then
-    return "Seq Msg Type: Application Layer Reject Message (0x0267)"
-  end
-  if value == 0x0332 then
-    return "Seq Msg Type: Risk Control Acknowledgement Message (0x0332)"
-  end
-  if value == 0x0333 then
-    return "Seq Msg Type: Risk Control Alert Message (0x0333)"
-  end
-  if value == 0x0358 then
-    return "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)"
-  end
-
-  return "Seq Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Seq Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.seq_msg_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Seq Msg Header
 nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_header = {}
 
@@ -9581,29 +9906,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_header.dissect = function(b
   end
 end
 
--- Timestamp
-nyse_amex_options_binarygateway_pillar_v3_25.timestamp = {}
-
--- Size: Timestamp
-nyse_amex_options_binarygateway_pillar_v3_25.timestamp.size = 8
-
--- Display: Timestamp
-nyse_amex_options_binarygateway_pillar_v3_25.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_amex_options_binarygateway_pillar_v3_25.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Seq Msg Id
 nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id = {}
 
@@ -9646,80 +9948,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.dissect = function(buffe
     -- Skip element, add fields directly
     return nyse_amex_options_binarygateway_pillar_v3_25.seq_msg_id.fields(buffer, offset, packet, parent)
   end
-end
-
--- Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.msg_length = {}
-
--- Size: Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.msg_length.size = 2
-
--- Display: Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-nyse_amex_options_binarygateway_pillar_v3_25.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.msg_type = {}
-
--- Size: Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.msg_type.size = 2
-
--- Display: Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.msg_type.display = function(value)
-  if value == 0x0201 then
-    return "Msg Type: Login (0x0201)"
-  end
-  if value == 0x0202 then
-    return "Msg Type: Login Response (0x0202)"
-  end
-  if value == 0x0203 then
-    return "Msg Type: Stream Avail (0x0203)"
-  end
-  if value == 0x0204 then
-    return "Msg Type: Heartbeat (0x0204)"
-  end
-  if value == 0x0205 then
-    return "Msg Type: Open (0x0205)"
-  end
-  if value == 0x0206 then
-    return "Msg Type: Open Response (0x0206)"
-  end
-  if value == 0x0207 then
-    return "Msg Type: Close (0x0207)"
-  end
-  if value == 0x0208 then
-    return "Msg Type: Close Response (0x0208)"
-  end
-  if value == 0x0905 then
-    return "Msg Type: Seq Msg (0x0905)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-nyse_amex_options_binarygateway_pillar_v3_25.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.msg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Msg Header
@@ -9834,36 +10062,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.seq_msg.dissect = function(buffer, 
   end
 end
 
--- Status
-nyse_amex_options_binarygateway_pillar_v3_25.status = {}
-
--- Size: Status
-nyse_amex_options_binarygateway_pillar_v3_25.status.size = 1
-
--- Display: Status
-nyse_amex_options_binarygateway_pillar_v3_25.status.display = function(value)
-  if value == 0 then
-    return "Status: Request Processed Successfully (0)"
-  end
-  if value == 18 then
-    return "Status: Not Logged In (18)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-nyse_amex_options_binarygateway_pillar_v3_25.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Close Response
 nyse_amex_options_binarygateway_pillar_v3_25.close_response = {}
 
@@ -9973,29 +10171,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.close.dissect = function(buffer, of
   end
 end
 
--- Access
-nyse_amex_options_binarygateway_pillar_v3_25.access = {}
-
--- Size: Access
-nyse_amex_options_binarygateway_pillar_v3_25.access.size = 1
-
--- Display: Access
-nyse_amex_options_binarygateway_pillar_v3_25.access.display = function(value)
-  return "Access: "..value
-end
-
--- Dissect: Access
-nyse_amex_options_binarygateway_pillar_v3_25.access.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.access.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.access.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.access, range, value, display)
-
-  return offset + length, value
-end
-
 -- Open Response
 nyse_amex_options_binarygateway_pillar_v3_25.open_response = {}
 
@@ -10053,75 +10228,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.open_response.dissect = function(bu
 
     return index
   end
-end
-
--- Mode
-nyse_amex_options_binarygateway_pillar_v3_25.mode = {}
-
--- Size: Mode
-nyse_amex_options_binarygateway_pillar_v3_25.mode.size = 1
-
--- Display: Mode
-nyse_amex_options_binarygateway_pillar_v3_25.mode.display = function(value)
-  return "Mode: "..value
-end
-
--- Dissect: Mode
-nyse_amex_options_binarygateway_pillar_v3_25.mode.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.mode.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.mode, range, value, display)
-
-  return offset + length, value
-end
-
--- End Seq
-nyse_amex_options_binarygateway_pillar_v3_25.end_seq = {}
-
--- Size: End Seq
-nyse_amex_options_binarygateway_pillar_v3_25.end_seq.size = 8
-
--- Display: End Seq
-nyse_amex_options_binarygateway_pillar_v3_25.end_seq.display = function(value)
-  return "End Seq: "..value
-end
-
--- Dissect: End Seq
-nyse_amex_options_binarygateway_pillar_v3_25.end_seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.end_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.end_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.end_seq, range, value, display)
-
-  return offset + length, value
-end
-
--- Start Seq
-nyse_amex_options_binarygateway_pillar_v3_25.start_seq = {}
-
--- Size: Start Seq
-nyse_amex_options_binarygateway_pillar_v3_25.start_seq.size = 8
-
--- Display: Start Seq
-nyse_amex_options_binarygateway_pillar_v3_25.start_seq.display = function(value)
-  return "Start Seq: "..value
-end
-
--- Dissect: Start Seq
-nyse_amex_options_binarygateway_pillar_v3_25.start_seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.start_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.start_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.start_seq, range, value, display)
-
-  return offset + length, value
 end
 
 -- Open
@@ -10239,29 +10345,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.heartbeat.dissect = function(buffer
   end
 end
 
--- Next Seq
-nyse_amex_options_binarygateway_pillar_v3_25.next_seq = {}
-
--- Size: Next Seq
-nyse_amex_options_binarygateway_pillar_v3_25.next_seq.size = 8
-
--- Display: Next Seq
-nyse_amex_options_binarygateway_pillar_v3_25.next_seq.display = function(value)
-  return "Next Seq: "..value
-end
-
--- Dissect: Next Seq
-nyse_amex_options_binarygateway_pillar_v3_25.next_seq.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.next_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.next_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.next_seq, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Avail
 nyse_amex_options_binarygateway_pillar_v3_25.stream_avail = {}
 
@@ -10375,84 +10458,6 @@ nyse_amex_options_binarygateway_pillar_v3_25.login_response.dissect = function(b
 
     return index
   end
-end
-
--- Version
-nyse_amex_options_binarygateway_pillar_v3_25.version = {}
-
--- Size: Version
-nyse_amex_options_binarygateway_pillar_v3_25.version.size = 20
-
--- Display: Version
-nyse_amex_options_binarygateway_pillar_v3_25.version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Version: No Value"
-  end
-
-  return "Version: "..value
-end
-
--- Dissect: Version
-nyse_amex_options_binarygateway_pillar_v3_25.version.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.version.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-nyse_amex_options_binarygateway_pillar_v3_25.password = {}
-
--- Size: Password
-nyse_amex_options_binarygateway_pillar_v3_25.password.size = 32
-
--- Display: Password
-nyse_amex_options_binarygateway_pillar_v3_25.password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Password: No Value"
-  end
-
-  return "Password: "..value
-end
-
--- Dissect: Password
-nyse_amex_options_binarygateway_pillar_v3_25.password.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amex_options_binarygateway_pillar_v3_25.password.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nyse_amex_options_binarygateway_pillar_v3_25.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amex_options_binarygateway_pillar_v3_25.fields.password, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Message

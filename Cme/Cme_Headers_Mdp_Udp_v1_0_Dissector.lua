@@ -76,8 +76,77 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Headers Mdp Udp 1.0
+-- Cme Headers Mdp Udp 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Block Length
+cme_headers_mdp_udp_v1_0.block_length = {}
+
+-- Size: Block Length
+cme_headers_mdp_udp_v1_0.block_length.size = 2
+
+-- Display: Block Length
+cme_headers_mdp_udp_v1_0.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+cme_headers_mdp_udp_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_headers_mdp_udp_v1_0.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_headers_mdp_udp_v1_0.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+cme_headers_mdp_udp_v1_0.message_size = {}
+
+-- Size: Message Size
+cme_headers_mdp_udp_v1_0.message_size.size = 2
+
+-- Display: Message Size
+cme_headers_mdp_udp_v1_0.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+cme_headers_mdp_udp_v1_0.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_headers_mdp_udp_v1_0.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_headers_mdp_udp_v1_0.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Sequence Number
+cme_headers_mdp_udp_v1_0.packet_sequence_number = {}
+
+-- Size: Packet Sequence Number
+cme_headers_mdp_udp_v1_0.packet_sequence_number.size = 4
+
+-- Display: Packet Sequence Number
+cme_headers_mdp_udp_v1_0.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
+end
+
+-- Dissect: Packet Sequence Number
+cme_headers_mdp_udp_v1_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_headers_mdp_udp_v1_0.packet_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_headers_mdp_udp_v1_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.packet_sequence_number, range, value, display)
+
+  return offset + length, value
+end
 
 -- Payload
 cme_headers_mdp_udp_v1_0.payload = {}
@@ -96,29 +165,6 @@ cme_headers_mdp_udp_v1_0.payload.dissect = function(buffer, offset, packet, pare
   parent:add(omi_cme_headers_mdp_udp_v1_0.fields.payload, range, value, display)
 
   return offset + size, value
-end
-
--- Version
-cme_headers_mdp_udp_v1_0.version = {}
-
--- Size: Version
-cme_headers_mdp_udp_v1_0.version.size = 2
-
--- Display: Version
-cme_headers_mdp_udp_v1_0.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-cme_headers_mdp_udp_v1_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = cme_headers_mdp_udp_v1_0.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_headers_mdp_udp_v1_0.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Schema Id
@@ -140,6 +186,33 @@ cme_headers_mdp_udp_v1_0.schema_id.dissect = function(buffer, offset, packet, pa
   local display = cme_headers_mdp_udp_v1_0.schema_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_headers_mdp_udp_v1_0.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+cme_headers_mdp_udp_v1_0.sending_time = {}
+
+-- Size: Sending Time
+cme_headers_mdp_udp_v1_0.sending_time.size = 8
+
+-- Display: Sending Time
+cme_headers_mdp_udp_v1_0.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+cme_headers_mdp_udp_v1_0.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_headers_mdp_udp_v1_0.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_headers_mdp_udp_v1_0.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -167,28 +240,33 @@ cme_headers_mdp_udp_v1_0.template_id.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Block Length
-cme_headers_mdp_udp_v1_0.block_length = {}
+-- Version
+cme_headers_mdp_udp_v1_0.version = {}
 
--- Size: Block Length
-cme_headers_mdp_udp_v1_0.block_length.size = 2
+-- Size: Version
+cme_headers_mdp_udp_v1_0.version.size = 2
 
--- Display: Block Length
-cme_headers_mdp_udp_v1_0.block_length.display = function(value)
-  return "Block Length: "..value
+-- Display: Version
+cme_headers_mdp_udp_v1_0.version.display = function(value)
+  return "Version: "..value
 end
 
--- Dissect: Block Length
-cme_headers_mdp_udp_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_headers_mdp_udp_v1_0.block_length.size
+-- Dissect: Version
+cme_headers_mdp_udp_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_headers_mdp_udp_v1_0.version.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_headers_mdp_udp_v1_0.block_length.display(value, buffer, offset, packet, parent)
+  local display = cme_headers_mdp_udp_v1_0.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.block_length, range, value, display)
+  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cme Headers Mdp Udp 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 cme_headers_mdp_udp_v1_0.message_header = {}
@@ -242,29 +320,6 @@ cme_headers_mdp_udp_v1_0.message_header.dissect = function(buffer, offset, packe
   end
 end
 
--- Message Size
-cme_headers_mdp_udp_v1_0.message_size = {}
-
--- Size: Message Size
-cme_headers_mdp_udp_v1_0.message_size.size = 2
-
--- Display: Message Size
-cme_headers_mdp_udp_v1_0.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-cme_headers_mdp_udp_v1_0.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_headers_mdp_udp_v1_0.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_headers_mdp_udp_v1_0.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 cme_headers_mdp_udp_v1_0.message = {}
 
@@ -311,56 +366,6 @@ cme_headers_mdp_udp_v1_0.message.dissect = function(buffer, offset, packet, pare
 
     return index
   end
-end
-
--- Sending Time
-cme_headers_mdp_udp_v1_0.sending_time = {}
-
--- Size: Sending Time
-cme_headers_mdp_udp_v1_0.sending_time.size = 8
-
--- Display: Sending Time
-cme_headers_mdp_udp_v1_0.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-cme_headers_mdp_udp_v1_0.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_headers_mdp_udp_v1_0.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_headers_mdp_udp_v1_0.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Sequence Number
-cme_headers_mdp_udp_v1_0.packet_sequence_number = {}
-
--- Size: Packet Sequence Number
-cme_headers_mdp_udp_v1_0.packet_sequence_number.size = 4
-
--- Display: Packet Sequence Number
-cme_headers_mdp_udp_v1_0.packet_sequence_number.display = function(value)
-  return "Packet Sequence Number: "..value
-end
-
--- Dissect: Packet Sequence Number
-cme_headers_mdp_udp_v1_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_headers_mdp_udp_v1_0.packet_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_headers_mdp_udp_v1_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_headers_mdp_udp_v1_0.fields.packet_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Binary Packet Header

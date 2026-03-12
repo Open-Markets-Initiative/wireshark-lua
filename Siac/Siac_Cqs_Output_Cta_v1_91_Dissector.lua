@@ -345,258 +345,32 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Siac Cqs Output Cta 1.91
+-- Siac Cqs Output Cta 1.91 Fields
 -----------------------------------------------------------------------
 
--- Block Pad Byte
-siac_cqs_output_cta_v1_91.block_pad_byte = {}
+-- Administrative Message Type
+siac_cqs_output_cta_v1_91.administrative_message_type = {}
 
--- Size: Block Pad Byte
-siac_cqs_output_cta_v1_91.block_pad_byte.size = 1
+-- Size: Administrative Message Type
+siac_cqs_output_cta_v1_91.administrative_message_type.size = 1
 
--- Display: Block Pad Byte
-siac_cqs_output_cta_v1_91.block_pad_byte.display = function(value)
-  return "Block Pad Byte: "..value
+-- Display: Administrative Message Type
+siac_cqs_output_cta_v1_91.administrative_message_type.display = function(value)
+  if value == "H" then
+    return "Administrative Message Type: Administrative Unformatted Message (H)"
+  end
+
+  return "Administrative Message Type: Unknown("..value..")"
 end
 
--- Dissect: Block Pad Byte
-siac_cqs_output_cta_v1_91.block_pad_byte.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.block_pad_byte.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.block_pad_byte.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_pad_byte, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Size Short
-siac_cqs_output_cta_v1_91.best_offer_size_short = {}
-
--- Size: Best Offer Size Short
-siac_cqs_output_cta_v1_91.best_offer_size_short.size = 2
-
--- Display: Best Offer Size Short
-siac_cqs_output_cta_v1_91.best_offer_size_short.display = function(value)
-  return "Best Offer Size Short: "..value
-end
-
--- Dissect: Best Offer Size Short
-siac_cqs_output_cta_v1_91.best_offer_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_offer_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.best_offer_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_size_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Price Short
-siac_cqs_output_cta_v1_91.best_offer_price_short = {}
-
--- Size: Best Offer Price Short
-siac_cqs_output_cta_v1_91.best_offer_price_short.size = 2
-
--- Display: Best Offer Price Short
-siac_cqs_output_cta_v1_91.best_offer_price_short.display = function(value)
-  return "Best Offer Price Short: "..value
-end
-
--- Translate: Best Offer Price Short
-siac_cqs_output_cta_v1_91.best_offer_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Best Offer Price Short
-siac_cqs_output_cta_v1_91.best_offer_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_offer_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = siac_cqs_output_cta_v1_91.best_offer_price_short.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.best_offer_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Participant Id
-siac_cqs_output_cta_v1_91.best_offer_participant_id = {}
-
--- Size: Best Offer Participant Id
-siac_cqs_output_cta_v1_91.best_offer_participant_id.size = 1
-
--- Display: Best Offer Participant Id
-siac_cqs_output_cta_v1_91.best_offer_participant_id.display = function(value)
-  if value == "A" then
-    return "Best Offer Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Best Offer Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Best Offer Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Best Offer Participant Id: Finra Adf (D)"
-  end
-  if value == "I" then
-    return "Best Offer Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Best Offer Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Best Offer Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Best Offer Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Best Offer Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Best Offer Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Best Offer Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Best Offer Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "Best Offer Participant Id: Nasdaq (T)"
-  end
-  if value == "V" then
-    return "Best Offer Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Best Offer Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Best Offer Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Best Offer Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Best Offer Participant Id: Cboe Bzx (Z)"
-  end
-
-  return "Best Offer Participant Id: Unknown("..value..")"
-end
-
--- Dissect: Best Offer Participant Id
-siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_offer_participant_id.size
+-- Dissect: Administrative Message Type
+siac_cqs_output_cta_v1_91.administrative_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.administrative_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.best_offer_participant_id.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.administrative_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage = {}
-
--- Size: National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size =
-  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
-  siac_cqs_output_cta_v1_91.best_offer_price_short.size + 
-  siac_cqs_output_cta_v1_91.best_offer_size_short.size
-
--- Display: National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Best Offer Participant Id: Char
-  index, best_offer_participant_id = siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect(buffer, index, packet, parent)
-
-  -- Best Offer Price Short: Short
-  index, best_offer_price_short = siac_cqs_output_cta_v1_91.best_offer_price_short.dissect(buffer, index, packet, parent)
-
-  -- Best Offer Size Short: Short
-  index, best_offer_size_short = siac_cqs_output_cta_v1_91.best_offer_size_short.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: National Best Offer Short Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_offer_short_appendage then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Best Bid Size Short
-siac_cqs_output_cta_v1_91.best_bid_size_short = {}
-
--- Size: Best Bid Size Short
-siac_cqs_output_cta_v1_91.best_bid_size_short.size = 2
-
--- Display: Best Bid Size Short
-siac_cqs_output_cta_v1_91.best_bid_size_short.display = function(value)
-  return "Best Bid Size Short: "..value
-end
-
--- Dissect: Best Bid Size Short
-siac_cqs_output_cta_v1_91.best_bid_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_bid_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.best_bid_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_size_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Price Short
-siac_cqs_output_cta_v1_91.best_bid_price_short = {}
-
--- Size: Best Bid Price Short
-siac_cqs_output_cta_v1_91.best_bid_price_short.size = 2
-
--- Display: Best Bid Price Short
-siac_cqs_output_cta_v1_91.best_bid_price_short.display = function(value)
-  return "Best Bid Price Short: "..value
-end
-
--- Translate: Best Bid Price Short
-siac_cqs_output_cta_v1_91.best_bid_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Best Bid Price Short
-siac_cqs_output_cta_v1_91.best_bid_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_bid_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = siac_cqs_output_cta_v1_91.best_bid_price_short.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.best_bid_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_short, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_message_type, range, value, display)
 
   return offset + length, value
 end
@@ -679,96 +453,207 @@ siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect = function(buffer, off
   return offset + length, value
 end
 
--- National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage = {}
+-- Best Bid Price Long
+siac_cqs_output_cta_v1_91.best_bid_price_long = {}
 
--- Size: National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size =
-  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
-  siac_cqs_output_cta_v1_91.best_bid_price_short.size + 
-  siac_cqs_output_cta_v1_91.best_bid_size_short.size
+-- Size: Best Bid Price Long
+siac_cqs_output_cta_v1_91.best_bid_price_long.size = 8
 
--- Display: National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.display = function(packet, parent, length)
-  return ""
+-- Display: Best Bid Price Long
+siac_cqs_output_cta_v1_91.best_bid_price_long.display = function(value)
+  return "Best Bid Price Long: "..value
 end
 
--- Dissect Fields: National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Best Bid Participant Id: Char
-  index, best_bid_participant_id = siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect(buffer, index, packet, parent)
-
-  -- Best Bid Price Short: Short
-  index, best_bid_price_short = siac_cqs_output_cta_v1_91.best_bid_price_short.dissect(buffer, index, packet, parent)
-
-  -- Best Bid Size Short: Short
-  index, best_bid_size_short = siac_cqs_output_cta_v1_91.best_bid_size_short.dissect(buffer, index, packet, parent)
-
-  return index
+-- Translate: Best Bid Price Long
+siac_cqs_output_cta_v1_91.best_bid_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
 end
 
--- Dissect: National Best Bid Short Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_bid_short_appendage then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Finra Best Offer Market Maker Id
-siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id = {}
-
--- Size: Finra Best Offer Market Maker Id
-siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size = 4
-
--- Display: Finra Best Offer Market Maker Id
-siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.display = function(value)
-  return "Finra Best Offer Market Maker Id: "..value
-end
-
--- Dissect: Finra Best Offer Market Maker Id
-siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
+-- Dissect: Best Bid Price Long
+siac_cqs_output_cta_v1_91.best_bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_bid_price_long.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.display(value, buffer, offset, packet, parent)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.best_bid_price_long.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.best_bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Best Offer Size Long
-siac_cqs_output_cta_v1_91.best_offer_size_long = {}
+-- Best Bid Price Short
+siac_cqs_output_cta_v1_91.best_bid_price_short = {}
 
--- Size: Best Offer Size Long
-siac_cqs_output_cta_v1_91.best_offer_size_long.size = 4
+-- Size: Best Bid Price Short
+siac_cqs_output_cta_v1_91.best_bid_price_short.size = 2
 
--- Display: Best Offer Size Long
-siac_cqs_output_cta_v1_91.best_offer_size_long.display = function(value)
-  return "Best Offer Size Long: "..value
+-- Display: Best Bid Price Short
+siac_cqs_output_cta_v1_91.best_bid_price_short.display = function(value)
+  return "Best Bid Price Short: "..value
 end
 
--- Dissect: Best Offer Size Long
-siac_cqs_output_cta_v1_91.best_offer_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_offer_size_long.size
+-- Translate: Best Bid Price Short
+siac_cqs_output_cta_v1_91.best_bid_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Best Bid Price Short
+siac_cqs_output_cta_v1_91.best_bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = siac_cqs_output_cta_v1_91.best_bid_price_short.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.best_bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.best_bid_quote_condition = {}
+
+-- Size: Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.best_bid_quote_condition.size = 1
+
+-- Display: Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.best_bid_quote_condition.display = function(value)
+  return "Best Bid Quote Condition: "..value
+end
+
+-- Dissect: Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.best_bid_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_bid_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.best_bid_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Size Long
+siac_cqs_output_cta_v1_91.best_bid_size_long = {}
+
+-- Size: Best Bid Size Long
+siac_cqs_output_cta_v1_91.best_bid_size_long.size = 4
+
+-- Display: Best Bid Size Long
+siac_cqs_output_cta_v1_91.best_bid_size_long.display = function(value)
+  return "Best Bid Size Long: "..value
+end
+
+-- Dissect: Best Bid Size Long
+siac_cqs_output_cta_v1_91.best_bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_bid_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.best_offer_size_long.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.best_bid_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_size_long, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Size Short
+siac_cqs_output_cta_v1_91.best_bid_size_short = {}
+
+-- Size: Best Bid Size Short
+siac_cqs_output_cta_v1_91.best_bid_size_short.size = 2
+
+-- Display: Best Bid Size Short
+siac_cqs_output_cta_v1_91.best_bid_size_short.display = function(value)
+  return "Best Bid Size Short: "..value
+end
+
+-- Dissect: Best Bid Size Short
+siac_cqs_output_cta_v1_91.best_bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.best_bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Participant Id
+siac_cqs_output_cta_v1_91.best_offer_participant_id = {}
+
+-- Size: Best Offer Participant Id
+siac_cqs_output_cta_v1_91.best_offer_participant_id.size = 1
+
+-- Display: Best Offer Participant Id
+siac_cqs_output_cta_v1_91.best_offer_participant_id.display = function(value)
+  if value == "A" then
+    return "Best Offer Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Best Offer Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Best Offer Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Best Offer Participant Id: Finra Adf (D)"
+  end
+  if value == "I" then
+    return "Best Offer Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Best Offer Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Best Offer Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Best Offer Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Best Offer Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Best Offer Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Best Offer Participant Id: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "Best Offer Participant Id: Cqs (S)"
+  end
+  if value == "T" then
+    return "Best Offer Participant Id: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Best Offer Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Best Offer Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Best Offer Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Best Offer Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Best Offer Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Best Offer Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Best Offer Participant Id
+siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_offer_participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.best_offer_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -802,6 +687,35 @@ siac_cqs_output_cta_v1_91.best_offer_price_long.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Best Offer Price Short
+siac_cqs_output_cta_v1_91.best_offer_price_short = {}
+
+-- Size: Best Offer Price Short
+siac_cqs_output_cta_v1_91.best_offer_price_short.size = 2
+
+-- Display: Best Offer Price Short
+siac_cqs_output_cta_v1_91.best_offer_price_short.display = function(value)
+  return "Best Offer Price Short: "..value
+end
+
+-- Translate: Best Offer Price Short
+siac_cqs_output_cta_v1_91.best_offer_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Best Offer Price Short
+siac_cqs_output_cta_v1_91.best_offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = siac_cqs_output_cta_v1_91.best_offer_price_short.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.best_offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_price_short, range, value, display)
+
+  return offset + length, value
+end
+
 -- Best Offer Quote Condition
 siac_cqs_output_cta_v1_91.best_offer_quote_condition = {}
 
@@ -825,60 +739,478 @@ siac_cqs_output_cta_v1_91.best_offer_quote_condition.dissect = function(buffer, 
   return offset + length, value
 end
 
--- National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage = {}
+-- Best Offer Size Long
+siac_cqs_output_cta_v1_91.best_offer_size_long = {}
 
--- Size: National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size =
-  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
-  siac_cqs_output_cta_v1_91.best_offer_quote_condition.size + 
-  siac_cqs_output_cta_v1_91.best_offer_price_long.size + 
-  siac_cqs_output_cta_v1_91.best_offer_size_long.size + 
-  siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
+-- Size: Best Offer Size Long
+siac_cqs_output_cta_v1_91.best_offer_size_long.size = 4
 
--- Display: National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.display = function(packet, parent, length)
-  return ""
+-- Display: Best Offer Size Long
+siac_cqs_output_cta_v1_91.best_offer_size_long.display = function(value)
+  return "Best Offer Size Long: "..value
 end
 
--- Dissect Fields: National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Best Offer Size Long
+siac_cqs_output_cta_v1_91.best_offer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_offer_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.best_offer_size_long.display(value, buffer, offset, packet, parent)
 
-  -- Best Offer Participant Id: Char
-  index, best_offer_participant_id = siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect(buffer, index, packet, parent)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_size_long, range, value, display)
 
-  -- Best Offer Quote Condition: Char
-  index, best_offer_quote_condition = siac_cqs_output_cta_v1_91.best_offer_quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Best Offer Price Long: Long
-  index, best_offer_price_long = siac_cqs_output_cta_v1_91.best_offer_price_long.dissect(buffer, index, packet, parent)
-
-  -- Best Offer Size Long: Integer
-  index, best_offer_size_long = siac_cqs_output_cta_v1_91.best_offer_size_long.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Offer Market Maker Id: Char[]
-  index, finra_best_offer_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect(buffer, index, packet, parent)
-
-  return index
+  return offset + length, value
 end
 
--- Dissect: National Best Offer Long Appendage
-siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_offer_long_appendage then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.display(packet, parent, length)
-    parent:append_text(display)
+-- Best Offer Size Short
+siac_cqs_output_cta_v1_91.best_offer_size_short = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields(buffer, offset, packet, parent)
+-- Size: Best Offer Size Short
+siac_cqs_output_cta_v1_91.best_offer_size_short.size = 2
+
+-- Display: Best Offer Size Short
+siac_cqs_output_cta_v1_91.best_offer_size_short.display = function(value)
+  return "Best Offer Size Short: "..value
+end
+
+-- Dissect: Best Offer Size Short
+siac_cqs_output_cta_v1_91.best_offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.best_offer_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.best_offer_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_offer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Long
+siac_cqs_output_cta_v1_91.bid_price_long = {}
+
+-- Size: Bid Price Long
+siac_cqs_output_cta_v1_91.bid_price_long.size = 8
+
+-- Display: Bid Price Long
+siac_cqs_output_cta_v1_91.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
+end
+
+-- Translate: Bid Price Long
+siac_cqs_output_cta_v1_91.bid_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bid Price Long
+siac_cqs_output_cta_v1_91.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.bid_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.bid_price_long.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.bid_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Lower Limit Price Band
+siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band = {}
+
+-- Size: Bid Price Lower Limit Price Band
+siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.size = 8
+
+-- Display: Bid Price Lower Limit Price Band
+siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.display = function(value)
+  return "Bid Price Lower Limit Price Band: "..value
+end
+
+-- Translate: Bid Price Lower Limit Price Band
+siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bid Price Lower Limit Price Band
+siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Short
+siac_cqs_output_cta_v1_91.bid_price_short = {}
+
+-- Size: Bid Price Short
+siac_cqs_output_cta_v1_91.bid_price_short.size = 2
+
+-- Display: Bid Price Short
+siac_cqs_output_cta_v1_91.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
+end
+
+-- Translate: Bid Price Short
+siac_cqs_output_cta_v1_91.bid_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price Short
+siac_cqs_output_cta_v1_91.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = siac_cqs_output_cta_v1_91.bid_price_short.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Long
+siac_cqs_output_cta_v1_91.bid_size_long = {}
+
+-- Size: Bid Size Long
+siac_cqs_output_cta_v1_91.bid_size_long.size = 4
+
+-- Display: Bid Size Long
+siac_cqs_output_cta_v1_91.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
+end
+
+-- Dissect: Bid Size Long
+siac_cqs_output_cta_v1_91.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.bid_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.bid_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Short
+siac_cqs_output_cta_v1_91.bid_size_short = {}
+
+-- Size: Bid Size Short
+siac_cqs_output_cta_v1_91.bid_size_short.size = 2
+
+-- Display: Bid Size Short
+siac_cqs_output_cta_v1_91.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
+end
+
+-- Dissect: Bid Size Short
+siac_cqs_output_cta_v1_91.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Checksum
+siac_cqs_output_cta_v1_91.block_checksum = {}
+
+-- Size: Block Checksum
+siac_cqs_output_cta_v1_91.block_checksum.size = 2
+
+-- Display: Block Checksum
+siac_cqs_output_cta_v1_91.block_checksum.display = function(value)
+  return "Block Checksum: "..value
+end
+
+-- Dissect: Block Checksum
+siac_cqs_output_cta_v1_91.block_checksum.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.block_checksum.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.block_checksum.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_checksum, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Pad Byte
+siac_cqs_output_cta_v1_91.block_pad_byte = {}
+
+-- Size: Block Pad Byte
+siac_cqs_output_cta_v1_91.block_pad_byte.size = 1
+
+-- Display: Block Pad Byte
+siac_cqs_output_cta_v1_91.block_pad_byte.display = function(value)
+  return "Block Pad Byte: "..value
+end
+
+-- Dissect: Block Pad Byte
+siac_cqs_output_cta_v1_91.block_pad_byte.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.block_pad_byte.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.block_pad_byte.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_pad_byte, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Sequence Number
+siac_cqs_output_cta_v1_91.block_sequence_number = {}
+
+-- Size: Block Sequence Number
+siac_cqs_output_cta_v1_91.block_sequence_number.size = 4
+
+-- Display: Block Sequence Number
+siac_cqs_output_cta_v1_91.block_sequence_number.display = function(value)
+  return "Block Sequence Number: "..value
+end
+
+-- Dissect: Block Sequence Number
+siac_cqs_output_cta_v1_91.block_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.block_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.block_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Size
+siac_cqs_output_cta_v1_91.block_size = {}
+
+-- Size: Block Size
+siac_cqs_output_cta_v1_91.block_size.size = 2
+
+-- Display: Block Size
+siac_cqs_output_cta_v1_91.block_size.display = function(value)
+  return "Block Size: "..value
+end
+
+-- Dissect: Block Size
+siac_cqs_output_cta_v1_91.block_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.block_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.block_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Control Message Type
+siac_cqs_output_cta_v1_91.control_message_type = {}
+
+-- Size: Control Message Type
+siac_cqs_output_cta_v1_91.control_message_type.size = 1
+
+-- Display: Control Message Type
+siac_cqs_output_cta_v1_91.control_message_type.display = function(value)
+  if value == "A" then
+    return "Control Message Type: Start Of Day Message (A)"
   end
+  if value == "C" then
+    return "Control Message Type: Finra Close Message (C)"
+  end
+  if value == "L" then
+    return "Control Message Type: Reset Block Sequence Number Message (L)"
+  end
+  if value == "M" then
+    return "Control Message Type: Start Of Test Cycle Message (M)"
+  end
+  if value == "N" then
+    return "Control Message Type: End Of Test Cycle Message (N)"
+  end
+  if value == "O" then
+    return "Control Message Type: Finra Open Message (O)"
+  end
+  if value == "P" then
+    return "Control Message Type: Disaster Recovery Data Center Activation Message (P)"
+  end
+  if value == "T" then
+    return "Control Message Type: Line Integrity Message (T)"
+  end
+  if value == "Z" then
+    return "Control Message Type: End Of Day Message (Z)"
+  end
+
+  return "Control Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Control Message Type
+siac_cqs_output_cta_v1_91.control_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.control_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.control_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.control_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Data Feed Indicator
+siac_cqs_output_cta_v1_91.data_feed_indicator = {}
+
+-- Size: Data Feed Indicator
+siac_cqs_output_cta_v1_91.data_feed_indicator.size = 1
+
+-- Display: Data Feed Indicator
+siac_cqs_output_cta_v1_91.data_feed_indicator.display = function(value)
+  return "Data Feed Indicator: "..value
+end
+
+-- Dissect: Data Feed Indicator
+siac_cqs_output_cta_v1_91.data_feed_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.data_feed_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.data_feed_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.data_feed_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+siac_cqs_output_cta_v1_91.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+siac_cqs_output_cta_v1_91.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+siac_cqs_output_cta_v1_91.financial_status_indicator.display = function(value)
+  if value == "0" then
+    return "Financial Status Indicator: Financial Status Not Applicable (0)"
+  end
+  if value == "1" then
+    return "Financial Status Indicator: Bankrupt (1)"
+  end
+  if value == "2" then
+    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
+  end
+  if value == "3" then
+    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
+  end
+  if value == "4" then
+    return "Financial Status Indicator: Late Filing (4)"
+  end
+  if value == "5" then
+    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
+  end
+  if value == "6" then
+    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
+  end
+  if value == "7" then
+    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
+  end
+  if value == "8" then
+    return "Financial Status Indicator: Creations Suspended (8)"
+  end
+  if value == "9" then
+    return "Financial Status Indicator: Redemptions Suspended (9)"
+  end
+  if value == "A" then
+    return "Financial Status Indicator: Liquidation (A)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Financial Status Indicator
+siac_cqs_output_cta_v1_91.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.financial_status_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.financial_status_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.financial_status_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Bbo Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_indicator = {}
+
+-- Size: Finra Bbo Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_indicator.size = 1
+
+-- Display: Finra Bbo Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_indicator.display = function(value)
+  if value == " " then
+    return "Finra Bbo Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Finra Bbo Indicator: No Finra Bbo Change (A)"
+  end
+  if value == "B" then
+    return "Finra Bbo Indicator: No Finra Bbo Exists (B)"
+  end
+
+  return "Finra Bbo Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Finra Bbo Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_bbo_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.finra_bbo_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_bbo_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Bbo Luld Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator = {}
+
+-- Size: Finra Bbo Luld Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size = 1
+
+-- Display: Finra Bbo Luld Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.display = function(value)
+  if value == "" then
+    return "Finra Bbo Luld Indicator: Limit Up Limit Down Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Finra Bbo Luld Indicator: Finra Best Bid And Or Finra Best Offer Are Executable (A)"
+  end
+  if value == "B" then
+    return "Finra Bbo Luld Indicator: Finra Best Bid Below Lower Limit Price Band And Finra Best Bid Is Non Executable (B)"
+  end
+  if value == "C" then
+    return "Finra Bbo Luld Indicator: Finra Best Offer Above Upper Limit Price Band And Finra Best Offer Is Non Executable (C)"
+  end
+  if value == "D" then
+    return "Finra Bbo Luld Indicator: Best Bid Below Lower Limit Price Band And Best Offer Above Upper Limit Price Band Best Bid And Best Offer Are Non Executable For Finra (D)"
+  end
+
+  return "Finra Bbo Luld Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Finra Bbo Luld Indicator
+siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_bbo_luld_indicator, range, value, display)
+
+  return offset + length, value
 end
 
 -- Finra Best Bid Market Maker Id
@@ -904,135 +1236,519 @@ siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.dissect = function(buff
   return offset + length, value
 end
 
--- Best Bid Size Long
-siac_cqs_output_cta_v1_91.best_bid_size_long = {}
+-- Finra Best Bid Price
+siac_cqs_output_cta_v1_91.finra_best_bid_price = {}
 
--- Size: Best Bid Size Long
-siac_cqs_output_cta_v1_91.best_bid_size_long.size = 4
+-- Size: Finra Best Bid Price
+siac_cqs_output_cta_v1_91.finra_best_bid_price.size = 8
 
--- Display: Best Bid Size Long
-siac_cqs_output_cta_v1_91.best_bid_size_long.display = function(value)
-  return "Best Bid Size Long: "..value
+-- Display: Finra Best Bid Price
+siac_cqs_output_cta_v1_91.finra_best_bid_price.display = function(value)
+  return "Finra Best Bid Price: "..value
 end
 
--- Dissect: Best Bid Size Long
-siac_cqs_output_cta_v1_91.best_bid_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_bid_size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.best_bid_size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Price Long
-siac_cqs_output_cta_v1_91.best_bid_price_long = {}
-
--- Size: Best Bid Price Long
-siac_cqs_output_cta_v1_91.best_bid_price_long.size = 8
-
--- Display: Best Bid Price Long
-siac_cqs_output_cta_v1_91.best_bid_price_long.display = function(value)
-  return "Best Bid Price Long: "..value
-end
-
--- Translate: Best Bid Price Long
-siac_cqs_output_cta_v1_91.best_bid_price_long.translate = function(raw)
+-- Translate: Finra Best Bid Price
+siac_cqs_output_cta_v1_91.finra_best_bid_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Best Bid Price Long
-siac_cqs_output_cta_v1_91.best_bid_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_bid_price_long.size
+-- Dissect: Finra Best Bid Price
+siac_cqs_output_cta_v1_91.finra_best_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_bid_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.best_bid_price_long.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.best_bid_price_long.display(value, buffer, offset, packet, parent)
+  local value = siac_cqs_output_cta_v1_91.finra_best_bid_price.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.finra_best_bid_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_price_long, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_price, range, value, display)
 
   return offset + length, value
 end
 
--- Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.best_bid_quote_condition = {}
+-- Finra Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition = {}
 
--- Size: Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.best_bid_quote_condition.size = 1
+-- Size: Finra Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.size = 1
 
--- Display: Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.best_bid_quote_condition.display = function(value)
-  return "Best Bid Quote Condition: "..value
+-- Display: Finra Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.display = function(value)
+  return "Finra Best Bid Quote Condition: "..value
 end
 
--- Dissect: Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.best_bid_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.best_bid_quote_condition.size
+-- Dissect: Finra Best Bid Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.best_bid_quote_condition.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_quote_condition, range, value, display)
 
   return offset + length, value
 end
 
--- National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage = {}
+-- Finra Best Bid Size
+siac_cqs_output_cta_v1_91.finra_best_bid_size = {}
 
--- Size: National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size =
-  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
-  siac_cqs_output_cta_v1_91.best_bid_quote_condition.size + 
-  siac_cqs_output_cta_v1_91.best_bid_price_long.size + 
-  siac_cqs_output_cta_v1_91.best_bid_size_long.size + 
-  siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
+-- Size: Finra Best Bid Size
+siac_cqs_output_cta_v1_91.finra_best_bid_size.size = 4
 
--- Display: National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.display = function(packet, parent, length)
-  return ""
+-- Display: Finra Best Bid Size
+siac_cqs_output_cta_v1_91.finra_best_bid_size.display = function(value)
+  return "Finra Best Bid Size: "..value
 end
 
--- Dissect Fields: National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Finra Best Bid Size
+siac_cqs_output_cta_v1_91.finra_best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.finra_best_bid_size.display(value, buffer, offset, packet, parent)
 
-  -- Best Bid Participant Id: Char
-  index, best_bid_participant_id = siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect(buffer, index, packet, parent)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_size, range, value, display)
 
-  -- Best Bid Quote Condition: Char
-  index, best_bid_quote_condition = siac_cqs_output_cta_v1_91.best_bid_quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Best Bid Price Long: Long
-  index, best_bid_price_long = siac_cqs_output_cta_v1_91.best_bid_price_long.dissect(buffer, index, packet, parent)
-
-  -- Best Bid Size Long: Integer
-  index, best_bid_size_long = siac_cqs_output_cta_v1_91.best_bid_size_long.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Bid Market Maker Id: Char[]
-  index, finra_best_bid_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.dissect(buffer, index, packet, parent)
-
-  return index
+  return offset + length, value
 end
 
--- Dissect: National Best Bid Long Appendage
-siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.dissect = function(buffer, offset, packet, parent)
-  if show.national_best_bid_long_appendage then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.display(packet, parent, length)
-    parent:append_text(display)
+-- Finra Best Offer Market Maker Id
+siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields(buffer, offset, packet, parent)
+-- Size: Finra Best Offer Market Maker Id
+siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size = 4
+
+-- Display: Finra Best Offer Market Maker Id
+siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.display = function(value)
+  return "Finra Best Offer Market Maker Id: "..value
+end
+
+-- Dissect: Finra Best Offer Market Maker Id
+siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Best Offer Price
+siac_cqs_output_cta_v1_91.finra_best_offer_price = {}
+
+-- Size: Finra Best Offer Price
+siac_cqs_output_cta_v1_91.finra_best_offer_price.size = 8
+
+-- Display: Finra Best Offer Price
+siac_cqs_output_cta_v1_91.finra_best_offer_price.display = function(value)
+  return "Finra Best Offer Price: "..value
+end
+
+-- Translate: Finra Best Offer Price
+siac_cqs_output_cta_v1_91.finra_best_offer_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Finra Best Offer Price
+siac_cqs_output_cta_v1_91.finra_best_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.finra_best_offer_price.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.finra_best_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Best Offer Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition = {}
+
+-- Size: Finra Best Offer Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.size = 1
+
+-- Display: Finra Best Offer Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.display = function(value)
+  return "Finra Best Offer Quote Condition: "..value
+end
+
+-- Dissect: Finra Best Offer Quote Condition
+siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Best Offer Size
+siac_cqs_output_cta_v1_91.finra_best_offer_size = {}
+
+-- Size: Finra Best Offer Size
+siac_cqs_output_cta_v1_91.finra_best_offer_size.size = 4
+
+-- Display: Finra Best Offer Size
+siac_cqs_output_cta_v1_91.finra_best_offer_size.display = function(value)
+  return "Finra Best Offer Size: "..value
+end
+
+-- Dissect: Finra Best Offer Size
+siac_cqs_output_cta_v1_91.finra_best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_best_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.finra_best_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Market Maker Id
+siac_cqs_output_cta_v1_91.finra_market_maker_id = {}
+
+-- Size: Finra Market Maker Id
+siac_cqs_output_cta_v1_91.finra_market_maker_id.size = 4
+
+-- Display: Finra Market Maker Id
+siac_cqs_output_cta_v1_91.finra_market_maker_id.display = function(value)
+  return "Finra Market Maker Id: "..value
+end
+
+-- Dissect: Finra Market Maker Id
+siac_cqs_output_cta_v1_91.finra_market_maker_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.finra_market_maker_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.finra_market_maker_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_market_maker_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Future
+siac_cqs_output_cta_v1_91.future = {}
+
+-- Size: Future
+siac_cqs_output_cta_v1_91.future.size = 1
+
+-- Display: Future
+siac_cqs_output_cta_v1_91.future.display = function(value)
+  return "Future: "..value
+end
+
+-- Dissect: Future
+siac_cqs_output_cta_v1_91.future.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.future.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.future.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.future, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+siac_cqs_output_cta_v1_91.instrument_type = {}
+
+-- Size: Instrument Type
+siac_cqs_output_cta_v1_91.instrument_type.size = 1
+
+-- Display: Instrument Type
+siac_cqs_output_cta_v1_91.instrument_type.display = function(value)
+  if value == "0" then
+    return "Instrument Type: Cta Eligible Equity (0)"
   end
+  if value == "1" then
+    return "Instrument Type: Local Issue (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Corporate Bond (2)"
+  end
+  if value == "3" then
+    return "Instrument Type: Government Bond (3)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+siac_cqs_output_cta_v1_91.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.instrument_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Luld Indicator
+siac_cqs_output_cta_v1_91.luld_indicator = {}
+
+-- Size: Luld Indicator
+siac_cqs_output_cta_v1_91.luld_indicator.size = 1
+
+-- Display: Luld Indicator
+siac_cqs_output_cta_v1_91.luld_indicator.display = function(value)
+  return "Luld Indicator: "..value
+end
+
+-- Dissect: Luld Indicator
+siac_cqs_output_cta_v1_91.luld_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.luld_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.luld_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.luld_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Condition
+siac_cqs_output_cta_v1_91.market_condition = {}
+
+-- Size: Market Condition
+siac_cqs_output_cta_v1_91.market_condition.size = 1
+
+-- Display: Market Condition
+siac_cqs_output_cta_v1_91.market_condition.display = function(value)
+  if value == " " then
+    return "Market Condition: Normal Auction Market (<whitespace>)"
+  end
+  if value == "A" then
+    return "Market Condition: Crossed Market (A)"
+  end
+  if value == "B" then
+    return "Market Condition: Locked Market (B)"
+  end
+
+  return "Market Condition: Unknown("..value..")"
+end
+
+-- Dissect: Market Condition
+siac_cqs_output_cta_v1_91.market_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.market_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.market_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Status Message Type
+siac_cqs_output_cta_v1_91.market_status_message_type = {}
+
+-- Size: Market Status Message Type
+siac_cqs_output_cta_v1_91.market_status_message_type.size = 1
+
+-- Display: Market Status Message Type
+siac_cqs_output_cta_v1_91.market_status_message_type.display = function(value)
+  if value == "M" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
+  end
+  if value == "L" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
+  end
+
+  return "Market Status Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Market Status Message Type
+siac_cqs_output_cta_v1_91.market_status_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.market_status_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.market_status_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_status_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Category
+siac_cqs_output_cta_v1_91.message_category = {}
+
+-- Size: Message Category
+siac_cqs_output_cta_v1_91.message_category.size = 1
+
+-- Display: Message Category
+siac_cqs_output_cta_v1_91.message_category.display = function(value)
+  if value == "A" then
+    return "Message Category: Administrative (A)"
+  end
+  if value == "C" then
+    return "Message Category: Control (C)"
+  end
+  if value == "M" then
+    return "Message Category: Market Status (M)"
+  end
+  if value == "Q" then
+    return "Message Category: Quote (Q)"
+  end
+
+  return "Message Category: Unknown("..value..")"
+end
+
+-- Dissect: Message Category
+siac_cqs_output_cta_v1_91.message_category.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.message_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.message_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Id
+siac_cqs_output_cta_v1_91.message_id = {}
+
+-- Size: Message Id
+siac_cqs_output_cta_v1_91.message_id.size = 1
+
+-- Display: Message Id
+siac_cqs_output_cta_v1_91.message_id.display = function(value)
+  return "Message Id: "..value
+end
+
+-- Dissect: Message Id
+siac_cqs_output_cta_v1_91.message_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.message_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.message_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+siac_cqs_output_cta_v1_91.message_length = {}
+
+-- Size: Message Length
+siac_cqs_output_cta_v1_91.message_length.size = 2
+
+-- Display: Message Length
+siac_cqs_output_cta_v1_91.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+siac_cqs_output_cta_v1_91.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Messages In Block
+siac_cqs_output_cta_v1_91.messages_in_block = {}
+
+-- Size: Messages In Block
+siac_cqs_output_cta_v1_91.messages_in_block.size = 1
+
+-- Display: Messages In Block
+siac_cqs_output_cta_v1_91.messages_in_block.display = function(value)
+  return "Messages In Block: "..value
+end
+
+-- Dissect: Messages In Block
+siac_cqs_output_cta_v1_91.messages_in_block.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.messages_in_block.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.messages_in_block.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.messages_in_block, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 2
+siac_cqs_output_cta_v1_91.mwcb_level_2 = {}
+
+-- Size: Mwcb Level 2
+siac_cqs_output_cta_v1_91.mwcb_level_2.size = 8
+
+-- Display: Mwcb Level 2
+siac_cqs_output_cta_v1_91.mwcb_level_2.display = function(value)
+  return "Mwcb Level 2: "..value
+end
+
+-- Dissect: Mwcb Level 2
+siac_cqs_output_cta_v1_91.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.mwcb_level_2.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_output_cta_v1_91.mwcb_level_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 3
+siac_cqs_output_cta_v1_91.mwcb_level_3 = {}
+
+-- Size: Mwcb Level 3
+siac_cqs_output_cta_v1_91.mwcb_level_3.size = 8
+
+-- Display: Mwcb Level 3
+siac_cqs_output_cta_v1_91.mwcb_level_3.display = function(value)
+  return "Mwcb Level 3: "..value
+end
+
+-- Dissect: Mwcb Level 3
+siac_cqs_output_cta_v1_91.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.mwcb_level_3.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_output_cta_v1_91.mwcb_level_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+siac_cqs_output_cta_v1_91.nanoseconds = {}
+
+-- Size: Nanoseconds
+siac_cqs_output_cta_v1_91.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+siac_cqs_output_cta_v1_91.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+siac_cqs_output_cta_v1_91.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
 end
 
 -- National Bbo Indicator
@@ -1185,128 +1901,259 @@ siac_cqs_output_cta_v1_91.national_bbo_luld_indicator.dissect = function(buffer,
   return offset + length, value
 end
 
--- Finra Bbo Luld Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator = {}
+-- Number Of Extensions
+siac_cqs_output_cta_v1_91.number_of_extensions = {}
 
--- Size: Finra Bbo Luld Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size = 1
+-- Size: Number Of Extensions
+siac_cqs_output_cta_v1_91.number_of_extensions.size = 1
 
--- Display: Finra Bbo Luld Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.display = function(value)
-  if value == "" then
-    return "Finra Bbo Luld Indicator: Limit Up Limit Down Not Applicable (<whitespace>)"
-  end
+-- Display: Number Of Extensions
+siac_cqs_output_cta_v1_91.number_of_extensions.display = function(value)
+  return "Number Of Extensions: "..value
+end
+
+-- Dissect: Number Of Extensions
+siac_cqs_output_cta_v1_91.number_of_extensions.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.number_of_extensions.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.number_of_extensions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.number_of_extensions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price Long
+siac_cqs_output_cta_v1_91.offer_price_long = {}
+
+-- Size: Offer Price Long
+siac_cqs_output_cta_v1_91.offer_price_long.size = 8
+
+-- Display: Offer Price Long
+siac_cqs_output_cta_v1_91.offer_price_long.display = function(value)
+  return "Offer Price Long: "..value
+end
+
+-- Translate: Offer Price Long
+siac_cqs_output_cta_v1_91.offer_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Offer Price Long
+siac_cqs_output_cta_v1_91.offer_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.offer_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.offer_price_long.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.offer_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price Short
+siac_cqs_output_cta_v1_91.offer_price_short = {}
+
+-- Size: Offer Price Short
+siac_cqs_output_cta_v1_91.offer_price_short.size = 2
+
+-- Display: Offer Price Short
+siac_cqs_output_cta_v1_91.offer_price_short.display = function(value)
+  return "Offer Price Short: "..value
+end
+
+-- Translate: Offer Price Short
+siac_cqs_output_cta_v1_91.offer_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Offer Price Short
+siac_cqs_output_cta_v1_91.offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = siac_cqs_output_cta_v1_91.offer_price_short.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price Upper Limit Price Band
+siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band = {}
+
+-- Size: Offer Price Upper Limit Price Band
+siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.size = 8
+
+-- Display: Offer Price Upper Limit Price Band
+siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.display = function(value)
+  return "Offer Price Upper Limit Price Band: "..value
+end
+
+-- Translate: Offer Price Upper Limit Price Band
+siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Offer Price Upper Limit Price Band
+siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.translate(raw)
+  local display = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Long
+siac_cqs_output_cta_v1_91.offer_size_long = {}
+
+-- Size: Offer Size Long
+siac_cqs_output_cta_v1_91.offer_size_long.size = 4
+
+-- Display: Offer Size Long
+siac_cqs_output_cta_v1_91.offer_size_long.display = function(value)
+  return "Offer Size Long: "..value
+end
+
+-- Dissect: Offer Size Long
+siac_cqs_output_cta_v1_91.offer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.offer_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.offer_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Short
+siac_cqs_output_cta_v1_91.offer_size_short = {}
+
+-- Size: Offer Size Short
+siac_cqs_output_cta_v1_91.offer_size_short.size = 2
+
+-- Display: Offer Size Short
+siac_cqs_output_cta_v1_91.offer_size_short.display = function(value)
+  return "Offer Size Short: "..value
+end
+
+-- Dissect: Offer Size Short
+siac_cqs_output_cta_v1_91.offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.offer_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.offer_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id
+siac_cqs_output_cta_v1_91.participant_id = {}
+
+-- Size: Participant Id
+siac_cqs_output_cta_v1_91.participant_id.size = 1
+
+-- Display: Participant Id
+siac_cqs_output_cta_v1_91.participant_id.display = function(value)
   if value == "A" then
-    return "Finra Bbo Luld Indicator: Finra Best Bid And Or Finra Best Offer Are Executable (A)"
+    return "Participant Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Finra Bbo Luld Indicator: Finra Best Bid Below Lower Limit Price Band And Finra Best Bid Is Non Executable (B)"
+    return "Participant Id: Nasdaq Bx (B)"
   end
   if value == "C" then
-    return "Finra Bbo Luld Indicator: Finra Best Offer Above Upper Limit Price Band And Finra Best Offer Is Non Executable (C)"
+    return "Participant Id: Nyse National (C)"
   end
   if value == "D" then
-    return "Finra Bbo Luld Indicator: Best Bid Below Lower Limit Price Band And Best Offer Above Upper Limit Price Band Best Bid And Best Offer Are Non Executable For Finra (D)"
+    return "Participant Id: Finra Adf (D)"
   end
-
-  return "Finra Bbo Luld Indicator: Unknown("..value..")"
-end
-
--- Dissect: Finra Bbo Luld Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.finra_bbo_luld_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_bbo_luld_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Sip Generated Message Identifier
-siac_cqs_output_cta_v1_91.sip_generated_message_identifier = {}
-
--- Size: Sip Generated Message Identifier
-siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size = 1
-
--- Display: Sip Generated Message Identifier
-siac_cqs_output_cta_v1_91.sip_generated_message_identifier.display = function(value)
-  if value == " " then
-    return "Sip Generated Message Identifier: Not Applicable (<whitespace>)"
+  if value == "I" then
+    return "Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Participant Id: Nyse Arca (P)"
   end
   if value == "S" then
-    return "Sip Generated Message Identifier: Consolidated Quotation System (S)"
+    return "Participant Id: Cqs (S)"
+  end
+  if value == "T" then
+    return "Participant Id: Nasdaq (T)"
+  end
+  if value == "V" then
+    return "Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Participant Id: Cboe Bzx (Z)"
   end
 
-  return "Sip Generated Message Identifier: Unknown("..value..")"
+  return "Participant Id: Unknown("..value..")"
 end
 
--- Dissect: Sip Generated Message Identifier
-siac_cqs_output_cta_v1_91.sip_generated_message_identifier.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size
+-- Dissect: Participant Id
+siac_cqs_output_cta_v1_91.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.participant_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.sip_generated_message_identifier.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.participant_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.sip_generated_message_identifier, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
 
--- Financial Status Indicator
-siac_cqs_output_cta_v1_91.financial_status_indicator = {}
+-- Participant Reference Number
+siac_cqs_output_cta_v1_91.participant_reference_number = {}
 
--- Size: Financial Status Indicator
-siac_cqs_output_cta_v1_91.financial_status_indicator.size = 1
+-- Size: Participant Reference Number
+siac_cqs_output_cta_v1_91.participant_reference_number.size = 8
 
--- Display: Financial Status Indicator
-siac_cqs_output_cta_v1_91.financial_status_indicator.display = function(value)
-  if value == "0" then
-    return "Financial Status Indicator: Financial Status Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Financial Status Indicator: Bankrupt (1)"
-  end
-  if value == "2" then
-    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
-  end
-  if value == "3" then
-    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
-  end
-  if value == "4" then
-    return "Financial Status Indicator: Late Filing (4)"
-  end
-  if value == "5" then
-    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
-  end
-  if value == "6" then
-    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
-  end
-  if value == "7" then
-    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
-  end
-  if value == "8" then
-    return "Financial Status Indicator: Creations Suspended (8)"
-  end
-  if value == "9" then
-    return "Financial Status Indicator: Redemptions Suspended (9)"
-  end
-  if value == "A" then
-    return "Financial Status Indicator: Liquidation (A)"
-  end
-
-  return "Financial Status Indicator: Unknown("..value..")"
+-- Display: Participant Reference Number
+siac_cqs_output_cta_v1_91.participant_reference_number.display = function(value)
+  return "Participant Reference Number: "..value
 end
 
--- Dissect: Financial Status Indicator
-siac_cqs_output_cta_v1_91.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.financial_status_indicator.size
+-- Dissect: Participant Reference Number
+siac_cqs_output_cta_v1_91.participant_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.participant_reference_number.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.financial_status_indicator.display(value, buffer, offset, packet, parent)
+  local value = range:int64()
+  local display = siac_cqs_output_cta_v1_91.participant_reference_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.financial_status_indicator, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.participant_reference_number, range, value, display)
 
   return offset + length, value
 end
@@ -1386,370 +2233,127 @@ siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.dissect = functi
   return offset + length, value
 end
 
--- Short Sale Restriction Indicator
-siac_cqs_output_cta_v1_91.short_sale_restriction_indicator = {}
+-- Quote Condition
+siac_cqs_output_cta_v1_91.quote_condition = {}
 
--- Size: Short Sale Restriction Indicator
-siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size = 1
+-- Size: Quote Condition
+siac_cqs_output_cta_v1_91.quote_condition.size = 1
 
--- Display: Short Sale Restriction Indicator
-siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.display = function(value)
+-- Display: Quote Condition
+siac_cqs_output_cta_v1_91.quote_condition.display = function(value)
   if value == " " then
-    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
+    return "Quote Condition: Quote Condition Not Applicable (<whitespace>)"
   end
   if value == "A" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction Activated (A)"
+    return "Quote Condition: Slow Quote On Offer Side (A)"
+  end
+  if value == "B" then
+    return "Quote Condition: Slow Quote On Bid Side (B)"
   end
   if value == "C" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction Continued (C)"
-  end
-  if value == "D" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction Deactivated (D)"
+    return "Quote Condition: Closing (C)"
   end
   if value == "E" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction In Effect (E)"
+    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
+  end
+  if value == "F" then
+    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
+  end
+  if value == "H" then
+    return "Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
+  end
+  if value == "L" then
+    return "Quote Condition: Closed Market Maker (L)"
+  end
+  if value == "N" then
+    return "Quote Condition: Non Firm Quote (N)"
+  end
+  if value == "O" then
+    return "Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Quote Condition: Regular Finra Open (R)"
+  end
+  if value == "U" then
+    return "Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
+  end
+  if value == "W" then
+    return "Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
+  end
+  if value == "4" then
+    return "Quote Condition: On Demand Intra Day Auction (4)"
   end
 
-  return "Short Sale Restriction Indicator: Unknown("..value..")"
+  return "Quote Condition: Unknown("..value..")"
 end
 
--- Dissect: Short Sale Restriction Indicator
-siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size
+-- Dissect: Quote Condition
+siac_cqs_output_cta_v1_91.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.quote_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.quote_condition.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.short_sale_restriction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Nanoseconds
-siac_cqs_output_cta_v1_91.nanoseconds = {}
-
--- Size: Nanoseconds
-siac_cqs_output_cta_v1_91.nanoseconds.size = 4
-
--- Display: Nanoseconds
-siac_cqs_output_cta_v1_91.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-siac_cqs_output_cta_v1_91.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.nanoseconds, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote_condition, range, value, display)
 
   return offset + length, value
 end
 
--- Seconds
-siac_cqs_output_cta_v1_91.seconds = {}
+-- Quote Message Type
+siac_cqs_output_cta_v1_91.quote_message_type = {}
 
--- Size: Seconds
-siac_cqs_output_cta_v1_91.seconds.size = 4
+-- Size: Quote Message Type
+siac_cqs_output_cta_v1_91.quote_message_type.size = 1
 
--- Display: Seconds
-siac_cqs_output_cta_v1_91.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-siac_cqs_output_cta_v1_91.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp = {}
-
--- Size: Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp.size =
-  siac_cqs_output_cta_v1_91.seconds.size + 
-  siac_cqs_output_cta_v1_91.nanoseconds.size
-
--- Display: Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: Integer
-  index, seconds = siac_cqs_output_cta_v1_91.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: Integer
-  index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Adf Timestamp
-siac_cqs_output_cta_v1_91.adf_timestamp.dissect = function(buffer, offset, packet, parent)
-  if show.adf_timestamp then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.adf_timestamp, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v1_91.adf_timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v1_91.adf_timestamp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v1_91.adf_timestamp.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Finra Best Offer Size
-siac_cqs_output_cta_v1_91.finra_best_offer_size = {}
-
--- Size: Finra Best Offer Size
-siac_cqs_output_cta_v1_91.finra_best_offer_size.size = 4
-
--- Display: Finra Best Offer Size
-siac_cqs_output_cta_v1_91.finra_best_offer_size.display = function(value)
-  return "Finra Best Offer Size: "..value
-end
-
--- Dissect: Finra Best Offer Size
-siac_cqs_output_cta_v1_91.finra_best_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.finra_best_offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Offer Price
-siac_cqs_output_cta_v1_91.finra_best_offer_price = {}
-
--- Size: Finra Best Offer Price
-siac_cqs_output_cta_v1_91.finra_best_offer_price.size = 8
-
--- Display: Finra Best Offer Price
-siac_cqs_output_cta_v1_91.finra_best_offer_price.display = function(value)
-  return "Finra Best Offer Price: "..value
-end
-
--- Translate: Finra Best Offer Price
-siac_cqs_output_cta_v1_91.finra_best_offer_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Finra Best Offer Price
-siac_cqs_output_cta_v1_91.finra_best_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.finra_best_offer_price.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.finra_best_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Offer Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition = {}
-
--- Size: Finra Best Offer Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.size = 1
-
--- Display: Finra Best Offer Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.display = function(value)
-  return "Finra Best Offer Quote Condition: "..value
-end
-
--- Dissect: Finra Best Offer Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.finra_best_offer_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_offer_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Bid Size
-siac_cqs_output_cta_v1_91.finra_best_bid_size = {}
-
--- Size: Finra Best Bid Size
-siac_cqs_output_cta_v1_91.finra_best_bid_size.size = 4
-
--- Display: Finra Best Bid Size
-siac_cqs_output_cta_v1_91.finra_best_bid_size.display = function(value)
-  return "Finra Best Bid Size: "..value
-end
-
--- Dissect: Finra Best Bid Size
-siac_cqs_output_cta_v1_91.finra_best_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.finra_best_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Bid Price
-siac_cqs_output_cta_v1_91.finra_best_bid_price = {}
-
--- Size: Finra Best Bid Price
-siac_cqs_output_cta_v1_91.finra_best_bid_price.size = 8
-
--- Display: Finra Best Bid Price
-siac_cqs_output_cta_v1_91.finra_best_bid_price.display = function(value)
-  return "Finra Best Bid Price: "..value
-end
-
--- Translate: Finra Best Bid Price
-siac_cqs_output_cta_v1_91.finra_best_bid_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Finra Best Bid Price
-siac_cqs_output_cta_v1_91.finra_best_bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.finra_best_bid_price.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.finra_best_bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition = {}
-
--- Size: Finra Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.size = 1
-
--- Display: Finra Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.display = function(value)
-  return "Finra Best Bid Quote Condition: "..value
-end
-
--- Dissect: Finra Best Bid Quote Condition
-siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.finra_best_bid_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_best_bid_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Market Maker Id
-siac_cqs_output_cta_v1_91.finra_market_maker_id = {}
-
--- Size: Finra Market Maker Id
-siac_cqs_output_cta_v1_91.finra_market_maker_id.size = 4
-
--- Display: Finra Market Maker Id
-siac_cqs_output_cta_v1_91.finra_market_maker_id.display = function(value)
-  return "Finra Market Maker Id: "..value
-end
-
--- Dissect: Finra Market Maker Id
-siac_cqs_output_cta_v1_91.finra_market_maker_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_market_maker_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.finra_market_maker_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_market_maker_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Condition
-siac_cqs_output_cta_v1_91.market_condition = {}
-
--- Size: Market Condition
-siac_cqs_output_cta_v1_91.market_condition.size = 1
-
--- Display: Market Condition
-siac_cqs_output_cta_v1_91.market_condition.display = function(value)
-  if value == " " then
-    return "Market Condition: Normal Auction Market (<whitespace>)"
-  end
+-- Display: Quote Message Type
+siac_cqs_output_cta_v1_91.quote_message_type.display = function(value)
   if value == "A" then
-    return "Market Condition: Crossed Market (A)"
+    return "Quote Message Type: Auction Status Message (A)"
   end
-  if value == "B" then
-    return "Market Condition: Locked Market (B)"
+  if value == "L" then
+    return "Quote Message Type: Long Quote Message (L)"
+  end
+  if value == "Q" then
+    return "Quote Message Type: Short Quote Message (Q)"
+  end
+  if value == "S" then
+    return "Quote Message Type: Special Long Quote Message (S)"
   end
 
-  return "Market Condition: Unknown("..value..")"
+  return "Quote Message Type: Unknown("..value..")"
 end
 
--- Dissect: Market Condition
-siac_cqs_output_cta_v1_91.market_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.market_condition.size
+-- Dissect: Quote Message Type
+siac_cqs_output_cta_v1_91.quote_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.quote_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.market_condition.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.quote_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_condition, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote_message_type, range, value, display)
 
   return offset + length, value
 end
 
--- Settlement Condition
-siac_cqs_output_cta_v1_91.settlement_condition = {}
+-- Reserved
+siac_cqs_output_cta_v1_91.reserved = {}
 
--- Size: Settlement Condition
-siac_cqs_output_cta_v1_91.settlement_condition.size = 1
+-- Size: Reserved
+siac_cqs_output_cta_v1_91.reserved.size = 1
 
--- Display: Settlement Condition
-siac_cqs_output_cta_v1_91.settlement_condition.display = function(value)
-  if value == " " then
-    return "Settlement Condition: Regular Way Settlement (<whitespace>)"
-  end
-  if value == "A" then
-    return "Settlement Condition: Cash Only Settlement (A)"
-  end
-  if value == "B" then
-    return "Settlement Condition: Next Day Only Settlement (B)"
-  end
-
-  return "Settlement Condition: Unknown("..value..")"
+-- Display: Reserved
+siac_cqs_output_cta_v1_91.reserved.display = function(value)
+  return "Reserved: "..value
 end
 
--- Dissect: Settlement Condition
-siac_cqs_output_cta_v1_91.settlement_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.settlement_condition.size
+-- Dissect: Reserved
+siac_cqs_output_cta_v1_91.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.settlement_condition.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cqs_output_cta_v1_91.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.settlement_condition, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -1790,106 +2394,55 @@ siac_cqs_output_cta_v1_91.retail_interest_indicator.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Offer Size Long
-siac_cqs_output_cta_v1_91.offer_size_long = {}
+-- Retransmission Indicator
+siac_cqs_output_cta_v1_91.retransmission_indicator = {}
 
--- Size: Offer Size Long
-siac_cqs_output_cta_v1_91.offer_size_long.size = 4
+-- Size: Retransmission Indicator
+siac_cqs_output_cta_v1_91.retransmission_indicator.size = 1
 
--- Display: Offer Size Long
-siac_cqs_output_cta_v1_91.offer_size_long.display = function(value)
-  return "Offer Size Long: "..value
+-- Display: Retransmission Indicator
+siac_cqs_output_cta_v1_91.retransmission_indicator.display = function(value)
+  if value == "O" then
+    return "Retransmission Indicator: Original (O)"
+  end
+  if value == "V" then
+    return "Retransmission Indicator: Retransmitted (V)"
+  end
+
+  return "Retransmission Indicator: Unknown("..value..")"
 end
 
--- Dissect: Offer Size Long
-siac_cqs_output_cta_v1_91.offer_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.offer_size_long.size
+-- Dissect: Retransmission Indicator
+siac_cqs_output_cta_v1_91.retransmission_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.retransmission_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.retransmission_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.retransmission_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+siac_cqs_output_cta_v1_91.seconds = {}
+
+-- Size: Seconds
+siac_cqs_output_cta_v1_91.seconds.size = 4
+
+-- Display: Seconds
+siac_cqs_output_cta_v1_91.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+siac_cqs_output_cta_v1_91.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.offer_size_long.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price Long
-siac_cqs_output_cta_v1_91.offer_price_long = {}
-
--- Size: Offer Price Long
-siac_cqs_output_cta_v1_91.offer_price_long.size = 8
-
--- Display: Offer Price Long
-siac_cqs_output_cta_v1_91.offer_price_long.display = function(value)
-  return "Offer Price Long: "..value
-end
-
--- Translate: Offer Price Long
-siac_cqs_output_cta_v1_91.offer_price_long.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Offer Price Long
-siac_cqs_output_cta_v1_91.offer_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.offer_price_long.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.offer_price_long.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.offer_price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size Long
-siac_cqs_output_cta_v1_91.bid_size_long = {}
-
--- Size: Bid Size Long
-siac_cqs_output_cta_v1_91.bid_size_long.size = 4
-
--- Display: Bid Size Long
-siac_cqs_output_cta_v1_91.bid_size_long.display = function(value)
-  return "Bid Size Long: "..value
-end
-
--- Dissect: Bid Size Long
-siac_cqs_output_cta_v1_91.bid_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.bid_size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.bid_size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Long
-siac_cqs_output_cta_v1_91.bid_price_long = {}
-
--- Size: Bid Price Long
-siac_cqs_output_cta_v1_91.bid_price_long.size = 8
-
--- Display: Bid Price Long
-siac_cqs_output_cta_v1_91.bid_price_long.display = function(value)
-  return "Bid Price Long: "..value
-end
-
--- Translate: Bid Price Long
-siac_cqs_output_cta_v1_91.bid_price_long.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Bid Price Long
-siac_cqs_output_cta_v1_91.bid_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.bid_price_long.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.bid_price_long.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.bid_price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_price_long, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.seconds, range, value, display)
 
   return offset + length, value
 end
@@ -1963,108 +2516,6 @@ siac_cqs_output_cta_v1_91.security_status_indicator.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Quote Condition
-siac_cqs_output_cta_v1_91.quote_condition = {}
-
--- Size: Quote Condition
-siac_cqs_output_cta_v1_91.quote_condition.size = 1
-
--- Display: Quote Condition
-siac_cqs_output_cta_v1_91.quote_condition.display = function(value)
-  if value == " " then
-    return "Quote Condition: Quote Condition Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Quote Condition: Slow Quote On Offer Side (A)"
-  end
-  if value == "B" then
-    return "Quote Condition: Slow Quote On Bid Side (B)"
-  end
-  if value == "C" then
-    return "Quote Condition: Closing (C)"
-  end
-  if value == "E" then
-    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
-  end
-  if value == "F" then
-    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
-  end
-  if value == "H" then
-    return "Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
-  end
-  if value == "L" then
-    return "Quote Condition: Closed Market Maker (L)"
-  end
-  if value == "N" then
-    return "Quote Condition: Non Firm Quote (N)"
-  end
-  if value == "O" then
-    return "Quote Condition: Opening Quote (O)"
-  end
-  if value == "R" then
-    return "Quote Condition: Regular Finra Open (R)"
-  end
-  if value == "U" then
-    return "Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
-  end
-  if value == "W" then
-    return "Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
-  end
-  if value == "4" then
-    return "Quote Condition: On Demand Intra Day Auction (4)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-siac_cqs_output_cta_v1_91.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Type
-siac_cqs_output_cta_v1_91.instrument_type = {}
-
--- Size: Instrument Type
-siac_cqs_output_cta_v1_91.instrument_type.size = 1
-
--- Display: Instrument Type
-siac_cqs_output_cta_v1_91.instrument_type.display = function(value)
-  if value == "0" then
-    return "Instrument Type: Cta Eligible Equity (0)"
-  end
-  if value == "1" then
-    return "Instrument Type: Local Issue (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Corporate Bond (2)"
-  end
-  if value == "3" then
-    return "Instrument Type: Government Bond (3)"
-  end
-
-  return "Instrument Type: Unknown("..value..")"
-end
-
--- Dissect: Instrument Type
-siac_cqs_output_cta_v1_91.instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.instrument_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.instrument_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.instrument_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Symbol Long
 siac_cqs_output_cta_v1_91.security_symbol_long = {}
 
@@ -2088,25 +2539,127 @@ siac_cqs_output_cta_v1_91.security_symbol_long.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Participant Reference Number
-siac_cqs_output_cta_v1_91.participant_reference_number = {}
+-- Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short = {}
 
--- Size: Participant Reference Number
-siac_cqs_output_cta_v1_91.participant_reference_number.size = 8
+-- Size: Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short.size = 5
 
--- Display: Participant Reference Number
-siac_cqs_output_cta_v1_91.participant_reference_number.display = function(value)
-  return "Participant Reference Number: "..value
+-- Display: Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short.display = function(value)
+  return "Security Symbol Short: "..value
 end
 
--- Dissect: Participant Reference Number
-siac_cqs_output_cta_v1_91.participant_reference_number.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.participant_reference_number.size
+-- Dissect: Security Symbol Short
+siac_cqs_output_cta_v1_91.security_symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.security_symbol_short.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cqs_output_cta_v1_91.participant_reference_number.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.security_symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.participant_reference_number, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.security_symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Condition
+siac_cqs_output_cta_v1_91.settlement_condition = {}
+
+-- Size: Settlement Condition
+siac_cqs_output_cta_v1_91.settlement_condition.size = 1
+
+-- Display: Settlement Condition
+siac_cqs_output_cta_v1_91.settlement_condition.display = function(value)
+  if value == " " then
+    return "Settlement Condition: Regular Way Settlement (<whitespace>)"
+  end
+  if value == "A" then
+    return "Settlement Condition: Cash Only Settlement (A)"
+  end
+  if value == "B" then
+    return "Settlement Condition: Next Day Only Settlement (B)"
+  end
+
+  return "Settlement Condition: Unknown("..value..")"
+end
+
+-- Dissect: Settlement Condition
+siac_cqs_output_cta_v1_91.settlement_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.settlement_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.settlement_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.settlement_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction Indicator
+siac_cqs_output_cta_v1_91.short_sale_restriction_indicator = {}
+
+-- Size: Short Sale Restriction Indicator
+siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size = 1
+
+-- Display: Short Sale Restriction Indicator
+siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.display = function(value)
+  if value == " " then
+    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
+  end
+  if value == "A" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Activated (A)"
+  end
+  if value == "C" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Continued (C)"
+  end
+  if value == "D" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "E" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Short Sale Restriction Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction Indicator
+siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.short_sale_restriction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.short_sale_restriction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sip Generated Message Identifier
+siac_cqs_output_cta_v1_91.sip_generated_message_identifier = {}
+
+-- Size: Sip Generated Message Identifier
+siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size = 1
+
+-- Display: Sip Generated Message Identifier
+siac_cqs_output_cta_v1_91.sip_generated_message_identifier.display = function(value)
+  if value == " " then
+    return "Sip Generated Message Identifier: Not Applicable (<whitespace>)"
+  end
+  if value == "S" then
+    return "Sip Generated Message Identifier: Consolidated Quotation System (S)"
+  end
+
+  return "Sip Generated Message Identifier: Unknown("..value..")"
+end
+
+-- Dissect: Sip Generated Message Identifier
+siac_cqs_output_cta_v1_91.sip_generated_message_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.sip_generated_message_identifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_output_cta_v1_91.sip_generated_message_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.sip_generated_message_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -2134,27 +2687,284 @@ siac_cqs_output_cta_v1_91.transaction_id.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Message Id
-siac_cqs_output_cta_v1_91.message_id = {}
+-- Version
+siac_cqs_output_cta_v1_91.version = {}
 
--- Size: Message Id
-siac_cqs_output_cta_v1_91.message_id.size = 1
+-- Size: Version
+siac_cqs_output_cta_v1_91.version.size = 1
 
--- Display: Message Id
-siac_cqs_output_cta_v1_91.message_id.display = function(value)
-  return "Message Id: "..value
+-- Display: Version
+siac_cqs_output_cta_v1_91.version.display = function(value)
+  return "Version: "..value
 end
 
--- Dissect: Message Id
-siac_cqs_output_cta_v1_91.message_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.message_id.size
+-- Dissect: Version
+siac_cqs_output_cta_v1_91.version.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91.version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.message_id.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_id, range, value, display)
+  parent:add(omi_siac_cqs_output_cta_v1_91.fields.version, range, value, display)
 
   return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Siac Cqs Output Cta 1.91
+-----------------------------------------------------------------------
+
+-- National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage = {}
+
+-- Size: National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.size =
+  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_offer_price_short.size + 
+  siac_cqs_output_cta_v1_91.best_offer_size_short.size
+
+-- Display: National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Offer Participant Id: Char
+  index, best_offer_participant_id = siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Best Offer Price Short: Short
+  index, best_offer_price_short = siac_cqs_output_cta_v1_91.best_offer_price_short.dissect(buffer, index, packet, parent)
+
+  -- Best Offer Size Short: Short
+  index, best_offer_size_short = siac_cqs_output_cta_v1_91.best_offer_size_short.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Offer Short Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.dissect = function(buffer, offset, packet, parent)
+  if show.national_best_offer_short_appendage then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_output_cta_v1_91.national_best_offer_short_appendage.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage = {}
+
+-- Size: National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.size =
+  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_bid_price_short.size + 
+  siac_cqs_output_cta_v1_91.best_bid_size_short.size
+
+-- Display: National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Bid Participant Id: Char
+  index, best_bid_participant_id = siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Best Bid Price Short: Short
+  index, best_bid_price_short = siac_cqs_output_cta_v1_91.best_bid_price_short.dissect(buffer, index, packet, parent)
+
+  -- Best Bid Size Short: Short
+  index, best_bid_size_short = siac_cqs_output_cta_v1_91.best_bid_size_short.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Bid Short Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.dissect = function(buffer, offset, packet, parent)
+  if show.national_best_bid_short_appendage then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_output_cta_v1_91.national_best_bid_short_appendage.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage = {}
+
+-- Size: National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.size =
+  siac_cqs_output_cta_v1_91.best_offer_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_offer_quote_condition.size + 
+  siac_cqs_output_cta_v1_91.best_offer_price_long.size + 
+  siac_cqs_output_cta_v1_91.best_offer_size_long.size + 
+  siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.size
+
+-- Display: National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Offer Participant Id: Char
+  index, best_offer_participant_id = siac_cqs_output_cta_v1_91.best_offer_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Best Offer Quote Condition: Char
+  index, best_offer_quote_condition = siac_cqs_output_cta_v1_91.best_offer_quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Best Offer Price Long: Long
+  index, best_offer_price_long = siac_cqs_output_cta_v1_91.best_offer_price_long.dissect(buffer, index, packet, parent)
+
+  -- Best Offer Size Long: Integer
+  index, best_offer_size_long = siac_cqs_output_cta_v1_91.best_offer_size_long.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Offer Market Maker Id: Char[]
+  index, finra_best_offer_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_offer_market_maker_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Offer Long Appendage
+siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.dissect = function(buffer, offset, packet, parent)
+  if show.national_best_offer_long_appendage then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_output_cta_v1_91.national_best_offer_long_appendage.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage = {}
+
+-- Size: National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.size =
+  siac_cqs_output_cta_v1_91.best_bid_participant_id.size + 
+  siac_cqs_output_cta_v1_91.best_bid_quote_condition.size + 
+  siac_cqs_output_cta_v1_91.best_bid_price_long.size + 
+  siac_cqs_output_cta_v1_91.best_bid_size_long.size + 
+  siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.size
+
+-- Display: National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Bid Participant Id: Char
+  index, best_bid_participant_id = siac_cqs_output_cta_v1_91.best_bid_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Best Bid Quote Condition: Char
+  index, best_bid_quote_condition = siac_cqs_output_cta_v1_91.best_bid_quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Best Bid Price Long: Long
+  index, best_bid_price_long = siac_cqs_output_cta_v1_91.best_bid_price_long.dissect(buffer, index, packet, parent)
+
+  -- Best Bid Size Long: Integer
+  index, best_bid_size_long = siac_cqs_output_cta_v1_91.best_bid_size_long.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Bid Market Maker Id: Char[]
+  index, finra_best_bid_market_maker_id = siac_cqs_output_cta_v1_91.finra_best_bid_market_maker_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: National Best Bid Long Appendage
+siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.dissect = function(buffer, offset, packet, parent)
+  if show.national_best_bid_long_appendage then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_output_cta_v1_91.national_best_bid_long_appendage.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp = {}
+
+-- Size: Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp.size =
+  siac_cqs_output_cta_v1_91.seconds.size + 
+  siac_cqs_output_cta_v1_91.nanoseconds.size
+
+-- Display: Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: Integer
+  index, seconds = siac_cqs_output_cta_v1_91.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = siac_cqs_output_cta_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Adf Timestamp
+siac_cqs_output_cta_v1_91.adf_timestamp.dissect = function(buffer, offset, packet, parent)
+  if show.adf_timestamp then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.adf_timestamp, buffer(offset, 0))
+    local index = siac_cqs_output_cta_v1_91.adf_timestamp.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = siac_cqs_output_cta_v1_91.adf_timestamp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return siac_cqs_output_cta_v1_91.adf_timestamp.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Participant Timestamp
@@ -2199,84 +3009,6 @@ siac_cqs_output_cta_v1_91.participant_timestamp.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return siac_cqs_output_cta_v1_91.participant_timestamp.fields(buffer, offset, packet, parent)
   end
-end
-
--- Participant Id
-siac_cqs_output_cta_v1_91.participant_id = {}
-
--- Size: Participant Id
-siac_cqs_output_cta_v1_91.participant_id.size = 1
-
--- Display: Participant Id
-siac_cqs_output_cta_v1_91.participant_id.display = function(value)
-  if value == "A" then
-    return "Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Participant Id: Finra Adf (D)"
-  end
-  if value == "I" then
-    return "Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "Participant Id: Nasdaq (T)"
-  end
-  if value == "V" then
-    return "Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Participant Id: Cboe Bzx (Z)"
-  end
-
-  return "Participant Id: Unknown("..value..")"
-end
-
--- Dissect: Participant Id
-siac_cqs_output_cta_v1_91.participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.participant_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.participant_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Special Long Quote Message
@@ -2461,133 +3193,6 @@ siac_cqs_output_cta_v1_91.special_long_quote_message.dissect = function(buffer, 
   end
 end
 
--- Offer Size Short
-siac_cqs_output_cta_v1_91.offer_size_short = {}
-
--- Size: Offer Size Short
-siac_cqs_output_cta_v1_91.offer_size_short.size = 2
-
--- Display: Offer Size Short
-siac_cqs_output_cta_v1_91.offer_size_short.display = function(value)
-  return "Offer Size Short: "..value
-end
-
--- Dissect: Offer Size Short
-siac_cqs_output_cta_v1_91.offer_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.offer_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.offer_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_size_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price Short
-siac_cqs_output_cta_v1_91.offer_price_short = {}
-
--- Size: Offer Price Short
-siac_cqs_output_cta_v1_91.offer_price_short.size = 2
-
--- Display: Offer Price Short
-siac_cqs_output_cta_v1_91.offer_price_short.display = function(value)
-  return "Offer Price Short: "..value
-end
-
--- Translate: Offer Price Short
-siac_cqs_output_cta_v1_91.offer_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price Short
-siac_cqs_output_cta_v1_91.offer_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.offer_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = siac_cqs_output_cta_v1_91.offer_price_short.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.offer_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size Short
-siac_cqs_output_cta_v1_91.bid_size_short = {}
-
--- Size: Bid Size Short
-siac_cqs_output_cta_v1_91.bid_size_short.size = 2
-
--- Display: Bid Size Short
-siac_cqs_output_cta_v1_91.bid_size_short.display = function(value)
-  return "Bid Size Short: "..value
-end
-
--- Dissect: Bid Size Short
-siac_cqs_output_cta_v1_91.bid_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.bid_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.bid_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_size_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Short
-siac_cqs_output_cta_v1_91.bid_price_short = {}
-
--- Size: Bid Price Short
-siac_cqs_output_cta_v1_91.bid_price_short.size = 2
-
--- Display: Bid Price Short
-siac_cqs_output_cta_v1_91.bid_price_short.display = function(value)
-  return "Bid Price Short: "..value
-end
-
--- Translate: Bid Price Short
-siac_cqs_output_cta_v1_91.bid_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price Short
-siac_cqs_output_cta_v1_91.bid_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.bid_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = siac_cqs_output_cta_v1_91.bid_price_short.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.bid_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol Short
-siac_cqs_output_cta_v1_91.security_symbol_short = {}
-
--- Size: Security Symbol Short
-siac_cqs_output_cta_v1_91.security_symbol_short.size = 5
-
--- Display: Security Symbol Short
-siac_cqs_output_cta_v1_91.security_symbol_short.display = function(value)
-  return "Security Symbol Short: "..value
-end
-
--- Dissect: Security Symbol Short
-siac_cqs_output_cta_v1_91.security_symbol_short.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.security_symbol_short.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.security_symbol_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.security_symbol_short, range, value, display)
-
-  return offset + length, value
-end
-
 -- Short Quote Message
 siac_cqs_output_cta_v1_91.short_quote_message = {}
 
@@ -2705,120 +3310,6 @@ siac_cqs_output_cta_v1_91.short_quote_message.dissect = function(buffer, offset,
 
     return index
   end
-end
-
--- Luld Indicator
-siac_cqs_output_cta_v1_91.luld_indicator = {}
-
--- Size: Luld Indicator
-siac_cqs_output_cta_v1_91.luld_indicator.size = 1
-
--- Display: Luld Indicator
-siac_cqs_output_cta_v1_91.luld_indicator.display = function(value)
-  return "Luld Indicator: "..value
-end
-
--- Dissect: Luld Indicator
-siac_cqs_output_cta_v1_91.luld_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.luld_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.luld_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.luld_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Bbo Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_indicator = {}
-
--- Size: Finra Bbo Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_indicator.size = 1
-
--- Display: Finra Bbo Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_indicator.display = function(value)
-  if value == " " then
-    return "Finra Bbo Indicator: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Finra Bbo Indicator: No Finra Bbo Change (A)"
-  end
-  if value == "B" then
-    return "Finra Bbo Indicator: No Finra Bbo Exists (B)"
-  end
-
-  return "Finra Bbo Indicator: Unknown("..value..")"
-end
-
--- Dissect: Finra Bbo Indicator
-siac_cqs_output_cta_v1_91.finra_bbo_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.finra_bbo_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.finra_bbo_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.finra_bbo_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price Upper Limit Price Band
-siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band = {}
-
--- Size: Offer Price Upper Limit Price Band
-siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.size = 8
-
--- Display: Offer Price Upper Limit Price Band
-siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.display = function(value)
-  return "Offer Price Upper Limit Price Band: "..value
-end
-
--- Translate: Offer Price Upper Limit Price Band
-siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Offer Price Upper Limit Price Band
-siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.offer_price_upper_limit_price_band.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Lower Limit Price Band
-siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band = {}
-
--- Size: Bid Price Lower Limit Price Band
-siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.size = 8
-
--- Display: Bid Price Lower Limit Price Band
-siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.display = function(value)
-  return "Bid Price Lower Limit Price Band: "..value
-end
-
--- Translate: Bid Price Lower Limit Price Band
-siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Bid Price Lower Limit Price Band
-siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.translate(raw)
-  local display = siac_cqs_output_cta_v1_91.bid_price_lower_limit_price_band.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band, range, value, display)
-
-  return offset + length, value
 end
 
 -- Long Quote Message
@@ -2982,52 +3473,6 @@ siac_cqs_output_cta_v1_91.long_quote_message.dissect = function(buffer, offset, 
   end
 end
 
--- Future
-siac_cqs_output_cta_v1_91.future = {}
-
--- Size: Future
-siac_cqs_output_cta_v1_91.future.size = 1
-
--- Display: Future
-siac_cqs_output_cta_v1_91.future.display = function(value)
-  return "Future: "..value
-end
-
--- Dissect: Future
-siac_cqs_output_cta_v1_91.future.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.future.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.future.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.future, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Extensions
-siac_cqs_output_cta_v1_91.number_of_extensions = {}
-
--- Size: Number Of Extensions
-siac_cqs_output_cta_v1_91.number_of_extensions.size = 1
-
--- Display: Number Of Extensions
-siac_cqs_output_cta_v1_91.number_of_extensions.display = function(value)
-  return "Number Of Extensions: "..value
-end
-
--- Dissect: Number Of Extensions
-siac_cqs_output_cta_v1_91.number_of_extensions.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.number_of_extensions.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.number_of_extensions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.number_of_extensions, range, value, display)
-
-  return offset + length, value
-end
-
 -- Auction Status Message
 siac_cqs_output_cta_v1_91.auction_status_message = {}
 
@@ -3145,42 +3590,6 @@ siac_cqs_output_cta_v1_91.quote_payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Quote Message Type
-siac_cqs_output_cta_v1_91.quote_message_type = {}
-
--- Size: Quote Message Type
-siac_cqs_output_cta_v1_91.quote_message_type.size = 1
-
--- Display: Quote Message Type
-siac_cqs_output_cta_v1_91.quote_message_type.display = function(value)
-  if value == "A" then
-    return "Quote Message Type: Auction Status Message (A)"
-  end
-  if value == "L" then
-    return "Quote Message Type: Long Quote Message (L)"
-  end
-  if value == "Q" then
-    return "Quote Message Type: Short Quote Message (Q)"
-  end
-  if value == "S" then
-    return "Quote Message Type: Special Long Quote Message (S)"
-  end
-
-  return "Quote Message Type: Unknown("..value..")"
-end
-
--- Dissect: Quote Message Type
-siac_cqs_output_cta_v1_91.quote_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.quote_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.quote_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.quote_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote
 siac_cqs_output_cta_v1_91.quote = {}
 
@@ -3232,29 +3641,6 @@ siac_cqs_output_cta_v1_91.quote.dissect = function(buffer, offset, packet, paren
 
     return index
   end
-end
-
--- Reserved
-siac_cqs_output_cta_v1_91.reserved = {}
-
--- Size: Reserved
-siac_cqs_output_cta_v1_91.reserved.size = 1
-
--- Display: Reserved
-siac_cqs_output_cta_v1_91.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-siac_cqs_output_cta_v1_91.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.reserved, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Wide Circuit Breaker Status Message
@@ -3323,52 +3709,6 @@ siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect = f
 
     return index
   end
-end
-
--- Mwcb Level 3
-siac_cqs_output_cta_v1_91.mwcb_level_3 = {}
-
--- Size: Mwcb Level 3
-siac_cqs_output_cta_v1_91.mwcb_level_3.size = 8
-
--- Display: Mwcb Level 3
-siac_cqs_output_cta_v1_91.mwcb_level_3.display = function(value)
-  return "Mwcb Level 3: "..value
-end
-
--- Dissect: Mwcb Level 3
-siac_cqs_output_cta_v1_91.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.mwcb_level_3.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cqs_output_cta_v1_91.mwcb_level_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 2
-siac_cqs_output_cta_v1_91.mwcb_level_2 = {}
-
--- Size: Mwcb Level 2
-siac_cqs_output_cta_v1_91.mwcb_level_2.size = 8
-
--- Display: Mwcb Level 2
-siac_cqs_output_cta_v1_91.mwcb_level_2.display = function(value)
-  return "Mwcb Level 2: "..value
-end
-
--- Dissect: Mwcb Level 2
-siac_cqs_output_cta_v1_91.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.mwcb_level_2.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cqs_output_cta_v1_91.mwcb_level_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_2, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Wide Circuit Breaker Decline Level Status Message
@@ -3460,36 +3800,6 @@ siac_cqs_output_cta_v1_91.market_status_payload.dissect = function(buffer, offse
   end
 
   return offset
-end
-
--- Market Status Message Type
-siac_cqs_output_cta_v1_91.market_status_message_type = {}
-
--- Size: Market Status Message Type
-siac_cqs_output_cta_v1_91.market_status_message_type.size = 1
-
--- Display: Market Status Message Type
-siac_cqs_output_cta_v1_91.market_status_message_type.display = function(value)
-  if value == "M" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
-  end
-  if value == "L" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
-  end
-
-  return "Market Status Message Type: Unknown("..value..")"
-end
-
--- Dissect: Market Status Message Type
-siac_cqs_output_cta_v1_91.market_status_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.market_status_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.market_status_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.market_status_message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Status
@@ -4148,57 +4458,6 @@ siac_cqs_output_cta_v1_91.control_payload.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Control Message Type
-siac_cqs_output_cta_v1_91.control_message_type = {}
-
--- Size: Control Message Type
-siac_cqs_output_cta_v1_91.control_message_type.size = 1
-
--- Display: Control Message Type
-siac_cqs_output_cta_v1_91.control_message_type.display = function(value)
-  if value == "A" then
-    return "Control Message Type: Start Of Day Message (A)"
-  end
-  if value == "C" then
-    return "Control Message Type: Finra Close Message (C)"
-  end
-  if value == "L" then
-    return "Control Message Type: Reset Block Sequence Number Message (L)"
-  end
-  if value == "M" then
-    return "Control Message Type: Start Of Test Cycle Message (M)"
-  end
-  if value == "N" then
-    return "Control Message Type: End Of Test Cycle Message (N)"
-  end
-  if value == "O" then
-    return "Control Message Type: Finra Open Message (O)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation Message (P)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity Message (T)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Day Message (Z)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
-end
-
--- Dissect: Control Message Type
-siac_cqs_output_cta_v1_91.control_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.control_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.control_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Control
 siac_cqs_output_cta_v1_91.control = {}
 
@@ -4330,33 +4589,6 @@ siac_cqs_output_cta_v1_91.administrative_payload.dissect = function(buffer, offs
   return offset
 end
 
--- Administrative Message Type
-siac_cqs_output_cta_v1_91.administrative_message_type = {}
-
--- Size: Administrative Message Type
-siac_cqs_output_cta_v1_91.administrative_message_type.size = 1
-
--- Display: Administrative Message Type
-siac_cqs_output_cta_v1_91.administrative_message_type.display = function(value)
-  if value == "H" then
-    return "Administrative Message Type: Administrative Unformatted Message (H)"
-  end
-
-  return "Administrative Message Type: Unknown("..value..")"
-end
-
--- Dissect: Administrative Message Type
-siac_cqs_output_cta_v1_91.administrative_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.administrative_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.administrative_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.administrative_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Administrative
 siac_cqs_output_cta_v1_91.administrative = {}
 
@@ -4433,65 +4665,6 @@ siac_cqs_output_cta_v1_91.payload.dissect = function(buffer, offset, packet, par
   end
 
   return offset
-end
-
--- Message Category
-siac_cqs_output_cta_v1_91.message_category = {}
-
--- Size: Message Category
-siac_cqs_output_cta_v1_91.message_category.size = 1
-
--- Display: Message Category
-siac_cqs_output_cta_v1_91.message_category.display = function(value)
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
-  if value == "M" then
-    return "Message Category: Market Status (M)"
-  end
-  if value == "Q" then
-    return "Message Category: Quote (Q)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-siac_cqs_output_cta_v1_91.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-siac_cqs_output_cta_v1_91.message_length = {}
-
--- Size: Message Length
-siac_cqs_output_cta_v1_91.message_length.size = 2
-
--- Display: Message Length
-siac_cqs_output_cta_v1_91.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-siac_cqs_output_cta_v1_91.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -4589,29 +4762,6 @@ siac_cqs_output_cta_v1_91.message.dissect = function(buffer, offset, packet, par
   end
 end
 
--- Block Checksum
-siac_cqs_output_cta_v1_91.block_checksum = {}
-
--- Size: Block Checksum
-siac_cqs_output_cta_v1_91.block_checksum.size = 2
-
--- Display: Block Checksum
-siac_cqs_output_cta_v1_91.block_checksum.display = function(value)
-  return "Block Checksum: "..value
-end
-
--- Dissect: Block Checksum
-siac_cqs_output_cta_v1_91.block_checksum.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.block_checksum.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.block_checksum.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_checksum, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sip Block Timestamp
 siac_cqs_output_cta_v1_91.sip_block_timestamp = {}
 
@@ -4654,151 +4804,6 @@ siac_cqs_output_cta_v1_91.sip_block_timestamp.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return siac_cqs_output_cta_v1_91.sip_block_timestamp.fields(buffer, offset, packet, parent)
   end
-end
-
--- Messages In Block
-siac_cqs_output_cta_v1_91.messages_in_block = {}
-
--- Size: Messages In Block
-siac_cqs_output_cta_v1_91.messages_in_block.size = 1
-
--- Display: Messages In Block
-siac_cqs_output_cta_v1_91.messages_in_block.display = function(value)
-  return "Messages In Block: "..value
-end
-
--- Dissect: Messages In Block
-siac_cqs_output_cta_v1_91.messages_in_block.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.messages_in_block.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.messages_in_block.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.messages_in_block, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Sequence Number
-siac_cqs_output_cta_v1_91.block_sequence_number = {}
-
--- Size: Block Sequence Number
-siac_cqs_output_cta_v1_91.block_sequence_number.size = 4
-
--- Display: Block Sequence Number
-siac_cqs_output_cta_v1_91.block_sequence_number.display = function(value)
-  return "Block Sequence Number: "..value
-end
-
--- Dissect: Block Sequence Number
-siac_cqs_output_cta_v1_91.block_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.block_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.block_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmission Indicator
-siac_cqs_output_cta_v1_91.retransmission_indicator = {}
-
--- Size: Retransmission Indicator
-siac_cqs_output_cta_v1_91.retransmission_indicator.size = 1
-
--- Display: Retransmission Indicator
-siac_cqs_output_cta_v1_91.retransmission_indicator.display = function(value)
-  if value == "O" then
-    return "Retransmission Indicator: Original (O)"
-  end
-  if value == "V" then
-    return "Retransmission Indicator: Retransmitted (V)"
-  end
-
-  return "Retransmission Indicator: Unknown("..value..")"
-end
-
--- Dissect: Retransmission Indicator
-siac_cqs_output_cta_v1_91.retransmission_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.retransmission_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.retransmission_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.retransmission_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Data Feed Indicator
-siac_cqs_output_cta_v1_91.data_feed_indicator = {}
-
--- Size: Data Feed Indicator
-siac_cqs_output_cta_v1_91.data_feed_indicator.size = 1
-
--- Display: Data Feed Indicator
-siac_cqs_output_cta_v1_91.data_feed_indicator.display = function(value)
-  return "Data Feed Indicator: "..value
-end
-
--- Dissect: Data Feed Indicator
-siac_cqs_output_cta_v1_91.data_feed_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.data_feed_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_output_cta_v1_91.data_feed_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.data_feed_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Size
-siac_cqs_output_cta_v1_91.block_size = {}
-
--- Size: Block Size
-siac_cqs_output_cta_v1_91.block_size.size = 2
-
--- Display: Block Size
-siac_cqs_output_cta_v1_91.block_size.display = function(value)
-  return "Block Size: "..value
-end
-
--- Dissect: Block Size
-siac_cqs_output_cta_v1_91.block_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.block_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.block_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-siac_cqs_output_cta_v1_91.version = {}
-
--- Size: Version
-siac_cqs_output_cta_v1_91.version.size = 1
-
--- Display: Version
-siac_cqs_output_cta_v1_91.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-siac_cqs_output_cta_v1_91.version.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_output_cta_v1_91.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_output_cta_v1_91.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_output_cta_v1_91.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Block Header

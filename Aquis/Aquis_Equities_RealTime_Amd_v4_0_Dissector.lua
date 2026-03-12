@@ -208,51 +208,28 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Aquis Equities RealTime Amd 4.0
+-- Aquis Equities RealTime Amd 4.0 Fields
 -----------------------------------------------------------------------
 
--- Timestamp
-aquis_equities_realtime_amd_v4_0.timestamp = {}
+-- Binary Mmt U 324
+aquis_equities_realtime_amd_v4_0.binary_mmt_u_324 = {}
 
--- Size: Timestamp
-aquis_equities_realtime_amd_v4_0.timestamp.size = 8
+-- Size: Binary Mmt U 324
+aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.size = 4
 
--- Display: Timestamp
-aquis_equities_realtime_amd_v4_0.timestamp.display = function(value)
-  return "Timestamp: "..value
+-- Display: Binary Mmt U 324
+aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.display = function(value)
+  return "Binary Mmt U 324: "..value
 end
 
--- Dissect: Timestamp
-aquis_equities_realtime_amd_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_realtime_amd_v4_0.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Sell Qty
-aquis_equities_realtime_amd_v4_0.closing_sell_qty = {}
-
--- Size: Closing Sell Qty
-aquis_equities_realtime_amd_v4_0.closing_sell_qty.size = 4
-
--- Display: Closing Sell Qty
-aquis_equities_realtime_amd_v4_0.closing_sell_qty.display = function(value)
-  return "Closing Sell Qty: "..value
-end
-
--- Dissect: Closing Sell Qty
-aquis_equities_realtime_amd_v4_0.closing_sell_qty.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.closing_sell_qty.size
+-- Dissect: Binary Mmt U 324
+aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.closing_sell_qty.display(value, buffer, offset, packet, parent)
+  local display = aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.closing_sell_qty, range, value, display)
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.binary_mmt_u_324, range, value, display)
 
   return offset + length, value
 end
@@ -280,6 +257,68 @@ aquis_equities_realtime_amd_v4_0.closing_buy_qty.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Closing Sell Qty
+aquis_equities_realtime_amd_v4_0.closing_sell_qty = {}
+
+-- Size: Closing Sell Qty
+aquis_equities_realtime_amd_v4_0.closing_sell_qty.size = 4
+
+-- Display: Closing Sell Qty
+aquis_equities_realtime_amd_v4_0.closing_sell_qty.display = function(value)
+  return "Closing Sell Qty: "..value
+end
+
+-- Dissect: Closing Sell Qty
+aquis_equities_realtime_amd_v4_0.closing_sell_qty.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.closing_sell_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.closing_sell_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.closing_sell_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+aquis_equities_realtime_amd_v4_0.currency = {}
+
+-- Size: Currency
+aquis_equities_realtime_amd_v4_0.currency.size = 3
+
+-- Display: Currency
+aquis_equities_realtime_amd_v4_0.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+aquis_equities_realtime_amd_v4_0.currency.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_realtime_amd_v4_0.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
 -- Indicative Price
 aquis_equities_realtime_amd_v4_0.indicative_price = {}
 
@@ -299,6 +338,400 @@ aquis_equities_realtime_amd_v4_0.indicative_price.dissect = function(buffer, off
   local display = aquis_equities_realtime_amd_v4_0.indicative_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+aquis_equities_realtime_amd_v4_0.isin = {}
+
+-- Size: Isin
+aquis_equities_realtime_amd_v4_0.isin.size = 12
+
+-- Display: Isin
+aquis_equities_realtime_amd_v4_0.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+aquis_equities_realtime_amd_v4_0.isin.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.isin.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_realtime_amd_v4_0.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+aquis_equities_realtime_amd_v4_0.lot_size = {}
+
+-- Size: Lot Size
+aquis_equities_realtime_amd_v4_0.lot_size.size = 8
+
+-- Display: Lot Size
+aquis_equities_realtime_amd_v4_0.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+aquis_equities_realtime_amd_v4_0.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_realtime_amd_v4_0.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size Decimal
+aquis_equities_realtime_amd_v4_0.lot_size_decimal = {}
+
+-- Size: Lot Size Decimal
+aquis_equities_realtime_amd_v4_0.lot_size_decimal.size = 1
+
+-- Display: Lot Size Decimal
+aquis_equities_realtime_amd_v4_0.lot_size_decimal.display = function(value)
+  return "Lot Size Decimal: "..value
+end
+
+-- Dissect: Lot Size Decimal
+aquis_equities_realtime_amd_v4_0.lot_size_decimal.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.lot_size_decimal.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.lot_size_decimal.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.lot_size_decimal, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Vol
+aquis_equities_realtime_amd_v4_0.match_vol = {}
+
+-- Size: Match Vol
+aquis_equities_realtime_amd_v4_0.match_vol.size = 4
+
+-- Display: Match Vol
+aquis_equities_realtime_amd_v4_0.match_vol.display = function(value)
+  return "Match Vol: "..value
+end
+
+-- Dissect: Match Vol
+aquis_equities_realtime_amd_v4_0.match_vol.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.match_vol.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.match_vol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.match_vol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+aquis_equities_realtime_amd_v4_0.message_count = {}
+
+-- Size: Message Count
+aquis_equities_realtime_amd_v4_0.message_count.size = 1
+
+-- Display: Message Count
+aquis_equities_realtime_amd_v4_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+aquis_equities_realtime_amd_v4_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_realtime_amd_v4_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mic
+aquis_equities_realtime_amd_v4_0.mic = {}
+
+-- Size: Mic
+aquis_equities_realtime_amd_v4_0.mic.size = 4
+
+-- Display: Mic
+aquis_equities_realtime_amd_v4_0.mic.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mic: No Value"
+  end
+
+  return "Mic: "..value
+end
+
+-- Dissect: Mic
+aquis_equities_realtime_amd_v4_0.mic.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.mic.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_realtime_amd_v4_0.mic.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.mic, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+aquis_equities_realtime_amd_v4_0.msg_length = {}
+
+-- Size: Msg Length
+aquis_equities_realtime_amd_v4_0.msg_length.size = 1
+
+-- Display: Msg Length
+aquis_equities_realtime_amd_v4_0.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+aquis_equities_realtime_amd_v4_0.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_realtime_amd_v4_0.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+aquis_equities_realtime_amd_v4_0.msg_type = {}
+
+-- Size: Msg Type
+aquis_equities_realtime_amd_v4_0.msg_type.size = 1
+
+-- Display: Msg Type
+aquis_equities_realtime_amd_v4_0.msg_type.display = function(value)
+  if value == 2 then
+    return "Msg Type: Order Add (2)"
+  end
+  if value == 3 then
+    return "Msg Type: Order Cancel (3)"
+  end
+  if value == 4 then
+    return "Msg Type: Order Modify (4)"
+  end
+  if value == 5 then
+    return "Msg Type: Trade (5)"
+  end
+  if value == 6 then
+    return "Msg Type: Trade Bust Message (6)"
+  end
+  if value == 7 then
+    return "Msg Type: Tick Table Data Message (7)"
+  end
+  if value == 8 then
+    return "Msg Type: Security Definition Message (8)"
+  end
+  if value == 9 then
+    return "Msg Type: Security Status Message (9)"
+  end
+  if value == 17 then
+    return "Msg Type: Ao D Update Message (17)"
+  end
+  if value == 16 then
+    return "Msg Type: Ma C Update Message (16)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+aquis_equities_realtime_amd_v4_0.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_realtime_amd_v4_0.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Name
+aquis_equities_realtime_amd_v4_0.name = {}
+
+-- Size: Name
+aquis_equities_realtime_amd_v4_0.name.size = 10
+
+-- Display: Name
+aquis_equities_realtime_amd_v4_0.name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Name: No Value"
+  end
+
+  return "Name: "..value
+end
+
+-- Dissect: Name
+aquis_equities_realtime_amd_v4_0.name.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_realtime_amd_v4_0.name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Ref
+aquis_equities_realtime_amd_v4_0.order_ref = {}
+
+-- Size: Order Ref
+aquis_equities_realtime_amd_v4_0.order_ref.size = 4
+
+-- Display: Order Ref
+aquis_equities_realtime_amd_v4_0.order_ref.display = function(value)
+  return "Order Ref: "..value
+end
+
+-- Dissect: Order Ref
+aquis_equities_realtime_amd_v4_0.order_ref.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.order_ref.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.order_ref.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.order_ref, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+aquis_equities_realtime_amd_v4_0.price = {}
+
+-- Size: Price
+aquis_equities_realtime_amd_v4_0.price.size = 8
+
+-- Display: Price
+aquis_equities_realtime_amd_v4_0.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+aquis_equities_realtime_amd_v4_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_realtime_amd_v4_0.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+aquis_equities_realtime_amd_v4_0.quantity = {}
+
+-- Size: Quantity
+aquis_equities_realtime_amd_v4_0.quantity.size = 4
+
+-- Display: Quantity
+aquis_equities_realtime_amd_v4_0.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+aquis_equities_realtime_amd_v4_0.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved Char 2020
+aquis_equities_realtime_amd_v4_0.reserved_char_2020 = {}
+
+-- Size: Reserved Char 2020
+aquis_equities_realtime_amd_v4_0.reserved_char_2020.size = 20
+
+-- Display: Reserved Char 2020
+aquis_equities_realtime_amd_v4_0.reserved_char_2020.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reserved Char 2020: No Value"
+  end
+
+  return "Reserved Char 2020: "..value
+end
+
+-- Dissect: Reserved Char 2020
+aquis_equities_realtime_amd_v4_0.reserved_char_2020.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.reserved_char_2020.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_realtime_amd_v4_0.reserved_char_2020.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.reserved_char_2020, range, value, display)
 
   return offset + length, value
 end
@@ -325,6 +758,332 @@ aquis_equities_realtime_amd_v4_0.security_id.dissect = function(buffer, offset, 
 
   return offset + length, value
 end
+
+-- Seq No
+aquis_equities_realtime_amd_v4_0.seq_no = {}
+
+-- Size: Seq No
+aquis_equities_realtime_amd_v4_0.seq_no.size = 4
+
+-- Display: Seq No
+aquis_equities_realtime_amd_v4_0.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+aquis_equities_realtime_amd_v4_0.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_realtime_amd_v4_0.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+aquis_equities_realtime_amd_v4_0.side = {}
+
+-- Size: Side
+aquis_equities_realtime_amd_v4_0.side.size = 1
+
+-- Display: Side
+aquis_equities_realtime_amd_v4_0.side.display = function(value)
+  if value == 1 then
+    return "Side: Buy Order (1)"
+  end
+  if value == 2 then
+    return "Side: Sell Order (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+aquis_equities_realtime_amd_v4_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Threshold
+aquis_equities_realtime_amd_v4_0.threshold = {}
+
+-- Size: Threshold
+aquis_equities_realtime_amd_v4_0.threshold.size = 8
+
+-- Display: Threshold
+aquis_equities_realtime_amd_v4_0.threshold.display = function(value)
+  return "Threshold: "..value
+end
+
+-- Dissect: Threshold
+aquis_equities_realtime_amd_v4_0.threshold.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.threshold.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_realtime_amd_v4_0.threshold.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.threshold, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Size
+aquis_equities_realtime_amd_v4_0.tick_size = {}
+
+-- Size: Tick Size
+aquis_equities_realtime_amd_v4_0.tick_size.size = 8
+
+-- Display: Tick Size
+aquis_equities_realtime_amd_v4_0.tick_size.display = function(value)
+  return "Tick Size: "..value
+end
+
+-- Dissect: Tick Size
+aquis_equities_realtime_amd_v4_0.tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.tick_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_realtime_amd_v4_0.tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.tick_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Table Id
+aquis_equities_realtime_amd_v4_0.tick_table_id = {}
+
+-- Size: Tick Table Id
+aquis_equities_realtime_amd_v4_0.tick_table_id.size = 1
+
+-- Display: Tick Table Id
+aquis_equities_realtime_amd_v4_0.tick_table_id.display = function(value)
+  return "Tick Table Id: "..value
+end
+
+-- Dissect: Tick Table Id
+aquis_equities_realtime_amd_v4_0.tick_table_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.tick_table_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.tick_table_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.tick_table_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+aquis_equities_realtime_amd_v4_0.timestamp = {}
+
+-- Size: Timestamp
+aquis_equities_realtime_amd_v4_0.timestamp.size = 8
+
+-- Display: Timestamp
+aquis_equities_realtime_amd_v4_0.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+aquis_equities_realtime_amd_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_realtime_amd_v4_0.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Ref
+aquis_equities_realtime_amd_v4_0.trade_ref = {}
+
+-- Size: Trade Ref
+aquis_equities_realtime_amd_v4_0.trade_ref.size = 4
+
+-- Display: Trade Ref
+aquis_equities_realtime_amd_v4_0.trade_ref.display = function(value)
+  return "Trade Ref: "..value
+end
+
+-- Dissect: Trade Ref
+aquis_equities_realtime_amd_v4_0.trade_ref.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.trade_ref.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.trade_ref.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trade_ref, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Type
+aquis_equities_realtime_amd_v4_0.trade_type = {}
+
+-- Size: Trade Type
+aquis_equities_realtime_amd_v4_0.trade_type.size = 1
+
+-- Display: Trade Type
+aquis_equities_realtime_amd_v4_0.trade_type.display = function(value)
+  if value == 1 then
+    return "Trade Type: Visible Order (1)"
+  end
+  if value == 2 then
+    return "Trade Type: Hidden Order (2)"
+  end
+  if value == 3 then
+    return "Trade Type: Market At Close (3)"
+  end
+  if value == 4 then
+    return "Trade Type: Lis Cross (4)"
+  end
+  if value == 5 then
+    return "Trade Type: Benchmark Cross (5)"
+  end
+  if value == 6 then
+    return "Trade Type: Auction On Demand (6)"
+  end
+  if value == 12 then
+    return "Trade Type: Aquis Vwap Match (12)"
+  end
+
+  return "Trade Type: Unknown("..value..")"
+end
+
+-- Dissect: Trade Type
+aquis_equities_realtime_amd_v4_0.trade_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.trade_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.trade_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trade_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Phase
+aquis_equities_realtime_amd_v4_0.trading_phase = {}
+
+-- Size: Trading Phase
+aquis_equities_realtime_amd_v4_0.trading_phase.size = 1
+
+-- Display: Trading Phase
+aquis_equities_realtime_amd_v4_0.trading_phase.display = function(value)
+  if value == 0 then
+    return "Trading Phase: Closed (0)"
+  end
+  if value == 1 then
+    return "Trading Phase: Continuous (1)"
+  end
+
+  return "Trading Phase: Unknown("..value..")"
+end
+
+-- Dissect: Trading Phase
+aquis_equities_realtime_amd_v4_0.trading_phase.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.trading_phase.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.trading_phase.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trading_phase, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+aquis_equities_realtime_amd_v4_0.trading_status = {}
+
+-- Size: Trading Status
+aquis_equities_realtime_amd_v4_0.trading_status.size = 1
+
+-- Display: Trading Status
+aquis_equities_realtime_amd_v4_0.trading_status.display = function(value)
+  if value == 1 then
+    return "Trading Status: Active (1)"
+  end
+  if value == 2 then
+    return "Trading Status: Halted (2)"
+  end
+  if value == 3 then
+    return "Trading Status: Suspended (3)"
+  end
+  if value == 8 then
+    return "Trading Status: Ao D Start (8)"
+  end
+  if value == 24 then
+    return "Trading Status: Ao D End (24)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+aquis_equities_realtime_amd_v4_0.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_realtime_amd_v4_0.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Umtf
+aquis_equities_realtime_amd_v4_0.umtf = {}
+
+-- Size: Umtf
+aquis_equities_realtime_amd_v4_0.umtf.size = 6
+
+-- Display: Umtf
+aquis_equities_realtime_amd_v4_0.umtf.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Umtf: No Value"
+  end
+
+  return "Umtf: "..value
+end
+
+-- Dissect: Umtf
+aquis_equities_realtime_amd_v4_0.umtf.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_realtime_amd_v4_0.umtf.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_realtime_amd_v4_0.umtf.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.umtf, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis Equities RealTime Amd 4.0
+-----------------------------------------------------------------------
 
 -- Ma C Update Message
 aquis_equities_realtime_amd_v4_0.ma_c_update_message = {}
@@ -382,29 +1141,6 @@ aquis_equities_realtime_amd_v4_0.ma_c_update_message.dissect = function(buffer, 
   end
 end
 
--- Match Vol
-aquis_equities_realtime_amd_v4_0.match_vol = {}
-
--- Size: Match Vol
-aquis_equities_realtime_amd_v4_0.match_vol.size = 4
-
--- Display: Match Vol
-aquis_equities_realtime_amd_v4_0.match_vol.display = function(value)
-  return "Match Vol: "..value
-end
-
--- Dissect: Match Vol
-aquis_equities_realtime_amd_v4_0.match_vol.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.match_vol.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.match_vol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.match_vol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ao D Update Message
 aquis_equities_realtime_amd_v4_0.ao_d_update_message = {}
 
@@ -455,36 +1191,6 @@ aquis_equities_realtime_amd_v4_0.ao_d_update_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return aquis_equities_realtime_amd_v4_0.ao_d_update_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trading Phase
-aquis_equities_realtime_amd_v4_0.trading_phase = {}
-
--- Size: Trading Phase
-aquis_equities_realtime_amd_v4_0.trading_phase.size = 1
-
--- Display: Trading Phase
-aquis_equities_realtime_amd_v4_0.trading_phase.display = function(value)
-  if value == 0 then
-    return "Trading Phase: Closed (0)"
-  end
-  if value == 1 then
-    return "Trading Phase: Continuous (1)"
-  end
-
-  return "Trading Phase: Unknown("..value..")"
-end
-
--- Dissect: Trading Phase
-aquis_equities_realtime_amd_v4_0.trading_phase.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.trading_phase.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.trading_phase.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trading_phase, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Flags
@@ -544,45 +1250,6 @@ aquis_equities_realtime_amd_v4_0.market_flags.dissect = function(buffer, offset,
   return offset + size, value
 end
 
--- Trading Status
-aquis_equities_realtime_amd_v4_0.trading_status = {}
-
--- Size: Trading Status
-aquis_equities_realtime_amd_v4_0.trading_status.size = 1
-
--- Display: Trading Status
-aquis_equities_realtime_amd_v4_0.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Active (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halted (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Suspended (3)"
-  end
-  if value == 8 then
-    return "Trading Status: Ao D Start (8)"
-  end
-  if value == 24 then
-    return "Trading Status: Ao D End (24)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-aquis_equities_realtime_amd_v4_0.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trading_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Status Message
 aquis_equities_realtime_amd_v4_0.security_status_message = {}
 
@@ -637,91 +1304,6 @@ aquis_equities_realtime_amd_v4_0.security_status_message.dissect = function(buff
     -- Skip element, add fields directly
     return aquis_equities_realtime_amd_v4_0.security_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Lot Size Decimal
-aquis_equities_realtime_amd_v4_0.lot_size_decimal = {}
-
--- Size: Lot Size Decimal
-aquis_equities_realtime_amd_v4_0.lot_size_decimal.size = 1
-
--- Display: Lot Size Decimal
-aquis_equities_realtime_amd_v4_0.lot_size_decimal.display = function(value)
-  return "Lot Size Decimal: "..value
-end
-
--- Dissect: Lot Size Decimal
-aquis_equities_realtime_amd_v4_0.lot_size_decimal.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.lot_size_decimal.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.lot_size_decimal.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.lot_size_decimal, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size
-aquis_equities_realtime_amd_v4_0.lot_size = {}
-
--- Size: Lot Size
-aquis_equities_realtime_amd_v4_0.lot_size.size = 8
-
--- Display: Lot Size
-aquis_equities_realtime_amd_v4_0.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-aquis_equities_realtime_amd_v4_0.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_realtime_amd_v4_0.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved Char 2020
-aquis_equities_realtime_amd_v4_0.reserved_char_2020 = {}
-
--- Size: Reserved Char 2020
-aquis_equities_realtime_amd_v4_0.reserved_char_2020.size = 20
-
--- Display: Reserved Char 2020
-aquis_equities_realtime_amd_v4_0.reserved_char_2020.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved Char 2020: No Value"
-  end
-
-  return "Reserved Char 2020: "..value
-end
-
--- Dissect: Reserved Char 2020
-aquis_equities_realtime_amd_v4_0.reserved_char_2020.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.reserved_char_2020.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_realtime_amd_v4_0.reserved_char_2020.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.reserved_char_2020, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Definition Flags
@@ -805,185 +1387,6 @@ aquis_equities_realtime_amd_v4_0.security_definition_flags.dissect = function(bu
   return offset + size, value
 end
 
--- Tick Table Id
-aquis_equities_realtime_amd_v4_0.tick_table_id = {}
-
--- Size: Tick Table Id
-aquis_equities_realtime_amd_v4_0.tick_table_id.size = 1
-
--- Display: Tick Table Id
-aquis_equities_realtime_amd_v4_0.tick_table_id.display = function(value)
-  return "Tick Table Id: "..value
-end
-
--- Dissect: Tick Table Id
-aquis_equities_realtime_amd_v4_0.tick_table_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.tick_table_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.tick_table_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.tick_table_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Mic
-aquis_equities_realtime_amd_v4_0.mic = {}
-
--- Size: Mic
-aquis_equities_realtime_amd_v4_0.mic.size = 4
-
--- Display: Mic
-aquis_equities_realtime_amd_v4_0.mic.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mic: No Value"
-  end
-
-  return "Mic: "..value
-end
-
--- Dissect: Mic
-aquis_equities_realtime_amd_v4_0.mic.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.mic.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_realtime_amd_v4_0.mic.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.mic, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-aquis_equities_realtime_amd_v4_0.currency = {}
-
--- Size: Currency
-aquis_equities_realtime_amd_v4_0.currency.size = 3
-
--- Display: Currency
-aquis_equities_realtime_amd_v4_0.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-aquis_equities_realtime_amd_v4_0.currency.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_realtime_amd_v4_0.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Isin
-aquis_equities_realtime_amd_v4_0.isin = {}
-
--- Size: Isin
-aquis_equities_realtime_amd_v4_0.isin.size = 12
-
--- Display: Isin
-aquis_equities_realtime_amd_v4_0.isin.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Isin: No Value"
-  end
-
-  return "Isin: "..value
-end
-
--- Dissect: Isin
-aquis_equities_realtime_amd_v4_0.isin.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.isin.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_realtime_amd_v4_0.isin.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.isin, range, value, display)
-
-  return offset + length, value
-end
-
--- Umtf
-aquis_equities_realtime_amd_v4_0.umtf = {}
-
--- Size: Umtf
-aquis_equities_realtime_amd_v4_0.umtf.size = 6
-
--- Display: Umtf
-aquis_equities_realtime_amd_v4_0.umtf.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Umtf: No Value"
-  end
-
-  return "Umtf: "..value
-end
-
--- Dissect: Umtf
-aquis_equities_realtime_amd_v4_0.umtf.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.umtf.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_realtime_amd_v4_0.umtf.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.umtf, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Definition Message
 aquis_equities_realtime_amd_v4_0.security_definition_message = {}
 
@@ -1060,91 +1463,6 @@ aquis_equities_realtime_amd_v4_0.security_definition_message.dissect = function(
   end
 end
 
--- Tick Size
-aquis_equities_realtime_amd_v4_0.tick_size = {}
-
--- Size: Tick Size
-aquis_equities_realtime_amd_v4_0.tick_size.size = 8
-
--- Display: Tick Size
-aquis_equities_realtime_amd_v4_0.tick_size.display = function(value)
-  return "Tick Size: "..value
-end
-
--- Dissect: Tick Size
-aquis_equities_realtime_amd_v4_0.tick_size.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.tick_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_realtime_amd_v4_0.tick_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.tick_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Threshold
-aquis_equities_realtime_amd_v4_0.threshold = {}
-
--- Size: Threshold
-aquis_equities_realtime_amd_v4_0.threshold.size = 8
-
--- Display: Threshold
-aquis_equities_realtime_amd_v4_0.threshold.display = function(value)
-  return "Threshold: "..value
-end
-
--- Dissect: Threshold
-aquis_equities_realtime_amd_v4_0.threshold.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.threshold.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_realtime_amd_v4_0.threshold.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.threshold, range, value, display)
-
-  return offset + length, value
-end
-
--- Name
-aquis_equities_realtime_amd_v4_0.name = {}
-
--- Size: Name
-aquis_equities_realtime_amd_v4_0.name.size = 10
-
--- Display: Name
-aquis_equities_realtime_amd_v4_0.name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Name: No Value"
-  end
-
-  return "Name: "..value
-end
-
--- Dissect: Name
-aquis_equities_realtime_amd_v4_0.name.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_realtime_amd_v4_0.name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.name, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tick Table Data Message
 aquis_equities_realtime_amd_v4_0.tick_table_data_message = {}
 
@@ -1195,75 +1513,6 @@ aquis_equities_realtime_amd_v4_0.tick_table_data_message.dissect = function(buff
     -- Skip element, add fields directly
     return aquis_equities_realtime_amd_v4_0.tick_table_data_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Ref
-aquis_equities_realtime_amd_v4_0.trade_ref = {}
-
--- Size: Trade Ref
-aquis_equities_realtime_amd_v4_0.trade_ref.size = 4
-
--- Display: Trade Ref
-aquis_equities_realtime_amd_v4_0.trade_ref.display = function(value)
-  return "Trade Ref: "..value
-end
-
--- Dissect: Trade Ref
-aquis_equities_realtime_amd_v4_0.trade_ref.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.trade_ref.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.trade_ref.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trade_ref, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-aquis_equities_realtime_amd_v4_0.price = {}
-
--- Size: Price
-aquis_equities_realtime_amd_v4_0.price.size = 8
-
--- Display: Price
-aquis_equities_realtime_amd_v4_0.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-aquis_equities_realtime_amd_v4_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_realtime_amd_v4_0.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity
-aquis_equities_realtime_amd_v4_0.quantity = {}
-
--- Size: Quantity
-aquis_equities_realtime_amd_v4_0.quantity.size = 4
-
--- Display: Quantity
-aquis_equities_realtime_amd_v4_0.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-aquis_equities_realtime_amd_v4_0.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Bust Message
@@ -1367,97 +1616,6 @@ aquis_equities_realtime_amd_v4_0.md_flags.dissect = function(buffer, offset, pac
   end
 
   return offset + size, value
-end
-
--- Binary Mmt U 324
-aquis_equities_realtime_amd_v4_0.binary_mmt_u_324 = {}
-
--- Size: Binary Mmt U 324
-aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.size = 4
-
--- Display: Binary Mmt U 324
-aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.display = function(value)
-  return "Binary Mmt U 324: "..value
-end
-
--- Dissect: Binary Mmt U 324
-aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.binary_mmt_u_324.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.binary_mmt_u_324, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Ref
-aquis_equities_realtime_amd_v4_0.order_ref = {}
-
--- Size: Order Ref
-aquis_equities_realtime_amd_v4_0.order_ref.size = 4
-
--- Display: Order Ref
-aquis_equities_realtime_amd_v4_0.order_ref.display = function(value)
-  return "Order Ref: "..value
-end
-
--- Dissect: Order Ref
-aquis_equities_realtime_amd_v4_0.order_ref.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.order_ref.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.order_ref.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.order_ref, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Type
-aquis_equities_realtime_amd_v4_0.trade_type = {}
-
--- Size: Trade Type
-aquis_equities_realtime_amd_v4_0.trade_type.size = 1
-
--- Display: Trade Type
-aquis_equities_realtime_amd_v4_0.trade_type.display = function(value)
-  if value == 1 then
-    return "Trade Type: Visible Order (1)"
-  end
-  if value == 2 then
-    return "Trade Type: Hidden Order (2)"
-  end
-  if value == 3 then
-    return "Trade Type: Market At Close (3)"
-  end
-  if value == 4 then
-    return "Trade Type: Lis Cross (4)"
-  end
-  if value == 5 then
-    return "Trade Type: Benchmark Cross (5)"
-  end
-  if value == 6 then
-    return "Trade Type: Auction On Demand (6)"
-  end
-  if value == 12 then
-    return "Trade Type: Aquis Vwap Match (12)"
-  end
-
-  return "Trade Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Type
-aquis_equities_realtime_amd_v4_0.trade_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.trade_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.trade_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.trade_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade
@@ -1644,36 +1802,6 @@ aquis_equities_realtime_amd_v4_0.order_cancel.dissect = function(buffer, offset,
   end
 end
 
--- Side
-aquis_equities_realtime_amd_v4_0.side = {}
-
--- Size: Side
-aquis_equities_realtime_amd_v4_0.side.size = 1
-
--- Display: Side
-aquis_equities_realtime_amd_v4_0.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy Order (1)"
-  end
-  if value == 2 then
-    return "Side: Sell Order (2)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-aquis_equities_realtime_amd_v4_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_realtime_amd_v4_0.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Add
 aquis_equities_realtime_amd_v4_0.order_add = {}
 
@@ -1787,106 +1915,6 @@ aquis_equities_realtime_amd_v4_0.payload.dissect = function(buffer, offset, pack
   return offset
 end
 
--- Seq No
-aquis_equities_realtime_amd_v4_0.seq_no = {}
-
--- Size: Seq No
-aquis_equities_realtime_amd_v4_0.seq_no.size = 4
-
--- Display: Seq No
-aquis_equities_realtime_amd_v4_0.seq_no.display = function(value)
-  return "Seq No: "..value
-end
-
--- Dissect: Seq No
-aquis_equities_realtime_amd_v4_0.seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.seq_no.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_realtime_amd_v4_0.seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Length
-aquis_equities_realtime_amd_v4_0.msg_length = {}
-
--- Size: Msg Length
-aquis_equities_realtime_amd_v4_0.msg_length.size = 1
-
--- Display: Msg Length
-aquis_equities_realtime_amd_v4_0.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-aquis_equities_realtime_amd_v4_0.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_realtime_amd_v4_0.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-aquis_equities_realtime_amd_v4_0.msg_type = {}
-
--- Size: Msg Type
-aquis_equities_realtime_amd_v4_0.msg_type.size = 1
-
--- Display: Msg Type
-aquis_equities_realtime_amd_v4_0.msg_type.display = function(value)
-  if value == 2 then
-    return "Msg Type: Order Add (2)"
-  end
-  if value == 3 then
-    return "Msg Type: Order Cancel (3)"
-  end
-  if value == 4 then
-    return "Msg Type: Order Modify (4)"
-  end
-  if value == 5 then
-    return "Msg Type: Trade (5)"
-  end
-  if value == 6 then
-    return "Msg Type: Trade Bust Message (6)"
-  end
-  if value == 7 then
-    return "Msg Type: Tick Table Data Message (7)"
-  end
-  if value == 8 then
-    return "Msg Type: Security Definition Message (8)"
-  end
-  if value == 9 then
-    return "Msg Type: Security Status Message (9)"
-  end
-  if value == 17 then
-    return "Msg Type: Ao D Update Message (17)"
-  end
-  if value == 16 then
-    return "Msg Type: Ma C Update Message (16)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-aquis_equities_realtime_amd_v4_0.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_realtime_amd_v4_0.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.msg_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 aquis_equities_realtime_amd_v4_0.message_header = {}
 
@@ -1984,29 +2012,6 @@ aquis_equities_realtime_amd_v4_0.message.dissect = function(buffer, offset, pack
 
     return index
   end
-end
-
--- Message Count
-aquis_equities_realtime_amd_v4_0.message_count = {}
-
--- Size: Message Count
-aquis_equities_realtime_amd_v4_0.message_count.size = 1
-
--- Display: Message Count
-aquis_equities_realtime_amd_v4_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-aquis_equities_realtime_amd_v4_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_realtime_amd_v4_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_realtime_amd_v4_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_realtime_amd_v4_0.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

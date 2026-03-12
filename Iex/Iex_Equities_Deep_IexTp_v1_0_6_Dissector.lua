@@ -241,92 +241,34 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Iex Equities Deep IexTp 1.0.6
+-- Iex Equities Deep IexTp 1.0.6 Fields
 -----------------------------------------------------------------------
 
--- Upper Auction Collar
-iex_equities_deep_iextp_v1_0_6.upper_auction_collar = {}
+-- Adjusted Poc Price
+iex_equities_deep_iextp_v1_0_6.adjusted_poc_price = {}
 
--- Size: Upper Auction Collar
-iex_equities_deep_iextp_v1_0_6.upper_auction_collar.size = 8
+-- Size: Adjusted Poc Price
+iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.size = 8
 
--- Display: Upper Auction Collar
-iex_equities_deep_iextp_v1_0_6.upper_auction_collar.display = function(value)
-  return "Upper Auction Collar: "..value
+-- Display: Adjusted Poc Price
+iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.display = function(value)
+  return "Adjusted Poc Price: "..value
 end
 
--- Translate: Upper Auction Collar
-iex_equities_deep_iextp_v1_0_6.upper_auction_collar.translate = function(raw)
+-- Translate: Adjusted Poc Price
+iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Upper Auction Collar
-iex_equities_deep_iextp_v1_0_6.upper_auction_collar.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.upper_auction_collar.size
+-- Dissect: Adjusted Poc Price
+iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.upper_auction_collar.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.upper_auction_collar.display(value, buffer, offset, packet, parent)
+  local value = iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.upper_auction_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Lower Auction Collar
-iex_equities_deep_iextp_v1_0_6.lower_auction_collar = {}
-
--- Size: Lower Auction Collar
-iex_equities_deep_iextp_v1_0_6.lower_auction_collar.size = 8
-
--- Display: Lower Auction Collar
-iex_equities_deep_iextp_v1_0_6.lower_auction_collar.display = function(value)
-  return "Lower Auction Collar: "..value
-end
-
--- Translate: Lower Auction Collar
-iex_equities_deep_iextp_v1_0_6.lower_auction_collar.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Lower Auction Collar
-iex_equities_deep_iextp_v1_0_6.lower_auction_collar.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.lower_auction_collar.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.lower_auction_collar.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.lower_auction_collar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.lower_auction_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Collar Reference Price
-iex_equities_deep_iextp_v1_0_6.collar_reference_price = {}
-
--- Size: Collar Reference Price
-iex_equities_deep_iextp_v1_0_6.collar_reference_price.size = 8
-
--- Display: Collar Reference Price
-iex_equities_deep_iextp_v1_0_6.collar_reference_price.display = function(value)
-  return "Collar Reference Price: "..value
-end
-
--- Translate: Collar Reference Price
-iex_equities_deep_iextp_v1_0_6.collar_reference_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Collar Reference Price
-iex_equities_deep_iextp_v1_0_6.collar_reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.collar_reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.collar_reference_price.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.collar_reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.collar_reference_price, range, value, display)
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.adjusted_poc_price, range, value, display)
 
   return offset + length, value
 end
@@ -356,240 +298,6 @@ iex_equities_deep_iextp_v1_0_6.auction_book_clearing_price.dissect = function(bu
   local display = iex_equities_deep_iextp_v1_0_6.auction_book_clearing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.auction_book_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Scheduled Auction Time
-iex_equities_deep_iextp_v1_0_6.scheduled_auction_time = {}
-
--- Size: Scheduled Auction Time
-iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.size = 4
-
--- Display: Scheduled Auction Time
-iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Scheduled Auction Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
-end
-
--- Dissect: Scheduled Auction Time
-iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.scheduled_auction_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Extension Number
-iex_equities_deep_iextp_v1_0_6.extension_number = {}
-
--- Size: Extension Number
-iex_equities_deep_iextp_v1_0_6.extension_number.size = 1
-
--- Display: Extension Number
-iex_equities_deep_iextp_v1_0_6.extension_number.display = function(value)
-  return "Extension Number: "..value
-end
-
--- Dissect: Extension Number
-iex_equities_deep_iextp_v1_0_6.extension_number.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.extension_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.extension_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.extension_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Side
-iex_equities_deep_iextp_v1_0_6.imbalance_side = {}
-
--- Size: Imbalance Side
-iex_equities_deep_iextp_v1_0_6.imbalance_side.size = 1
-
--- Display: Imbalance Side
-iex_equities_deep_iextp_v1_0_6.imbalance_side.display = function(value)
-  if value == "B" then
-    return "Imbalance Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Side: Sell (S)"
-  end
-  if value == "N" then
-    return "Imbalance Side: None (N)"
-  end
-
-  return "Imbalance Side: Unknown("..value..")"
-end
-
--- Dissect: Imbalance Side
-iex_equities_deep_iextp_v1_0_6.imbalance_side.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.imbalance_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.imbalance_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.imbalance_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Shares
-iex_equities_deep_iextp_v1_0_6.imbalance_shares = {}
-
--- Size: Imbalance Shares
-iex_equities_deep_iextp_v1_0_6.imbalance_shares.size = 4
-
--- Display: Imbalance Shares
-iex_equities_deep_iextp_v1_0_6.imbalance_shares.display = function(value)
-  return "Imbalance Shares: "..value
-end
-
--- Dissect: Imbalance Shares
-iex_equities_deep_iextp_v1_0_6.imbalance_shares.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.imbalance_shares.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.imbalance_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.imbalance_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Indicative Clearing Price
-iex_equities_deep_iextp_v1_0_6.indicative_clearing_price = {}
-
--- Size: Indicative Clearing Price
-iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.size = 8
-
--- Display: Indicative Clearing Price
-iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.display = function(value)
-  return "Indicative Clearing Price: "..value
-end
-
--- Translate: Indicative Clearing Price
-iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Indicative Clearing Price
-iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.indicative_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price
-iex_equities_deep_iextp_v1_0_6.reference_price = {}
-
--- Size: Reference Price
-iex_equities_deep_iextp_v1_0_6.reference_price.size = 8
-
--- Display: Reference Price
-iex_equities_deep_iextp_v1_0_6.reference_price.display = function(value)
-  return "Reference Price: "..value
-end
-
--- Translate: Reference Price
-iex_equities_deep_iextp_v1_0_6.reference_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Reference Price
-iex_equities_deep_iextp_v1_0_6.reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.reference_price.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Paired Shares
-iex_equities_deep_iextp_v1_0_6.paired_shares = {}
-
--- Size: Paired Shares
-iex_equities_deep_iextp_v1_0_6.paired_shares.size = 4
-
--- Display: Paired Shares
-iex_equities_deep_iextp_v1_0_6.paired_shares.display = function(value)
-  return "Paired Shares: "..value
-end
-
--- Dissect: Paired Shares
-iex_equities_deep_iextp_v1_0_6.paired_shares.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.paired_shares.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.paired_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.paired_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-iex_equities_deep_iextp_v1_0_6.symbol = {}
-
--- Size: Symbol
-iex_equities_deep_iextp_v1_0_6.symbol.size = 8
-
--- Display: Symbol
-iex_equities_deep_iextp_v1_0_6.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-iex_equities_deep_iextp_v1_0_6.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = iex_equities_deep_iextp_v1_0_6.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-iex_equities_deep_iextp_v1_0_6.timestamp = {}
-
--- Size: Timestamp
-iex_equities_deep_iextp_v1_0_6.timestamp.size = 8
-
--- Display: Timestamp
-iex_equities_deep_iextp_v1_0_6.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Timestamp
-iex_equities_deep_iextp_v1_0_6.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = iex_equities_deep_iextp_v1_0_6.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -632,6 +340,1093 @@ iex_equities_deep_iextp_v1_0_6.auction_type.dissect = function(buffer, offset, p
 
   return offset + length, value
 end
+
+-- Channel Id
+iex_equities_deep_iextp_v1_0_6.channel_id = {}
+
+-- Size: Channel Id
+iex_equities_deep_iextp_v1_0_6.channel_id.size = 4
+
+-- Display: Channel Id
+iex_equities_deep_iextp_v1_0_6.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+iex_equities_deep_iextp_v1_0_6.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Collar Reference Price
+iex_equities_deep_iextp_v1_0_6.collar_reference_price = {}
+
+-- Size: Collar Reference Price
+iex_equities_deep_iextp_v1_0_6.collar_reference_price.size = 8
+
+-- Display: Collar Reference Price
+iex_equities_deep_iextp_v1_0_6.collar_reference_price.display = function(value)
+  return "Collar Reference Price: "..value
+end
+
+-- Translate: Collar Reference Price
+iex_equities_deep_iextp_v1_0_6.collar_reference_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Collar Reference Price
+iex_equities_deep_iextp_v1_0_6.collar_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.collar_reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.collar_reference_price.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.collar_reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.collar_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Detail
+iex_equities_deep_iextp_v1_0_6.detail = {}
+
+-- Size: Detail
+iex_equities_deep_iextp_v1_0_6.detail.size = 1
+
+-- Display: Detail
+iex_equities_deep_iextp_v1_0_6.detail.display = function(value)
+  if value == " " then
+    return "Detail: No Price Test In Place (<whitespace>)"
+  end
+  if value == "A" then
+    return "Detail: Short Sale Price Test Restriction In Effect Due To An Intraday Price Drop In The Security (A)"
+  end
+  if value == "C" then
+    return "Detail: Short Sale Price Test Restriction Remains In Effect From Prior Day (C)"
+  end
+  if value == "D" then
+    return "Detail: Short Sale Price Test Restriction Deactivated (D)"
+  end
+  if value == "N" then
+    return "Detail: Detail Not Available (N)"
+  end
+
+  return "Detail: Unknown("..value..")"
+end
+
+-- Dissect: Detail
+iex_equities_deep_iextp_v1_0_6.detail.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.detail.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.detail.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.detail, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Flags
+iex_equities_deep_iextp_v1_0_6.event_flags = {}
+
+-- Size: Event Flags
+iex_equities_deep_iextp_v1_0_6.event_flags.size = 1
+
+-- Display: Event Flags
+iex_equities_deep_iextp_v1_0_6.event_flags.display = function(value)
+  if value == 0 then
+    return "Event Flags: Order Book Is Processing An Event (0)"
+  end
+  if value == 1 then
+    return "Event Flags: Event Processing Complete (1)"
+  end
+
+  return "Event Flags: Unknown("..value..")"
+end
+
+-- Dissect: Event Flags
+iex_equities_deep_iextp_v1_0_6.event_flags.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.event_flags.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = iex_equities_deep_iextp_v1_0_6.event_flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.event_flags, range, value, display)
+
+  return offset + length, value
+end
+
+-- Extension Number
+iex_equities_deep_iextp_v1_0_6.extension_number = {}
+
+-- Size: Extension Number
+iex_equities_deep_iextp_v1_0_6.extension_number.size = 1
+
+-- Display: Extension Number
+iex_equities_deep_iextp_v1_0_6.extension_number.display = function(value)
+  return "Extension Number: "..value
+end
+
+-- Dissect: Extension Number
+iex_equities_deep_iextp_v1_0_6.extension_number.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.extension_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.extension_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.extension_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Message Sequence Number
+iex_equities_deep_iextp_v1_0_6.first_message_sequence_number = {}
+
+-- Size: First Message Sequence Number
+iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.size = 8
+
+-- Display: First Message Sequence Number
+iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.display = function(value)
+  return "First Message Sequence Number: "..value
+end
+
+-- Dissect: First Message Sequence Number
+iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.first_message_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Shares
+iex_equities_deep_iextp_v1_0_6.imbalance_shares = {}
+
+-- Size: Imbalance Shares
+iex_equities_deep_iextp_v1_0_6.imbalance_shares.size = 4
+
+-- Display: Imbalance Shares
+iex_equities_deep_iextp_v1_0_6.imbalance_shares.display = function(value)
+  return "Imbalance Shares: "..value
+end
+
+-- Dissect: Imbalance Shares
+iex_equities_deep_iextp_v1_0_6.imbalance_shares.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.imbalance_shares.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.imbalance_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.imbalance_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Side
+iex_equities_deep_iextp_v1_0_6.imbalance_side = {}
+
+-- Size: Imbalance Side
+iex_equities_deep_iextp_v1_0_6.imbalance_side.size = 1
+
+-- Display: Imbalance Side
+iex_equities_deep_iextp_v1_0_6.imbalance_side.display = function(value)
+  if value == "B" then
+    return "Imbalance Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Imbalance Side: Sell (S)"
+  end
+  if value == "N" then
+    return "Imbalance Side: None (N)"
+  end
+
+  return "Imbalance Side: Unknown("..value..")"
+end
+
+-- Dissect: Imbalance Side
+iex_equities_deep_iextp_v1_0_6.imbalance_side.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.imbalance_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.imbalance_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.imbalance_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Clearing Price
+iex_equities_deep_iextp_v1_0_6.indicative_clearing_price = {}
+
+-- Size: Indicative Clearing Price
+iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.size = 8
+
+-- Display: Indicative Clearing Price
+iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.display = function(value)
+  return "Indicative Clearing Price: "..value
+end
+
+-- Translate: Indicative Clearing Price
+iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Indicative Clearing Price
+iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.indicative_clearing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.indicative_clearing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Auction Collar
+iex_equities_deep_iextp_v1_0_6.lower_auction_collar = {}
+
+-- Size: Lower Auction Collar
+iex_equities_deep_iextp_v1_0_6.lower_auction_collar.size = 8
+
+-- Display: Lower Auction Collar
+iex_equities_deep_iextp_v1_0_6.lower_auction_collar.display = function(value)
+  return "Lower Auction Collar: "..value
+end
+
+-- Translate: Lower Auction Collar
+iex_equities_deep_iextp_v1_0_6.lower_auction_collar.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Lower Auction Collar
+iex_equities_deep_iextp_v1_0_6.lower_auction_collar.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.lower_auction_collar.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.lower_auction_collar.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.lower_auction_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.lower_auction_collar, range, value, display)
+
+  return offset + length, value
+end
+
+-- Luld Tier
+iex_equities_deep_iextp_v1_0_6.luld_tier = {}
+
+-- Size: Luld Tier
+iex_equities_deep_iextp_v1_0_6.luld_tier.size = 1
+
+-- Display: Luld Tier
+iex_equities_deep_iextp_v1_0_6.luld_tier.display = function(value)
+  if value == 0 then
+    return "Luld Tier: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Luld Tier: Tier 1 Nms Stock (1)"
+  end
+  if value == 2 then
+    return "Luld Tier: Tier 2 Nms Stock (2)"
+  end
+
+  return "Luld Tier: Unknown("..value..")"
+end
+
+-- Dissect: Luld Tier
+iex_equities_deep_iextp_v1_0_6.luld_tier.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.luld_tier.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = iex_equities_deep_iextp_v1_0_6.luld_tier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.luld_tier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+iex_equities_deep_iextp_v1_0_6.message_count = {}
+
+-- Size: Message Count
+iex_equities_deep_iextp_v1_0_6.message_count.size = 2
+
+-- Display: Message Count
+iex_equities_deep_iextp_v1_0_6.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+iex_equities_deep_iextp_v1_0_6.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+iex_equities_deep_iextp_v1_0_6.message_length = {}
+
+-- Size: Message Length
+iex_equities_deep_iextp_v1_0_6.message_length.size = 2
+
+-- Display: Message Length
+iex_equities_deep_iextp_v1_0_6.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+iex_equities_deep_iextp_v1_0_6.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Protocol Id
+iex_equities_deep_iextp_v1_0_6.message_protocol_id = {}
+
+-- Size: Message Protocol Id
+iex_equities_deep_iextp_v1_0_6.message_protocol_id.size = 2
+
+-- Display: Message Protocol Id
+iex_equities_deep_iextp_v1_0_6.message_protocol_id.display = function(value)
+  return "Message Protocol Id: "..value
+end
+
+-- Dissect: Message Protocol Id
+iex_equities_deep_iextp_v1_0_6.message_protocol_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.message_protocol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.message_protocol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_protocol_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+iex_equities_deep_iextp_v1_0_6.message_type = {}
+
+-- Size: Message Type
+iex_equities_deep_iextp_v1_0_6.message_type.size = 1
+
+-- Display: Message Type
+iex_equities_deep_iextp_v1_0_6.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "D" then
+    return "Message Type: Security Directory Message (D)"
+  end
+  if value == "H" then
+    return "Message Type: Trading Status Message (H)"
+  end
+  if value == "O" then
+    return "Message Type: Operational Halt Status Message (O)"
+  end
+  if value == "P" then
+    return "Message Type: Short Sale Price Test Status Message (P)"
+  end
+  if value == "E" then
+    return "Message Type: Security Event Message (E)"
+  end
+  if value == "8" then
+    return "Message Type: Price Level Buy Update Message (8)"
+  end
+  if value == "5" then
+    return "Message Type: Price Level Sell Update Message (5)"
+  end
+  if value == "T" then
+    return "Message Type: Trade Report Message (T)"
+  end
+  if value == "X" then
+    return "Message Type: Official Price Message (X)"
+  end
+  if value == "B" then
+    return "Message Type: Trade Break Message (B)"
+  end
+  if value == "A" then
+    return "Message Type: Auction Information Message (A)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+iex_equities_deep_iextp_v1_0_6.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Official Price
+iex_equities_deep_iextp_v1_0_6.official_price = {}
+
+-- Size: Official Price
+iex_equities_deep_iextp_v1_0_6.official_price.size = 8
+
+-- Display: Official Price
+iex_equities_deep_iextp_v1_0_6.official_price.display = function(value)
+  return "Official Price: "..value
+end
+
+-- Translate: Official Price
+iex_equities_deep_iextp_v1_0_6.official_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Official Price
+iex_equities_deep_iextp_v1_0_6.official_price.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.official_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.official_price.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.official_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.official_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Operational Halt Status
+iex_equities_deep_iextp_v1_0_6.operational_halt_status = {}
+
+-- Size: Operational Halt Status
+iex_equities_deep_iextp_v1_0_6.operational_halt_status.size = 1
+
+-- Display: Operational Halt Status
+iex_equities_deep_iextp_v1_0_6.operational_halt_status.display = function(value)
+  if value == "O" then
+    return "Operational Halt Status: Iex Specific Operational Trading Halt (O)"
+  end
+  if value == "N" then
+    return "Operational Halt Status: Not Operationally Halted On Iex (N)"
+  end
+
+  return "Operational Halt Status: Unknown("..value..")"
+end
+
+-- Dissect: Operational Halt Status
+iex_equities_deep_iextp_v1_0_6.operational_halt_status.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.operational_halt_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.operational_halt_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.operational_halt_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Paired Shares
+iex_equities_deep_iextp_v1_0_6.paired_shares = {}
+
+-- Size: Paired Shares
+iex_equities_deep_iextp_v1_0_6.paired_shares.size = 4
+
+-- Display: Paired Shares
+iex_equities_deep_iextp_v1_0_6.paired_shares.display = function(value)
+  return "Paired Shares: "..value
+end
+
+-- Dissect: Paired Shares
+iex_equities_deep_iextp_v1_0_6.paired_shares.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.paired_shares.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.paired_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.paired_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload Length
+iex_equities_deep_iextp_v1_0_6.payload_length = {}
+
+-- Size: Payload Length
+iex_equities_deep_iextp_v1_0_6.payload_length.size = 2
+
+-- Display: Payload Length
+iex_equities_deep_iextp_v1_0_6.payload_length.display = function(value)
+  return "Payload Length: "..value
+end
+
+-- Dissect: Payload Length
+iex_equities_deep_iextp_v1_0_6.payload_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.payload_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.payload_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.payload_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+iex_equities_deep_iextp_v1_0_6.price = {}
+
+-- Size: Price
+iex_equities_deep_iextp_v1_0_6.price.size = 8
+
+-- Display: Price
+iex_equities_deep_iextp_v1_0_6.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+iex_equities_deep_iextp_v1_0_6.price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price
+iex_equities_deep_iextp_v1_0_6.price.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.price.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Type
+iex_equities_deep_iextp_v1_0_6.price_type = {}
+
+-- Size: Price Type
+iex_equities_deep_iextp_v1_0_6.price_type.size = 1
+
+-- Display: Price Type
+iex_equities_deep_iextp_v1_0_6.price_type.display = function(value)
+  if value == "Q" then
+    return "Price Type: Iex Official Opening Price (Q)"
+  end
+  if value == "M" then
+    return "Price Type: Iex Official Closing Price (M)"
+  end
+
+  return "Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Price Type
+iex_equities_deep_iextp_v1_0_6.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.price_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+iex_equities_deep_iextp_v1_0_6.reason = {}
+
+-- Size: Reason
+iex_equities_deep_iextp_v1_0_6.reason.size = 4
+
+-- Display: Reason
+iex_equities_deep_iextp_v1_0_6.reason.display = function(value)
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+iex_equities_deep_iextp_v1_0_6.reason.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = iex_equities_deep_iextp_v1_0_6.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price
+iex_equities_deep_iextp_v1_0_6.reference_price = {}
+
+-- Size: Reference Price
+iex_equities_deep_iextp_v1_0_6.reference_price.size = 8
+
+-- Display: Reference Price
+iex_equities_deep_iextp_v1_0_6.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Translate: Reference Price
+iex_equities_deep_iextp_v1_0_6.reference_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Reference Price
+iex_equities_deep_iextp_v1_0_6.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.reference_price.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+iex_equities_deep_iextp_v1_0_6.reserved = {}
+
+-- Size: Reserved
+iex_equities_deep_iextp_v1_0_6.reserved.size = 1
+
+-- Display: Reserved
+iex_equities_deep_iextp_v1_0_6.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+iex_equities_deep_iextp_v1_0_6.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.reserved.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = iex_equities_deep_iextp_v1_0_6.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+iex_equities_deep_iextp_v1_0_6.round_lot_size = {}
+
+-- Size: Round Lot Size
+iex_equities_deep_iextp_v1_0_6.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+iex_equities_deep_iextp_v1_0_6.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+iex_equities_deep_iextp_v1_0_6.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Scheduled Auction Time
+iex_equities_deep_iextp_v1_0_6.scheduled_auction_time = {}
+
+-- Size: Scheduled Auction Time
+iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.size = 4
+
+-- Display: Scheduled Auction Time
+iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Scheduled Auction Time: "..os.date("%Y-%m-%d %H:%M:%S.", value)
+end
+
+-- Dissect: Scheduled Auction Time
+iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.scheduled_auction_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.scheduled_auction_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Event
+iex_equities_deep_iextp_v1_0_6.security_event = {}
+
+-- Size: Security Event
+iex_equities_deep_iextp_v1_0_6.security_event.size = 1
+
+-- Display: Security Event
+iex_equities_deep_iextp_v1_0_6.security_event.display = function(value)
+  if value == "O" then
+    return "Security Event: Opening Process Complete (O)"
+  end
+  if value == "C" then
+    return "Security Event: Closing Process Complete (C)"
+  end
+
+  return "Security Event: Unknown("..value..")"
+end
+
+-- Dissect: Security Event
+iex_equities_deep_iextp_v1_0_6.security_event.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.security_event.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.security_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.security_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Time
+iex_equities_deep_iextp_v1_0_6.send_time = {}
+
+-- Size: Send Time
+iex_equities_deep_iextp_v1_0_6.send_time.size = 8
+
+-- Display: Send Time
+iex_equities_deep_iextp_v1_0_6.send_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Send Time
+iex_equities_deep_iextp_v1_0_6.send_time.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.send_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_deep_iextp_v1_0_6.send_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.send_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+iex_equities_deep_iextp_v1_0_6.session_id = {}
+
+-- Size: Session Id
+iex_equities_deep_iextp_v1_0_6.session_id.size = 4
+
+-- Display: Session Id
+iex_equities_deep_iextp_v1_0_6.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+iex_equities_deep_iextp_v1_0_6.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Price Test Status
+iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status = {}
+
+-- Size: Short Sale Price Test Status
+iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.size = 1
+
+-- Display: Short Sale Price Test Status
+iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.display = function(value)
+  if value == 0 then
+    return "Short Sale Price Test Status: Not In Effect (0)"
+  end
+  if value == 1 then
+    return "Short Sale Price Test Status: In Effect (1)"
+  end
+
+  return "Short Sale Price Test Status: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Price Test Status
+iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.short_sale_price_test_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+iex_equities_deep_iextp_v1_0_6.size = {}
+
+-- Size: Size
+iex_equities_deep_iextp_v1_0_6.size.size = 4
+
+-- Display: Size
+iex_equities_deep_iextp_v1_0_6.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+iex_equities_deep_iextp_v1_0_6.size.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Offset
+iex_equities_deep_iextp_v1_0_6.stream_offset = {}
+
+-- Size: Stream Offset
+iex_equities_deep_iextp_v1_0_6.stream_offset.size = 8
+
+-- Display: Stream Offset
+iex_equities_deep_iextp_v1_0_6.stream_offset.display = function(value)
+  return "Stream Offset: "..value
+end
+
+-- Dissect: Stream Offset
+iex_equities_deep_iextp_v1_0_6.stream_offset.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.stream_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_deep_iextp_v1_0_6.stream_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.stream_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+iex_equities_deep_iextp_v1_0_6.symbol = {}
+
+-- Size: Symbol
+iex_equities_deep_iextp_v1_0_6.symbol.size = 8
+
+-- Display: Symbol
+iex_equities_deep_iextp_v1_0_6.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+iex_equities_deep_iextp_v1_0_6.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = iex_equities_deep_iextp_v1_0_6.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Event
+iex_equities_deep_iextp_v1_0_6.system_event = {}
+
+-- Size: System Event
+iex_equities_deep_iextp_v1_0_6.system_event.size = 1
+
+-- Display: System Event
+iex_equities_deep_iextp_v1_0_6.system_event.display = function(value)
+  if value == "S" then
+    return "System Event: Start Of System Hours (S)"
+  end
+  if value == "R" then
+    return "System Event: Start Of Regular Market Hours (R)"
+  end
+  if value == "M" then
+    return "System Event: End Of Regular Market Hours (M)"
+  end
+  if value == "E" then
+    return "System Event: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "System Event: End Of Messages (C)"
+  end
+
+  return "System Event: Unknown("..value..")"
+end
+
+-- Dissect: System Event
+iex_equities_deep_iextp_v1_0_6.system_event.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.system_event.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.system_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.system_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+iex_equities_deep_iextp_v1_0_6.timestamp = {}
+
+-- Size: Timestamp
+iex_equities_deep_iextp_v1_0_6.timestamp.size = 8
+
+-- Display: Timestamp
+iex_equities_deep_iextp_v1_0_6.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+iex_equities_deep_iextp_v1_0_6.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = iex_equities_deep_iextp_v1_0_6.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+iex_equities_deep_iextp_v1_0_6.trade_id = {}
+
+-- Size: Trade Id
+iex_equities_deep_iextp_v1_0_6.trade_id.size = 8
+
+-- Display: Trade Id
+iex_equities_deep_iextp_v1_0_6.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+iex_equities_deep_iextp_v1_0_6.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_deep_iextp_v1_0_6.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+iex_equities_deep_iextp_v1_0_6.trading_status = {}
+
+-- Size: Trading Status
+iex_equities_deep_iextp_v1_0_6.trading_status.size = 1
+
+-- Display: Trading Status
+iex_equities_deep_iextp_v1_0_6.trading_status.display = function(value)
+  if value == "H" then
+    return "Trading Status: Trading Halted Across All Us Equity Markets (H)"
+  end
+  if value == "P" then
+    return "Trading Status: Trading Paused And Order Acceptance Period On Iex (P)"
+  end
+  if value == "T" then
+    return "Trading Status: Trading On Iex (T)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+iex_equities_deep_iextp_v1_0_6.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = iex_equities_deep_iextp_v1_0_6.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Upper Auction Collar
+iex_equities_deep_iextp_v1_0_6.upper_auction_collar = {}
+
+-- Size: Upper Auction Collar
+iex_equities_deep_iextp_v1_0_6.upper_auction_collar.size = 8
+
+-- Display: Upper Auction Collar
+iex_equities_deep_iextp_v1_0_6.upper_auction_collar.display = function(value)
+  return "Upper Auction Collar: "..value
+end
+
+-- Translate: Upper Auction Collar
+iex_equities_deep_iextp_v1_0_6.upper_auction_collar.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Upper Auction Collar
+iex_equities_deep_iextp_v1_0_6.upper_auction_collar.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.upper_auction_collar.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = iex_equities_deep_iextp_v1_0_6.upper_auction_collar.translate(raw)
+  local display = iex_equities_deep_iextp_v1_0_6.upper_auction_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.upper_auction_collar, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+iex_equities_deep_iextp_v1_0_6.version = {}
+
+-- Size: Version
+iex_equities_deep_iextp_v1_0_6.version.size = 1
+
+-- Display: Version
+iex_equities_deep_iextp_v1_0_6.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+iex_equities_deep_iextp_v1_0_6.version.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_deep_iextp_v1_0_6.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_deep_iextp_v1_0_6.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Iex Equities Deep IexTp 1.0.6
+-----------------------------------------------------------------------
 
 -- Auction Information Message
 iex_equities_deep_iextp_v1_0_6.auction_information_message = {}
@@ -723,81 +1518,6 @@ iex_equities_deep_iextp_v1_0_6.auction_information_message.dissect = function(bu
     -- Skip element, add fields directly
     return iex_equities_deep_iextp_v1_0_6.auction_information_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Id
-iex_equities_deep_iextp_v1_0_6.trade_id = {}
-
--- Size: Trade Id
-iex_equities_deep_iextp_v1_0_6.trade_id.size = 8
-
--- Display: Trade Id
-iex_equities_deep_iextp_v1_0_6.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-iex_equities_deep_iextp_v1_0_6.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_deep_iextp_v1_0_6.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-iex_equities_deep_iextp_v1_0_6.price = {}
-
--- Size: Price
-iex_equities_deep_iextp_v1_0_6.price.size = 8
-
--- Display: Price
-iex_equities_deep_iextp_v1_0_6.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-iex_equities_deep_iextp_v1_0_6.price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price
-iex_equities_deep_iextp_v1_0_6.price.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.price.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size
-iex_equities_deep_iextp_v1_0_6.size = {}
-
--- Size: Size
-iex_equities_deep_iextp_v1_0_6.size.size = 4
-
--- Display: Size
-iex_equities_deep_iextp_v1_0_6.size.display = function(value)
-  return "Size: "..value
-end
-
--- Dissect: Size
-iex_equities_deep_iextp_v1_0_6.size.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sale Condition Flags
@@ -931,65 +1651,6 @@ iex_equities_deep_iextp_v1_0_6.trade_break_message.dissect = function(buffer, of
   end
 end
 
--- Official Price
-iex_equities_deep_iextp_v1_0_6.official_price = {}
-
--- Size: Official Price
-iex_equities_deep_iextp_v1_0_6.official_price.size = 8
-
--- Display: Official Price
-iex_equities_deep_iextp_v1_0_6.official_price.display = function(value)
-  return "Official Price: "..value
-end
-
--- Translate: Official Price
-iex_equities_deep_iextp_v1_0_6.official_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Official Price
-iex_equities_deep_iextp_v1_0_6.official_price.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.official_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.official_price.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.official_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.official_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Type
-iex_equities_deep_iextp_v1_0_6.price_type = {}
-
--- Size: Price Type
-iex_equities_deep_iextp_v1_0_6.price_type.size = 1
-
--- Display: Price Type
-iex_equities_deep_iextp_v1_0_6.price_type.display = function(value)
-  if value == "Q" then
-    return "Price Type: Iex Official Opening Price (Q)"
-  end
-  if value == "M" then
-    return "Price Type: Iex Official Closing Price (M)"
-  end
-
-  return "Price Type: Unknown("..value..")"
-end
-
--- Dissect: Price Type
-iex_equities_deep_iextp_v1_0_6.price_type.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.price_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.price_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Official Price Message
 iex_equities_deep_iextp_v1_0_6.official_price_message = {}
 
@@ -1100,36 +1761,6 @@ iex_equities_deep_iextp_v1_0_6.trade_report_message.dissect = function(buffer, o
     -- Skip element, add fields directly
     return iex_equities_deep_iextp_v1_0_6.trade_report_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Event Flags
-iex_equities_deep_iextp_v1_0_6.event_flags = {}
-
--- Size: Event Flags
-iex_equities_deep_iextp_v1_0_6.event_flags.size = 1
-
--- Display: Event Flags
-iex_equities_deep_iextp_v1_0_6.event_flags.display = function(value)
-  if value == 0 then
-    return "Event Flags: Order Book Is Processing An Event (0)"
-  end
-  if value == 1 then
-    return "Event Flags: Event Processing Complete (1)"
-  end
-
-  return "Event Flags: Unknown("..value..")"
-end
-
--- Dissect: Event Flags
-iex_equities_deep_iextp_v1_0_6.event_flags.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.event_flags.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = iex_equities_deep_iextp_v1_0_6.event_flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.event_flags, range, value, display)
-
-  return offset + length, value
 end
 
 -- Price Level Sell Update Message
@@ -1244,36 +1875,6 @@ iex_equities_deep_iextp_v1_0_6.price_level_buy_update_message.dissect = function
   end
 end
 
--- Security Event
-iex_equities_deep_iextp_v1_0_6.security_event = {}
-
--- Size: Security Event
-iex_equities_deep_iextp_v1_0_6.security_event.size = 1
-
--- Display: Security Event
-iex_equities_deep_iextp_v1_0_6.security_event.display = function(value)
-  if value == "O" then
-    return "Security Event: Opening Process Complete (O)"
-  end
-  if value == "C" then
-    return "Security Event: Closing Process Complete (C)"
-  end
-
-  return "Security Event: Unknown("..value..")"
-end
-
--- Dissect: Security Event
-iex_equities_deep_iextp_v1_0_6.security_event.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.security_event.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.security_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.security_event, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Event Message
 iex_equities_deep_iextp_v1_0_6.security_event_message = {}
 
@@ -1320,75 +1921,6 @@ iex_equities_deep_iextp_v1_0_6.security_event_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return iex_equities_deep_iextp_v1_0_6.security_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Detail
-iex_equities_deep_iextp_v1_0_6.detail = {}
-
--- Size: Detail
-iex_equities_deep_iextp_v1_0_6.detail.size = 1
-
--- Display: Detail
-iex_equities_deep_iextp_v1_0_6.detail.display = function(value)
-  if value == " " then
-    return "Detail: No Price Test In Place (<whitespace>)"
-  end
-  if value == "A" then
-    return "Detail: Short Sale Price Test Restriction In Effect Due To An Intraday Price Drop In The Security (A)"
-  end
-  if value == "C" then
-    return "Detail: Short Sale Price Test Restriction Remains In Effect From Prior Day (C)"
-  end
-  if value == "D" then
-    return "Detail: Short Sale Price Test Restriction Deactivated (D)"
-  end
-  if value == "N" then
-    return "Detail: Detail Not Available (N)"
-  end
-
-  return "Detail: Unknown("..value..")"
-end
-
--- Dissect: Detail
-iex_equities_deep_iextp_v1_0_6.detail.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.detail.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.detail.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.detail, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Price Test Status
-iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status = {}
-
--- Size: Short Sale Price Test Status
-iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.size = 1
-
--- Display: Short Sale Price Test Status
-iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.display = function(value)
-  if value == 0 then
-    return "Short Sale Price Test Status: Not In Effect (0)"
-  end
-  if value == 1 then
-    return "Short Sale Price Test Status: In Effect (1)"
-  end
-
-  return "Short Sale Price Test Status: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Price Test Status
-iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.short_sale_price_test_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Short Sale Price Test Status Message
@@ -1443,36 +1975,6 @@ iex_equities_deep_iextp_v1_0_6.short_sale_price_test_status_message.dissect = fu
   end
 end
 
--- Operational Halt Status
-iex_equities_deep_iextp_v1_0_6.operational_halt_status = {}
-
--- Size: Operational Halt Status
-iex_equities_deep_iextp_v1_0_6.operational_halt_status.size = 1
-
--- Display: Operational Halt Status
-iex_equities_deep_iextp_v1_0_6.operational_halt_status.display = function(value)
-  if value == "O" then
-    return "Operational Halt Status: Iex Specific Operational Trading Halt (O)"
-  end
-  if value == "N" then
-    return "Operational Halt Status: Not Operationally Halted On Iex (N)"
-  end
-
-  return "Operational Halt Status: Unknown("..value..")"
-end
-
--- Dissect: Operational Halt Status
-iex_equities_deep_iextp_v1_0_6.operational_halt_status.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.operational_halt_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.operational_halt_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.operational_halt_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Operational Halt Status Message
 iex_equities_deep_iextp_v1_0_6.operational_halt_status_message = {}
 
@@ -1519,62 +2021,6 @@ iex_equities_deep_iextp_v1_0_6.operational_halt_status_message.dissect = functio
     -- Skip element, add fields directly
     return iex_equities_deep_iextp_v1_0_6.operational_halt_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reason
-iex_equities_deep_iextp_v1_0_6.reason = {}
-
--- Size: Reason
-iex_equities_deep_iextp_v1_0_6.reason.size = 4
-
--- Display: Reason
-iex_equities_deep_iextp_v1_0_6.reason.display = function(value)
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-iex_equities_deep_iextp_v1_0_6.reason.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = iex_equities_deep_iextp_v1_0_6.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Status
-iex_equities_deep_iextp_v1_0_6.trading_status = {}
-
--- Size: Trading Status
-iex_equities_deep_iextp_v1_0_6.trading_status.size = 1
-
--- Display: Trading Status
-iex_equities_deep_iextp_v1_0_6.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Trading Halted Across All Us Equity Markets (H)"
-  end
-  if value == "P" then
-    return "Trading Status: Trading Paused And Order Acceptance Period On Iex (P)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading On Iex (T)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-iex_equities_deep_iextp_v1_0_6.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trading Status Message
@@ -1627,91 +2073,6 @@ iex_equities_deep_iextp_v1_0_6.trading_status_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return iex_equities_deep_iextp_v1_0_6.trading_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Luld Tier
-iex_equities_deep_iextp_v1_0_6.luld_tier = {}
-
--- Size: Luld Tier
-iex_equities_deep_iextp_v1_0_6.luld_tier.size = 1
-
--- Display: Luld Tier
-iex_equities_deep_iextp_v1_0_6.luld_tier.display = function(value)
-  if value == 0 then
-    return "Luld Tier: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Luld Tier: Tier 1 Nms Stock (1)"
-  end
-  if value == 2 then
-    return "Luld Tier: Tier 2 Nms Stock (2)"
-  end
-
-  return "Luld Tier: Unknown("..value..")"
-end
-
--- Dissect: Luld Tier
-iex_equities_deep_iextp_v1_0_6.luld_tier.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.luld_tier.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = iex_equities_deep_iextp_v1_0_6.luld_tier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.luld_tier, range, value, display)
-
-  return offset + length, value
-end
-
--- Adjusted Poc Price
-iex_equities_deep_iextp_v1_0_6.adjusted_poc_price = {}
-
--- Size: Adjusted Poc Price
-iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.size = 8
-
--- Display: Adjusted Poc Price
-iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.display = function(value)
-  return "Adjusted Poc Price: "..value
-end
-
--- Translate: Adjusted Poc Price
-iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Adjusted Poc Price
-iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.translate(raw)
-  local display = iex_equities_deep_iextp_v1_0_6.adjusted_poc_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.adjusted_poc_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-iex_equities_deep_iextp_v1_0_6.round_lot_size = {}
-
--- Size: Round Lot Size
-iex_equities_deep_iextp_v1_0_6.round_lot_size.size = 4
-
--- Display: Round Lot Size
-iex_equities_deep_iextp_v1_0_6.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-iex_equities_deep_iextp_v1_0_6.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Directory Flags
@@ -1831,45 +2192,6 @@ iex_equities_deep_iextp_v1_0_6.security_directory_message.dissect = function(buf
   end
 end
 
--- System Event
-iex_equities_deep_iextp_v1_0_6.system_event = {}
-
--- Size: System Event
-iex_equities_deep_iextp_v1_0_6.system_event.size = 1
-
--- Display: System Event
-iex_equities_deep_iextp_v1_0_6.system_event.display = function(value)
-  if value == "S" then
-    return "System Event: Start Of System Hours (S)"
-  end
-  if value == "R" then
-    return "System Event: Start Of Regular Market Hours (R)"
-  end
-  if value == "M" then
-    return "System Event: End Of Regular Market Hours (M)"
-  end
-  if value == "E" then
-    return "System Event: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "System Event: End Of Messages (C)"
-  end
-
-  return "System Event: Unknown("..value..")"
-end
-
--- Dissect: System Event
-iex_equities_deep_iextp_v1_0_6.system_event.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.system_event.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.system_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.system_event, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 iex_equities_deep_iextp_v1_0_6.system_event_message = {}
 
@@ -1969,89 +2291,6 @@ iex_equities_deep_iextp_v1_0_6.message_data.dissect = function(buffer, offset, p
   end
 
   return offset
-end
-
--- Message Type
-iex_equities_deep_iextp_v1_0_6.message_type = {}
-
--- Size: Message Type
-iex_equities_deep_iextp_v1_0_6.message_type.size = 1
-
--- Display: Message Type
-iex_equities_deep_iextp_v1_0_6.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Security Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Status Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Operational Halt Status Message (O)"
-  end
-  if value == "P" then
-    return "Message Type: Short Sale Price Test Status Message (P)"
-  end
-  if value == "E" then
-    return "Message Type: Security Event Message (E)"
-  end
-  if value == "8" then
-    return "Message Type: Price Level Buy Update Message (8)"
-  end
-  if value == "5" then
-    return "Message Type: Price Level Sell Update Message (5)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Official Price Message (X)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Break Message (B)"
-  end
-  if value == "A" then
-    return "Message Type: Auction Information Message (A)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-iex_equities_deep_iextp_v1_0_6.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_equities_deep_iextp_v1_0_6.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-iex_equities_deep_iextp_v1_0_6.message_length = {}
-
--- Size: Message Length
-iex_equities_deep_iextp_v1_0_6.message_length.size = 2
-
--- Display: Message Length
-iex_equities_deep_iextp_v1_0_6.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-iex_equities_deep_iextp_v1_0_6.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2183,240 +2422,6 @@ iex_equities_deep_iextp_v1_0_6.messages.dissect = function(buffer, offset, packe
   end
 
   return offset
-end
-
--- Send Time
-iex_equities_deep_iextp_v1_0_6.send_time = {}
-
--- Size: Send Time
-iex_equities_deep_iextp_v1_0_6.send_time.size = 8
-
--- Display: Send Time
-iex_equities_deep_iextp_v1_0_6.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Send Time
-iex_equities_deep_iextp_v1_0_6.send_time.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.send_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_deep_iextp_v1_0_6.send_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.send_time, range, value, display)
-
-  return offset + length, value
-end
-
--- First Message Sequence Number
-iex_equities_deep_iextp_v1_0_6.first_message_sequence_number = {}
-
--- Size: First Message Sequence Number
-iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.size = 8
-
--- Display: First Message Sequence Number
-iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.display = function(value)
-  return "First Message Sequence Number: "..value
-end
-
--- Dissect: First Message Sequence Number
-iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_deep_iextp_v1_0_6.first_message_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.first_message_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Offset
-iex_equities_deep_iextp_v1_0_6.stream_offset = {}
-
--- Size: Stream Offset
-iex_equities_deep_iextp_v1_0_6.stream_offset.size = 8
-
--- Display: Stream Offset
-iex_equities_deep_iextp_v1_0_6.stream_offset.display = function(value)
-  return "Stream Offset: "..value
-end
-
--- Dissect: Stream Offset
-iex_equities_deep_iextp_v1_0_6.stream_offset.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.stream_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_deep_iextp_v1_0_6.stream_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.stream_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Count
-iex_equities_deep_iextp_v1_0_6.message_count = {}
-
--- Size: Message Count
-iex_equities_deep_iextp_v1_0_6.message_count.size = 2
-
--- Display: Message Count
-iex_equities_deep_iextp_v1_0_6.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-iex_equities_deep_iextp_v1_0_6.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Payload Length
-iex_equities_deep_iextp_v1_0_6.payload_length = {}
-
--- Size: Payload Length
-iex_equities_deep_iextp_v1_0_6.payload_length.size = 2
-
--- Display: Payload Length
-iex_equities_deep_iextp_v1_0_6.payload_length.display = function(value)
-  return "Payload Length: "..value
-end
-
--- Dissect: Payload Length
-iex_equities_deep_iextp_v1_0_6.payload_length.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.payload_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.payload_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.payload_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-iex_equities_deep_iextp_v1_0_6.session_id = {}
-
--- Size: Session Id
-iex_equities_deep_iextp_v1_0_6.session_id.size = 4
-
--- Display: Session Id
-iex_equities_deep_iextp_v1_0_6.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-iex_equities_deep_iextp_v1_0_6.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-iex_equities_deep_iextp_v1_0_6.channel_id = {}
-
--- Size: Channel Id
-iex_equities_deep_iextp_v1_0_6.channel_id.size = 4
-
--- Display: Channel Id
-iex_equities_deep_iextp_v1_0_6.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-iex_equities_deep_iextp_v1_0_6.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Protocol Id
-iex_equities_deep_iextp_v1_0_6.message_protocol_id = {}
-
--- Size: Message Protocol Id
-iex_equities_deep_iextp_v1_0_6.message_protocol_id.size = 2
-
--- Display: Message Protocol Id
-iex_equities_deep_iextp_v1_0_6.message_protocol_id.display = function(value)
-  return "Message Protocol Id: "..value
-end
-
--- Dissect: Message Protocol Id
-iex_equities_deep_iextp_v1_0_6.message_protocol_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.message_protocol_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.message_protocol_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.message_protocol_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-iex_equities_deep_iextp_v1_0_6.reserved = {}
-
--- Size: Reserved
-iex_equities_deep_iextp_v1_0_6.reserved.size = 1
-
--- Display: Reserved
-iex_equities_deep_iextp_v1_0_6.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-iex_equities_deep_iextp_v1_0_6.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.reserved.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = iex_equities_deep_iextp_v1_0_6.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-iex_equities_deep_iextp_v1_0_6.version = {}
-
--- Size: Version
-iex_equities_deep_iextp_v1_0_6.version.size = 1
-
--- Display: Version
-iex_equities_deep_iextp_v1_0_6.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-iex_equities_deep_iextp_v1_0_6.version.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_deep_iextp_v1_0_6.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_deep_iextp_v1_0_6.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_deep_iextp_v1_0_6.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Iextp Header

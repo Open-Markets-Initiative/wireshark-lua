@@ -184,109 +184,35 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq PsxEquities Bbo Itch 2.1.2024
+-- Nasdaq PsxEquities Bbo Itch 2.1.2024 Fields
 -----------------------------------------------------------------------
 
--- Best Offer Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size = {}
+-- Authenticity
+nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity = {}
 
--- Size: Best Offer Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.size = 4
+-- Size: Authenticity
+nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.size = 1
 
--- Display: Best Offer Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.display = function(value)
-  return "Best Offer Size: "..value
+-- Display: Authenticity
+nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.display = function(value)
+  if value == "P" then
+    return "Authenticity: Live Production (P)"
+  end
+  if value == "T" then
+    return "Authenticity: Test (T)"
+  end
+
+  return "Authenticity: Unknown("..value..")"
 end
 
--- Dissect: Best Offer Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.size
+-- Dissect: Authenticity
+nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price = {}
-
--- Size: Best Offer Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.size = 4
-
--- Display: Best Offer Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.display = function(value)
-  return "Best Offer Price: "..value
-end
-
--- Translate: Best Offer Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Best Offer Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.translate(raw)
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size = {}
-
--- Size: Best Bid Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.size = 4
-
--- Display: Best Bid Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.display = function(value)
-  return "Best Bid Size: "..value
-end
-
--- Dissect: Best Bid Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price = {}
-
--- Size: Best Bid Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.size = 4
-
--- Display: Best Bid Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.display = function(value)
-  return "Best Bid Price: "..value
-end
-
--- Translate: Best Bid Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Best Bid Price
-nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.translate(raw)
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_bid_price, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.authenticity, range, value, display)
 
   return offset + length, value
 end
@@ -329,6 +255,1020 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.bbo_security_class.dissect = function(buff
   local display = nasdaq_psxequities_bbo_itch_v2_1_2024.bbo_security_class.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.bbo_security_class, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price = {}
+
+-- Size: Best Bid Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.size = 4
+
+-- Display: Best Bid Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.display = function(value)
+  return "Best Bid Price: "..value
+end
+
+-- Translate: Best Bid Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Best Bid Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size = {}
+
+-- Size: Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.size = 4
+
+-- Display: Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.display = function(value)
+  return "Best Bid Size: "..value
+end
+
+-- Dissect: Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price = {}
+
+-- Size: Best Offer Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.size = 4
+
+-- Display: Best Offer Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.display = function(value)
+  return "Best Offer Price: "..value
+end
+
+-- Translate: Best Offer Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Best Offer Price
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size = {}
+
+-- Size: Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.size = 4
+
+-- Display: Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.display = function(value)
+  return "Best Offer Size: "..value
+end
+
+-- Dissect: Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.best_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.best_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Breached Level
+nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level = {}
+
+-- Size: Breached Level
+nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.size = 1
+
+-- Display: Breached Level
+nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.display = function(value)
+  if value == "1" then
+    return "Breached Level: Level 1 (1)"
+  end
+  if value == "2" then
+    return "Breached Level: Level 2 (2)"
+  end
+  if value == "3" then
+    return "Breached Level: Level 3 (3)"
+  end
+
+  return "Breached Level: Unknown("..value..")"
+end
+
+-- Dissect: Breached Level
+nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.breached_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halted (H)"
+  end
+  if value == "P" then
+    return "Current Trading State: Paused (P)"
+  end
+  if value == "Q" then
+    return "Current Trading State: Quotation Only Period (Q)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etp Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag = {}
+
+-- Size: Etp Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.size = 1
+
+-- Display: Etp Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.display = function(value)
+  if value == "Y" then
+    return "Etp Flag: Etp (Y)"
+  end
+  if value == "N" then
+    return "Etp Flag: Not Etp (N)"
+  end
+  if value == " " then
+    return "Etp Flag: Na (<whitespace>)"
+  end
+
+  return "Etp Flag: Unknown("..value..")"
+end
+
+-- Dissect: Etp Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.etp_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etp Leverage Factor
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor = {}
+
+-- Size: Etp Leverage Factor
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.size = 4
+
+-- Display: Etp Leverage Factor
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.display = function(value)
+  return "Etp Leverage Factor: "..value
+end
+
+-- Dissect: Etp Leverage Factor
+nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.etp_leverage_factor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.event_code = {}
+
+-- Size: Event Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Transmissions (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Market Hours (Q)"
+  end
+  if value == "M" then
+    return "Event Code: End Of Market Hours (M)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.display = function(value)
+  if value == "D" then
+    return "Financial Status Indicator: Deficient (D)"
+  end
+  if value == "E" then
+    return "Financial Status Indicator: Delinquent (E)"
+  end
+  if value == "Q" then
+    return "Financial Status Indicator: Bankrupt (Q)"
+  end
+  if value == "S" then
+    return "Financial Status Indicator: Suspended (S)"
+  end
+  if value == "G" then
+    return "Financial Status Indicator: Deficient And Bankrupt (G)"
+  end
+  if value == "H" then
+    return "Financial Status Indicator: Deficient And Delinquent (H)"
+  end
+  if value == "J" then
+    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
+  end
+  if value == "K" then
+    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
+  end
+  if value == "C" then
+    return "Financial Status Indicator: Creations And Redemptions Suspended (C)"
+  end
+  if value == "N" then
+    return "Financial Status Indicator: Normal (N)"
+  end
+  if value == " " then
+    return "Financial Status Indicator: Na (<whitespace>)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Financial Status Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.financial_status_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inverse Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator = {}
+
+-- Size: Inverse Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.size = 1
+
+-- Display: Inverse Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.display = function(value)
+  if value == "Y" then
+    return "Inverse Indicator: Inverse Etp (Y)"
+  end
+  if value == "N" then
+    return "Inverse Indicator: Not Inverse Etp (N)"
+  end
+
+  return "Inverse Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Inverse Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.inverse_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ipo Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag = {}
+
+-- Size: Ipo Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.size = 1
+
+-- Display: Ipo Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.display = function(value)
+  if value == "Y" then
+    return "Ipo Flag: Nasdaq Listed Instrument (Y)"
+  end
+  if value == "N" then
+    return "Ipo Flag: Nasdaq Listed Instrument (N)"
+  end
+  if value == " " then
+    return "Ipo Flag: Na (<whitespace>)"
+  end
+
+  return "Ipo Flag: Unknown("..value..")"
+end
+
+-- Dissect: Ipo Flag
+nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.ipo_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue Classification
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification = {}
+
+-- Size: Issue Classification
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.size = 1
+
+-- Display: Issue Classification
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.display = function(value)
+  return "Issue Classification: "..value
+end
+
+-- Dissect: Issue Classification
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.issue_classification, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue Subtype
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype = {}
+
+-- Size: Issue Subtype
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.size = 2
+
+-- Display: Issue Subtype
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.display = function(value)
+  return "Issue Subtype: "..value
+end
+
+-- Dissect: Issue Subtype
+nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.issue_subtype, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 1
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_1 = {}
+
+-- Size: Level 1
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.size = 8
+
+-- Display: Level 1
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.display = function(value)
+  return "Level 1: "..value
+end
+
+-- Translate: Level 1
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Level 1
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.level_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 2
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_2 = {}
+
+-- Size: Level 2
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.size = 8
+
+-- Display: Level 2
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.display = function(value)
+  return "Level 2: "..value
+end
+
+-- Translate: Level 2
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Level 2
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.level_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 3
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_3 = {}
+
+-- Size: Level 3
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.size = 8
+
+-- Display: Level 3
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.display = function(value)
+  return "Level 3: "..value
+end
+
+-- Translate: Level 3
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Level 3
+nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Luld Reference Price Tier
+nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier = {}
+
+-- Size: Luld Reference Price Tier
+nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.size = 1
+
+-- Display: Luld Reference Price Tier
+nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.display = function(value)
+  if value == "1" then
+    return "Luld Reference Price Tier: Tier 1 (1)"
+  end
+  if value == "2" then
+    return "Luld Reference Price Tier: Tier 2 (2)"
+  end
+  if value == " " then
+    return "Luld Reference Price Tier: Na (<whitespace>)"
+  end
+
+  return "Luld Reference Price Tier: Unknown("..value..")"
+end
+
+-- Dissect: Luld Reference Price Tier
+nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.luld_reference_price_tier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Category
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_category = {}
+
+-- Size: Market Category
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.size = 1
+
+-- Display: Market Category
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.display = function(value)
+  if value == "Q" then
+    return "Market Category: Nasdaq Global Select Market (Q)"
+  end
+  if value == "G" then
+    return "Market Category: Nasdaq Global Market (G)"
+  end
+  if value == "S" then
+    return "Market Category: Nasdaq Capital Market (S)"
+  end
+  if value == "N" then
+    return "Market Category: Nyse (N)"
+  end
+  if value == "A" then
+    return "Market Category: Nyse American (A)"
+  end
+  if value == "P" then
+    return "Market Category: Nyse Arca (P)"
+  end
+  if value == "Z" then
+    return "Market Category: Bats Bzx (Z)"
+  end
+  if value == "V" then
+    return "Market Category: Investors Exchange Llc (V)"
+  end
+  if value == " " then
+    return "Market Category: Na (<whitespace>)"
+  end
+
+  return "Market Category: Unknown("..value..")"
+end
+
+-- Dissect: Market Category
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.market_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_code = {}
+
+-- Size: Market Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.size = 1
+
+-- Display: Market Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.display = function(value)
+  if value == "Q" then
+    return "Market Code: Nasdaq (Q)"
+  end
+  if value == "B" then
+    return "Market Code: Bx (B)"
+  end
+  if value == "X" then
+    return "Market Code: Psx (X)"
+  end
+
+  return "Market Code: Unknown("..value..")"
+end
+
+-- Dissect: Market Code
+nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.market_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_count = {}
+
+-- Size: Message Count
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_length = {}
+
+-- Size: Message Length
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_type = {}
+
+-- Size: Message Type
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "R" then
+    return "Message Type: Stock Directory Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Stock Trading Action Message (H)"
+  end
+  if value == "Y" then
+    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
+  end
+  if value == "V" then
+    return "Message Type: Mwcb Decline Level Message (V)"
+  end
+  if value == "W" then
+    return "Message Type: Mwcb Status Message (W)"
+  end
+  if value == "h" then
+    return "Message Type: Operational Halt Message (h)"
+  end
+  if value == "Q" then
+    return "Message Type: Quotation Message (Q)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Operational Halt Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action = {}
+
+-- Size: Operational Halt Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.size = 1
+
+-- Display: Operational Halt Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.display = function(value)
+  if value == "H" then
+    return "Operational Halt Action: Halted (H)"
+  end
+  if value == "T" then
+    return "Operational Halt Action: Resumed (T)"
+  end
+
+  return "Operational Halt Action: Unknown("..value..")"
+end
+
+-- Dissect: Operational Halt Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.operational_halt_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+nasdaq_psxequities_bbo_itch_v2_1_2024.reason = {}
+
+-- Size: Reason
+nasdaq_psxequities_bbo_itch_v2_1_2024.reason.size = 4
+
+-- Display: Reason
+nasdaq_psxequities_bbo_itch_v2_1_2024.reason.display = function(value)
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+nasdaq_psxequities_bbo_itch_v2_1_2024.reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)"
+  end
+  if value == "2" then
+    return "Reg Sho Action: Test Restriction Remains (2)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size = {}
+
+-- Size: Round Lot Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lots Only
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only = {}
+
+-- Size: Round Lots Only
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.size = 1
+
+-- Display: Round Lots Only
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.display = function(value)
+  if value == "Y" then
+    return "Round Lots Only: Round Lots Only (Y)"
+  end
+  if value == "N" then
+    return "Round Lots Only: Odd Mixed Allowed (N)"
+  end
+
+  return "Round Lots Only: Unknown("..value..")"
+end
+
+-- Dissect: Round Lots Only
+nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.round_lots_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Class
+nasdaq_psxequities_bbo_itch_v2_1_2024.security_class = {}
+
+-- Size: Security Class
+nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.size = 1
+
+-- Display: Security Class
+nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.display = function(value)
+  if value == "Q" then
+    return "Security Class: Nasdaq Listed Issue (Q)"
+  end
+  if value == "N" then
+    return "Security Class: Nyse (N)"
+  end
+  if value == "A" then
+    return "Security Class: Nyse American (A)"
+  end
+  if value == "P" then
+    return "Security Class: Nyse Arca (P)"
+  end
+  if value == "Z" then
+    return "Security Class: Bats (Z)"
+  end
+  if value == "V" then
+    return "Security Class: Iexg (V)"
+  end
+  if value == " " then
+    return "Security Class: Na (<whitespace>)"
+  end
+
+  return "Security Class: Unknown("..value..")"
+end
+
+-- Dissect: Security Class
+nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.security_class, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_psxequities_bbo_itch_v2_1_2024.session = {}
+
+-- Size: Session
+nasdaq_psxequities_bbo_itch_v2_1_2024.session.size = 10
+
+-- Display: Session
+nasdaq_psxequities_bbo_itch_v2_1_2024.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_psxequities_bbo_itch_v2_1_2024.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Threshold Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator = {}
+
+-- Size: Short Sale Threshold Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.size = 1
+
+-- Display: Short Sale Threshold Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.display = function(value)
+  if value == "Y" then
+    return "Short Sale Threshold Indicator: Restricted (Y)"
+  end
+  if value == "N" then
+    return "Short Sale Threshold Indicator: Not Restricted (N)"
+  end
+  if value == " " then
+    return "Short Sale Threshold Indicator: Na (<whitespace>)"
+  end
+
+  return "Short Sale Threshold Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Threshold Indicator
+nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.short_sale_threshold_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -402,6 +1342,11 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.tracking_number.dissect = function(buffer,
   return offset + length, value
 end
 
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq PsxEquities Bbo Itch 2.1.2024
+-----------------------------------------------------------------------
+
 -- Quotation Message
 nasdaq_psxequities_bbo_itch_v2_1_2024.quotation_message = {}
 
@@ -470,69 +1415,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.quotation_message.dissect = function(buffe
   end
 end
 
--- Operational Halt Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action = {}
-
--- Size: Operational Halt Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.size = 1
-
--- Display: Operational Halt Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.display = function(value)
-  if value == "H" then
-    return "Operational Halt Action: Halted (H)"
-  end
-  if value == "T" then
-    return "Operational Halt Action: Resumed (T)"
-  end
-
-  return "Operational Halt Action: Unknown("..value..")"
-end
-
--- Dissect: Operational Halt Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.operational_halt_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_code = {}
-
--- Size: Market Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.size = 1
-
--- Display: Market Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.display = function(value)
-  if value == "Q" then
-    return "Market Code: Nasdaq (Q)"
-  end
-  if value == "B" then
-    return "Market Code: Bx (B)"
-  end
-  if value == "X" then
-    return "Market Code: Psx (X)"
-  end
-
-  return "Market Code: Unknown("..value..")"
-end
-
--- Dissect: Market Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.market_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.market_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Operational Halt Message
 nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_message = {}
 
@@ -589,39 +1471,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.operational_halt_message.dissect = functio
   end
 end
 
--- Breached Level
-nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level = {}
-
--- Size: Breached Level
-nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.size = 1
-
--- Display: Breached Level
-nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.display = function(value)
-  if value == "1" then
-    return "Breached Level: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Breached Level: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Breached Level: Level 3 (3)"
-  end
-
-  return "Breached Level: Unknown("..value..")"
-end
-
--- Dissect: Breached Level
-nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.breached_level.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.breached_level, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mwcb Status Message
 nasdaq_psxequities_bbo_itch_v2_1_2024.mwcb_status_message = {}
 
@@ -668,93 +1517,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.mwcb_status_message.dissect = function(buf
     -- Skip element, add fields directly
     return nasdaq_psxequities_bbo_itch_v2_1_2024.mwcb_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Level 3
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_3 = {}
-
--- Size: Level 3
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.size = 8
-
--- Display: Level 3
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.display = function(value)
-  return "Level 3: "..value
-end
-
--- Translate: Level 3
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Level 3
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.translate(raw)
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.level_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.level_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Level 2
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_2 = {}
-
--- Size: Level 2
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.size = 8
-
--- Display: Level 2
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.display = function(value)
-  return "Level 2: "..value
-end
-
--- Translate: Level 2
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Level 2
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.translate(raw)
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.level_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.level_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Level 1
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_1 = {}
-
--- Size: Level 1
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.size = 8
-
--- Display: Level 1
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.display = function(value)
-  return "Level 1: "..value
-end
-
--- Translate: Level 1
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Level 1
-nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.translate(raw)
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.level_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.level_1, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mwcb Decline Level Message
@@ -813,39 +1575,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.mwcb_decline_level_message.dissect = funct
   end
 end
 
--- Reg Sho Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action = {}
-
--- Size: Reg Sho Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.size = 1
-
--- Display: Reg Sho Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Test Restriction Remains (2)"
-  end
-
-  return "Reg Sho Action: Unknown("..value..")"
-end
-
--- Dissect: Reg Sho Action
-nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.reg_sho_action, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_short_sale_price_test_restricted_indicator_message = {}
 
@@ -896,110 +1625,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_short_sale_price_test_restricted_i
     -- Skip element, add fields directly
     return nasdaq_psxequities_bbo_itch_v2_1_2024.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reason
-nasdaq_psxequities_bbo_itch_v2_1_2024.reason = {}
-
--- Size: Reason
-nasdaq_psxequities_bbo_itch_v2_1_2024.reason.size = 4
-
--- Display: Reason
-nasdaq_psxequities_bbo_itch_v2_1_2024.reason.display = function(value)
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-nasdaq_psxequities_bbo_itch_v2_1_2024.reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Trading State
-nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted (H)"
-  end
-  if value == "P" then
-    return "Current Trading State: Paused (P)"
-  end
-  if value == "Q" then
-    return "Current Trading State: Quotation Only Period (Q)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Class
-nasdaq_psxequities_bbo_itch_v2_1_2024.security_class = {}
-
--- Size: Security Class
-nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.size = 1
-
--- Display: Security Class
-nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq Listed Issue (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse American (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Security Class: Bats (Z)"
-  end
-  if value == "V" then
-    return "Security Class: Iexg (V)"
-  end
-  if value == " " then
-    return "Security Class: Na (<whitespace>)"
-  end
-
-  return "Security Class: Unknown("..value..")"
-end
-
--- Dissect: Security Class
-nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.security_class.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.security_class, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stock Trading Action Message
@@ -1060,428 +1685,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.stock_trading_action_message.dissect = fun
     -- Skip element, add fields directly
     return nasdaq_psxequities_bbo_itch_v2_1_2024.stock_trading_action_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Inverse Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator = {}
-
--- Size: Inverse Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.size = 1
-
--- Display: Inverse Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.display = function(value)
-  if value == "Y" then
-    return "Inverse Indicator: Inverse Etp (Y)"
-  end
-  if value == "N" then
-    return "Inverse Indicator: Not Inverse Etp (N)"
-  end
-
-  return "Inverse Indicator: Unknown("..value..")"
-end
-
--- Dissect: Inverse Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.inverse_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.inverse_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Etp Leverage Factor
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor = {}
-
--- Size: Etp Leverage Factor
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.size = 4
-
--- Display: Etp Leverage Factor
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.display = function(value)
-  return "Etp Leverage Factor: "..value
-end
-
--- Dissect: Etp Leverage Factor
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_leverage_factor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.etp_leverage_factor, range, value, display)
-
-  return offset + length, value
-end
-
--- Etp Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag = {}
-
--- Size: Etp Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.size = 1
-
--- Display: Etp Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.display = function(value)
-  if value == "Y" then
-    return "Etp Flag: Etp (Y)"
-  end
-  if value == "N" then
-    return "Etp Flag: Not Etp (N)"
-  end
-  if value == " " then
-    return "Etp Flag: Na (<whitespace>)"
-  end
-
-  return "Etp Flag: Unknown("..value..")"
-end
-
--- Dissect: Etp Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.etp_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.etp_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Luld Reference Price Tier
-nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier = {}
-
--- Size: Luld Reference Price Tier
-nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.size = 1
-
--- Display: Luld Reference Price Tier
-nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.display = function(value)
-  if value == "1" then
-    return "Luld Reference Price Tier: Tier 1 (1)"
-  end
-  if value == "2" then
-    return "Luld Reference Price Tier: Tier 2 (2)"
-  end
-  if value == " " then
-    return "Luld Reference Price Tier: Na (<whitespace>)"
-  end
-
-  return "Luld Reference Price Tier: Unknown("..value..")"
-end
-
--- Dissect: Luld Reference Price Tier
-nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.luld_reference_price_tier, range, value, display)
-
-  return offset + length, value
-end
-
--- Ipo Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag = {}
-
--- Size: Ipo Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.size = 1
-
--- Display: Ipo Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.display = function(value)
-  if value == "Y" then
-    return "Ipo Flag: Nasdaq Listed Instrument (Y)"
-  end
-  if value == "N" then
-    return "Ipo Flag: Nasdaq Listed Instrument (N)"
-  end
-  if value == " " then
-    return "Ipo Flag: Na (<whitespace>)"
-  end
-
-  return "Ipo Flag: Unknown("..value..")"
-end
-
--- Dissect: Ipo Flag
-nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.ipo_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.ipo_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Threshold Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator = {}
-
--- Size: Short Sale Threshold Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.size = 1
-
--- Display: Short Sale Threshold Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.display = function(value)
-  if value == "Y" then
-    return "Short Sale Threshold Indicator: Restricted (Y)"
-  end
-  if value == "N" then
-    return "Short Sale Threshold Indicator: Not Restricted (N)"
-  end
-  if value == " " then
-    return "Short Sale Threshold Indicator: Na (<whitespace>)"
-  end
-
-  return "Short Sale Threshold Indicator: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Threshold Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.short_sale_threshold_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Authenticity
-nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity = {}
-
--- Size: Authenticity
-nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.size = 1
-
--- Display: Authenticity
-nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
-
-  return "Authenticity: Unknown("..value..")"
-end
-
--- Dissect: Authenticity
-nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.authenticity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.authenticity, range, value, display)
-
-  return offset + length, value
-end
-
--- Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype = {}
-
--- Size: Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.size = 2
-
--- Display: Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.display = function(value)
-  return "Issue Subtype: "..value
-end
-
--- Dissect: Issue Subtype
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_subtype.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.issue_subtype, range, value, display)
-
-  return offset + length, value
-end
-
--- Issue Classification
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification = {}
-
--- Size: Issue Classification
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.size = 1
-
--- Display: Issue Classification
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.display = function(value)
-  return "Issue Classification: "..value
-end
-
--- Dissect: Issue Classification
-nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.issue_classification.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.issue_classification, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lots Only
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only = {}
-
--- Size: Round Lots Only
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.size = 1
-
--- Display: Round Lots Only
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Round Lots Only (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: Odd Mixed Allowed (N)"
-  end
-
-  return "Round Lots Only: Unknown("..value..")"
-end
-
--- Dissect: Round Lots Only
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lots_only.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.round_lots_only, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size = {}
-
--- Size: Round Lot Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.size = 4
-
--- Display: Round Lot Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Financial Status Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator = {}
-
--- Size: Financial Status Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.size = 1
-
--- Display: Financial Status Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.display = function(value)
-  if value == "D" then
-    return "Financial Status Indicator: Deficient (D)"
-  end
-  if value == "E" then
-    return "Financial Status Indicator: Delinquent (E)"
-  end
-  if value == "Q" then
-    return "Financial Status Indicator: Bankrupt (Q)"
-  end
-  if value == "S" then
-    return "Financial Status Indicator: Suspended (S)"
-  end
-  if value == "G" then
-    return "Financial Status Indicator: Deficient And Bankrupt (G)"
-  end
-  if value == "H" then
-    return "Financial Status Indicator: Deficient And Delinquent (H)"
-  end
-  if value == "J" then
-    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
-  end
-  if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
-  end
-  if value == "C" then
-    return "Financial Status Indicator: Creations And Redemptions Suspended (C)"
-  end
-  if value == "N" then
-    return "Financial Status Indicator: Normal (N)"
-  end
-  if value == " " then
-    return "Financial Status Indicator: Na (<whitespace>)"
-  end
-
-  return "Financial Status Indicator: Unknown("..value..")"
-end
-
--- Dissect: Financial Status Indicator
-nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.financial_status_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.financial_status_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Category
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_category = {}
-
--- Size: Market Category
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.size = 1
-
--- Display: Market Category
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.display = function(value)
-  if value == "Q" then
-    return "Market Category: Nasdaq Global Select Market (Q)"
-  end
-  if value == "G" then
-    return "Market Category: Nasdaq Global Market (G)"
-  end
-  if value == "S" then
-    return "Market Category: Nasdaq Capital Market (S)"
-  end
-  if value == "N" then
-    return "Market Category: Nyse (N)"
-  end
-  if value == "A" then
-    return "Market Category: Nyse American (A)"
-  end
-  if value == "P" then
-    return "Market Category: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Market Category: Bats Bzx (Z)"
-  end
-  if value == "V" then
-    return "Market Category: Investors Exchange Llc (V)"
-  end
-  if value == " " then
-    return "Market Category: Na (<whitespace>)"
-  end
-
-  return "Market Category: Unknown("..value..")"
-end
-
--- Dissect: Market Category
-nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.market_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.market_category, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stock Directory Message
@@ -1584,48 +1787,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.stock_directory_message.dissect = function
   end
 end
 
--- Event Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.event_code = {}
-
--- Size: Event Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.size = 1
-
--- Display: Event Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 nasdaq_psxequities_bbo_itch_v2_1_2024.system_event_message = {}
 
@@ -1713,77 +1874,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.payload.dissect = function(buffer, offset,
   end
 
   return offset
-end
-
--- Message Type
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_type = {}
-
--- Size: Message Type
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.size = 1
-
--- Display: Message Type
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "V" then
-    return "Message Type: Mwcb Decline Level Message (V)"
-  end
-  if value == "W" then
-    return "Message Type: Mwcb Status Message (W)"
-  end
-  if value == "h" then
-    return "Message Type: Operational Halt Message (h)"
-  end
-  if value == "Q" then
-    return "Message Type: Quotation Message (Q)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_length = {}
-
--- Size: Message Length
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.size = 2
-
--- Display: Message Length
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -1919,91 +2009,6 @@ nasdaq_psxequities_bbo_itch_v2_1_2024.messages.dissect = function(buffer, offset
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_count = {}
-
--- Size: Message Count
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.size = 2
-
--- Display: Message Count
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_psxequities_bbo_itch_v2_1_2024.session = {}
-
--- Size: Session
-nasdaq_psxequities_bbo_itch_v2_1_2024.session.size = 10
-
--- Display: Session
-nasdaq_psxequities_bbo_itch_v2_1_2024.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_psxequities_bbo_itch_v2_1_2024.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2024.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2024.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2024.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

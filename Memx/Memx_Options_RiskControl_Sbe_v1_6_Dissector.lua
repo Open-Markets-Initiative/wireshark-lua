@@ -577,79 +577,279 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Memx Options RiskControl Sbe 1.6
+-- Memx Options RiskControl Sbe 1.6 Fields
 -----------------------------------------------------------------------
 
--- Period In Milli Seconds
-memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds = {}
+-- Allow Iso Orders
+memx_options_riskcontrol_sbe_v1_6.allow_iso_orders = {}
 
--- Size: Period In Milli Seconds
-memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size = 4
+-- Size: Allow Iso Orders
+memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size = 1
 
--- Display: Period In Milli Seconds
-memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.display = function(value)
-  return "Period In Milli Seconds: "..value
-end
-
--- Dissect: Period In Milli Seconds
-memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Order Msgs
-memx_options_riskcontrol_sbe_v1_6.max_order_msgs = {}
-
--- Size: Max Order Msgs
-memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size = 4
-
--- Display: Max Order Msgs
-memx_options_riskcontrol_sbe_v1_6.max_order_msgs.display = function(value)
-  return "Max Order Msgs: "..value
-end
-
--- Dissect: Max Order Msgs
-memx_options_riskcontrol_sbe_v1_6.max_order_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.max_order_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_order_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Group Id
-memx_options_riskcontrol_sbe_v1_6.risk_group_id = {}
-
--- Size: Risk Group Id
-memx_options_riskcontrol_sbe_v1_6.risk_group_id.size = 2
-
--- Display: Risk Group Id
-memx_options_riskcontrol_sbe_v1_6.risk_group_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Risk Group Id: No Value"
+-- Display: Allow Iso Orders
+memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.display = function(value)
+  if value == 0 then
+    return "Allow Iso Orders: False (0)"
+  end
+  if value == 1 then
+    return "Allow Iso Orders: True (1)"
   end
 
-  return "Risk Group Id: "..value
+  return "Allow Iso Orders: Unknown("..value..")"
 end
 
--- Dissect: Risk Group Id
-memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+-- Dissect: Allow Iso Orders
+memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.risk_group_id.display(value, buffer, offset, packet, parent)
+  local display = memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_group_id, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_iso_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Allow Orders
+memx_options_riskcontrol_sbe_v1_6.allow_orders = {}
+
+-- Size: Allow Orders
+memx_options_riskcontrol_sbe_v1_6.allow_orders.size = 1
+
+-- Display: Allow Orders
+memx_options_riskcontrol_sbe_v1_6.allow_orders.display = function(value)
+  if value == 0 then
+    return "Allow Orders: False (0)"
+  end
+  if value == 1 then
+    return "Allow Orders: True (1)"
+  end
+
+  return "Allow Orders: Unknown("..value..")"
+end
+
+-- Dissect: Allow Orders
+memx_options_riskcontrol_sbe_v1_6.allow_orders.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.allow_orders.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.allow_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+memx_options_riskcontrol_sbe_v1_6.block_length = {}
+
+-- Size: Block Length
+memx_options_riskcontrol_sbe_v1_6.block_length.size = 2
+
+-- Display: Block Length
+memx_options_riskcontrol_sbe_v1_6.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+memx_options_riskcontrol_sbe_v1_6.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.block_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Breach Id
+memx_options_riskcontrol_sbe_v1_6.breach_id = {}
+
+-- Size: Breach Id
+memx_options_riskcontrol_sbe_v1_6.breach_id.size = 8
+
+-- Display: Breach Id
+memx_options_riskcontrol_sbe_v1_6.breach_id.display = function(value)
+  return "Breach Id: "..value
+end
+
+-- Dissect: Breach Id
+memx_options_riskcontrol_sbe_v1_6.breach_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.breach_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.breach_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Breach Id Optional
+memx_options_riskcontrol_sbe_v1_6.breach_id_optional = {}
+
+-- Size: Breach Id Optional
+memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size = 8
+
+-- Display: Breach Id Optional
+memx_options_riskcontrol_sbe_v1_6.breach_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Breach Id Optional: No Value"
+  end
+
+  return "Breach Id Optional: "..value
+end
+
+-- Dissect: Breach Id Optional
+memx_options_riskcontrol_sbe_v1_6.breach_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- ClOrdId
+memx_options_riskcontrol_sbe_v1_6.clordid = {}
+
+-- Size: ClOrdId
+memx_options_riskcontrol_sbe_v1_6.clordid.size = 20
+
+-- Display: ClOrdId
+memx_options_riskcontrol_sbe_v1_6.clordid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "ClOrdId: No Value"
+  end
+
+  return "ClOrdId: "..value
+end
+
+-- Dissect: ClOrdId
+memx_options_riskcontrol_sbe_v1_6.clordid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.clordid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_riskcontrol_sbe_v1_6.clordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- ClOrdId Optional
+memx_options_riskcontrol_sbe_v1_6.clordid_optional = {}
+
+-- Size: ClOrdId Optional
+memx_options_riskcontrol_sbe_v1_6.clordid_optional.size = 20
+
+-- Display: ClOrdId Optional
+memx_options_riskcontrol_sbe_v1_6.clordid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "ClOrdId Optional: No Value"
+  end
+
+  return "ClOrdId Optional: "..value
+end
+
+-- Dissect: ClOrdId Optional
+memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_riskcontrol_sbe_v1_6.clordid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+memx_options_riskcontrol_sbe_v1_6.count = {}
+
+-- Size: Count
+memx_options_riskcontrol_sbe_v1_6.count.size = 4
+
+-- Display: Count
+memx_options_riskcontrol_sbe_v1_6.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+memx_options_riskcontrol_sbe_v1_6.count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid
+memx_options_riskcontrol_sbe_v1_6.efid = {}
+
+-- Size: Efid
+memx_options_riskcontrol_sbe_v1_6.efid.size = 4
+
+-- Display: Efid
+memx_options_riskcontrol_sbe_v1_6.efid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid: No Value"
+  end
+
+  return "Efid: "..value
+end
+
+-- Dissect: Efid
+memx_options_riskcontrol_sbe_v1_6.efid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.efid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_riskcontrol_sbe_v1_6.efid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.efid, range, value, display)
 
   return offset + length, value
 end
@@ -693,6 +893,1587 @@ memx_options_riskcontrol_sbe_v1_6.efid_optional.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Last Px
+memx_options_riskcontrol_sbe_v1_6.last_px = {}
+
+-- Size: Last Px
+memx_options_riskcontrol_sbe_v1_6.last_px.size = 8
+
+-- Display: Last Px
+memx_options_riskcontrol_sbe_v1_6.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+memx_options_riskcontrol_sbe_v1_6.last_px.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Last Px
+memx_options_riskcontrol_sbe_v1_6.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_riskcontrol_sbe_v1_6.last_px.translate(raw)
+  local display = memx_options_riskcontrol_sbe_v1_6.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+memx_options_riskcontrol_sbe_v1_6.last_qty = {}
+
+-- Size: Last Qty
+memx_options_riskcontrol_sbe_v1_6.last_qty.size = 4
+
+-- Display: Last Qty
+memx_options_riskcontrol_sbe_v1_6.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+memx_options_riskcontrol_sbe_v1_6.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Latest Percentage
+memx_options_riskcontrol_sbe_v1_6.latest_percentage = {}
+
+-- Size: Latest Percentage
+memx_options_riskcontrol_sbe_v1_6.latest_percentage.size = 1
+
+-- Display: Latest Percentage
+memx_options_riskcontrol_sbe_v1_6.latest_percentage.display = function(value)
+  return "Latest Percentage: "..value
+end
+
+-- Dissect: Latest Percentage
+memx_options_riskcontrol_sbe_v1_6.latest_percentage.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.latest_percentage.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.latest_percentage.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.latest_percentage, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Reject Code
+memx_options_riskcontrol_sbe_v1_6.login_reject_code = {}
+
+-- Size: Login Reject Code
+memx_options_riskcontrol_sbe_v1_6.login_reject_code.size = 1
+
+-- Display: Login Reject Code
+memx_options_riskcontrol_sbe_v1_6.login_reject_code.display = function(value)
+  if value == "T" then
+    return "Login Reject Code: Malformed Token (T)"
+  end
+  if value == "U" then
+    return "Login Reject Code: Token Type Unsupported (U)"
+  end
+  if value == "V" then
+    return "Login Reject Code: Token Type Invalid (V)"
+  end
+  if value == "A" then
+    return "Login Reject Code: Authorization Failed (A)"
+  end
+
+  return "Login Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Login Reject Code
+memx_options_riskcontrol_sbe_v1_6.login_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.login_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_riskcontrol_sbe_v1_6.login_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.login_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Contracts
+memx_options_riskcontrol_sbe_v1_6.max_contracts = {}
+
+-- Size: Max Contracts
+memx_options_riskcontrol_sbe_v1_6.max_contracts.size = 4
+
+-- Display: Max Contracts
+memx_options_riskcontrol_sbe_v1_6.max_contracts.display = function(value)
+  return "Max Contracts: "..value
+end
+
+-- Dissect: Max Contracts
+memx_options_riskcontrol_sbe_v1_6.max_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.max_contracts.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.max_contracts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_contracts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Dup Orders
+memx_options_riskcontrol_sbe_v1_6.max_dup_orders = {}
+
+-- Size: Max Dup Orders
+memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size = 4
+
+-- Display: Max Dup Orders
+memx_options_riskcontrol_sbe_v1_6.max_dup_orders.display = function(value)
+  return "Max Dup Orders: "..value
+end
+
+-- Dissect: Max Dup Orders
+memx_options_riskcontrol_sbe_v1_6.max_dup_orders.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.max_dup_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_dup_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Notional In Dollars
+memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars = {}
+
+-- Size: Max Notional In Dollars
+memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size = 8
+
+-- Display: Max Notional In Dollars
+memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.display = function(value)
+  return "Max Notional In Dollars: "..value
+end
+
+-- Dissect: Max Notional In Dollars
+memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_notional_in_dollars, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Order Msgs
+memx_options_riskcontrol_sbe_v1_6.max_order_msgs = {}
+
+-- Size: Max Order Msgs
+memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size = 4
+
+-- Display: Max Order Msgs
+memx_options_riskcontrol_sbe_v1_6.max_order_msgs.display = function(value)
+  return "Max Order Msgs: "..value
+end
+
+-- Dissect: Max Order Msgs
+memx_options_riskcontrol_sbe_v1_6.max_order_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.max_order_msgs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.max_order_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_order_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Sequence Number
+memx_options_riskcontrol_sbe_v1_6.max_sequence_number = {}
+
+-- Size: Max Sequence Number
+memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size = 8
+
+-- Display: Max Sequence Number
+memx_options_riskcontrol_sbe_v1_6.max_sequence_number.display = function(value)
+  return "Max Sequence Number: "..value
+end
+
+-- Dissect: Max Sequence Number
+memx_options_riskcontrol_sbe_v1_6.max_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.max_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+memx_options_riskcontrol_sbe_v1_6.message_count = {}
+
+-- Size: Message Count
+memx_options_riskcontrol_sbe_v1_6.message_count.size = 8
+
+-- Display: Message Count
+memx_options_riskcontrol_sbe_v1_6.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+memx_options_riskcontrol_sbe_v1_6.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+memx_options_riskcontrol_sbe_v1_6.message_length = {}
+
+-- Size: Message Length
+memx_options_riskcontrol_sbe_v1_6.message_length.size = 2
+
+-- Display: Message Length
+memx_options_riskcontrol_sbe_v1_6.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+memx_options_riskcontrol_sbe_v1_6.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+memx_options_riskcontrol_sbe_v1_6.message_type = {}
+
+-- Size: Message Type
+memx_options_riskcontrol_sbe_v1_6.message_type.size = 1
+
+-- Display: Message Type
+memx_options_riskcontrol_sbe_v1_6.message_type.display = function(value)
+  if value == 100 then
+    return "Message Type: Login Request (100)"
+  end
+  if value == 101 then
+    return "Message Type: Replay Request (101)"
+  end
+  if value == 102 then
+    return "Message Type: Replay All Request (102)"
+  end
+  if value == 103 then
+    return "Message Type: Stream Request (103)"
+  end
+  if value == 104 then
+    return "Message Type: Unsequenced Message (104)"
+  end
+  if value == 1 then
+    return "Message Type: Login Accepted (1)"
+  end
+  if value == 2 then
+    return "Message Type: Login Rejected (2)"
+  end
+  if value == 3 then
+    return "Message Type: Start Of Session (3)"
+  end
+  if value == 3 then
+    return "Message Type: End Of Session (3)"
+  end
+  if value == 5 then
+    return "Message Type: Replay Begin (5)"
+  end
+  if value == 6 then
+    return "Message Type: Replay Rejected (6)"
+  end
+  if value == 7 then
+    return "Message Type: Replay Complete (7)"
+  end
+  if value == 8 then
+    return "Message Type: Stream Begin (8)"
+  end
+  if value == 9 then
+    return "Message Type: Stream Rejected (9)"
+  end
+  if value == 10 then
+    return "Message Type: Stream Complete (10)"
+  end
+  if value == 11 then
+    return "Message Type: Sequenced Message (11)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+memx_options_riskcontrol_sbe_v1_6.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Sequence Number
+memx_options_riskcontrol_sbe_v1_6.next_sequence_number = {}
+
+-- Size: Next Sequence Number
+memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size = 8
+
+-- Display: Next Sequence Number
+memx_options_riskcontrol_sbe_v1_6.next_sequence_number.display = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+memx_options_riskcontrol_sbe_v1_6.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.next_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Msgs Sent
+memx_options_riskcontrol_sbe_v1_6.number_msgs_sent = {}
+
+-- Size: Number Msgs Sent
+memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size = 4
+
+-- Display: Number Msgs Sent
+memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.display = function(value)
+  return "Number Msgs Sent: "..value
+end
+
+-- Dissect: Number Msgs Sent
+memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Security Id
+memx_options_riskcontrol_sbe_v1_6.option_security_id = {}
+
+-- Size: Option Security Id
+memx_options_riskcontrol_sbe_v1_6.option_security_id.size = 8
+
+-- Display: Option Security Id
+memx_options_riskcontrol_sbe_v1_6.option_security_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Option Security Id: No Value"
+  end
+
+  return "Option Security Id: "..value
+end
+
+-- Dissect: Option Security Id
+memx_options_riskcontrol_sbe_v1_6.option_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.option_security_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_riskcontrol_sbe_v1_6.option_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.option_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+memx_options_riskcontrol_sbe_v1_6.order_id = {}
+
+-- Size: Order Id
+memx_options_riskcontrol_sbe_v1_6.order_id.size = 8
+
+-- Display: Order Id
+memx_options_riskcontrol_sbe_v1_6.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+memx_options_riskcontrol_sbe_v1_6.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pending Message Count
+memx_options_riskcontrol_sbe_v1_6.pending_message_count = {}
+
+-- Size: Pending Message Count
+memx_options_riskcontrol_sbe_v1_6.pending_message_count.size = 4
+
+-- Display: Pending Message Count
+memx_options_riskcontrol_sbe_v1_6.pending_message_count.display = function(value)
+  return "Pending Message Count: "..value
+end
+
+-- Dissect: Pending Message Count
+memx_options_riskcontrol_sbe_v1_6.pending_message_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.pending_message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.pending_message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percent
+memx_options_riskcontrol_sbe_v1_6.percent = {}
+
+-- Size: Percent
+memx_options_riskcontrol_sbe_v1_6.percent.size = 4
+
+-- Display: Percent
+memx_options_riskcontrol_sbe_v1_6.percent.display = function(value)
+  return "Percent: "..value
+end
+
+-- Dissect: Percent
+memx_options_riskcontrol_sbe_v1_6.percent.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.percent.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = memx_options_riskcontrol_sbe_v1_6.percent.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.percent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Period In Milli Seconds
+memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds = {}
+
+-- Size: Period In Milli Seconds
+memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size = 4
+
+-- Display: Period In Milli Seconds
+memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.display = function(value)
+  return "Period In Milli Seconds: "..value
+end
+
+-- Dissect: Period In Milli Seconds
+memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.period_in_milli_seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.period_in_milli_seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price In Dollars
+memx_options_riskcontrol_sbe_v1_6.price_in_dollars = {}
+
+-- Size: Price In Dollars
+memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size = 8
+
+-- Display: Price In Dollars
+memx_options_riskcontrol_sbe_v1_6.price_in_dollars.display = function(value)
+  return "Price In Dollars: "..value
+end
+
+-- Dissect: Price In Dollars
+memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.price_in_dollars, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+memx_options_riskcontrol_sbe_v1_6.quantity = {}
+
+-- Size: Quantity
+memx_options_riskcontrol_sbe_v1_6.quantity.size = 4
+
+-- Display: Quantity
+memx_options_riskcontrol_sbe_v1_6.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+memx_options_riskcontrol_sbe_v1_6.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason
+memx_options_riskcontrol_sbe_v1_6.reject_reason = {}
+
+-- Size: Reject Reason
+memx_options_riskcontrol_sbe_v1_6.reject_reason.size = 2
+
+-- Display: Reject Reason
+memx_options_riskcontrol_sbe_v1_6.reject_reason.display = function(value)
+  if value == 0 then
+    return "Reject Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Reject Reason: Missing Cl Ord Id (1)"
+  end
+  if value == 2 then
+    return "Reject Reason: Invalid Cl Ord Id (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Duplicate Cl Ord Id (3)"
+  end
+  if value == 4 then
+    return "Reject Reason: Missing Time Period (4)"
+  end
+  if value == 5 then
+    return "Reject Reason: Invalid Time Period (5)"
+  end
+  if value == 6 then
+    return "Reject Reason: Missing Risk Group Id (6)"
+  end
+  if value == 7 then
+    return "Reject Reason: Invalid Risk Group Id (7)"
+  end
+  if value == 8 then
+    return "Reject Reason: Missing Underlier (8)"
+  end
+  if value == 9 then
+    return "Reject Reason: Invalid Underlier (9)"
+  end
+  if value == 10 then
+    return "Reject Reason: Missing Efid (10)"
+  end
+  if value == 11 then
+    return "Reject Reason: Invalid Efid (11)"
+  end
+  if value == 12 then
+    return "Reject Reason: Missing Threshold (12)"
+  end
+  if value == 13 then
+    return "Reject Reason: Invalid Threshold (13)"
+  end
+  if value == 14 then
+    return "Reject Reason: Missing Quantity (14)"
+  end
+  if value == 15 then
+    return "Reject Reason: Invalid Quantity (15)"
+  end
+  if value == 16 then
+    return "Reject Reason: Missing Breach Id (16)"
+  end
+  if value == 17 then
+    return "Reject Reason: Invalid Breach Id (17)"
+  end
+  if value == 18 then
+    return "Reject Reason: Missing Volume (18)"
+  end
+  if value == 19 then
+    return "Reject Reason: Invalid Volume (19)"
+  end
+  if value == 20 then
+    return "Reject Reason: Missing Period In Milli Seconds (20)"
+  end
+  if value == 21 then
+    return "Reject Reason: Invalid Period In Milli Seconds (21)"
+  end
+  if value == 22 then
+    return "Reject Reason: Missing Price In Dollars (22)"
+  end
+  if value == 23 then
+    return "Reject Reason: Invalid Price In Dollars (23)"
+  end
+  if value == 24 then
+    return "Reject Reason: Missing Total Executions (24)"
+  end
+  if value == 25 then
+    return "Reject Reason: Invalid Total Executions (25)"
+  end
+  if value == 26 then
+    return "Reject Reason: Missing Percent (26)"
+  end
+  if value == 27 then
+    return "Reject Reason: Invalid Percent (27)"
+  end
+  if value == 28 then
+    return "Reject Reason: Missing Count (28)"
+  end
+  if value == 29 then
+    return "Reject Reason: Invalid Count (29)"
+  end
+  if value == 30 then
+    return "Reject Reason: Missing Allow Iso Orders (30)"
+  end
+  if value == 31 then
+    return "Reject Reason: Invalid Allow Iso Orders (31)"
+  end
+  if value == 32 then
+    return "Reject Reason: Missing Allow Orders (32)"
+  end
+  if value == 33 then
+    return "Reject Reason: Invalid Allow Orders (33)"
+  end
+  if value == 34 then
+    return "Reject Reason: Missing Max Notional In Dollars (34)"
+  end
+  if value == 35 then
+    return "Reject Reason: Invalid Max Notional In Dollars (35)"
+  end
+  if value == 36 then
+    return "Reject Reason: Missing Max Contracts (36)"
+  end
+  if value == 37 then
+    return "Reject Reason: Invalid Max Contracts (37)"
+  end
+  if value == 38 then
+    return "Reject Reason: Over Confirm (38)"
+  end
+  if value == 39 then
+    return "Reject Reason: Invalid Risk Combination (39)"
+  end
+  if value == 40 then
+    return "Reject Reason: Unknown Risk Rule (40)"
+  end
+  if value == 41 then
+    return "Reject Reason: Missing Max Dup Orders (41)"
+  end
+  if value == 42 then
+    return "Reject Reason: Invalid Max Dup Orders (42)"
+  end
+  if value == 43 then
+    return "Reject Reason: Missing Max Order Msgs (43)"
+  end
+  if value == 44 then
+    return "Reject Reason: Invalid Max Order Msgs (44)"
+  end
+  if value == 45 then
+    return "Reject Reason: Breach In Progress (45)"
+  end
+  if value == 46 then
+    return "Reject Reason: Number Of Breaches Forbid Clearing (46)"
+  end
+  if value == 47 then
+    return "Reject Reason: No Active Breaches (47)"
+  end
+  if value == 100 then
+    return "Reject Reason: Exchange Closed (100)"
+  end
+  if value == 65535 then
+    return "Reject Reason: Null Value (65535)"
+  end
+
+  return "Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reject Reason
+memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replay Reject Code
+memx_options_riskcontrol_sbe_v1_6.replay_reject_code = {}
+
+-- Size: Replay Reject Code
+memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size = 1
+
+-- Display: Replay Reject Code
+memx_options_riskcontrol_sbe_v1_6.replay_reject_code.display = function(value)
+  if value == "R" then
+    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
+  end
+  if value == "A" then
+    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
+  end
+  if value == "P" then
+    return "Replay Reject Code: Not The Active Session (P)"
+  end
+  if value == "S" then
+    return "Replay Reject Code: Sequence Number Out Of Range (S)"
+  end
+
+  return "Replay Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Replay Reject Code
+memx_options_riskcontrol_sbe_v1_6.replay_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_riskcontrol_sbe_v1_6.replay_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Group Id
+memx_options_riskcontrol_sbe_v1_6.risk_group_id = {}
+
+-- Size: Risk Group Id
+memx_options_riskcontrol_sbe_v1_6.risk_group_id.size = 2
+
+-- Display: Risk Group Id
+memx_options_riskcontrol_sbe_v1_6.risk_group_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Risk Group Id: No Value"
+  end
+
+  return "Risk Group Id: "..value
+end
+
+-- Dissect: Risk Group Id
+memx_options_riskcontrol_sbe_v1_6.risk_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.risk_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.risk_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Type
+memx_options_riskcontrol_sbe_v1_6.risk_type = {}
+
+-- Size: Risk Type
+memx_options_riskcontrol_sbe_v1_6.risk_type.size = 1
+
+-- Display: Risk Type
+memx_options_riskcontrol_sbe_v1_6.risk_type.display = function(value)
+  if value == 1 then
+    return "Risk Type: Contract Volume (1)"
+  end
+  if value == 2 then
+    return "Risk Type: Notional Executed (2)"
+  end
+  if value == 3 then
+    return "Risk Type: Total Trades Executed (3)"
+  end
+  if value == 4 then
+    return "Risk Type: Percent Executed (4)"
+  end
+  if value == 5 then
+    return "Risk Type: Number Of Breaches (5)"
+  end
+  if value == 6 then
+    return "Risk Type: Allow Iso Orders (6)"
+  end
+  if value == 7 then
+    return "Risk Type: Allow Orders In Crossed Market (7)"
+  end
+  if value == 8 then
+    return "Risk Type: Max Notional (8)"
+  end
+  if value == 9 then
+    return "Risk Type: Max Contracts (9)"
+  end
+  if value == 10 then
+    return "Risk Type: Gross Notional (10)"
+  end
+  if value == 11 then
+    return "Risk Type: Market Order Gross Notional (11)"
+  end
+  if value == 12 then
+    return "Risk Type: Net Notional (12)"
+  end
+  if value == 13 then
+    return "Risk Type: Market Order Net Notional (13)"
+  end
+  if value == 14 then
+    return "Risk Type: Duplicate Order (14)"
+  end
+  if value == 15 then
+    return "Risk Type: Order Rate (15)"
+  end
+  if value == 254 then
+    return "Risk Type: Triggered Breach (254)"
+  end
+
+  return "Risk Type: Unknown("..value..")"
+end
+
+-- Dissect: Risk Type
+memx_options_riskcontrol_sbe_v1_6.risk_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.risk_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.risk_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rule Type
+memx_options_riskcontrol_sbe_v1_6.rule_type = {}
+
+-- Size: Rule Type
+memx_options_riskcontrol_sbe_v1_6.rule_type.size = 1
+
+-- Display: Rule Type
+memx_options_riskcontrol_sbe_v1_6.rule_type.display = function(value)
+  if value == 1 then
+    return "Rule Type: Contract Volume (1)"
+  end
+  if value == 2 then
+    return "Rule Type: Notional Executed (2)"
+  end
+  if value == 3 then
+    return "Rule Type: Total Trades Executed (3)"
+  end
+  if value == 4 then
+    return "Rule Type: Percent Executed (4)"
+  end
+  if value == 5 then
+    return "Rule Type: Number Of Breaches (5)"
+  end
+  if value == 6 then
+    return "Rule Type: Allow Iso Orders (6)"
+  end
+  if value == 7 then
+    return "Rule Type: Allow Orders In Crossed Market (7)"
+  end
+  if value == 8 then
+    return "Rule Type: Max Notional (8)"
+  end
+  if value == 9 then
+    return "Rule Type: Max Contracts (9)"
+  end
+  if value == 10 then
+    return "Rule Type: Gross Notional (10)"
+  end
+  if value == 11 then
+    return "Rule Type: Market Order Gross Notional (11)"
+  end
+  if value == 12 then
+    return "Rule Type: Net Notional (12)"
+  end
+  if value == 13 then
+    return "Rule Type: Market Order Net Notional (13)"
+  end
+  if value == 14 then
+    return "Rule Type: Duplicate Order (14)"
+  end
+  if value == 15 then
+    return "Rule Type: Order Rate (15)"
+  end
+  if value == 254 then
+    return "Rule Type: Triggered Breach (254)"
+  end
+
+  return "Rule Type: Unknown("..value..")"
+end
+
+-- Dissect: Rule Type
+memx_options_riskcontrol_sbe_v1_6.rule_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.rule_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.rule_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.rule_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+memx_options_riskcontrol_sbe_v1_6.schema_id = {}
+
+-- Size: Schema Id
+memx_options_riskcontrol_sbe_v1_6.schema_id.size = 1
+
+-- Display: Schema Id
+memx_options_riskcontrol_sbe_v1_6.schema_id.display = function(value)
+  if value == 12 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+memx_options_riskcontrol_sbe_v1_6.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Cancels
+memx_options_riskcontrol_sbe_v1_6.send_cancels = {}
+
+-- Size: Send Cancels
+memx_options_riskcontrol_sbe_v1_6.send_cancels.size = 1
+
+-- Display: Send Cancels
+memx_options_riskcontrol_sbe_v1_6.send_cancels.display = function(value)
+  if value == 0 then
+    return "Send Cancels: False (0)"
+  end
+  if value == 1 then
+    return "Send Cancels: True (1)"
+  end
+  if value == 255 then
+    return "Send Cancels: No Value"
+  end
+
+  return "Send Cancels: Unknown("..value..")"
+end
+
+-- Dissect: Send Cancels
+memx_options_riskcontrol_sbe_v1_6.send_cancels.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.send_cancels.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.send_cancels.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.send_cancels, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+memx_options_riskcontrol_sbe_v1_6.sending_time = {}
+
+-- Size: Sending Time
+memx_options_riskcontrol_sbe_v1_6.sending_time.size = 8
+
+-- Display: Sending Time
+memx_options_riskcontrol_sbe_v1_6.sending_time.display = function(value)
+  return "Sending Time: "..value
+end
+
+-- Dissect: Sending Time
+memx_options_riskcontrol_sbe_v1_6.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+memx_options_riskcontrol_sbe_v1_6.session_id = {}
+
+-- Size: Session Id
+memx_options_riskcontrol_sbe_v1_6.session_id.size = 8
+
+-- Display: Session Id
+memx_options_riskcontrol_sbe_v1_6.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+memx_options_riskcontrol_sbe_v1_6.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+memx_options_riskcontrol_sbe_v1_6.side = {}
+
+-- Size: Side
+memx_options_riskcontrol_sbe_v1_6.side.size = 1
+
+-- Display: Side
+memx_options_riskcontrol_sbe_v1_6.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+memx_options_riskcontrol_sbe_v1_6.side.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_riskcontrol_sbe_v1_6.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Reject Code
+memx_options_riskcontrol_sbe_v1_6.stream_reject_code = {}
+
+-- Size: Stream Reject Code
+memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size = 1
+
+-- Display: Stream Reject Code
+memx_options_riskcontrol_sbe_v1_6.stream_reject_code.display = function(value)
+  if value == "R" then
+    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
+  end
+  if value == "P" then
+    return "Stream Reject Code: Not The Active Session (P)"
+  end
+  if value == "S" then
+    return "Stream Reject Code: Sequence Number Out Of Range (S)"
+  end
+
+  return "Stream Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Stream Reject Code
+memx_options_riskcontrol_sbe_v1_6.stream_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_riskcontrol_sbe_v1_6.stream_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Supported Request Mode
+memx_options_riskcontrol_sbe_v1_6.supported_request_mode = {}
+
+-- Size: Supported Request Mode
+memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size = 1
+
+-- Display: Supported Request Mode
+memx_options_riskcontrol_sbe_v1_6.supported_request_mode.display = function(value)
+  if value == "S" then
+    return "Supported Request Mode: Stream (S)"
+  end
+  if value == "R" then
+    return "Supported Request Mode: Replay (R)"
+  end
+  if value == "T" then
+    return "Supported Request Mode: Snapshot Mode (T)"
+  end
+
+  return "Supported Request Mode: Unknown("..value..")"
+end
+
+-- Dissect: Supported Request Mode
+memx_options_riskcontrol_sbe_v1_6.supported_request_mode.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_riskcontrol_sbe_v1_6.supported_request_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.supported_request_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+memx_options_riskcontrol_sbe_v1_6.template_id = {}
+
+-- Size: Template Id
+memx_options_riskcontrol_sbe_v1_6.template_id.size = 1
+
+-- Display: Template Id
+memx_options_riskcontrol_sbe_v1_6.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: Risk Settings Query Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Active Risk Threshold Change Req Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Active Risk Acknowledgement Req Message (3)"
+  end
+  if value == 4 then
+    return "Template Id: Cp Volume Threshold Change Req Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Cp Executed Notional Threshold Change Req Message (5)"
+  end
+  if value == 6 then
+    return "Template Id: Cp Total Executions Threshold Change Req Message (6)"
+  end
+  if value == 7 then
+    return "Template Id: Cp Percent Outstanding Contracts Threshold Change Req Message (7)"
+  end
+  if value == 8 then
+    return "Template Id: Cp Breach Count Threshold Change Req Message (8)"
+  end
+  if value == 9 then
+    return "Template Id: Manual Cp Breach Trigger Req Message (9)"
+  end
+  if value == 10 then
+    return "Template Id: Cp Clear Breach Req Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Single Order Allow Iso Orders Change Req Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Single Order Allow Orders In Crossed Market Change Req Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Single Order Max Notional Change Req Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Single Order Max Contracts Change Req Message (14)"
+  end
+  if value == 18 then
+    return "Template Id: Cp Gross Notional Threshold Change Req Message (18)"
+  end
+  if value == 19 then
+    return "Template Id: Cp Market Order Gross Notional Threshold Change Req Message (19)"
+  end
+  if value == 20 then
+    return "Template Id: Cp Net Notional Threshold Change Req Message (20)"
+  end
+  if value == 21 then
+    return "Template Id: Cp Market Order Net Notional Threshold Change Req Message (21)"
+  end
+  if value == 22 then
+    return "Template Id: Cp Duplicate Order Threshold Change Req Message (22)"
+  end
+  if value == 23 then
+    return "Template Id: Cp Order Rate Threshold Change Req Message (23)"
+  end
+  if value == 30 then
+    return "Template Id: Active Risk Threshold State Message (30)"
+  end
+  if value == 31 then
+    return "Template Id: Active Risk Threshold Change Rej Message (31)"
+  end
+  if value == 32 then
+    return "Template Id: Active Risk Acknowledged Message (32)"
+  end
+  if value == 33 then
+    return "Template Id: Active Risk Acknowledge Rej Message (33)"
+  end
+  if value == 34 then
+    return "Template Id: Active Risk Quantity Update Notification Message (34)"
+  end
+  if value == 35 then
+    return "Template Id: Cp Volume Threshold State Message (35)"
+  end
+  if value == 36 then
+    return "Template Id: Cp Executed Notional Threshold State Message (36)"
+  end
+  if value == 37 then
+    return "Template Id: Cp Total Executions Threshold State Message (37)"
+  end
+  if value == 38 then
+    return "Template Id: Cp Percent Outstanding Contracts Threshold State Message (38)"
+  end
+  if value == 39 then
+    return "Template Id: Cp Breach Count Threshold State Message (39)"
+  end
+  if value == 40 then
+    return "Template Id: Manual Cp Breach Trigger Pending Message (40)"
+  end
+  if value == 41 then
+    return "Template Id: Manual Cp Breach Trigger Done Message (41)"
+  end
+  if value == 42 then
+    return "Template Id: Risk Threshold Update Rej Message (42)"
+  end
+  if value == 43 then
+    return "Template Id: Passive Risk Threshold Notification Message (43)"
+  end
+  if value == 44 then
+    return "Template Id: Single Order Allow Iso Orders State Message (44)"
+  end
+  if value == 45 then
+    return "Template Id: Single Order Allow Orders In Crossed Market State Message (45)"
+  end
+  if value == 46 then
+    return "Template Id: Single Order Max Notional Threshold State Message (46)"
+  end
+  if value == 47 then
+    return "Template Id: Single Order Max Contracts Threshold State Message (47)"
+  end
+  if value == 48 then
+    return "Template Id: Risk Settings Query Done Message (48)"
+  end
+  if value == 49 then
+    return "Template Id: Risk Settings Query Rej Message (49)"
+  end
+  if value == 50 then
+    return "Template Id: Manual Cp Breach Trigger Rej Message (50)"
+  end
+  if value == 51 then
+    return "Template Id: Breach Clear Rej Message (51)"
+  end
+  if value == 52 then
+    return "Template Id: Breach Cleared Message (52)"
+  end
+  if value == 60 then
+    return "Template Id: Cp Gross Notional Threshold State Message (60)"
+  end
+  if value == 61 then
+    return "Template Id: Cp Market Order Gross Notional Threshold State Message (61)"
+  end
+  if value == 62 then
+    return "Template Id: Cp Net Notional Threshold State Message (62)"
+  end
+  if value == 63 then
+    return "Template Id: Cp Market Order Net Notional Threshold State Message (63)"
+  end
+  if value == 64 then
+    return "Template Id: Cp Duplicate Order Threshold State Message (64)"
+  end
+  if value == 65 then
+    return "Template Id: Cp Order Rate Threshold State Message (65)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+memx_options_riskcontrol_sbe_v1_6.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Threshold Quantity
+memx_options_riskcontrol_sbe_v1_6.threshold_quantity = {}
+
+-- Size: Threshold Quantity
+memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size = 4
+
+-- Display: Threshold Quantity
+memx_options_riskcontrol_sbe_v1_6.threshold_quantity.display = function(value)
+  return "Threshold Quantity: "..value
+end
+
+-- Dissect: Threshold Quantity
+memx_options_riskcontrol_sbe_v1_6.threshold_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.threshold_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Token
+memx_options_riskcontrol_sbe_v1_6.token = {}
+
+-- Size: Token
+memx_options_riskcontrol_sbe_v1_6.token.size = 1
+
+-- Display: Token
+memx_options_riskcontrol_sbe_v1_6.token.display = function(value)
+  return "Token: "..value
+end
+
+-- Dissect: Token
+memx_options_riskcontrol_sbe_v1_6.token.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_riskcontrol_sbe_v1_6.token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Token Type
+memx_options_riskcontrol_sbe_v1_6.token_type = {}
+
+-- Size: Token Type
+memx_options_riskcontrol_sbe_v1_6.token_type.size = 1
+
+-- Display: Token Type
+memx_options_riskcontrol_sbe_v1_6.token_type.display = function(value)
+  return "Token Type: "..value
+end
+
+-- Dissect: Token Type
+memx_options_riskcontrol_sbe_v1_6.token_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.token_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_riskcontrol_sbe_v1_6.token_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.token_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Affected Orders
+memx_options_riskcontrol_sbe_v1_6.total_affected_orders = {}
+
+-- Size: Total Affected Orders
+memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size = 4
+
+-- Display: Total Affected Orders
+memx_options_riskcontrol_sbe_v1_6.total_affected_orders.display = function(value)
+  return "Total Affected Orders: "..value
+end
+
+-- Dissect: Total Affected Orders
+memx_options_riskcontrol_sbe_v1_6.total_affected_orders.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.total_affected_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_affected_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Executions
+memx_options_riskcontrol_sbe_v1_6.total_executions = {}
+
+-- Size: Total Executions
+memx_options_riskcontrol_sbe_v1_6.total_executions.size = 4
+
+-- Display: Total Executions
+memx_options_riskcontrol_sbe_v1_6.total_executions.display = function(value)
+  return "Total Executions: "..value
+end
+
+-- Dissect: Total Executions
+memx_options_riskcontrol_sbe_v1_6.total_executions.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.total_executions.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.total_executions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_executions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Sequence Count
+memx_options_riskcontrol_sbe_v1_6.total_sequence_count = {}
+
+-- Size: Total Sequence Count
+memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size = 8
+
+-- Display: Total Sequence Count
+memx_options_riskcontrol_sbe_v1_6.total_sequence_count.display = function(value)
+  return "Total Sequence Count: "..value
+end
+
+-- Dissect: Total Sequence Count
+memx_options_riskcontrol_sbe_v1_6.total_sequence_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.total_sequence_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_sequence_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+memx_options_riskcontrol_sbe_v1_6.transact_time = {}
+
+-- Size: Transact Time
+memx_options_riskcontrol_sbe_v1_6.transact_time.size = 8
+
+-- Display: Transact Time
+memx_options_riskcontrol_sbe_v1_6.transact_time.display = function(value)
+  return "Transact Time: "..value
+end
+
+-- Dissect: Transact Time
+memx_options_riskcontrol_sbe_v1_6.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Match Id
+memx_options_riskcontrol_sbe_v1_6.trd_match_id = {}
+
+-- Size: Trd Match Id
+memx_options_riskcontrol_sbe_v1_6.trd_match_id.size = 8
+
+-- Display: Trd Match Id
+memx_options_riskcontrol_sbe_v1_6.trd_match_id.display = function(value)
+  return "Trd Match Id: "..value
+end
+
+-- Dissect: Trd Match Id
+memx_options_riskcontrol_sbe_v1_6.trd_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.trd_match_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.trd_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.trd_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unacked Quantity
+memx_options_riskcontrol_sbe_v1_6.unacked_quantity = {}
+
+-- Size: Unacked Quantity
+memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size = 4
+
+-- Display: Unacked Quantity
+memx_options_riskcontrol_sbe_v1_6.unacked_quantity.display = function(value)
+  return "Unacked Quantity: "..value
+end
+
+-- Dissect: Unacked Quantity
+memx_options_riskcontrol_sbe_v1_6.unacked_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.unacked_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlier
+memx_options_riskcontrol_sbe_v1_6.underlier = {}
+
+-- Size: Underlier
+memx_options_riskcontrol_sbe_v1_6.underlier.size = 6
+
+-- Display: Underlier
+memx_options_riskcontrol_sbe_v1_6.underlier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlier: No Value"
+  end
+
+  return "Underlier: "..value
+end
+
+-- Dissect: Underlier
+memx_options_riskcontrol_sbe_v1_6.underlier.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.underlier.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_riskcontrol_sbe_v1_6.underlier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.underlier, range, value, display)
+
+  return offset + length, value
+end
+
 -- Underlier Optional
 memx_options_riskcontrol_sbe_v1_6.underlier_optional = {}
 
@@ -732,44 +2513,123 @@ memx_options_riskcontrol_sbe_v1_6.underlier_optional.dissect = function(buffer, 
   return offset + length, value
 end
 
--- ClOrdId Optional
-memx_options_riskcontrol_sbe_v1_6.clordid_optional = {}
+-- Use Order Price In Dup Check
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check = {}
 
--- Size: ClOrdId Optional
-memx_options_riskcontrol_sbe_v1_6.clordid_optional.size = 20
+-- Size: Use Order Price In Dup Check
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size = 1
 
--- Display: ClOrdId Optional
-memx_options_riskcontrol_sbe_v1_6.clordid_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "ClOrdId Optional: No Value"
+-- Display: Use Order Price In Dup Check
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.display = function(value)
+  if value == 0 then
+    return "Use Order Price In Dup Check: False (0)"
+  end
+  if value == 1 then
+    return "Use Order Price In Dup Check: True (1)"
   end
 
-  return "ClOrdId Optional: "..value
+  return "Use Order Price In Dup Check: Unknown("..value..")"
 end
 
--- Dissect: ClOrdId Optional
-memx_options_riskcontrol_sbe_v1_6.clordid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.clordid_optional.size
+-- Dissect: Use Order Price In Dup Check
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size
   local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.display(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6.clordid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid_optional, range, value, display)
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check, range, value, display)
 
   return offset + length, value
 end
+
+-- Use Order Price In Dup Check Optional
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional = {}
+
+-- Size: Use Order Price In Dup Check Optional
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size = 1
+
+-- Display: Use Order Price In Dup Check Optional
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.display = function(value)
+  if value == 0 then
+    return "Use Order Price In Dup Check Optional: False (0)"
+  end
+  if value == 1 then
+    return "Use Order Price In Dup Check Optional: True (1)"
+  end
+  if value == 255 then
+    return "Use Order Price In Dup Check Optional: No Value"
+  end
+
+  return "Use Order Price In Dup Check Optional: Unknown("..value..")"
+end
+
+-- Dissect: Use Order Price In Dup Check Optional
+memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+memx_options_riskcontrol_sbe_v1_6.version = {}
+
+-- Size: Version
+memx_options_riskcontrol_sbe_v1_6.version.size = 2
+
+-- Display: Version
+memx_options_riskcontrol_sbe_v1_6.version.display = function(value)
+  if value == 262 then
+    return "Version: Version 1.6"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+memx_options_riskcontrol_sbe_v1_6.version.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_riskcontrol_sbe_v1_6.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+memx_options_riskcontrol_sbe_v1_6.volume = {}
+
+-- Size: Volume
+memx_options_riskcontrol_sbe_v1_6.volume.size = 8
+
+-- Display: Volume
+memx_options_riskcontrol_sbe_v1_6.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+memx_options_riskcontrol_sbe_v1_6.volume.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_6.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_riskcontrol_sbe_v1_6.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Memx Options RiskControl Sbe 1.6
+-----------------------------------------------------------------------
 
 -- Cp Order Rate Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message = {}
@@ -829,59 +2689,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.dissect 
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Use Order Price In Dup Check
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check = {}
-
--- Size: Use Order Price In Dup Check
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size = 1
-
--- Display: Use Order Price In Dup Check
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.display = function(value)
-  if value == 0 then
-    return "Use Order Price In Dup Check: False (0)"
-  end
-  if value == 1 then
-    return "Use Order Price In Dup Check: True (1)"
-  end
-
-  return "Use Order Price In Dup Check: Unknown("..value..")"
-end
-
--- Dissect: Use Order Price In Dup Check
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Dup Orders
-memx_options_riskcontrol_sbe_v1_6.max_dup_orders = {}
-
--- Size: Max Dup Orders
-memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size = 4
-
--- Display: Max Dup Orders
-memx_options_riskcontrol_sbe_v1_6.max_dup_orders.display = function(value)
-  return "Max Dup Orders: "..value
-end
-
--- Dissect: Max Dup Orders
-memx_options_riskcontrol_sbe_v1_6.max_dup_orders.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.max_dup_orders.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.max_dup_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_dup_orders, range, value, display)
-
-  return offset + length, value
 end
 
 -- Cp Duplicate Order Threshold State Message
@@ -946,29 +2753,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message.dis
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.cp_duplicate_order_threshold_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price In Dollars
-memx_options_riskcontrol_sbe_v1_6.price_in_dollars = {}
-
--- Size: Price In Dollars
-memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size = 8
-
--- Display: Price In Dollars
-memx_options_riskcontrol_sbe_v1_6.price_in_dollars.display = function(value)
-  return "Price In Dollars: "..value
-end
-
--- Dissect: Price In Dollars
-memx_options_riskcontrol_sbe_v1_6.price_in_dollars.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.price_in_dollars.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.price_in_dollars, range, value, display)
-
-  return offset + length, value
 end
 
 -- Cp Market Order Net Notional Threshold State Message
@@ -1195,34 +2979,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_gross_notional_threshold_state_message.diss
   end
 end
 
--- Breach Id Optional
-memx_options_riskcontrol_sbe_v1_6.breach_id_optional = {}
-
--- Size: Breach Id Optional
-memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size = 8
-
--- Display: Breach Id Optional
-memx_options_riskcontrol_sbe_v1_6.breach_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Breach Id Optional: No Value"
-  end
-
-  return "Breach Id Optional: "..value
-end
-
--- Dissect: Breach Id Optional
-memx_options_riskcontrol_sbe_v1_6.breach_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.breach_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Breach Cleared Message
 memx_options_riskcontrol_sbe_v1_6.breach_cleared_message = {}
 
@@ -1265,219 +3021,6 @@ memx_options_riskcontrol_sbe_v1_6.breach_cleared_message.dissect = function(buff
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.breach_cleared_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reject Reason
-memx_options_riskcontrol_sbe_v1_6.reject_reason = {}
-
--- Size: Reject Reason
-memx_options_riskcontrol_sbe_v1_6.reject_reason.size = 2
-
--- Display: Reject Reason
-memx_options_riskcontrol_sbe_v1_6.reject_reason.display = function(value)
-  if value == 0 then
-    return "Reject Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Reject Reason: Missing Cl Ord Id (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Invalid Cl Ord Id (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Duplicate Cl Ord Id (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: Missing Time Period (4)"
-  end
-  if value == 5 then
-    return "Reject Reason: Invalid Time Period (5)"
-  end
-  if value == 6 then
-    return "Reject Reason: Missing Risk Group Id (6)"
-  end
-  if value == 7 then
-    return "Reject Reason: Invalid Risk Group Id (7)"
-  end
-  if value == 8 then
-    return "Reject Reason: Missing Underlier (8)"
-  end
-  if value == 9 then
-    return "Reject Reason: Invalid Underlier (9)"
-  end
-  if value == 10 then
-    return "Reject Reason: Missing Efid (10)"
-  end
-  if value == 11 then
-    return "Reject Reason: Invalid Efid (11)"
-  end
-  if value == 12 then
-    return "Reject Reason: Missing Threshold (12)"
-  end
-  if value == 13 then
-    return "Reject Reason: Invalid Threshold (13)"
-  end
-  if value == 14 then
-    return "Reject Reason: Missing Quantity (14)"
-  end
-  if value == 15 then
-    return "Reject Reason: Invalid Quantity (15)"
-  end
-  if value == 16 then
-    return "Reject Reason: Missing Breach Id (16)"
-  end
-  if value == 17 then
-    return "Reject Reason: Invalid Breach Id (17)"
-  end
-  if value == 18 then
-    return "Reject Reason: Missing Volume (18)"
-  end
-  if value == 19 then
-    return "Reject Reason: Invalid Volume (19)"
-  end
-  if value == 20 then
-    return "Reject Reason: Missing Period In Milli Seconds (20)"
-  end
-  if value == 21 then
-    return "Reject Reason: Invalid Period In Milli Seconds (21)"
-  end
-  if value == 22 then
-    return "Reject Reason: Missing Price In Dollars (22)"
-  end
-  if value == 23 then
-    return "Reject Reason: Invalid Price In Dollars (23)"
-  end
-  if value == 24 then
-    return "Reject Reason: Missing Total Executions (24)"
-  end
-  if value == 25 then
-    return "Reject Reason: Invalid Total Executions (25)"
-  end
-  if value == 26 then
-    return "Reject Reason: Missing Percent (26)"
-  end
-  if value == 27 then
-    return "Reject Reason: Invalid Percent (27)"
-  end
-  if value == 28 then
-    return "Reject Reason: Missing Count (28)"
-  end
-  if value == 29 then
-    return "Reject Reason: Invalid Count (29)"
-  end
-  if value == 30 then
-    return "Reject Reason: Missing Allow Iso Orders (30)"
-  end
-  if value == 31 then
-    return "Reject Reason: Invalid Allow Iso Orders (31)"
-  end
-  if value == 32 then
-    return "Reject Reason: Missing Allow Orders (32)"
-  end
-  if value == 33 then
-    return "Reject Reason: Invalid Allow Orders (33)"
-  end
-  if value == 34 then
-    return "Reject Reason: Missing Max Notional In Dollars (34)"
-  end
-  if value == 35 then
-    return "Reject Reason: Invalid Max Notional In Dollars (35)"
-  end
-  if value == 36 then
-    return "Reject Reason: Missing Max Contracts (36)"
-  end
-  if value == 37 then
-    return "Reject Reason: Invalid Max Contracts (37)"
-  end
-  if value == 38 then
-    return "Reject Reason: Over Confirm (38)"
-  end
-  if value == 39 then
-    return "Reject Reason: Invalid Risk Combination (39)"
-  end
-  if value == 40 then
-    return "Reject Reason: Unknown Risk Rule (40)"
-  end
-  if value == 41 then
-    return "Reject Reason: Missing Max Dup Orders (41)"
-  end
-  if value == 42 then
-    return "Reject Reason: Invalid Max Dup Orders (42)"
-  end
-  if value == 43 then
-    return "Reject Reason: Missing Max Order Msgs (43)"
-  end
-  if value == 44 then
-    return "Reject Reason: Invalid Max Order Msgs (44)"
-  end
-  if value == 45 then
-    return "Reject Reason: Breach In Progress (45)"
-  end
-  if value == 46 then
-    return "Reject Reason: Number Of Breaches Forbid Clearing (46)"
-  end
-  if value == 47 then
-    return "Reject Reason: No Active Breaches (47)"
-  end
-  if value == 100 then
-    return "Reject Reason: Exchange Closed (100)"
-  end
-  if value == 65535 then
-    return "Reject Reason: Null Value (65535)"
-  end
-
-  return "Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reject Reason
-memx_options_riskcontrol_sbe_v1_6.reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId
-memx_options_riskcontrol_sbe_v1_6.clordid = {}
-
--- Size: ClOrdId
-memx_options_riskcontrol_sbe_v1_6.clordid.size = 20
-
--- Display: ClOrdId
-memx_options_riskcontrol_sbe_v1_6.clordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "ClOrdId: No Value"
-  end
-
-  return "ClOrdId: "..value
-end
-
--- Dissect: ClOrdId
-memx_options_riskcontrol_sbe_v1_6.clordid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.clordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6.clordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.clordid, range, value, display)
-
-  return offset + length, value
 end
 
 -- Breach Clear Rej Message
@@ -1628,29 +3171,6 @@ memx_options_riskcontrol_sbe_v1_6.risk_settings_query_rej_message.dissect = func
   end
 end
 
--- Number Msgs Sent
-memx_options_riskcontrol_sbe_v1_6.number_msgs_sent = {}
-
--- Size: Number Msgs Sent
-memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size = 4
-
--- Display: Number Msgs Sent
-memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.display = function(value)
-  return "Number Msgs Sent: "..value
-end
-
--- Dissect: Number Msgs Sent
-memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.number_msgs_sent.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.number_msgs_sent, range, value, display)
-
-  return offset + length, value
-end
-
 -- Risk Settings Query Done Message
 memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message = {}
 
@@ -1693,29 +3213,6 @@ memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message.dissect = fun
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.risk_settings_query_done_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Max Contracts
-memx_options_riskcontrol_sbe_v1_6.max_contracts = {}
-
--- Size: Max Contracts
-memx_options_riskcontrol_sbe_v1_6.max_contracts.size = 4
-
--- Display: Max Contracts
-memx_options_riskcontrol_sbe_v1_6.max_contracts.display = function(value)
-  return "Max Contracts: "..value
-end
-
--- Dissect: Max Contracts
-memx_options_riskcontrol_sbe_v1_6.max_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.max_contracts.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.max_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_contracts, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Order Max Contracts Threshold State Message
@@ -1774,29 +3271,6 @@ memx_options_riskcontrol_sbe_v1_6.single_order_max_contracts_threshold_state_mes
   end
 end
 
--- Max Notional In Dollars
-memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars = {}
-
--- Size: Max Notional In Dollars
-memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size = 8
-
--- Display: Max Notional In Dollars
-memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.display = function(value)
-  return "Max Notional In Dollars: "..value
-end
-
--- Dissect: Max Notional In Dollars
-memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.max_notional_in_dollars.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_notional_in_dollars, range, value, display)
-
-  return offset + length, value
-end
-
 -- Single Order Max Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message = {}
 
@@ -1851,36 +3325,6 @@ memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_mess
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.single_order_max_notional_threshold_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Allow Orders
-memx_options_riskcontrol_sbe_v1_6.allow_orders = {}
-
--- Size: Allow Orders
-memx_options_riskcontrol_sbe_v1_6.allow_orders.size = 1
-
--- Display: Allow Orders
-memx_options_riskcontrol_sbe_v1_6.allow_orders.display = function(value)
-  if value == 0 then
-    return "Allow Orders: False (0)"
-  end
-  if value == 1 then
-    return "Allow Orders: True (1)"
-  end
-
-  return "Allow Orders: Unknown("..value..")"
-end
-
--- Dissect: Allow Orders
-memx_options_riskcontrol_sbe_v1_6.allow_orders.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.allow_orders.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.allow_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_orders, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Order Allow Orders In Crossed Market State Message
@@ -1939,36 +3383,6 @@ memx_options_riskcontrol_sbe_v1_6.single_order_allow_orders_in_crossed_market_st
   end
 end
 
--- Allow Iso Orders
-memx_options_riskcontrol_sbe_v1_6.allow_iso_orders = {}
-
--- Size: Allow Iso Orders
-memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size = 1
-
--- Display: Allow Iso Orders
-memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.display = function(value)
-  if value == 0 then
-    return "Allow Iso Orders: False (0)"
-  end
-  if value == 1 then
-    return "Allow Iso Orders: True (1)"
-  end
-
-  return "Allow Iso Orders: Unknown("..value..")"
-end
-
--- Dissect: Allow Iso Orders
-memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.allow_iso_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.allow_iso_orders, range, value, display)
-
-  return offset + length, value
-end
-
 -- Single Order Allow Iso Orders State Message
 memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message = {}
 
@@ -2023,124 +3437,6 @@ memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message.di
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.single_order_allow_iso_orders_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Transact Time
-memx_options_riskcontrol_sbe_v1_6.transact_time = {}
-
--- Size: Transact Time
-memx_options_riskcontrol_sbe_v1_6.transact_time.size = 8
-
--- Display: Transact Time
-memx_options_riskcontrol_sbe_v1_6.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
--- Dissect: Transact Time
-memx_options_riskcontrol_sbe_v1_6.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Latest Percentage
-memx_options_riskcontrol_sbe_v1_6.latest_percentage = {}
-
--- Size: Latest Percentage
-memx_options_riskcontrol_sbe_v1_6.latest_percentage.size = 1
-
--- Display: Latest Percentage
-memx_options_riskcontrol_sbe_v1_6.latest_percentage.display = function(value)
-  return "Latest Percentage: "..value
-end
-
--- Dissect: Latest Percentage
-memx_options_riskcontrol_sbe_v1_6.latest_percentage.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.latest_percentage.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.latest_percentage.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.latest_percentage, range, value, display)
-
-  return offset + length, value
-end
-
--- Rule Type
-memx_options_riskcontrol_sbe_v1_6.rule_type = {}
-
--- Size: Rule Type
-memx_options_riskcontrol_sbe_v1_6.rule_type.size = 1
-
--- Display: Rule Type
-memx_options_riskcontrol_sbe_v1_6.rule_type.display = function(value)
-  if value == 1 then
-    return "Rule Type: Contract Volume (1)"
-  end
-  if value == 2 then
-    return "Rule Type: Notional Executed (2)"
-  end
-  if value == 3 then
-    return "Rule Type: Total Trades Executed (3)"
-  end
-  if value == 4 then
-    return "Rule Type: Percent Executed (4)"
-  end
-  if value == 5 then
-    return "Rule Type: Number Of Breaches (5)"
-  end
-  if value == 6 then
-    return "Rule Type: Allow Iso Orders (6)"
-  end
-  if value == 7 then
-    return "Rule Type: Allow Orders In Crossed Market (7)"
-  end
-  if value == 8 then
-    return "Rule Type: Max Notional (8)"
-  end
-  if value == 9 then
-    return "Rule Type: Max Contracts (9)"
-  end
-  if value == 10 then
-    return "Rule Type: Gross Notional (10)"
-  end
-  if value == 11 then
-    return "Rule Type: Market Order Gross Notional (11)"
-  end
-  if value == 12 then
-    return "Rule Type: Net Notional (12)"
-  end
-  if value == 13 then
-    return "Rule Type: Market Order Net Notional (13)"
-  end
-  if value == 14 then
-    return "Rule Type: Duplicate Order (14)"
-  end
-  if value == 15 then
-    return "Rule Type: Order Rate (15)"
-  end
-  if value == 254 then
-    return "Rule Type: Triggered Breach (254)"
-  end
-
-  return "Rule Type: Unknown("..value..")"
-end
-
--- Dissect: Rule Type
-memx_options_riskcontrol_sbe_v1_6.rule_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.rule_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.rule_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.rule_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Passive Risk Threshold Notification Message
@@ -2207,78 +3503,6 @@ memx_options_riskcontrol_sbe_v1_6.passive_risk_threshold_notification_message.di
   end
 end
 
--- Risk Type
-memx_options_riskcontrol_sbe_v1_6.risk_type = {}
-
--- Size: Risk Type
-memx_options_riskcontrol_sbe_v1_6.risk_type.size = 1
-
--- Display: Risk Type
-memx_options_riskcontrol_sbe_v1_6.risk_type.display = function(value)
-  if value == 1 then
-    return "Risk Type: Contract Volume (1)"
-  end
-  if value == 2 then
-    return "Risk Type: Notional Executed (2)"
-  end
-  if value == 3 then
-    return "Risk Type: Total Trades Executed (3)"
-  end
-  if value == 4 then
-    return "Risk Type: Percent Executed (4)"
-  end
-  if value == 5 then
-    return "Risk Type: Number Of Breaches (5)"
-  end
-  if value == 6 then
-    return "Risk Type: Allow Iso Orders (6)"
-  end
-  if value == 7 then
-    return "Risk Type: Allow Orders In Crossed Market (7)"
-  end
-  if value == 8 then
-    return "Risk Type: Max Notional (8)"
-  end
-  if value == 9 then
-    return "Risk Type: Max Contracts (9)"
-  end
-  if value == 10 then
-    return "Risk Type: Gross Notional (10)"
-  end
-  if value == 11 then
-    return "Risk Type: Market Order Gross Notional (11)"
-  end
-  if value == 12 then
-    return "Risk Type: Net Notional (12)"
-  end
-  if value == 13 then
-    return "Risk Type: Market Order Net Notional (13)"
-  end
-  if value == 14 then
-    return "Risk Type: Duplicate Order (14)"
-  end
-  if value == 15 then
-    return "Risk Type: Order Rate (15)"
-  end
-  if value == 254 then
-    return "Risk Type: Triggered Breach (254)"
-  end
-
-  return "Risk Type: Unknown("..value..")"
-end
-
--- Dissect: Risk Type
-memx_options_riskcontrol_sbe_v1_6.risk_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.risk_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.risk_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.risk_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Risk Threshold Update Rej Message
 memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message = {}
 
@@ -2325,52 +3549,6 @@ memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message.dissect = fu
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.risk_threshold_update_rej_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Total Affected Orders
-memx_options_riskcontrol_sbe_v1_6.total_affected_orders = {}
-
--- Size: Total Affected Orders
-memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size = 4
-
--- Display: Total Affected Orders
-memx_options_riskcontrol_sbe_v1_6.total_affected_orders.display = function(value)
-  return "Total Affected Orders: "..value
-end
-
--- Dissect: Total Affected Orders
-memx_options_riskcontrol_sbe_v1_6.total_affected_orders.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.total_affected_orders.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.total_affected_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_affected_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Breach Id
-memx_options_riskcontrol_sbe_v1_6.breach_id = {}
-
--- Size: Breach Id
-memx_options_riskcontrol_sbe_v1_6.breach_id.size = 8
-
--- Display: Breach Id
-memx_options_riskcontrol_sbe_v1_6.breach_id.display = function(value)
-  return "Breach Id: "..value
-end
-
--- Dissect: Breach Id
-memx_options_riskcontrol_sbe_v1_6.breach_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.breach_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.breach_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.breach_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Manual Cp Breach Trigger Done Message
@@ -2489,29 +3667,6 @@ memx_options_riskcontrol_sbe_v1_6.manual_cp_breach_trigger_pending_message.disse
   end
 end
 
--- Count
-memx_options_riskcontrol_sbe_v1_6.count = {}
-
--- Size: Count
-memx_options_riskcontrol_sbe_v1_6.count.size = 4
-
--- Display: Count
-memx_options_riskcontrol_sbe_v1_6.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-memx_options_riskcontrol_sbe_v1_6.count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cp Breach Count Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message = {}
 
@@ -2572,29 +3727,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_breach_count_threshold_state_message.dissec
   end
 end
 
--- Percent
-memx_options_riskcontrol_sbe_v1_6.percent = {}
-
--- Size: Percent
-memx_options_riskcontrol_sbe_v1_6.percent.size = 4
-
--- Display: Percent
-memx_options_riskcontrol_sbe_v1_6.percent.display = function(value)
-  return "Percent: "..value
-end
-
--- Dissect: Percent
-memx_options_riskcontrol_sbe_v1_6.percent.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.percent.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = memx_options_riskcontrol_sbe_v1_6.percent.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.percent, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cp Percent Outstanding Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message = {}
 
@@ -2649,29 +3781,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_sta
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.cp_percent_outstanding_contracts_threshold_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Total Executions
-memx_options_riskcontrol_sbe_v1_6.total_executions = {}
-
--- Size: Total Executions
-memx_options_riskcontrol_sbe_v1_6.total_executions.size = 4
-
--- Display: Total Executions
-memx_options_riskcontrol_sbe_v1_6.total_executions.display = function(value)
-  return "Total Executions: "..value
-end
-
--- Dissect: Total Executions
-memx_options_riskcontrol_sbe_v1_6.total_executions.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.total_executions.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.total_executions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_executions, range, value, display)
-
-  return offset + length, value
 end
 
 -- Cp Total Executions Threshold State Message
@@ -2794,29 +3903,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_executed_notional_threshold_state_message.d
   end
 end
 
--- Volume
-memx_options_riskcontrol_sbe_v1_6.volume = {}
-
--- Size: Volume
-memx_options_riskcontrol_sbe_v1_6.volume.size = 8
-
--- Display: Volume
-memx_options_riskcontrol_sbe_v1_6.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-memx_options_riskcontrol_sbe_v1_6.volume.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cp Volume Threshold State Message
 memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message = {}
 
@@ -2875,310 +3961,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message.dissect = fu
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.cp_volume_threshold_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Unacked Quantity
-memx_options_riskcontrol_sbe_v1_6.unacked_quantity = {}
-
--- Size: Unacked Quantity
-memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size = 4
-
--- Display: Unacked Quantity
-memx_options_riskcontrol_sbe_v1_6.unacked_quantity.display = function(value)
-  return "Unacked Quantity: "..value
-end
-
--- Dissect: Unacked Quantity
-memx_options_riskcontrol_sbe_v1_6.unacked_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.unacked_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.unacked_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty
-memx_options_riskcontrol_sbe_v1_6.last_qty = {}
-
--- Size: Last Qty
-memx_options_riskcontrol_sbe_v1_6.last_qty.size = 4
-
--- Display: Last Qty
-memx_options_riskcontrol_sbe_v1_6.last_qty.display = function(value)
-  return "Last Qty: "..value
-end
-
--- Dissect: Last Qty
-memx_options_riskcontrol_sbe_v1_6.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.last_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-memx_options_riskcontrol_sbe_v1_6.last_px = {}
-
--- Size: Last Px
-memx_options_riskcontrol_sbe_v1_6.last_px.size = 8
-
--- Display: Last Px
-memx_options_riskcontrol_sbe_v1_6.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-memx_options_riskcontrol_sbe_v1_6.last_px.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Last Px
-memx_options_riskcontrol_sbe_v1_6.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_riskcontrol_sbe_v1_6.last_px.translate(raw)
-  local display = memx_options_riskcontrol_sbe_v1_6.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-memx_options_riskcontrol_sbe_v1_6.side = {}
-
--- Size: Side
-memx_options_riskcontrol_sbe_v1_6.side.size = 1
-
--- Display: Side
-memx_options_riskcontrol_sbe_v1_6.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-memx_options_riskcontrol_sbe_v1_6.side.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Security Id
-memx_options_riskcontrol_sbe_v1_6.option_security_id = {}
-
--- Size: Option Security Id
-memx_options_riskcontrol_sbe_v1_6.option_security_id.size = 8
-
--- Display: Option Security Id
-memx_options_riskcontrol_sbe_v1_6.option_security_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Option Security Id: No Value"
-  end
-
-  return "Option Security Id: "..value
-end
-
--- Dissect: Option Security Id
-memx_options_riskcontrol_sbe_v1_6.option_security_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.option_security_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6.option_security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.option_security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlier
-memx_options_riskcontrol_sbe_v1_6.underlier = {}
-
--- Size: Underlier
-memx_options_riskcontrol_sbe_v1_6.underlier.size = 6
-
--- Display: Underlier
-memx_options_riskcontrol_sbe_v1_6.underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier: No Value"
-  end
-
-  return "Underlier: "..value
-end
-
--- Dissect: Underlier
-memx_options_riskcontrol_sbe_v1_6.underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6.underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Efid
-memx_options_riskcontrol_sbe_v1_6.efid = {}
-
--- Size: Efid
-memx_options_riskcontrol_sbe_v1_6.efid.size = 4
-
--- Display: Efid
-memx_options_riskcontrol_sbe_v1_6.efid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efid: No Value"
-  end
-
-  return "Efid: "..value
-end
-
--- Dissect: Efid
-memx_options_riskcontrol_sbe_v1_6.efid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.efid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_6.efid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Match Id
-memx_options_riskcontrol_sbe_v1_6.trd_match_id = {}
-
--- Size: Trd Match Id
-memx_options_riskcontrol_sbe_v1_6.trd_match_id.size = 8
-
--- Display: Trd Match Id
-memx_options_riskcontrol_sbe_v1_6.trd_match_id.display = function(value)
-  return "Trd Match Id: "..value
-end
-
--- Dissect: Trd Match Id
-memx_options_riskcontrol_sbe_v1_6.trd_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.trd_match_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.trd_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.trd_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-memx_options_riskcontrol_sbe_v1_6.order_id = {}
-
--- Size: Order Id
-memx_options_riskcontrol_sbe_v1_6.order_id.size = 8
-
--- Display: Order Id
-memx_options_riskcontrol_sbe_v1_6.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-memx_options_riskcontrol_sbe_v1_6.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Sending Time
-memx_options_riskcontrol_sbe_v1_6.sending_time = {}
-
--- Size: Sending Time
-memx_options_riskcontrol_sbe_v1_6.sending_time.size = 8
-
--- Display: Sending Time
-memx_options_riskcontrol_sbe_v1_6.sending_time.display = function(value)
-  return "Sending Time: "..value
-end
-
--- Dissect: Sending Time
-memx_options_riskcontrol_sbe_v1_6.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.sending_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Active Risk Quantity Update Notification Message
@@ -3261,29 +4043,6 @@ memx_options_riskcontrol_sbe_v1_6.active_risk_quantity_update_notification_messa
   end
 end
 
--- Threshold Quantity
-memx_options_riskcontrol_sbe_v1_6.threshold_quantity = {}
-
--- Size: Threshold Quantity
-memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size = 4
-
--- Display: Threshold Quantity
-memx_options_riskcontrol_sbe_v1_6.threshold_quantity.display = function(value)
-  return "Threshold Quantity: "..value
-end
-
--- Dissect: Threshold Quantity
-memx_options_riskcontrol_sbe_v1_6.threshold_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.threshold_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.threshold_quantity, range, value, display)
-
-  return offset + length, value
-end
-
 -- Active Risk Acknowledge Rej Message
 memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message = {}
 
@@ -3338,29 +4097,6 @@ memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message.dissect = 
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.active_risk_acknowledge_rej_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quantity
-memx_options_riskcontrol_sbe_v1_6.quantity = {}
-
--- Size: Quantity
-memx_options_riskcontrol_sbe_v1_6.quantity.size = 4
-
--- Display: Quantity
-memx_options_riskcontrol_sbe_v1_6.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-memx_options_riskcontrol_sbe_v1_6.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Active Risk Acknowledged Message
@@ -3589,39 +4325,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.dis
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Use Order Price In Dup Check Optional
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional = {}
-
--- Size: Use Order Price In Dup Check Optional
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size = 1
-
--- Display: Use Order Price In Dup Check Optional
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.display = function(value)
-  if value == 0 then
-    return "Use Order Price In Dup Check Optional: False (0)"
-  end
-  if value == 1 then
-    return "Use Order Price In Dup Check Optional: True (1)"
-  end
-  if value == 255 then
-    return "Use Order Price In Dup Check Optional: No Value"
-  end
-
-  return "Use Order Price In Dup Check Optional: Unknown("..value..")"
-end
-
--- Dissect: Use Order Price In Dup Check Optional
-memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.use_order_price_in_dup_check_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.use_order_price_in_dup_check_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Cp Duplicate Order Threshold Change Req Message
@@ -4178,39 +4881,6 @@ memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message.dissect = function
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.cp_clear_breach_req_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Send Cancels
-memx_options_riskcontrol_sbe_v1_6.send_cancels = {}
-
--- Size: Send Cancels
-memx_options_riskcontrol_sbe_v1_6.send_cancels.size = 1
-
--- Display: Send Cancels
-memx_options_riskcontrol_sbe_v1_6.send_cancels.display = function(value)
-  if value == 0 then
-    return "Send Cancels: False (0)"
-  end
-  if value == 1 then
-    return "Send Cancels: True (1)"
-  end
-  if value == 255 then
-    return "Send Cancels: No Value"
-  end
-
-  return "Send Cancels: Unknown("..value..")"
-end
-
--- Dissect: Send Cancels
-memx_options_riskcontrol_sbe_v1_6.send_cancels.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.send_cancels.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.send_cancels.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.send_cancels, range, value, display)
-
-  return offset + length, value
 end
 
 -- Manual Cp Breach Trigger Req Message
@@ -4914,254 +5584,6 @@ memx_options_riskcontrol_sbe_v1_6.payload.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Version
-memx_options_riskcontrol_sbe_v1_6.version = {}
-
--- Size: Version
-memx_options_riskcontrol_sbe_v1_6.version.size = 2
-
--- Display: Version
-memx_options_riskcontrol_sbe_v1_6.version.display = function(value)
-  if value == 262 then
-    return "Version: Version 1.6"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-memx_options_riskcontrol_sbe_v1_6.version.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-memx_options_riskcontrol_sbe_v1_6.schema_id = {}
-
--- Size: Schema Id
-memx_options_riskcontrol_sbe_v1_6.schema_id.size = 1
-
--- Display: Schema Id
-memx_options_riskcontrol_sbe_v1_6.schema_id.display = function(value)
-  if value == 12 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-memx_options_riskcontrol_sbe_v1_6.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-memx_options_riskcontrol_sbe_v1_6.template_id = {}
-
--- Size: Template Id
-memx_options_riskcontrol_sbe_v1_6.template_id.size = 1
-
--- Display: Template Id
-memx_options_riskcontrol_sbe_v1_6.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Risk Settings Query Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Active Risk Threshold Change Req Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Active Risk Acknowledgement Req Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Cp Volume Threshold Change Req Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Cp Executed Notional Threshold Change Req Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Cp Total Executions Threshold Change Req Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Cp Percent Outstanding Contracts Threshold Change Req Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Cp Breach Count Threshold Change Req Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Manual Cp Breach Trigger Req Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Cp Clear Breach Req Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Single Order Allow Iso Orders Change Req Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Single Order Allow Orders In Crossed Market Change Req Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Single Order Max Notional Change Req Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Single Order Max Contracts Change Req Message (14)"
-  end
-  if value == 18 then
-    return "Template Id: Cp Gross Notional Threshold Change Req Message (18)"
-  end
-  if value == 19 then
-    return "Template Id: Cp Market Order Gross Notional Threshold Change Req Message (19)"
-  end
-  if value == 20 then
-    return "Template Id: Cp Net Notional Threshold Change Req Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Cp Market Order Net Notional Threshold Change Req Message (21)"
-  end
-  if value == 22 then
-    return "Template Id: Cp Duplicate Order Threshold Change Req Message (22)"
-  end
-  if value == 23 then
-    return "Template Id: Cp Order Rate Threshold Change Req Message (23)"
-  end
-  if value == 30 then
-    return "Template Id: Active Risk Threshold State Message (30)"
-  end
-  if value == 31 then
-    return "Template Id: Active Risk Threshold Change Rej Message (31)"
-  end
-  if value == 32 then
-    return "Template Id: Active Risk Acknowledged Message (32)"
-  end
-  if value == 33 then
-    return "Template Id: Active Risk Acknowledge Rej Message (33)"
-  end
-  if value == 34 then
-    return "Template Id: Active Risk Quantity Update Notification Message (34)"
-  end
-  if value == 35 then
-    return "Template Id: Cp Volume Threshold State Message (35)"
-  end
-  if value == 36 then
-    return "Template Id: Cp Executed Notional Threshold State Message (36)"
-  end
-  if value == 37 then
-    return "Template Id: Cp Total Executions Threshold State Message (37)"
-  end
-  if value == 38 then
-    return "Template Id: Cp Percent Outstanding Contracts Threshold State Message (38)"
-  end
-  if value == 39 then
-    return "Template Id: Cp Breach Count Threshold State Message (39)"
-  end
-  if value == 40 then
-    return "Template Id: Manual Cp Breach Trigger Pending Message (40)"
-  end
-  if value == 41 then
-    return "Template Id: Manual Cp Breach Trigger Done Message (41)"
-  end
-  if value == 42 then
-    return "Template Id: Risk Threshold Update Rej Message (42)"
-  end
-  if value == 43 then
-    return "Template Id: Passive Risk Threshold Notification Message (43)"
-  end
-  if value == 44 then
-    return "Template Id: Single Order Allow Iso Orders State Message (44)"
-  end
-  if value == 45 then
-    return "Template Id: Single Order Allow Orders In Crossed Market State Message (45)"
-  end
-  if value == 46 then
-    return "Template Id: Single Order Max Notional Threshold State Message (46)"
-  end
-  if value == 47 then
-    return "Template Id: Single Order Max Contracts Threshold State Message (47)"
-  end
-  if value == 48 then
-    return "Template Id: Risk Settings Query Done Message (48)"
-  end
-  if value == 49 then
-    return "Template Id: Risk Settings Query Rej Message (49)"
-  end
-  if value == 50 then
-    return "Template Id: Manual Cp Breach Trigger Rej Message (50)"
-  end
-  if value == 51 then
-    return "Template Id: Breach Clear Rej Message (51)"
-  end
-  if value == 52 then
-    return "Template Id: Breach Cleared Message (52)"
-  end
-  if value == 60 then
-    return "Template Id: Cp Gross Notional Threshold State Message (60)"
-  end
-  if value == 61 then
-    return "Template Id: Cp Market Order Gross Notional Threshold State Message (61)"
-  end
-  if value == 62 then
-    return "Template Id: Cp Net Notional Threshold State Message (62)"
-  end
-  if value == 63 then
-    return "Template Id: Cp Market Order Net Notional Threshold State Message (63)"
-  end
-  if value == 64 then
-    return "Template Id: Cp Duplicate Order Threshold State Message (64)"
-  end
-  if value == 65 then
-    return "Template Id: Cp Order Rate Threshold State Message (65)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-memx_options_riskcontrol_sbe_v1_6.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-memx_options_riskcontrol_sbe_v1_6.block_length = {}
-
--- Size: Block Length
-memx_options_riskcontrol_sbe_v1_6.block_length.size = 2
-
--- Display: Block Length
-memx_options_riskcontrol_sbe_v1_6.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-memx_options_riskcontrol_sbe_v1_6.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 memx_options_riskcontrol_sbe_v1_6.sbe_header = {}
 
@@ -5315,29 +5737,6 @@ memx_options_riskcontrol_sbe_v1_6.sequenced_message.dissect = function(buffer, o
   end
 end
 
--- Total Sequence Count
-memx_options_riskcontrol_sbe_v1_6.total_sequence_count = {}
-
--- Size: Total Sequence Count
-memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size = 8
-
--- Display: Total Sequence Count
-memx_options_riskcontrol_sbe_v1_6.total_sequence_count.display = function(value)
-  return "Total Sequence Count: "..value
-end
-
--- Dissect: Total Sequence Count
-memx_options_riskcontrol_sbe_v1_6.total_sequence_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.total_sequence_count.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.total_sequence_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.total_sequence_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Complete Message
 memx_options_riskcontrol_sbe_v1_6.stream_complete_message = {}
 
@@ -5378,39 +5777,6 @@ memx_options_riskcontrol_sbe_v1_6.stream_complete_message.dissect = function(buf
   end
 end
 
--- Stream Reject Code
-memx_options_riskcontrol_sbe_v1_6.stream_reject_code = {}
-
--- Size: Stream Reject Code
-memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size = 1
-
--- Display: Stream Reject Code
-memx_options_riskcontrol_sbe_v1_6.stream_reject_code.display = function(value)
-  if value == "R" then
-    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
-  end
-  if value == "P" then
-    return "Stream Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Stream Reject Code: Sequence Number Out Of Range (S)"
-  end
-
-  return "Stream Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Stream Reject Code
-memx_options_riskcontrol_sbe_v1_6.stream_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.stream_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_riskcontrol_sbe_v1_6.stream_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.stream_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Rejected Message
 memx_options_riskcontrol_sbe_v1_6.stream_rejected_message = {}
 
@@ -5449,52 +5815,6 @@ memx_options_riskcontrol_sbe_v1_6.stream_rejected_message.dissect = function(buf
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.stream_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Max Sequence Number
-memx_options_riskcontrol_sbe_v1_6.max_sequence_number = {}
-
--- Size: Max Sequence Number
-memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size = 8
-
--- Display: Max Sequence Number
-memx_options_riskcontrol_sbe_v1_6.max_sequence_number.display = function(value)
-  return "Max Sequence Number: "..value
-end
-
--- Dissect: Max Sequence Number
-memx_options_riskcontrol_sbe_v1_6.max_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.max_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.max_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.max_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Sequence Number
-memx_options_riskcontrol_sbe_v1_6.next_sequence_number = {}
-
--- Size: Next Sequence Number
-memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size = 8
-
--- Display: Next Sequence Number
-memx_options_riskcontrol_sbe_v1_6.next_sequence_number.display = function(value)
-  return "Next Sequence Number: "..value
-end
-
--- Dissect: Next Sequence Number
-memx_options_riskcontrol_sbe_v1_6.next_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.next_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.next_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.next_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stream Begin Message
@@ -5541,29 +5861,6 @@ memx_options_riskcontrol_sbe_v1_6.stream_begin_message.dissect = function(buffer
   end
 end
 
--- Message Count
-memx_options_riskcontrol_sbe_v1_6.message_count = {}
-
--- Size: Message Count
-memx_options_riskcontrol_sbe_v1_6.message_count.size = 8
-
--- Display: Message Count
-memx_options_riskcontrol_sbe_v1_6.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-memx_options_riskcontrol_sbe_v1_6.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Complete Message
 memx_options_riskcontrol_sbe_v1_6.replay_complete_message = {}
 
@@ -5604,42 +5901,6 @@ memx_options_riskcontrol_sbe_v1_6.replay_complete_message.dissect = function(buf
   end
 end
 
--- Replay Reject Code
-memx_options_riskcontrol_sbe_v1_6.replay_reject_code = {}
-
--- Size: Replay Reject Code
-memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size = 1
-
--- Display: Replay Reject Code
-memx_options_riskcontrol_sbe_v1_6.replay_reject_code.display = function(value)
-  if value == "R" then
-    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
-  end
-  if value == "A" then
-    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
-  end
-  if value == "P" then
-    return "Replay Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Replay Reject Code: Sequence Number Out Of Range (S)"
-  end
-
-  return "Replay Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Replay Reject Code
-memx_options_riskcontrol_sbe_v1_6.replay_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.replay_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_riskcontrol_sbe_v1_6.replay_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.replay_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Rejected Message
 memx_options_riskcontrol_sbe_v1_6.replay_rejected_message = {}
 
@@ -5678,29 +5939,6 @@ memx_options_riskcontrol_sbe_v1_6.replay_rejected_message.dissect = function(buf
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.replay_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Pending Message Count
-memx_options_riskcontrol_sbe_v1_6.pending_message_count = {}
-
--- Size: Pending Message Count
-memx_options_riskcontrol_sbe_v1_6.pending_message_count.size = 4
-
--- Display: Pending Message Count
-memx_options_riskcontrol_sbe_v1_6.pending_message_count.display = function(value)
-  return "Pending Message Count: "..value
-end
-
--- Dissect: Pending Message Count
-memx_options_riskcontrol_sbe_v1_6.pending_message_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.pending_message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.pending_message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.pending_message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replay Begin Message
@@ -5747,29 +5985,6 @@ memx_options_riskcontrol_sbe_v1_6.replay_begin_message.dissect = function(buffer
   end
 end
 
--- Session Id
-memx_options_riskcontrol_sbe_v1_6.session_id = {}
-
--- Size: Session Id
-memx_options_riskcontrol_sbe_v1_6.session_id.size = 8
-
--- Display: Session Id
-memx_options_riskcontrol_sbe_v1_6.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-memx_options_riskcontrol_sbe_v1_6.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_riskcontrol_sbe_v1_6.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Start Of Session Message
 memx_options_riskcontrol_sbe_v1_6.start_of_session_message = {}
 
@@ -5810,42 +6025,6 @@ memx_options_riskcontrol_sbe_v1_6.start_of_session_message.dissect = function(bu
   end
 end
 
--- Login Reject Code
-memx_options_riskcontrol_sbe_v1_6.login_reject_code = {}
-
--- Size: Login Reject Code
-memx_options_riskcontrol_sbe_v1_6.login_reject_code.size = 1
-
--- Display: Login Reject Code
-memx_options_riskcontrol_sbe_v1_6.login_reject_code.display = function(value)
-  if value == "T" then
-    return "Login Reject Code: Malformed Token (T)"
-  end
-  if value == "U" then
-    return "Login Reject Code: Token Type Unsupported (U)"
-  end
-  if value == "V" then
-    return "Login Reject Code: Token Type Invalid (V)"
-  end
-  if value == "A" then
-    return "Login Reject Code: Authorization Failed (A)"
-  end
-
-  return "Login Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Login Reject Code
-memx_options_riskcontrol_sbe_v1_6.login_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.login_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_riskcontrol_sbe_v1_6.login_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.login_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Rejected Message
 memx_options_riskcontrol_sbe_v1_6.login_rejected_message = {}
 
@@ -5884,39 +6063,6 @@ memx_options_riskcontrol_sbe_v1_6.login_rejected_message.dissect = function(buff
     -- Skip element, add fields directly
     return memx_options_riskcontrol_sbe_v1_6.login_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Supported Request Mode
-memx_options_riskcontrol_sbe_v1_6.supported_request_mode = {}
-
--- Size: Supported Request Mode
-memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size = 1
-
--- Display: Supported Request Mode
-memx_options_riskcontrol_sbe_v1_6.supported_request_mode.display = function(value)
-  if value == "S" then
-    return "Supported Request Mode: Stream (S)"
-  end
-  if value == "R" then
-    return "Supported Request Mode: Replay (R)"
-  end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
-
-  return "Supported Request Mode: Unknown("..value..")"
-end
-
--- Dissect: Supported Request Mode
-memx_options_riskcontrol_sbe_v1_6.supported_request_mode.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.supported_request_mode.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_riskcontrol_sbe_v1_6.supported_request_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.supported_request_mode, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Message
@@ -6136,52 +6282,6 @@ memx_options_riskcontrol_sbe_v1_6.replay_request_message.dissect = function(buff
   end
 end
 
--- Token
-memx_options_riskcontrol_sbe_v1_6.token = {}
-
--- Size: Token
-memx_options_riskcontrol_sbe_v1_6.token.size = 1
-
--- Display: Token
-memx_options_riskcontrol_sbe_v1_6.token.display = function(value)
-  return "Token: "..value
-end
-
--- Dissect: Token
-memx_options_riskcontrol_sbe_v1_6.token.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_riskcontrol_sbe_v1_6.token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.token, range, value, display)
-
-  return offset + length, value
-end
-
--- Token Type
-memx_options_riskcontrol_sbe_v1_6.token_type = {}
-
--- Size: Token Type
-memx_options_riskcontrol_sbe_v1_6.token_type.size = 1
-
--- Display: Token Type
-memx_options_riskcontrol_sbe_v1_6.token_type.display = function(value)
-  return "Token Type: "..value
-end
-
--- Dissect: Token Type
-memx_options_riskcontrol_sbe_v1_6.token_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.token_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_riskcontrol_sbe_v1_6.token_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.token_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Request Message
 memx_options_riskcontrol_sbe_v1_6.login_request_message = {}
 
@@ -6293,101 +6393,6 @@ memx_options_riskcontrol_sbe_v1_6.data.dissect = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Message Length
-memx_options_riskcontrol_sbe_v1_6.message_length = {}
-
--- Size: Message Length
-memx_options_riskcontrol_sbe_v1_6.message_length.size = 2
-
--- Display: Message Length
-memx_options_riskcontrol_sbe_v1_6.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-memx_options_riskcontrol_sbe_v1_6.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-memx_options_riskcontrol_sbe_v1_6.message_type = {}
-
--- Size: Message Type
-memx_options_riskcontrol_sbe_v1_6.message_type.size = 1
-
--- Display: Message Type
-memx_options_riskcontrol_sbe_v1_6.message_type.display = function(value)
-  if value == 100 then
-    return "Message Type: Login Request (100)"
-  end
-  if value == 101 then
-    return "Message Type: Replay Request (101)"
-  end
-  if value == 102 then
-    return "Message Type: Replay All Request (102)"
-  end
-  if value == 103 then
-    return "Message Type: Stream Request (103)"
-  end
-  if value == 104 then
-    return "Message Type: Unsequenced Message (104)"
-  end
-  if value == 1 then
-    return "Message Type: Login Accepted (1)"
-  end
-  if value == 2 then
-    return "Message Type: Login Rejected (2)"
-  end
-  if value == 3 then
-    return "Message Type: Start Of Session (3)"
-  end
-  if value == 3 then
-    return "Message Type: End Of Session (3)"
-  end
-  if value == 5 then
-    return "Message Type: Replay Begin (5)"
-  end
-  if value == 6 then
-    return "Message Type: Replay Rejected (6)"
-  end
-  if value == 7 then
-    return "Message Type: Replay Complete (7)"
-  end
-  if value == 8 then
-    return "Message Type: Stream Begin (8)"
-  end
-  if value == 9 then
-    return "Message Type: Stream Rejected (9)"
-  end
-  if value == 10 then
-    return "Message Type: Stream Complete (10)"
-  end
-  if value == 11 then
-    return "Message Type: Sequenced Message (11)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-memx_options_riskcontrol_sbe_v1_6.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_6.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_riskcontrol_sbe_v1_6.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_riskcontrol_sbe_v1_6.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

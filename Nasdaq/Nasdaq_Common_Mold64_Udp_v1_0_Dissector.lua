@@ -77,47 +77,28 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq Common Mold64 Udp 1.0
+-- Nasdaq Common Mold64 Udp 1.0 Fields
 -----------------------------------------------------------------------
 
--- Payload
-nasdaq_common_mold64_udp_v1_0.payload = {}
+-- Message Count
+nasdaq_common_mold64_udp_v1_0.message_count = {}
 
--- Display: Payload
-nasdaq_common_mold64_udp_v1_0.payload.display = function(value)
-  return "Payload: "..value
+-- Size: Message Count
+nasdaq_common_mold64_udp_v1_0.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_common_mold64_udp_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect runtime sized field: Payload
-nasdaq_common_mold64_udp_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_common_mold64_udp_v1_0.payload.display(value, packet, parent, size)
-
-  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.payload, range, value, display)
-
-  return offset + size, value
-end
-
--- Message Type
-nasdaq_common_mold64_udp_v1_0.message_type = {}
-
--- Size: Message Type
-nasdaq_common_mold64_udp_v1_0.message_type.size = 1
-
--- Display: Message Type
-nasdaq_common_mold64_udp_v1_0.message_type.display = function(value)
-  return "Message Type: "..value
-end
-
--- Dissect: Message Type
-nasdaq_common_mold64_udp_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_mold64_udp_v1_0.message_type.size
+-- Dissect: Message Count
+nasdaq_common_mold64_udp_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_mold64_udp_v1_0.message_count.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_mold64_udp_v1_0.message_type.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = nasdaq_common_mold64_udp_v1_0.message_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_type, range, value, display)
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -144,6 +125,115 @@ nasdaq_common_mold64_udp_v1_0.message_length.dissect = function(buffer, offset, 
 
   return offset + length, value
 end
+
+-- Message Type
+nasdaq_common_mold64_udp_v1_0.message_type = {}
+
+-- Size: Message Type
+nasdaq_common_mold64_udp_v1_0.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_common_mold64_udp_v1_0.message_type.display = function(value)
+  return "Message Type: "..value
+end
+
+-- Dissect: Message Type
+nasdaq_common_mold64_udp_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_mold64_udp_v1_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_mold64_udp_v1_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload
+nasdaq_common_mold64_udp_v1_0.payload = {}
+
+-- Display: Payload
+nasdaq_common_mold64_udp_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect runtime sized field: Payload
+nasdaq_common_mold64_udp_v1_0.payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_common_mold64_udp_v1_0.payload.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.payload, range, value, display)
+
+  return offset + size, value
+end
+
+-- Sequence Number
+nasdaq_common_mold64_udp_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_common_mold64_udp_v1_0.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_common_mold64_udp_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_common_mold64_udp_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_mold64_udp_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_common_mold64_udp_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_common_mold64_udp_v1_0.session = {}
+
+-- Size: Session
+nasdaq_common_mold64_udp_v1_0.session.size = 10
+
+-- Display: Session
+nasdaq_common_mold64_udp_v1_0.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_common_mold64_udp_v1_0.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_mold64_udp_v1_0.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_common_mold64_udp_v1_0.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq Common Mold64 Udp 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 nasdaq_common_mold64_udp_v1_0.message_header = {}
@@ -281,91 +371,6 @@ nasdaq_common_mold64_udp_v1_0.messages.dissect = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_common_mold64_udp_v1_0.message_count = {}
-
--- Size: Message Count
-nasdaq_common_mold64_udp_v1_0.message_count.size = 2
-
--- Display: Message Count
-nasdaq_common_mold64_udp_v1_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_common_mold64_udp_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_mold64_udp_v1_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_common_mold64_udp_v1_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_common_mold64_udp_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_common_mold64_udp_v1_0.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_common_mold64_udp_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_common_mold64_udp_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_mold64_udp_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_common_mold64_udp_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_common_mold64_udp_v1_0.session = {}
-
--- Size: Session
-nasdaq_common_mold64_udp_v1_0.session.size = 10
-
--- Display: Session
-nasdaq_common_mold64_udp_v1_0.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_common_mold64_udp_v1_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_mold64_udp_v1_0.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_common_mold64_udp_v1_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_mold64_udp_v1_0.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

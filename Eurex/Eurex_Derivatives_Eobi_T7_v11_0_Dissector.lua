@@ -421,152 +421,214 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Eurex Derivatives Eobi T7 11.0
+-- Eurex Derivatives Eobi T7 11.0 Fields
 -----------------------------------------------------------------------
 
--- Pad 7
-eurex_derivatives_eobi_t7_v11_0.pad_7 = {}
+-- Aggressor Side
+eurex_derivatives_eobi_t7_v11_0.aggressor_side = {}
 
--- Size: Pad 7
-eurex_derivatives_eobi_t7_v11_0.pad_7.size = 7
+-- Size: Aggressor Side
+eurex_derivatives_eobi_t7_v11_0.aggressor_side.size = 1
 
--- Display: Pad 7
-eurex_derivatives_eobi_t7_v11_0.pad_7.display = function(value)
-  return "Pad 7: "..value
-end
-
--- Dissect: Pad 7
-eurex_derivatives_eobi_t7_v11_0.pad_7.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_7.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Type
-eurex_derivatives_eobi_t7_v11_0.md_entry_type = {}
-
--- Size: Md Entry Type
-eurex_derivatives_eobi_t7_v11_0.md_entry_type.size = 1
-
--- Display: Md Entry Type
-eurex_derivatives_eobi_t7_v11_0.md_entry_type.display = function(value)
+-- Display: Aggressor Side
+eurex_derivatives_eobi_t7_v11_0.aggressor_side.display = function(value)
+  if value == 1 then
+    return "Aggressor Side: Buy (1)"
+  end
   if value == 2 then
-    return "Md Entry Type: Trade (2)"
-  end
-  if value == 4 then
-    return "Md Entry Type: Opening Price (4)"
-  end
-  if value == 5 then
-    return "Md Entry Type: Closing Price (5)"
-  end
-  if value == 7 then
-    return "Md Entry Type: High Price (7)"
-  end
-  if value == 8 then
-    return "Md Entry Type: Low Price (8)"
-  end
-  if value == 66 then
-    return "Md Entry Type: Trade Volume (66)"
-  end
-  if value == 101 then
-    return "Md Entry Type: Previous Closing Price (101)"
-  end
-  if value == 200 then
-    return "Md Entry Type: Opening Auction (200)"
-  end
-  if value == 201 then
-    return "Md Entry Type: Intraday Auction (201)"
-  end
-  if value == 202 then
-    return "Md Entry Type: Circuit Breaker Auction (202)"
-  end
-  if value == 203 then
-    return "Md Entry Type: Closing Auction (203)"
-  end
-  if value == 204 then
-    return "Md Entry Type: Ipo Auction (204)"
+    return "Aggressor Side: Sell (2)"
   end
   if value == 0xFF then
-    return "Md Entry Type: No Value"
+    return "Aggressor Side: No Value"
   end
 
-  return "Md Entry Type: Unknown("..value..")"
+  return "Aggressor Side: Unknown("..value..")"
 end
 
--- Dissect: Md Entry Type
-eurex_derivatives_eobi_t7_v11_0.md_entry_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.md_entry_type.size
+-- Dissect: Aggressor Side
+eurex_derivatives_eobi_t7_v11_0.aggressor_side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.aggressor_side.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.md_entry_type.display(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eobi_t7_v11_0.aggressor_side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_entry_type, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.aggressor_side, range, value, display)
 
   return offset + length, value
 end
 
--- Md Entry Size
-eurex_derivatives_eobi_t7_v11_0.md_entry_size = {}
+-- Aggressor Time
+eurex_derivatives_eobi_t7_v11_0.aggressor_time = {}
 
--- Size: Md Entry Size
-eurex_derivatives_eobi_t7_v11_0.md_entry_size.size = 8
+-- Size: Aggressor Time
+eurex_derivatives_eobi_t7_v11_0.aggressor_time.size = 8
 
--- Display: Md Entry Size
-eurex_derivatives_eobi_t7_v11_0.md_entry_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Md Entry Size: No Value"
+-- Display: Aggressor Time
+eurex_derivatives_eobi_t7_v11_0.aggressor_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Aggressor Time: No Value"
+
   end
 
-  return "Md Entry Size: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Aggressor Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Translate: Md Entry Size
-eurex_derivatives_eobi_t7_v11_0.md_entry_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Md Entry Size
-eurex_derivatives_eobi_t7_v11_0.md_entry_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.md_entry_size.size
+-- Dissect: Aggressor Time
+eurex_derivatives_eobi_t7_v11_0.aggressor_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.aggressor_time.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.md_entry_size.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.md_entry_size.display(raw, value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = eurex_derivatives_eobi_t7_v11_0.aggressor_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_entry_size, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.aggressor_time, range, value, display)
 
   return offset + length, value
 end
 
--- Md Entry Px
-eurex_derivatives_eobi_t7_v11_0.md_entry_px = {}
+-- Algorithmic Trade Indicator
+eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator = {}
 
--- Size: Md Entry Px
-eurex_derivatives_eobi_t7_v11_0.md_entry_px.size = 8
+-- Size: Algorithmic Trade Indicator
+eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.size = 1
 
--- Display: Md Entry Px
-eurex_derivatives_eobi_t7_v11_0.md_entry_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Md Entry Px: No Value"
+-- Display: Algorithmic Trade Indicator
+eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.display = function(value)
+  if value == 1 then
+    return "Algorithmic Trade Indicator: Algorithmic Trade (1)"
+  end
+  if value == 0xFF then
+    return "Algorithmic Trade Indicator: No Value"
   end
 
-  return "Md Entry Px: "..value
+  return "Algorithmic Trade Indicator: Unknown("..value..")"
 end
 
--- Translate: Md Entry Px
-eurex_derivatives_eobi_t7_v11_0.md_entry_px.translate = function(raw)
+-- Dissect: Algorithmic Trade Indicator
+eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.algorithmic_trade_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Seq Num
+eurex_derivatives_eobi_t7_v11_0.appl_seq_num = {}
+
+-- Size: Appl Seq Num
+eurex_derivatives_eobi_t7_v11_0.appl_seq_num.size = 4
+
+-- Display: Appl Seq Num
+eurex_derivatives_eobi_t7_v11_0.appl_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Seq Num: No Value"
+  end
+
+  return "Appl Seq Num: "..value
+end
+
+-- Dissect: Appl Seq Num
+eurex_derivatives_eobi_t7_v11_0.appl_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.appl_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.appl_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.appl_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Seq Reset Indicator
+eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator = {}
+
+-- Size: Appl Seq Reset Indicator
+eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.size = 1
+
+-- Display: Appl Seq Reset Indicator
+eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.display = function(value)
+  if value == 0 then
+    return "Appl Seq Reset Indicator: No Reset (0)"
+  end
+  if value == 1 then
+    return "Appl Seq Reset Indicator: Reset (1)"
+  end
+  if value == 0xFF then
+    return "Appl Seq Reset Indicator: No Value"
+  end
+
+  return "Appl Seq Reset Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Appl Seq Reset Indicator
+eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.appl_seq_reset_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Ord Type
+eurex_derivatives_eobi_t7_v11_0.bid_ord_type = {}
+
+-- Size: Bid Ord Type
+eurex_derivatives_eobi_t7_v11_0.bid_ord_type.size = 1
+
+-- Display: Bid Ord Type
+eurex_derivatives_eobi_t7_v11_0.bid_ord_type.display = function(value)
+  if value == 1 then
+    return "Bid Ord Type: Market (1)"
+  end
+  if value == 0xFF then
+    return "Bid Ord Type: No Value"
+  end
+
+  return "Bid Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Bid Ord Type
+eurex_derivatives_eobi_t7_v11_0.bid_ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.bid_ord_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.bid_ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.bid_ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Px
+eurex_derivatives_eobi_t7_v11_0.bid_px = {}
+
+-- Size: Bid Px
+eurex_derivatives_eobi_t7_v11_0.bid_px.size = 8
+
+-- Display: Bid Px
+eurex_derivatives_eobi_t7_v11_0.bid_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Px: No Value"
+  end
+
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+eurex_derivatives_eobi_t7_v11_0.bid_px.translate = function(raw)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x80000000) then
     return 0/0
@@ -575,222 +637,202 @@ eurex_derivatives_eobi_t7_v11_0.md_entry_px.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Md Entry Px
-eurex_derivatives_eobi_t7_v11_0.md_entry_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.md_entry_px.size
+-- Dissect: Bid Px
+eurex_derivatives_eobi_t7_v11_0.bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.bid_px.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.md_entry_px.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.md_entry_px.display(raw, value, buffer, offset, packet, parent)
+  local value = eurex_derivatives_eobi_t7_v11_0.bid_px.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.bid_px.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_entry_px, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.bid_px, range, value, display)
 
   return offset + length, value
 end
 
--- Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp = {}
+-- Bid Size
+eurex_derivatives_eobi_t7_v11_0.bid_size = {}
 
--- Size: Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.size =
-  eurex_derivatives_eobi_t7_v11_0.md_entry_px.size + 
-  eurex_derivatives_eobi_t7_v11_0.md_entry_size.size + 
-  eurex_derivatives_eobi_t7_v11_0.md_entry_type.size + 
-  eurex_derivatives_eobi_t7_v11_0.pad_7.size
+-- Size: Bid Size
+eurex_derivatives_eobi_t7_v11_0.bid_size.size = 8
 
--- Display: Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.fields = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
-  local index = offset
-
-  -- Implicit Md Trade Entry Grp Comp Index
-  if md_trade_entry_grp_comp_index ~= nil then
-    local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
-    iteration:set_generated()
+-- Display: Bid Size
+eurex_derivatives_eobi_t7_v11_0.bid_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Size: No Value"
   end
 
-  -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_entry_px = eurex_derivatives_eobi_t7_v11_0.md_entry_px.dissect(buffer, index, packet, parent)
-
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_entry_size = eurex_derivatives_eobi_t7_v11_0.md_entry_size.dissect(buffer, index, packet, parent)
-
-  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
-  index, md_entry_type = eurex_derivatives_eobi_t7_v11_0.md_entry_type.dissect(buffer, index, packet, parent)
-
-  -- Pad 7: 7 Byte
-  index, pad_7 = eurex_derivatives_eobi_t7_v11_0.pad_7.dissect(buffer, index, packet, parent)
-
-  return index
+  return "Bid Size: "..value
 end
 
--- Dissect: Md Trade Entry Grp Comp
-eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.dissect = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
-  if show.md_trade_entry_grp_comp then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_trade_entry_grp_comp, buffer(offset, 0))
-    local index = eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.fields(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.fields(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
+-- Translate: Bid Size
+eurex_derivatives_eobi_t7_v11_0.bid_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
   end
+
+  return raw:tonumber()/10000
 end
 
--- No Md Entries
-eurex_derivatives_eobi_t7_v11_0.no_md_entries = {}
+-- Dissect: Bid Size
+eurex_derivatives_eobi_t7_v11_0.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.bid_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.bid_size.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.bid_size.display(raw, value, buffer, offset, packet, parent)
 
--- Size: No Md Entries
-eurex_derivatives_eobi_t7_v11_0.no_md_entries.size = 1
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.bid_size, range, value, display)
 
--- Display: No Md Entries
-eurex_derivatives_eobi_t7_v11_0.no_md_entries.display = function(value)
+  return offset + length, value
+end
+
+-- Body Len
+eurex_derivatives_eobi_t7_v11_0.body_len = {}
+
+-- Size: Body Len
+eurex_derivatives_eobi_t7_v11_0.body_len.size = 2
+
+-- Display: Body Len
+eurex_derivatives_eobi_t7_v11_0.body_len.display = function(value)
   -- Check if field has value
-  if value == 0xFF then
-    return "No Md Entries: No Value"
-  end
-
-  return "No Md Entries: "..value
-end
-
--- Dissect: No Md Entries
-eurex_derivatives_eobi_t7_v11_0.no_md_entries.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.no_md_entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.no_md_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.no_md_entries, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Origin Type
-eurex_derivatives_eobi_t7_v11_0.md_origin_type = {}
-
--- Size: Md Origin Type
-eurex_derivatives_eobi_t7_v11_0.md_origin_type.size = 1
-
--- Display: Md Origin Type
-eurex_derivatives_eobi_t7_v11_0.md_origin_type.display = function(value)
-  if value == 0 then
-    return "Md Origin Type: Book (0)"
-  end
-  if value == 1 then
-    return "Md Origin Type: Off Book (1)"
-  end
-  if value == 0xFF then
-    return "Md Origin Type: No Value"
-  end
-
-  return "Md Origin Type: Unknown("..value..")"
-end
-
--- Dissect: Md Origin Type
-eurex_derivatives_eobi_t7_v11_0.md_origin_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.md_origin_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.md_origin_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_origin_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Condition
-eurex_derivatives_eobi_t7_v11_0.trade_condition = {}
-
--- Size: Trade Condition
-eurex_derivatives_eobi_t7_v11_0.trade_condition.size = 2
-
--- Display: Trade Condition
-eurex_derivatives_eobi_t7_v11_0.trade_condition.display = function(value)
-  if value == 1 then
-    return "Trade Condition: Implied Trade (1)"
-  end
-  if value == 107 then
-    return "Trade Condition: Out Of Sequence (107)"
-  end
-  if value == 155 then
-    return "Trade Condition: Midpoint Price (155)"
-  end
-  if value == 156 then
-    return "Trade Condition: Trading On Terms Of Issue (156)"
-  end
-  if value == 596 then
-    return "Trade Condition: Special Auction (596)"
-  end
-  if value == 624 then
-    return "Trade Condition: Trade At Close (624)"
-  end
   if value == 0xFFFF then
-    return "Trade Condition: No Value"
+    return "Body Len: No Value"
   end
 
-  return "Trade Condition: Unknown("..value..")"
+  return "Body Len: "..value
 end
 
--- Dissect: Trade Condition
-eurex_derivatives_eobi_t7_v11_0.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trade_condition.size
+-- Dissect: Body Len
+eurex_derivatives_eobi_t7_v11_0.body_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.body_len.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trade_condition.display(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eobi_t7_v11_0.body_len.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trade_condition, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.body_len, range, value, display)
 
   return offset + length, value
 end
 
--- Trd Match Id
-eurex_derivatives_eobi_t7_v11_0.trd_match_id = {}
+-- Completion Indicator
+eurex_derivatives_eobi_t7_v11_0.completion_indicator = {}
 
--- Size: Trd Match Id
-eurex_derivatives_eobi_t7_v11_0.trd_match_id.size = 4
+-- Size: Completion Indicator
+eurex_derivatives_eobi_t7_v11_0.completion_indicator.size = 1
 
--- Display: Trd Match Id
-eurex_derivatives_eobi_t7_v11_0.trd_match_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Trd Match Id: No Value"
+-- Display: Completion Indicator
+eurex_derivatives_eobi_t7_v11_0.completion_indicator.display = function(value)
+  if value == 0 then
+    return "Completion Indicator: Incomplete (0)"
+  end
+  if value == 1 then
+    return "Completion Indicator: Complete (1)"
+  end
+  if value == 0xFF then
+    return "Completion Indicator: No Value"
   end
 
-  return "Trd Match Id: "..value
+  return "Completion Indicator: Unknown("..value..")"
 end
 
--- Dissect: Trd Match Id
-eurex_derivatives_eobi_t7_v11_0.trd_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trd_match_id.size
+-- Dissect: Completion Indicator
+eurex_derivatives_eobi_t7_v11_0.completion_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.completion_indicator.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trd_match_id.display(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eobi_t7_v11_0.completion_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_match_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.completion_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Trd Reg Ts Execution Time
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time = {}
+-- Cross Request Type
+eurex_derivatives_eobi_t7_v11_0.cross_request_type = {}
 
--- Size: Trd Reg Ts Execution Time
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.size = 8
+-- Size: Cross Request Type
+eurex_derivatives_eobi_t7_v11_0.cross_request_type.size = 1
 
--- Display: Trd Reg Ts Execution Time
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.display = function(value)
+-- Display: Cross Request Type
+eurex_derivatives_eobi_t7_v11_0.cross_request_type.display = function(value)
+  if value == 1 then
+    return "Cross Request Type: Cross Announcement (1)"
+  end
+  if value == 2 then
+    return "Cross Request Type: Liquidity Improvement Cross (2)"
+  end
+  if value == 0xFF then
+    return "Cross Request Type: No Value"
+  end
+
+  return "Cross Request Type: Unknown("..value..")"
+end
+
+-- Dissect: Cross Request Type
+eurex_derivatives_eobi_t7_v11_0.cross_request_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.cross_request_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.cross_request_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.cross_request_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Qty
+eurex_derivatives_eobi_t7_v11_0.display_qty = {}
+
+-- Size: Display Qty
+eurex_derivatives_eobi_t7_v11_0.display_qty.size = 8
+
+-- Display: Display Qty
+eurex_derivatives_eobi_t7_v11_0.display_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Display Qty: No Value"
+  end
+
+  return "Display Qty: "..value
+end
+
+-- Translate: Display Qty
+eurex_derivatives_eobi_t7_v11_0.display_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Display Qty
+eurex_derivatives_eobi_t7_v11_0.display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.display_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.display_qty.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.display_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+eurex_derivatives_eobi_t7_v11_0.exec_id = {}
+
+-- Size: Exec Id
+eurex_derivatives_eobi_t7_v11_0.exec_id.size = 8
+
+-- Display: Exec Id
+eurex_derivatives_eobi_t7_v11_0.exec_id.display = function(value)
   -- Check null value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Execution Time: No Value"
+    return "Exec Id: No Value"
 
   end
 
@@ -798,17 +840,398 @@ eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.display = function(val
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  return "Trd Reg Ts Execution Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect: Trd Reg Ts Execution Time
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.size
+-- Dissect: Exec Id
+eurex_derivatives_eobi_t7_v11_0.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.exec_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.display(value, buffer, offset, packet, parent)
+  local display = eurex_derivatives_eobi_t7_v11_0.exec_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_reg_ts_execution_time, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exercise Style
+eurex_derivatives_eobi_t7_v11_0.exercise_style = {}
+
+-- Size: Exercise Style
+eurex_derivatives_eobi_t7_v11_0.exercise_style.size = 1
+
+-- Display: Exercise Style
+eurex_derivatives_eobi_t7_v11_0.exercise_style.display = function(value)
+  if value == 0 then
+    return "Exercise Style: European (0)"
+  end
+  if value == 1 then
+    return "Exercise Style: American (1)"
+  end
+  if value == 0xFF then
+    return "Exercise Style: No Value"
+  end
+
+  return "Exercise Style: Unknown("..value..")"
+end
+
+-- Dissect: Exercise Style
+eurex_derivatives_eobi_t7_v11_0.exercise_style.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.exercise_style.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.exercise_style.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.exercise_style, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fast Market Indicator
+eurex_derivatives_eobi_t7_v11_0.fast_market_indicator = {}
+
+-- Size: Fast Market Indicator
+eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.size = 1
+
+-- Display: Fast Market Indicator
+eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.display = function(value)
+  if value == 0 then
+    return "Fast Market Indicator: No (0)"
+  end
+  if value == 1 then
+    return "Fast Market Indicator: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Fast Market Indicator: No Value"
+  end
+
+  return "Fast Market Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Fast Market Indicator
+eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.fast_market_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Header Length
+eurex_derivatives_eobi_t7_v11_0.header_length = {}
+
+-- Size: Header Length
+eurex_derivatives_eobi_t7_v11_0.header_length.size = 2
+
+-- Display: Header Length
+eurex_derivatives_eobi_t7_v11_0.header_length.display = function(value)
+  return "Header Length: "..value
+end
+
+-- Dissect: Header Length
+eurex_derivatives_eobi_t7_v11_0.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.header_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.header_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.header_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.hhi_indicator = {}
+
+-- Size: Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.hhi_indicator.size = 1
+
+-- Display: Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.hhi_indicator.display = function(value)
+  if value == -1 then
+    return "Hhi Indicator: No Update (-1)"
+  end
+  if value == 0x80 then
+    return "Hhi Indicator: No Value"
+  end
+
+  return "Hhi Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.hhi_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.hhi_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_derivatives_eobi_t7_v11_0.hhi_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.hhi_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Px
+eurex_derivatives_eobi_t7_v11_0.high_px = {}
+
+-- Size: High Px
+eurex_derivatives_eobi_t7_v11_0.high_px.size = 8
+
+-- Display: High Px
+eurex_derivatives_eobi_t7_v11_0.high_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "High Px: No Value"
+  end
+
+  return "High Px: "..value
+end
+
+-- Translate: High Px
+eurex_derivatives_eobi_t7_v11_0.high_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: High Px
+eurex_derivatives_eobi_t7_v11_0.high_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.high_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.high_px.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.high_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.high_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Qty
+eurex_derivatives_eobi_t7_v11_0.imbalance_qty = {}
+
+-- Size: Imbalance Qty
+eurex_derivatives_eobi_t7_v11_0.imbalance_qty.size = 8
+
+-- Display: Imbalance Qty
+eurex_derivatives_eobi_t7_v11_0.imbalance_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Imbalance Qty: No Value"
+  end
+
+  return "Imbalance Qty: "..value
+end
+
+-- Translate: Imbalance Qty
+eurex_derivatives_eobi_t7_v11_0.imbalance_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Imbalance Qty
+eurex_derivatives_eobi_t7_v11_0.imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.imbalance_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.imbalance_qty.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.imbalance_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.imbalance_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Implied Market Indicator
+eurex_derivatives_eobi_t7_v11_0.implied_market_indicator = {}
+
+-- Size: Implied Market Indicator
+eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.size = 1
+
+-- Display: Implied Market Indicator
+eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.display = function(value)
+  if value == 0 then
+    return "Implied Market Indicator: Not Implied (0)"
+  end
+  if value == 3 then
+    return "Implied Market Indicator: Implied In Out (3)"
+  end
+  if value == 0xFF then
+    return "Implied Market Indicator: No Value"
+  end
+
+  return "Implied Market Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Implied Market Indicator
+eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.implied_market_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Input Source
+eurex_derivatives_eobi_t7_v11_0.input_source = {}
+
+-- Size: Input Source
+eurex_derivatives_eobi_t7_v11_0.input_source.size = 1
+
+-- Display: Input Source
+eurex_derivatives_eobi_t7_v11_0.input_source.display = function(value)
+  if value == 1 then
+    return "Input Source: Clip Client Broker (1)"
+  end
+  if value == 0xFF then
+    return "Input Source: No Value"
+  end
+
+  return "Input Source: Unknown("..value..")"
+end
+
+-- Dissect: Input Source
+eurex_derivatives_eobi_t7_v11_0.input_source.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.input_source.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.input_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.input_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Scope Product Complex
+eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex = {}
+
+-- Size: Instrument Scope Product Complex
+eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.size = 1
+
+-- Display: Instrument Scope Product Complex
+eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.display = function(value)
+  if value == 1 then
+    return "Instrument Scope Product Complex: Simple Instrument (1)"
+  end
+  if value == 2 then
+    return "Instrument Scope Product Complex: Standard Option Strategy (2)"
+  end
+  if value == 3 then
+    return "Instrument Scope Product Complex: Non Standard Option Strategy (3)"
+  end
+  if value == 4 then
+    return "Instrument Scope Product Complex: Volatility Strategy (4)"
+  end
+  if value == 5 then
+    return "Instrument Scope Product Complex: Futures Spread (5)"
+  end
+  if value == 6 then
+    return "Instrument Scope Product Complex: Inter Product Spread (6)"
+  end
+  if value == 7 then
+    return "Instrument Scope Product Complex: Standard Futures Strategy (7)"
+  end
+  if value == 8 then
+    return "Instrument Scope Product Complex: Pack And Bundle (8)"
+  end
+  if value == 9 then
+    return "Instrument Scope Product Complex: Strip (9)"
+  end
+  if value == 10 then
+    return "Instrument Scope Product Complex: Flexible Instrument (10)"
+  end
+  if value == 11 then
+    return "Instrument Scope Product Complex: Commodity Strip (11)"
+  end
+  if value == 0xFF then
+    return "Instrument Scope Product Complex: No Value"
+  end
+
+  return "Instrument Scope Product Complex: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Scope Product Complex
+eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.instrument_scope_product_complex, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Fragment
+eurex_derivatives_eobi_t7_v11_0.last_fragment = {}
+
+-- Size: Last Fragment
+eurex_derivatives_eobi_t7_v11_0.last_fragment.size = 1
+
+-- Display: Last Fragment
+eurex_derivatives_eobi_t7_v11_0.last_fragment.display = function(value)
+  if value == 0 then
+    return "Last Fragment: N (0)"
+  end
+  if value == 1 then
+    return "Last Fragment: Y (1)"
+  end
+  if value == 0xFF then
+    return "Last Fragment: No Value"
+  end
+
+  return "Last Fragment: Unknown("..value..")"
+end
+
+-- Dissect: Last Fragment
+eurex_derivatives_eobi_t7_v11_0.last_fragment.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.last_fragment.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.last_fragment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.last_fragment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Msg Seq Num Processed
+eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed = {}
+
+-- Size: Last Msg Seq Num Processed
+eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.size = 4
+
+-- Display: Last Msg Seq Num Processed
+eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Last Msg Seq Num Processed: No Value"
+  end
+
+  return "Last Msg Seq Num Processed: "..value
+end
+
+-- Dissect: Last Msg Seq Num Processed
+eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.last_msg_seq_num_processed, range, value, display)
 
   return offset + length, value
 end
@@ -891,6 +1314,2816 @@ eurex_derivatives_eobi_t7_v11_0.last_qty.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Last Update Time
+eurex_derivatives_eobi_t7_v11_0.last_update_time = {}
+
+-- Size: Last Update Time
+eurex_derivatives_eobi_t7_v11_0.last_update_time.size = 8
+
+-- Display: Last Update Time
+eurex_derivatives_eobi_t7_v11_0.last_update_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Last Update Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Last Update Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Last Update Time
+eurex_derivatives_eobi_t7_v11_0.last_update_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.last_update_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_derivatives_eobi_t7_v11_0.last_update_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.last_update_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Price
+eurex_derivatives_eobi_t7_v11_0.leg_price = {}
+
+-- Size: Leg Price
+eurex_derivatives_eobi_t7_v11_0.leg_price.size = 8
+
+-- Display: Leg Price
+eurex_derivatives_eobi_t7_v11_0.leg_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leg Price: No Value"
+  end
+
+  return "Leg Price: "..value
+end
+
+-- Translate: Leg Price
+eurex_derivatives_eobi_t7_v11_0.leg_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Leg Price
+eurex_derivatives_eobi_t7_v11_0.leg_price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.leg_price.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Multiplier
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier = {}
+
+-- Size: Leg Ratio Multiplier
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.size = 4
+
+-- Display: Leg Ratio Multiplier
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Leg Ratio Multiplier: No Value"
+  end
+
+  return "Leg Ratio Multiplier: "..value
+end
+
+-- Dissect: Leg Ratio Multiplier
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_ratio_multiplier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty = {}
+
+-- Size: Leg Ratio Qty
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.size = 4
+
+-- Display: Leg Ratio Qty
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Leg Ratio Qty: No Value"
+  end
+
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Id
+eurex_derivatives_eobi_t7_v11_0.leg_security_id = {}
+
+-- Size: Leg Security Id
+eurex_derivatives_eobi_t7_v11_0.leg_security_id.size = 8
+
+-- Display: Leg Security Id
+eurex_derivatives_eobi_t7_v11_0.leg_security_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Leg Security Id: No Value"
+  end
+
+  return "Leg Security Id: "..value
+end
+
+-- Dissect: Leg Security Id
+eurex_derivatives_eobi_t7_v11_0.leg_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Type
+eurex_derivatives_eobi_t7_v11_0.leg_security_type = {}
+
+-- Size: Leg Security Type
+eurex_derivatives_eobi_t7_v11_0.leg_security_type.size = 1
+
+-- Display: Leg Security Type
+eurex_derivatives_eobi_t7_v11_0.leg_security_type.display = function(value)
+  if value == 1 then
+    return "Leg Security Type: Leg Security Multi Leg (1)"
+  end
+  if value == 2 then
+    return "Leg Security Type: Leg Security Underlying Leg (2)"
+  end
+  if value == 0xFF then
+    return "Leg Security Type: No Value"
+  end
+
+  return "Leg Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Leg Security Type
+eurex_derivatives_eobi_t7_v11_0.leg_security_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_security_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+eurex_derivatives_eobi_t7_v11_0.leg_side = {}
+
+-- Size: Leg Side
+eurex_derivatives_eobi_t7_v11_0.leg_side.size = 1
+
+-- Display: Leg Side
+eurex_derivatives_eobi_t7_v11_0.leg_side.display = function(value)
+  if value == 1 then
+    return "Leg Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Leg Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Leg Side: No Value"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+eurex_derivatives_eobi_t7_v11_0.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+eurex_derivatives_eobi_t7_v11_0.leg_symbol = {}
+
+-- Size: Leg Symbol
+eurex_derivatives_eobi_t7_v11_0.leg_symbol.size = 4
+
+-- Display: Leg Symbol
+eurex_derivatives_eobi_t7_v11_0.leg_symbol.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Leg Symbol: No Value"
+  end
+
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+eurex_derivatives_eobi_t7_v11_0.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.leg_symbol.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_derivatives_eobi_t7_v11_0.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Px
+eurex_derivatives_eobi_t7_v11_0.low_px = {}
+
+-- Size: Low Px
+eurex_derivatives_eobi_t7_v11_0.low_px.size = 8
+
+-- Display: Low Px
+eurex_derivatives_eobi_t7_v11_0.low_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Low Px: No Value"
+  end
+
+  return "Low Px: "..value
+end
+
+-- Translate: Low Px
+eurex_derivatives_eobi_t7_v11_0.low_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Low Px
+eurex_derivatives_eobi_t7_v11_0.low_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.low_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.low_px.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.low_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.low_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Condition
+eurex_derivatives_eobi_t7_v11_0.market_condition = {}
+
+-- Size: Market Condition
+eurex_derivatives_eobi_t7_v11_0.market_condition.size = 1
+
+-- Display: Market Condition
+eurex_derivatives_eobi_t7_v11_0.market_condition.display = function(value)
+  if value == 0 then
+    return "Market Condition: Normal (0)"
+  end
+  if value == 1 then
+    return "Market Condition: Stressed (1)"
+  end
+  if value == 0xFF then
+    return "Market Condition: No Value"
+  end
+
+  return "Market Condition: Unknown("..value..")"
+end
+
+-- Dissect: Market Condition
+eurex_derivatives_eobi_t7_v11_0.market_condition.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.market_condition.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.market_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.market_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Segment Id
+eurex_derivatives_eobi_t7_v11_0.market_segment_id = {}
+
+-- Size: Market Segment Id
+eurex_derivatives_eobi_t7_v11_0.market_segment_id.size = 4
+
+-- Display: Market Segment Id
+eurex_derivatives_eobi_t7_v11_0.market_segment_id.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Market Segment Id: No Value"
+  end
+
+  return "Market Segment Id: "..value
+end
+
+-- Dissect: Market Segment Id
+eurex_derivatives_eobi_t7_v11_0.market_segment_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.market_segment_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_derivatives_eobi_t7_v11_0.market_segment_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.market_segment_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Market Condition
+eurex_derivatives_eobi_t7_v11_0.mass_market_condition = {}
+
+-- Size: Mass Market Condition
+eurex_derivatives_eobi_t7_v11_0.mass_market_condition.size = 1
+
+-- Display: Mass Market Condition
+eurex_derivatives_eobi_t7_v11_0.mass_market_condition.display = function(value)
+  if value == 0 then
+    return "Mass Market Condition: Normal (0)"
+  end
+  if value == 1 then
+    return "Mass Market Condition: Stressed (1)"
+  end
+  if value == 0xFF then
+    return "Mass Market Condition: No Value"
+  end
+
+  return "Mass Market Condition: Unknown("..value..")"
+end
+
+-- Dissect: Mass Market Condition
+eurex_derivatives_eobi_t7_v11_0.mass_market_condition.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.mass_market_condition.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.mass_market_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.mass_market_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator = {}
+
+-- Size: Mass Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.size = 1
+
+-- Display: Mass Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.display = function(value)
+  if value == 1 then
+    return "Mass Sold Out Indicator: Sold Out (1)"
+  end
+  if value == 0xFF then
+    return "Mass Sold Out Indicator: No Value"
+  end
+
+  return "Mass Sold Out Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Mass Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.mass_sold_out_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Sub Type
+eurex_derivatives_eobi_t7_v11_0.match_sub_type = {}
+
+-- Size: Match Sub Type
+eurex_derivatives_eobi_t7_v11_0.match_sub_type.size = 1
+
+-- Display: Match Sub Type
+eurex_derivatives_eobi_t7_v11_0.match_sub_type.display = function(value)
+  if value == 1 then
+    return "Match Sub Type: Opening Auction (1)"
+  end
+  if value == 2 then
+    return "Match Sub Type: Closing Auction (2)"
+  end
+  if value == 3 then
+    return "Match Sub Type: Intraday Auction (3)"
+  end
+  if value == 4 then
+    return "Match Sub Type: Circuit Breaker Auction (4)"
+  end
+  if value == 5 then
+    return "Match Sub Type: Ipo Auction (5)"
+  end
+  if value == 0xFF then
+    return "Match Sub Type: No Value"
+  end
+
+  return "Match Sub Type: Unknown("..value..")"
+end
+
+-- Dissect: Match Sub Type
+eurex_derivatives_eobi_t7_v11_0.match_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.match_sub_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.match_sub_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.match_sub_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Type
+eurex_derivatives_eobi_t7_v11_0.match_type = {}
+
+-- Size: Match Type
+eurex_derivatives_eobi_t7_v11_0.match_type.size = 1
+
+-- Display: Match Type
+eurex_derivatives_eobi_t7_v11_0.match_type.display = function(value)
+  if value == 3 then
+    return "Match Type: Confirmed Trade Report (3)"
+  end
+  if value == 5 then
+    return "Match Type: Cross Auction (5)"
+  end
+  if value == 7 then
+    return "Match Type: Call Auction (7)"
+  end
+  if value == 13 then
+    return "Match Type: Liquidity Improvement Cross (13)"
+  end
+  if value == 14 then
+    return "Match Type: Continuous Auction (14)"
+  end
+  if value == 0xFF then
+    return "Match Type: No Value"
+  end
+
+  return "Match Type: Unknown("..value..")"
+end
+
+-- Dissect: Match Type
+eurex_derivatives_eobi_t7_v11_0.match_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.match_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.match_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.match_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+eurex_derivatives_eobi_t7_v11_0.maturity_date = {}
+
+-- Size: Maturity Date
+eurex_derivatives_eobi_t7_v11_0.maturity_date.size = 4
+
+-- Display: Maturity Date
+eurex_derivatives_eobi_t7_v11_0.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Maturity Date: No Value"
+  end
+
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+eurex_derivatives_eobi_t7_v11_0.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Px
+eurex_derivatives_eobi_t7_v11_0.md_entry_px = {}
+
+-- Size: Md Entry Px
+eurex_derivatives_eobi_t7_v11_0.md_entry_px.size = 8
+
+-- Display: Md Entry Px
+eurex_derivatives_eobi_t7_v11_0.md_entry_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Md Entry Px: No Value"
+  end
+
+  return "Md Entry Px: "..value
+end
+
+-- Translate: Md Entry Px
+eurex_derivatives_eobi_t7_v11_0.md_entry_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Md Entry Px
+eurex_derivatives_eobi_t7_v11_0.md_entry_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.md_entry_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.md_entry_px.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.md_entry_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_entry_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Size
+eurex_derivatives_eobi_t7_v11_0.md_entry_size = {}
+
+-- Size: Md Entry Size
+eurex_derivatives_eobi_t7_v11_0.md_entry_size.size = 8
+
+-- Display: Md Entry Size
+eurex_derivatives_eobi_t7_v11_0.md_entry_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Md Entry Size: No Value"
+  end
+
+  return "Md Entry Size: "..value
+end
+
+-- Translate: Md Entry Size
+eurex_derivatives_eobi_t7_v11_0.md_entry_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Md Entry Size
+eurex_derivatives_eobi_t7_v11_0.md_entry_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.md_entry_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.md_entry_size.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.md_entry_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_entry_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Type
+eurex_derivatives_eobi_t7_v11_0.md_entry_type = {}
+
+-- Size: Md Entry Type
+eurex_derivatives_eobi_t7_v11_0.md_entry_type.size = 1
+
+-- Display: Md Entry Type
+eurex_derivatives_eobi_t7_v11_0.md_entry_type.display = function(value)
+  if value == 2 then
+    return "Md Entry Type: Trade (2)"
+  end
+  if value == 4 then
+    return "Md Entry Type: Opening Price (4)"
+  end
+  if value == 5 then
+    return "Md Entry Type: Closing Price (5)"
+  end
+  if value == 7 then
+    return "Md Entry Type: High Price (7)"
+  end
+  if value == 8 then
+    return "Md Entry Type: Low Price (8)"
+  end
+  if value == 66 then
+    return "Md Entry Type: Trade Volume (66)"
+  end
+  if value == 101 then
+    return "Md Entry Type: Previous Closing Price (101)"
+  end
+  if value == 200 then
+    return "Md Entry Type: Opening Auction (200)"
+  end
+  if value == 201 then
+    return "Md Entry Type: Intraday Auction (201)"
+  end
+  if value == 202 then
+    return "Md Entry Type: Circuit Breaker Auction (202)"
+  end
+  if value == 203 then
+    return "Md Entry Type: Closing Auction (203)"
+  end
+  if value == 204 then
+    return "Md Entry Type: Ipo Auction (204)"
+  end
+  if value == 0xFF then
+    return "Md Entry Type: No Value"
+  end
+
+  return "Md Entry Type: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type
+eurex_derivatives_eobi_t7_v11_0.md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.md_entry_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.md_entry_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_entry_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Origin Type
+eurex_derivatives_eobi_t7_v11_0.md_origin_type = {}
+
+-- Size: Md Origin Type
+eurex_derivatives_eobi_t7_v11_0.md_origin_type.size = 1
+
+-- Display: Md Origin Type
+eurex_derivatives_eobi_t7_v11_0.md_origin_type.display = function(value)
+  if value == 0 then
+    return "Md Origin Type: Book (0)"
+  end
+  if value == 1 then
+    return "Md Origin Type: Off Book (1)"
+  end
+  if value == 0xFF then
+    return "Md Origin Type: No Value"
+  end
+
+  return "Md Origin Type: Unknown("..value..")"
+end
+
+-- Dissect: Md Origin Type
+eurex_derivatives_eobi_t7_v11_0.md_origin_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.md_origin_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.md_origin_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_origin_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Seq Num
+eurex_derivatives_eobi_t7_v11_0.msg_seq_num = {}
+
+-- Size: Msg Seq Num
+eurex_derivatives_eobi_t7_v11_0.msg_seq_num.size = 4
+
+-- Display: Msg Seq Num
+eurex_derivatives_eobi_t7_v11_0.msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Msg Seq Num: No Value"
+  end
+
+  return "Msg Seq Num: "..value
+end
+
+-- Dissect: Msg Seq Num
+eurex_derivatives_eobi_t7_v11_0.msg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.msg_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.msg_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.msg_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Multi Leg Price Model
+eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model = {}
+
+-- Size: Multi Leg Price Model
+eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.size = 1
+
+-- Display: Multi Leg Price Model
+eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.display = function(value)
+  if value == 0 then
+    return "Multi Leg Price Model: Standard (0)"
+  end
+  if value == 1 then
+    return "Multi Leg Price Model: User Defined (1)"
+  end
+  if value == 0xFF then
+    return "Multi Leg Price Model: No Value"
+  end
+
+  return "Multi Leg Price Model: Unknown("..value..")"
+end
+
+-- Dissect: Multi Leg Price Model
+eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.multi_leg_price_model, range, value, display)
+
+  return offset + length, value
+end
+
+-- Multi Leg Reporting Type
+eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type = {}
+
+-- Size: Multi Leg Reporting Type
+eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.size = 1
+
+-- Display: Multi Leg Reporting Type
+eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.display = function(value)
+  if value == 1 then
+    return "Multi Leg Reporting Type: Single Security (1)"
+  end
+  if value == 2 then
+    return "Multi Leg Reporting Type: Individual Leg Of A Multi Leg Security (2)"
+  end
+  if value == 3 then
+    return "Multi Leg Reporting Type: Multi Leg Security (3)"
+  end
+  if value == 0xFF then
+    return "Multi Leg Reporting Type: No Value"
+  end
+
+  return "Multi Leg Reporting Type: Unknown("..value..")"
+end
+
+-- Dissect: Multi Leg Reporting Type
+eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.multi_leg_reporting_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Legs
+eurex_derivatives_eobi_t7_v11_0.no_legs = {}
+
+-- Size: No Legs
+eurex_derivatives_eobi_t7_v11_0.no_legs.size = 1
+
+-- Display: No Legs
+eurex_derivatives_eobi_t7_v11_0.no_legs.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Legs: No Value"
+  end
+
+  return "No Legs: "..value
+end
+
+-- Dissect: No Legs
+eurex_derivatives_eobi_t7_v11_0.no_legs.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.no_legs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.no_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.no_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Md Entries
+eurex_derivatives_eobi_t7_v11_0.no_md_entries = {}
+
+-- Size: No Md Entries
+eurex_derivatives_eobi_t7_v11_0.no_md_entries.size = 1
+
+-- Display: No Md Entries
+eurex_derivatives_eobi_t7_v11_0.no_md_entries.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Md Entries: No Value"
+  end
+
+  return "No Md Entries: "..value
+end
+
+-- Dissect: No Md Entries
+eurex_derivatives_eobi_t7_v11_0.no_md_entries.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.no_md_entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.no_md_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.no_md_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Related Sym
+eurex_derivatives_eobi_t7_v11_0.no_related_sym = {}
+
+-- Size: No Related Sym
+eurex_derivatives_eobi_t7_v11_0.no_related_sym.size = 1
+
+-- Display: No Related Sym
+eurex_derivatives_eobi_t7_v11_0.no_related_sym.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Related Sym: No Value"
+  end
+
+  return "No Related Sym: "..value
+end
+
+-- Dissect: No Related Sym
+eurex_derivatives_eobi_t7_v11_0.no_related_sym.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.no_related_sym.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.no_related_sym.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.no_related_sym, range, value, display)
+
+  return offset + length, value
+end
+
+-- Non Disclosed Trade Volume
+eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume = {}
+
+-- Size: Non Disclosed Trade Volume
+eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.size = 8
+
+-- Display: Non Disclosed Trade Volume
+eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Non Disclosed Trade Volume: No Value"
+  end
+
+  return "Non Disclosed Trade Volume: "..value
+end
+
+-- Translate: Non Disclosed Trade Volume
+eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Non Disclosed Trade Volume
+eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.non_disclosed_trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Buy Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders = {}
+
+-- Size: Number Of Buy Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.size = 2
+
+-- Display: Number Of Buy Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Number Of Buy Orders: No Value"
+  end
+
+  return "Number Of Buy Orders: "..value
+end
+
+-- Dissect: Number Of Buy Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.number_of_buy_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Sell Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders = {}
+
+-- Size: Number Of Sell Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.size = 2
+
+-- Display: Number Of Sell Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Number Of Sell Orders: No Value"
+  end
+
+  return "Number Of Sell Orders: "..value
+end
+
+-- Dissect: Number Of Sell Orders
+eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.number_of_sell_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Ord Type
+eurex_derivatives_eobi_t7_v11_0.offer_ord_type = {}
+
+-- Size: Offer Ord Type
+eurex_derivatives_eobi_t7_v11_0.offer_ord_type.size = 1
+
+-- Display: Offer Ord Type
+eurex_derivatives_eobi_t7_v11_0.offer_ord_type.display = function(value)
+  if value == 1 then
+    return "Offer Ord Type: Market (1)"
+  end
+  if value == 0xFF then
+    return "Offer Ord Type: No Value"
+  end
+
+  return "Offer Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Offer Ord Type
+eurex_derivatives_eobi_t7_v11_0.offer_ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.offer_ord_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.offer_ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.offer_ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Px
+eurex_derivatives_eobi_t7_v11_0.offer_px = {}
+
+-- Size: Offer Px
+eurex_derivatives_eobi_t7_v11_0.offer_px.size = 8
+
+-- Display: Offer Px
+eurex_derivatives_eobi_t7_v11_0.offer_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Px: No Value"
+  end
+
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+eurex_derivatives_eobi_t7_v11_0.offer_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Offer Px
+eurex_derivatives_eobi_t7_v11_0.offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.offer_px.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.offer_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size
+eurex_derivatives_eobi_t7_v11_0.offer_size = {}
+
+-- Size: Offer Size
+eurex_derivatives_eobi_t7_v11_0.offer_size.size = 8
+
+-- Display: Offer Size
+eurex_derivatives_eobi_t7_v11_0.offer_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Size: No Value"
+  end
+
+  return "Offer Size: "..value
+end
+
+-- Translate: Offer Size
+eurex_derivatives_eobi_t7_v11_0.offer_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Offer Size
+eurex_derivatives_eobi_t7_v11_0.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.offer_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.offer_size.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.offer_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opt Attribute
+eurex_derivatives_eobi_t7_v11_0.opt_attribute = {}
+
+-- Size: Opt Attribute
+eurex_derivatives_eobi_t7_v11_0.opt_attribute.size = 4
+
+-- Display: Opt Attribute
+eurex_derivatives_eobi_t7_v11_0.opt_attribute.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Opt Attribute: No Value"
+  end
+
+  return "Opt Attribute: "..value
+end
+
+-- Dissect: Opt Attribute
+eurex_derivatives_eobi_t7_v11_0.opt_attribute.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.opt_attribute.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.opt_attribute.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.opt_attribute, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Type
+eurex_derivatives_eobi_t7_v11_0.ord_type = {}
+
+-- Size: Ord Type
+eurex_derivatives_eobi_t7_v11_0.ord_type.size = 1
+
+-- Display: Ord Type
+eurex_derivatives_eobi_t7_v11_0.ord_type.display = function(value)
+  if value == 1 then
+    return "Ord Type: Market (1)"
+  end
+  if value == 0xFF then
+    return "Ord Type: No Value"
+  end
+
+  return "Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type
+eurex_derivatives_eobi_t7_v11_0.ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.ord_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Id
+eurex_derivatives_eobi_t7_v11_0.packet_id = {}
+
+-- Size: Packet Id
+eurex_derivatives_eobi_t7_v11_0.packet_id.size = 2
+
+-- Display: Packet Id
+eurex_derivatives_eobi_t7_v11_0.packet_id.display = function(value)
+  if value == 13000 then
+    return "Packet Id: Packet Id"
+  end
+
+  return "Packet Id: Unknown("..value..")"
+end
+
+-- Dissect: Packet Id
+eurex_derivatives_eobi_t7_v11_0.packet_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.packet_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.packet_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.packet_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Sequence Number
+eurex_derivatives_eobi_t7_v11_0.packet_sequence_number = {}
+
+-- Size: Packet Sequence Number
+eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.size = 4
+
+-- Display: Packet Sequence Number
+eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
+end
+
+-- Dissect: Packet Sequence Number
+eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.packet_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 1
+eurex_derivatives_eobi_t7_v11_0.pad_1 = {}
+
+-- Size: Pad 1
+eurex_derivatives_eobi_t7_v11_0.pad_1.size = 1
+
+-- Display: Pad 1
+eurex_derivatives_eobi_t7_v11_0.pad_1.display = function(value)
+  return "Pad 1: "..value
+end
+
+-- Dissect: Pad 1
+eurex_derivatives_eobi_t7_v11_0.pad_1.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 2
+eurex_derivatives_eobi_t7_v11_0.pad_2 = {}
+
+-- Size: Pad 2
+eurex_derivatives_eobi_t7_v11_0.pad_2.size = 2
+
+-- Display: Pad 2
+eurex_derivatives_eobi_t7_v11_0.pad_2.display = function(value)
+  return "Pad 2: "..value
+end
+
+-- Dissect: Pad 2
+eurex_derivatives_eobi_t7_v11_0.pad_2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 3
+eurex_derivatives_eobi_t7_v11_0.pad_3 = {}
+
+-- Size: Pad 3
+eurex_derivatives_eobi_t7_v11_0.pad_3.size = 3
+
+-- Display: Pad 3
+eurex_derivatives_eobi_t7_v11_0.pad_3.display = function(value)
+  return "Pad 3: "..value
+end
+
+-- Dissect: Pad 3
+eurex_derivatives_eobi_t7_v11_0.pad_3.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 4
+eurex_derivatives_eobi_t7_v11_0.pad_4 = {}
+
+-- Size: Pad 4
+eurex_derivatives_eobi_t7_v11_0.pad_4.size = 4
+
+-- Display: Pad 4
+eurex_derivatives_eobi_t7_v11_0.pad_4.display = function(value)
+  return "Pad 4: "..value
+end
+
+-- Dissect: Pad 4
+eurex_derivatives_eobi_t7_v11_0.pad_4.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 5
+eurex_derivatives_eobi_t7_v11_0.pad_5 = {}
+
+-- Size: Pad 5
+eurex_derivatives_eobi_t7_v11_0.pad_5.size = 5
+
+-- Display: Pad 5
+eurex_derivatives_eobi_t7_v11_0.pad_5.display = function(value)
+  return "Pad 5: "..value
+end
+
+-- Dissect: Pad 5
+eurex_derivatives_eobi_t7_v11_0.pad_5.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_5.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_5.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 6
+eurex_derivatives_eobi_t7_v11_0.pad_6 = {}
+
+-- Size: Pad 6
+eurex_derivatives_eobi_t7_v11_0.pad_6.size = 6
+
+-- Display: Pad 6
+eurex_derivatives_eobi_t7_v11_0.pad_6.display = function(value)
+  return "Pad 6: "..value
+end
+
+-- Dissect: Pad 6
+eurex_derivatives_eobi_t7_v11_0.pad_6.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_6.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 7
+eurex_derivatives_eobi_t7_v11_0.pad_7 = {}
+
+-- Size: Pad 7
+eurex_derivatives_eobi_t7_v11_0.pad_7.size = 7
+
+-- Display: Pad 7
+eurex_derivatives_eobi_t7_v11_0.pad_7.display = function(value)
+  return "Pad 7: "..value
+end
+
+-- Dissect: Pad 7
+eurex_derivatives_eobi_t7_v11_0.pad_7.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.pad_7.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_derivatives_eobi_t7_v11_0.pad_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Partition Id
+eurex_derivatives_eobi_t7_v11_0.partition_id = {}
+
+-- Size: Partition Id
+eurex_derivatives_eobi_t7_v11_0.partition_id.size = 1
+
+-- Display: Partition Id
+eurex_derivatives_eobi_t7_v11_0.partition_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+eurex_derivatives_eobi_t7_v11_0.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.partition_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Potential Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event = {}
+
+-- Size: Potential Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.size = 1
+
+-- Display: Potential Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.display = function(value)
+  if value == 0 then
+    return "Potential Security Trading Event: None (0)"
+  end
+  if value == 10 then
+    return "Potential Security Trading Event: Price Volatility Auction Is Extended (10)"
+  end
+  if value == 0xFF then
+    return "Potential Security Trading Event: No Value"
+  end
+
+  return "Potential Security Trading Event: Unknown("..value..")"
+end
+
+-- Dissect: Potential Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.potential_security_trading_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Display Qty
+eurex_derivatives_eobi_t7_v11_0.prev_display_qty = {}
+
+-- Size: Prev Display Qty
+eurex_derivatives_eobi_t7_v11_0.prev_display_qty.size = 8
+
+-- Display: Prev Display Qty
+eurex_derivatives_eobi_t7_v11_0.prev_display_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Prev Display Qty: No Value"
+  end
+
+  return "Prev Display Qty: "..value
+end
+
+-- Translate: Prev Display Qty
+eurex_derivatives_eobi_t7_v11_0.prev_display_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Prev Display Qty
+eurex_derivatives_eobi_t7_v11_0.prev_display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.prev_display_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.prev_display_qty.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.prev_display_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.prev_display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Price
+eurex_derivatives_eobi_t7_v11_0.prev_price = {}
+
+-- Size: Prev Price
+eurex_derivatives_eobi_t7_v11_0.prev_price.size = 8
+
+-- Display: Prev Price
+eurex_derivatives_eobi_t7_v11_0.prev_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Prev Price: No Value"
+  end
+
+  return "Prev Price: "..value
+end
+
+-- Translate: Prev Price
+eurex_derivatives_eobi_t7_v11_0.prev_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Prev Price
+eurex_derivatives_eobi_t7_v11_0.prev_price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.prev_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.prev_price.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.prev_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.prev_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Price Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator = {}
+
+-- Size: Prev Price Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.size = 1
+
+-- Display: Prev Price Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.display = function(value)
+  if value == -1 then
+    return "Prev Price Hhi Indicator: No Update (-1)"
+  end
+  if value == 0x80 then
+    return "Prev Price Hhi Indicator: No Value"
+  end
+
+  return "Prev Price Hhi Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Prev Price Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.prev_price_hhi_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+eurex_derivatives_eobi_t7_v11_0.price = {}
+
+-- Size: Price
+eurex_derivatives_eobi_t7_v11_0.price.size = 8
+
+-- Display: Price
+eurex_derivatives_eobi_t7_v11_0.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
+  return "Price: "..value
+end
+
+-- Translate: Price
+eurex_derivatives_eobi_t7_v11_0.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price
+eurex_derivatives_eobi_t7_v11_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.price.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Complex
+eurex_derivatives_eobi_t7_v11_0.product_complex = {}
+
+-- Size: Product Complex
+eurex_derivatives_eobi_t7_v11_0.product_complex.size = 1
+
+-- Display: Product Complex
+eurex_derivatives_eobi_t7_v11_0.product_complex.display = function(value)
+  if value == 1 then
+    return "Product Complex: Simple Instrument (1)"
+  end
+  if value == 2 then
+    return "Product Complex: Standard Option Strategy (2)"
+  end
+  if value == 3 then
+    return "Product Complex: Non Standard Option Strategy (3)"
+  end
+  if value == 4 then
+    return "Product Complex: Volatility Strategy (4)"
+  end
+  if value == 5 then
+    return "Product Complex: Futures Spread (5)"
+  end
+  if value == 6 then
+    return "Product Complex: Inter Product Spread (6)"
+  end
+  if value == 7 then
+    return "Product Complex: Standard Futures Strategy (7)"
+  end
+  if value == 8 then
+    return "Product Complex: Pack And Bundle (8)"
+  end
+  if value == 9 then
+    return "Product Complex: Strip (9)"
+  end
+  if value == 10 then
+    return "Product Complex: Flexible Instrument (10)"
+  end
+  if value == 11 then
+    return "Product Complex: Commodity Strip (11)"
+  end
+  if value == 0xFF then
+    return "Product Complex: No Value"
+  end
+
+  return "Product Complex: Unknown("..value..")"
+end
+
+-- Dissect: Product Complex
+eurex_derivatives_eobi_t7_v11_0.product_complex.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.product_complex.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.product_complex.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.product_complex, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+eurex_derivatives_eobi_t7_v11_0.put_or_call = {}
+
+-- Size: Put Or Call
+eurex_derivatives_eobi_t7_v11_0.put_or_call.size = 1
+
+-- Display: Put Or Call
+eurex_derivatives_eobi_t7_v11_0.put_or_call.display = function(value)
+  if value == 0 then
+    return "Put Or Call: Put (0)"
+  end
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+  if value == 0xFF then
+    return "Put Or Call: No Value"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+eurex_derivatives_eobi_t7_v11_0.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Time
+eurex_derivatives_eobi_t7_v11_0.request_time = {}
+
+-- Size: Request Time
+eurex_derivatives_eobi_t7_v11_0.request_time.size = 8
+
+-- Display: Request Time
+eurex_derivatives_eobi_t7_v11_0.request_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Request Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Request Time
+eurex_derivatives_eobi_t7_v11_0.request_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.request_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_derivatives_eobi_t7_v11_0.request_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.request_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Resting Cxl Qty
+eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty = {}
+
+-- Size: Resting Cxl Qty
+eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.size = 8
+
+-- Display: Resting Cxl Qty
+eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Resting Cxl Qty: No Value"
+  end
+
+  return "Resting Cxl Qty: "..value
+end
+
+-- Translate: Resting Cxl Qty
+eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Resting Cxl Qty
+eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.resting_cxl_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Resting Hidden Qty
+eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty = {}
+
+-- Size: Resting Hidden Qty
+eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.size = 8
+
+-- Display: Resting Hidden Qty
+eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Resting Hidden Qty: No Value"
+  end
+
+  return "Resting Hidden Qty: "..value
+end
+
+-- Translate: Resting Hidden Qty
+eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Resting Hidden Qty
+eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.resting_hidden_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Desc
+eurex_derivatives_eobi_t7_v11_0.security_desc = {}
+
+-- Size: Security Desc
+eurex_derivatives_eobi_t7_v11_0.security_desc.size = 40
+
+-- Display: Security Desc
+eurex_derivatives_eobi_t7_v11_0.security_desc.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Desc: No Value"
+  end
+
+  return "Security Desc: "..value
+end
+
+-- Dissect: Security Desc
+eurex_derivatives_eobi_t7_v11_0.security_desc.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_desc.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_derivatives_eobi_t7_v11_0.security_desc.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_desc, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+eurex_derivatives_eobi_t7_v11_0.security_id = {}
+
+-- Size: Security Id
+eurex_derivatives_eobi_t7_v11_0.security_id.size = 8
+
+-- Display: Security Id
+eurex_derivatives_eobi_t7_v11_0.security_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Security Id: No Value"
+  end
+
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+eurex_derivatives_eobi_t7_v11_0.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_status = {}
+
+-- Size: Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_status.size = 1
+
+-- Display: Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_status.display = function(value)
+  if value == 1 then
+    return "Security Mass Status: Active (1)"
+  end
+  if value == 2 then
+    return "Security Mass Status: Inactive (2)"
+  end
+  if value == 4 then
+    return "Security Mass Status: Expired (4)"
+  end
+  if value == 6 then
+    return "Security Mass Status: Knocked Out (6)"
+  end
+  if value == 7 then
+    return "Security Mass Status: Knock Out Revoked (7)"
+  end
+  if value == 9 then
+    return "Security Mass Status: Suspended (9)"
+  end
+  if value == 11 then
+    return "Security Mass Status: Pending Deletion (11)"
+  end
+  if value == 12 then
+    return "Security Mass Status: Knocked Out And Suspended (12)"
+  end
+  if value == 0xFF then
+    return "Security Mass Status: No Value"
+  end
+
+  return "Security Mass Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_mass_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_mass_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_mass_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Mass Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event = {}
+
+-- Size: Security Mass Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.size = 1
+
+-- Display: Security Mass Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.display = function(value)
+  if value == 10 then
+    return "Security Mass Trading Event: Price Volatility Auction Is Extended (10)"
+  end
+  if value == 11 then
+    return "Security Mass Trading Event: Price Volatility Auction Is Extended Again (11)"
+  end
+  if value == 0xFF then
+    return "Security Mass Trading Event: No Value"
+  end
+
+  return "Security Mass Trading Event: Unknown("..value..")"
+end
+
+-- Dissect: Security Mass Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_mass_trading_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Mass Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status = {}
+
+-- Size: Security Mass Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.size = 1
+
+-- Display: Security Mass Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.display = function(value)
+  if value == 2 then
+    return "Security Mass Trading Status: Trading Halt (2)"
+  end
+  if value == 7 then
+    return "Security Mass Trading Status: Market Imbalance Buy (7)"
+  end
+  if value == 8 then
+    return "Security Mass Trading Status: Market Imbalance Sell (8)"
+  end
+  if value == 200 then
+    return "Security Mass Trading Status: Closed (200)"
+  end
+  if value == 201 then
+    return "Security Mass Trading Status: Restricted (201)"
+  end
+  if value == 202 then
+    return "Security Mass Trading Status: Book (202)"
+  end
+  if value == 203 then
+    return "Security Mass Trading Status: Continuous (203)"
+  end
+  if value == 204 then
+    return "Security Mass Trading Status: Opening Auction (204)"
+  end
+  if value == 205 then
+    return "Security Mass Trading Status: Opening Auction Freeze (205)"
+  end
+  if value == 206 then
+    return "Security Mass Trading Status: Intraday Auction (206)"
+  end
+  if value == 207 then
+    return "Security Mass Trading Status: Intraday Auction Freeze (207)"
+  end
+  if value == 208 then
+    return "Security Mass Trading Status: Circuit Breaker Auction (208)"
+  end
+  if value == 209 then
+    return "Security Mass Trading Status: Circuit Breaker Auction Freeze (209)"
+  end
+  if value == 210 then
+    return "Security Mass Trading Status: Closing Auction (210)"
+  end
+  if value == 211 then
+    return "Security Mass Trading Status: Closing Auction Freeze (211)"
+  end
+  if value == 212 then
+    return "Security Mass Trading Status: Ipo Auction (212)"
+  end
+  if value == 213 then
+    return "Security Mass Trading Status: Ipo Auction Freeze (213)"
+  end
+  if value == 214 then
+    return "Security Mass Trading Status: Pre Call (214)"
+  end
+  if value == 215 then
+    return "Security Mass Trading Status: Call (215)"
+  end
+  if value == 216 then
+    return "Security Mass Trading Status: Freeze (216)"
+  end
+  if value == 217 then
+    return "Security Mass Trading Status: Trade At Close (217)"
+  end
+  if value == 0xFF then
+    return "Security Mass Trading Status: No Value"
+  end
+
+  return "Security Mass Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Mass Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_mass_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+eurex_derivatives_eobi_t7_v11_0.security_status = {}
+
+-- Size: Security Status
+eurex_derivatives_eobi_t7_v11_0.security_status.size = 1
+
+-- Display: Security Status
+eurex_derivatives_eobi_t7_v11_0.security_status.display = function(value)
+  if value == 1 then
+    return "Security Status: Active (1)"
+  end
+  if value == 2 then
+    return "Security Status: Inactive (2)"
+  end
+  if value == 4 then
+    return "Security Status: Expired (4)"
+  end
+  if value == 6 then
+    return "Security Status: Knocked Out (6)"
+  end
+  if value == 7 then
+    return "Security Status: Knock Out Revoked (7)"
+  end
+  if value == 9 then
+    return "Security Status: Suspended (9)"
+  end
+  if value == 11 then
+    return "Security Status: Pending Deletion (11)"
+  end
+  if value == 12 then
+    return "Security Status: Knocked Out And Suspended (12)"
+  end
+  if value == 0xFF then
+    return "Security Status: No Value"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+eurex_derivatives_eobi_t7_v11_0.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Sub Type
+eurex_derivatives_eobi_t7_v11_0.security_sub_type = {}
+
+-- Size: Security Sub Type
+eurex_derivatives_eobi_t7_v11_0.security_sub_type.size = 4
+
+-- Display: Security Sub Type
+eurex_derivatives_eobi_t7_v11_0.security_sub_type.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Security Sub Type: No Value"
+  end
+
+  return "Security Sub Type: "..value
+end
+
+-- Dissect: Security Sub Type
+eurex_derivatives_eobi_t7_v11_0.security_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_sub_type.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_sub_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_sub_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_trading_event = {}
+
+-- Size: Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_trading_event.size = 1
+
+-- Display: Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_trading_event.display = function(value)
+  if value == 10 then
+    return "Security Trading Event: Price Volatility Auction Is Extended (10)"
+  end
+  if value == 11 then
+    return "Security Trading Event: Price Volatility Auction Is Extended Again (11)"
+  end
+  if value == 0xFF then
+    return "Security Trading Event: No Value"
+  end
+
+  return "Security Trading Event: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Event
+eurex_derivatives_eobi_t7_v11_0.security_trading_event.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_trading_event.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_trading_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_trading_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_trading_status = {}
+
+-- Size: Security Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_trading_status.size = 1
+
+-- Display: Security Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_trading_status.display = function(value)
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 7 then
+    return "Security Trading Status: Market Imbalance Buy (7)"
+  end
+  if value == 8 then
+    return "Security Trading Status: Market Imbalance Sell (8)"
+  end
+  if value == 200 then
+    return "Security Trading Status: Closed (200)"
+  end
+  if value == 201 then
+    return "Security Trading Status: Restricted (201)"
+  end
+  if value == 202 then
+    return "Security Trading Status: Book (202)"
+  end
+  if value == 203 then
+    return "Security Trading Status: Continuous (203)"
+  end
+  if value == 204 then
+    return "Security Trading Status: Opening Auction (204)"
+  end
+  if value == 205 then
+    return "Security Trading Status: Opening Auction Freeze (205)"
+  end
+  if value == 206 then
+    return "Security Trading Status: Intraday Auction (206)"
+  end
+  if value == 207 then
+    return "Security Trading Status: Intraday Auction Freeze (207)"
+  end
+  if value == 208 then
+    return "Security Trading Status: Circuit Breaker Auction (208)"
+  end
+  if value == 209 then
+    return "Security Trading Status: Circuit Breaker Auction Freeze (209)"
+  end
+  if value == 210 then
+    return "Security Trading Status: Closing Auction (210)"
+  end
+  if value == 211 then
+    return "Security Trading Status: Closing Auction Freeze (211)"
+  end
+  if value == 212 then
+    return "Security Trading Status: Ipo Auction (212)"
+  end
+  if value == 213 then
+    return "Security Trading Status: Ipo Auction Freeze (213)"
+  end
+  if value == 214 then
+    return "Security Trading Status: Pre Call (214)"
+  end
+  if value == 215 then
+    return "Security Trading Status: Call (215)"
+  end
+  if value == 216 then
+    return "Security Trading Status: Freeze (216)"
+  end
+  if value == 217 then
+    return "Security Trading Status: Trade At Close (217)"
+  end
+  if value == 0xFF then
+    return "Security Trading Status: No Value"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+eurex_derivatives_eobi_t7_v11_0.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+eurex_derivatives_eobi_t7_v11_0.security_type = {}
+
+-- Size: Security Type
+eurex_derivatives_eobi_t7_v11_0.security_type.size = 1
+
+-- Display: Security Type
+eurex_derivatives_eobi_t7_v11_0.security_type.display = function(value)
+  if value == 1 then
+    return "Security Type: Opt (1)"
+  end
+  if value == 2 then
+    return "Security Type: Fut (2)"
+  end
+  if value == 3 then
+    return "Security Type: Mleg (3)"
+  end
+  if value == 0xFF then
+    return "Security Type: No Value"
+  end
+
+  return "Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Type
+eurex_derivatives_eobi_t7_v11_0.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.security_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settl Method
+eurex_derivatives_eobi_t7_v11_0.settl_method = {}
+
+-- Size: Settl Method
+eurex_derivatives_eobi_t7_v11_0.settl_method.size = 1
+
+-- Display: Settl Method
+eurex_derivatives_eobi_t7_v11_0.settl_method.display = function(value)
+  if value == 0 then
+    return "Settl Method: Cash (0)"
+  end
+  if value == 1 then
+    return "Settl Method: Physical (1)"
+  end
+  if value == 0xFF then
+    return "Settl Method: No Value"
+  end
+
+  return "Settl Method: Unknown("..value..")"
+end
+
+-- Dissect: Settl Method
+eurex_derivatives_eobi_t7_v11_0.settl_method.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.settl_method.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.settl_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.settl_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+eurex_derivatives_eobi_t7_v11_0.side = {}
+
+-- Size: Side
+eurex_derivatives_eobi_t7_v11_0.side.size = 1
+
+-- Display: Side
+eurex_derivatives_eobi_t7_v11_0.side.display = function(value)
+  if value == 1 then
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Side: No Value"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+eurex_derivatives_eobi_t7_v11_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.sold_out_indicator = {}
+
+-- Size: Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.size = 1
+
+-- Display: Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.display = function(value)
+  if value == 1 then
+    return "Sold Out Indicator: Sold Out (1)"
+  end
+  if value == 0xFF then
+    return "Sold Out Indicator: No Value"
+  end
+
+  return "Sold Out Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Sold Out Indicator
+eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.sold_out_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+eurex_derivatives_eobi_t7_v11_0.strike_price = {}
+
+-- Size: Strike Price
+eurex_derivatives_eobi_t7_v11_0.strike_price.size = 8
+
+-- Display: Strike Price
+eurex_derivatives_eobi_t7_v11_0.strike_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Strike Price: No Value"
+  end
+
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+eurex_derivatives_eobi_t7_v11_0.strike_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Strike Price
+eurex_derivatives_eobi_t7_v11_0.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_derivatives_eobi_t7_v11_0.strike_price.translate(raw)
+  local display = eurex_derivatives_eobi_t7_v11_0.strike_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+eurex_derivatives_eobi_t7_v11_0.template_id = {}
+
+-- Size: Template Id
+eurex_derivatives_eobi_t7_v11_0.template_id.size = 2
+
+-- Display: Template Id
+eurex_derivatives_eobi_t7_v11_0.template_id.display = function(value)
+  if value == 0xFFFF then
+    return "Template Id: No Value"
+  end
+  if value == 13400 then
+    return "Template Id: Add Complex Instrument (13400)"
+  end
+  if value == 13401 then
+    return "Template Id: Add Flexible Instrument (13401)"
+  end
+  if value == 13500 then
+    return "Template Id: Auction Bbo (13500)"
+  end
+  if value == 13501 then
+    return "Template Id: Auction Clearing Price (13501)"
+  end
+  if value == 13502 then
+    return "Template Id: Cross Request (13502)"
+  end
+  if value == 13202 then
+    return "Template Id: Execution Summary (13202)"
+  end
+  if value == 13104 then
+    return "Template Id: Full Order Execution (13104)"
+  end
+  if value == 13001 then
+    return "Template Id: Heartbeat (13001)"
+  end
+  if value == 13301 then
+    return "Template Id: Instrument State Change (13301)"
+  end
+  if value == 13601 then
+    return "Template Id: Instrument Summary (13601)"
+  end
+  if value == 13302 then
+    return "Template Id: Mass Instrument State Change (13302)"
+  end
+  if value == 13100 then
+    return "Template Id: Order Add (13100)"
+  end
+  if value == 13102 then
+    return "Template Id: Order Delete (13102)"
+  end
+  if value == 13103 then
+    return "Template Id: Order Mass Delete (13103)"
+  end
+  if value == 13101 then
+    return "Template Id: Order Modify (13101)"
+  end
+  if value == 13106 then
+    return "Template Id: Order Modify Same Prio (13106)"
+  end
+  if value == 13000 then
+    return "Template Id: Packet Header (13000)"
+  end
+  if value == 13105 then
+    return "Template Id: Partial Order Execution (13105)"
+  end
+  if value == 13300 then
+    return "Template Id: Product State Change (13300)"
+  end
+  if value == 13600 then
+    return "Template Id: Product Summary (13600)"
+  end
+  if value == 13503 then
+    return "Template Id: Quote Request (13503)"
+  end
+  if value == 13602 then
+    return "Template Id: Snapshot Order (13602)"
+  end
+  if value == 13203 then
+    return "Template Id: Tes Trade Report (13203)"
+  end
+  if value == 13504 then
+    return "Template Id: Top Of Book (13504)"
+  end
+  if value == 13201 then
+    return "Template Id: Trade Report (13201)"
+  end
+  if value == 13200 then
+    return "Template Id: Trade Reversal (13200)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+eurex_derivatives_eobi_t7_v11_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tes Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status = {}
+
+-- Size: Tes Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.size = 1
+
+-- Display: Tes Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.display = function(value)
+  if value == 1 then
+    return "Tes Security Mass Status: Active (1)"
+  end
+  if value == 2 then
+    return "Tes Security Mass Status: Inactive (2)"
+  end
+  if value == 4 then
+    return "Tes Security Mass Status: Expired (4)"
+  end
+  if value == 9 then
+    return "Tes Security Mass Status: Suspended (9)"
+  end
+  if value == 0xFF then
+    return "Tes Security Mass Status: No Value"
+  end
+
+  return "Tes Security Mass Status: Unknown("..value..")"
+end
+
+-- Dissect: Tes Security Mass Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tes_security_mass_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tes Security Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_status = {}
+
+-- Size: Tes Security Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_status.size = 1
+
+-- Display: Tes Security Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_status.display = function(value)
+  if value == 1 then
+    return "Tes Security Status: Active (1)"
+  end
+  if value == 2 then
+    return "Tes Security Status: Inactive (2)"
+  end
+  if value == 4 then
+    return "Tes Security Status: Expired (4)"
+  end
+  if value == 9 then
+    return "Tes Security Status: Suspended (9)"
+  end
+  if value == 0xFF then
+    return "Tes Security Status: No Value"
+  end
+
+  return "Tes Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Tes Security Status
+eurex_derivatives_eobi_t7_v11_0.tes_security_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.tes_security_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.tes_security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tes_security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tes Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status = {}
+
+-- Size: Tes Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.size = 1
+
+-- Display: Tes Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.display = function(value)
+  if value == 1 then
+    return "Tes Trad Ses Status: Halted (1)"
+  end
+  if value == 2 then
+    return "Tes Trad Ses Status: Open (2)"
+  end
+  if value == 3 then
+    return "Tes Trad Ses Status: Closed (3)"
+  end
+  if value == 5 then
+    return "Tes Trad Ses Status: Pre Close (5)"
+  end
+  if value == 0xFF then
+    return "Tes Trad Ses Status: No Value"
+  end
+
+  return "Tes Trad Ses Status: Unknown("..value..")"
+end
+
+-- Dissect: Tes Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tes_trad_ses_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tot No Orders
+eurex_derivatives_eobi_t7_v11_0.tot_no_orders = {}
+
+-- Size: Tot No Orders
+eurex_derivatives_eobi_t7_v11_0.tot_no_orders.size = 2
+
+-- Display: Tot No Orders
+eurex_derivatives_eobi_t7_v11_0.tot_no_orders.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Tot No Orders: No Value"
+  end
+
+  return "Tot No Orders: "..value
+end
+
+-- Dissect: Tot No Orders
+eurex_derivatives_eobi_t7_v11_0.tot_no_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.tot_no_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.tot_no_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tot_no_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.trad_ses_status = {}
+
+-- Size: Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.trad_ses_status.size = 1
+
+-- Display: Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.trad_ses_status.display = function(value)
+  if value == 1 then
+    return "Trad Ses Status: Halted (1)"
+  end
+  if value == 2 then
+    return "Trad Ses Status: Open (2)"
+  end
+  if value == 3 then
+    return "Trad Ses Status: Closed (3)"
+  end
+  if value == 0xFF then
+    return "Trad Ses Status: No Value"
+  end
+
+  return "Trad Ses Status: Unknown("..value..")"
+end
+
+-- Dissect: Trad Ses Status
+eurex_derivatives_eobi_t7_v11_0.trad_ses_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trad_ses_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trad_ses_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trad_ses_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition
+eurex_derivatives_eobi_t7_v11_0.trade_condition = {}
+
+-- Size: Trade Condition
+eurex_derivatives_eobi_t7_v11_0.trade_condition.size = 2
+
+-- Display: Trade Condition
+eurex_derivatives_eobi_t7_v11_0.trade_condition.display = function(value)
+  if value == 1 then
+    return "Trade Condition: Implied Trade (1)"
+  end
+  if value == 107 then
+    return "Trade Condition: Out Of Sequence (107)"
+  end
+  if value == 155 then
+    return "Trade Condition: Midpoint Price (155)"
+  end
+  if value == 156 then
+    return "Trade Condition: Trading On Terms Of Issue (156)"
+  end
+  if value == 596 then
+    return "Trade Condition: Special Auction (596)"
+  end
+  if value == 624 then
+    return "Trade Condition: Trade At Close (624)"
+  end
+  if value == 0xFFFF then
+    return "Trade Condition: No Value"
+  end
+
+  return "Trade Condition: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition
+eurex_derivatives_eobi_t7_v11_0.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator = {}
+
+-- Size: Trading Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.size = 1
+
+-- Display: Trading Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "Trading Hhi Indicator: No Value"
+  end
+
+  return "Trading Hhi Indicator: "..value
+end
+
+-- Dissect: Trading Hhi Indicator
+eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trading_hhi_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_id = {}
+
+-- Size: Trading Session Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_id.size = 1
+
+-- Display: Trading Session Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_id.display = function(value)
+  if value == 1 then
+    return "Trading Session Id: Day (1)"
+  end
+  if value == 3 then
+    return "Trading Session Id: Morning (3)"
+  end
+  if value == 5 then
+    return "Trading Session Id: Evening (5)"
+  end
+  if value == 6 then
+    return "Trading Session Id: After Hours (6)"
+  end
+  if value == 7 then
+    return "Trading Session Id: Holiday (7)"
+  end
+  if value == 0xFF then
+    return "Trading Session Id: No Value"
+  end
+
+  return "Trading Session Id: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trading_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Sub Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id = {}
+
+-- Size: Trading Session Sub Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.size = 1
+
+-- Display: Trading Session Sub Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.display = function(value)
+  if value == 1 then
+    return "Trading Session Sub Id: Pre Trading (1)"
+  end
+  if value == 3 then
+    return "Trading Session Sub Id: Continuous (3)"
+  end
+  if value == 4 then
+    return "Trading Session Sub Id: Closing (4)"
+  end
+  if value == 5 then
+    return "Trading Session Sub Id: Post Trading (5)"
+  end
+  if value == 7 then
+    return "Trading Session Sub Id: Quiescent (7)"
+  end
+  if value == 0xFF then
+    return "Trading Session Sub Id: No Value"
+  end
+
+  return "Trading Session Sub Id: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session Sub Id
+eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trading_session_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Transact Time
 eurex_derivatives_eobi_t7_v11_0.transact_time = {}
 
@@ -924,32 +4157,257 @@ eurex_derivatives_eobi_t7_v11_0.transact_time.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Security Id
-eurex_derivatives_eobi_t7_v11_0.security_id = {}
+-- Trd Match Id
+eurex_derivatives_eobi_t7_v11_0.trd_match_id = {}
 
--- Size: Security Id
-eurex_derivatives_eobi_t7_v11_0.security_id.size = 8
+-- Size: Trd Match Id
+eurex_derivatives_eobi_t7_v11_0.trd_match_id.size = 4
 
--- Display: Security Id
-eurex_derivatives_eobi_t7_v11_0.security_id.display = function(value)
+-- Display: Trd Match Id
+eurex_derivatives_eobi_t7_v11_0.trd_match_id.display = function(value)
   -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Security Id: No Value"
+  if value == 0xFFFFFFFF then
+    return "Trd Match Id: No Value"
   end
 
-  return "Security Id: "..value
+  return "Trd Match Id: "..value
 end
 
--- Dissect: Security Id
-eurex_derivatives_eobi_t7_v11_0.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_id.size
+-- Dissect: Trd Match Id
+eurex_derivatives_eobi_t7_v11_0.trd_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trd_match_id.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_id.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trd_match_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_id, range, value, display)
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_match_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Trd Reg Ts Execution Time
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time = {}
+
+-- Size: Trd Reg Ts Execution Time
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.size = 8
+
+-- Display: Trd Reg Ts Execution Time
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Execution Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Execution Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Execution Time
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_execution_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_reg_ts_execution_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Prev Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority = {}
+
+-- Size: Trd Reg Ts Prev Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.size = 8
+
+-- Display: Trd Reg Ts Prev Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Prev Time Priority: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Prev Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Prev Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_reg_ts_prev_time_priority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority = {}
+
+-- Size: Trd Reg Ts Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.size = 8
+
+-- Display: Trd Reg Ts Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time Priority: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Time Priority
+eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_reg_ts_time_priority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Type
+eurex_derivatives_eobi_t7_v11_0.trd_type = {}
+
+-- Size: Trd Type
+eurex_derivatives_eobi_t7_v11_0.trd_type.size = 2
+
+-- Display: Trd Type
+eurex_derivatives_eobi_t7_v11_0.trd_type.display = function(value)
+  if value == 1 then
+    return "Trd Type: Block Trade (1)"
+  end
+  if value == 2 then
+    return "Trd Type: Efp (2)"
+  end
+  if value == 12 then
+    return "Trd Type: Efs (12)"
+  end
+  if value == 50 then
+    return "Trd Type: Portfolio Compression Trade (50)"
+  end
+  if value == 54 then
+    return "Trd Type: Otc (54)"
+  end
+  if value == 55 then
+    return "Trd Type: Exchange Basis Facility (55)"
+  end
+  if value == 1000 then
+    return "Trd Type: Vola Trade (1000)"
+  end
+  if value == 1001 then
+    return "Trd Type: Efp Fin Trade (1001)"
+  end
+  if value == 1002 then
+    return "Trd Type: Efp Index Futures Trade (1002)"
+  end
+  if value == 1004 then
+    return "Trd Type: Block Trade At Market (1004)"
+  end
+  if value == 1006 then
+    return "Trd Type: Xetra Eurex Enlight Triggered Trade (1006)"
+  end
+  if value == 1007 then
+    return "Trd Type: Block Qtpip Trade (1007)"
+  end
+  if value == 0xFFFF then
+    return "Trd Type: No Value"
+  end
+
+  return "Trd Type: Unknown("..value..")"
+end
+
+-- Dissect: Trd Type
+eurex_derivatives_eobi_t7_v11_0.trd_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eobi_t7_v11_0.trd_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eobi_t7_v11_0.trd_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_type, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Eurex Derivatives Eobi T7 11.0
+-----------------------------------------------------------------------
+
+-- Md Trade Entry Grp Comp
+eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp = {}
+
+-- Size: Md Trade Entry Grp Comp
+eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.size =
+  eurex_derivatives_eobi_t7_v11_0.md_entry_px.size + 
+  eurex_derivatives_eobi_t7_v11_0.md_entry_size.size + 
+  eurex_derivatives_eobi_t7_v11_0.md_entry_type.size + 
+  eurex_derivatives_eobi_t7_v11_0.pad_7.size
+
+-- Display: Md Trade Entry Grp Comp
+eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Md Trade Entry Grp Comp
+eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.fields = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
+  local index = offset
+
+  -- Implicit Md Trade Entry Grp Comp Index
+  if md_trade_entry_grp_comp_index ~= nil then
+    local iteration = parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_trade_entry_grp_comp_index, md_trade_entry_grp_comp_index)
+    iteration:set_generated()
+  end
+
+  -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, md_entry_px = eurex_derivatives_eobi_t7_v11_0.md_entry_px.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, md_entry_size = eurex_derivatives_eobi_t7_v11_0.md_entry_size.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
+  index, md_entry_type = eurex_derivatives_eobi_t7_v11_0.md_entry_type.dissect(buffer, index, packet, parent)
+
+  -- Pad 7: 7 Byte
+  index, pad_7 = eurex_derivatives_eobi_t7_v11_0.pad_7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Md Trade Entry Grp Comp
+eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.dissect = function(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
+  if show.md_trade_entry_grp_comp then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.md_trade_entry_grp_comp, buffer(offset, 0))
+    local index = eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.fields(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_derivatives_eobi_t7_v11_0.md_trade_entry_grp_comp.fields(buffer, offset, packet, parent, md_trade_entry_grp_comp_index)
+  end
 end
 
 -- Trade Reversal
@@ -1046,166 +4504,6 @@ eurex_derivatives_eobi_t7_v11_0.trade_reversal.dissect = function(buffer, offset
   end
 end
 
--- Pad 6
-eurex_derivatives_eobi_t7_v11_0.pad_6 = {}
-
--- Size: Pad 6
-eurex_derivatives_eobi_t7_v11_0.pad_6.size = 6
-
--- Display: Pad 6
-eurex_derivatives_eobi_t7_v11_0.pad_6.display = function(value)
-  return "Pad 6: "..value
-end
-
--- Dissect: Pad 6
-eurex_derivatives_eobi_t7_v11_0.pad_6.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_6.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Pad 1
-eurex_derivatives_eobi_t7_v11_0.pad_1 = {}
-
--- Size: Pad 1
-eurex_derivatives_eobi_t7_v11_0.pad_1.size = 1
-
--- Display: Pad 1
-eurex_derivatives_eobi_t7_v11_0.pad_1.display = function(value)
-  return "Pad 1: "..value
-end
-
--- Dissect: Pad 1
-eurex_derivatives_eobi_t7_v11_0.pad_1.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Algorithmic Trade Indicator
-eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator = {}
-
--- Size: Algorithmic Trade Indicator
-eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.size = 1
-
--- Display: Algorithmic Trade Indicator
-eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.display = function(value)
-  if value == 1 then
-    return "Algorithmic Trade Indicator: Algorithmic Trade (1)"
-  end
-  if value == 0xFF then
-    return "Algorithmic Trade Indicator: No Value"
-  end
-
-  return "Algorithmic Trade Indicator: Unknown("..value..")"
-end
-
--- Dissect: Algorithmic Trade Indicator
-eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.algorithmic_trade_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.algorithmic_trade_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Sub Type
-eurex_derivatives_eobi_t7_v11_0.match_sub_type = {}
-
--- Size: Match Sub Type
-eurex_derivatives_eobi_t7_v11_0.match_sub_type.size = 1
-
--- Display: Match Sub Type
-eurex_derivatives_eobi_t7_v11_0.match_sub_type.display = function(value)
-  if value == 1 then
-    return "Match Sub Type: Opening Auction (1)"
-  end
-  if value == 2 then
-    return "Match Sub Type: Closing Auction (2)"
-  end
-  if value == 3 then
-    return "Match Sub Type: Intraday Auction (3)"
-  end
-  if value == 4 then
-    return "Match Sub Type: Circuit Breaker Auction (4)"
-  end
-  if value == 5 then
-    return "Match Sub Type: Ipo Auction (5)"
-  end
-  if value == 0xFF then
-    return "Match Sub Type: No Value"
-  end
-
-  return "Match Sub Type: Unknown("..value..")"
-end
-
--- Dissect: Match Sub Type
-eurex_derivatives_eobi_t7_v11_0.match_sub_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.match_sub_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.match_sub_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.match_sub_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Type
-eurex_derivatives_eobi_t7_v11_0.match_type = {}
-
--- Size: Match Type
-eurex_derivatives_eobi_t7_v11_0.match_type.size = 1
-
--- Display: Match Type
-eurex_derivatives_eobi_t7_v11_0.match_type.display = function(value)
-  if value == 3 then
-    return "Match Type: Confirmed Trade Report (3)"
-  end
-  if value == 5 then
-    return "Match Type: Cross Auction (5)"
-  end
-  if value == 7 then
-    return "Match Type: Call Auction (7)"
-  end
-  if value == 13 then
-    return "Match Type: Liquidity Improvement Cross (13)"
-  end
-  if value == 14 then
-    return "Match Type: Continuous Auction (14)"
-  end
-  if value == 0xFF then
-    return "Match Type: No Value"
-  end
-
-  return "Match Type: Unknown("..value..")"
-end
-
--- Dissect: Match Type
-eurex_derivatives_eobi_t7_v11_0.match_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.match_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.match_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.match_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Report
 eurex_derivatives_eobi_t7_v11_0.trade_report = {}
 
@@ -1286,241 +4584,6 @@ eurex_derivatives_eobi_t7_v11_0.trade_report.dissect = function(buffer, offset, 
   end
 end
 
--- Pad 4
-eurex_derivatives_eobi_t7_v11_0.pad_4 = {}
-
--- Size: Pad 4
-eurex_derivatives_eobi_t7_v11_0.pad_4.size = 4
-
--- Display: Pad 4
-eurex_derivatives_eobi_t7_v11_0.pad_4.display = function(value)
-  return "Pad 4: "..value
-end
-
--- Dissect: Pad 4
-eurex_derivatives_eobi_t7_v11_0.pad_4.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Sell Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders = {}
-
--- Size: Number Of Sell Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.size = 2
-
--- Display: Number Of Sell Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Number Of Sell Orders: No Value"
-  end
-
-  return "Number Of Sell Orders: "..value
-end
-
--- Dissect: Number Of Sell Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.number_of_sell_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.number_of_sell_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Buy Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders = {}
-
--- Size: Number Of Buy Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.size = 2
-
--- Display: Number Of Buy Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Number Of Buy Orders: No Value"
-  end
-
-  return "Number Of Buy Orders: "..value
-end
-
--- Dissect: Number Of Buy Orders
-eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.number_of_buy_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.number_of_buy_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size
-eurex_derivatives_eobi_t7_v11_0.offer_size = {}
-
--- Size: Offer Size
-eurex_derivatives_eobi_t7_v11_0.offer_size.size = 8
-
--- Display: Offer Size
-eurex_derivatives_eobi_t7_v11_0.offer_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Offer Size: No Value"
-  end
-
-  return "Offer Size: "..value
-end
-
--- Translate: Offer Size
-eurex_derivatives_eobi_t7_v11_0.offer_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Offer Size
-eurex_derivatives_eobi_t7_v11_0.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.offer_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.offer_size.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.offer_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-eurex_derivatives_eobi_t7_v11_0.bid_size = {}
-
--- Size: Bid Size
-eurex_derivatives_eobi_t7_v11_0.bid_size.size = 8
-
--- Display: Bid Size
-eurex_derivatives_eobi_t7_v11_0.bid_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Bid Size: No Value"
-  end
-
-  return "Bid Size: "..value
-end
-
--- Translate: Bid Size
-eurex_derivatives_eobi_t7_v11_0.bid_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Bid Size
-eurex_derivatives_eobi_t7_v11_0.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.bid_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.bid_size.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.bid_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Px
-eurex_derivatives_eobi_t7_v11_0.offer_px = {}
-
--- Size: Offer Px
-eurex_derivatives_eobi_t7_v11_0.offer_px.size = 8
-
--- Display: Offer Px
-eurex_derivatives_eobi_t7_v11_0.offer_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Offer Px: No Value"
-  end
-
-  return "Offer Px: "..value
-end
-
--- Translate: Offer Px
-eurex_derivatives_eobi_t7_v11_0.offer_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Offer Px
-eurex_derivatives_eobi_t7_v11_0.offer_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.offer_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.offer_px.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.offer_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.offer_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Px
-eurex_derivatives_eobi_t7_v11_0.bid_px = {}
-
--- Size: Bid Px
-eurex_derivatives_eobi_t7_v11_0.bid_px.size = 8
-
--- Display: Bid Px
-eurex_derivatives_eobi_t7_v11_0.bid_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Bid Px: No Value"
-  end
-
-  return "Bid Px: "..value
-end
-
--- Translate: Bid Px
-eurex_derivatives_eobi_t7_v11_0.bid_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Bid Px
-eurex_derivatives_eobi_t7_v11_0.bid_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.bid_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.bid_px.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.bid_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.bid_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Top Of Book
 eurex_derivatives_eobi_t7_v11_0.top_of_book = {}
 
@@ -1591,177 +4654,6 @@ eurex_derivatives_eobi_t7_v11_0.top_of_book.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.top_of_book.fields(buffer, offset, packet, parent)
   end
-end
-
--- Non Disclosed Trade Volume
-eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume = {}
-
--- Size: Non Disclosed Trade Volume
-eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.size = 8
-
--- Display: Non Disclosed Trade Volume
-eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Non Disclosed Trade Volume: No Value"
-  end
-
-  return "Non Disclosed Trade Volume: "..value
-end
-
--- Translate: Non Disclosed Trade Volume
-eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Non Disclosed Trade Volume
-eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.non_disclosed_trade_volume.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.non_disclosed_trade_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Multi Leg Price Model
-eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model = {}
-
--- Size: Multi Leg Price Model
-eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.size = 1
-
--- Display: Multi Leg Price Model
-eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.display = function(value)
-  if value == 0 then
-    return "Multi Leg Price Model: Standard (0)"
-  end
-  if value == 1 then
-    return "Multi Leg Price Model: User Defined (1)"
-  end
-  if value == 0xFF then
-    return "Multi Leg Price Model: No Value"
-  end
-
-  return "Multi Leg Price Model: Unknown("..value..")"
-end
-
--- Dissect: Multi Leg Price Model
-eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.multi_leg_price_model.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.multi_leg_price_model, range, value, display)
-
-  return offset + length, value
-end
-
--- Multi Leg Reporting Type
-eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type = {}
-
--- Size: Multi Leg Reporting Type
-eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.size = 1
-
--- Display: Multi Leg Reporting Type
-eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.display = function(value)
-  if value == 1 then
-    return "Multi Leg Reporting Type: Single Security (1)"
-  end
-  if value == 2 then
-    return "Multi Leg Reporting Type: Individual Leg Of A Multi Leg Security (2)"
-  end
-  if value == 3 then
-    return "Multi Leg Reporting Type: Multi Leg Security (3)"
-  end
-  if value == 0xFF then
-    return "Multi Leg Reporting Type: No Value"
-  end
-
-  return "Multi Leg Reporting Type: Unknown("..value..")"
-end
-
--- Dissect: Multi Leg Reporting Type
-eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.multi_leg_reporting_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.multi_leg_reporting_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Type
-eurex_derivatives_eobi_t7_v11_0.trd_type = {}
-
--- Size: Trd Type
-eurex_derivatives_eobi_t7_v11_0.trd_type.size = 2
-
--- Display: Trd Type
-eurex_derivatives_eobi_t7_v11_0.trd_type.display = function(value)
-  if value == 1 then
-    return "Trd Type: Block Trade (1)"
-  end
-  if value == 2 then
-    return "Trd Type: Efp (2)"
-  end
-  if value == 12 then
-    return "Trd Type: Efs (12)"
-  end
-  if value == 50 then
-    return "Trd Type: Portfolio Compression Trade (50)"
-  end
-  if value == 54 then
-    return "Trd Type: Otc (54)"
-  end
-  if value == 55 then
-    return "Trd Type: Exchange Basis Facility (55)"
-  end
-  if value == 1000 then
-    return "Trd Type: Vola Trade (1000)"
-  end
-  if value == 1001 then
-    return "Trd Type: Efp Fin Trade (1001)"
-  end
-  if value == 1002 then
-    return "Trd Type: Efp Index Futures Trade (1002)"
-  end
-  if value == 1004 then
-    return "Trd Type: Block Trade At Market (1004)"
-  end
-  if value == 1006 then
-    return "Trd Type: Xetra Eurex Enlight Triggered Trade (1006)"
-  end
-  if value == 1007 then
-    return "Trd Type: Block Qtpip Trade (1007)"
-  end
-  if value == 0xFFFF then
-    return "Trd Type: No Value"
-  end
-
-  return "Trd Type: Unknown("..value..")"
-end
-
--- Dissect: Trd Type
-eurex_derivatives_eobi_t7_v11_0.trd_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trd_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trd_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tes Trade Report
@@ -1842,233 +4734,6 @@ eurex_derivatives_eobi_t7_v11_0.tes_trade_report.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.tes_trade_report.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price
-eurex_derivatives_eobi_t7_v11_0.price = {}
-
--- Size: Price
-eurex_derivatives_eobi_t7_v11_0.price.size = 8
-
--- Display: Price
-eurex_derivatives_eobi_t7_v11_0.price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Price: No Value"
-  end
-
-  return "Price: "..value
-end
-
--- Translate: Price
-eurex_derivatives_eobi_t7_v11_0.price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price
-eurex_derivatives_eobi_t7_v11_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.price.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Pad 5
-eurex_derivatives_eobi_t7_v11_0.pad_5 = {}
-
--- Size: Pad 5
-eurex_derivatives_eobi_t7_v11_0.pad_5.size = 5
-
--- Display: Pad 5
-eurex_derivatives_eobi_t7_v11_0.pad_5.display = function(value)
-  return "Pad 5: "..value
-end
-
--- Dissect: Pad 5
-eurex_derivatives_eobi_t7_v11_0.pad_5.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_5.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.hhi_indicator = {}
-
--- Size: Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.hhi_indicator.size = 1
-
--- Display: Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.hhi_indicator.display = function(value)
-  if value == -1 then
-    return "Hhi Indicator: No Update (-1)"
-  end
-  if value == 0x80 then
-    return "Hhi Indicator: No Value"
-  end
-
-  return "Hhi Indicator: Unknown("..value..")"
-end
-
--- Dissect: Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.hhi_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.hhi_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_derivatives_eobi_t7_v11_0.hhi_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.hhi_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Type
-eurex_derivatives_eobi_t7_v11_0.ord_type = {}
-
--- Size: Ord Type
-eurex_derivatives_eobi_t7_v11_0.ord_type.size = 1
-
--- Display: Ord Type
-eurex_derivatives_eobi_t7_v11_0.ord_type.display = function(value)
-  if value == 1 then
-    return "Ord Type: Market (1)"
-  end
-  if value == 0xFF then
-    return "Ord Type: No Value"
-  end
-
-  return "Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Ord Type
-eurex_derivatives_eobi_t7_v11_0.ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.ord_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.ord_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-eurex_derivatives_eobi_t7_v11_0.side = {}
-
--- Size: Side
-eurex_derivatives_eobi_t7_v11_0.side.size = 1
-
--- Display: Side
-eurex_derivatives_eobi_t7_v11_0.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Side: No Value"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-eurex_derivatives_eobi_t7_v11_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Qty
-eurex_derivatives_eobi_t7_v11_0.display_qty = {}
-
--- Size: Display Qty
-eurex_derivatives_eobi_t7_v11_0.display_qty.size = 8
-
--- Display: Display Qty
-eurex_derivatives_eobi_t7_v11_0.display_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Display Qty: No Value"
-  end
-
-  return "Display Qty: "..value
-end
-
--- Translate: Display Qty
-eurex_derivatives_eobi_t7_v11_0.display_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Display Qty
-eurex_derivatives_eobi_t7_v11_0.display_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.display_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.display_qty.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.display_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.display_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority = {}
-
--- Size: Trd Reg Ts Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.size = 8
-
--- Display: Trd Reg Ts Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time Priority: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_time_priority.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_reg_ts_time_priority, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Details Comp
@@ -2231,259 +4896,6 @@ eurex_derivatives_eobi_t7_v11_0.quote_request.dissect = function(buffer, offset,
   end
 end
 
--- Tes Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status = {}
-
--- Size: Tes Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.size = 1
-
--- Display: Tes Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.display = function(value)
-  if value == 1 then
-    return "Tes Trad Ses Status: Halted (1)"
-  end
-  if value == 2 then
-    return "Tes Trad Ses Status: Open (2)"
-  end
-  if value == 3 then
-    return "Tes Trad Ses Status: Closed (3)"
-  end
-  if value == 5 then
-    return "Tes Trad Ses Status: Pre Close (5)"
-  end
-  if value == 0xFF then
-    return "Tes Trad Ses Status: No Value"
-  end
-
-  return "Tes Trad Ses Status: Unknown("..value..")"
-end
-
--- Dissect: Tes Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.tes_trad_ses_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tes_trad_ses_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Fast Market Indicator
-eurex_derivatives_eobi_t7_v11_0.fast_market_indicator = {}
-
--- Size: Fast Market Indicator
-eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.size = 1
-
--- Display: Fast Market Indicator
-eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.display = function(value)
-  if value == 0 then
-    return "Fast Market Indicator: No (0)"
-  end
-  if value == 1 then
-    return "Fast Market Indicator: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Fast Market Indicator: No Value"
-  end
-
-  return "Fast Market Indicator: Unknown("..value..")"
-end
-
--- Dissect: Fast Market Indicator
-eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.fast_market_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.fast_market_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Condition
-eurex_derivatives_eobi_t7_v11_0.market_condition = {}
-
--- Size: Market Condition
-eurex_derivatives_eobi_t7_v11_0.market_condition.size = 1
-
--- Display: Market Condition
-eurex_derivatives_eobi_t7_v11_0.market_condition.display = function(value)
-  if value == 0 then
-    return "Market Condition: Normal (0)"
-  end
-  if value == 1 then
-    return "Market Condition: Stressed (1)"
-  end
-  if value == 0xFF then
-    return "Market Condition: No Value"
-  end
-
-  return "Market Condition: Unknown("..value..")"
-end
-
--- Dissect: Market Condition
-eurex_derivatives_eobi_t7_v11_0.market_condition.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.market_condition.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.market_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.market_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.trad_ses_status = {}
-
--- Size: Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.trad_ses_status.size = 1
-
--- Display: Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.trad_ses_status.display = function(value)
-  if value == 1 then
-    return "Trad Ses Status: Halted (1)"
-  end
-  if value == 2 then
-    return "Trad Ses Status: Open (2)"
-  end
-  if value == 3 then
-    return "Trad Ses Status: Closed (3)"
-  end
-  if value == 0xFF then
-    return "Trad Ses Status: No Value"
-  end
-
-  return "Trad Ses Status: Unknown("..value..")"
-end
-
--- Dissect: Trad Ses Status
-eurex_derivatives_eobi_t7_v11_0.trad_ses_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trad_ses_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trad_ses_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trad_ses_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Sub Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id = {}
-
--- Size: Trading Session Sub Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.size = 1
-
--- Display: Trading Session Sub Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Sub Id: Pre Trading (1)"
-  end
-  if value == 3 then
-    return "Trading Session Sub Id: Continuous (3)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Closing (4)"
-  end
-  if value == 5 then
-    return "Trading Session Sub Id: Post Trading (5)"
-  end
-  if value == 7 then
-    return "Trading Session Sub Id: Quiescent (7)"
-  end
-  if value == 0xFF then
-    return "Trading Session Sub Id: No Value"
-  end
-
-  return "Trading Session Sub Id: Unknown("..value..")"
-end
-
--- Dissect: Trading Session Sub Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trading_session_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trading_session_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_id = {}
-
--- Size: Trading Session Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_id.size = 1
-
--- Display: Trading Session Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Id: Day (1)"
-  end
-  if value == 3 then
-    return "Trading Session Id: Morning (3)"
-  end
-  if value == 5 then
-    return "Trading Session Id: Evening (5)"
-  end
-  if value == 6 then
-    return "Trading Session Id: After Hours (6)"
-  end
-  if value == 7 then
-    return "Trading Session Id: Holiday (7)"
-  end
-  if value == 0xFF then
-    return "Trading Session Id: No Value"
-  end
-
-  return "Trading Session Id: Unknown("..value..")"
-end
-
--- Dissect: Trading Session Id
-eurex_derivatives_eobi_t7_v11_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trading_session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trading_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trading_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Msg Seq Num Processed
-eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed = {}
-
--- Size: Last Msg Seq Num Processed
-eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.size = 4
-
--- Display: Last Msg Seq Num Processed
-eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Last Msg Seq Num Processed: No Value"
-  end
-
-  return "Last Msg Seq Num Processed: "..value
-end
-
--- Dissect: Last Msg Seq Num Processed
-eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.last_msg_seq_num_processed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.last_msg_seq_num_processed, range, value, display)
-
-  return offset + length, value
-end
-
 -- Product Summary
 eurex_derivatives_eobi_t7_v11_0.product_summary = {}
 
@@ -2550,29 +4962,6 @@ eurex_derivatives_eobi_t7_v11_0.product_summary.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.product_summary.fields(buffer, offset, packet, parent)
   end
-end
-
--- Pad 2
-eurex_derivatives_eobi_t7_v11_0.pad_2 = {}
-
--- Size: Pad 2
-eurex_derivatives_eobi_t7_v11_0.pad_2.size = 2
-
--- Display: Pad 2
-eurex_derivatives_eobi_t7_v11_0.pad_2.display = function(value)
-  return "Pad 2: "..value
-end
-
--- Dissect: Pad 2
-eurex_derivatives_eobi_t7_v11_0.pad_2.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_2, range, value, display)
-
-  return offset + length, value
 end
 
 -- Product State Change
@@ -2719,78 +5108,6 @@ eurex_derivatives_eobi_t7_v11_0.partial_order_execution.dissect = function(buffe
   end
 end
 
--- Prev Display Qty
-eurex_derivatives_eobi_t7_v11_0.prev_display_qty = {}
-
--- Size: Prev Display Qty
-eurex_derivatives_eobi_t7_v11_0.prev_display_qty.size = 8
-
--- Display: Prev Display Qty
-eurex_derivatives_eobi_t7_v11_0.prev_display_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Prev Display Qty: No Value"
-  end
-
-  return "Prev Display Qty: "..value
-end
-
--- Translate: Prev Display Qty
-eurex_derivatives_eobi_t7_v11_0.prev_display_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Prev Display Qty
-eurex_derivatives_eobi_t7_v11_0.prev_display_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.prev_display_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.prev_display_qty.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.prev_display_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.prev_display_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Time
-eurex_derivatives_eobi_t7_v11_0.request_time = {}
-
--- Size: Request Time
-eurex_derivatives_eobi_t7_v11_0.request_time.size = 8
-
--- Display: Request Time
-eurex_derivatives_eobi_t7_v11_0.request_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Request Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Request Time
-eurex_derivatives_eobi_t7_v11_0.request_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.request_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.request_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.request_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Modify Same Prio
 eurex_derivatives_eobi_t7_v11_0.order_modify_same_prio = {}
 
@@ -2845,108 +5162,6 @@ eurex_derivatives_eobi_t7_v11_0.order_modify_same_prio.dissect = function(buffer
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.order_modify_same_prio.fields(buffer, offset, packet, parent)
   end
-end
-
--- Prev Price Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator = {}
-
--- Size: Prev Price Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.size = 1
-
--- Display: Prev Price Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.display = function(value)
-  if value == -1 then
-    return "Prev Price Hhi Indicator: No Update (-1)"
-  end
-  if value == 0x80 then
-    return "Prev Price Hhi Indicator: No Value"
-  end
-
-  return "Prev Price Hhi Indicator: Unknown("..value..")"
-end
-
--- Dissect: Prev Price Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_derivatives_eobi_t7_v11_0.prev_price_hhi_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.prev_price_hhi_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Price
-eurex_derivatives_eobi_t7_v11_0.prev_price = {}
-
--- Size: Prev Price
-eurex_derivatives_eobi_t7_v11_0.prev_price.size = 8
-
--- Display: Prev Price
-eurex_derivatives_eobi_t7_v11_0.prev_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Prev Price: No Value"
-  end
-
-  return "Prev Price: "..value
-end
-
--- Translate: Prev Price
-eurex_derivatives_eobi_t7_v11_0.prev_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Prev Price
-eurex_derivatives_eobi_t7_v11_0.prev_price.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.prev_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.prev_price.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.prev_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.prev_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Prev Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority = {}
-
--- Size: Trd Reg Ts Prev Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.size = 8
-
--- Display: Trd Reg Ts Prev Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Prev Time Priority: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Prev Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Prev Time Priority
-eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.trd_reg_ts_prev_time_priority.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trd_reg_ts_prev_time_priority, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Modify
@@ -3161,327 +5376,6 @@ eurex_derivatives_eobi_t7_v11_0.order_add.dissect = function(buffer, offset, pac
   end
 end
 
--- Tes Security Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_status = {}
-
--- Size: Tes Security Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_status.size = 1
-
--- Display: Tes Security Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_status.display = function(value)
-  if value == 1 then
-    return "Tes Security Status: Active (1)"
-  end
-  if value == 2 then
-    return "Tes Security Status: Inactive (2)"
-  end
-  if value == 4 then
-    return "Tes Security Status: Expired (4)"
-  end
-  if value == 9 then
-    return "Tes Security Status: Suspended (9)"
-  end
-  if value == 0xFF then
-    return "Tes Security Status: No Value"
-  end
-
-  return "Tes Security Status: Unknown("..value..")"
-end
-
--- Dissect: Tes Security Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.tes_security_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.tes_security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tes_security_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.sold_out_indicator = {}
-
--- Size: Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.size = 1
-
--- Display: Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.display = function(value)
-  if value == 1 then
-    return "Sold Out Indicator: Sold Out (1)"
-  end
-  if value == 0xFF then
-    return "Sold Out Indicator: No Value"
-  end
-
-  return "Sold Out Indicator: Unknown("..value..")"
-end
-
--- Dissect: Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.sold_out_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.sold_out_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_trading_event = {}
-
--- Size: Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_trading_event.size = 1
-
--- Display: Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_trading_event.display = function(value)
-  if value == 10 then
-    return "Security Trading Event: Price Volatility Auction Is Extended (10)"
-  end
-  if value == 11 then
-    return "Security Trading Event: Price Volatility Auction Is Extended Again (11)"
-  end
-  if value == 0xFF then
-    return "Security Trading Event: No Value"
-  end
-
-  return "Security Trading Event: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_trading_event.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_trading_event.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_trading_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_trading_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_trading_status = {}
-
--- Size: Security Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_trading_status.size = 1
-
--- Display: Security Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Trading Halt (2)"
-  end
-  if value == 7 then
-    return "Security Trading Status: Market Imbalance Buy (7)"
-  end
-  if value == 8 then
-    return "Security Trading Status: Market Imbalance Sell (8)"
-  end
-  if value == 200 then
-    return "Security Trading Status: Closed (200)"
-  end
-  if value == 201 then
-    return "Security Trading Status: Restricted (201)"
-  end
-  if value == 202 then
-    return "Security Trading Status: Book (202)"
-  end
-  if value == 203 then
-    return "Security Trading Status: Continuous (203)"
-  end
-  if value == 204 then
-    return "Security Trading Status: Opening Auction (204)"
-  end
-  if value == 205 then
-    return "Security Trading Status: Opening Auction Freeze (205)"
-  end
-  if value == 206 then
-    return "Security Trading Status: Intraday Auction (206)"
-  end
-  if value == 207 then
-    return "Security Trading Status: Intraday Auction Freeze (207)"
-  end
-  if value == 208 then
-    return "Security Trading Status: Circuit Breaker Auction (208)"
-  end
-  if value == 209 then
-    return "Security Trading Status: Circuit Breaker Auction Freeze (209)"
-  end
-  if value == 210 then
-    return "Security Trading Status: Closing Auction (210)"
-  end
-  if value == 211 then
-    return "Security Trading Status: Closing Auction Freeze (211)"
-  end
-  if value == 212 then
-    return "Security Trading Status: Ipo Auction (212)"
-  end
-  if value == 213 then
-    return "Security Trading Status: Ipo Auction Freeze (213)"
-  end
-  if value == 214 then
-    return "Security Trading Status: Pre Call (214)"
-  end
-  if value == 215 then
-    return "Security Trading Status: Call (215)"
-  end
-  if value == 216 then
-    return "Security Trading Status: Freeze (216)"
-  end
-  if value == 217 then
-    return "Security Trading Status: Trade At Close (217)"
-  end
-  if value == 0xFF then
-    return "Security Trading Status: No Value"
-  end
-
-  return "Security Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Status
-eurex_derivatives_eobi_t7_v11_0.security_status = {}
-
--- Size: Security Status
-eurex_derivatives_eobi_t7_v11_0.security_status.size = 1
-
--- Display: Security Status
-eurex_derivatives_eobi_t7_v11_0.security_status.display = function(value)
-  if value == 1 then
-    return "Security Status: Active (1)"
-  end
-  if value == 2 then
-    return "Security Status: Inactive (2)"
-  end
-  if value == 4 then
-    return "Security Status: Expired (4)"
-  end
-  if value == 6 then
-    return "Security Status: Knocked Out (6)"
-  end
-  if value == 7 then
-    return "Security Status: Knock Out Revoked (7)"
-  end
-  if value == 9 then
-    return "Security Status: Suspended (9)"
-  end
-  if value == 11 then
-    return "Security Status: Pending Deletion (11)"
-  end
-  if value == 12 then
-    return "Security Status: Knocked Out And Suspended (12)"
-  end
-  if value == 0xFF then
-    return "Security Status: No Value"
-  end
-
-  return "Security Status: Unknown("..value..")"
-end
-
--- Dissect: Security Status
-eurex_derivatives_eobi_t7_v11_0.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Px
-eurex_derivatives_eobi_t7_v11_0.low_px = {}
-
--- Size: Low Px
-eurex_derivatives_eobi_t7_v11_0.low_px.size = 8
-
--- Display: Low Px
-eurex_derivatives_eobi_t7_v11_0.low_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Low Px: No Value"
-  end
-
-  return "Low Px: "..value
-end
-
--- Translate: Low Px
-eurex_derivatives_eobi_t7_v11_0.low_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Low Px
-eurex_derivatives_eobi_t7_v11_0.low_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.low_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.low_px.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.low_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.low_px, range, value, display)
-
-  return offset + length, value
-end
-
--- High Px
-eurex_derivatives_eobi_t7_v11_0.high_px = {}
-
--- Size: High Px
-eurex_derivatives_eobi_t7_v11_0.high_px.size = 8
-
--- Display: High Px
-eurex_derivatives_eobi_t7_v11_0.high_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "High Px: No Value"
-  end
-
-  return "High Px: "..value
-end
-
--- Translate: High Px
-eurex_derivatives_eobi_t7_v11_0.high_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: High Px
-eurex_derivatives_eobi_t7_v11_0.high_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.high_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.high_px.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.high_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.high_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sec Mass Stat Grp Comp
 eurex_derivatives_eobi_t7_v11_0.sec_mass_stat_grp_comp = {}
 
@@ -3562,403 +5456,6 @@ eurex_derivatives_eobi_t7_v11_0.sec_mass_stat_grp_comp.dissect = function(buffer
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.sec_mass_stat_grp_comp.fields(buffer, offset, packet, parent, sec_mass_stat_grp_comp_index)
   end
-end
-
--- No Related Sym
-eurex_derivatives_eobi_t7_v11_0.no_related_sym = {}
-
--- Size: No Related Sym
-eurex_derivatives_eobi_t7_v11_0.no_related_sym.size = 1
-
--- Display: No Related Sym
-eurex_derivatives_eobi_t7_v11_0.no_related_sym.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Related Sym: No Value"
-  end
-
-  return "No Related Sym: "..value
-end
-
--- Dissect: No Related Sym
-eurex_derivatives_eobi_t7_v11_0.no_related_sym.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.no_related_sym.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.no_related_sym.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.no_related_sym, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Fragment
-eurex_derivatives_eobi_t7_v11_0.last_fragment = {}
-
--- Size: Last Fragment
-eurex_derivatives_eobi_t7_v11_0.last_fragment.size = 1
-
--- Display: Last Fragment
-eurex_derivatives_eobi_t7_v11_0.last_fragment.display = function(value)
-  if value == 0 then
-    return "Last Fragment: N (0)"
-  end
-  if value == 1 then
-    return "Last Fragment: Y (1)"
-  end
-  if value == 0xFF then
-    return "Last Fragment: No Value"
-  end
-
-  return "Last Fragment: Unknown("..value..")"
-end
-
--- Dissect: Last Fragment
-eurex_derivatives_eobi_t7_v11_0.last_fragment.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.last_fragment.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.last_fragment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.last_fragment, range, value, display)
-
-  return offset + length, value
-end
-
--- Tes Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status = {}
-
--- Size: Tes Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.size = 1
-
--- Display: Tes Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.display = function(value)
-  if value == 1 then
-    return "Tes Security Mass Status: Active (1)"
-  end
-  if value == 2 then
-    return "Tes Security Mass Status: Inactive (2)"
-  end
-  if value == 4 then
-    return "Tes Security Mass Status: Expired (4)"
-  end
-  if value == 9 then
-    return "Tes Security Mass Status: Suspended (9)"
-  end
-  if value == 0xFF then
-    return "Tes Security Mass Status: No Value"
-  end
-
-  return "Tes Security Mass Status: Unknown("..value..")"
-end
-
--- Dissect: Tes Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.tes_security_mass_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tes_security_mass_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator = {}
-
--- Size: Mass Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.size = 1
-
--- Display: Mass Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.display = function(value)
-  if value == 1 then
-    return "Mass Sold Out Indicator: Sold Out (1)"
-  end
-  if value == 0xFF then
-    return "Mass Sold Out Indicator: No Value"
-  end
-
-  return "Mass Sold Out Indicator: Unknown("..value..")"
-end
-
--- Dissect: Mass Sold Out Indicator
-eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.mass_sold_out_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.mass_sold_out_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Mass Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event = {}
-
--- Size: Security Mass Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.size = 1
-
--- Display: Security Mass Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.display = function(value)
-  if value == 10 then
-    return "Security Mass Trading Event: Price Volatility Auction Is Extended (10)"
-  end
-  if value == 11 then
-    return "Security Mass Trading Event: Price Volatility Auction Is Extended Again (11)"
-  end
-  if value == 0xFF then
-    return "Security Mass Trading Event: No Value"
-  end
-
-  return "Security Mass Trading Event: Unknown("..value..")"
-end
-
--- Dissect: Security Mass Trading Event
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_mass_trading_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Market Condition
-eurex_derivatives_eobi_t7_v11_0.mass_market_condition = {}
-
--- Size: Mass Market Condition
-eurex_derivatives_eobi_t7_v11_0.mass_market_condition.size = 1
-
--- Display: Mass Market Condition
-eurex_derivatives_eobi_t7_v11_0.mass_market_condition.display = function(value)
-  if value == 0 then
-    return "Mass Market Condition: Normal (0)"
-  end
-  if value == 1 then
-    return "Mass Market Condition: Stressed (1)"
-  end
-  if value == 0xFF then
-    return "Mass Market Condition: No Value"
-  end
-
-  return "Mass Market Condition: Unknown("..value..")"
-end
-
--- Dissect: Mass Market Condition
-eurex_derivatives_eobi_t7_v11_0.mass_market_condition.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.mass_market_condition.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.mass_market_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.mass_market_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Mass Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status = {}
-
--- Size: Security Mass Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.size = 1
-
--- Display: Security Mass Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Mass Trading Status: Trading Halt (2)"
-  end
-  if value == 7 then
-    return "Security Mass Trading Status: Market Imbalance Buy (7)"
-  end
-  if value == 8 then
-    return "Security Mass Trading Status: Market Imbalance Sell (8)"
-  end
-  if value == 200 then
-    return "Security Mass Trading Status: Closed (200)"
-  end
-  if value == 201 then
-    return "Security Mass Trading Status: Restricted (201)"
-  end
-  if value == 202 then
-    return "Security Mass Trading Status: Book (202)"
-  end
-  if value == 203 then
-    return "Security Mass Trading Status: Continuous (203)"
-  end
-  if value == 204 then
-    return "Security Mass Trading Status: Opening Auction (204)"
-  end
-  if value == 205 then
-    return "Security Mass Trading Status: Opening Auction Freeze (205)"
-  end
-  if value == 206 then
-    return "Security Mass Trading Status: Intraday Auction (206)"
-  end
-  if value == 207 then
-    return "Security Mass Trading Status: Intraday Auction Freeze (207)"
-  end
-  if value == 208 then
-    return "Security Mass Trading Status: Circuit Breaker Auction (208)"
-  end
-  if value == 209 then
-    return "Security Mass Trading Status: Circuit Breaker Auction Freeze (209)"
-  end
-  if value == 210 then
-    return "Security Mass Trading Status: Closing Auction (210)"
-  end
-  if value == 211 then
-    return "Security Mass Trading Status: Closing Auction Freeze (211)"
-  end
-  if value == 212 then
-    return "Security Mass Trading Status: Ipo Auction (212)"
-  end
-  if value == 213 then
-    return "Security Mass Trading Status: Ipo Auction Freeze (213)"
-  end
-  if value == 214 then
-    return "Security Mass Trading Status: Pre Call (214)"
-  end
-  if value == 215 then
-    return "Security Mass Trading Status: Call (215)"
-  end
-  if value == 216 then
-    return "Security Mass Trading Status: Freeze (216)"
-  end
-  if value == 217 then
-    return "Security Mass Trading Status: Trade At Close (217)"
-  end
-  if value == 0xFF then
-    return "Security Mass Trading Status: No Value"
-  end
-
-  return "Security Mass Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Mass Trading Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_mass_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_mass_trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_status = {}
-
--- Size: Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_status.size = 1
-
--- Display: Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_status.display = function(value)
-  if value == 1 then
-    return "Security Mass Status: Active (1)"
-  end
-  if value == 2 then
-    return "Security Mass Status: Inactive (2)"
-  end
-  if value == 4 then
-    return "Security Mass Status: Expired (4)"
-  end
-  if value == 6 then
-    return "Security Mass Status: Knocked Out (6)"
-  end
-  if value == 7 then
-    return "Security Mass Status: Knock Out Revoked (7)"
-  end
-  if value == 9 then
-    return "Security Mass Status: Suspended (9)"
-  end
-  if value == 11 then
-    return "Security Mass Status: Pending Deletion (11)"
-  end
-  if value == 12 then
-    return "Security Mass Status: Knocked Out And Suspended (12)"
-  end
-  if value == 0xFF then
-    return "Security Mass Status: No Value"
-  end
-
-  return "Security Mass Status: Unknown("..value..")"
-end
-
--- Dissect: Security Mass Status
-eurex_derivatives_eobi_t7_v11_0.security_mass_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_mass_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_mass_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_mass_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Scope Product Complex
-eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex = {}
-
--- Size: Instrument Scope Product Complex
-eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.size = 1
-
--- Display: Instrument Scope Product Complex
-eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.display = function(value)
-  if value == 1 then
-    return "Instrument Scope Product Complex: Simple Instrument (1)"
-  end
-  if value == 2 then
-    return "Instrument Scope Product Complex: Standard Option Strategy (2)"
-  end
-  if value == 3 then
-    return "Instrument Scope Product Complex: Non Standard Option Strategy (3)"
-  end
-  if value == 4 then
-    return "Instrument Scope Product Complex: Volatility Strategy (4)"
-  end
-  if value == 5 then
-    return "Instrument Scope Product Complex: Futures Spread (5)"
-  end
-  if value == 6 then
-    return "Instrument Scope Product Complex: Inter Product Spread (6)"
-  end
-  if value == 7 then
-    return "Instrument Scope Product Complex: Standard Futures Strategy (7)"
-  end
-  if value == 8 then
-    return "Instrument Scope Product Complex: Pack And Bundle (8)"
-  end
-  if value == 9 then
-    return "Instrument Scope Product Complex: Strip (9)"
-  end
-  if value == 10 then
-    return "Instrument Scope Product Complex: Flexible Instrument (10)"
-  end
-  if value == 11 then
-    return "Instrument Scope Product Complex: Commodity Strip (11)"
-  end
-  if value == 0xFF then
-    return "Instrument Scope Product Complex: No Value"
-  end
-
-  return "Instrument Scope Product Complex: Unknown("..value..")"
-end
-
--- Dissect: Instrument Scope Product Complex
-eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.instrument_scope_product_complex.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.instrument_scope_product_complex, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mass Instrument State Change
@@ -4146,127 +5643,6 @@ eurex_derivatives_eobi_t7_v11_0.md_instrument_entry_grp_comp.dissect = function(
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.md_instrument_entry_grp_comp.fields(buffer, offset, packet, parent, md_instrument_entry_grp_comp_index)
   end
-end
-
--- Product Complex
-eurex_derivatives_eobi_t7_v11_0.product_complex = {}
-
--- Size: Product Complex
-eurex_derivatives_eobi_t7_v11_0.product_complex.size = 1
-
--- Display: Product Complex
-eurex_derivatives_eobi_t7_v11_0.product_complex.display = function(value)
-  if value == 1 then
-    return "Product Complex: Simple Instrument (1)"
-  end
-  if value == 2 then
-    return "Product Complex: Standard Option Strategy (2)"
-  end
-  if value == 3 then
-    return "Product Complex: Non Standard Option Strategy (3)"
-  end
-  if value == 4 then
-    return "Product Complex: Volatility Strategy (4)"
-  end
-  if value == 5 then
-    return "Product Complex: Futures Spread (5)"
-  end
-  if value == 6 then
-    return "Product Complex: Inter Product Spread (6)"
-  end
-  if value == 7 then
-    return "Product Complex: Standard Futures Strategy (7)"
-  end
-  if value == 8 then
-    return "Product Complex: Pack And Bundle (8)"
-  end
-  if value == 9 then
-    return "Product Complex: Strip (9)"
-  end
-  if value == 10 then
-    return "Product Complex: Flexible Instrument (10)"
-  end
-  if value == 11 then
-    return "Product Complex: Commodity Strip (11)"
-  end
-  if value == 0xFF then
-    return "Product Complex: No Value"
-  end
-
-  return "Product Complex: Unknown("..value..")"
-end
-
--- Dissect: Product Complex
-eurex_derivatives_eobi_t7_v11_0.product_complex.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.product_complex.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.product_complex.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.product_complex, range, value, display)
-
-  return offset + length, value
-end
-
--- Tot No Orders
-eurex_derivatives_eobi_t7_v11_0.tot_no_orders = {}
-
--- Size: Tot No Orders
-eurex_derivatives_eobi_t7_v11_0.tot_no_orders.size = 2
-
--- Display: Tot No Orders
-eurex_derivatives_eobi_t7_v11_0.tot_no_orders.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Tot No Orders: No Value"
-  end
-
-  return "Tot No Orders: "..value
-end
-
--- Dissect: Tot No Orders
-eurex_derivatives_eobi_t7_v11_0.tot_no_orders.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.tot_no_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.tot_no_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.tot_no_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Update Time
-eurex_derivatives_eobi_t7_v11_0.last_update_time = {}
-
--- Size: Last Update Time
-eurex_derivatives_eobi_t7_v11_0.last_update_time.size = 8
-
--- Display: Last Update Time
-eurex_derivatives_eobi_t7_v11_0.last_update_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Last Update Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Update Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Last Update Time
-eurex_derivatives_eobi_t7_v11_0.last_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.last_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.last_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.last_update_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Summary
@@ -4606,234 +5982,6 @@ eurex_derivatives_eobi_t7_v11_0.full_order_execution.dissect = function(buffer, 
   end
 end
 
--- Resting Cxl Qty
-eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty = {}
-
--- Size: Resting Cxl Qty
-eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.size = 8
-
--- Display: Resting Cxl Qty
-eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Resting Cxl Qty: No Value"
-  end
-
-  return "Resting Cxl Qty: "..value
-end
-
--- Translate: Resting Cxl Qty
-eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Resting Cxl Qty
-eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.resting_cxl_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.resting_cxl_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Resting Hidden Qty
-eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty = {}
-
--- Size: Resting Hidden Qty
-eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.size = 8
-
--- Display: Resting Hidden Qty
-eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Resting Hidden Qty: No Value"
-  end
-
-  return "Resting Hidden Qty: "..value
-end
-
--- Translate: Resting Hidden Qty
-eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Resting Hidden Qty
-eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.resting_hidden_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.resting_hidden_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Pad 3
-eurex_derivatives_eobi_t7_v11_0.pad_3 = {}
-
--- Size: Pad 3
-eurex_derivatives_eobi_t7_v11_0.pad_3.size = 3
-
--- Display: Pad 3
-eurex_derivatives_eobi_t7_v11_0.pad_3.display = function(value)
-  return "Pad 3: "..value
-end
-
--- Dissect: Pad 3
-eurex_derivatives_eobi_t7_v11_0.pad_3.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.pad_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_derivatives_eobi_t7_v11_0.pad_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.pad_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator = {}
-
--- Size: Trading Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.size = 1
-
--- Display: Trading Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "Trading Hhi Indicator: No Value"
-  end
-
-  return "Trading Hhi Indicator: "..value
-end
-
--- Dissect: Trading Hhi Indicator
-eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.trading_hhi_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.trading_hhi_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Side
-eurex_derivatives_eobi_t7_v11_0.aggressor_side = {}
-
--- Size: Aggressor Side
-eurex_derivatives_eobi_t7_v11_0.aggressor_side.size = 1
-
--- Display: Aggressor Side
-eurex_derivatives_eobi_t7_v11_0.aggressor_side.display = function(value)
-  if value == 1 then
-    return "Aggressor Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Aggressor Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Aggressor Side: No Value"
-  end
-
-  return "Aggressor Side: Unknown("..value..")"
-end
-
--- Dissect: Aggressor Side
-eurex_derivatives_eobi_t7_v11_0.aggressor_side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.aggressor_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.aggressor_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.aggressor_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-eurex_derivatives_eobi_t7_v11_0.exec_id = {}
-
--- Size: Exec Id
-eurex_derivatives_eobi_t7_v11_0.exec_id.size = 8
-
--- Display: Exec Id
-eurex_derivatives_eobi_t7_v11_0.exec_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Exec Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Exec Id
-eurex_derivatives_eobi_t7_v11_0.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Time
-eurex_derivatives_eobi_t7_v11_0.aggressor_time = {}
-
--- Size: Aggressor Time
-eurex_derivatives_eobi_t7_v11_0.aggressor_time.size = 8
-
--- Display: Aggressor Time
-eurex_derivatives_eobi_t7_v11_0.aggressor_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Aggressor Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Aggressor Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Aggressor Time
-eurex_derivatives_eobi_t7_v11_0.aggressor_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.aggressor_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_derivatives_eobi_t7_v11_0.aggressor_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.aggressor_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Summary
 eurex_derivatives_eobi_t7_v11_0.execution_summary = {}
 
@@ -4922,69 +6070,6 @@ eurex_derivatives_eobi_t7_v11_0.execution_summary.dissect = function(buffer, off
   end
 end
 
--- Input Source
-eurex_derivatives_eobi_t7_v11_0.input_source = {}
-
--- Size: Input Source
-eurex_derivatives_eobi_t7_v11_0.input_source.size = 1
-
--- Display: Input Source
-eurex_derivatives_eobi_t7_v11_0.input_source.display = function(value)
-  if value == 1 then
-    return "Input Source: Clip Client Broker (1)"
-  end
-  if value == 0xFF then
-    return "Input Source: No Value"
-  end
-
-  return "Input Source: Unknown("..value..")"
-end
-
--- Dissect: Input Source
-eurex_derivatives_eobi_t7_v11_0.input_source.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.input_source.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.input_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.input_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Request Type
-eurex_derivatives_eobi_t7_v11_0.cross_request_type = {}
-
--- Size: Cross Request Type
-eurex_derivatives_eobi_t7_v11_0.cross_request_type.size = 1
-
--- Display: Cross Request Type
-eurex_derivatives_eobi_t7_v11_0.cross_request_type.display = function(value)
-  if value == 1 then
-    return "Cross Request Type: Cross Announcement (1)"
-  end
-  if value == 2 then
-    return "Cross Request Type: Liquidity Improvement Cross (2)"
-  end
-  if value == 0xFF then
-    return "Cross Request Type: No Value"
-  end
-
-  return "Cross Request Type: Unknown("..value..")"
-end
-
--- Dissect: Cross Request Type
-eurex_derivatives_eobi_t7_v11_0.cross_request_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.cross_request_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.cross_request_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.cross_request_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cross Request
 eurex_derivatives_eobi_t7_v11_0.cross_request = {}
 
@@ -5053,78 +6138,6 @@ eurex_derivatives_eobi_t7_v11_0.cross_request.dissect = function(buffer, offset,
   end
 end
 
--- Potential Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event = {}
-
--- Size: Potential Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.size = 1
-
--- Display: Potential Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.display = function(value)
-  if value == 0 then
-    return "Potential Security Trading Event: None (0)"
-  end
-  if value == 10 then
-    return "Potential Security Trading Event: Price Volatility Auction Is Extended (10)"
-  end
-  if value == 0xFF then
-    return "Potential Security Trading Event: No Value"
-  end
-
-  return "Potential Security Trading Event: Unknown("..value..")"
-end
-
--- Dissect: Potential Security Trading Event
-eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.potential_security_trading_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.potential_security_trading_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Qty
-eurex_derivatives_eobi_t7_v11_0.imbalance_qty = {}
-
--- Size: Imbalance Qty
-eurex_derivatives_eobi_t7_v11_0.imbalance_qty.size = 8
-
--- Display: Imbalance Qty
-eurex_derivatives_eobi_t7_v11_0.imbalance_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Imbalance Qty: No Value"
-  end
-
-  return "Imbalance Qty: "..value
-end
-
--- Translate: Imbalance Qty
-eurex_derivatives_eobi_t7_v11_0.imbalance_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Imbalance Qty
-eurex_derivatives_eobi_t7_v11_0.imbalance_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.imbalance_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.imbalance_qty.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.imbalance_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Auction Clearing Price
 eurex_derivatives_eobi_t7_v11_0.auction_clearing_price = {}
 
@@ -5191,66 +6204,6 @@ eurex_derivatives_eobi_t7_v11_0.auction_clearing_price.dissect = function(buffer
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.auction_clearing_price.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offer Ord Type
-eurex_derivatives_eobi_t7_v11_0.offer_ord_type = {}
-
--- Size: Offer Ord Type
-eurex_derivatives_eobi_t7_v11_0.offer_ord_type.size = 1
-
--- Display: Offer Ord Type
-eurex_derivatives_eobi_t7_v11_0.offer_ord_type.display = function(value)
-  if value == 1 then
-    return "Offer Ord Type: Market (1)"
-  end
-  if value == 0xFF then
-    return "Offer Ord Type: No Value"
-  end
-
-  return "Offer Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Offer Ord Type
-eurex_derivatives_eobi_t7_v11_0.offer_ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.offer_ord_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.offer_ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.offer_ord_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Ord Type
-eurex_derivatives_eobi_t7_v11_0.bid_ord_type = {}
-
--- Size: Bid Ord Type
-eurex_derivatives_eobi_t7_v11_0.bid_ord_type.size = 1
-
--- Display: Bid Ord Type
-eurex_derivatives_eobi_t7_v11_0.bid_ord_type.display = function(value)
-  if value == 1 then
-    return "Bid Ord Type: Market (1)"
-  end
-  if value == 0xFF then
-    return "Bid Ord Type: No Value"
-  end
-
-  return "Bid Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Bid Ord Type
-eurex_derivatives_eobi_t7_v11_0.bid_ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.bid_ord_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.bid_ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.bid_ord_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Auction Bbo
@@ -5327,264 +6280,6 @@ eurex_derivatives_eobi_t7_v11_0.auction_bbo.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.auction_bbo.fields(buffer, offset, packet, parent)
   end
-end
-
--- Opt Attribute
-eurex_derivatives_eobi_t7_v11_0.opt_attribute = {}
-
--- Size: Opt Attribute
-eurex_derivatives_eobi_t7_v11_0.opt_attribute.size = 4
-
--- Display: Opt Attribute
-eurex_derivatives_eobi_t7_v11_0.opt_attribute.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Opt Attribute: No Value"
-  end
-
-  return "Opt Attribute: "..value
-end
-
--- Dissect: Opt Attribute
-eurex_derivatives_eobi_t7_v11_0.opt_attribute.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.opt_attribute.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.opt_attribute.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.opt_attribute, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-eurex_derivatives_eobi_t7_v11_0.strike_price = {}
-
--- Size: Strike Price
-eurex_derivatives_eobi_t7_v11_0.strike_price.size = 8
-
--- Display: Strike Price
-eurex_derivatives_eobi_t7_v11_0.strike_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Strike Price: No Value"
-  end
-
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-eurex_derivatives_eobi_t7_v11_0.strike_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Strike Price
-eurex_derivatives_eobi_t7_v11_0.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.strike_price.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.strike_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-eurex_derivatives_eobi_t7_v11_0.maturity_date = {}
-
--- Size: Maturity Date
-eurex_derivatives_eobi_t7_v11_0.maturity_date.size = 4
-
--- Display: Maturity Date
-eurex_derivatives_eobi_t7_v11_0.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Maturity Date: No Value"
-  end
-
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-eurex_derivatives_eobi_t7_v11_0.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Settl Method
-eurex_derivatives_eobi_t7_v11_0.settl_method = {}
-
--- Size: Settl Method
-eurex_derivatives_eobi_t7_v11_0.settl_method.size = 1
-
--- Display: Settl Method
-eurex_derivatives_eobi_t7_v11_0.settl_method.display = function(value)
-  if value == 0 then
-    return "Settl Method: Cash (0)"
-  end
-  if value == 1 then
-    return "Settl Method: Physical (1)"
-  end
-  if value == 0xFF then
-    return "Settl Method: No Value"
-  end
-
-  return "Settl Method: Unknown("..value..")"
-end
-
--- Dissect: Settl Method
-eurex_derivatives_eobi_t7_v11_0.settl_method.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.settl_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.settl_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.settl_method, range, value, display)
-
-  return offset + length, value
-end
-
--- Exercise Style
-eurex_derivatives_eobi_t7_v11_0.exercise_style = {}
-
--- Size: Exercise Style
-eurex_derivatives_eobi_t7_v11_0.exercise_style.size = 1
-
--- Display: Exercise Style
-eurex_derivatives_eobi_t7_v11_0.exercise_style.display = function(value)
-  if value == 0 then
-    return "Exercise Style: European (0)"
-  end
-  if value == 1 then
-    return "Exercise Style: American (1)"
-  end
-  if value == 0xFF then
-    return "Exercise Style: No Value"
-  end
-
-  return "Exercise Style: Unknown("..value..")"
-end
-
--- Dissect: Exercise Style
-eurex_derivatives_eobi_t7_v11_0.exercise_style.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.exercise_style.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.exercise_style.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.exercise_style, range, value, display)
-
-  return offset + length, value
-end
-
--- Put Or Call
-eurex_derivatives_eobi_t7_v11_0.put_or_call = {}
-
--- Size: Put Or Call
-eurex_derivatives_eobi_t7_v11_0.put_or_call.size = 1
-
--- Display: Put Or Call
-eurex_derivatives_eobi_t7_v11_0.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 0xFF then
-    return "Put Or Call: No Value"
-  end
-
-  return "Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Put Or Call
-eurex_derivatives_eobi_t7_v11_0.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type
-eurex_derivatives_eobi_t7_v11_0.security_type = {}
-
--- Size: Security Type
-eurex_derivatives_eobi_t7_v11_0.security_type.size = 1
-
--- Display: Security Type
-eurex_derivatives_eobi_t7_v11_0.security_type.display = function(value)
-  if value == 1 then
-    return "Security Type: Opt (1)"
-  end
-  if value == 2 then
-    return "Security Type: Fut (2)"
-  end
-  if value == 3 then
-    return "Security Type: Mleg (3)"
-  end
-  if value == 0xFF then
-    return "Security Type: No Value"
-  end
-
-  return "Security Type: Unknown("..value..")"
-end
-
--- Dissect: Security Type
-eurex_derivatives_eobi_t7_v11_0.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Desc
-eurex_derivatives_eobi_t7_v11_0.security_desc = {}
-
--- Size: Security Desc
-eurex_derivatives_eobi_t7_v11_0.security_desc.size = 40
-
--- Display: Security Desc
-eurex_derivatives_eobi_t7_v11_0.security_desc.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Desc: No Value"
-  end
-
-  return "Security Desc: "..value
-end
-
--- Dissect: Security Desc
-eurex_derivatives_eobi_t7_v11_0.security_desc.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_desc.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_derivatives_eobi_t7_v11_0.security_desc.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_desc, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Flexible Instrument
@@ -5667,195 +6362,6 @@ eurex_derivatives_eobi_t7_v11_0.add_flexible_instrument.dissect = function(buffe
   end
 end
 
--- Leg Side
-eurex_derivatives_eobi_t7_v11_0.leg_side = {}
-
--- Size: Leg Side
-eurex_derivatives_eobi_t7_v11_0.leg_side.size = 1
-
--- Display: Leg Side
-eurex_derivatives_eobi_t7_v11_0.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Leg Side: No Value"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-eurex_derivatives_eobi_t7_v11_0.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Security Type
-eurex_derivatives_eobi_t7_v11_0.leg_security_type = {}
-
--- Size: Leg Security Type
-eurex_derivatives_eobi_t7_v11_0.leg_security_type.size = 1
-
--- Display: Leg Security Type
-eurex_derivatives_eobi_t7_v11_0.leg_security_type.display = function(value)
-  if value == 1 then
-    return "Leg Security Type: Leg Security Multi Leg (1)"
-  end
-  if value == 2 then
-    return "Leg Security Type: Leg Security Underlying Leg (2)"
-  end
-  if value == 0xFF then
-    return "Leg Security Type: No Value"
-  end
-
-  return "Leg Security Type: Unknown("..value..")"
-end
-
--- Dissect: Leg Security Type
-eurex_derivatives_eobi_t7_v11_0.leg_security_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_security_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty = {}
-
--- Size: Leg Ratio Qty
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.size = 4
-
--- Display: Leg Ratio Qty
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Leg Ratio Qty: No Value"
-  end
-
-  return "Leg Ratio Qty: "..value
-end
-
--- Dissect: Leg Ratio Qty
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Price
-eurex_derivatives_eobi_t7_v11_0.leg_price = {}
-
--- Size: Leg Price
-eurex_derivatives_eobi_t7_v11_0.leg_price.size = 8
-
--- Display: Leg Price
-eurex_derivatives_eobi_t7_v11_0.leg_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Leg Price: No Value"
-  end
-
-  return "Leg Price: "..value
-end
-
--- Translate: Leg Price
-eurex_derivatives_eobi_t7_v11_0.leg_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Leg Price
-eurex_derivatives_eobi_t7_v11_0.leg_price.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_derivatives_eobi_t7_v11_0.leg_price.translate(raw)
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Security Id
-eurex_derivatives_eobi_t7_v11_0.leg_security_id = {}
-
--- Size: Leg Security Id
-eurex_derivatives_eobi_t7_v11_0.leg_security_id.size = 8
-
--- Display: Leg Security Id
-eurex_derivatives_eobi_t7_v11_0.leg_security_id.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Leg Security Id: No Value"
-  end
-
-  return "Leg Security Id: "..value
-end
-
--- Dissect: Leg Security Id
-eurex_derivatives_eobi_t7_v11_0.leg_security_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Symbol
-eurex_derivatives_eobi_t7_v11_0.leg_symbol = {}
-
--- Size: Leg Symbol
-eurex_derivatives_eobi_t7_v11_0.leg_symbol.size = 4
-
--- Display: Leg Symbol
-eurex_derivatives_eobi_t7_v11_0.leg_symbol.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Leg Symbol: No Value"
-  end
-
-  return "Leg Symbol: "..value
-end
-
--- Dissect: Leg Symbol
-eurex_derivatives_eobi_t7_v11_0.leg_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_symbol.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Instrmt Leg Grp Comp
 eurex_derivatives_eobi_t7_v11_0.instrmt_leg_grp_comp = {}
 
@@ -5928,123 +6434,6 @@ eurex_derivatives_eobi_t7_v11_0.instrmt_leg_grp_comp.dissect = function(buffer, 
     -- Skip element, add fields directly
     return eurex_derivatives_eobi_t7_v11_0.instrmt_leg_grp_comp.fields(buffer, offset, packet, parent, instrmt_leg_grp_comp_index)
   end
-end
-
--- No Legs
-eurex_derivatives_eobi_t7_v11_0.no_legs = {}
-
--- Size: No Legs
-eurex_derivatives_eobi_t7_v11_0.no_legs.size = 1
-
--- Display: No Legs
-eurex_derivatives_eobi_t7_v11_0.no_legs.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Legs: No Value"
-  end
-
-  return "No Legs: "..value
-end
-
--- Dissect: No Legs
-eurex_derivatives_eobi_t7_v11_0.no_legs.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.no_legs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.no_legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.no_legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Multiplier
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier = {}
-
--- Size: Leg Ratio Multiplier
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.size = 4
-
--- Display: Leg Ratio Multiplier
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Leg Ratio Multiplier: No Value"
-  end
-
-  return "Leg Ratio Multiplier: "..value
-end
-
--- Dissect: Leg Ratio Multiplier
-eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.leg_ratio_multiplier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.leg_ratio_multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Implied Market Indicator
-eurex_derivatives_eobi_t7_v11_0.implied_market_indicator = {}
-
--- Size: Implied Market Indicator
-eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.size = 1
-
--- Display: Implied Market Indicator
-eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.display = function(value)
-  if value == 0 then
-    return "Implied Market Indicator: Not Implied (0)"
-  end
-  if value == 3 then
-    return "Implied Market Indicator: Implied In Out (3)"
-  end
-  if value == 0xFF then
-    return "Implied Market Indicator: No Value"
-  end
-
-  return "Implied Market Indicator: Unknown("..value..")"
-end
-
--- Dissect: Implied Market Indicator
-eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.implied_market_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.implied_market_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Sub Type
-eurex_derivatives_eobi_t7_v11_0.security_sub_type = {}
-
--- Size: Security Sub Type
-eurex_derivatives_eobi_t7_v11_0.security_sub_type.size = 4
-
--- Display: Security Sub Type
-eurex_derivatives_eobi_t7_v11_0.security_sub_type.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Security Sub Type: No Value"
-  end
-
-  return "Security Sub Type: "..value
-end
-
--- Dissect: Security Sub Type
-eurex_derivatives_eobi_t7_v11_0.security_sub_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.security_sub_type.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_derivatives_eobi_t7_v11_0.security_sub_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.security_sub_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Complex Instrument
@@ -6260,167 +6649,6 @@ eurex_derivatives_eobi_t7_v11_0.payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Msg Seq Num
-eurex_derivatives_eobi_t7_v11_0.msg_seq_num = {}
-
--- Size: Msg Seq Num
-eurex_derivatives_eobi_t7_v11_0.msg_seq_num.size = 4
-
--- Display: Msg Seq Num
-eurex_derivatives_eobi_t7_v11_0.msg_seq_num.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Msg Seq Num: No Value"
-  end
-
-  return "Msg Seq Num: "..value
-end
-
--- Dissect: Msg Seq Num
-eurex_derivatives_eobi_t7_v11_0.msg_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.msg_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.msg_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.msg_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-eurex_derivatives_eobi_t7_v11_0.template_id = {}
-
--- Size: Template Id
-eurex_derivatives_eobi_t7_v11_0.template_id.size = 2
-
--- Display: Template Id
-eurex_derivatives_eobi_t7_v11_0.template_id.display = function(value)
-  if value == 0xFFFF then
-    return "Template Id: No Value"
-  end
-  if value == 13400 then
-    return "Template Id: Add Complex Instrument (13400)"
-  end
-  if value == 13401 then
-    return "Template Id: Add Flexible Instrument (13401)"
-  end
-  if value == 13500 then
-    return "Template Id: Auction Bbo (13500)"
-  end
-  if value == 13501 then
-    return "Template Id: Auction Clearing Price (13501)"
-  end
-  if value == 13502 then
-    return "Template Id: Cross Request (13502)"
-  end
-  if value == 13202 then
-    return "Template Id: Execution Summary (13202)"
-  end
-  if value == 13104 then
-    return "Template Id: Full Order Execution (13104)"
-  end
-  if value == 13001 then
-    return "Template Id: Heartbeat (13001)"
-  end
-  if value == 13301 then
-    return "Template Id: Instrument State Change (13301)"
-  end
-  if value == 13601 then
-    return "Template Id: Instrument Summary (13601)"
-  end
-  if value == 13302 then
-    return "Template Id: Mass Instrument State Change (13302)"
-  end
-  if value == 13100 then
-    return "Template Id: Order Add (13100)"
-  end
-  if value == 13102 then
-    return "Template Id: Order Delete (13102)"
-  end
-  if value == 13103 then
-    return "Template Id: Order Mass Delete (13103)"
-  end
-  if value == 13101 then
-    return "Template Id: Order Modify (13101)"
-  end
-  if value == 13106 then
-    return "Template Id: Order Modify Same Prio (13106)"
-  end
-  if value == 13000 then
-    return "Template Id: Packet Header (13000)"
-  end
-  if value == 13105 then
-    return "Template Id: Partial Order Execution (13105)"
-  end
-  if value == 13300 then
-    return "Template Id: Product State Change (13300)"
-  end
-  if value == 13600 then
-    return "Template Id: Product Summary (13600)"
-  end
-  if value == 13503 then
-    return "Template Id: Quote Request (13503)"
-  end
-  if value == 13602 then
-    return "Template Id: Snapshot Order (13602)"
-  end
-  if value == 13203 then
-    return "Template Id: Tes Trade Report (13203)"
-  end
-  if value == 13504 then
-    return "Template Id: Top Of Book (13504)"
-  end
-  if value == 13201 then
-    return "Template Id: Trade Report (13201)"
-  end
-  if value == 13200 then
-    return "Template Id: Trade Reversal (13200)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-eurex_derivatives_eobi_t7_v11_0.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Body Len
-eurex_derivatives_eobi_t7_v11_0.body_len = {}
-
--- Size: Body Len
-eurex_derivatives_eobi_t7_v11_0.body_len.size = 2
-
--- Display: Body Len
-eurex_derivatives_eobi_t7_v11_0.body_len.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Body Len: No Value"
-  end
-
-  return "Body Len: "..value
-end
-
--- Dissect: Body Len
-eurex_derivatives_eobi_t7_v11_0.body_len.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.body_len.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.body_len.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.body_len, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header Comp
 eurex_derivatives_eobi_t7_v11_0.message_header_comp = {}
 
@@ -6512,229 +6740,6 @@ eurex_derivatives_eobi_t7_v11_0.message.dissect = function(buffer, offset, packe
 
     return index
   end
-end
-
--- Appl Seq Reset Indicator
-eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator = {}
-
--- Size: Appl Seq Reset Indicator
-eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.size = 1
-
--- Display: Appl Seq Reset Indicator
-eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.display = function(value)
-  if value == 0 then
-    return "Appl Seq Reset Indicator: No Reset (0)"
-  end
-  if value == 1 then
-    return "Appl Seq Reset Indicator: Reset (1)"
-  end
-  if value == 0xFF then
-    return "Appl Seq Reset Indicator: No Value"
-  end
-
-  return "Appl Seq Reset Indicator: Unknown("..value..")"
-end
-
--- Dissect: Appl Seq Reset Indicator
-eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.appl_seq_reset_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.appl_seq_reset_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Completion Indicator
-eurex_derivatives_eobi_t7_v11_0.completion_indicator = {}
-
--- Size: Completion Indicator
-eurex_derivatives_eobi_t7_v11_0.completion_indicator.size = 1
-
--- Display: Completion Indicator
-eurex_derivatives_eobi_t7_v11_0.completion_indicator.display = function(value)
-  if value == 0 then
-    return "Completion Indicator: Incomplete (0)"
-  end
-  if value == 1 then
-    return "Completion Indicator: Complete (1)"
-  end
-  if value == 0xFF then
-    return "Completion Indicator: No Value"
-  end
-
-  return "Completion Indicator: Unknown("..value..")"
-end
-
--- Dissect: Completion Indicator
-eurex_derivatives_eobi_t7_v11_0.completion_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.completion_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.completion_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.completion_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Partition Id
-eurex_derivatives_eobi_t7_v11_0.partition_id = {}
-
--- Size: Partition Id
-eurex_derivatives_eobi_t7_v11_0.partition_id.size = 1
-
--- Display: Partition Id
-eurex_derivatives_eobi_t7_v11_0.partition_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "Partition Id: No Value"
-  end
-
-  return "Partition Id: "..value
-end
-
--- Dissect: Partition Id
-eurex_derivatives_eobi_t7_v11_0.partition_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.partition_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.partition_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.partition_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Segment Id
-eurex_derivatives_eobi_t7_v11_0.market_segment_id = {}
-
--- Size: Market Segment Id
-eurex_derivatives_eobi_t7_v11_0.market_segment_id.size = 4
-
--- Display: Market Segment Id
-eurex_derivatives_eobi_t7_v11_0.market_segment_id.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Market Segment Id: No Value"
-  end
-
-  return "Market Segment Id: "..value
-end
-
--- Dissect: Market Segment Id
-eurex_derivatives_eobi_t7_v11_0.market_segment_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.market_segment_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_derivatives_eobi_t7_v11_0.market_segment_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.market_segment_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Seq Num
-eurex_derivatives_eobi_t7_v11_0.appl_seq_num = {}
-
--- Size: Appl Seq Num
-eurex_derivatives_eobi_t7_v11_0.appl_seq_num.size = 4
-
--- Display: Appl Seq Num
-eurex_derivatives_eobi_t7_v11_0.appl_seq_num.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Appl Seq Num: No Value"
-  end
-
-  return "Appl Seq Num: "..value
-end
-
--- Dissect: Appl Seq Num
-eurex_derivatives_eobi_t7_v11_0.appl_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.appl_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.appl_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.appl_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Sequence Number
-eurex_derivatives_eobi_t7_v11_0.packet_sequence_number = {}
-
--- Size: Packet Sequence Number
-eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.size = 4
-
--- Display: Packet Sequence Number
-eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.display = function(value)
-  return "Packet Sequence Number: "..value
-end
-
--- Dissect: Packet Sequence Number
-eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.packet_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Id
-eurex_derivatives_eobi_t7_v11_0.packet_id = {}
-
--- Size: Packet Id
-eurex_derivatives_eobi_t7_v11_0.packet_id.size = 2
-
--- Display: Packet Id
-eurex_derivatives_eobi_t7_v11_0.packet_id.display = function(value)
-  if value == 13000 then
-    return "Packet Id: Packet Id"
-  end
-
-  return "Packet Id: Unknown("..value..")"
-end
-
--- Dissect: Packet Id
-eurex_derivatives_eobi_t7_v11_0.packet_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.packet_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.packet_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.packet_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Header Length
-eurex_derivatives_eobi_t7_v11_0.header_length = {}
-
--- Size: Header Length
-eurex_derivatives_eobi_t7_v11_0.header_length.size = 2
-
--- Display: Header Length
-eurex_derivatives_eobi_t7_v11_0.header_length.display = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-eurex_derivatives_eobi_t7_v11_0.header_length.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eobi_t7_v11_0.header_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eobi_t7_v11_0.header_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eobi_t7_v11_0.fields.header_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Info

@@ -129,8 +129,182 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Aquis Equities Snapshot Amd 4.0
+-- Aquis Equities Snapshot Amd 4.0 Fields
 -----------------------------------------------------------------------
+
+-- Closing Buy Qty
+aquis_equities_snapshot_amd_v4_0.closing_buy_qty = {}
+
+-- Size: Closing Buy Qty
+aquis_equities_snapshot_amd_v4_0.closing_buy_qty.size = 4
+
+-- Display: Closing Buy Qty
+aquis_equities_snapshot_amd_v4_0.closing_buy_qty.display = function(value)
+  return "Closing Buy Qty: "..value
+end
+
+-- Dissect: Closing Buy Qty
+aquis_equities_snapshot_amd_v4_0.closing_buy_qty.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.closing_buy_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_snapshot_amd_v4_0.closing_buy_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.closing_buy_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Sell Qty
+aquis_equities_snapshot_amd_v4_0.closing_sell_qty = {}
+
+-- Size: Closing Sell Qty
+aquis_equities_snapshot_amd_v4_0.closing_sell_qty.size = 4
+
+-- Display: Closing Sell Qty
+aquis_equities_snapshot_amd_v4_0.closing_sell_qty.display = function(value)
+  return "Closing Sell Qty: "..value
+end
+
+-- Dissect: Closing Sell Qty
+aquis_equities_snapshot_amd_v4_0.closing_sell_qty.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.closing_sell_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_snapshot_amd_v4_0.closing_sell_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.closing_sell_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Entries
+aquis_equities_snapshot_amd_v4_0.entries = {}
+
+-- Size: Entries
+aquis_equities_snapshot_amd_v4_0.entries.size = 2
+
+-- Display: Entries
+aquis_equities_snapshot_amd_v4_0.entries.display = function(value)
+  return "Entries: "..value
+end
+
+-- Dissect: Entries
+aquis_equities_snapshot_amd_v4_0.entries.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_snapshot_amd_v4_0.entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Price
+aquis_equities_snapshot_amd_v4_0.indicative_price = {}
+
+-- Size: Indicative Price
+aquis_equities_snapshot_amd_v4_0.indicative_price.size = 8
+
+-- Display: Indicative Price
+aquis_equities_snapshot_amd_v4_0.indicative_price.display = function(value)
+  return "Indicative Price: "..value
+end
+
+-- Dissect: Indicative Price
+aquis_equities_snapshot_amd_v4_0.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.indicative_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_snapshot_amd_v4_0.indicative_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+aquis_equities_snapshot_amd_v4_0.message_count = {}
+
+-- Size: Message Count
+aquis_equities_snapshot_amd_v4_0.message_count.size = 1
+
+-- Display: Message Count
+aquis_equities_snapshot_amd_v4_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+aquis_equities_snapshot_amd_v4_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_snapshot_amd_v4_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+aquis_equities_snapshot_amd_v4_0.msg_length = {}
+
+-- Size: Msg Length
+aquis_equities_snapshot_amd_v4_0.msg_length.size = 1
+
+-- Display: Msg Length
+aquis_equities_snapshot_amd_v4_0.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+aquis_equities_snapshot_amd_v4_0.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_snapshot_amd_v4_0.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+aquis_equities_snapshot_amd_v4_0.msg_type = {}
+
+-- Size: Msg Type
+aquis_equities_snapshot_amd_v4_0.msg_type.size = 1
+
+-- Display: Msg Type
+aquis_equities_snapshot_amd_v4_0.msg_type.display = function(value)
+  if value == 10 then
+    return "Msg Type: Snapshot Start Message (10)"
+  end
+  if value == 11 then
+    return "Msg Type: Book Status Message (11)"
+  end
+  if value == 12 then
+    return "Msg Type: Book Entry Message (12)"
+  end
+  if value == 18 then
+    return "Msg Type: Ma C Book Entry Message (18)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+aquis_equities_snapshot_amd_v4_0.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_snapshot_amd_v4_0.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
 
 -- Order Ref
 aquis_equities_snapshot_amd_v4_0.order_ref = {}
@@ -201,6 +375,75 @@ aquis_equities_snapshot_amd_v4_0.quantity.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Security Count
+aquis_equities_snapshot_amd_v4_0.security_count = {}
+
+-- Size: Security Count
+aquis_equities_snapshot_amd_v4_0.security_count.size = 2
+
+-- Display: Security Count
+aquis_equities_snapshot_amd_v4_0.security_count.display = function(value)
+  return "Security Count: "..value
+end
+
+-- Dissect: Security Count
+aquis_equities_snapshot_amd_v4_0.security_count.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.security_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_snapshot_amd_v4_0.security_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.security_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+aquis_equities_snapshot_amd_v4_0.security_id = {}
+
+-- Size: Security Id
+aquis_equities_snapshot_amd_v4_0.security_id.size = 2
+
+-- Display: Security Id
+aquis_equities_snapshot_amd_v4_0.security_id.display = function(value)
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+aquis_equities_snapshot_amd_v4_0.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_snapshot_amd_v4_0.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq No
+aquis_equities_snapshot_amd_v4_0.seq_no = {}
+
+-- Size: Seq No
+aquis_equities_snapshot_amd_v4_0.seq_no.size = 4
+
+-- Display: Seq No
+aquis_equities_snapshot_amd_v4_0.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+aquis_equities_snapshot_amd_v4_0.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_snapshot_amd_v4_0.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
 -- Side
 aquis_equities_snapshot_amd_v4_0.side = {}
 
@@ -231,28 +474,95 @@ aquis_equities_snapshot_amd_v4_0.side.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Security Id
-aquis_equities_snapshot_amd_v4_0.security_id = {}
+-- Stream Seq No
+aquis_equities_snapshot_amd_v4_0.stream_seq_no = {}
 
--- Size: Security Id
-aquis_equities_snapshot_amd_v4_0.security_id.size = 2
+-- Size: Stream Seq No
+aquis_equities_snapshot_amd_v4_0.stream_seq_no.size = 4
 
--- Display: Security Id
-aquis_equities_snapshot_amd_v4_0.security_id.display = function(value)
-  return "Security Id: "..value
+-- Display: Stream Seq No
+aquis_equities_snapshot_amd_v4_0.stream_seq_no.display = function(value)
+  return "Stream Seq No: "..value
 end
 
--- Dissect: Security Id
-aquis_equities_snapshot_amd_v4_0.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.security_id.size
+-- Dissect: Stream Seq No
+aquis_equities_snapshot_amd_v4_0.stream_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.stream_seq_no.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.security_id.display(value, buffer, offset, packet, parent)
+  local display = aquis_equities_snapshot_amd_v4_0.stream_seq_no.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.security_id, range, value, display)
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.stream_seq_no, range, value, display)
 
   return offset + length, value
 end
+
+-- Timestamp
+aquis_equities_snapshot_amd_v4_0.timestamp = {}
+
+-- Size: Timestamp
+aquis_equities_snapshot_amd_v4_0.timestamp.size = 8
+
+-- Display: Timestamp
+aquis_equities_snapshot_amd_v4_0.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+aquis_equities_snapshot_amd_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = aquis_equities_snapshot_amd_v4_0.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+aquis_equities_snapshot_amd_v4_0.trading_status = {}
+
+-- Size: Trading Status
+aquis_equities_snapshot_amd_v4_0.trading_status.size = 1
+
+-- Display: Trading Status
+aquis_equities_snapshot_amd_v4_0.trading_status.display = function(value)
+  if value == 1 then
+    return "Trading Status: Active (1)"
+  end
+  if value == 2 then
+    return "Trading Status: Halted (2)"
+  end
+  if value == 3 then
+    return "Trading Status: Suspended (3)"
+  end
+  if value == 8 then
+    return "Trading Status: Ao D Start (8)"
+  end
+  if value == 24 then
+    return "Trading Status: Ao D End (24)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+aquis_equities_snapshot_amd_v4_0.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_snapshot_amd_v4_0.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_snapshot_amd_v4_0.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis Equities Snapshot Amd 4.0
+-----------------------------------------------------------------------
 
 -- Ma C Book Entry Message
 aquis_equities_snapshot_amd_v4_0.ma_c_book_entry_message = {}
@@ -366,98 +676,6 @@ aquis_equities_snapshot_amd_v4_0.book_entry_message.dissect = function(buffer, o
   end
 end
 
--- Indicative Price
-aquis_equities_snapshot_amd_v4_0.indicative_price = {}
-
--- Size: Indicative Price
-aquis_equities_snapshot_amd_v4_0.indicative_price.size = 8
-
--- Display: Indicative Price
-aquis_equities_snapshot_amd_v4_0.indicative_price.display = function(value)
-  return "Indicative Price: "..value
-end
-
--- Dissect: Indicative Price
-aquis_equities_snapshot_amd_v4_0.indicative_price.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.indicative_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_snapshot_amd_v4_0.indicative_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.indicative_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Sell Qty
-aquis_equities_snapshot_amd_v4_0.closing_sell_qty = {}
-
--- Size: Closing Sell Qty
-aquis_equities_snapshot_amd_v4_0.closing_sell_qty.size = 4
-
--- Display: Closing Sell Qty
-aquis_equities_snapshot_amd_v4_0.closing_sell_qty.display = function(value)
-  return "Closing Sell Qty: "..value
-end
-
--- Dissect: Closing Sell Qty
-aquis_equities_snapshot_amd_v4_0.closing_sell_qty.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.closing_sell_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.closing_sell_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.closing_sell_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Buy Qty
-aquis_equities_snapshot_amd_v4_0.closing_buy_qty = {}
-
--- Size: Closing Buy Qty
-aquis_equities_snapshot_amd_v4_0.closing_buy_qty.size = 4
-
--- Display: Closing Buy Qty
-aquis_equities_snapshot_amd_v4_0.closing_buy_qty.display = function(value)
-  return "Closing Buy Qty: "..value
-end
-
--- Dissect: Closing Buy Qty
-aquis_equities_snapshot_amd_v4_0.closing_buy_qty.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.closing_buy_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.closing_buy_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.closing_buy_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Entries
-aquis_equities_snapshot_amd_v4_0.entries = {}
-
--- Size: Entries
-aquis_equities_snapshot_amd_v4_0.entries.size = 2
-
--- Display: Entries
-aquis_equities_snapshot_amd_v4_0.entries.display = function(value)
-  return "Entries: "..value
-end
-
--- Dissect: Entries
-aquis_equities_snapshot_amd_v4_0.entries.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.entries, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Flags
 aquis_equities_snapshot_amd_v4_0.market_flags = {}
 
@@ -513,45 +731,6 @@ aquis_equities_snapshot_amd_v4_0.market_flags.dissect = function(buffer, offset,
   end
 
   return offset + size, value
-end
-
--- Trading Status
-aquis_equities_snapshot_amd_v4_0.trading_status = {}
-
--- Size: Trading Status
-aquis_equities_snapshot_amd_v4_0.trading_status.size = 1
-
--- Display: Trading Status
-aquis_equities_snapshot_amd_v4_0.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Active (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halted (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Suspended (3)"
-  end
-  if value == 8 then
-    return "Trading Status: Ao D Start (8)"
-  end
-  if value == 24 then
-    return "Trading Status: Ao D End (24)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Trading Status
-aquis_equities_snapshot_amd_v4_0.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Book Status Message
@@ -616,75 +795,6 @@ aquis_equities_snapshot_amd_v4_0.book_status_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return aquis_equities_snapshot_amd_v4_0.book_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Timestamp
-aquis_equities_snapshot_amd_v4_0.timestamp = {}
-
--- Size: Timestamp
-aquis_equities_snapshot_amd_v4_0.timestamp.size = 8
-
--- Display: Timestamp
-aquis_equities_snapshot_amd_v4_0.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-aquis_equities_snapshot_amd_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_equities_snapshot_amd_v4_0.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Count
-aquis_equities_snapshot_amd_v4_0.security_count = {}
-
--- Size: Security Count
-aquis_equities_snapshot_amd_v4_0.security_count.size = 2
-
--- Display: Security Count
-aquis_equities_snapshot_amd_v4_0.security_count.display = function(value)
-  return "Security Count: "..value
-end
-
--- Dissect: Security Count
-aquis_equities_snapshot_amd_v4_0.security_count.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.security_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.security_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.security_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Seq No
-aquis_equities_snapshot_amd_v4_0.stream_seq_no = {}
-
--- Size: Stream Seq No
-aquis_equities_snapshot_amd_v4_0.stream_seq_no.size = 4
-
--- Display: Stream Seq No
-aquis_equities_snapshot_amd_v4_0.stream_seq_no.display = function(value)
-  return "Stream Seq No: "..value
-end
-
--- Dissect: Stream Seq No
-aquis_equities_snapshot_amd_v4_0.stream_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.stream_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_snapshot_amd_v4_0.stream_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.stream_seq_no, range, value, display)
-
-  return offset + length, value
 end
 
 -- Snapshot Start Message
@@ -758,88 +868,6 @@ aquis_equities_snapshot_amd_v4_0.payload.dissect = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Seq No
-aquis_equities_snapshot_amd_v4_0.seq_no = {}
-
--- Size: Seq No
-aquis_equities_snapshot_amd_v4_0.seq_no.size = 4
-
--- Display: Seq No
-aquis_equities_snapshot_amd_v4_0.seq_no.display = function(value)
-  return "Seq No: "..value
-end
-
--- Dissect: Seq No
-aquis_equities_snapshot_amd_v4_0.seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.seq_no.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_snapshot_amd_v4_0.seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Length
-aquis_equities_snapshot_amd_v4_0.msg_length = {}
-
--- Size: Msg Length
-aquis_equities_snapshot_amd_v4_0.msg_length.size = 1
-
--- Display: Msg Length
-aquis_equities_snapshot_amd_v4_0.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-aquis_equities_snapshot_amd_v4_0.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_snapshot_amd_v4_0.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-aquis_equities_snapshot_amd_v4_0.msg_type = {}
-
--- Size: Msg Type
-aquis_equities_snapshot_amd_v4_0.msg_type.size = 1
-
--- Display: Msg Type
-aquis_equities_snapshot_amd_v4_0.msg_type.display = function(value)
-  if value == 10 then
-    return "Msg Type: Snapshot Start Message (10)"
-  end
-  if value == 11 then
-    return "Msg Type: Book Status Message (11)"
-  end
-  if value == 12 then
-    return "Msg Type: Book Entry Message (12)"
-  end
-  if value == 18 then
-    return "Msg Type: Ma C Book Entry Message (18)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-aquis_equities_snapshot_amd_v4_0.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_snapshot_amd_v4_0.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.msg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -939,29 +967,6 @@ aquis_equities_snapshot_amd_v4_0.message.dissect = function(buffer, offset, pack
 
     return index
   end
-end
-
--- Message Count
-aquis_equities_snapshot_amd_v4_0.message_count = {}
-
--- Size: Message Count
-aquis_equities_snapshot_amd_v4_0.message_count.size = 1
-
--- Display: Message Count
-aquis_equities_snapshot_amd_v4_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-aquis_equities_snapshot_amd_v4_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_snapshot_amd_v4_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_snapshot_amd_v4_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_snapshot_amd_v4_0.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

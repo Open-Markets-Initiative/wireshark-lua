@@ -87,8 +87,100 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect B3 Securities BinaryPacketHeader Udp 1.0
+-- B3 Securities BinaryPacketHeader Udp 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Block Length
+b3_securities_binarypacketheader_udp_v1_0.block_length = {}
+
+-- Size: Block Length
+b3_securities_binarypacketheader_udp_v1_0.block_length.size = 2
+
+-- Display: Block Length
+b3_securities_binarypacketheader_udp_v1_0.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+b3_securities_binarypacketheader_udp_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+b3_securities_binarypacketheader_udp_v1_0.channel_id = {}
+
+-- Size: Channel Id
+b3_securities_binarypacketheader_udp_v1_0.channel_id.size = 1
+
+-- Display: Channel Id
+b3_securities_binarypacketheader_udp_v1_0.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+b3_securities_binarypacketheader_udp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Encoding Type
+b3_securities_binarypacketheader_udp_v1_0.encoding_type = {}
+
+-- Size: Encoding Type
+b3_securities_binarypacketheader_udp_v1_0.encoding_type.size = 2
+
+-- Display: Encoding Type
+b3_securities_binarypacketheader_udp_v1_0.encoding_type.display = function(value)
+  return "Encoding Type: "..value
+end
+
+-- Dissect: Encoding Type
+b3_securities_binarypacketheader_udp_v1_0.encoding_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.encoding_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.encoding_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.encoding_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+b3_securities_binarypacketheader_udp_v1_0.message_length = {}
+
+-- Size: Message Length
+b3_securities_binarypacketheader_udp_v1_0.message_length.size = 2
+
+-- Display: Message Length
+b3_securities_binarypacketheader_udp_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+b3_securities_binarypacketheader_udp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
 
 -- Payload
 b3_securities_binarypacketheader_udp_v1_0.payload = {}
@@ -109,25 +201,25 @@ b3_securities_binarypacketheader_udp_v1_0.payload.dissect = function(buffer, off
   return offset + size, value
 end
 
--- Version
-b3_securities_binarypacketheader_udp_v1_0.version = {}
+-- Reserved
+b3_securities_binarypacketheader_udp_v1_0.reserved = {}
 
--- Size: Version
-b3_securities_binarypacketheader_udp_v1_0.version.size = 2
+-- Size: Reserved
+b3_securities_binarypacketheader_udp_v1_0.reserved.size = 1
 
--- Display: Version
-b3_securities_binarypacketheader_udp_v1_0.version.display = function(value)
-  return "Version: "..value
+-- Display: Reserved
+b3_securities_binarypacketheader_udp_v1_0.reserved.display = function(value)
+  return "Reserved: "..value
 end
 
--- Dissect: Version
-b3_securities_binarypacketheader_udp_v1_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.version.size
+-- Dissect: Reserved
+b3_securities_binarypacketheader_udp_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.reserved.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.version.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.version, range, value, display)
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -155,6 +247,79 @@ b3_securities_binarypacketheader_udp_v1_0.schema_id.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Sending Time
+b3_securities_binarypacketheader_udp_v1_0.sending_time = {}
+
+-- Size: Sending Time
+b3_securities_binarypacketheader_udp_v1_0.sending_time.size = 8
+
+-- Display: Sending Time
+b3_securities_binarypacketheader_udp_v1_0.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+b3_securities_binarypacketheader_udp_v1_0.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_securities_binarypacketheader_udp_v1_0.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+b3_securities_binarypacketheader_udp_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+b3_securities_binarypacketheader_udp_v1_0.sequence_number.size = 4
+
+-- Display: Sequence Number
+b3_securities_binarypacketheader_udp_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+b3_securities_binarypacketheader_udp_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Version
+b3_securities_binarypacketheader_udp_v1_0.sequence_version = {}
+
+-- Size: Sequence Version
+b3_securities_binarypacketheader_udp_v1_0.sequence_version.size = 2
+
+-- Display: Sequence Version
+b3_securities_binarypacketheader_udp_v1_0.sequence_version.display = function(value)
+  return "Sequence Version: "..value
+end
+
+-- Dissect: Sequence Version
+b3_securities_binarypacketheader_udp_v1_0.sequence_version.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.sequence_version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = b3_securities_binarypacketheader_udp_v1_0.sequence_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.sequence_version, range, value, display)
+
+  return offset + length, value
+end
+
 -- Template Id
 b3_securities_binarypacketheader_udp_v1_0.template_id = {}
 
@@ -178,28 +343,33 @@ b3_securities_binarypacketheader_udp_v1_0.template_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- Block Length
-b3_securities_binarypacketheader_udp_v1_0.block_length = {}
+-- Version
+b3_securities_binarypacketheader_udp_v1_0.version = {}
 
--- Size: Block Length
-b3_securities_binarypacketheader_udp_v1_0.block_length.size = 2
+-- Size: Version
+b3_securities_binarypacketheader_udp_v1_0.version.size = 2
 
--- Display: Block Length
-b3_securities_binarypacketheader_udp_v1_0.block_length.display = function(value)
-  return "Block Length: "..value
+-- Display: Version
+b3_securities_binarypacketheader_udp_v1_0.version.display = function(value)
+  return "Version: "..value
 end
 
--- Dissect: Block Length
-b3_securities_binarypacketheader_udp_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.block_length.size
+-- Dissect: Version
+b3_securities_binarypacketheader_udp_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = b3_securities_binarypacketheader_udp_v1_0.version.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.block_length.display(value, buffer, offset, packet, parent)
+  local display = b3_securities_binarypacketheader_udp_v1_0.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.block_length, range, value, display)
+  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect B3 Securities BinaryPacketHeader Udp 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 b3_securities_binarypacketheader_udp_v1_0.message_header = {}
@@ -251,52 +421,6 @@ b3_securities_binarypacketheader_udp_v1_0.message_header.dissect = function(buff
     -- Skip element, add fields directly
     return b3_securities_binarypacketheader_udp_v1_0.message_header.fields(buffer, offset, packet, parent)
   end
-end
-
--- Encoding Type
-b3_securities_binarypacketheader_udp_v1_0.encoding_type = {}
-
--- Size: Encoding Type
-b3_securities_binarypacketheader_udp_v1_0.encoding_type.size = 2
-
--- Display: Encoding Type
-b3_securities_binarypacketheader_udp_v1_0.encoding_type.display = function(value)
-  return "Encoding Type: "..value
-end
-
--- Dissect: Encoding Type
-b3_securities_binarypacketheader_udp_v1_0.encoding_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.encoding_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.encoding_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.encoding_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-b3_securities_binarypacketheader_udp_v1_0.message_length = {}
-
--- Size: Message Length
-b3_securities_binarypacketheader_udp_v1_0.message_length.size = 2
-
--- Display: Message Length
-b3_securities_binarypacketheader_udp_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-b3_securities_binarypacketheader_udp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Framing Header
@@ -392,125 +516,6 @@ b3_securities_binarypacketheader_udp_v1_0.message.dissect = function(buffer, off
 
     return index
   end
-end
-
--- Sending Time
-b3_securities_binarypacketheader_udp_v1_0.sending_time = {}
-
--- Size: Sending Time
-b3_securities_binarypacketheader_udp_v1_0.sending_time.size = 8
-
--- Display: Sending Time
-b3_securities_binarypacketheader_udp_v1_0.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-b3_securities_binarypacketheader_udp_v1_0.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_securities_binarypacketheader_udp_v1_0.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-b3_securities_binarypacketheader_udp_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-b3_securities_binarypacketheader_udp_v1_0.sequence_number.size = 4
-
--- Display: Sequence Number
-b3_securities_binarypacketheader_udp_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-b3_securities_binarypacketheader_udp_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Version
-b3_securities_binarypacketheader_udp_v1_0.sequence_version = {}
-
--- Size: Sequence Version
-b3_securities_binarypacketheader_udp_v1_0.sequence_version.size = 2
-
--- Display: Sequence Version
-b3_securities_binarypacketheader_udp_v1_0.sequence_version.display = function(value)
-  return "Sequence Version: "..value
-end
-
--- Dissect: Sequence Version
-b3_securities_binarypacketheader_udp_v1_0.sequence_version.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.sequence_version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.sequence_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.sequence_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-b3_securities_binarypacketheader_udp_v1_0.reserved = {}
-
--- Size: Reserved
-b3_securities_binarypacketheader_udp_v1_0.reserved.size = 1
-
--- Display: Reserved
-b3_securities_binarypacketheader_udp_v1_0.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-b3_securities_binarypacketheader_udp_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-b3_securities_binarypacketheader_udp_v1_0.channel_id = {}
-
--- Size: Channel Id
-b3_securities_binarypacketheader_udp_v1_0.channel_id.size = 1
-
--- Display: Channel Id
-b3_securities_binarypacketheader_udp_v1_0.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-b3_securities_binarypacketheader_udp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = b3_securities_binarypacketheader_udp_v1_0.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = b3_securities_binarypacketheader_udp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_securities_binarypacketheader_udp_v1_0.fields.channel_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

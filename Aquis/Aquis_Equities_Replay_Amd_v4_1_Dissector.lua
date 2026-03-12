@@ -92,8 +92,149 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Aquis Equities Replay Amd 4.1
+-- Aquis Equities Replay Amd 4.1 Fields
 -----------------------------------------------------------------------
+
+-- Begin Seq No
+aquis_equities_replay_amd_v4_1.begin_seq_no = {}
+
+-- Size: Begin Seq No
+aquis_equities_replay_amd_v4_1.begin_seq_no.size = 4
+
+-- Display: Begin Seq No
+aquis_equities_replay_amd_v4_1.begin_seq_no.display = function(value)
+  return "Begin Seq No: "..value
+end
+
+-- Dissect: Begin Seq No
+aquis_equities_replay_amd_v4_1.begin_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.begin_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_replay_amd_v4_1.begin_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.begin_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq No
+aquis_equities_replay_amd_v4_1.end_seq_no = {}
+
+-- Size: End Seq No
+aquis_equities_replay_amd_v4_1.end_seq_no.size = 4
+
+-- Display: End Seq No
+aquis_equities_replay_amd_v4_1.end_seq_no.display = function(value)
+  return "End Seq No: "..value
+end
+
+-- Dissect: End Seq No
+aquis_equities_replay_amd_v4_1.end_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.end_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = aquis_equities_replay_amd_v4_1.end_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.end_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+aquis_equities_replay_amd_v4_1.msg_length = {}
+
+-- Size: Msg Length
+aquis_equities_replay_amd_v4_1.msg_length.size = 1
+
+-- Display: Msg Length
+aquis_equities_replay_amd_v4_1.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+aquis_equities_replay_amd_v4_1.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_replay_amd_v4_1.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+aquis_equities_replay_amd_v4_1.msg_type = {}
+
+-- Size: Msg Type
+aquis_equities_replay_amd_v4_1.msg_type.size = 1
+
+-- Display: Msg Type
+aquis_equities_replay_amd_v4_1.msg_type.display = function(value)
+  if value == 13 then
+    return "Msg Type: Login Message (13)"
+  end
+  if value == 14 then
+    return "Msg Type: Replay Request Message (14)"
+  end
+  if value == 15 then
+    return "Msg Type: Replay Response Message (15)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+aquis_equities_replay_amd_v4_1.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_replay_amd_v4_1.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+aquis_equities_replay_amd_v4_1.password = {}
+
+-- Size: Password
+aquis_equities_replay_amd_v4_1.password.size = 10
+
+-- Display: Password
+aquis_equities_replay_amd_v4_1.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+aquis_equities_replay_amd_v4_1.password.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_replay_amd_v4_1.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.password, range, value, display)
+
+  return offset + length, value
+end
 
 -- Response Code
 aquis_equities_replay_amd_v4_1.response_code = {}
@@ -127,6 +268,73 @@ aquis_equities_replay_amd_v4_1.response_code.dissect = function(buffer, offset, 
 
   return offset + length, value
 end
+
+-- Seq No
+aquis_equities_replay_amd_v4_1.seq_no = {}
+
+-- Size: Seq No
+aquis_equities_replay_amd_v4_1.seq_no.size = 4
+
+-- Display: Seq No
+aquis_equities_replay_amd_v4_1.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+aquis_equities_replay_amd_v4_1.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_equities_replay_amd_v4_1.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+aquis_equities_replay_amd_v4_1.username = {}
+
+-- Size: Username
+aquis_equities_replay_amd_v4_1.username.size = 10
+
+-- Display: Username
+aquis_equities_replay_amd_v4_1.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
+  return "Username: "..value
+end
+
+-- Dissect: Username
+aquis_equities_replay_amd_v4_1.username.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_equities_replay_amd_v4_1.username.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = aquis_equities_replay_amd_v4_1.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis Equities Replay Amd 4.1
+-----------------------------------------------------------------------
 
 -- Replay Response Message
 aquis_equities_replay_amd_v4_1.replay_response_message = {}
@@ -166,52 +374,6 @@ aquis_equities_replay_amd_v4_1.replay_response_message.dissect = function(buffer
     -- Skip element, add fields directly
     return aquis_equities_replay_amd_v4_1.replay_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- End Seq No
-aquis_equities_replay_amd_v4_1.end_seq_no = {}
-
--- Size: End Seq No
-aquis_equities_replay_amd_v4_1.end_seq_no.size = 4
-
--- Display: End Seq No
-aquis_equities_replay_amd_v4_1.end_seq_no.display = function(value)
-  return "End Seq No: "..value
-end
-
--- Dissect: End Seq No
-aquis_equities_replay_amd_v4_1.end_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.end_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_replay_amd_v4_1.end_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.end_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Seq No
-aquis_equities_replay_amd_v4_1.begin_seq_no = {}
-
--- Size: Begin Seq No
-aquis_equities_replay_amd_v4_1.begin_seq_no.size = 4
-
--- Display: Begin Seq No
-aquis_equities_replay_amd_v4_1.begin_seq_no.display = function(value)
-  return "Begin Seq No: "..value
-end
-
--- Dissect: Begin Seq No
-aquis_equities_replay_amd_v4_1.begin_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.begin_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_equities_replay_amd_v4_1.begin_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.begin_seq_no, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replay Request Message
@@ -256,84 +418,6 @@ aquis_equities_replay_amd_v4_1.replay_request_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return aquis_equities_replay_amd_v4_1.replay_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Password
-aquis_equities_replay_amd_v4_1.password = {}
-
--- Size: Password
-aquis_equities_replay_amd_v4_1.password.size = 10
-
--- Display: Password
-aquis_equities_replay_amd_v4_1.password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Password: No Value"
-  end
-
-  return "Password: "..value
-end
-
--- Dissect: Password
-aquis_equities_replay_amd_v4_1.password.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.password.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_replay_amd_v4_1.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-aquis_equities_replay_amd_v4_1.username = {}
-
--- Size: Username
-aquis_equities_replay_amd_v4_1.username.size = 10
-
--- Display: Username
-aquis_equities_replay_amd_v4_1.username.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Username: No Value"
-  end
-
-  return "Username: "..value
-end
-
--- Dissect: Username
-aquis_equities_replay_amd_v4_1.username.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.username.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = aquis_equities_replay_amd_v4_1.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.username, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Message
@@ -399,85 +483,6 @@ aquis_equities_replay_amd_v4_1.payload.dissect = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Seq No
-aquis_equities_replay_amd_v4_1.seq_no = {}
-
--- Size: Seq No
-aquis_equities_replay_amd_v4_1.seq_no.size = 4
-
--- Display: Seq No
-aquis_equities_replay_amd_v4_1.seq_no.display = function(value)
-  return "Seq No: "..value
-end
-
--- Dissect: Seq No
-aquis_equities_replay_amd_v4_1.seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.seq_no.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_replay_amd_v4_1.seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Length
-aquis_equities_replay_amd_v4_1.msg_length = {}
-
--- Size: Msg Length
-aquis_equities_replay_amd_v4_1.msg_length.size = 1
-
--- Display: Msg Length
-aquis_equities_replay_amd_v4_1.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-aquis_equities_replay_amd_v4_1.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_replay_amd_v4_1.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-aquis_equities_replay_amd_v4_1.msg_type = {}
-
--- Size: Msg Type
-aquis_equities_replay_amd_v4_1.msg_type.size = 1
-
--- Display: Msg Type
-aquis_equities_replay_amd_v4_1.msg_type.display = function(value)
-  if value == 13 then
-    return "Msg Type: Login Message (13)"
-  end
-  if value == 14 then
-    return "Msg Type: Replay Request Message (14)"
-  end
-  if value == 15 then
-    return "Msg Type: Replay Response Message (15)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-aquis_equities_replay_amd_v4_1.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_equities_replay_amd_v4_1.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = aquis_equities_replay_amd_v4_1.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_aquis_equities_replay_amd_v4_1.fields.msg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header

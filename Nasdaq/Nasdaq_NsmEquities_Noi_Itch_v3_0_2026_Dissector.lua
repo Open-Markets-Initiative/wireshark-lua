@@ -194,343 +194,460 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq NsmEquities Noi Itch 3.0.2026
+-- Nasdaq NsmEquities Noi Itch 3.0.2026 Fields
 -----------------------------------------------------------------------
 
--- Upper Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar = {}
+-- Authenticity
+nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity = {}
 
--- Size: Upper Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.size = 4
+-- Size: Authenticity
+nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.size = 1
 
--- Display: Upper Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.display = function(value)
-  return "Upper Price Range Collar: "..value
+-- Display: Authenticity
+nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.display = function(value)
+  if value == "P" then
+    return "Authenticity: Live Production (P)"
+  end
+  if value == "T" then
+    return "Authenticity: Test (T)"
+  end
+
+  return "Authenticity: Unknown("..value..")"
 end
 
--- Translate: Upper Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Upper Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.upper_price_range_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Lower Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar = {}
-
--- Size: Lower Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.size = 4
-
--- Display: Lower Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.display = function(value)
-  return "Lower Price Range Collar: "..value
-end
-
--- Translate: Lower Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Lower Price Range Collar
-nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.lower_price_range_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Near Execution Time
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time = {}
-
--- Size: Near Execution Time
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.size = 8
-
--- Display: Near Execution Time
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.display = function(value)
-  return "Near Execution Time: "..value
-end
-
--- Dissect: Near Execution Time
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.near_execution_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Near Execution Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price = {}
-
--- Size: Near Execution Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.size = 4
-
--- Display: Near Execution Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.display = function(value)
-  return "Near Execution Price: "..value
-end
-
--- Translate: Near Execution Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Near Execution Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.near_execution_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Maximum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price = {}
-
--- Size: Maximum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.size = 4
-
--- Display: Maximum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.display = function(value)
-  return "Maximum Allowable Price: "..value
-end
-
--- Translate: Maximum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Maximum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.maximum_allowable_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Minimum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price = {}
-
--- Size: Minimum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.size = 4
-
--- Display: Minimum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.display = function(value)
-  return "Minimum Allowable Price: "..value
-end
-
--- Translate: Minimum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Minimum Allowable Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.minimum_allowable_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Eligibility Status
-nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status = {}
-
--- Size: Open Eligibility Status
-nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.size = 1
-
--- Display: Open Eligibility Status
-nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.display = function(value)
-  return "Open Eligibility Status: "..value
-end
-
--- Dissect: Open Eligibility Status
-nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.size
+-- Dissect: Authenticity
+nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.open_eligibility_status, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.authenticity, range, value, display)
 
   return offset + length, value
 end
 
--- Stock
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock = {}
+-- Cross Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price = {}
 
--- Size: Stock
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size = 8
+-- Size: Cross Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.size = 4
 
--- Display: Stock
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock.display = function(value)
-  return "Stock: "..value
+-- Display: Cross Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.display = function(value)
+  return "Cross Price: "..value
 end
 
--- Dissect: Stock
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size
+-- Translate: Cross Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Cross Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.display(value, buffer, offset, packet, parent)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.stock, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_price, range, value, display)
 
   return offset + length, value
 end
 
--- Timestamp Integer 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6 = {}
+-- Cross Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type = {}
 
--- Size: Timestamp Integer 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size = 6
+-- Size: Cross Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size = 1
 
--- Display: Timestamp Integer 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.display = function(value)
-  return "Timestamp Integer 6: "..value
+-- Display: Cross Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.display = function(value)
+  if value == "O" then
+    return "Cross Type: Open Cross (O)"
+  end
+  if value == "C" then
+    return "Cross Type: Close Cross (C)"
+  end
+  if value == "H" then
+    return "Cross Type: Intraday Opening Cross For Ipo And Halted Paused Securities (H)"
+  end
+  if value == "A" then
+    return "Cross Type: Extended Trading Close (A)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
 end
 
--- Dissect: Timestamp Integer 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size
+-- Dissect: Cross Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.timestamp_integer_6, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
 
--- Tracking Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number = {}
+-- Current Reference Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price = {}
 
--- Size: Tracking Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size = 2
+-- Size: Current Reference Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.size = 4
 
--- Display: Tracking Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.display = function(value)
-  return "Tracking Number: "..value
+-- Display: Current Reference Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.display = function(value)
+  return "Current Reference Price: "..value
 end
 
--- Dissect: Tracking Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size
+-- Translate: Current Reference Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Current Reference Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.current_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halted Across All Us Equity Markets Sr Os (H)"
+  end
+  if value == "P" then
+    return "Current Trading State: Paused Across All Us Equity Markets Sr Os (P)"
+  end
+  if value == "Q" then
+    return "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading On Nasdaq (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etp Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag = {}
+
+-- Size: Etp Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.size = 1
+
+-- Display: Etp Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.display = function(value)
+  if value == "Y" then
+    return "Etp Flag: Etp (Y)"
+  end
+  if value == "N" then
+    return "Etp Flag: Not Etp (N)"
+  end
+  if value == " " then
+    return "Etp Flag: Not Available (<whitespace>)"
+  end
+
+  return "Etp Flag: Unknown("..value..")"
+end
+
+-- Dissect: Etp Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.etp_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etp Leverage Factor
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor = {}
+
+-- Size: Etp Leverage Factor
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.size = 4
+
+-- Display: Etp Leverage Factor
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.display = function(value)
+  return "Etp Leverage Factor: "..value
+end
+
+-- Dissect: Etp Leverage Factor
+nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.tracking_number, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.etp_leverage_factor, range, value, display)
 
   return offset + length, value
 end
 
--- Direct Listing With Capital Raise Price Discovery Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message = {}
+-- Event Code
+nasdaq_nsmequities_noi_itch_v3_0_2026.event_code = {}
 
--- Size: Direct Listing With Capital Raise Price Discovery Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.size =
-  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.size
+-- Size: Event Code
+nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.size = 1
 
--- Display: Direct Listing With Capital Raise Price Discovery Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.display = function(packet, parent, length)
-  return ""
+-- Display: Event Code
+nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.display = function(value)
+  return "Event Code: "..value
 end
 
--- Dissect Fields: Direct Listing With Capital Raise Price Discovery Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Event Code
+nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.display(value, buffer, offset, packet, parent)
 
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.event_code, range, value, display)
 
-  -- Timestamp Integer 6: Integer
-  index, timestamp_integer_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
-
-  -- Open Eligibility Status: Alpha
-  index, open_eligibility_status = nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.dissect(buffer, index, packet, parent)
-
-  -- Minimum Allowable Price: Price (4)
-  index, minimum_allowable_price = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.dissect(buffer, index, packet, parent)
-
-  -- Maximum Allowable Price: Price (4)
-  index, maximum_allowable_price = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.dissect(buffer, index, packet, parent)
-
-  -- Near Execution Price: Price (4)
-  index, near_execution_price = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.dissect(buffer, index, packet, parent)
-
-  -- Near Execution Time: Integer
-  index, near_execution_time = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.dissect(buffer, index, packet, parent)
-
-  -- Lower Price Range Collar: Price (4)
-  index, lower_price_range_collar = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.dissect(buffer, index, packet, parent)
-
-  -- Upper Price Range Collar: Price (4)
-  index, upper_price_range_collar = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.dissect(buffer, index, packet, parent)
-
-  return index
+  return offset + length, value
 end
 
--- Dissect: Direct Listing With Capital Raise Price Discovery Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.dissect = function(buffer, offset, packet, parent)
-  if show.direct_listing_with_capital_raise_price_discovery_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.direct_listing_with_capital_raise_price_discovery_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.display(packet, parent, length)
-    parent:append_text(display)
+-- Far Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.far_price = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields(buffer, offset, packet, parent)
+-- Size: Far Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.size = 4
+
+-- Display: Far Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.display = function(value)
+  return "Far Price: "..value
+end
+
+-- Translate: Far Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Far Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.far_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.display = function(value)
+  if value == "D" then
+    return "Financial Status Indicator: Deficient (D)"
   end
+  if value == "E" then
+    return "Financial Status Indicator: Delinquent (E)"
+  end
+  if value == "Q" then
+    return "Financial Status Indicator: Bankrupt (Q)"
+  end
+  if value == "S" then
+    return "Financial Status Indicator: Suspended (S)"
+  end
+  if value == "G" then
+    return "Financial Status Indicator: Deficient And Bankrupt (G)"
+  end
+  if value == "H" then
+    return "Financial Status Indicator: Deficient And Delinquent (H)"
+  end
+  if value == "J" then
+    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
+  end
+  if value == "K" then
+    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
+  end
+  if value == "C" then
+    return "Financial Status Indicator: Creations Andor Redemptions Suspended For Exchange Traded Product (C)"
+  end
+  if value == "N" then
+    return "Financial Status Indicator: Normal (N)"
+  end
+  if value == " " then
+    return "Financial Status Indicator: Not Available (<whitespace>)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Financial Status Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.financial_status_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Direction
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction = {}
+
+-- Size: Imbalance Direction
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.size = 1
+
+-- Display: Imbalance Direction
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.display = function(value)
+  if value == "B" then
+    return "Imbalance Direction: Buy Imbalance (B)"
+  end
+  if value == "S" then
+    return "Imbalance Direction: Sell Imbalance (S)"
+  end
+  if value == "N" then
+    return "Imbalance Direction: No Imbalance (N)"
+  end
+  if value == "O" then
+    return "Imbalance Direction: Insufficient Orders To Calculate (O)"
+  end
+  if value == "P" then
+    return "Imbalance Direction: Paused (P)"
+  end
+
+  return "Imbalance Direction: Unknown("..value..")"
+end
+
+-- Dissect: Imbalance Direction
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.imbalance_direction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares = {}
+
+-- Size: Imbalance Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.size = 8
+
+-- Display: Imbalance Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.display = function(value)
+  return "Imbalance Shares: "..value
+end
+
+-- Dissect: Imbalance Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.imbalance_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inverse Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator = {}
+
+-- Size: Inverse Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.size = 1
+
+-- Display: Inverse Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.display = function(value)
+  if value == "Y" then
+    return "Inverse Indicator: Inverse Etp (Y)"
+  end
+  if value == "N" then
+    return "Inverse Indicator: Not Inverse Etp (N)"
+  end
+
+  return "Inverse Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Inverse Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.inverse_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ipo Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag = {}
+
+-- Size: Ipo Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.size = 1
+
+-- Display: Ipo Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.display = function(value)
+  if value == "Y" then
+    return "Ipo Flag: Ipo Security (Y)"
+  end
+  if value == "N" then
+    return "Ipo Flag: Not Ipo Security (N)"
+  end
+  if value == "Z" then
+    return "Ipo Flag: Non Ipo New Listed Security (Z)"
+  end
+  if value == " " then
+    return "Ipo Flag: Not Available (<whitespace>)"
+  end
+
+  return "Ipo Flag: Unknown("..value..")"
+end
+
+-- Dissect: Ipo Flag
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.ipo_flag, range, value, display)
+
+  return offset + length, value
 end
 
 -- Ipo Price
@@ -615,1099 +732,74 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_time.dissect = funct
   return offset + length, value
 end
 
--- Timestamp Timestamp 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6 = {}
+-- Issue Classification
+nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification = {}
 
--- Size: Timestamp Timestamp 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size = 6
+-- Size: Issue Classification
+nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.size = 1
 
--- Display: Timestamp Timestamp 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.display = function(value)
-  return "Timestamp Timestamp 6: "..value
-end
-
--- Dissect: Timestamp Timestamp 6
-nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.timestamp_timestamp_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Ipo Quoting Period Update Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message = {}
-
--- Size: Ipo Quoting Period Update Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.size =
-  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_time.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_qualifier.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_price.size
-
--- Display: Ipo Quoting Period Update Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ipo Quoting Period Update Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
-
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
-
-  -- Ipo Quotation Release Time: Integer
-  index, ipo_quotation_release_time = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_time.dissect(buffer, index, packet, parent)
-
-  -- Ipo Quotation Release Qualifier: Alphanumeric
-  index, ipo_quotation_release_qualifier = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_qualifier.dissect(buffer, index, packet, parent)
-
-  -- Ipo Price: Price (4)
-  index, ipo_price = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_price.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ipo Quoting Period Update Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.ipo_quoting_period_update_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.ipo_quoting_period_update_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields(buffer, offset, packet, parent)
+-- Display: Issue Classification
+nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.display = function(value)
+  if value == "A" then
+    return "Issue Classification: American Depositary Share (A)"
   end
-end
-
--- Cross Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type = {}
-
--- Size: Cross Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size = 1
-
--- Display: Cross Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Open Cross (O)"
+  if value == "B" then
+    return "Issue Classification: Bond (B)"
   end
   if value == "C" then
-    return "Cross Type: Close Cross (C)"
+    return "Issue Classification: Common Stock (C)"
   end
-  if value == "H" then
-    return "Cross Type: Intraday Opening Cross For Ipo And Halted Paused Securities (H)"
+  if value == "F" then
+    return "Issue Classification: Depository Receipt (F)"
   end
-  if value == "A" then
-    return "Cross Type: Extended Trading Close (A)"
+  if value == "I" then
+    return "Issue Classification: 144 A (I)"
   end
-
-  return "Cross Type: Unknown("..value..")"
-end
-
--- Dissect: Cross Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.match_number = {}
-
--- Size: Match Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.size = 8
-
--- Display: Match Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.display = function(value)
-  return "Match Number: "..value
-end
-
--- Dissect: Match Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.match_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price = {}
-
--- Size: Cross Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.size = 4
-
--- Display: Cross Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.display = function(value)
-  return "Cross Price: "..value
-end
-
--- Translate: Cross Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Cross Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.shares = {}
-
--- Size: Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.shares.size = 8
-
--- Display: Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.shares.display = function(value)
-  return "Shares: "..value
-end
-
--- Dissect: Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.shares.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.shares.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Trade Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message = {}
-
--- Size: Cross Trade Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.size =
-  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.shares.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size
-
--- Display: Cross Trade Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cross Trade Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
-
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
-
-  -- Shares: Integer
-  index, shares = nasdaq_nsmequities_noi_itch_v3_0_2026.shares.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
-
-  -- Cross Price: Price (4)
-  index, cross_price = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.dissect(buffer, index, packet, parent)
-
-  -- Match Number: Integer
-  index, match_number = nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.dissect(buffer, index, packet, parent)
-
-  -- Cross Type: Alphanumeric
-  index, cross_type = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Cross Trade Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.cross_trade_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_trade_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Price Variation Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator = {}
-
--- Size: Price Variation Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.size = 1
-
--- Display: Price Variation Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.display = function(value)
   if value == "L" then
-    return "Price Variation Indicator: Less Than 1 (L)"
-  end
-  if value == "1" then
-    return "Price Variation Indicator: 1 To 199 (1)"
-  end
-  if value == "2" then
-    return "Price Variation Indicator: 2 To 299 (2)"
-  end
-  if value == "3" then
-    return "Price Variation Indicator: 3 To 399 (3)"
-  end
-  if value == "4" then
-    return "Price Variation Indicator: 4 To 499 (4)"
-  end
-  if value == "5" then
-    return "Price Variation Indicator: 5 To 599 (5)"
-  end
-  if value == "6" then
-    return "Price Variation Indicator: 6 To 699 (6)"
-  end
-  if value == "7" then
-    return "Price Variation Indicator: 7 To 799 (7)"
-  end
-  if value == "8" then
-    return "Price Variation Indicator: 8 To 899 (8)"
-  end
-  if value == "9" then
-    return "Price Variation Indicator: 9 To 999 (9)"
-  end
-  if value == "A" then
-    return "Price Variation Indicator: 10 To 1999 (A)"
-  end
-  if value == "B" then
-    return "Price Variation Indicator: 20 To 2999 (B)"
-  end
-  if value == "C" then
-    return "Price Variation Indicator: 30 Or Greater (C)"
-  end
-  if value == " " then
-    return "Price Variation Indicator: Cannot Be Calculated (<whitespace>)"
-  end
-
-  return "Price Variation Indicator: Unknown("..value..")"
-end
-
--- Dissect: Price Variation Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.price_variation_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Reference Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price = {}
-
--- Size: Current Reference Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.size = 4
-
--- Display: Current Reference Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.display = function(value)
-  return "Current Reference Price: "..value
-end
-
--- Translate: Current Reference Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Current Reference Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.current_reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Near Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_price = {}
-
--- Size: Near Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.size = 4
-
--- Display: Near Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.display = function(value)
-  return "Near Price: "..value
-end
-
--- Translate: Near Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Near Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.near_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Far Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.far_price = {}
-
--- Size: Far Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.size = 4
-
--- Display: Far Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.display = function(value)
-  return "Far Price: "..value
-end
-
--- Translate: Far Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Far Price
-nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.translate(raw)
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.far_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Direction
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction = {}
-
--- Size: Imbalance Direction
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.size = 1
-
--- Display: Imbalance Direction
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy Imbalance (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell Imbalance (S)"
+    return "Issue Classification: Limited Partnership (L)"
   end
   if value == "N" then
-    return "Imbalance Direction: No Imbalance (N)"
+    return "Issue Classification: Notes (N)"
   end
   if value == "O" then
-    return "Imbalance Direction: Insufficient Orders To Calculate (O)"
+    return "Issue Classification: Ordinary Share (O)"
   end
   if value == "P" then
-    return "Imbalance Direction: Paused (P)"
-  end
-
-  return "Imbalance Direction: Unknown("..value..")"
-end
-
--- Dissect: Imbalance Direction
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.imbalance_direction, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares = {}
-
--- Size: Imbalance Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.size = 8
-
--- Display: Imbalance Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.display = function(value)
-  return "Imbalance Shares: "..value
-end
-
--- Dissect: Imbalance Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.imbalance_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Paired Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares = {}
-
--- Size: Paired Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.size = 8
-
--- Display: Paired Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.display = function(value)
-  return "Paired Shares: "..value
-end
-
--- Dissect: Paired Shares
-nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.paired_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Order Imbalance Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message = {}
-
--- Size: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.size =
-  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.size
-
--- Display: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
-
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
-
-  -- Paired Shares: Integer
-  index, paired_shares = nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.dissect(buffer, index, packet, parent)
-
-  -- Imbalance Shares: Integer
-  index, imbalance_shares = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.dissect(buffer, index, packet, parent)
-
-  -- Imbalance Direction: Alphanumeric
-  index, imbalance_direction = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
-
-  -- Far Price: Price (4)
-  index, far_price = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.dissect(buffer, index, packet, parent)
-
-  -- Near Price: Price (4)
-  index, near_price = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.dissect(buffer, index, packet, parent)
-
-  -- Current Reference Price: Price (4)
-  index, current_reference_price = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Cross Type: Alphanumeric
-  index, cross_type = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.dissect(buffer, index, packet, parent)
-
-  -- Price Variation Indicator: Alphanumeric
-  index, price_variation_indicator = nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Net Order Imbalance Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.net_order_imbalance_indicator_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reg Sho Action
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action = {}
-
--- Size: Reg Sho Action
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.size = 1
-
--- Display: Reg Sho Action
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Restriction Remains In Effect (2)"
-  end
-
-  return "Reg Sho Action: Unknown("..value..")"
-end
-
--- Dissect: Reg Sho Action
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reg_sho_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message = {}
-
--- Size: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.size =
-  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.size
-
--- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
-
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
-
-  -- Reg Sho Action: Alphanumeric
-  index, reg_sho_action = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
-  if show.reg_sho_short_sale_price_test_restricted_indicator_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reason
-nasdaq_nsmequities_noi_itch_v3_0_2026.reason = {}
-
--- Size: Reason
-nasdaq_nsmequities_noi_itch_v3_0_2026.reason.size = 4
-
--- Display: Reason
-nasdaq_nsmequities_noi_itch_v3_0_2026.reason.display = function(value)
-  if value == "T1" then
-    return "Reason: Halt News Pending (T1)"
-  end
-  if value == "T2" then
-    return "Reason: Halt News Disseminated (T2)"
-  end
-  if value == "T3" then
-    return "Reason: News And Resumption Times (T3)"
-  end
-  if value == "T5" then
-    return "Reason: Single Stock Trading Pause In Effect (T5)"
-  end
-  if value == "T6" then
-    return "Reason: Regulatory Halt— Extraordinary Market Activity (T6)"
-  end
-  if value == "T7" then
-    return "Reason: Single Stock Trading Pause Quotation Only Period (T7)"
-  end
-  if value == "T8" then
-    return "Reason: Halt Etf (T8)"
-  end
-  if value == "T12" then
-    return "Reason: Trading Halted For Information Requested By Listing Market (T12)"
-  end
-  if value == "H4" then
-    return "Reason: Halt Non Compliance (H4)"
-  end
-  if value == "H9" then
-    return "Reason: Halt Filings Not Current (H9)"
-  end
-  if value == "H10" then
-    return "Reason: Halt Sec Trading Suspension (H10)"
-  end
-  if value == "H11" then
-    return "Reason: Halt Regulatory Concern (H11)"
-  end
-  if value == "O1" then
-    return "Reason: Operations Halt Contact Market Operations (O1)"
-  end
-  if value == "LUDP" then
-    return "Reason: Volatility Trading Pause (LUDP)"
-  end
-  if value == "LUDS" then
-    return "Reason: Volatility Trading Pause Straddle Condition (LUDS)"
-  end
-  if value == "MWC1" then
-    return "Reason: Market Wide Circuit Breaker Halt Level 1 (MWC1)"
-  end
-  if value == "MWC2" then
-    return "Reason: Market Wide Circuit Breaker Halt Level 2 (MWC2)"
-  end
-  if value == "MWC3" then
-    return "Reason: Market Wide Circuit Breaker Halt Level 3 (MWC3)"
-  end
-  if value == "MWC0" then
-    return "Reason: Market Wide Circuit Breaker Halt Carry Over From Previous Day (MWC0)"
-  end
-  if value == "IPO1" then
-    return "Reason: Ipo Issue Not Yet Trading (IPO1)"
-  end
-  if value == "M1" then
-    return "Reason: Corporate Action (M1)"
-  end
-  if value == "M2" then
-    return "Reason: Quotation Not Available (M2)"
-  end
-  if value == "R1" then
-    return "Reason: New Issue Available (R1)"
-  end
-  if value == "R2" then
-    return "Reason: Issue Available (R2)"
-  end
-  if value == "R4" then
-    return "Reason: Qualifications Issues Reviewed Resolved Quotations Trading To Resume (R4)"
-  end
-  if value == "R9" then
-    return "Reason: Filing Requirements Satisfied Resolved Quotations Trading To Resume (R9)"
-  end
-  if value == "C3" then
-    return "Reason: Issuer News Not Forthcoming Quotations Trading To Resume (C3)"
-  end
-  if value == "C4" then
-    return "Reason: Qualifications Halt Ended Maintenance Requirements Met Resume (C4)"
-  end
-  if value == "C9" then
-    return "Reason: Qualifications Halt Concluded Filings Met Quotes Trades To Resume (C9)"
-  end
-  if value == "C11" then
-    return "Reason: Trade Halt Concluded By Other Regulatory Auth Quotes Trades Resume (C11)"
-  end
-  if value == "MWCQ" then
-    return "Reason: Market Wide Circuit Breaker Resumption (MWCQ)"
-  end
-  if value == "IPOQ" then
-    return "Reason: Ipo Security Released For Quotation (IPOQ)"
-  end
-  if value == "IPOE" then
-    return "Reason: Ipo Security— Positioning Window Extension (IPOE)"
-  end
-  if value == " " then
-    return "Reason: Reason Not Available (<whitespace>)"
-  end
-
-  return "Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason
-nasdaq_nsmequities_noi_itch_v3_0_2026.reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Trading State
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted Across All Us Equity Markets Sr Os (H)"
-  end
-  if value == "P" then
-    return "Current Trading State: Paused Across All Us Equity Markets Sr Os (P)"
+    return "Issue Classification: Preferred Stock (P)"
   end
   if value == "Q" then
-    return "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)"
+    return "Issue Classification: Other Securities (Q)"
+  end
+  if value == "R" then
+    return "Issue Classification: Right (R)"
+  end
+  if value == "S" then
+    return "Issue Classification: Shares Of Beneficial Interest (S)"
   end
   if value == "T" then
-    return "Current Trading State: Trading On Nasdaq (T)"
+    return "Issue Classification: Convertible Debenture (T)"
+  end
+  if value == "U" then
+    return "Issue Classification: Unit (U)"
+  end
+  if value == "V" then
+    return "Issue Classification: Units Benif Int (V)"
+  end
+  if value == "W" then
+    return "Issue Classification: Warrant (W)"
   end
 
-  return "Current Trading State: Unknown("..value..")"
+  return "Issue Classification: Unknown("..value..")"
 end
 
--- Dissect: Current Trading State
-nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.size
+-- Dissect: Issue Classification
+nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Trading Action Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message = {}
-
--- Size: Stock Trading Action Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.size =
-  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.size + 
-  nasdaq_nsmequities_noi_itch_v3_0_2026.reason.size
-
--- Display: Stock Trading Action Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stock Trading Action Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
-
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
-
-  -- Current Trading State: Alphanumeric
-  index, current_trading_state = nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.dissect(buffer, index, packet, parent)
-
-  -- Reason: Alphanumeric
-  index, reason = nasdaq_nsmequities_noi_itch_v3_0_2026.reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stock Trading Action Message
-nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_trading_action_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.stock_trading_action_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Inverse Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator = {}
-
--- Size: Inverse Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.size = 1
-
--- Display: Inverse Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.display = function(value)
-  if value == "Y" then
-    return "Inverse Indicator: Inverse Etp (Y)"
-  end
-  if value == "N" then
-    return "Inverse Indicator: Not Inverse Etp (N)"
-  end
-
-  return "Inverse Indicator: Unknown("..value..")"
-end
-
--- Dissect: Inverse Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.inverse_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.inverse_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Etp Leverage Factor
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor = {}
-
--- Size: Etp Leverage Factor
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.size = 4
-
--- Display: Etp Leverage Factor
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.display = function(value)
-  return "Etp Leverage Factor: "..value
-end
-
--- Dissect: Etp Leverage Factor
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_leverage_factor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.etp_leverage_factor, range, value, display)
-
-  return offset + length, value
-end
-
--- Etp Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag = {}
-
--- Size: Etp Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.size = 1
-
--- Display: Etp Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.display = function(value)
-  if value == "Y" then
-    return "Etp Flag: Etp (Y)"
-  end
-  if value == "N" then
-    return "Etp Flag: Not Etp (N)"
-  end
-  if value == " " then
-    return "Etp Flag: Not Available (<whitespace>)"
-  end
-
-  return "Etp Flag: Unknown("..value..")"
-end
-
--- Dissect: Etp Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.etp_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.etp_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Luld Reference Price Tier
-nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier = {}
-
--- Size: Luld Reference Price Tier
-nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.size = 1
-
--- Display: Luld Reference Price Tier
-nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.display = function(value)
-  if value == "1" then
-    return "Luld Reference Price Tier: Tier 1 Nms Stocks And Select Et Ps (1)"
-  end
-  if value == "2" then
-    return "Luld Reference Price Tier: Tier 2 Nms Stocks (2)"
-  end
-  if value == " " then
-    return "Luld Reference Price Tier: Not Applicable (<whitespace>)"
-  end
-
-  return "Luld Reference Price Tier: Unknown("..value..")"
-end
-
--- Dissect: Luld Reference Price Tier
-nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.luld_reference_price_tier, range, value, display)
-
-  return offset + length, value
-end
-
--- Ipo Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag = {}
-
--- Size: Ipo Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.size = 1
-
--- Display: Ipo Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.display = function(value)
-  if value == "Y" then
-    return "Ipo Flag: Ipo Security (Y)"
-  end
-  if value == "N" then
-    return "Ipo Flag: Not Ipo Security (N)"
-  end
-  if value == "Z" then
-    return "Ipo Flag: Non Ipo New Listed Security (Z)"
-  end
-  if value == " " then
-    return "Ipo Flag: Not Available (<whitespace>)"
-  end
-
-  return "Ipo Flag: Unknown("..value..")"
-end
-
--- Dissect: Ipo Flag
-nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.ipo_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Threshold Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator = {}
-
--- Size: Short Sale Threshold Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.size = 1
-
--- Display: Short Sale Threshold Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.display = function(value)
-  if value == "Y" then
-    return "Short Sale Threshold Indicator: Restricted (Y)"
-  end
-  if value == "N" then
-    return "Short Sale Threshold Indicator: Not Restricted (N)"
-  end
-  if value == " " then
-    return "Short Sale Threshold Indicator: Not Available (<whitespace>)"
-  end
-
-  return "Short Sale Threshold Indicator: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Threshold Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.short_sale_threshold_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Authenticity
-nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity = {}
-
--- Size: Authenticity
-nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.size = 1
-
--- Display: Authenticity
-nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
-
-  return "Authenticity: Unknown("..value..")"
-end
-
--- Dissect: Authenticity
-nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.authenticity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.authenticity, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.issue_classification, range, value, display)
 
   return offset + length, value
 end
@@ -1910,184 +1002,64 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.issue_sub_type.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Issue Classification
-nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification = {}
+-- Lower Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar = {}
 
--- Size: Issue Classification
-nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.size = 1
+-- Size: Lower Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.size = 4
 
--- Display: Issue Classification
-nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.display = function(value)
-  if value == "A" then
-    return "Issue Classification: American Depositary Share (A)"
-  end
-  if value == "B" then
-    return "Issue Classification: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Classification: Common Stock (C)"
-  end
-  if value == "F" then
-    return "Issue Classification: Depository Receipt (F)"
-  end
-  if value == "I" then
-    return "Issue Classification: 144 A (I)"
-  end
-  if value == "L" then
-    return "Issue Classification: Limited Partnership (L)"
-  end
-  if value == "N" then
-    return "Issue Classification: Notes (N)"
-  end
-  if value == "O" then
-    return "Issue Classification: Ordinary Share (O)"
-  end
-  if value == "P" then
-    return "Issue Classification: Preferred Stock (P)"
-  end
-  if value == "Q" then
-    return "Issue Classification: Other Securities (Q)"
-  end
-  if value == "R" then
-    return "Issue Classification: Right (R)"
-  end
-  if value == "S" then
-    return "Issue Classification: Shares Of Beneficial Interest (S)"
-  end
-  if value == "T" then
-    return "Issue Classification: Convertible Debenture (T)"
-  end
-  if value == "U" then
-    return "Issue Classification: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Classification: Units Benif Int (V)"
-  end
-  if value == "W" then
-    return "Issue Classification: Warrant (W)"
-  end
-
-  return "Issue Classification: Unknown("..value..")"
+-- Display: Lower Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.display = function(value)
+  return "Lower Price Range Collar: "..value
 end
 
--- Dissect: Issue Classification
-nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.issue_classification.display(value, buffer, offset, packet, parent)
+-- Translate: Lower Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.translate = function(raw)
+  return raw/10000
+end
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.issue_classification, range, value, display)
+-- Dissect: Lower Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.lower_price_range_collar, range, value, display)
 
   return offset + length, value
 end
 
--- Round Lots Only
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only = {}
+-- Luld Reference Price Tier
+nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier = {}
 
--- Size: Round Lots Only
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.size = 1
+-- Size: Luld Reference Price Tier
+nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.size = 1
 
--- Display: Round Lots Only
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Round Lots Only (Y)"
+-- Display: Luld Reference Price Tier
+nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.display = function(value)
+  if value == "1" then
+    return "Luld Reference Price Tier: Tier 1 Nms Stocks And Select Et Ps (1)"
   end
-  if value == "N" then
-    return "Round Lots Only: No Restriction (N)"
-  end
-
-  return "Round Lots Only: Unknown("..value..")"
-end
-
--- Dissect: Round Lots Only
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.round_lots_only, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size = {}
-
--- Size: Round Lot Size
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.size = 4
-
--- Display: Round Lot Size
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Financial Status Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator = {}
-
--- Size: Financial Status Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.size = 1
-
--- Display: Financial Status Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.display = function(value)
-  if value == "D" then
-    return "Financial Status Indicator: Deficient (D)"
-  end
-  if value == "E" then
-    return "Financial Status Indicator: Delinquent (E)"
-  end
-  if value == "Q" then
-    return "Financial Status Indicator: Bankrupt (Q)"
-  end
-  if value == "S" then
-    return "Financial Status Indicator: Suspended (S)"
-  end
-  if value == "G" then
-    return "Financial Status Indicator: Deficient And Bankrupt (G)"
-  end
-  if value == "H" then
-    return "Financial Status Indicator: Deficient And Delinquent (H)"
-  end
-  if value == "J" then
-    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
-  end
-  if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
-  end
-  if value == "C" then
-    return "Financial Status Indicator: Creations Andor Redemptions Suspended For Exchange Traded Product (C)"
-  end
-  if value == "N" then
-    return "Financial Status Indicator: Normal (N)"
+  if value == "2" then
+    return "Luld Reference Price Tier: Tier 2 Nms Stocks (2)"
   end
   if value == " " then
-    return "Financial Status Indicator: Not Available (<whitespace>)"
+    return "Luld Reference Price Tier: Not Applicable (<whitespace>)"
   end
 
-  return "Financial Status Indicator: Unknown("..value..")"
+  return "Luld Reference Price Tier: Unknown("..value..")"
 end
 
--- Dissect: Financial Status Indicator
-nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.size
+-- Dissect: Luld Reference Price Tier
+nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.financial_status_indicator.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.financial_status_indicator, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.luld_reference_price_tier, range, value, display)
 
   return offset + length, value
 end
@@ -2141,6 +1113,1218 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.market_category.dissect = function(buffer,
   parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.market_category, range, value, display)
 
   return offset + length, value
+end
+
+-- Match Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.match_number = {}
+
+-- Size: Match Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.size = 8
+
+-- Display: Match Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.display = function(value)
+  return "Match Number: "..value
+end
+
+-- Dissect: Match Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maximum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price = {}
+
+-- Size: Maximum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.size = 4
+
+-- Display: Maximum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.display = function(value)
+  return "Maximum Allowable Price: "..value
+end
+
+-- Translate: Maximum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Maximum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.maximum_allowable_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_count = {}
+
+-- Size: Message Count
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_length = {}
+
+-- Size: Message Length
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_type = {}
+
+-- Size: Message Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event (S)"
+  end
+  if value == "R" then
+    return "Message Type: Stock Directory Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Stock Trading Action Message (H)"
+  end
+  if value == "Y" then
+    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
+  end
+  if value == "I" then
+    return "Message Type: Net Order Imbalance Indicator Message (I)"
+  end
+  if value == "Q" then
+    return "Message Type: Cross Trade Message (Q)"
+  end
+  if value == "K" then
+    return "Message Type: Ipo Quoting Period Update Message (K)"
+  end
+  if value == "O" then
+    return "Message Type: Direct Listing With Capital Raise Price Discovery Message (O)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price = {}
+
+-- Size: Minimum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.size = 4
+
+-- Display: Minimum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.display = function(value)
+  return "Minimum Allowable Price: "..value
+end
+
+-- Translate: Minimum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Minimum Allowable Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.minimum_allowable_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Near Execution Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price = {}
+
+-- Size: Near Execution Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.size = 4
+
+-- Display: Near Execution Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.display = function(value)
+  return "Near Execution Price: "..value
+end
+
+-- Translate: Near Execution Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Near Execution Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.near_execution_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Near Execution Time
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time = {}
+
+-- Size: Near Execution Time
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.size = 8
+
+-- Display: Near Execution Time
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.display = function(value)
+  return "Near Execution Time: "..value
+end
+
+-- Dissect: Near Execution Time
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.near_execution_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Near Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_price = {}
+
+-- Size: Near Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.size = 4
+
+-- Display: Near Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.display = function(value)
+  return "Near Price: "..value
+end
+
+-- Translate: Near Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Near Price
+nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.near_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Eligibility Status
+nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status = {}
+
+-- Size: Open Eligibility Status
+nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.size = 1
+
+-- Display: Open Eligibility Status
+nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.display = function(value)
+  return "Open Eligibility Status: "..value
+end
+
+-- Dissect: Open Eligibility Status
+nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.open_eligibility_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Paired Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares = {}
+
+-- Size: Paired Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.size = 8
+
+-- Display: Paired Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.display = function(value)
+  return "Paired Shares: "..value
+end
+
+-- Dissect: Paired Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.paired_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Variation Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator = {}
+
+-- Size: Price Variation Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.size = 1
+
+-- Display: Price Variation Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.display = function(value)
+  if value == "L" then
+    return "Price Variation Indicator: Less Than 1 (L)"
+  end
+  if value == "1" then
+    return "Price Variation Indicator: 1 To 199 (1)"
+  end
+  if value == "2" then
+    return "Price Variation Indicator: 2 To 299 (2)"
+  end
+  if value == "3" then
+    return "Price Variation Indicator: 3 To 399 (3)"
+  end
+  if value == "4" then
+    return "Price Variation Indicator: 4 To 499 (4)"
+  end
+  if value == "5" then
+    return "Price Variation Indicator: 5 To 599 (5)"
+  end
+  if value == "6" then
+    return "Price Variation Indicator: 6 To 699 (6)"
+  end
+  if value == "7" then
+    return "Price Variation Indicator: 7 To 799 (7)"
+  end
+  if value == "8" then
+    return "Price Variation Indicator: 8 To 899 (8)"
+  end
+  if value == "9" then
+    return "Price Variation Indicator: 9 To 999 (9)"
+  end
+  if value == "A" then
+    return "Price Variation Indicator: 10 To 1999 (A)"
+  end
+  if value == "B" then
+    return "Price Variation Indicator: 20 To 2999 (B)"
+  end
+  if value == "C" then
+    return "Price Variation Indicator: 30 Or Greater (C)"
+  end
+  if value == " " then
+    return "Price Variation Indicator: Cannot Be Calculated (<whitespace>)"
+  end
+
+  return "Price Variation Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Price Variation Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.price_variation_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+nasdaq_nsmequities_noi_itch_v3_0_2026.reason = {}
+
+-- Size: Reason
+nasdaq_nsmequities_noi_itch_v3_0_2026.reason.size = 4
+
+-- Display: Reason
+nasdaq_nsmequities_noi_itch_v3_0_2026.reason.display = function(value)
+  if value == "T1" then
+    return "Reason: Halt News Pending (T1)"
+  end
+  if value == "T2" then
+    return "Reason: Halt News Disseminated (T2)"
+  end
+  if value == "T3" then
+    return "Reason: News And Resumption Times (T3)"
+  end
+  if value == "T5" then
+    return "Reason: Single Stock Trading Pause In Effect (T5)"
+  end
+  if value == "T6" then
+    return "Reason: Regulatory Halt— Extraordinary Market Activity (T6)"
+  end
+  if value == "T7" then
+    return "Reason: Single Stock Trading Pause Quotation Only Period (T7)"
+  end
+  if value == "T8" then
+    return "Reason: Halt Etf (T8)"
+  end
+  if value == "T12" then
+    return "Reason: Trading Halted For Information Requested By Listing Market (T12)"
+  end
+  if value == "H4" then
+    return "Reason: Halt Non Compliance (H4)"
+  end
+  if value == "H9" then
+    return "Reason: Halt Filings Not Current (H9)"
+  end
+  if value == "H10" then
+    return "Reason: Halt Sec Trading Suspension (H10)"
+  end
+  if value == "H11" then
+    return "Reason: Halt Regulatory Concern (H11)"
+  end
+  if value == "O1" then
+    return "Reason: Operations Halt Contact Market Operations (O1)"
+  end
+  if value == "LUDP" then
+    return "Reason: Volatility Trading Pause (LUDP)"
+  end
+  if value == "LUDS" then
+    return "Reason: Volatility Trading Pause Straddle Condition (LUDS)"
+  end
+  if value == "MWC1" then
+    return "Reason: Market Wide Circuit Breaker Halt Level 1 (MWC1)"
+  end
+  if value == "MWC2" then
+    return "Reason: Market Wide Circuit Breaker Halt Level 2 (MWC2)"
+  end
+  if value == "MWC3" then
+    return "Reason: Market Wide Circuit Breaker Halt Level 3 (MWC3)"
+  end
+  if value == "MWC0" then
+    return "Reason: Market Wide Circuit Breaker Halt Carry Over From Previous Day (MWC0)"
+  end
+  if value == "IPO1" then
+    return "Reason: Ipo Issue Not Yet Trading (IPO1)"
+  end
+  if value == "M1" then
+    return "Reason: Corporate Action (M1)"
+  end
+  if value == "M2" then
+    return "Reason: Quotation Not Available (M2)"
+  end
+  if value == "R1" then
+    return "Reason: New Issue Available (R1)"
+  end
+  if value == "R2" then
+    return "Reason: Issue Available (R2)"
+  end
+  if value == "R4" then
+    return "Reason: Qualifications Issues Reviewed Resolved Quotations Trading To Resume (R4)"
+  end
+  if value == "R9" then
+    return "Reason: Filing Requirements Satisfied Resolved Quotations Trading To Resume (R9)"
+  end
+  if value == "C3" then
+    return "Reason: Issuer News Not Forthcoming Quotations Trading To Resume (C3)"
+  end
+  if value == "C4" then
+    return "Reason: Qualifications Halt Ended Maintenance Requirements Met Resume (C4)"
+  end
+  if value == "C9" then
+    return "Reason: Qualifications Halt Concluded Filings Met Quotes Trades To Resume (C9)"
+  end
+  if value == "C11" then
+    return "Reason: Trade Halt Concluded By Other Regulatory Auth Quotes Trades Resume (C11)"
+  end
+  if value == "MWCQ" then
+    return "Reason: Market Wide Circuit Breaker Resumption (MWCQ)"
+  end
+  if value == "IPOQ" then
+    return "Reason: Ipo Security Released For Quotation (IPOQ)"
+  end
+  if value == "IPOE" then
+    return "Reason: Ipo Security— Positioning Window Extension (IPOE)"
+  end
+  if value == " " then
+    return "Reason: Reason Not Available (<whitespace>)"
+  end
+
+  return "Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reason
+nasdaq_nsmequities_noi_itch_v3_0_2026.reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test In Place (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Restriction In Effect (1)"
+  end
+  if value == "2" then
+    return "Reg Sho Action: Restriction Remains In Effect (2)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size = {}
+
+-- Size: Round Lot Size
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lots Only
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only = {}
+
+-- Size: Round Lots Only
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.size = 1
+
+-- Display: Round Lots Only
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.display = function(value)
+  if value == "Y" then
+    return "Round Lots Only: Round Lots Only (Y)"
+  end
+  if value == "N" then
+    return "Round Lots Only: No Restriction (N)"
+  end
+
+  return "Round Lots Only: Unknown("..value..")"
+end
+
+-- Dissect: Round Lots Only
+nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.round_lots_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.round_lots_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_nsmequities_noi_itch_v3_0_2026.session = {}
+
+-- Size: Session
+nasdaq_nsmequities_noi_itch_v3_0_2026.session.size = 10
+
+-- Display: Session
+nasdaq_nsmequities_noi_itch_v3_0_2026.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_nsmequities_noi_itch_v3_0_2026.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.shares = {}
+
+-- Size: Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.shares.size = 8
+
+-- Display: Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.shares.display = function(value)
+  return "Shares: "..value
+end
+
+-- Dissect: Shares
+nasdaq_nsmequities_noi_itch_v3_0_2026.shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.shares.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Threshold Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator = {}
+
+-- Size: Short Sale Threshold Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.size = 1
+
+-- Display: Short Sale Threshold Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.display = function(value)
+  if value == "Y" then
+    return "Short Sale Threshold Indicator: Restricted (Y)"
+  end
+  if value == "N" then
+    return "Short Sale Threshold Indicator: Not Restricted (N)"
+  end
+  if value == " " then
+    return "Short Sale Threshold Indicator: Not Available (<whitespace>)"
+  end
+
+  return "Short Sale Threshold Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Threshold Indicator
+nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.short_sale_threshold_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock = {}
+
+-- Size: Stock
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size = 8
+
+-- Display: Stock
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock.display = function(value)
+  return "Stock: "..value
+end
+
+-- Dissect: Stock
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.stock, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp Integer 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6 = {}
+
+-- Size: Timestamp Integer 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size = 6
+
+-- Display: Timestamp Integer 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.display = function(value)
+  return "Timestamp Integer 6: "..value
+end
+
+-- Dissect: Timestamp Integer 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.timestamp_integer_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp Timestamp 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6 = {}
+
+-- Size: Timestamp Timestamp 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size = 6
+
+-- Display: Timestamp Timestamp 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.display = function(value)
+  return "Timestamp Timestamp 6: "..value
+end
+
+-- Dissect: Timestamp Timestamp 6
+nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.timestamp_timestamp_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tracking Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number = {}
+
+-- Size: Tracking Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size = 2
+
+-- Display: Tracking Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.display = function(value)
+  return "Tracking Number: "..value
+end
+
+-- Dissect: Tracking Number
+nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.tracking_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Upper Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar = {}
+
+-- Size: Upper Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.size = 4
+
+-- Display: Upper Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.display = function(value)
+  return "Upper Price Range Collar: "..value
+end
+
+-- Translate: Upper Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Upper Price Range Collar
+nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.translate(raw)
+  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.upper_price_range_collar, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq NsmEquities Noi Itch 3.0.2026
+-----------------------------------------------------------------------
+
+-- Direct Listing With Capital Raise Price Discovery Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message = {}
+
+-- Size: Direct Listing With Capital Raise Price Discovery Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.size =
+  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.size
+
+-- Display: Direct Listing With Capital Raise Price Discovery Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Direct Listing With Capital Raise Price Discovery Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp Integer 6: Integer
+  index, timestamp_integer_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_integer_6.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
+
+  -- Open Eligibility Status: Alpha
+  index, open_eligibility_status = nasdaq_nsmequities_noi_itch_v3_0_2026.open_eligibility_status.dissect(buffer, index, packet, parent)
+
+  -- Minimum Allowable Price: Price (4)
+  index, minimum_allowable_price = nasdaq_nsmequities_noi_itch_v3_0_2026.minimum_allowable_price.dissect(buffer, index, packet, parent)
+
+  -- Maximum Allowable Price: Price (4)
+  index, maximum_allowable_price = nasdaq_nsmequities_noi_itch_v3_0_2026.maximum_allowable_price.dissect(buffer, index, packet, parent)
+
+  -- Near Execution Price: Price (4)
+  index, near_execution_price = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_price.dissect(buffer, index, packet, parent)
+
+  -- Near Execution Time: Integer
+  index, near_execution_time = nasdaq_nsmequities_noi_itch_v3_0_2026.near_execution_time.dissect(buffer, index, packet, parent)
+
+  -- Lower Price Range Collar: Price (4)
+  index, lower_price_range_collar = nasdaq_nsmequities_noi_itch_v3_0_2026.lower_price_range_collar.dissect(buffer, index, packet, parent)
+
+  -- Upper Price Range Collar: Price (4)
+  index, upper_price_range_collar = nasdaq_nsmequities_noi_itch_v3_0_2026.upper_price_range_collar.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Direct Listing With Capital Raise Price Discovery Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.dissect = function(buffer, offset, packet, parent)
+  if show.direct_listing_with_capital_raise_price_discovery_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.direct_listing_with_capital_raise_price_discovery_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ipo Quoting Period Update Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message = {}
+
+-- Size: Ipo Quoting Period Update Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.size =
+  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_time.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_qualifier.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_price.size
+
+-- Display: Ipo Quoting Period Update Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ipo Quoting Period Update Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp Timestamp 6: Timestamp
+  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
+
+  -- Ipo Quotation Release Time: Integer
+  index, ipo_quotation_release_time = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_time.dissect(buffer, index, packet, parent)
+
+  -- Ipo Quotation Release Qualifier: Alphanumeric
+  index, ipo_quotation_release_qualifier = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quotation_release_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Ipo Price: Price (4)
+  index, ipo_price = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ipo Quoting Period Update Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.ipo_quoting_period_update_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.ipo_quoting_period_update_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_2026.ipo_quoting_period_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cross Trade Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message = {}
+
+-- Size: Cross Trade Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.size =
+  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.shares.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size
+
+-- Display: Cross Trade Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cross Trade Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp Timestamp 6: Timestamp
+  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+
+  -- Shares: Integer
+  index, shares = nasdaq_nsmequities_noi_itch_v3_0_2026.shares.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
+
+  -- Cross Price: Price (4)
+  index, cross_price = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_price.dissect(buffer, index, packet, parent)
+
+  -- Match Number: Integer
+  index, match_number = nasdaq_nsmequities_noi_itch_v3_0_2026.match_number.dissect(buffer, index, packet, parent)
+
+  -- Cross Type: Alphanumeric
+  index, cross_type = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cross Trade Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.cross_trade_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.cross_trade_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_2026.cross_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Net Order Imbalance Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message = {}
+
+-- Size: Net Order Imbalance Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.size =
+  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.size
+
+-- Display: Net Order Imbalance Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Net Order Imbalance Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp Timestamp 6: Timestamp
+  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+
+  -- Paired Shares: Integer
+  index, paired_shares = nasdaq_nsmequities_noi_itch_v3_0_2026.paired_shares.dissect(buffer, index, packet, parent)
+
+  -- Imbalance Shares: Integer
+  index, imbalance_shares = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_shares.dissect(buffer, index, packet, parent)
+
+  -- Imbalance Direction: Alphanumeric
+  index, imbalance_direction = nasdaq_nsmequities_noi_itch_v3_0_2026.imbalance_direction.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
+
+  -- Far Price: Price (4)
+  index, far_price = nasdaq_nsmequities_noi_itch_v3_0_2026.far_price.dissect(buffer, index, packet, parent)
+
+  -- Near Price: Price (4)
+  index, near_price = nasdaq_nsmequities_noi_itch_v3_0_2026.near_price.dissect(buffer, index, packet, parent)
+
+  -- Current Reference Price: Price (4)
+  index, current_reference_price = nasdaq_nsmequities_noi_itch_v3_0_2026.current_reference_price.dissect(buffer, index, packet, parent)
+
+  -- Cross Type: Alphanumeric
+  index, cross_type = nasdaq_nsmequities_noi_itch_v3_0_2026.cross_type.dissect(buffer, index, packet, parent)
+
+  -- Price Variation Indicator: Alphanumeric
+  index, price_variation_indicator = nasdaq_nsmequities_noi_itch_v3_0_2026.price_variation_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Net Order Imbalance Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.dissect = function(buffer, offset, packet, parent)
+  if show.net_order_imbalance_indicator_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.net_order_imbalance_indicator_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_2026.net_order_imbalance_indicator_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message = {}
+
+-- Size: Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.size =
+  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.size
+
+-- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp Timestamp 6: Timestamp
+  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
+
+  -- Reg Sho Action: Alphanumeric
+  index, reg_sho_action = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reg Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
+  if show.reg_sho_short_sale_price_test_restricted_indicator_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.reg_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stock Trading Action Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message = {}
+
+-- Size: Stock Trading Action Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.size =
+  nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.stock.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.size + 
+  nasdaq_nsmequities_noi_itch_v3_0_2026.reason.size
+
+-- Display: Stock Trading Action Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stock Trading Action Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_noi_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp Timestamp 6: Timestamp
+  index, timestamp_timestamp_6 = nasdaq_nsmequities_noi_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noi_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
+
+  -- Current Trading State: Alphanumeric
+  index, current_trading_state = nasdaq_nsmequities_noi_itch_v3_0_2026.current_trading_state.dissect(buffer, index, packet, parent)
+
+  -- Reason: Alphanumeric
+  index, reason = nasdaq_nsmequities_noi_itch_v3_0_2026.reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stock Trading Action Message
+nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
+  if show.stock_trading_action_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.stock_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noi_itch_v3_0_2026.stock_trading_action_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Stock Directory Message
@@ -2243,29 +2427,6 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.stock_directory_message.dissect = function
   end
 end
 
--- Event Code
-nasdaq_nsmequities_noi_itch_v3_0_2026.event_code = {}
-
--- Size: Event Code
-nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.size = 1
-
--- Display: Event Code
-nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.display = function(value)
-  return "Event Code: "..value
-end
-
--- Dissect: Event Code
-nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event
 nasdaq_nsmequities_noi_itch_v3_0_2026.system_event = {}
 
@@ -2353,77 +2514,6 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.payload.dissect = function(buffer, offset,
   end
 
   return offset
-end
-
--- Message Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_type = {}
-
--- Size: Message Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.size = 1
-
--- Display: Message Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "I" then
-    return "Message Type: Net Order Imbalance Indicator Message (I)"
-  end
-  if value == "Q" then
-    return "Message Type: Cross Trade Message (Q)"
-  end
-  if value == "K" then
-    return "Message Type: Ipo Quoting Period Update Message (K)"
-  end
-  if value == "O" then
-    return "Message Type: Direct Listing With Capital Raise Price Discovery Message (O)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_length = {}
-
--- Size: Message Length
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.size = 2
-
--- Display: Message Length
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2559,91 +2649,6 @@ nasdaq_nsmequities_noi_itch_v3_0_2026.messages.dissect = function(buffer, offset
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_count = {}
-
--- Size: Message Count
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.size = 2
-
--- Display: Message Count
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_nsmequities_noi_itch_v3_0_2026.session = {}
-
--- Size: Session
-nasdaq_nsmequities_noi_itch_v3_0_2026.session.size = 10
-
--- Display: Session
-nasdaq_nsmequities_noi_itch_v3_0_2026.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_nsmequities_noi_itch_v3_0_2026.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noi_itch_v3_0_2026.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_nsmequities_noi_itch_v3_0_2026.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noi_itch_v3_0_2026.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

@@ -121,8 +121,185 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect A2X Equities Snapshot Amd 1.3.2
+-- A2X Equities Snapshot Amd 1.3.2 Fields
 -----------------------------------------------------------------------
+
+-- Closing Buy Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty = {}
+
+-- Size: Closing Buy Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size = 4
+
+-- Display: Closing Buy Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.display = function(value)
+  return "Closing Buy Qty: "..value
+end
+
+-- Dissect: Closing Buy Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.closing_buy_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Sell Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty = {}
+
+-- Size: Closing Sell Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size = 4
+
+-- Display: Closing Sell Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.display = function(value)
+  return "Closing Sell Qty: "..value
+end
+
+-- Dissect: Closing Sell Qty
+a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.closing_sell_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Entries
+a2x_equities_snapshot_amd_v1_3_2.entries = {}
+
+-- Size: Entries
+a2x_equities_snapshot_amd_v1_3_2.entries.size = 2
+
+-- Display: Entries
+a2x_equities_snapshot_amd_v1_3_2.entries.display = function(value)
+  return "Entries: "..value
+end
+
+-- Dissect: Entries
+a2x_equities_snapshot_amd_v1_3_2.entries.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Price
+a2x_equities_snapshot_amd_v1_3_2.indicative_price = {}
+
+-- Size: Indicative Price
+a2x_equities_snapshot_amd_v1_3_2.indicative_price.size = 8
+
+-- Display: Indicative Price
+a2x_equities_snapshot_amd_v1_3_2.indicative_price.display = function(value)
+  return "Indicative Price: "..value
+end
+
+-- Dissect: Indicative Price
+a2x_equities_snapshot_amd_v1_3_2.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.indicative_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = a2x_equities_snapshot_amd_v1_3_2.indicative_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+a2x_equities_snapshot_amd_v1_3_2.message_count = {}
+
+-- Size: Message Count
+a2x_equities_snapshot_amd_v1_3_2.message_count.size = 1
+
+-- Display: Message Count
+a2x_equities_snapshot_amd_v1_3_2.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+a2x_equities_snapshot_amd_v1_3_2.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+a2x_equities_snapshot_amd_v1_3_2.msg_length = {}
+
+-- Size: Msg Length
+a2x_equities_snapshot_amd_v1_3_2.msg_length.size = 1
+
+-- Display: Msg Length
+a2x_equities_snapshot_amd_v1_3_2.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+a2x_equities_snapshot_amd_v1_3_2.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+a2x_equities_snapshot_amd_v1_3_2.msg_type = {}
+
+-- Size: Msg Type
+a2x_equities_snapshot_amd_v1_3_2.msg_type.size = 1
+
+-- Display: Msg Type
+a2x_equities_snapshot_amd_v1_3_2.msg_type.display = function(value)
+  if value == 1 then
+    return "Msg Type: Heartbeat Message (1)"
+  end
+  if value == 10 then
+    return "Msg Type: Snapshot Start Message (10)"
+  end
+  if value == 11 then
+    return "Msg Type: Book Status Message (11)"
+  end
+  if value == 12 then
+    return "Msg Type: Book Entry Message (12)"
+  end
+  if value == 18 then
+    return "Msg Type: Market At Close Book Entry Message (18)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+a2x_equities_snapshot_amd_v1_3_2.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
 
 -- Order Ref
 a2x_equities_snapshot_amd_v1_3_2.order_ref = {}
@@ -193,6 +370,29 @@ a2x_equities_snapshot_amd_v1_3_2.quantity.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Security Count
+a2x_equities_snapshot_amd_v1_3_2.security_count = {}
+
+-- Size: Security Count
+a2x_equities_snapshot_amd_v1_3_2.security_count.size = 2
+
+-- Display: Security Count
+a2x_equities_snapshot_amd_v1_3_2.security_count.display = function(value)
+  return "Security Count: "..value
+end
+
+-- Dissect: Security Count
+a2x_equities_snapshot_amd_v1_3_2.security_count.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.security_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.security_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.security_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Id
 a2x_equities_snapshot_amd_v1_3_2.security_id = {}
 
@@ -215,6 +415,103 @@ a2x_equities_snapshot_amd_v1_3_2.security_id.dissect = function(buffer, offset, 
 
   return offset + length, value
 end
+
+-- Seq No
+a2x_equities_snapshot_amd_v1_3_2.seq_no = {}
+
+-- Size: Seq No
+a2x_equities_snapshot_amd_v1_3_2.seq_no.size = 4
+
+-- Display: Seq No
+a2x_equities_snapshot_amd_v1_3_2.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+a2x_equities_snapshot_amd_v1_3_2.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Seq No
+a2x_equities_snapshot_amd_v1_3_2.stream_seq_no = {}
+
+-- Size: Stream Seq No
+a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size = 4
+
+-- Display: Stream Seq No
+a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.display = function(value)
+  return "Stream Seq No: "..value
+end
+
+-- Dissect: Stream Seq No
+a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.stream_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+a2x_equities_snapshot_amd_v1_3_2.timestamp = {}
+
+-- Size: Timestamp
+a2x_equities_snapshot_amd_v1_3_2.timestamp.size = 8
+
+-- Display: Timestamp
+a2x_equities_snapshot_amd_v1_3_2.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+a2x_equities_snapshot_amd_v1_3_2.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = a2x_equities_snapshot_amd_v1_3_2.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+a2x_equities_snapshot_amd_v1_3_2.trading_status = {}
+
+-- Size: Trading Status
+a2x_equities_snapshot_amd_v1_3_2.trading_status.size = 1
+
+-- Display: Trading Status
+a2x_equities_snapshot_amd_v1_3_2.trading_status.display = function(value)
+  return "Trading Status: "..value
+end
+
+-- Dissect: Trading Status
+a2x_equities_snapshot_amd_v1_3_2.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_snapshot_amd_v1_3_2.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = a2x_equities_snapshot_amd_v1_3_2.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect A2X Equities Snapshot Amd 1.3.2
+-----------------------------------------------------------------------
 
 -- Market At Close Book Entry Message
 a2x_equities_snapshot_amd_v1_3_2.market_at_close_book_entry_message = {}
@@ -320,98 +617,6 @@ a2x_equities_snapshot_amd_v1_3_2.book_entry_message.dissect = function(buffer, o
   end
 end
 
--- Indicative Price
-a2x_equities_snapshot_amd_v1_3_2.indicative_price = {}
-
--- Size: Indicative Price
-a2x_equities_snapshot_amd_v1_3_2.indicative_price.size = 8
-
--- Display: Indicative Price
-a2x_equities_snapshot_amd_v1_3_2.indicative_price.display = function(value)
-  return "Indicative Price: "..value
-end
-
--- Dissect: Indicative Price
-a2x_equities_snapshot_amd_v1_3_2.indicative_price.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.indicative_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = a2x_equities_snapshot_amd_v1_3_2.indicative_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.indicative_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Sell Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty = {}
-
--- Size: Closing Sell Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size = 4
-
--- Display: Closing Sell Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.display = function(value)
-  return "Closing Sell Qty: "..value
-end
-
--- Dissect: Closing Sell Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.closing_sell_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.closing_sell_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Buy Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty = {}
-
--- Size: Closing Buy Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size = 4
-
--- Display: Closing Buy Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.display = function(value)
-  return "Closing Buy Qty: "..value
-end
-
--- Dissect: Closing Buy Qty
-a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.closing_buy_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.closing_buy_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Entries
-a2x_equities_snapshot_amd_v1_3_2.entries = {}
-
--- Size: Entries
-a2x_equities_snapshot_amd_v1_3_2.entries.size = 2
-
--- Display: Entries
-a2x_equities_snapshot_amd_v1_3_2.entries.display = function(value)
-  return "Entries: "..value
-end
-
--- Dissect: Entries
-a2x_equities_snapshot_amd_v1_3_2.entries.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.entries, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Flags
 a2x_equities_snapshot_amd_v1_3_2.market_flags = {}
 
@@ -467,29 +672,6 @@ a2x_equities_snapshot_amd_v1_3_2.market_flags.dissect = function(buffer, offset,
   end
 
   return offset + size, value
-end
-
--- Trading Status
-a2x_equities_snapshot_amd_v1_3_2.trading_status = {}
-
--- Size: Trading Status
-a2x_equities_snapshot_amd_v1_3_2.trading_status.size = 1
-
--- Display: Trading Status
-a2x_equities_snapshot_amd_v1_3_2.trading_status.display = function(value)
-  return "Trading Status: "..value
-end
-
--- Dissect: Trading Status
-a2x_equities_snapshot_amd_v1_3_2.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Book Status Message
@@ -554,75 +736,6 @@ a2x_equities_snapshot_amd_v1_3_2.book_status_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return a2x_equities_snapshot_amd_v1_3_2.book_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Timestamp
-a2x_equities_snapshot_amd_v1_3_2.timestamp = {}
-
--- Size: Timestamp
-a2x_equities_snapshot_amd_v1_3_2.timestamp.size = 8
-
--- Display: Timestamp
-a2x_equities_snapshot_amd_v1_3_2.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-a2x_equities_snapshot_amd_v1_3_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = a2x_equities_snapshot_amd_v1_3_2.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Count
-a2x_equities_snapshot_amd_v1_3_2.security_count = {}
-
--- Size: Security Count
-a2x_equities_snapshot_amd_v1_3_2.security_count.size = 2
-
--- Display: Security Count
-a2x_equities_snapshot_amd_v1_3_2.security_count.display = function(value)
-  return "Security Count: "..value
-end
-
--- Dissect: Security Count
-a2x_equities_snapshot_amd_v1_3_2.security_count.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.security_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.security_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.security_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Seq No
-a2x_equities_snapshot_amd_v1_3_2.stream_seq_no = {}
-
--- Size: Stream Seq No
-a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size = 4
-
--- Display: Stream Seq No
-a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.display = function(value)
-  return "Stream Seq No: "..value
-end
-
--- Dissect: Stream Seq No
-a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.stream_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.stream_seq_no, range, value, display)
-
-  return offset + length, value
 end
 
 -- Snapshot Start Message
@@ -700,91 +813,6 @@ a2x_equities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Seq No
-a2x_equities_snapshot_amd_v1_3_2.seq_no = {}
-
--- Size: Seq No
-a2x_equities_snapshot_amd_v1_3_2.seq_no.size = 4
-
--- Display: Seq No
-a2x_equities_snapshot_amd_v1_3_2.seq_no.display = function(value)
-  return "Seq No: "..value
-end
-
--- Dissect: Seq No
-a2x_equities_snapshot_amd_v1_3_2.seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.seq_no.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Length
-a2x_equities_snapshot_amd_v1_3_2.msg_length = {}
-
--- Size: Msg Length
-a2x_equities_snapshot_amd_v1_3_2.msg_length.size = 1
-
--- Display: Msg Length
-a2x_equities_snapshot_amd_v1_3_2.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-a2x_equities_snapshot_amd_v1_3_2.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-a2x_equities_snapshot_amd_v1_3_2.msg_type = {}
-
--- Size: Msg Type
-a2x_equities_snapshot_amd_v1_3_2.msg_type.size = 1
-
--- Display: Msg Type
-a2x_equities_snapshot_amd_v1_3_2.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Heartbeat Message (1)"
-  end
-  if value == 10 then
-    return "Msg Type: Snapshot Start Message (10)"
-  end
-  if value == 11 then
-    return "Msg Type: Book Status Message (11)"
-  end
-  if value == 12 then
-    return "Msg Type: Book Entry Message (12)"
-  end
-  if value == 18 then
-    return "Msg Type: Market At Close Book Entry Message (18)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-a2x_equities_snapshot_amd_v1_3_2.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.msg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -884,29 +912,6 @@ a2x_equities_snapshot_amd_v1_3_2.message.dissect = function(buffer, offset, pack
 
     return index
   end
-end
-
--- Message Count
-a2x_equities_snapshot_amd_v1_3_2.message_count = {}
-
--- Size: Message Count
-a2x_equities_snapshot_amd_v1_3_2.message_count.size = 1
-
--- Display: Message Count
-a2x_equities_snapshot_amd_v1_3_2.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-a2x_equities_snapshot_amd_v1_3_2.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_snapshot_amd_v1_3_2.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = a2x_equities_snapshot_amd_v1_3_2.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_snapshot_amd_v1_3_2.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

@@ -686,28 +686,326 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Tmx Mx Sola Multicast Hsvf 1.14
+-- Tmx Mx Sola Multicast Hsvf 1.14 Fields
 -----------------------------------------------------------------------
 
--- Hsvf Etx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx = {}
+-- Ask Price
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price = {}
 
--- Size: Hsvf Etx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.size = 1
+-- Size: Ask Price
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size = 7
 
--- Display: Hsvf Etx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.display = function(value)
-  return "Hsvf Etx: "..value
+-- Display: Ask Price
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price.display = function(value)
+  return "Ask Price: "..value
 end
 
--- Dissect: Hsvf Etx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.size
+-- Dissect: Ask Price
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.display(value, buffer, offset, packet, parent)
+  local value = tonumber(range:string())
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_etx, range, value, display)
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator = {}
+
+-- Size: Ask Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size = 1
+
+-- Display: Ask Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.display = function(value)
+  return "Ask Price Fraction Indicator: "..value
+end
+
+-- Dissect: Ask Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign = {}
+
+-- Size: Ask Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size = 1
+
+-- Display: Ask Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.display = function(value)
+  return "Ask Price Sign: "..value
+end
+
+-- Dissect: Ask Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size
+tmx_mx_sola_multicast_hsvf_v1_14.ask_size = {}
+
+-- Size: Ask Size
+tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size = 5
+
+-- Display: Ask Size
+tmx_mx_sola_multicast_hsvf_v1_14.ask_size.display = function(value)
+  return "Ask Size: "..value
+end
+
+-- Dissect: Ask Size
+tmx_mx_sola_multicast_hsvf_v1_14.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Duration
+tmx_mx_sola_multicast_hsvf_v1_14.auction_duration = {}
+
+-- Size: Auction Duration
+tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size = 12
+
+-- Display: Auction Duration
+tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.display = function(value)
+  return "Auction Duration: "..value
+end
+
+-- Dissect: Auction Duration
+tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.auction_duration, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Expiry Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp = {}
+
+-- Size: Auction Expiry Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size = 20
+
+-- Display: Auction Expiry Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.display = function(value)
+  return "Auction Expiry Timestamp: "..value
+end
+
+-- Dissect: Auction Expiry Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.auction_expiry_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+tmx_mx_sola_multicast_hsvf_v1_14.auction_id = {}
+
+-- Size: Auction Id
+tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size = 6
+
+-- Display: Auction Id
+tmx_mx_sola_multicast_hsvf_v1_14.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+tmx_mx_sola_multicast_hsvf_v1_14.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price = {}
+
+-- Size: Bid Price
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size = 7
+
+-- Display: Bid Price
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Dissect: Bid Price
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator = {}
+
+-- Size: Bid Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size = 1
+
+-- Display: Bid Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.display = function(value)
+  return "Bid Price Fraction Indicator: "..value
+end
+
+-- Dissect: Bid Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign = {}
+
+-- Size: Bid Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size = 1
+
+-- Display: Bid Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.display = function(value)
+  return "Bid Price Sign: "..value
+end
+
+-- Dissect: Bid Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+tmx_mx_sola_multicast_hsvf_v1_14.bid_size = {}
+
+-- Size: Bid Size
+tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size = 5
+
+-- Display: Bid Size
+tmx_mx_sola_multicast_hsvf_v1_14.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+tmx_mx_sola_multicast_hsvf_v1_14.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bulletin Contents X 49
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49 = {}
+
+-- Size: Bulletin Contents X 49
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.size = 49
+
+-- Display: Bulletin Contents X 49
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.display = function(value)
+  return "Bulletin Contents X 49: "..value
+end
+
+-- Dissect: Bulletin Contents X 49
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bulletin_contents_x_49, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bulletin Type
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type = {}
+
+-- Size: Bulletin Type
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.size = 1
+
+-- Display: Bulletin Type
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.display = function(value)
+  if value == "1" then
+    return "Bulletin Type: Regular Text Bulletin (1)"
+  end
+  if value == "2" then
+    return "Bulletin Type: Special Text Bulletin (2)"
+  end
+
+  return "Bulletin Type: Unknown("..value..")"
+end
+
+-- Dissect: Bulletin Type
+tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bulletin_type, range, value, display)
 
   return offset + length, value
 end
@@ -740,6 +1038,303 @@ tmx_mx_sola_multicast_hsvf_v1_14.business_date.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Call Put Code
+tmx_mx_sola_multicast_hsvf_v1_14.call_put_code = {}
+
+-- Size: Call Put Code
+tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.size = 1
+
+-- Display: Call Put Code
+tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.display = function(value)
+  if value == "C" then
+    return "Call Put Code: Call (C)"
+  end
+  if value == "P" then
+    return "Call Put Code: Put (P)"
+  end
+
+  return "Call Put Code: Unknown("..value..")"
+end
+
+-- Dissect: Call Put Code
+tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.call_put_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price = {}
+
+-- Size: Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price.size = 7
+
+-- Display: Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price.display = function(value)
+  return "Closing Price: "..value
+end
+
+-- Dissect: Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.closing_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.closing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator = {}
+
+-- Size: Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.size = 1
+
+-- Display: Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.display = function(value)
+  return "Closing Price Fraction Indicator: "..value
+end
+
+-- Dissect: Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.closing_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Continue Marker
+tmx_mx_sola_multicast_hsvf_v1_14.continue_marker = {}
+
+-- Size: Continue Marker
+tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size = 1
+
+-- Display: Continue Marker
+tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.display = function(value)
+  return "Continue Marker: "..value
+end
+
+-- Dissect: Continue Marker
+tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.continue_marker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size
+tmx_mx_sola_multicast_hsvf_v1_14.contract_size = {}
+
+-- Size: Contract Size
+tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size = 8
+
+-- Display: Contract Size
+tmx_mx_sola_multicast_hsvf_v1_14.contract_size.display = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+tmx_mx_sola_multicast_hsvf_v1_14.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Conversion Factor
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor = {}
+
+-- Size: Conversion Factor
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.size = 7
+
+-- Display: Conversion Factor
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.display = function(value)
+  return "Conversion Factor: "..value
+end
+
+-- Dissect: Conversion Factor
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.conversion_factor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Conversion Factor Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator = {}
+
+-- Size: Conversion Factor Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.size = 1
+
+-- Display: Conversion Factor Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.display = function(value)
+  return "Conversion Factor Fraction Indicator: "..value
+end
+
+-- Dissect: Conversion Factor Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.conversion_factor_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Coupon
+tmx_mx_sola_multicast_hsvf_v1_14.coupon = {}
+
+-- Size: Coupon
+tmx_mx_sola_multicast_hsvf_v1_14.coupon.size = 7
+
+-- Display: Coupon
+tmx_mx_sola_multicast_hsvf_v1_14.coupon.display = function(value)
+  return "Coupon: "..value
+end
+
+-- Dissect: Coupon
+tmx_mx_sola_multicast_hsvf_v1_14.coupon.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.coupon.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.coupon.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.coupon, range, value, display)
+
+  return offset + length, value
+end
+
+-- Coupon Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator = {}
+
+-- Size: Coupon Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.size = 1
+
+-- Display: Coupon Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.display = function(value)
+  return "Coupon Fraction Indicator: "..value
+end
+
+-- Dissect: Coupon Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.coupon_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+tmx_mx_sola_multicast_hsvf_v1_14.currency = {}
+
+-- Size: Currency
+tmx_mx_sola_multicast_hsvf_v1_14.currency.size = 3
+
+-- Display: Currency
+tmx_mx_sola_multicast_hsvf_v1_14.currency.display = function(value)
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+tmx_mx_sola_multicast_hsvf_v1_14.currency.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Type
+tmx_mx_sola_multicast_hsvf_v1_14.delivery_type = {}
+
+-- Size: Delivery Type
+tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size = 1
+
+-- Display: Delivery Type
+tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.display = function(value)
+  if value == "C" then
+    return "Delivery Type: Cash (C)"
+  end
+  if value == "P" then
+    return "Delivery Type: Physical (P)"
+  end
+
+  return "Delivery Type: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Type
+tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.delivery_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Exchange Id
 tmx_mx_sola_multicast_hsvf_v1_14.exchange_id = {}
 
@@ -766,6 +1361,3601 @@ tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect = function(buffer, offset, 
 
   return offset + length, value
 end
+
+-- Expiry Date
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_date = {}
+
+-- Size: Expiry Date
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size = 6
+
+-- Display: Expiry Date
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.display = function(value)
+  return "Expiry Date: "..value
+end
+
+-- Dissect: Expiry Date
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_day = {}
+
+-- Size: Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size = 2
+
+-- Display: Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.display = function(value)
+  return "Expiry Day: "..value
+end
+
+-- Dissect: Expiry Day
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Month
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_month = {}
+
+-- Size: Expiry Month
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.size = 1
+
+-- Display: Expiry Month
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.display = function(value)
+  if value == "A" then
+    return "Expiry Month: January (A)"
+  end
+  if value == "B" then
+    return "Expiry Month: February (B)"
+  end
+  if value == "C" then
+    return "Expiry Month: March (C)"
+  end
+  if value == "D" then
+    return "Expiry Month: April (D)"
+  end
+  if value == "E" then
+    return "Expiry Month: May (E)"
+  end
+  if value == "F" then
+    return "Expiry Month: June (F)"
+  end
+  if value == "G" then
+    return "Expiry Month: July (G)"
+  end
+  if value == "H" then
+    return "Expiry Month: August (H)"
+  end
+  if value == "I" then
+    return "Expiry Month: September (I)"
+  end
+  if value == "J" then
+    return "Expiry Month: October (J)"
+  end
+  if value == "K" then
+    return "Expiry Month: November (K)"
+  end
+  if value == "L" then
+    return "Expiry Month: December (L)"
+  end
+
+  return "Expiry Month: Unknown("..value..")"
+end
+
+-- Dissect: Expiry Month
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Year
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_year = {}
+
+-- Size: Expiry Year
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.size = 2
+
+-- Display: Expiry Year
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.display = function(value)
+  return "Expiry Year: "..value
+end
+
+-- Dissect: Expiry Year
+tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- External Price At Source
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source = {}
+
+-- Size: External Price At Source
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.size = 7
+
+-- Display: External Price At Source
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.display = function(value)
+  return "External Price At Source: "..value
+end
+
+-- Dissect: External Price At Source
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.external_price_at_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- External Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator = {}
+
+-- Size: External Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.size = 1
+
+-- Display: External Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.display = function(value)
+  return "External Price Fraction Indicator: "..value
+end
+
+-- Dissect: External Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.external_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.group_instrument = {}
+
+-- Size: Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size = 2
+
+-- Display: Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.display = function(value)
+  return "Group Instrument: "..value
+end
+
+-- Dissect: Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group Status
+tmx_mx_sola_multicast_hsvf_v1_14.group_status = {}
+
+-- Size: Group Status
+tmx_mx_sola_multicast_hsvf_v1_14.group_status.size = 1
+
+-- Display: Group Status
+tmx_mx_sola_multicast_hsvf_v1_14.group_status.display = function(value)
+  return "Group Status: "..value
+end
+
+-- Dissect: Group Status
+tmx_mx_sola_multicast_hsvf_v1_14.group_status.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.group_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.group_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price
+tmx_mx_sola_multicast_hsvf_v1_14.high_price = {}
+
+-- Size: High Price
+tmx_mx_sola_multicast_hsvf_v1_14.high_price.size = 7
+
+-- Display: High Price
+tmx_mx_sola_multicast_hsvf_v1_14.high_price.display = function(value)
+  return "High Price: "..value
+end
+
+-- Dissect: High Price
+tmx_mx_sola_multicast_hsvf_v1_14.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.high_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator = {}
+
+-- Size: High Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size = 1
+
+-- Display: High Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.display = function(value)
+  return "High Price Fraction Indicator: "..value
+end
+
+-- Dissect: High Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign = {}
+
+-- Size: High Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.size = 1
+
+-- Display: High Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.display = function(value)
+  return "High Price Sign: "..value
+end
+
+-- Dissect: High Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hsvf Etx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx = {}
+
+-- Size: Hsvf Etx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.size = 1
+
+-- Display: Hsvf Etx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.display = function(value)
+  return "Hsvf Etx: "..value
+end
+
+-- Dissect: Hsvf Etx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_etx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hsvf Stx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx = {}
+
+-- Size: Hsvf Stx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.size = 1
+
+-- Display: Hsvf Stx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.display = function(value)
+  if value == 2 then
+    return "Hsvf Stx: Stx"
+  end
+
+  return "Hsvf Stx: Unknown("..value..")"
+end
+
+-- Dissect: Hsvf Stx
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_stx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initial Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price = {}
+
+-- Size: Initial Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size = 7
+
+-- Display: Initial Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.display = function(value)
+  return "Initial Order Price: "..value
+end
+
+-- Dissect: Initial Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initial Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator = {}
+
+-- Size: Initial Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size = 1
+
+-- Display: Initial Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.display = function(value)
+  return "Initial Order Price Fraction Indicator: "..value
+end
+
+-- Dissect: Initial Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initial Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity = {}
+
+-- Size: Initial Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size = 8
+
+-- Display: Initial Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.display = function(value)
+  return "Initial Order Quantity: "..value
+end
+
+-- Dissect: Initial Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initial Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side = {}
+
+-- Size: Initial Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size = 1
+
+-- Display: Initial Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.display = function(value)
+  if value == "B" then
+    return "Initial Order Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Initial Order Side: Sell (S)"
+  end
+
+  return "Initial Order Side: Unknown("..value..")"
+end
+
+-- Dissect: Initial Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initial Quantity Assured
+tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured = {}
+
+-- Size: Initial Quantity Assured
+tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size = 8
+
+-- Display: Initial Quantity Assured
+tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.display = function(value)
+  return "Initial Quantity Assured: "..value
+end
+
+-- Dissect: Initial Quantity Assured
+tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_quantity_assured, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.instrument = {}
+
+-- Size: Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.instrument.size = 4
+
+-- Display: Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument External Code
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code = {}
+
+-- Size: Instrument External Code
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size = 30
+
+-- Display: Instrument External Code
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.display = function(value)
+  return "Instrument External Code: "..value
+end
+
+-- Dissect: Instrument External Code
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_external_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Status Marker
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker = {}
+
+-- Size: Instrument Status Marker
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size = 1
+
+-- Display: Instrument Status Marker
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.display = function(value)
+  if value == "Y" then
+    return "Instrument Status Marker: Preopening (Y)"
+  end
+  if value == "O" then
+    return "Instrument Status Marker: Opening (O)"
+  end
+  if value == "T" then
+    return "Instrument Status Marker: Continuous Trading (T)"
+  end
+  if value == "F" then
+    return "Instrument Status Marker: Forbidden (F)"
+  end
+  if value == "E" then
+    return "Instrument Status Marker: Intervention Before Opening (E)"
+  end
+  if value == "H" then
+    return "Instrument Status Marker: Halted Trading (H)"
+  end
+  if value == "R" then
+    return "Instrument Status Marker: Reserved (R)"
+  end
+  if value == "S" then
+    return "Instrument Status Marker: Suspended (S)"
+  end
+  if value == "A" then
+    return "Instrument Status Marker: Surveillance Intervention (A)"
+  end
+  if value == "C" then
+    return "Instrument Status Marker: Endof Day Inquiries (C)"
+  end
+  if value == " " then
+    return "Instrument Status Marker: Not Available (<whitespace>)"
+  end
+
+  return "Instrument Status Marker: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Status Marker
+tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_status_marker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price
+tmx_mx_sola_multicast_hsvf_v1_14.last_price = {}
+
+-- Size: Last Price
+tmx_mx_sola_multicast_hsvf_v1_14.last_price.size = 7
+
+-- Display: Last Price
+tmx_mx_sola_multicast_hsvf_v1_14.last_price.display = function(value)
+  return "Last Price: "..value
+end
+
+-- Dissect: Last Price
+tmx_mx_sola_multicast_hsvf_v1_14.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator = {}
+
+-- Size: Last Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size = 1
+
+-- Display: Last Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.display = function(value)
+  return "Last Price Fraction Indicator: "..value
+end
+
+-- Dissect: Last Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign = {}
+
+-- Size: Last Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.size = 1
+
+-- Display: Last Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.display = function(value)
+  return "Last Price Sign: "..value
+end
+
+-- Dissect: Last Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trading Datetime
+tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime = {}
+
+-- Size: Last Trading Datetime
+tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size = 14
+
+-- Display: Last Trading Datetime
+tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.display = function(value)
+  return "Last Trading Datetime: "..value
+end
+
+-- Dissect: Last Trading Datetime
+tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_trading_datetime, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument = {}
+
+-- Size: Leg Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.size = 2
+
+-- Display: Leg Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.display = function(value)
+  return "Leg Group Instrument: "..value
+end
+
+-- Dissect: Leg Group Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_group_instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument = {}
+
+-- Size: Leg Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.size = 4
+
+-- Display: Leg Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.display = function(value)
+  return "Leg Instrument: "..value
+end
+
+-- Dissect: Leg Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Price
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price = {}
+
+-- Size: Leg Price
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price.size = 7
+
+-- Display: Leg Price
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price.display = function(value)
+  return "Leg Price: "..value
+end
+
+-- Dissect: Leg Price
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator = {}
+
+-- Size: Leg Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.size = 1
+
+-- Display: Leg Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.display = function(value)
+  return "Leg Price Fraction Indicator: "..value
+end
+
+-- Dissect: Leg Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Or Delta
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta = {}
+
+-- Size: Leg Ratio Or Delta
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.size = 4
+
+-- Display: Leg Ratio Or Delta
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.display = function(value)
+  return "Leg Ratio Or Delta: "..value
+end
+
+-- Dissect: Leg Ratio Or Delta
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_ratio_or_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Or Delta Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator = {}
+
+-- Size: Leg Ratio Or Delta Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.size = 1
+
+-- Display: Leg Ratio Or Delta Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.display = function(value)
+  return "Leg Ratio Or Delta Fraction Indicator: "..value
+end
+
+-- Dissect: Leg Ratio Or Delta Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_ratio_or_delta_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level Of Market Depth
+tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth = {}
+
+-- Size: Level Of Market Depth
+tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size = 1
+
+-- Display: Level Of Market Depth
+tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.display = function(value)
+  return "Level Of Market Depth: "..value
+end
+
+-- Dissect: Level Of Market Depth
+tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.level_of_market_depth, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+tmx_mx_sola_multicast_hsvf_v1_14.low_price = {}
+
+-- Size: Low Price
+tmx_mx_sola_multicast_hsvf_v1_14.low_price.size = 7
+
+-- Display: Low Price
+tmx_mx_sola_multicast_hsvf_v1_14.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Dissect: Low Price
+tmx_mx_sola_multicast_hsvf_v1_14.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.low_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator = {}
+
+-- Size: Low Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size = 1
+
+-- Display: Low Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.display = function(value)
+  return "Low Price Fraction Indicator: "..value
+end
+
+-- Dissect: Low Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.low_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign = {}
+
+-- Size: Low Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size = 1
+
+-- Display: Low Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.display = function(value)
+  return "Low Price Sign: "..value
+end
+
+-- Dissect: Low Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.low_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Flow Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator = {}
+
+-- Size: Market Flow Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size = 2
+
+-- Display: Market Flow Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.display = function(value)
+  return "Market Flow Indicator: "..value
+end
+
+-- Dissect: Market Flow Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.market_flow_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+tmx_mx_sola_multicast_hsvf_v1_14.maturity_date = {}
+
+-- Size: Maturity Date
+tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.size = 8
+
+-- Display: Maturity Date
+tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.display = function(value)
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maximum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order = {}
+
+-- Size: Maximum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size = 6
+
+-- Display: Maximum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.display = function(value)
+  return "Maximum Number Of Contracts Per Order: "..value
+end
+
+-- Dissect: Maximum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maximum_number_of_contracts_per_order, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maximum Threshold Price
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price = {}
+
+-- Size: Maximum Threshold Price
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size = 7
+
+-- Display: Maximum Threshold Price
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.display = function(value)
+  return "Maximum Threshold Price: "..value
+end
+
+-- Dissect: Maximum Threshold Price
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maximum_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maximum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator = {}
+
+-- Size: Maximum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size = 1
+
+-- Display: Maximum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.display = function(value)
+  return "Maximum Threshold Price Fraction Indicator: "..value
+end
+
+-- Dissect: Maximum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maximum_threshold_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp = {}
+
+-- Size: Message Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.size = 20
+
+-- Display: Message Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.display = function(value)
+  return "Message Timestamp: "..value
+end
+
+-- Dissect: Message Timestamp
+tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+tmx_mx_sola_multicast_hsvf_v1_14.message_type = {}
+
+-- Size: Message Type
+tmx_mx_sola_multicast_hsvf_v1_14.message_type.size = 2
+
+-- Display: Message Type
+tmx_mx_sola_multicast_hsvf_v1_14.message_type.display = function(value)
+  if value == "C" then
+    return "Message Type: Option Trade Message (C)"
+  end
+  if value == "CB" then
+    return "Message Type: Future Options Trade Message (CB)"
+  end
+  if value == "CF" then
+    return "Message Type: Futures Trade Message (CF)"
+  end
+  if value == "CS" then
+    return "Message Type: Strategy Trade Message (CS)"
+  end
+  if value == "D" then
+    return "Message Type: Option Request For Quote Message (D)"
+  end
+  if value == "DB" then
+    return "Message Type: Future Options Request For Quote Message (DB)"
+  end
+  if value == "DF" then
+    return "Message Type: Future Request For Quote Message (DF)"
+  end
+  if value == "DS" then
+    return "Message Type: Strategy Request For Quote Message (DS)"
+  end
+  if value == "E" then
+    return "Message Type: Instrument Schedule Notice Option Message (E)"
+  end
+  if value == "EB" then
+    return "Message Type: Instrument Schedule Notice Futures Option Message (EB)"
+  end
+  if value == "EF" then
+    return "Message Type: Instrument Schedule Notice Future Message (EF)"
+  end
+  if value == "ES" then
+    return "Message Type: Instrument Schedule Notice Strategy Message (ES)"
+  end
+  if value == "F" then
+    return "Message Type: Option Quote Message (F)"
+  end
+  if value == "FB" then
+    return "Message Type: Future Options Quote Message (FB)"
+  end
+  if value == "FF" then
+    return "Message Type: Futures Quote Message (FF)"
+  end
+  if value == "FS" then
+    return "Message Type: Strategy Quote Message (FS)"
+  end
+  if value == "H" then
+    return "Message Type: Option Market Depth Message (H)"
+  end
+  if value == "HB" then
+    return "Message Type: Future Options Market Depth Message (HB)"
+  end
+  if value == "HF" then
+    return "Message Type: Futures Market Depth Message (HF)"
+  end
+  if value == "HS" then
+    return "Message Type: Strategy Market Depth Message (HS)"
+  end
+  if value == "I" then
+    return "Message Type: Option Trade Cancellation Message (I)"
+  end
+  if value == "IB" then
+    return "Message Type: Future Options Trade Cancellation Message (IB)"
+  end
+  if value == "IF" then
+    return "Message Type: Future Trade Cancellation Message (IF)"
+  end
+  if value == "IS" then
+    return "Message Type: Strategy Trade Cancellation Message (IS)"
+  end
+  if value == "J" then
+    return "Message Type: Option Instrument Keys Message (J)"
+  end
+  if value == "JB" then
+    return "Message Type: Future Options Instrument Keys Message (JB)"
+  end
+  if value == "JE" then
+    return "Message Type: Underlying Instrument Keys Message (JE)"
+  end
+  if value == "JF" then
+    return "Message Type: Futures Instrument Keys Message (JF)"
+  end
+  if value == "JS" then
+    return "Message Type: Strategy Instrument Keys Message (JS)"
+  end
+  if value == "M" then
+    return "Message Type: Option Auction Beginning Message (M)"
+  end
+  if value == "MS" then
+    return "Message Type: Strategy Auction Beginning Message (MS)"
+  end
+  if value == "N" then
+    return "Message Type: Option Summary Message (N)"
+  end
+  if value == "NB" then
+    return "Message Type: Future Options Summary Message (NB)"
+  end
+  if value == "NF" then
+    return "Message Type: Futures Summary Message (NF)"
+  end
+  if value == "NS" then
+    return "Message Type: Strategy Summary Message (NS)"
+  end
+  if value == "O" then
+    return "Message Type: Option Initial And Improvement Order Message (O)"
+  end
+  if value == "OS" then
+    return "Message Type: Strategy Initial And Improvement Order Message (OS)"
+  end
+  if value == "Q" then
+    return "Message Type: Beginning Of Options Summary Message (Q)"
+  end
+  if value == "QB" then
+    return "Message Type: Beginning Of Future Options Summary Message (QB)"
+  end
+  if value == "QF" then
+    return "Message Type: Beginning Of Futures Summary Message (QF)"
+  end
+  if value == "QS" then
+    return "Message Type: Beginning Of Strategy Summary Message (QS)"
+  end
+  if value == "T" then
+    return "Message Type: Option Auction Ending Message (T)"
+  end
+  if value == "TS" then
+    return "Message Type: Strategy Auction Ending Message (TS)"
+  end
+  if value == "XF" then
+    return "Message Type: Futures Trade Correction Message (XF)"
+  end
+  if value == "GR" then
+    return "Message Type: Group Status Message (GR)"
+  end
+  if value == "GS" then
+    return "Message Type: Group Status Strategies Message (GS)"
+  end
+  if value == "XF" then
+    return "Message Type: Future Deliverables Message (XF)"
+  end
+  if value == "L" then
+    return "Message Type: Bulletins Message (L)"
+  end
+  if value == "S" then
+    return "Message Type: End Of Sales Message (S)"
+  end
+  if value == "TT" then
+    return "Message Type: Tick Table Message (TT)"
+  end
+  if value == "U" then
+    return "Message Type: End Of Transmission Message (U)"
+  end
+  if value == "V" then
+    return "Message Type: Circuit Assurance Message (V)"
+  end
+  if value == "SD" then
+    return "Message Type: Start Of Day Message (SD)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+tmx_mx_sola_multicast_hsvf_v1_14.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.message_type.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Price
+tmx_mx_sola_multicast_hsvf_v1_14.min_price = {}
+
+-- Size: Min Price
+tmx_mx_sola_multicast_hsvf_v1_14.min_price.size = 7
+
+-- Display: Min Price
+tmx_mx_sola_multicast_hsvf_v1_14.min_price.display = function(value)
+  return "Min Price: "..value
+end
+
+-- Dissect: Min Price
+tmx_mx_sola_multicast_hsvf_v1_14.min_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.min_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.min_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.min_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator = {}
+
+-- Size: Min Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.size = 1
+
+-- Display: Min Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.display = function(value)
+  return "Min Price Fraction Indicator: "..value
+end
+
+-- Dissect: Min Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.min_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order = {}
+
+-- Size: Minimum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size = 6
+
+-- Display: Minimum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.display = function(value)
+  return "Minimum Number Of Contracts Per Order: "..value
+end
+
+-- Dissect: Minimum Number Of Contracts Per Order
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_number_of_contracts_per_order, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator = {}
+
+-- Size: Minimum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size = 1
+
+-- Display: Minimum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.display = function(value)
+  return "Minimum Threshold Price Fraction Indicator: "..value
+end
+
+-- Dissect: Minimum Threshold Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Threshold Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7 = {}
+
+-- Size: Minimum Threshold Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size = 7
+
+-- Display: Minimum Threshold Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.display = function(value)
+  return "Minimum Threshold Price N 7: "..value
+end
+
+-- Dissect: Minimum Threshold Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_n_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Threshold Price X 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7 = {}
+
+-- Size: Minimum Threshold Price X 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size = 7
+
+-- Display: Minimum Threshold Price X 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.display = function(value)
+  return "Minimum Threshold Price X 7: "..value
+end
+
+-- Dissect: Minimum Threshold Price X 7
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_x_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Change
+tmx_mx_sola_multicast_hsvf_v1_14.net_change = {}
+
+-- Size: Net Change
+tmx_mx_sola_multicast_hsvf_v1_14.net_change.size = 7
+
+-- Display: Net Change
+tmx_mx_sola_multicast_hsvf_v1_14.net_change.display = function(value)
+  return "Net Change: "..value
+end
+
+-- Dissect: Net Change
+tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Change Fraction Indicator A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1 = {}
+
+-- Size: Net Change Fraction Indicator A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size = 1
+
+-- Display: Net Change Fraction Indicator A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.display = function(value)
+  return "Net Change Fraction Indicator A 1: "..value
+end
+
+-- Dissect: Net Change Fraction Indicator A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_a_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Change Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1 = {}
+
+-- Size: Net Change Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size = 1
+
+-- Display: Net Change Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.display = function(value)
+  return "Net Change Fraction Indicator X 1: "..value
+end
+
+-- Dissect: Net Change Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_x_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Change Sign A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1 = {}
+
+-- Size: Net Change Sign A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size = 1
+
+-- Display: Net Change Sign A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.display = function(value)
+  return "Net Change Sign A 1: "..value
+end
+
+-- Dissect: Net Change Sign A 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_a_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Change Sign X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1 = {}
+
+-- Size: Net Change Sign X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size = 1
+
+-- Display: Net Change Sign X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.display = function(value)
+  return "Net Change Sign X 1: "..value
+end
+
+-- Dissect: Net Change Sign X 1
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_x_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Ask Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders = {}
+
+-- Size: Number Of Ask Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size = 2
+
+-- Display: Number Of Ask Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.display = function(value)
+  return "Number Of Ask Orders: "..value
+end
+
+-- Dissect: Number Of Ask Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_ask_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Bid Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders = {}
+
+-- Size: Number Of Bid Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size = 2
+
+-- Display: Number Of Bid Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.display = function(value)
+  return "Number Of Bid Orders: "..value
+end
+
+-- Dissect: Number Of Bid Orders
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_bid_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Bonds
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds = {}
+
+-- Size: Number Of Bonds
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.size = 2
+
+-- Display: Number Of Bonds
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.display = function(value)
+  return "Number Of Bonds: "..value
+end
+
+-- Dissect: Number Of Bonds
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_bonds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Entries
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries = {}
+
+-- Size: Number Of Entries
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.size = 2
+
+-- Display: Number Of Entries
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.display = function(value)
+  return "Number Of Entries: "..value
+end
+
+-- Dissect: Number Of Entries
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Legs
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs = {}
+
+-- Size: Number Of Legs
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.size = 2
+
+-- Display: Number Of Legs
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Levels
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels = {}
+
+-- Size: Number Of Levels
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.size = 1
+
+-- Display: Number Of Levels
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.display = function(value)
+  return "Number Of Levels: "..value
+end
+
+-- Dissect: Number Of Levels
+tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_levels, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest = {}
+
+-- Size: Open Interest
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size = 7
+
+-- Display: Open Interest
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest Date N 6
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6 = {}
+
+-- Size: Open Interest Date N 6
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size = 6
+
+-- Display: Open Interest Date N 6
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.display = function(value)
+  return "Open Interest Date N 6: "..value
+end
+
+-- Dissect: Open Interest Date N 6
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_interest_date_n_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest Date N 7
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7 = {}
+
+-- Size: Open Interest Date N 7
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.size = 7
+
+-- Display: Open Interest Date N 7
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.display = function(value)
+  return "Open Interest Date N 7: "..value
+end
+
+-- Dissect: Open Interest Date N 7
+tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_interest_date_n_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+tmx_mx_sola_multicast_hsvf_v1_14.open_price = {}
+
+-- Size: Open Price
+tmx_mx_sola_multicast_hsvf_v1_14.open_price.size = 7
+
+-- Display: Open Price
+tmx_mx_sola_multicast_hsvf_v1_14.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Dissect: Open Price
+tmx_mx_sola_multicast_hsvf_v1_14.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator = {}
+
+-- Size: Open Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size = 1
+
+-- Display: Open Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.display = function(value)
+  return "Open Price Fraction Indicator: "..value
+end
+
+-- Dissect: Open Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign = {}
+
+-- Size: Open Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.size = 1
+
+-- Display: Open Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.display = function(value)
+  return "Open Price Sign: "..value
+end
+
+-- Dissect: Open Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Price
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price = {}
+
+-- Size: Opening Price
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size = 7
+
+-- Display: Opening Price
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price.display = function(value)
+  return "Opening Price: "..value
+end
+
+-- Dissect: Opening Price
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.opening_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.opening_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator = {}
+
+-- Size: Opening Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size = 1
+
+-- Display: Opening Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.display = function(value)
+  return "Opening Price Fraction Indicator: "..value
+end
+
+-- Dissect: Opening Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.opening_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Marker
+tmx_mx_sola_multicast_hsvf_v1_14.option_marker = {}
+
+-- Size: Option Marker
+tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size = 2
+
+-- Display: Option Marker
+tmx_mx_sola_multicast_hsvf_v1_14.option_marker.display = function(value)
+  return "Option Marker: "..value
+end
+
+-- Dissect: Option Marker
+tmx_mx_sola_multicast_hsvf_v1_14.option_marker.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.option_marker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_marker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+tmx_mx_sola_multicast_hsvf_v1_14.option_type = {}
+
+-- Size: Option Type
+tmx_mx_sola_multicast_hsvf_v1_14.option_type.size = 1
+
+-- Display: Option Type
+tmx_mx_sola_multicast_hsvf_v1_14.option_type.display = function(value)
+  if value == "A" then
+    return "Option Type: American (A)"
+  end
+  if value == "E" then
+    return "Option Type: European (E)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+tmx_mx_sola_multicast_hsvf_v1_14.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.option_type.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.order_id = {}
+
+-- Size: Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.order_id.size = 8
+
+-- Display: Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.order_price = {}
+
+-- Size: Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.order_price.size = 7
+
+-- Display: Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.order_price.display = function(value)
+  return "Order Price: "..value
+end
+
+-- Dissect: Order Price
+tmx_mx_sola_multicast_hsvf_v1_14.order_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator = {}
+
+-- Size: Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size = 1
+
+-- Display: Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.display = function(value)
+  return "Order Price Fraction Indicator: "..value
+end
+
+-- Dissect: Order Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.order_quantity = {}
+
+-- Size: Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size = 8
+
+-- Display: Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.display = function(value)
+  return "Order Quantity: "..value
+end
+
+-- Dissect: Order Quantity
+tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.order_side = {}
+
+-- Size: Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.order_side.size = 1
+
+-- Display: Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.order_side.display = function(value)
+  if value == "B" then
+    return "Order Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Order Side: Sell (S)"
+  end
+
+  return "Order Side: Unknown("..value..")"
+end
+
+-- Dissect: Order Side
+tmx_mx_sola_multicast_hsvf_v1_14.order_side.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+tmx_mx_sola_multicast_hsvf_v1_14.order_type = {}
+
+-- Size: Order Type
+tmx_mx_sola_multicast_hsvf_v1_14.order_type.size = 1
+
+-- Display: Order Type
+tmx_mx_sola_multicast_hsvf_v1_14.order_type.display = function(value)
+  if value == "A" then
+    return "Order Type: Initial Order (A)"
+  end
+  if value == "B" then
+    return "Order Type: Improvement Order (B)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+tmx_mx_sola_multicast_hsvf_v1_14.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Outstanding Bond Value
+tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value = {}
+
+-- Size: Outstanding Bond Value
+tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.size = 8
+
+-- Display: Outstanding Bond Value
+tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.display = function(value)
+  return "Outstanding Bond Value: "..value
+end
+
+-- Dissect: Outstanding Bond Value
+tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.outstanding_bond_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price = {}
+
+-- Size: Previous Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.size = 7
+
+-- Display: Previous Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.display = function(value)
+  return "Previous Closing Price: "..value
+end
+
+-- Dissect: Previous Closing Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator = {}
+
+-- Size: Previous Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.size = 1
+
+-- Display: Previous Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.display = function(value)
+  return "Previous Closing Price Fraction Indicator: "..value
+end
+
+-- Dissect: Previous Closing Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_closing_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id = {}
+
+-- Size: Previous Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size = 8
+
+-- Display: Previous Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.display = function(value)
+  return "Previous Order Id: "..value
+end
+
+-- Dissect: Previous Order Id
+tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Settlement
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement = {}
+
+-- Size: Previous Settlement
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size = 7
+
+-- Display: Previous Settlement
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.display = function(value)
+  return "Previous Settlement: "..value
+end
+
+-- Dissect: Previous Settlement
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Settlement Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator = {}
+
+-- Size: Previous Settlement Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size = 1
+
+-- Display: Previous Settlement Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.display = function(value)
+  return "Previous Settlement Fraction Indicator: "..value
+end
+
+-- Dissect: Previous Settlement Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price = {}
+
+-- Size: Previous Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.size = 7
+
+-- Display: Previous Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.display = function(value)
+  return "Previous Settlement Price: "..value
+end
+
+-- Dissect: Previous Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator = {}
+
+-- Size: Previous Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.size = 1
+
+-- Display: Previous Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.display = function(value)
+  return "Previous Settlement Price Fraction Indicator: "..value
+end
+
+-- Dissect: Previous Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+tmx_mx_sola_multicast_hsvf_v1_14.price = {}
+
+-- Size: Price
+tmx_mx_sola_multicast_hsvf_v1_14.price.size = 7
+
+-- Display: Price
+tmx_mx_sola_multicast_hsvf_v1_14.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+tmx_mx_sola_multicast_hsvf_v1_14.price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator = {}
+
+-- Size: Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size = 1
+
+-- Display: Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.display = function(value)
+  return "Price Fraction Indicator: "..value
+end
+
+-- Dissect: Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Indicator Marker A 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1 = {}
+
+-- Size: Price Indicator Marker A 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size = 1
+
+-- Display: Price Indicator Marker A 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.display = function(value)
+  return "Price Indicator Marker A 1: "..value
+end
+
+-- Dissect: Price Indicator Marker A 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_a_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Indicator Marker X 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1 = {}
+
+-- Size: Price Indicator Marker X 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size = 1
+
+-- Display: Price Indicator Marker X 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.display = function(value)
+  return "Price Indicator Marker X 1: "..value
+end
+
+-- Dissect: Price Indicator Marker X 1
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_x_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+tmx_mx_sola_multicast_hsvf_v1_14.reason = {}
+
+-- Size: Reason
+tmx_mx_sola_multicast_hsvf_v1_14.reason.size = 1
+
+-- Display: Reason
+tmx_mx_sola_multicast_hsvf_v1_14.reason.display = function(value)
+  if value == "S" then
+    return "Reason: Start Of Day (S)"
+  end
+  if value == "E" then
+    return "Reason: End Of Day (E)"
+  end
+  if value == "U" then
+    return "Reason: Instrument New Or Update (U)"
+  end
+  if value == "C" then
+    return "Reason: Trade Cancellation (C)"
+  end
+
+  return "Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reason
+tmx_mx_sola_multicast_hsvf_v1_14.reason.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Regular Bulletin Contents
+tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents = {}
+
+-- Size: Regular Bulletin Contents
+tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.size = 79
+
+-- Display: Regular Bulletin Contents
+tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.display = function(value)
+  return "Regular Bulletin Contents: "..value
+end
+
+-- Dissect: Regular Bulletin Contents
+tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.regular_bulletin_contents, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Market Side
+tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side = {}
+
+-- Size: Requested Market Side
+tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size = 1
+
+-- Display: Requested Market Side
+tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.display = function(value)
+  if value == "B" then
+    return "Requested Market Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Requested Market Side: Sell (S)"
+  end
+  if value == "2" then
+    return "Requested Market Side: Both (2)"
+  end
+
+  return "Requested Market Side: Unknown("..value..")"
+end
+
+-- Dissect: Requested Market Side
+tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.requested_market_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Size
+tmx_mx_sola_multicast_hsvf_v1_14.requested_size = {}
+
+-- Size: Requested Size
+tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size = 8
+
+-- Display: Requested Size
+tmx_mx_sola_multicast_hsvf_v1_14.requested_size.display = function(value)
+  return "Requested Size: "..value
+end
+
+-- Dissect: Requested Size
+tmx_mx_sola_multicast_hsvf_v1_14.requested_size.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.requested_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.requested_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+tmx_mx_sola_multicast_hsvf_v1_14.reserved = {}
+
+-- Size: Reserved
+tmx_mx_sola_multicast_hsvf_v1_14.reserved.size = 1
+
+-- Display: Reserved
+tmx_mx_sola_multicast_hsvf_v1_14.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+tmx_mx_sola_multicast_hsvf_v1_14.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.reserved.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root
+tmx_mx_sola_multicast_hsvf_v1_14.root = {}
+
+-- Size: Root
+tmx_mx_sola_multicast_hsvf_v1_14.root.size = 6
+
+-- Display: Root
+tmx_mx_sola_multicast_hsvf_v1_14.root.display = function(value)
+  return "Root: "..value
+end
+
+-- Dissect: Root
+tmx_mx_sola_multicast_hsvf_v1_14.root.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.root.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.root, range, value, display)
+
+  return offset + length, value
+end
+
+-- Scheduled Status Change Time
+tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time = {}
+
+-- Size: Scheduled Status Change Time
+tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size = 6
+
+-- Display: Scheduled Status Change Time
+tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.display = function(value)
+  return "Scheduled Status Change Time: "..value
+end
+
+-- Dissect: Scheduled Status Change Time
+tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.scheduled_status_change_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+tmx_mx_sola_multicast_hsvf_v1_14.sequence_number = {}
+
+-- Size: Sequence Number
+tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.size = 10
+
+-- Display: Sequence Number
+tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Status
+tmx_mx_sola_multicast_hsvf_v1_14.series_status = {}
+
+-- Size: Series Status
+tmx_mx_sola_multicast_hsvf_v1_14.series_status.size = 1
+
+-- Display: Series Status
+tmx_mx_sola_multicast_hsvf_v1_14.series_status.display = function(value)
+  if value == "Y" then
+    return "Series Status: Preopening (Y)"
+  end
+  if value == "O" then
+    return "Series Status: Opening (O)"
+  end
+  if value == "T" then
+    return "Series Status: Continuous Trading (T)"
+  end
+  if value == "F" then
+    return "Series Status: Forbidden (F)"
+  end
+  if value == "E" then
+    return "Series Status: Intervention Before Opening (E)"
+  end
+  if value == "H" then
+    return "Series Status: Halted Trading (H)"
+  end
+  if value == "R" then
+    return "Series Status: Reserved (R)"
+  end
+  if value == "S" then
+    return "Series Status: Suspended (S)"
+  end
+  if value == "A" then
+    return "Series Status: Surveillance Intervention (A)"
+  end
+  if value == "C" then
+    return "Series Status: Endof Day Inquiries (C)"
+  end
+  if value == " " then
+    return "Series Status: Not Available (<whitespace>)"
+  end
+
+  return "Series Status: Unknown("..value..")"
+end
+
+-- Dissect: Series Status
+tmx_mx_sola_multicast_hsvf_v1_14.series_status.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.series_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.series_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.series_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price = {}
+
+-- Size: Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size = 7
+
+-- Display: Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.display = function(value)
+  return "Settlement Price: "..value
+end
+
+-- Dissect: Settlement Price
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator = {}
+
+-- Size: Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size = 1
+
+-- Display: Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.display = function(value)
+  return "Settlement Price Fraction Indicator: "..value
+end
+
+-- Dissect: Settlement Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.settlement_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Allow Implied
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied = {}
+
+-- Size: Strategy Allow Implied
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.size = 1
+
+-- Display: Strategy Allow Implied
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.display = function(value)
+  if value == "Y" then
+    return "Strategy Allow Implied: Yes (Y)"
+  end
+  if value == "N" then
+    return "Strategy Allow Implied: No (N)"
+  end
+
+  return "Strategy Allow Implied: Unknown("..value..")"
+end
+
+-- Dissect: Strategy Allow Implied
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_allow_implied, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_code = {}
+
+-- Size: Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.size = 2
+
+-- Display: Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.display = function(value)
+  return "Strategy Code: "..value
+end
+
+-- Dissect: Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol = {}
+
+-- Size: Strategy Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size = 30
+
+-- Display: Strategy Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.display = function(value)
+  return "Strategy Symbol: "..value
+end
+
+-- Dissect: Strategy Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Type
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_type = {}
+
+-- Size: Strategy Type
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.size = 1
+
+-- Display: Strategy Type
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.display = function(value)
+  if value == "C" then
+    return "Strategy Type: Classic (C)"
+  end
+  if value == "S" then
+    return "Strategy Type: Strip (S)"
+  end
+  if value == "V" then
+    return "Strategy Type: Covered Regular (V)"
+  end
+  if value == "R" then
+    return "Strategy Type: Covered Reference Fixed (R)"
+  end
+
+  return "Strategy Type: Unknown("..value..")"
+end
+
+-- Dissect: Strategy Type
+tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price = {}
+
+-- Size: Strike Price
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size = 7
+
+-- Display: Strike Price
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price Currency
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency = {}
+
+-- Size: Strike Price Currency
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size = 3
+
+-- Display: Strike Price Currency
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.display = function(value)
+  return "Strike Price Currency: "..value
+end
+
+-- Dissect: Strike Price Currency
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strike_price_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator = {}
+
+-- Size: Strike Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size = 1
+
+-- Display: Strike Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.display = function(value)
+  return "Strike Price Fraction Indicator: "..value
+end
+
+-- Dissect: Strike Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strike_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.symbol = {}
+
+-- Size: Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.symbol.size = 30
+
+-- Display: Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_month = {}
+
+-- Size: Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size = 1
+
+-- Display: Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.display = function(value)
+  return "Symbol Month: "..value
+end
+
+-- Dissect: Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_year = {}
+
+-- Size: Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size = 2
+
+-- Display: Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.display = function(value)
+  return "Symbol Year: "..value
+end
+
+-- Dissect: Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick
+tmx_mx_sola_multicast_hsvf_v1_14.tick = {}
+
+-- Size: Tick
+tmx_mx_sola_multicast_hsvf_v1_14.tick.size = 1
+
+-- Display: Tick
+tmx_mx_sola_multicast_hsvf_v1_14.tick.display = function(value)
+  if value == "+" then
+    return "Tick: Uptick (+)"
+  end
+  if value == "-" then
+    return "Tick: Downtick (-)"
+  end
+
+  return "Tick: Unknown("..value..")"
+end
+
+-- Dissect: Tick
+tmx_mx_sola_multicast_hsvf_v1_14.tick.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Increment
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment = {}
+
+-- Size: Tick Increment
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size = 7
+
+-- Display: Tick Increment
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.display = function(value)
+  return "Tick Increment: "..value
+end
+
+-- Dissect: Tick Increment
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_increment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Increment Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1 = {}
+
+-- Size: Tick Increment Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size = 1
+
+-- Display: Tick Increment Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.display = function(value)
+  return "Tick Increment Fraction Indicator X 1: "..value
+end
+
+-- Dissect: Tick Increment Fraction Indicator X 1
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_increment_fraction_indicator_x_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Increment Fraction Indicator X 7
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7 = {}
+
+-- Size: Tick Increment Fraction Indicator X 7
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.size = 7
+
+-- Display: Tick Increment Fraction Indicator X 7
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.display = function(value)
+  return "Tick Increment Fraction Indicator X 7: "..value
+end
+
+-- Dissect: Tick Increment Fraction Indicator X 7
+tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_increment_fraction_indicator_x_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Price
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price = {}
+
+-- Size: Tick Price
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price.size = 7
+
+-- Display: Tick Price
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price.display = function(value)
+  return "Tick Price: "..value
+end
+
+-- Dissect: Tick Price
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator = {}
+
+-- Size: Tick Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.size = 1
+
+-- Display: Tick Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.display = function(value)
+  return "Tick Price Fraction Indicator: "..value
+end
+
+-- Dissect: Tick Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Table Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name = {}
+
+-- Size: Tick Table Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.size = 50
+
+-- Display: Tick Table Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.display = function(value)
+  return "Tick Table Name: "..value
+end
+
+-- Dissect: Tick Table Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_table_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Table Short Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name = {}
+
+-- Size: Tick Table Short Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.size = 2
+
+-- Display: Tick Table Short Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.display = function(value)
+  return "Tick Table Short Name: "..value
+end
+
+-- Dissect: Tick Table Short Name
+tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_table_short_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Value
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value = {}
+
+-- Size: Tick Value
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size = 7
+
+-- Display: Tick Value
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value.display = function(value)
+  return "Tick Value: "..value
+end
+
+-- Dissect: Tick Value
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Value Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator = {}
+
+-- Size: Tick Value Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size = 1
+
+-- Display: Tick Value Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.display = function(value)
+  return "Tick Value Fraction Indicator: "..value
+end
+
+-- Dissect: Tick Value Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_value_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+tmx_mx_sola_multicast_hsvf_v1_14.time = {}
+
+-- Size: Time
+tmx_mx_sola_multicast_hsvf_v1_14.time.size = 6
+
+-- Display: Time
+tmx_mx_sola_multicast_hsvf_v1_14.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+tmx_mx_sola_multicast_hsvf_v1_14.time.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.time.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Number
+tmx_mx_sola_multicast_hsvf_v1_14.trade_number = {}
+
+-- Size: Trade Number
+tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size = 8
+
+-- Display: Trade Number
+tmx_mx_sola_multicast_hsvf_v1_14.trade_number.display = function(value)
+  return "Trade Number: "..value
+end
+
+-- Dissect: Trade Number
+tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator = {}
+
+-- Size: Trade Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size = 1
+
+-- Display: Trade Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.display = function(value)
+  return "Trade Price Fraction Indicator: "..value
+end
+
+-- Dissect: Trade Price Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price N 6
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6 = {}
+
+-- Size: Trade Price N 6
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size = 6
+
+-- Display: Trade Price N 6
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.display = function(value)
+  return "Trade Price N 6: "..value
+end
+
+-- Dissect: Trade Price N 6
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_n_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7 = {}
+
+-- Size: Trade Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size = 7
+
+-- Display: Trade Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.display = function(value)
+  return "Trade Price N 7: "..value
+end
+
+-- Dissect: Trade Price N 7
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_n_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign = {}
+
+-- Size: Trade Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size = 1
+
+-- Display: Trade Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.display = function(value)
+  return "Trade Price Sign: "..value
+end
+
+-- Dissect: Trade Price Sign
+tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_sign, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol = {}
+
+-- Size: Underlying Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.size = 6
+
+-- Display: Underlying Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.display = function(value)
+  return "Underlying Root Symbol: "..value
+end
+
+-- Dissect: Underlying Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_root_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.size = 12
+
+-- Display: Underlying Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month = {}
+
+-- Size: Underlying Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.size = 1
+
+-- Display: Underlying Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.display = function(value)
+  return "Underlying Symbol Month: "..value
+end
+
+-- Dissect: Underlying Symbol Month
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol Root
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root = {}
+
+-- Size: Underlying Symbol Root
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.size = 12
+
+-- Display: Underlying Symbol Root
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.display = function(value)
+  return "Underlying Symbol Root: "..value
+end
+
+-- Dissect: Underlying Symbol Root
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_root, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year = {}
+
+-- Size: Underlying Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.size = 2
+
+-- Display: Underlying Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.display = function(value)
+  return "Underlying Symbol Year: "..value
+end
+
+-- Dissect: Underlying Symbol Year
+tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Variable Legs Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code = {}
+
+-- Size: Variable Legs Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.size = 2
+
+-- Display: Variable Legs Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.display = function(value)
+  return "Variable Legs Strategy Code: "..value
+end
+
+-- Dissect: Variable Legs Strategy Code
+tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.variable_legs_strategy_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+tmx_mx_sola_multicast_hsvf_v1_14.volume = {}
+
+-- Size: Volume
+tmx_mx_sola_multicast_hsvf_v1_14.volume.size = 8
+
+-- Display: Volume
+tmx_mx_sola_multicast_hsvf_v1_14.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+tmx_mx_sola_multicast_hsvf_v1_14.volume.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.volume.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Tmx Mx Sola Multicast Hsvf 1.14
+-----------------------------------------------------------------------
 
 -- Start Of Day Message
 tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message = {}
@@ -809,34 +4999,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.start_of_day_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Time
-tmx_mx_sola_multicast_hsvf_v1_14.time = {}
-
--- Size: Time
-tmx_mx_sola_multicast_hsvf_v1_14.time.size = 6
-
--- Display: Time
-tmx_mx_sola_multicast_hsvf_v1_14.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-tmx_mx_sola_multicast_hsvf_v1_14.time.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.time.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Circuit Assurance Message
@@ -923,108 +5085,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.end_of_transmission_message.dissect = function(
   end
 end
 
--- Tick Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator = {}
-
--- Size: Tick Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.size = 1
-
--- Display: Tick Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.display = function(value)
-  return "Tick Price Fraction Indicator: "..value
-end
-
--- Dissect: Tick Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Price
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price = {}
-
--- Size: Tick Price
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price.size = 7
-
--- Display: Tick Price
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price.display = function(value)
-  return "Tick Price: "..value
-end
-
--- Dissect: Tick Price
-tmx_mx_sola_multicast_hsvf_v1_14.tick_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator = {}
-
--- Size: Min Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.size = 1
-
--- Display: Min Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.display = function(value)
-  return "Min Price Fraction Indicator: "..value
-end
-
--- Dissect: Min Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.min_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.min_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Price
-tmx_mx_sola_multicast_hsvf_v1_14.min_price = {}
-
--- Size: Min Price
-tmx_mx_sola_multicast_hsvf_v1_14.min_price.size = 7
-
--- Display: Min Price
-tmx_mx_sola_multicast_hsvf_v1_14.min_price.display = function(value)
-  return "Min Price: "..value
-end
-
--- Dissect: Min Price
-tmx_mx_sola_multicast_hsvf_v1_14.min_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.min_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.min_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.min_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tick Entry
 tmx_mx_sola_multicast_hsvf_v1_14.tick_entry = {}
 
@@ -1081,80 +5141,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.tick_entry.fields(buffer, offset, packet, parent, tick_entry_index)
   end
-end
-
--- Number Of Entries
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries = {}
-
--- Size: Number Of Entries
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.size = 2
-
--- Display: Number Of Entries
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.display = function(value)
-  return "Number Of Entries: "..value
-end
-
--- Dissect: Number Of Entries
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_entries, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Table Short Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name = {}
-
--- Size: Tick Table Short Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.size = 2
-
--- Display: Tick Table Short Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.display = function(value)
-  return "Tick Table Short Name: "..value
-end
-
--- Dissect: Tick Table Short Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_short_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_table_short_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Table Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name = {}
-
--- Size: Tick Table Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.size = 50
-
--- Display: Tick Table Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.display = function(value)
-  return "Tick Table Name: "..value
-end
-
--- Dissect: Tick Table Name
-tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_table_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_table_name, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tick Table Message
@@ -1226,29 +5212,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.tick_table_message.dissect = function(buffer, o
   end
 end
 
--- Reserved
-tmx_mx_sola_multicast_hsvf_v1_14.reserved = {}
-
--- Size: Reserved
-tmx_mx_sola_multicast_hsvf_v1_14.reserved.size = 1
-
--- Display: Reserved
-tmx_mx_sola_multicast_hsvf_v1_14.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-tmx_mx_sola_multicast_hsvf_v1_14.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.reserved.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
 -- End Of Sales Message
 tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message = {}
 
@@ -1291,80 +5254,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.end_of_sales_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Continue Marker
-tmx_mx_sola_multicast_hsvf_v1_14.continue_marker = {}
-
--- Size: Continue Marker
-tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size = 1
-
--- Display: Continue Marker
-tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.display = function(value)
-  return "Continue Marker: "..value
-end
-
--- Dissect: Continue Marker
-tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.continue_marker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.continue_marker, range, value, display)
-
-  return offset + length, value
-end
-
--- Bulletin Contents X 49
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49 = {}
-
--- Size: Bulletin Contents X 49
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.size = 49
-
--- Display: Bulletin Contents X 49
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.display = function(value)
-  return "Bulletin Contents X 49: "..value
-end
-
--- Dissect: Bulletin Contents X 49
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_contents_x_49.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bulletin_contents_x_49, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.symbol = {}
-
--- Size: Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.symbol.size = 30
-
--- Display: Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Special Text Bulletin
@@ -1413,29 +5302,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.dissect = function(buffer
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.fields(buffer, offset, packet, parent)
   end
-end
-
--- Regular Bulletin Contents
-tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents = {}
-
--- Size: Regular Bulletin Contents
-tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.size = 79
-
--- Display: Regular Bulletin Contents
-tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.display = function(value)
-  return "Regular Bulletin Contents: "..value
-end
-
--- Dissect: Regular Bulletin Contents
-tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.regular_bulletin_contents.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.regular_bulletin_contents, range, value, display)
-
-  return offset + length, value
 end
 
 -- Regular Text Bulletin
@@ -1499,36 +5365,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.bulletin.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Bulletin Type
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type = {}
-
--- Size: Bulletin Type
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.size = 1
-
--- Display: Bulletin Type
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.display = function(value)
-  if value == "1" then
-    return "Bulletin Type: Regular Text Bulletin (1)"
-  end
-  if value == "2" then
-    return "Bulletin Type: Special Text Bulletin (2)"
-  end
-
-  return "Bulletin Type: Unknown("..value..")"
-end
-
--- Dissect: Bulletin Type
-tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.bulletin_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bulletin_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Bulletins Message
 tmx_mx_sola_multicast_hsvf_v1_14.bulletins_message = {}
 
@@ -1585,159 +5421,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.bulletins_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.bulletins_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Conversion Factor Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator = {}
-
--- Size: Conversion Factor Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.size = 1
-
--- Display: Conversion Factor Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.display = function(value)
-  return "Conversion Factor Fraction Indicator: "..value
-end
-
--- Dissect: Conversion Factor Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.conversion_factor_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Conversion Factor
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor = {}
-
--- Size: Conversion Factor
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.size = 7
-
--- Display: Conversion Factor
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.display = function(value)
-  return "Conversion Factor: "..value
-end
-
--- Dissect: Conversion Factor
-tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.conversion_factor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.conversion_factor, range, value, display)
-
-  return offset + length, value
-end
-
--- Outstanding Bond Value
-tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value = {}
-
--- Size: Outstanding Bond Value
-tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.size = 8
-
--- Display: Outstanding Bond Value
-tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.display = function(value)
-  return "Outstanding Bond Value: "..value
-end
-
--- Dissect: Outstanding Bond Value
-tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.outstanding_bond_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.outstanding_bond_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Coupon Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator = {}
-
--- Size: Coupon Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.size = 1
-
--- Display: Coupon Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.display = function(value)
-  return "Coupon Fraction Indicator: "..value
-end
-
--- Dissect: Coupon Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.coupon_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.coupon_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Coupon
-tmx_mx_sola_multicast_hsvf_v1_14.coupon = {}
-
--- Size: Coupon
-tmx_mx_sola_multicast_hsvf_v1_14.coupon.size = 7
-
--- Display: Coupon
-tmx_mx_sola_multicast_hsvf_v1_14.coupon.display = function(value)
-  return "Coupon: "..value
-end
-
--- Dissect: Coupon
-tmx_mx_sola_multicast_hsvf_v1_14.coupon.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.coupon.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.coupon.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.coupon, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-tmx_mx_sola_multicast_hsvf_v1_14.maturity_date = {}
-
--- Size: Maturity Date
-tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.size = 8
-
--- Display: Maturity Date
-tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maturity_date, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bond Definition
@@ -1804,136 +5487,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.bond_definition.fields(buffer, offset, packet, parent, bond_definition_index)
   end
-end
-
--- Number Of Bonds
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds = {}
-
--- Size: Number Of Bonds
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.size = 2
-
--- Display: Number Of Bonds
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.display = function(value)
-  return "Number Of Bonds: "..value
-end
-
--- Dissect: Number Of Bonds
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bonds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_bonds, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiry Day
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_day = {}
-
--- Size: Expiry Day
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size = 2
-
--- Display: Expiry Day
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.display = function(value)
-  return "Expiry Day: "..value
-end
-
--- Dissect: Expiry Day
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_year = {}
-
--- Size: Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size = 2
-
--- Display: Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.display = function(value)
-  return "Symbol Year: "..value
-end
-
--- Dissect: Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_month = {}
-
--- Size: Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size = 1
-
--- Display: Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.display = function(value)
-  return "Symbol Month: "..value
-end
-
--- Dissect: Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Root
-tmx_mx_sola_multicast_hsvf_v1_14.root = {}
-
--- Size: Root
-tmx_mx_sola_multicast_hsvf_v1_14.root.size = 6
-
--- Display: Root
-tmx_mx_sola_multicast_hsvf_v1_14.root.display = function(value)
-  return "Root: "..value
-end
-
--- Dissect: Root
-tmx_mx_sola_multicast_hsvf_v1_14.root.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.root.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.root, range, value, display)
-
-  return offset + length, value
 end
 
 -- Future Product
@@ -2052,52 +5605,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_deliverables_message.dissect = function(
   end
 end
 
--- Group Status
-tmx_mx_sola_multicast_hsvf_v1_14.group_status = {}
-
--- Size: Group Status
-tmx_mx_sola_multicast_hsvf_v1_14.group_status.size = 1
-
--- Display: Group Status
-tmx_mx_sola_multicast_hsvf_v1_14.group_status.display = function(value)
-  return "Group Status: "..value
-end
-
--- Dissect: Group Status
-tmx_mx_sola_multicast_hsvf_v1_14.group_status.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.group_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.group_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.group_instrument = {}
-
--- Size: Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size = 2
-
--- Display: Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.display = function(value)
-  return "Group Instrument: "..value
-end
-
--- Dissect: Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.group_instrument.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_instrument, range, value, display)
-
-  return offset + length, value
-end
-
 -- Group Status Strategies Message
 tmx_mx_sola_multicast_hsvf_v1_14.group_status_strategies_message = {}
 
@@ -2194,205 +5701,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.group_status_message.dissect = function(buffer,
   end
 end
 
--- Trade Number
-tmx_mx_sola_multicast_hsvf_v1_14.trade_number = {}
-
--- Size: Trade Number
-tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size = 8
-
--- Display: Trade Number
-tmx_mx_sola_multicast_hsvf_v1_14.trade_number.display = function(value)
-  return "Trade Number: "..value
-end
-
--- Dissect: Trade Number
-tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1 = {}
-
--- Size: Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size = 1
-
--- Display: Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.display = function(value)
-  return "Price Indicator Marker X 1: "..value
-end
-
--- Dissect: Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_x_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1 = {}
-
--- Size: Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size = 1
-
--- Display: Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.display = function(value)
-  return "Net Change Fraction Indicator X 1: "..value
-end
-
--- Dissect: Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_x_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change
-tmx_mx_sola_multicast_hsvf_v1_14.net_change = {}
-
--- Size: Net Change
-tmx_mx_sola_multicast_hsvf_v1_14.net_change.size = 7
-
--- Display: Net Change
-tmx_mx_sola_multicast_hsvf_v1_14.net_change.display = function(value)
-  return "Net Change: "..value
-end
-
--- Dissect: Net Change
-tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1 = {}
-
--- Size: Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size = 1
-
--- Display: Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.display = function(value)
-  return "Net Change Sign X 1: "..value
-end
-
--- Dissect: Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_x_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator = {}
-
--- Size: Trade Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size = 1
-
--- Display: Trade Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.display = function(value)
-  return "Trade Price Fraction Indicator: "..value
-end
-
--- Dissect: Trade Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price N 6
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6 = {}
-
--- Size: Trade Price N 6
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size = 6
-
--- Display: Trade Price N 6
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.display = function(value)
-  return "Trade Price N 6: "..value
-end
-
--- Dissect: Trade Price N 6
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_n_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Volume
-tmx_mx_sola_multicast_hsvf_v1_14.volume = {}
-
--- Size: Volume
-tmx_mx_sola_multicast_hsvf_v1_14.volume.size = 8
-
--- Display: Volume
-tmx_mx_sola_multicast_hsvf_v1_14.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-tmx_mx_sola_multicast_hsvf_v1_14.volume.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Futures Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message = {}
 
@@ -2469,52 +5777,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.dissect = func
   end
 end
 
--- Auction Id
-tmx_mx_sola_multicast_hsvf_v1_14.auction_id = {}
-
--- Size: Auction Id
-tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size = 6
-
--- Display: Auction Id
-tmx_mx_sola_multicast_hsvf_v1_14.auction_id.display = function(value)
-  return "Auction Id: "..value
-end
-
--- Dissect: Auction Id
-tmx_mx_sola_multicast_hsvf_v1_14.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.auction_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.auction_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol = {}
-
--- Size: Strategy Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size = 30
-
--- Display: Strategy Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.display = function(value)
-  return "Strategy Symbol: "..value
-end
-
--- Dissect: Strategy Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Auction Ending Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message = {}
 
@@ -2561,145 +5823,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.dissect = funct
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Expiry Year
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_year = {}
-
--- Size: Expiry Year
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.size = 2
-
--- Display: Expiry Year
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.display = function(value)
-  return "Expiry Year: "..value
-end
-
--- Dissect: Expiry Year
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator = {}
-
--- Size: Strike Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size = 1
-
--- Display: Strike Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.display = function(value)
-  return "Strike Price Fraction Indicator: "..value
-end
-
--- Dissect: Strike Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strike_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price = {}
-
--- Size: Strike Price
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size = 7
-
--- Display: Strike Price
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strike_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiry Month
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_month = {}
-
--- Size: Expiry Month
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.size = 1
-
--- Display: Expiry Month
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.display = function(value)
-  if value == "A" then
-    return "Expiry Month: January (A)"
-  end
-  if value == "B" then
-    return "Expiry Month: February (B)"
-  end
-  if value == "C" then
-    return "Expiry Month: March (C)"
-  end
-  if value == "D" then
-    return "Expiry Month: April (D)"
-  end
-  if value == "E" then
-    return "Expiry Month: May (E)"
-  end
-  if value == "F" then
-    return "Expiry Month: June (F)"
-  end
-  if value == "G" then
-    return "Expiry Month: July (G)"
-  end
-  if value == "H" then
-    return "Expiry Month: August (H)"
-  end
-  if value == "I" then
-    return "Expiry Month: September (I)"
-  end
-  if value == "J" then
-    return "Expiry Month: October (J)"
-  end
-  if value == "K" then
-    return "Expiry Month: November (K)"
-  end
-  if value == "L" then
-    return "Expiry Month: December (L)"
-  end
-
-  return "Expiry Month: Unknown("..value..")"
-end
-
--- Dissect: Expiry Month
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_month, range, value, display)
-
-  return offset + length, value
 end
 
 -- Option Symbol
@@ -2970,191 +6093,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.beginning_of_options_summary_message.dissect = 
   end
 end
 
--- Previous Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id = {}
-
--- Size: Previous Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size = 8
-
--- Display: Previous Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.display = function(value)
-  return "Previous Order Id: "..value
-end
-
--- Dissect: Previous Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.order_id = {}
-
--- Size: Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.order_id.size = 8
-
--- Display: Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-tmx_mx_sola_multicast_hsvf_v1_14.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Type
-tmx_mx_sola_multicast_hsvf_v1_14.order_type = {}
-
--- Size: Order Type
-tmx_mx_sola_multicast_hsvf_v1_14.order_type.size = 1
-
--- Display: Order Type
-tmx_mx_sola_multicast_hsvf_v1_14.order_type.display = function(value)
-  if value == "A" then
-    return "Order Type: Initial Order (A)"
-  end
-  if value == "B" then
-    return "Order Type: Improvement Order (B)"
-  end
-
-  return "Order Type: Unknown("..value..")"
-end
-
--- Dissect: Order Type
-tmx_mx_sola_multicast_hsvf_v1_14.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator = {}
-
--- Size: Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size = 1
-
--- Display: Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.display = function(value)
-  return "Order Price Fraction Indicator: "..value
-end
-
--- Dissect: Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.order_price = {}
-
--- Size: Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.order_price.size = 7
-
--- Display: Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.order_price.display = function(value)
-  return "Order Price: "..value
-end
-
--- Dissect: Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.order_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.order_quantity = {}
-
--- Size: Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size = 8
-
--- Display: Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.display = function(value)
-  return "Order Quantity: "..value
-end
-
--- Dissect: Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.order_side = {}
-
--- Size: Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.order_side.size = 1
-
--- Display: Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.order_side.display = function(value)
-  if value == "B" then
-    return "Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Side: Sell (S)"
-  end
-
-  return "Order Side: Unknown("..value..")"
-end
-
--- Dissect: Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.order_side.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.order_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.order_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.order_side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Initial And Improvement Order Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message = {}
 
@@ -3307,532 +6245,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_initial_and_improvement_order_message.di
   end
 end
 
--- Reason
-tmx_mx_sola_multicast_hsvf_v1_14.reason = {}
-
--- Size: Reason
-tmx_mx_sola_multicast_hsvf_v1_14.reason.size = 1
-
--- Display: Reason
-tmx_mx_sola_multicast_hsvf_v1_14.reason.display = function(value)
-  if value == "S" then
-    return "Reason: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Reason: End Of Day (E)"
-  end
-  if value == "U" then
-    return "Reason: Instrument New Or Update (U)"
-  end
-  if value == "C" then
-    return "Reason: Trade Cancellation (C)"
-  end
-
-  return "Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason
-tmx_mx_sola_multicast_hsvf_v1_14.reason.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator = {}
-
--- Size: Low Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size = 1
-
--- Display: Low Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.display = function(value)
-  return "Low Price Fraction Indicator: "..value
-end
-
--- Dissect: Low Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.low_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Price
-tmx_mx_sola_multicast_hsvf_v1_14.low_price = {}
-
--- Size: Low Price
-tmx_mx_sola_multicast_hsvf_v1_14.low_price.size = 7
-
--- Display: Low Price
-tmx_mx_sola_multicast_hsvf_v1_14.low_price.display = function(value)
-  return "Low Price: "..value
-end
-
--- Dissect: Low Price
-tmx_mx_sola_multicast_hsvf_v1_14.low_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.low_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign = {}
-
--- Size: Low Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size = 1
-
--- Display: Low Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.display = function(value)
-  return "Low Price Sign: "..value
-end
-
--- Dissect: Low Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.low_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator = {}
-
--- Size: High Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size = 1
-
--- Display: High Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.display = function(value)
-  return "High Price Fraction Indicator: "..value
-end
-
--- Dissect: High Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.high_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price
-tmx_mx_sola_multicast_hsvf_v1_14.high_price = {}
-
--- Size: High Price
-tmx_mx_sola_multicast_hsvf_v1_14.high_price.size = 7
-
--- Display: High Price
-tmx_mx_sola_multicast_hsvf_v1_14.high_price.display = function(value)
-  return "High Price: "..value
-end
-
--- Dissect: High Price
-tmx_mx_sola_multicast_hsvf_v1_14.high_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.high_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- High Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign = {}
-
--- Size: High Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.size = 1
-
--- Display: High Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.display = function(value)
-  return "High Price Sign: "..value
-end
-
--- Dissect: High Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.high_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator = {}
-
--- Size: Open Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size = 1
-
--- Display: Open Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.display = function(value)
-  return "Open Price Fraction Indicator: "..value
-end
-
--- Dissect: Open Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Price
-tmx_mx_sola_multicast_hsvf_v1_14.open_price = {}
-
--- Size: Open Price
-tmx_mx_sola_multicast_hsvf_v1_14.open_price.size = 7
-
--- Display: Open Price
-tmx_mx_sola_multicast_hsvf_v1_14.open_price.display = function(value)
-  return "Open Price: "..value
-end
-
--- Dissect: Open Price
-tmx_mx_sola_multicast_hsvf_v1_14.open_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign = {}
-
--- Size: Open Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.size = 1
-
--- Display: Open Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.display = function(value)
-  return "Open Price Sign: "..value
-end
-
--- Dissect: Open Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator = {}
-
--- Size: Last Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size = 1
-
--- Display: Last Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.display = function(value)
-  return "Last Price Fraction Indicator: "..value
-end
-
--- Dissect: Last Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Price
-tmx_mx_sola_multicast_hsvf_v1_14.last_price = {}
-
--- Size: Last Price
-tmx_mx_sola_multicast_hsvf_v1_14.last_price.size = 7
-
--- Display: Last Price
-tmx_mx_sola_multicast_hsvf_v1_14.last_price.display = function(value)
-  return "Last Price: "..value
-end
-
--- Dissect: Last Price
-tmx_mx_sola_multicast_hsvf_v1_14.last_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign = {}
-
--- Size: Last Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.size = 1
-
--- Display: Last Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.display = function(value)
-  return "Last Price Sign: "..value
-end
-
--- Dissect: Last Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Size
-tmx_mx_sola_multicast_hsvf_v1_14.ask_size = {}
-
--- Size: Ask Size
-tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size = 5
-
--- Display: Ask Size
-tmx_mx_sola_multicast_hsvf_v1_14.ask_size.display = function(value)
-  return "Ask Size: "..value
-end
-
--- Dissect: Ask Size
-tmx_mx_sola_multicast_hsvf_v1_14.ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_size.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator = {}
-
--- Size: Ask Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size = 1
-
--- Display: Ask Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.display = function(value)
-  return "Ask Price Fraction Indicator: "..value
-end
-
--- Dissect: Ask Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price = {}
-
--- Size: Ask Price
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size = 7
-
--- Display: Ask Price
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price.display = function(value)
-  return "Ask Price: "..value
-end
-
--- Dissect: Ask Price
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign = {}
-
--- Size: Ask Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size = 1
-
--- Display: Ask Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.display = function(value)
-  return "Ask Price Sign: "..value
-end
-
--- Dissect: Ask Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.ask_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.ask_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-tmx_mx_sola_multicast_hsvf_v1_14.bid_size = {}
-
--- Size: Bid Size
-tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size = 5
-
--- Display: Bid Size
-tmx_mx_sola_multicast_hsvf_v1_14.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-tmx_mx_sola_multicast_hsvf_v1_14.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator = {}
-
--- Size: Bid Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size = 1
-
--- Display: Bid Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.display = function(value)
-  return "Bid Price Fraction Indicator: "..value
-end
-
--- Dissect: Bid Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price = {}
-
--- Size: Bid Price
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size = 7
-
--- Display: Bid Price
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Dissect: Bid Price
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign = {}
-
--- Size: Bid Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size = 1
-
--- Display: Bid Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.display = function(value)
-  return "Bid Price Sign: "..value
-end
-
--- Dissect: Bid Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.bid_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.bid_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message = {}
 
@@ -3975,215 +6387,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.dissect = function(buf
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- External Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator = {}
-
--- Size: External Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.size = 1
-
--- Display: External Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.display = function(value)
-  return "External Price Fraction Indicator: "..value
-end
-
--- Dissect: External Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.external_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.external_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- External Price At Source
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source = {}
-
--- Size: External Price At Source
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.size = 7
-
--- Display: External Price At Source
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.display = function(value)
-  return "External Price At Source: "..value
-end
-
--- Dissect: External Price At Source
-tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.external_price_at_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.external_price_at_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Interest Date N 7
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7 = {}
-
--- Size: Open Interest Date N 7
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.size = 7
-
--- Display: Open Interest Date N 7
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.display = function(value)
-  return "Open Interest Date N 7: "..value
-end
-
--- Dissect: Open Interest Date N 7
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_interest_date_n_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Interest
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest = {}
-
--- Size: Open Interest
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size = 7
-
--- Display: Open Interest
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest.display = function(value)
-  return "Open Interest: "..value
-end
-
--- Dissect: Open Interest
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_interest.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_interest.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_interest, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Settlement Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator = {}
-
--- Size: Previous Settlement Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size = 1
-
--- Display: Previous Settlement Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.display = function(value)
-  return "Previous Settlement Fraction Indicator: "..value
-end
-
--- Dissect: Previous Settlement Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Settlement
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement = {}
-
--- Size: Previous Settlement
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size = 7
-
--- Display: Previous Settlement
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.display = function(value)
-  return "Previous Settlement: "..value
-end
-
--- Dissect: Previous Settlement
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator = {}
-
--- Size: Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size = 1
-
--- Display: Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.display = function(value)
-  return "Settlement Price Fraction Indicator: "..value
-end
-
--- Dissect: Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.settlement_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price = {}
-
--- Size: Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size = 7
-
--- Display: Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.display = function(value)
-  return "Settlement Price: "..value
-end
-
--- Dissect: Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.settlement_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Futures Summary Message
@@ -4336,196 +6539,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.dissect = function(buff
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Previous Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator = {}
-
--- Size: Previous Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.size = 1
-
--- Display: Previous Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.display = function(value)
-  return "Previous Settlement Price Fraction Indicator: "..value
-end
-
--- Dissect: Previous Settlement Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price = {}
-
--- Size: Previous Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.size = 7
-
--- Display: Previous Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.display = function(value)
-  return "Previous Settlement Price: "..value
-end
-
--- Dissect: Previous Settlement Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator = {}
-
--- Size: Opening Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size = 1
-
--- Display: Opening Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.display = function(value)
-  return "Opening Price Fraction Indicator: "..value
-end
-
--- Dissect: Opening Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.opening_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Price
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price = {}
-
--- Size: Opening Price
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size = 7
-
--- Display: Opening Price
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price.display = function(value)
-  return "Opening Price: "..value
-end
-
--- Dissect: Opening Price
-tmx_mx_sola_multicast_hsvf_v1_14.opening_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.opening_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.opening_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick
-tmx_mx_sola_multicast_hsvf_v1_14.tick = {}
-
--- Size: Tick
-tmx_mx_sola_multicast_hsvf_v1_14.tick.size = 1
-
--- Display: Tick
-tmx_mx_sola_multicast_hsvf_v1_14.tick.display = function(value)
-  if value == "+" then
-    return "Tick: Uptick (+)"
-  end
-  if value == "-" then
-    return "Tick: Downtick (-)"
-  end
-
-  return "Tick: Unknown("..value..")"
-end
-
--- Dissect: Tick
-tmx_mx_sola_multicast_hsvf_v1_14.tick.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Interest Date N 6
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6 = {}
-
--- Size: Open Interest Date N 6
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size = 6
-
--- Display: Open Interest Date N 6
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.display = function(value)
-  return "Open Interest Date N 6: "..value
-end
-
--- Dissect: Open Interest Date N 6
-tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.open_interest_date_n_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Call Put Code
-tmx_mx_sola_multicast_hsvf_v1_14.call_put_code = {}
-
--- Size: Call Put Code
-tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.size = 1
-
--- Display: Call Put Code
-tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.display = function(value)
-  if value == "C" then
-    return "Call Put Code: Call (C)"
-  end
-  if value == "P" then
-    return "Call Put Code: Put (P)"
-  end
-
-  return "Call Put Code: Unknown("..value..")"
-end
-
--- Dissect: Call Put Code
-tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.call_put_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.call_put_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- Future Option Symbol
@@ -4740,136 +6753,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.dissect = functi
   end
 end
 
--- Previous Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator = {}
-
--- Size: Previous Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.size = 1
-
--- Display: Previous Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.display = function(value)
-  return "Previous Closing Price Fraction Indicator: "..value
-end
-
--- Dissect: Previous Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_closing_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price = {}
-
--- Size: Previous Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.size = 7
-
--- Display: Previous Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.display = function(value)
-  return "Previous Closing Price: "..value
-end
-
--- Dissect: Previous Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.previous_closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_closing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator = {}
-
--- Size: Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.size = 1
-
--- Display: Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.display = function(value)
-  return "Closing Price Fraction Indicator: "..value
-end
-
--- Dissect: Closing Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.closing_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.closing_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price = {}
-
--- Size: Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price.size = 7
-
--- Display: Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price.display = function(value)
-  return "Closing Price: "..value
-end
-
--- Dissect: Closing Price
-tmx_mx_sola_multicast_hsvf_v1_14.closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.closing_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.closing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Marker
-tmx_mx_sola_multicast_hsvf_v1_14.option_marker = {}
-
--- Size: Option Marker
-tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size = 2
-
--- Display: Option Marker
-tmx_mx_sola_multicast_hsvf_v1_14.option_marker.display = function(value)
-  return "Option Marker: "..value
-end
-
--- Dissect: Option Marker
-tmx_mx_sola_multicast_hsvf_v1_14.option_marker.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.option_marker.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.option_marker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_marker, range, value, display)
-
-  return offset + length, value
-end
-
 -- Option Summary Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message = {}
 
@@ -5020,194 +6903,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.dissect = function(buffe
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Initial Quantity Assured
-tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured = {}
-
--- Size: Initial Quantity Assured
-tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size = 8
-
--- Display: Initial Quantity Assured
-tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.display = function(value)
-  return "Initial Quantity Assured: "..value
-end
-
--- Dissect: Initial Quantity Assured
-tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_quantity_assured.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_quantity_assured, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Duration
-tmx_mx_sola_multicast_hsvf_v1_14.auction_duration = {}
-
--- Size: Auction Duration
-tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size = 12
-
--- Display: Auction Duration
-tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.display = function(value)
-  return "Auction Duration: "..value
-end
-
--- Dissect: Auction Duration
-tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.auction_duration.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.auction_duration, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Expiry Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp = {}
-
--- Size: Auction Expiry Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size = 20
-
--- Display: Auction Expiry Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.display = function(value)
-  return "Auction Expiry Timestamp: "..value
-end
-
--- Dissect: Auction Expiry Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.auction_expiry_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.auction_expiry_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Initial Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator = {}
-
--- Size: Initial Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size = 1
-
--- Display: Initial Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.display = function(value)
-  return "Initial Order Price Fraction Indicator: "..value
-end
-
--- Dissect: Initial Order Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Initial Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price = {}
-
--- Size: Initial Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size = 7
-
--- Display: Initial Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.display = function(value)
-  return "Initial Order Price: "..value
-end
-
--- Dissect: Initial Order Price
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Initial Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity = {}
-
--- Size: Initial Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size = 8
-
--- Display: Initial Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.display = function(value)
-  return "Initial Order Quantity: "..value
-end
-
--- Dissect: Initial Order Quantity
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Initial Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side = {}
-
--- Size: Initial Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size = 1
-
--- Display: Initial Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.display = function(value)
-  if value == "B" then
-    return "Initial Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Initial Order Side: Sell (S)"
-  end
-
-  return "Initial Order Side: Unknown("..value..")"
-end
-
--- Dissect: Initial Order Side
-tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.initial_order_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_side, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Auction Beginning Message
@@ -5362,154 +7057,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_auction_beginning_message.dissect = func
   end
 end
 
--- Leg Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator = {}
-
--- Size: Leg Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.size = 1
-
--- Display: Leg Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.display = function(value)
-  return "Leg Price Fraction Indicator: "..value
-end
-
--- Dissect: Leg Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Price
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price = {}
-
--- Size: Leg Price
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price.size = 7
-
--- Display: Leg Price
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price.display = function(value)
-  return "Leg Price: "..value
-end
-
--- Dissect: Leg Price
-tmx_mx_sola_multicast_hsvf_v1_14.leg_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Or Delta Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator = {}
-
--- Size: Leg Ratio Or Delta Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.size = 1
-
--- Display: Leg Ratio Or Delta Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.display = function(value)
-  return "Leg Ratio Or Delta Fraction Indicator: "..value
-end
-
--- Dissect: Leg Ratio Or Delta Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_ratio_or_delta_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Or Delta
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta = {}
-
--- Size: Leg Ratio Or Delta
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.size = 4
-
--- Display: Leg Ratio Or Delta
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.display = function(value)
-  return "Leg Ratio Or Delta: "..value
-end
-
--- Dissect: Leg Ratio Or Delta
-tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_ratio_or_delta.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_ratio_or_delta, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument = {}
-
--- Size: Leg Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.size = 4
-
--- Display: Leg Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.display = function(value)
-  return "Leg Instrument: "..value
-end
-
--- Dissect: Leg Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_instrument.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_instrument, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument = {}
-
--- Size: Leg Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.size = 2
-
--- Display: Leg Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.display = function(value)
-  return "Leg Group Instrument: "..value
-end
-
--- Dissect: Leg Group Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.leg_group_instrument.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.leg_group_instrument, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Instrument Leg
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg = {}
 
@@ -5574,432 +7121,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.dissect = function(buff
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_leg.fields(buffer, offset, packet, parent, strategy_instrument_leg_index)
   end
-end
-
--- Number Of Legs
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs = {}
-
--- Size: Number Of Legs
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.size = 2
-
--- Display: Number Of Legs
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.display = function(value)
-  return "Number Of Legs: "..value
-end
-
--- Dissect: Number Of Legs
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Variable Legs Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code = {}
-
--- Size: Variable Legs Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.size = 2
-
--- Display: Variable Legs Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.display = function(value)
-  return "Variable Legs Strategy Code: "..value
-end
-
--- Dissect: Variable Legs Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.variable_legs_strategy_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.variable_legs_strategy_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trading Datetime
-tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime = {}
-
--- Size: Last Trading Datetime
-tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size = 14
-
--- Display: Last Trading Datetime
-tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.display = function(value)
-  return "Last Trading Datetime: "..value
-end
-
--- Dissect: Last Trading Datetime
-tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.last_trading_datetime.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.last_trading_datetime, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Type
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_type = {}
-
--- Size: Strategy Type
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.size = 1
-
--- Display: Strategy Type
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.display = function(value)
-  if value == "C" then
-    return "Strategy Type: Classic (C)"
-  end
-  if value == "S" then
-    return "Strategy Type: Strip (S)"
-  end
-  if value == "V" then
-    return "Strategy Type: Covered Regular (V)"
-  end
-  if value == "R" then
-    return "Strategy Type: Covered Reference Fixed (R)"
-  end
-
-  return "Strategy Type: Unknown("..value..")"
-end
-
--- Dissect: Strategy Type
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_code = {}
-
--- Size: Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.size = 2
-
--- Display: Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.display = function(value)
-  return "Strategy Code: "..value
-end
-
--- Dissect: Strategy Code
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Allow Implied
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied = {}
-
--- Size: Strategy Allow Implied
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.size = 1
-
--- Display: Strategy Allow Implied
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.display = function(value)
-  if value == "Y" then
-    return "Strategy Allow Implied: Yes (Y)"
-  end
-  if value == "N" then
-    return "Strategy Allow Implied: No (N)"
-  end
-
-  return "Strategy Allow Implied: Unknown("..value..")"
-end
-
--- Dissect: Strategy Allow Implied
-tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_allow_implied.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_allow_implied, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument External Code
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code = {}
-
--- Size: Instrument External Code
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size = 30
-
--- Display: Instrument External Code
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.display = function(value)
-  return "Instrument External Code: "..value
-end
-
--- Dissect: Instrument External Code
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_external_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.instrument = {}
-
--- Size: Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.instrument.size = 4
-
--- Display: Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.instrument.display = function(value)
-  return "Instrument: "..value
-end
-
--- Dissect: Instrument
-tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Flow Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator = {}
-
--- Size: Market Flow Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size = 2
-
--- Display: Market Flow Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.display = function(value)
-  return "Market Flow Indicator: "..value
-end
-
--- Dissect: Market Flow Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.market_flow_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.market_flow_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Increment Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1 = {}
-
--- Size: Tick Increment Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size = 1
-
--- Display: Tick Increment Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.display = function(value)
-  return "Tick Increment Fraction Indicator X 1: "..value
-end
-
--- Dissect: Tick Increment Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_increment_fraction_indicator_x_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Increment
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment = {}
-
--- Size: Tick Increment
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size = 7
-
--- Display: Tick Increment
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.display = function(value)
-  return "Tick Increment: "..value
-end
-
--- Dissect: Tick Increment
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_increment, range, value, display)
-
-  return offset + length, value
-end
-
--- Minimum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator = {}
-
--- Size: Minimum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size = 1
-
--- Display: Minimum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.display = function(value)
-  return "Minimum Threshold Price Fraction Indicator: "..value
-end
-
--- Dissect: Minimum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7 = {}
-
--- Size: Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size = 7
-
--- Display: Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.display = function(value)
-  return "Minimum Threshold Price X 7: "..value
-end
-
--- Dissect: Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_x_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Maximum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator = {}
-
--- Size: Maximum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size = 1
-
--- Display: Maximum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.display = function(value)
-  return "Maximum Threshold Price Fraction Indicator: "..value
-end
-
--- Dissect: Maximum Threshold Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maximum_threshold_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Maximum Threshold Price
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price = {}
-
--- Size: Maximum Threshold Price
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size = 7
-
--- Display: Maximum Threshold Price
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.display = function(value)
-  return "Maximum Threshold Price: "..value
-end
-
--- Dissect: Maximum Threshold Price
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maximum_threshold_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Minimum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order = {}
-
--- Size: Minimum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size = 6
-
--- Display: Minimum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.display = function(value)
-  return "Minimum Number Of Contracts Per Order: "..value
-end
-
--- Dissect: Minimum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_number_of_contracts_per_order, range, value, display)
-
-  return offset + length, value
-end
-
--- Maximum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order = {}
-
--- Size: Maximum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size = 6
-
--- Display: Maximum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.display = function(value)
-  return "Maximum Number Of Contracts Per Order: "..value
-end
-
--- Dissect: Maximum Number Of Contracts Per Order
-tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.maximum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.maximum_number_of_contracts_per_order, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Instrument Keys Message
@@ -6218,240 +7339,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.associated_product.dissect = function(buffer, o
   end
 end
 
--- Delivery Type
-tmx_mx_sola_multicast_hsvf_v1_14.delivery_type = {}
-
--- Size: Delivery Type
-tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size = 1
-
--- Display: Delivery Type
-tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.display = function(value)
-  if value == "C" then
-    return "Delivery Type: Cash (C)"
-  end
-  if value == "P" then
-    return "Delivery Type: Physical (P)"
-  end
-
-  return "Delivery Type: Unknown("..value..")"
-end
-
--- Dissect: Delivery Type
-tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.delivery_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.delivery_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol = {}
-
--- Size: Underlying Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.size = 12
-
--- Display: Underlying Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-tmx_mx_sola_multicast_hsvf_v1_14.currency = {}
-
--- Size: Currency
-tmx_mx_sola_multicast_hsvf_v1_14.currency.size = 3
-
--- Display: Currency
-tmx_mx_sola_multicast_hsvf_v1_14.currency.display = function(value)
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-tmx_mx_sola_multicast_hsvf_v1_14.currency.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Value Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator = {}
-
--- Size: Tick Value Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size = 1
-
--- Display: Tick Value Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.display = function(value)
-  return "Tick Value Fraction Indicator: "..value
-end
-
--- Dissect: Tick Value Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_value_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_value_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Value
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value = {}
-
--- Size: Tick Value
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size = 7
-
--- Display: Tick Value
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value.display = function(value)
-  return "Tick Value: "..value
-end
-
--- Dissect: Tick Value
-tmx_mx_sola_multicast_hsvf_v1_14.tick_value.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_value.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Size
-tmx_mx_sola_multicast_hsvf_v1_14.contract_size = {}
-
--- Size: Contract Size
-tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size = 8
-
--- Display: Contract Size
-tmx_mx_sola_multicast_hsvf_v1_14.contract_size.display = function(value)
-  return "Contract Size: "..value
-end
-
--- Dissect: Contract Size
-tmx_mx_sola_multicast_hsvf_v1_14.contract_size.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.contract_size.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.contract_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.contract_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Increment Fraction Indicator X 7
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7 = {}
-
--- Size: Tick Increment Fraction Indicator X 7
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.size = 7
-
--- Display: Tick Increment Fraction Indicator X 7
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.display = function(value)
-  return "Tick Increment Fraction Indicator X 7: "..value
-end
-
--- Dissect: Tick Increment Fraction Indicator X 7
-tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator_x_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.tick_increment_fraction_indicator_x_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7 = {}
-
--- Size: Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size = 7
-
--- Display: Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.display = function(value)
-  return "Minimum Threshold Price N 7: "..value
-end
-
--- Dissect: Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_n_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiry Date
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_date = {}
-
--- Size: Expiry Date
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size = 6
-
--- Display: Expiry Date
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.display = function(value)
-  return "Expiry Date: "..value
-end
-
--- Dissect: Expiry Date
-tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.expiry_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.expiry_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Futures Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message = {}
 
@@ -6636,103 +7523,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.dissect = fu
   end
 end
 
--- Underlying Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year = {}
-
--- Size: Underlying Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.size = 2
-
--- Display: Underlying Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.display = function(value)
-  return "Underlying Symbol Year: "..value
-end
-
--- Dissect: Underlying Symbol Year
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month = {}
-
--- Size: Underlying Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.size = 1
-
--- Display: Underlying Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.display = function(value)
-  return "Underlying Symbol Month: "..value
-end
-
--- Dissect: Underlying Symbol Month
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Root Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol = {}
-
--- Size: Underlying Root Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.size = 6
-
--- Display: Underlying Root Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.display = function(value)
-  return "Underlying Root Symbol: "..value
-end
-
--- Dissect: Underlying Root Symbol
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_root_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_root_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price Currency
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency = {}
-
--- Size: Strike Price Currency
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size = 3
-
--- Display: Strike Price Currency
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.display = function(value)
-  return "Strike Price Currency: "..value
-end
-
--- Dissect: Strike Price Currency
-tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.strike_price_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strike_price_currency, range, value, display)
-
-  return offset + length, value
-end
-
 -- Future Options Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message = {}
 
@@ -6869,64 +7659,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.dissect 
   end
 end
 
--- Underlying Symbol Root
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root = {}
-
--- Size: Underlying Symbol Root
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.size = 12
-
--- Display: Underlying Symbol Root
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.display = function(value)
-  return "Underlying Symbol Root: "..value
-end
-
--- Dissect: Underlying Symbol Root
-tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.underlying_symbol_root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.underlying_symbol_root, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-tmx_mx_sola_multicast_hsvf_v1_14.option_type = {}
-
--- Size: Option Type
-tmx_mx_sola_multicast_hsvf_v1_14.option_type.size = 1
-
--- Display: Option Type
-tmx_mx_sola_multicast_hsvf_v1_14.option_type.display = function(value)
-  if value == "A" then
-    return "Option Type: American (A)"
-  end
-  if value == "E" then
-    return "Option Type: European (E)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-tmx_mx_sola_multicast_hsvf_v1_14.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.option_type.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Option Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message = {}
 
@@ -7057,57 +7789,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.dissect = functi
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7 = {}
-
--- Size: Trade Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size = 7
-
--- Display: Trade Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.display = function(value)
-  return "Trade Price N 7: "..value
-end
-
--- Dissect: Trade Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_n_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign = {}
-
--- Size: Trade Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size = 1
-
--- Display: Trade Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.display = function(value)
-  return "Trade Price Sign: "..value
-end
-
--- Dissect: Trade Price Sign
-tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.trade_price_sign, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Trade Cancellation Message
@@ -7246,80 +7927,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.dissect = fun
   end
 end
 
--- Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1 = {}
-
--- Size: Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size = 1
-
--- Display: Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.display = function(value)
-  return "Price Indicator Marker A 1: "..value
-end
-
--- Dissect: Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_a_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator = {}
-
--- Size: Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size = 1
-
--- Display: Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.display = function(value)
-  return "Price Fraction Indicator: "..value
-end
-
--- Dissect: Price Fraction Indicator
-tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-tmx_mx_sola_multicast_hsvf_v1_14.price = {}
-
--- Size: Price
-tmx_mx_sola_multicast_hsvf_v1_14.price.size = 7
-
--- Display: Price
-tmx_mx_sola_multicast_hsvf_v1_14.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-tmx_mx_sola_multicast_hsvf_v1_14.price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Future Options Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message = {}
 
@@ -7456,75 +8063,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.dissect = fun
   end
 end
 
--- Number Of Ask Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders = {}
-
--- Size: Number Of Ask Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size = 2
-
--- Display: Number Of Ask Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.display = function(value)
-  return "Number Of Ask Orders: "..value
-end
-
--- Dissect: Number Of Ask Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_ask_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_ask_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Bid Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders = {}
-
--- Size: Number Of Bid Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size = 2
-
--- Display: Number Of Bid Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.display = function(value)
-  return "Number Of Bid Orders: "..value
-end
-
--- Dissect: Number Of Bid Orders
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_bid_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_bid_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Level Of Market Depth
-tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth = {}
-
--- Size: Level Of Market Depth
-tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size = 1
-
--- Display: Level Of Market Depth
-tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.display = function(value)
-  return "Level Of Market Depth: "..value
-end
-
--- Dissect: Level Of Market Depth
-tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.level_of_market_depth.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.level_of_market_depth, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strategy Market Depth Level
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level = {}
 
@@ -7609,91 +8147,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.dissect = function(
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_level.fields(buffer, offset, packet, parent, strategy_market_depth_level_index)
   end
-end
-
--- Number Of Levels
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels = {}
-
--- Size: Number Of Levels
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.size = 1
-
--- Display: Number Of Levels
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.display = function(value)
-  return "Number Of Levels: "..value
-end
-
--- Dissect: Number Of Levels
-tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.number_of_levels.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_levels, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Status Marker
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker = {}
-
--- Size: Instrument Status Marker
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size = 1
-
--- Display: Instrument Status Marker
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.display = function(value)
-  if value == "Y" then
-    return "Instrument Status Marker: Preopening (Y)"
-  end
-  if value == "O" then
-    return "Instrument Status Marker: Opening (O)"
-  end
-  if value == "T" then
-    return "Instrument Status Marker: Continuous Trading (T)"
-  end
-  if value == "F" then
-    return "Instrument Status Marker: Forbidden (F)"
-  end
-  if value == "E" then
-    return "Instrument Status Marker: Intervention Before Opening (E)"
-  end
-  if value == "H" then
-    return "Instrument Status Marker: Halted Trading (H)"
-  end
-  if value == "R" then
-    return "Instrument Status Marker: Reserved (R)"
-  end
-  if value == "S" then
-    return "Instrument Status Marker: Suspended (S)"
-  end
-  if value == "A" then
-    return "Instrument Status Marker: Surveillance Intervention (A)"
-  end
-  if value == "C" then
-    return "Instrument Status Marker: Endof Day Inquiries (C)"
-  end
-  if value == " " then
-    return "Instrument Status Marker: Not Available (<whitespace>)"
-  end
-
-  return "Instrument Status Marker: Unknown("..value..")"
-end
-
--- Dissect: Instrument Status Marker
-tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument_status_marker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_status_marker, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Market Depth Message
@@ -8346,91 +8799,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_quote_message.dissect = function(buffer,
   end
 end
 
--- Scheduled Status Change Time
-tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time = {}
-
--- Size: Scheduled Status Change Time
-tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size = 6
-
--- Display: Scheduled Status Change Time
-tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.display = function(value)
-  return "Scheduled Status Change Time: "..value
-end
-
--- Dissect: Scheduled Status Change Time
-tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.scheduled_status_change_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.scheduled_status_change_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Series Status
-tmx_mx_sola_multicast_hsvf_v1_14.series_status = {}
-
--- Size: Series Status
-tmx_mx_sola_multicast_hsvf_v1_14.series_status.size = 1
-
--- Display: Series Status
-tmx_mx_sola_multicast_hsvf_v1_14.series_status.display = function(value)
-  if value == "Y" then
-    return "Series Status: Preopening (Y)"
-  end
-  if value == "O" then
-    return "Series Status: Opening (O)"
-  end
-  if value == "T" then
-    return "Series Status: Continuous Trading (T)"
-  end
-  if value == "F" then
-    return "Series Status: Forbidden (F)"
-  end
-  if value == "E" then
-    return "Series Status: Intervention Before Opening (E)"
-  end
-  if value == "H" then
-    return "Series Status: Halted Trading (H)"
-  end
-  if value == "R" then
-    return "Series Status: Reserved (R)"
-  end
-  if value == "S" then
-    return "Series Status: Suspended (S)"
-  end
-  if value == "A" then
-    return "Series Status: Surveillance Intervention (A)"
-  end
-  if value == "C" then
-    return "Series Status: Endof Day Inquiries (C)"
-  end
-  if value == " " then
-    return "Series Status: Not Available (<whitespace>)"
-  end
-
-  return "Series Status: Unknown("..value..")"
-end
-
--- Dissect: Series Status
-tmx_mx_sola_multicast_hsvf_v1_14.series_status.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.series_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.series_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.series_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Instrument Schedule Notice Strategy Message
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message = {}
 
@@ -8637,62 +9005,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.disse
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_option_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Requested Market Side
-tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side = {}
-
--- Size: Requested Market Side
-tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size = 1
-
--- Display: Requested Market Side
-tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.display = function(value)
-  if value == "B" then
-    return "Requested Market Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Requested Market Side: Sell (S)"
-  end
-  if value == "2" then
-    return "Requested Market Side: Both (2)"
-  end
-
-  return "Requested Market Side: Unknown("..value..")"
-end
-
--- Dissect: Requested Market Side
-tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.requested_market_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.requested_market_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Requested Size
-tmx_mx_sola_multicast_hsvf_v1_14.requested_size = {}
-
--- Size: Requested Size
-tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size = 8
-
--- Display: Requested Size
-tmx_mx_sola_multicast_hsvf_v1_14.requested_size.display = function(value)
-  return "Requested Size: "..value
-end
-
--- Dissect: Requested Size
-tmx_mx_sola_multicast_hsvf_v1_14.requested_size.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.requested_size.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.requested_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.requested_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Request For Quote Message
@@ -9065,52 +9377,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.dissect = function(buffer
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1 = {}
-
--- Size: Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size = 1
-
--- Display: Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.display = function(value)
-  return "Net Change Fraction Indicator A 1: "..value
-end
-
--- Dissect: Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_a_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1 = {}
-
--- Size: Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size = 1
-
--- Display: Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.display = function(value)
-  return "Net Change Sign A 1: "..value
-end
-
--- Dissect: Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_a_1, range, value, display)
-
-  return offset + length, value
 end
 
 -- Future Options Trade Message
@@ -9494,240 +9760,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_body.dissect = function(buffer, offset,
   return offset
 end
 
--- Message Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp = {}
-
--- Size: Message Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.size = 20
-
--- Display: Message Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.display = function(value)
-  return "Message Timestamp: "..value
-end
-
--- Dissect: Message Timestamp
-tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.message_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-tmx_mx_sola_multicast_hsvf_v1_14.message_type = {}
-
--- Size: Message Type
-tmx_mx_sola_multicast_hsvf_v1_14.message_type.size = 2
-
--- Display: Message Type
-tmx_mx_sola_multicast_hsvf_v1_14.message_type.display = function(value)
-  if value == "C" then
-    return "Message Type: Option Trade Message (C)"
-  end
-  if value == "CB" then
-    return "Message Type: Future Options Trade Message (CB)"
-  end
-  if value == "CF" then
-    return "Message Type: Futures Trade Message (CF)"
-  end
-  if value == "CS" then
-    return "Message Type: Strategy Trade Message (CS)"
-  end
-  if value == "D" then
-    return "Message Type: Option Request For Quote Message (D)"
-  end
-  if value == "DB" then
-    return "Message Type: Future Options Request For Quote Message (DB)"
-  end
-  if value == "DF" then
-    return "Message Type: Future Request For Quote Message (DF)"
-  end
-  if value == "DS" then
-    return "Message Type: Strategy Request For Quote Message (DS)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Schedule Notice Option Message (E)"
-  end
-  if value == "EB" then
-    return "Message Type: Instrument Schedule Notice Futures Option Message (EB)"
-  end
-  if value == "EF" then
-    return "Message Type: Instrument Schedule Notice Future Message (EF)"
-  end
-  if value == "ES" then
-    return "Message Type: Instrument Schedule Notice Strategy Message (ES)"
-  end
-  if value == "F" then
-    return "Message Type: Option Quote Message (F)"
-  end
-  if value == "FB" then
-    return "Message Type: Future Options Quote Message (FB)"
-  end
-  if value == "FF" then
-    return "Message Type: Futures Quote Message (FF)"
-  end
-  if value == "FS" then
-    return "Message Type: Strategy Quote Message (FS)"
-  end
-  if value == "H" then
-    return "Message Type: Option Market Depth Message (H)"
-  end
-  if value == "HB" then
-    return "Message Type: Future Options Market Depth Message (HB)"
-  end
-  if value == "HF" then
-    return "Message Type: Futures Market Depth Message (HF)"
-  end
-  if value == "HS" then
-    return "Message Type: Strategy Market Depth Message (HS)"
-  end
-  if value == "I" then
-    return "Message Type: Option Trade Cancellation Message (I)"
-  end
-  if value == "IB" then
-    return "Message Type: Future Options Trade Cancellation Message (IB)"
-  end
-  if value == "IF" then
-    return "Message Type: Future Trade Cancellation Message (IF)"
-  end
-  if value == "IS" then
-    return "Message Type: Strategy Trade Cancellation Message (IS)"
-  end
-  if value == "J" then
-    return "Message Type: Option Instrument Keys Message (J)"
-  end
-  if value == "JB" then
-    return "Message Type: Future Options Instrument Keys Message (JB)"
-  end
-  if value == "JE" then
-    return "Message Type: Underlying Instrument Keys Message (JE)"
-  end
-  if value == "JF" then
-    return "Message Type: Futures Instrument Keys Message (JF)"
-  end
-  if value == "JS" then
-    return "Message Type: Strategy Instrument Keys Message (JS)"
-  end
-  if value == "M" then
-    return "Message Type: Option Auction Beginning Message (M)"
-  end
-  if value == "MS" then
-    return "Message Type: Strategy Auction Beginning Message (MS)"
-  end
-  if value == "N" then
-    return "Message Type: Option Summary Message (N)"
-  end
-  if value == "NB" then
-    return "Message Type: Future Options Summary Message (NB)"
-  end
-  if value == "NF" then
-    return "Message Type: Futures Summary Message (NF)"
-  end
-  if value == "NS" then
-    return "Message Type: Strategy Summary Message (NS)"
-  end
-  if value == "O" then
-    return "Message Type: Option Initial And Improvement Order Message (O)"
-  end
-  if value == "OS" then
-    return "Message Type: Strategy Initial And Improvement Order Message (OS)"
-  end
-  if value == "Q" then
-    return "Message Type: Beginning Of Options Summary Message (Q)"
-  end
-  if value == "QB" then
-    return "Message Type: Beginning Of Future Options Summary Message (QB)"
-  end
-  if value == "QF" then
-    return "Message Type: Beginning Of Futures Summary Message (QF)"
-  end
-  if value == "QS" then
-    return "Message Type: Beginning Of Strategy Summary Message (QS)"
-  end
-  if value == "T" then
-    return "Message Type: Option Auction Ending Message (T)"
-  end
-  if value == "TS" then
-    return "Message Type: Strategy Auction Ending Message (TS)"
-  end
-  if value == "XF" then
-    return "Message Type: Futures Trade Correction Message (XF)"
-  end
-  if value == "GR" then
-    return "Message Type: Group Status Message (GR)"
-  end
-  if value == "GS" then
-    return "Message Type: Group Status Strategies Message (GS)"
-  end
-  if value == "XF" then
-    return "Message Type: Future Deliverables Message (XF)"
-  end
-  if value == "L" then
-    return "Message Type: Bulletins Message (L)"
-  end
-  if value == "S" then
-    return "Message Type: End Of Sales Message (S)"
-  end
-  if value == "TT" then
-    return "Message Type: Tick Table Message (TT)"
-  end
-  if value == "U" then
-    return "Message Type: End Of Transmission Message (U)"
-  end
-  if value == "V" then
-    return "Message Type: Circuit Assurance Message (V)"
-  end
-  if value == "SD" then
-    return "Message Type: Start Of Day Message (SD)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-tmx_mx_sola_multicast_hsvf_v1_14.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.message_type.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-tmx_mx_sola_multicast_hsvf_v1_14.sequence_number = {}
-
--- Size: Sequence Number
-tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.size = 10
-
--- Display: Sequence Number
-tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 tmx_mx_sola_multicast_hsvf_v1_14.message_header = {}
 
@@ -9774,33 +9806,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.message_header.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return tmx_mx_sola_multicast_hsvf_v1_14.message_header.fields(buffer, offset, packet, parent)
   end
-end
-
--- Hsvf Stx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx = {}
-
--- Size: Hsvf Stx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.size = 1
-
--- Display: Hsvf Stx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.display = function(value)
-  if value == 2 then
-    return "Hsvf Stx: Stx"
-  end
-
-  return "Hsvf Stx: Unknown("..value..")"
-end
-
--- Dissect: Hsvf Stx
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_stx, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

@@ -64,8 +64,31 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Eurex Derivatives Eti T7 1.0
+-- Eurex Derivatives Eti T7 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Body Len
+eurex_derivatives_eti_t7_v1_0.body_len = {}
+
+-- Size: Body Len
+eurex_derivatives_eti_t7_v1_0.body_len.size = 4
+
+-- Display: Body Len
+eurex_derivatives_eti_t7_v1_0.body_len.display = function(value)
+  return "Body Len: "..value
+end
+
+-- Dissect: Body Len
+eurex_derivatives_eti_t7_v1_0.body_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eti_t7_v1_0.body_len.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eti_t7_v1_0.body_len.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.body_len, range, value, display)
+
+  return offset + length, value
+end
 
 -- Payload
 eurex_derivatives_eti_t7_v1_0.payload = {}
@@ -109,28 +132,10 @@ eurex_derivatives_eti_t7_v1_0.template_id.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Body Len
-eurex_derivatives_eti_t7_v1_0.body_len = {}
 
--- Size: Body Len
-eurex_derivatives_eti_t7_v1_0.body_len.size = 4
-
--- Display: Body Len
-eurex_derivatives_eti_t7_v1_0.body_len.display = function(value)
-  return "Body Len: "..value
-end
-
--- Dissect: Body Len
-eurex_derivatives_eti_t7_v1_0.body_len.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eti_t7_v1_0.body_len.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eti_t7_v1_0.body_len.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_derivatives_eti_t7_v1_0.fields.body_len, range, value, display)
-
-  return offset + length, value
-end
+-----------------------------------------------------------------------
+-- Dissect Eurex Derivatives Eti T7 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 eurex_derivatives_eti_t7_v1_0.message_header = {}

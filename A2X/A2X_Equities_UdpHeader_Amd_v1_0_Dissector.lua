@@ -69,51 +69,28 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect A2X Equities UdpHeader Amd 1.0
+-- A2X Equities UdpHeader Amd 1.0 Fields
 -----------------------------------------------------------------------
 
--- Payload
-a2x_equities_udpheader_amd_v1_0.payload = {}
+-- Message Count
+a2x_equities_udpheader_amd_v1_0.message_count = {}
 
--- Size: Payload
-a2x_equities_udpheader_amd_v1_0.payload.size = 0
+-- Size: Message Count
+a2x_equities_udpheader_amd_v1_0.message_count.size = 1
 
--- Display: Payload
-a2x_equities_udpheader_amd_v1_0.payload.display = function(value)
-  return "Payload: "..value
+-- Display: Message Count
+a2x_equities_udpheader_amd_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
 end
 
--- Dissect: Payload
-a2x_equities_udpheader_amd_v1_0.payload.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_udpheader_amd_v1_0.payload.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = a2x_equities_udpheader_amd_v1_0.payload.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_udpheader_amd_v1_0.fields.payload, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq No
-a2x_equities_udpheader_amd_v1_0.seq_no = {}
-
--- Size: Seq No
-a2x_equities_udpheader_amd_v1_0.seq_no.size = 4
-
--- Display: Seq No
-a2x_equities_udpheader_amd_v1_0.seq_no.display = function(value)
-  return "Seq No: "..value
-end
-
--- Dissect: Seq No
-a2x_equities_udpheader_amd_v1_0.seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_udpheader_amd_v1_0.seq_no.size
+-- Dissect: Message Count
+a2x_equities_udpheader_amd_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_udpheader_amd_v1_0.message_count.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = a2x_equities_udpheader_amd_v1_0.seq_no.display(value, buffer, offset, packet, parent)
+  local display = a2x_equities_udpheader_amd_v1_0.message_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_equities_udpheader_amd_v1_0.fields.seq_no, range, value, display)
+  parent:add(omi_a2x_equities_udpheader_amd_v1_0.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -163,6 +140,57 @@ a2x_equities_udpheader_amd_v1_0.msg_type.dissect = function(buffer, offset, pack
 
   return offset + length, value
 end
+
+-- Payload
+a2x_equities_udpheader_amd_v1_0.payload = {}
+
+-- Size: Payload
+a2x_equities_udpheader_amd_v1_0.payload.size = 0
+
+-- Display: Payload
+a2x_equities_udpheader_amd_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect: Payload
+a2x_equities_udpheader_amd_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_udpheader_amd_v1_0.payload.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = a2x_equities_udpheader_amd_v1_0.payload.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_udpheader_amd_v1_0.fields.payload, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq No
+a2x_equities_udpheader_amd_v1_0.seq_no = {}
+
+-- Size: Seq No
+a2x_equities_udpheader_amd_v1_0.seq_no.size = 4
+
+-- Display: Seq No
+a2x_equities_udpheader_amd_v1_0.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+a2x_equities_udpheader_amd_v1_0.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = a2x_equities_udpheader_amd_v1_0.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = a2x_equities_udpheader_amd_v1_0.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_a2x_equities_udpheader_amd_v1_0.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect A2X Equities UdpHeader Amd 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 a2x_equities_udpheader_amd_v1_0.message_header = {}
@@ -258,29 +286,6 @@ a2x_equities_udpheader_amd_v1_0.message.dissect = function(buffer, offset, packe
 
     return index
   end
-end
-
--- Message Count
-a2x_equities_udpheader_amd_v1_0.message_count = {}
-
--- Size: Message Count
-a2x_equities_udpheader_amd_v1_0.message_count.size = 1
-
--- Display: Message Count
-a2x_equities_udpheader_amd_v1_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-a2x_equities_udpheader_amd_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = a2x_equities_udpheader_amd_v1_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = a2x_equities_udpheader_amd_v1_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_a2x_equities_udpheader_amd_v1_0.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

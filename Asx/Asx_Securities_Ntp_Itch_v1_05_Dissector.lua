@@ -383,51 +383,380 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Asx Securities Ntp Itch 1.05
+-- Asx Securities Ntp Itch 1.05 Fields
 -----------------------------------------------------------------------
 
--- Voi Trade Date
-asx_securities_ntp_itch_v1_05.voi_trade_date = {}
+-- Aot Lower Price
+asx_securities_ntp_itch_v1_05.aot_lower_price = {}
 
--- Size: Voi Trade Date
-asx_securities_ntp_itch_v1_05.voi_trade_date.size = 2
+-- Size: Aot Lower Price
+asx_securities_ntp_itch_v1_05.aot_lower_price.size = 8
 
--- Display: Voi Trade Date
-asx_securities_ntp_itch_v1_05.voi_trade_date.display = function(value)
-  return "Voi Trade Date: "..value
+-- Display: Aot Lower Price
+asx_securities_ntp_itch_v1_05.aot_lower_price.display = function(value)
+  return "Aot Lower Price: "..value
 end
 
--- Dissect: Voi Trade Date
-asx_securities_ntp_itch_v1_05.voi_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.voi_trade_date.size
+-- Dissect: Aot Lower Price
+asx_securities_ntp_itch_v1_05.aot_lower_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.aot_lower_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.voi_trade_date.display(value, buffer, offset, packet, parent)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.aot_lower_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.voi_trade_date, range, value, display)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_lower_price, range, value, display)
 
   return offset + length, value
 end
 
--- Open Interest
-asx_securities_ntp_itch_v1_05.open_interest = {}
+-- Aot Price
+asx_securities_ntp_itch_v1_05.aot_price = {}
 
--- Size: Open Interest
-asx_securities_ntp_itch_v1_05.open_interest.size = 8
+-- Size: Aot Price
+asx_securities_ntp_itch_v1_05.aot_price.size = 8
 
--- Display: Open Interest
-asx_securities_ntp_itch_v1_05.open_interest.display = function(value)
-  return "Open Interest: "..value
+-- Display: Aot Price
+asx_securities_ntp_itch_v1_05.aot_price.display = function(value)
+  return "Aot Price: "..value
 end
 
--- Dissect: Open Interest
-asx_securities_ntp_itch_v1_05.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.open_interest.size
+-- Dissect: Aot Price
+asx_securities_ntp_itch_v1_05.aot_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.aot_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.aot_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aot Upper Price
+asx_securities_ntp_itch_v1_05.aot_upper_price = {}
+
+-- Size: Aot Upper Price
+asx_securities_ntp_itch_v1_05.aot_upper_price.size = 8
+
+-- Display: Aot Upper Price
+asx_securities_ntp_itch_v1_05.aot_upper_price.display = function(value)
+  return "Aot Upper Price: "..value
+end
+
+-- Dissect: Aot Upper Price
+asx_securities_ntp_itch_v1_05.aot_upper_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.aot_upper_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.aot_upper_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_upper_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Quantity
+asx_securities_ntp_itch_v1_05.ask_quantity = {}
+
+-- Size: Ask Quantity
+asx_securities_ntp_itch_v1_05.ask_quantity.size = 8
+
+-- Display: Ask Quantity
+asx_securities_ntp_itch_v1_05.ask_quantity.display = function(value)
+  return "Ask Quantity: "..value
+end
+
+-- Dissect: Ask Quantity
+asx_securities_ntp_itch_v1_05.ask_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.ask_quantity.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.open_interest.display(value, buffer, offset, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05.ask_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.open_interest, range, value, display)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.ask_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Basis Of Quotation
+asx_securities_ntp_itch_v1_05.basis_of_quotation = {}
+
+-- Size: Basis Of Quotation
+asx_securities_ntp_itch_v1_05.basis_of_quotation.size = 10
+
+-- Display: Basis Of Quotation
+asx_securities_ntp_itch_v1_05.basis_of_quotation.display = function(value)
+  return "Basis Of Quotation: "..value
+end
+
+-- Dissect: Basis Of Quotation
+asx_securities_ntp_itch_v1_05.basis_of_quotation.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.basis_of_quotation.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.basis_of_quotation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.basis_of_quotation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quantity
+asx_securities_ntp_itch_v1_05.bid_quantity = {}
+
+-- Size: Bid Quantity
+asx_securities_ntp_itch_v1_05.bid_quantity.size = 8
+
+-- Display: Bid Quantity
+asx_securities_ntp_itch_v1_05.bid_quantity.display = function(value)
+  return "Bid Quantity: "..value
+end
+
+-- Dissect: Bid Quantity
+asx_securities_ntp_itch_v1_05.bid_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.bid_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.bid_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.bid_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Lot Size
+asx_securities_ntp_itch_v1_05.block_lot_size = {}
+
+-- Size: Block Lot Size
+asx_securities_ntp_itch_v1_05.block_lot_size.size = 4
+
+-- Display: Block Lot Size
+asx_securities_ntp_itch_v1_05.block_lot_size.display = function(value)
+  return "Block Lot Size: "..value
+end
+
+-- Dissect: Block Lot Size
+asx_securities_ntp_itch_v1_05.block_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.block_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.block_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.block_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buyer Combination Trade Id
+asx_securities_ntp_itch_v1_05.buyer_combination_trade_id = {}
+
+-- Size: Buyer Combination Trade Id
+asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size = 8
+
+-- Display: Buyer Combination Trade Id
+asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.display = function(value)
+  return "Buyer Combination Trade Id: "..value
+end
+
+-- Dissect: Buyer Combination Trade Id
+asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_combination_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buyer Order Id
+asx_securities_ntp_itch_v1_05.buyer_order_id = {}
+
+-- Size: Buyer Order Id
+asx_securities_ntp_itch_v1_05.buyer_order_id.size = 8
+
+-- Display: Buyer Order Id
+asx_securities_ntp_itch_v1_05.buyer_order_id.display = function(value)
+  return "Buyer Order Id: "..value
+end
+
+-- Dissect: Buyer Order Id
+asx_securities_ntp_itch_v1_05.buyer_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.buyer_order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.buyer_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buyer Participant Id
+asx_securities_ntp_itch_v1_05.buyer_participant_id = {}
+
+-- Size: Buyer Participant Id
+asx_securities_ntp_itch_v1_05.buyer_participant_id.size = 3
+
+-- Display: Buyer Participant Id
+asx_securities_ntp_itch_v1_05.buyer_participant_id.display = function(value)
+  return "Buyer Participant Id: "..value
+end
+
+-- Dissect: Buyer Participant Id
+asx_securities_ntp_itch_v1_05.buyer_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.buyer_participant_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.buyer_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buyer Side
+asx_securities_ntp_itch_v1_05.buyer_side = {}
+
+-- Size: Buyer Side
+asx_securities_ntp_itch_v1_05.buyer_side.size = 1
+
+-- Display: Buyer Side
+asx_securities_ntp_itch_v1_05.buyer_side.display = function(value)
+  if value == "S" then
+    return "Buyer Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Buyer Side: Buy (B)"
+  end
+
+  return "Buyer Side: Unknown("..value..")"
+end
+
+-- Dissect: Buyer Side
+asx_securities_ntp_itch_v1_05.buyer_side.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.buyer_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.buyer_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buyer Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id = {}
+
+-- Size: Buyer Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size = 4
+
+-- Display: Buyer Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.display = function(value)
+  return "Buyer Tradeable Instrument Id: "..value
+end
+
+-- Dissect: Buyer Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_tradeable_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cfi Code
+asx_securities_ntp_itch_v1_05.cfi_code = {}
+
+-- Size: Cfi Code
+asx_securities_ntp_itch_v1_05.cfi_code.size = 6
+
+-- Display: Cfi Code
+asx_securities_ntp_itch_v1_05.cfi_code.display = function(value)
+  return "Cfi Code: "..value
+end
+
+-- Dissect: Cfi Code
+asx_securities_ntp_itch_v1_05.cfi_code.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.cfi_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.cfi_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.cfi_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Combination Trade Id
+asx_securities_ntp_itch_v1_05.combination_trade_id = {}
+
+-- Size: Combination Trade Id
+asx_securities_ntp_itch_v1_05.combination_trade_id.size = 8
+
+-- Display: Combination Trade Id
+asx_securities_ntp_itch_v1_05.combination_trade_id.display = function(value)
+  return "Combination Trade Id: "..value
+end
+
+-- Dissect: Combination Trade Id
+asx_securities_ntp_itch_v1_05.combination_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.combination_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.combination_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.combination_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Counter Party Id
+asx_securities_ntp_itch_v1_05.counter_party_id = {}
+
+-- Size: Counter Party Id
+asx_securities_ntp_itch_v1_05.counter_party_id.size = 3
+
+-- Display: Counter Party Id
+asx_securities_ntp_itch_v1_05.counter_party_id.display = function(value)
+  return "Counter Party Id: "..value
+end
+
+-- Dissect: Counter Party Id
+asx_securities_ntp_itch_v1_05.counter_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.counter_party_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.counter_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.counter_party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Coupon Rate
+asx_securities_ntp_itch_v1_05.coupon_rate = {}
+
+-- Size: Coupon Rate
+asx_securities_ntp_itch_v1_05.coupon_rate.size = 2
+
+-- Display: Coupon Rate
+asx_securities_ntp_itch_v1_05.coupon_rate.display = function(value)
+  return "Coupon Rate: "..value
+end
+
+-- Dissect: Coupon Rate
+asx_securities_ntp_itch_v1_05.coupon_rate.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.coupon_rate.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.coupon_rate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.coupon_rate, range, value, display)
 
   return offset + length, value
 end
@@ -455,48 +784,1742 @@ asx_securities_ntp_itch_v1_05.cumulative_volume.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id = {}
+-- Currency
+asx_securities_ntp_itch_v1_05.currency = {}
 
--- Size: Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size = 4
+-- Size: Currency
+asx_securities_ntp_itch_v1_05.currency.size = 3
 
--- Display: Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id.display = function(value)
-  return "Tradeable Instrument Id: "..value
+-- Display: Currency
+asx_securities_ntp_itch_v1_05.currency.display = function(value)
+  return "Currency: "..value
 end
 
--- Dissect: Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+-- Dissect: Currency
+asx_securities_ntp_itch_v1_05.currency.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.currency.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.display(value, buffer, offset, packet, parent)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.currency.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id, range, value, display)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.currency, range, value, display)
 
   return offset + length, value
 end
 
--- Trade Date
-asx_securities_ntp_itch_v1_05.trade_date = {}
+-- Equilibrium Price
+asx_securities_ntp_itch_v1_05.equilibrium_price = {}
 
--- Size: Trade Date
-asx_securities_ntp_itch_v1_05.trade_date.size = 2
+-- Size: Equilibrium Price
+asx_securities_ntp_itch_v1_05.equilibrium_price.size = 8
 
--- Display: Trade Date
-asx_securities_ntp_itch_v1_05.trade_date.display = function(value)
-  return "Trade Date: "..value
+-- Display: Equilibrium Price
+asx_securities_ntp_itch_v1_05.equilibrium_price.display = function(value)
+  return "Equilibrium Price: "..value
 end
 
--- Dissect: Trade Date
-asx_securities_ntp_itch_v1_05.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.trade_date.size
+-- Dissect: Equilibrium Price
+asx_securities_ntp_itch_v1_05.equilibrium_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.equilibrium_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.equilibrium_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.equilibrium_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etr Lower Price
+asx_securities_ntp_itch_v1_05.etr_lower_price = {}
+
+-- Size: Etr Lower Price
+asx_securities_ntp_itch_v1_05.etr_lower_price.size = 8
+
+-- Display: Etr Lower Price
+asx_securities_ntp_itch_v1_05.etr_lower_price.display = function(value)
+  return "Etr Lower Price: "..value
+end
+
+-- Dissect: Etr Lower Price
+asx_securities_ntp_itch_v1_05.etr_lower_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.etr_lower_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.etr_lower_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_lower_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etr Price
+asx_securities_ntp_itch_v1_05.etr_price = {}
+
+-- Size: Etr Price
+asx_securities_ntp_itch_v1_05.etr_price.size = 8
+
+-- Display: Etr Price
+asx_securities_ntp_itch_v1_05.etr_price.display = function(value)
+  return "Etr Price: "..value
+end
+
+-- Dissect: Etr Price
+asx_securities_ntp_itch_v1_05.etr_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.etr_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.etr_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Etr Upper Price
+asx_securities_ntp_itch_v1_05.etr_upper_price = {}
+
+-- Size: Etr Upper Price
+asx_securities_ntp_itch_v1_05.etr_upper_price.size = 8
+
+-- Display: Etr Upper Price
+asx_securities_ntp_itch_v1_05.etr_upper_price.display = function(value)
+  return "Etr Upper Price: "..value
+end
+
+-- Dissect: Etr Upper Price
+asx_securities_ntp_itch_v1_05.etr_upper_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.etr_upper_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.etr_upper_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_upper_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+asx_securities_ntp_itch_v1_05.event_code = {}
+
+-- Size: Event Code
+asx_securities_ntp_itch_v1_05.event_code.size = 1
+
+-- Display: Event Code
+asx_securities_ntp_itch_v1_05.event_code.display = function(value)
+  if value == "C" then
+    return "Event Code: Business Trade Date Has Ended (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+asx_securities_ntp_itch_v1_05.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange
+asx_securities_ntp_itch_v1_05.exchange = {}
+
+-- Size: Exchange
+asx_securities_ntp_itch_v1_05.exchange.size = 6
+
+-- Display: Exchange
+asx_securities_ntp_itch_v1_05.exchange.display = function(value)
+  return "Exchange: "..value
+end
+
+-- Dissect: Exchange
+asx_securities_ntp_itch_v1_05.exchange.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.exchange.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+asx_securities_ntp_itch_v1_05.executed_quantity = {}
+
+-- Size: Executed Quantity
+asx_securities_ntp_itch_v1_05.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+asx_securities_ntp_itch_v1_05.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+asx_securities_ntp_itch_v1_05.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.executed_quantity.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.trade_date.display(value, buffer, offset, packet, parent)
+  local display = asx_securities_ntp_itch_v1_05.executed_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_date, range, value, display)
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Date
+asx_securities_ntp_itch_v1_05.expiry_date = {}
+
+-- Size: Expiry Date
+asx_securities_ntp_itch_v1_05.expiry_date.size = 4
+
+-- Display: Expiry Date
+asx_securities_ntp_itch_v1_05.expiry_date.display = function(value)
+  return "Expiry Date: "..value
+end
+
+-- Dissect: Expiry Date
+asx_securities_ntp_itch_v1_05.expiry_date.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.expiry_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.expiry_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.expiry_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Month
+asx_securities_ntp_itch_v1_05.expiry_month = {}
+
+-- Size: Expiry Month
+asx_securities_ntp_itch_v1_05.expiry_month.size = 1
+
+-- Display: Expiry Month
+asx_securities_ntp_itch_v1_05.expiry_month.display = function(value)
+  if value == 1 then
+    return "Expiry Month: Jan (1)"
+  end
+  if value == 2 then
+    return "Expiry Month: Feb (2)"
+  end
+  if value == 3 then
+    return "Expiry Month: Mar (3)"
+  end
+  if value == 4 then
+    return "Expiry Month: Apr (4)"
+  end
+  if value == 5 then
+    return "Expiry Month: May (5)"
+  end
+  if value == 6 then
+    return "Expiry Month: Jun (6)"
+  end
+  if value == 7 then
+    return "Expiry Month: Jul (7)"
+  end
+  if value == 8 then
+    return "Expiry Month: Aug (8)"
+  end
+  if value == 9 then
+    return "Expiry Month: Sep (9)"
+  end
+  if value == 10 then
+    return "Expiry Month: Oct (10)"
+  end
+  if value == 11 then
+    return "Expiry Month: Nov (11)"
+  end
+  if value == 12 then
+    return "Expiry Month: Dec (12)"
+  end
+
+  return "Expiry Month: Unknown("..value..")"
+end
+
+-- Dissect: Expiry Month
+asx_securities_ntp_itch_v1_05.expiry_month.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.expiry_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.expiry_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.expiry_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Year
+asx_securities_ntp_itch_v1_05.expiry_year = {}
+
+-- Size: Expiry Year
+asx_securities_ntp_itch_v1_05.expiry_year.size = 2
+
+-- Display: Expiry Year
+asx_securities_ntp_itch_v1_05.expiry_year.display = function(value)
+  return "Expiry Year: "..value
+end
+
+-- Dissect: Expiry Year
+asx_securities_ntp_itch_v1_05.expiry_year.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.expiry_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.expiry_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.expiry_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Highest Trade
+asx_securities_ntp_itch_v1_05.highest_trade = {}
+
+-- Size: Highest Trade
+asx_securities_ntp_itch_v1_05.highest_trade.size = 8
+
+-- Display: Highest Trade
+asx_securities_ntp_itch_v1_05.highest_trade.display = function(value)
+  return "Highest Trade: "..value
+end
+
+-- Dissect: Highest Trade
+asx_securities_ntp_itch_v1_05.highest_trade.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.highest_trade.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.highest_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.highest_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument
+asx_securities_ntp_itch_v1_05.instrument = {}
+
+-- Size: Instrument
+asx_securities_ntp_itch_v1_05.instrument.size = 6
+
+-- Display: Instrument
+asx_securities_ntp_itch_v1_05.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+asx_securities_ntp_itch_v1_05.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.instrument.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+asx_securities_ntp_itch_v1_05.isin = {}
+
+-- Size: Isin
+asx_securities_ntp_itch_v1_05.isin.size = 12
+
+-- Display: Isin
+asx_securities_ntp_itch_v1_05.isin.display = function(value)
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+asx_securities_ntp_itch_v1_05.isin.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.isin.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade
+asx_securities_ntp_itch_v1_05.last_trade = {}
+
+-- Size: Last Trade
+asx_securities_ntp_itch_v1_05.last_trade.size = 8
+
+-- Display: Last Trade
+asx_securities_ntp_itch_v1_05.last_trade.display = function(value)
+  return "Last Trade: "..value
+end
+
+-- Dissect: Last Trade
+asx_securities_ntp_itch_v1_05.last_trade.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.last_trade.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.last_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trading Date
+asx_securities_ntp_itch_v1_05.last_trading_date = {}
+
+-- Size: Last Trading Date
+asx_securities_ntp_itch_v1_05.last_trading_date.size = 4
+
+-- Display: Last Trading Date
+asx_securities_ntp_itch_v1_05.last_trading_date.display = function(value)
+  return "Last Trading Date: "..value
+end
+
+-- Dissect: Last Trading Date
+asx_securities_ntp_itch_v1_05.last_trading_date.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.last_trading_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.last_trading_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_trading_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Volume
+asx_securities_ntp_itch_v1_05.last_volume = {}
+
+-- Size: Last Volume
+asx_securities_ntp_itch_v1_05.last_volume.size = 4
+
+-- Display: Last Volume
+asx_securities_ntp_itch_v1_05.last_volume.display = function(value)
+  return "Last Volume: "..value
+end
+
+-- Dissect: Last Volume
+asx_securities_ntp_itch_v1_05.last_volume.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.last_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.last_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Legs
+asx_securities_ntp_itch_v1_05.legs = {}
+
+-- Size: Legs
+asx_securities_ntp_itch_v1_05.legs.size = 1
+
+-- Display: Legs
+asx_securities_ntp_itch_v1_05.legs.display = function(value)
+  return "Legs: "..value
+end
+
+-- Dissect: Legs
+asx_securities_ntp_itch_v1_05.legs.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.legs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Long Name
+asx_securities_ntp_itch_v1_05.long_name = {}
+
+-- Size: Long Name
+asx_securities_ntp_itch_v1_05.long_name.size = 60
+
+-- Display: Long Name
+asx_securities_ntp_itch_v1_05.long_name.display = function(value)
+  return "Long Name: "..value
+end
+
+-- Dissect: Long Name
+asx_securities_ntp_itch_v1_05.long_name.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.long_name.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.long_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.long_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size Or Face Value
+asx_securities_ntp_itch_v1_05.lot_size_or_face_value = {}
+
+-- Size: Lot Size Or Face Value
+asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size = 8
+
+-- Display: Lot Size Or Face Value
+asx_securities_ntp_itch_v1_05.lot_size_or_face_value.display = function(value)
+  return "Lot Size Or Face Value: "..value
+end
+
+-- Dissect: Lot Size Or Face Value
+asx_securities_ntp_itch_v1_05.lot_size_or_face_value.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.lot_size_or_face_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.lot_size_or_face_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lowest Trade
+asx_securities_ntp_itch_v1_05.lowest_trade = {}
+
+-- Size: Lowest Trade
+asx_securities_ntp_itch_v1_05.lowest_trade.size = 8
+
+-- Display: Lowest Trade
+asx_securities_ntp_itch_v1_05.lowest_trade.display = function(value)
+  return "Lowest Trade: "..value
+end
+
+-- Dissect: Lowest Trade
+asx_securities_ntp_itch_v1_05.lowest_trade.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.lowest_trade.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.lowest_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.lowest_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matched Quantity
+asx_securities_ntp_itch_v1_05.matched_quantity = {}
+
+-- Size: Matched Quantity
+asx_securities_ntp_itch_v1_05.matched_quantity.size = 8
+
+-- Display: Matched Quantity
+asx_securities_ntp_itch_v1_05.matched_quantity.display = function(value)
+  return "Matched Quantity: "..value
+end
+
+-- Dissect: Matched Quantity
+asx_securities_ntp_itch_v1_05.matched_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.matched_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.matched_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.matched_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Value
+asx_securities_ntp_itch_v1_05.maturity_value = {}
+
+-- Size: Maturity Value
+asx_securities_ntp_itch_v1_05.maturity_value.size = 1
+
+-- Display: Maturity Value
+asx_securities_ntp_itch_v1_05.maturity_value.display = function(value)
+  return "Maturity Value: "..value
+end
+
+-- Dissect: Maturity Value
+asx_securities_ntp_itch_v1_05.maturity_value.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.maturity_value.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.maturity_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.maturity_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+asx_securities_ntp_itch_v1_05.message_count = {}
+
+-- Size: Message Count
+asx_securities_ntp_itch_v1_05.message_count.size = 2
+
+-- Display: Message Count
+asx_securities_ntp_itch_v1_05.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+asx_securities_ntp_itch_v1_05.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+asx_securities_ntp_itch_v1_05.message_length = {}
+
+-- Size: Message Length
+asx_securities_ntp_itch_v1_05.message_length.size = 2
+
+-- Display: Message Length
+asx_securities_ntp_itch_v1_05.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+asx_securities_ntp_itch_v1_05.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+asx_securities_ntp_itch_v1_05.message_type = {}
+
+-- Size: Message Type
+asx_securities_ntp_itch_v1_05.message_type.size = 1
+
+-- Display: Message Type
+asx_securities_ntp_itch_v1_05.message_type.display = function(value)
+  if value == "T" then
+    return "Message Type: Seconds Message (T)"
+  end
+  if value == "S" then
+    return "Message Type: End Of Business Trade Date Message (S)"
+  end
+  if value == "f" then
+    return "Message Type: Future Symbol Directory Message (f)"
+  end
+  if value == "h" then
+    return "Message Type: Options Symbol Directory Message (h)"
+  end
+  if value == "M" then
+    return "Message Type: Combination Symbol Directory Message (M)"
+  end
+  if value == "m" then
+    return "Message Type: Bundles Symbol Directory (m)"
+  end
+  if value == "O" then
+    return "Message Type: Order Book State Message (O)"
+  end
+  if value == "A" then
+    return "Message Type: Add Order Message (A)"
+  end
+  if value == "X" then
+    return "Message Type: Order Volume Cancelled Message (X)"
+  end
+  if value == "D" then
+    return "Message Type: Order Deleted Message (D)"
+  end
+  if value == "E" then
+    return "Message Type: Order Executed Message (E)"
+  end
+  if value == "C" then
+    return "Message Type: Auction Order Executed Message (C)"
+  end
+  if value == "e" then
+    return "Message Type: Combination Order Executed Message (e)"
+  end
+  if value == "j" then
+    return "Message Type: Implied Order Added Message (j)"
+  end
+  if value == "l" then
+    return "Message Type: Implied Order Replaced Message (l)"
+  end
+  if value == "k" then
+    return "Message Type: Implied Order Deleted Message (k)"
+  end
+  if value == "P" then
+    return "Message Type: Trade Executed Message (P)"
+  end
+  if value == "p" then
+    return "Message Type: Combination Trade Executed Message (p)"
+  end
+  if value == "B" then
+    return "Message Type: Trade Cancellation Message (B)"
+  end
+  if value == "Z" then
+    return "Message Type: Equilibrium Price Message (Z)"
+  end
+  if value == "t" then
+    return "Message Type: Open High Low Last Trade Adjustment Message (t)"
+  end
+  if value == "Y" then
+    return "Message Type: Market Settlement Message (Y)"
+  end
+  if value == "x" then
+    return "Message Type: Text Message (x)"
+  end
+  if value == "q" then
+    return "Message Type: Request For Quote Message (q)"
+  end
+  if value == "W" then
+    return "Message Type: Anomalous Order Threshold Publish Message (W)"
+  end
+  if value == "V" then
+    return "Message Type: Volume And Open Interest Message (V)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+asx_securities_ntp_itch_v1_05.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+asx_securities_ntp_itch_v1_05.open_interest = {}
+
+-- Size: Open Interest
+asx_securities_ntp_itch_v1_05.open_interest.size = 8
+
+-- Display: Open Interest
+asx_securities_ntp_itch_v1_05.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+asx_securities_ntp_itch_v1_05.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.open_interest.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Trade
+asx_securities_ntp_itch_v1_05.opening_trade = {}
+
+-- Size: Opening Trade
+asx_securities_ntp_itch_v1_05.opening_trade.size = 8
+
+-- Display: Opening Trade
+asx_securities_ntp_itch_v1_05.opening_trade.display = function(value)
+  return "Opening Trade: "..value
+end
+
+-- Dissect: Opening Trade
+asx_securities_ntp_itch_v1_05.opening_trade.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.opening_trade.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.opening_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opening_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opposite Order Id
+asx_securities_ntp_itch_v1_05.opposite_order_id = {}
+
+-- Size: Opposite Order Id
+asx_securities_ntp_itch_v1_05.opposite_order_id.size = 8
+
+-- Display: Opposite Order Id
+asx_securities_ntp_itch_v1_05.opposite_order_id.display = function(value)
+  return "Opposite Order Id: "..value
+end
+
+-- Dissect: Opposite Order Id
+asx_securities_ntp_itch_v1_05.opposite_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.opposite_order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.opposite_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opposite_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opposite Side
+asx_securities_ntp_itch_v1_05.opposite_side = {}
+
+-- Size: Opposite Side
+asx_securities_ntp_itch_v1_05.opposite_side.size = 1
+
+-- Display: Opposite Side
+asx_securities_ntp_itch_v1_05.opposite_side.display = function(value)
+  if value == "S" then
+    return "Opposite Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Opposite Side: Buy (B)"
+  end
+
+  return "Opposite Side: Unknown("..value..")"
+end
+
+-- Dissect: Opposite Side
+asx_securities_ntp_itch_v1_05.opposite_side.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.opposite_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.opposite_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opposite_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opposite Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id = {}
+
+-- Size: Opposite Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size = 4
+
+-- Display: Opposite Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.display = function(value)
+  return "Opposite Tradeable Instrument Id: "..value
+end
+
+-- Dissect: Opposite Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opposite_tradeable_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+asx_securities_ntp_itch_v1_05.option_type = {}
+
+-- Size: Option Type
+asx_securities_ntp_itch_v1_05.option_type.size = 1
+
+-- Display: Option Type
+asx_securities_ntp_itch_v1_05.option_type.display = function(value)
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+asx_securities_ntp_itch_v1_05.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Priority
+asx_securities_ntp_itch_v1_05.order_book_priority = {}
+
+-- Size: Order Book Priority
+asx_securities_ntp_itch_v1_05.order_book_priority.size = 8
+
+-- Display: Order Book Priority
+asx_securities_ntp_itch_v1_05.order_book_priority.display = function(value)
+  return "Order Book Priority: "..value
+end
+
+-- Dissect: Order Book Priority
+asx_securities_ntp_itch_v1_05.order_book_priority.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.order_book_priority.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.order_book_priority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.order_book_priority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+asx_securities_ntp_itch_v1_05.order_id = {}
+
+-- Size: Order Id
+asx_securities_ntp_itch_v1_05.order_id.size = 8
+
+-- Display: Order Id
+asx_securities_ntp_itch_v1_05.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+asx_securities_ntp_itch_v1_05.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id Buyer
+asx_securities_ntp_itch_v1_05.participant_id_buyer = {}
+
+-- Size: Participant Id Buyer
+asx_securities_ntp_itch_v1_05.participant_id_buyer.size = 3
+
+-- Display: Participant Id Buyer
+asx_securities_ntp_itch_v1_05.participant_id_buyer.display = function(value)
+  return "Participant Id Buyer: "..value
+end
+
+-- Dissect: Participant Id Buyer
+asx_securities_ntp_itch_v1_05.participant_id_buyer.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.participant_id_buyer.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.participant_id_buyer.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.participant_id_buyer, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id Seller
+asx_securities_ntp_itch_v1_05.participant_id_seller = {}
+
+-- Size: Participant Id Seller
+asx_securities_ntp_itch_v1_05.participant_id_seller.size = 3
+
+-- Display: Participant Id Seller
+asx_securities_ntp_itch_v1_05.participant_id_seller.display = function(value)
+  return "Participant Id Seller: "..value
+end
+
+-- Dissect: Participant Id Seller
+asx_securities_ntp_itch_v1_05.participant_id_seller.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.participant_id_seller.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.participant_id_seller.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.participant_id_seller, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payments Per Year
+asx_securities_ntp_itch_v1_05.payments_per_year = {}
+
+-- Size: Payments Per Year
+asx_securities_ntp_itch_v1_05.payments_per_year.size = 1
+
+-- Display: Payments Per Year
+asx_securities_ntp_itch_v1_05.payments_per_year.display = function(value)
+  return "Payments Per Year: "..value
+end
+
+-- Dissect: Payments Per Year
+asx_securities_ntp_itch_v1_05.payments_per_year.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.payments_per_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.payments_per_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.payments_per_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+asx_securities_ntp_itch_v1_05.price = {}
+
+-- Size: Price
+asx_securities_ntp_itch_v1_05.price.size = 8
+
+-- Display: Price
+asx_securities_ntp_itch_v1_05.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+asx_securities_ntp_itch_v1_05.price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Display Decimals
+asx_securities_ntp_itch_v1_05.price_display_decimals = {}
+
+-- Size: Price Display Decimals
+asx_securities_ntp_itch_v1_05.price_display_decimals.size = 1
+
+-- Display: Price Display Decimals
+asx_securities_ntp_itch_v1_05.price_display_decimals.display = function(value)
+  return "Price Display Decimals: "..value
+end
+
+-- Dissect: Price Display Decimals
+asx_securities_ntp_itch_v1_05.price_display_decimals.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.price_display_decimals.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.price_display_decimals.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_display_decimals, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.price_fractional_denominator = {}
+
+-- Size: Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.price_fractional_denominator.size = 4
+
+-- Display: Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.price_fractional_denominator.display = function(value)
+  return "Price Fractional Denominator: "..value
+end
+
+-- Dissect: Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.price_fractional_denominator.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.price_fractional_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_fractional_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Leg
+asx_securities_ntp_itch_v1_05.price_leg = {}
+
+-- Size: Price Leg
+asx_securities_ntp_itch_v1_05.price_leg.size = 8
+
+-- Display: Price Leg
+asx_securities_ntp_itch_v1_05.price_leg.display = function(value)
+  return "Price Leg: "..value
+end
+
+-- Dissect: Price Leg
+asx_securities_ntp_itch_v1_05.price_leg.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.price_leg.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.price_leg.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Method
+asx_securities_ntp_itch_v1_05.price_method = {}
+
+-- Size: Price Method
+asx_securities_ntp_itch_v1_05.price_method.size = 1
+
+-- Display: Price Method
+asx_securities_ntp_itch_v1_05.price_method.display = function(value)
+  if value == 0 then
+    return "Price Method: Net Price (0)"
+  end
+  if value == 2 then
+    return "Price Method: Yield Difference (2)"
+  end
+  if value == 3 then
+    return "Price Method: Individual (3)"
+  end
+  if value == 4 then
+    return "Price Method: Average Price (4)"
+  end
+
+  return "Price Method: Unknown("..value..")"
+end
+
+-- Dissect: Price Method
+asx_securities_ntp_itch_v1_05.price_method.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.price_method.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.price_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Minimum Tick
+asx_securities_ntp_itch_v1_05.price_minimum_tick = {}
+
+-- Size: Price Minimum Tick
+asx_securities_ntp_itch_v1_05.price_minimum_tick.size = 4
+
+-- Display: Price Minimum Tick
+asx_securities_ntp_itch_v1_05.price_minimum_tick.display = function(value)
+  return "Price Minimum Tick: "..value
+end
+
+-- Dissect: Price Minimum Tick
+asx_securities_ntp_itch_v1_05.price_minimum_tick.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.price_minimum_tick.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.price_minimum_tick.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_minimum_tick, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Day Settlement
+asx_securities_ntp_itch_v1_05.prior_day_settlement = {}
+
+-- Size: Prior Day Settlement
+asx_securities_ntp_itch_v1_05.prior_day_settlement.size = 8
+
+-- Display: Prior Day Settlement
+asx_securities_ntp_itch_v1_05.prior_day_settlement.display = function(value)
+  return "Prior Day Settlement: "..value
+end
+
+-- Dissect: Prior Day Settlement
+asx_securities_ntp_itch_v1_05.prior_day_settlement.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.prior_day_settlement.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.prior_day_settlement.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.prior_day_settlement, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+asx_securities_ntp_itch_v1_05.quantity = {}
+
+-- Size: Quantity
+asx_securities_ntp_itch_v1_05.quantity.size = 4
+
+-- Display: Quantity
+asx_securities_ntp_itch_v1_05.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+asx_securities_ntp_itch_v1_05.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Remaining
+asx_securities_ntp_itch_v1_05.quantity_remaining = {}
+
+-- Size: Quantity Remaining
+asx_securities_ntp_itch_v1_05.quantity_remaining.size = 4
+
+-- Display: Quantity Remaining
+asx_securities_ntp_itch_v1_05.quantity_remaining.display = function(value)
+  return "Quantity Remaining: "..value
+end
+
+-- Dissect: Quantity Remaining
+asx_securities_ntp_itch_v1_05.quantity_remaining.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.quantity_remaining.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.quantity_remaining.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.quantity_remaining, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ratio Leg
+asx_securities_ntp_itch_v1_05.ratio_leg = {}
+
+-- Size: Ratio Leg
+asx_securities_ntp_itch_v1_05.ratio_leg.size = 4
+
+-- Display: Ratio Leg
+asx_securities_ntp_itch_v1_05.ratio_leg.display = function(value)
+  return "Ratio Leg: "..value
+end
+
+-- Dissect: Ratio Leg
+asx_securities_ntp_itch_v1_05.ratio_leg.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.ratio_leg.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.ratio_leg.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.ratio_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Side
+asx_securities_ntp_itch_v1_05.rfq_side = {}
+
+-- Size: Rfq Side
+asx_securities_ntp_itch_v1_05.rfq_side.size = 1
+
+-- Display: Rfq Side
+asx_securities_ntp_itch_v1_05.rfq_side.display = function(value)
+  if value == "T" then
+    return "Rfq Side: Two Sided Quote (T)"
+  end
+  if value == "B" then
+    return "Rfq Side: Bid Quote (B)"
+  end
+  if value == "S" then
+    return "Rfq Side: Ask Quote (S)"
+  end
+  if value == "X" then
+    return "Rfq Side: Crossing (X)"
+  end
+
+  return "Rfq Side: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Side
+asx_securities_ntp_itch_v1_05.rfq_side.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.rfq_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.rfq_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.rfq_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+asx_securities_ntp_itch_v1_05.seconds = {}
+
+-- Size: Seconds
+asx_securities_ntp_itch_v1_05.seconds.size = 4
+
+-- Store: Seconds
+asx_securities_ntp_itch_v1_05.seconds.store = nil
+
+-- Display: Seconds
+asx_securities_ntp_itch_v1_05.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+asx_securities_ntp_itch_v1_05.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seller Combination Trade Id
+asx_securities_ntp_itch_v1_05.seller_combination_trade_id = {}
+
+-- Size: Seller Combination Trade Id
+asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size = 8
+
+-- Display: Seller Combination Trade Id
+asx_securities_ntp_itch_v1_05.seller_combination_trade_id.display = function(value)
+  return "Seller Combination Trade Id: "..value
+end
+
+-- Dissect: Seller Combination Trade Id
+asx_securities_ntp_itch_v1_05.seller_combination_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.seller_combination_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_combination_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seller Order Id
+asx_securities_ntp_itch_v1_05.seller_order_id = {}
+
+-- Size: Seller Order Id
+asx_securities_ntp_itch_v1_05.seller_order_id.size = 8
+
+-- Display: Seller Order Id
+asx_securities_ntp_itch_v1_05.seller_order_id.display = function(value)
+  return "Seller Order Id: "..value
+end
+
+-- Dissect: Seller Order Id
+asx_securities_ntp_itch_v1_05.seller_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.seller_order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.seller_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seller Participant Id
+asx_securities_ntp_itch_v1_05.seller_participant_id = {}
+
+-- Size: Seller Participant Id
+asx_securities_ntp_itch_v1_05.seller_participant_id.size = 3
+
+-- Display: Seller Participant Id
+asx_securities_ntp_itch_v1_05.seller_participant_id.display = function(value)
+  return "Seller Participant Id: "..value
+end
+
+-- Dissect: Seller Participant Id
+asx_securities_ntp_itch_v1_05.seller_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.seller_participant_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.seller_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seller Side
+asx_securities_ntp_itch_v1_05.seller_side = {}
+
+-- Size: Seller Side
+asx_securities_ntp_itch_v1_05.seller_side.size = 1
+
+-- Display: Seller Side
+asx_securities_ntp_itch_v1_05.seller_side.display = function(value)
+  if value == "S" then
+    return "Seller Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Seller Side: Buy (B)"
+  end
+
+  return "Seller Side: Unknown("..value..")"
+end
+
+-- Dissect: Seller Side
+asx_securities_ntp_itch_v1_05.seller_side.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.seller_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.seller_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seller Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id = {}
+
+-- Size: Seller Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size = 4
+
+-- Display: Seller Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.display = function(value)
+  return "Seller Tradeable Instrument Id: "..value
+end
+
+-- Dissect: Seller Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_tradeable_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+asx_securities_ntp_itch_v1_05.sequence_number = {}
+
+-- Size: Sequence Number
+asx_securities_ntp_itch_v1_05.sequence_number.size = 8
+
+-- Display: Sequence Number
+asx_securities_ntp_itch_v1_05.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+asx_securities_ntp_itch_v1_05.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+asx_securities_ntp_itch_v1_05.session = {}
+
+-- Size: Session
+asx_securities_ntp_itch_v1_05.session.size = 10
+
+-- Display: Session
+asx_securities_ntp_itch_v1_05.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+asx_securities_ntp_itch_v1_05.session.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = asx_securities_ntp_itch_v1_05.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session State
+asx_securities_ntp_itch_v1_05.session_state = {}
+
+-- Size: Session State
+asx_securities_ntp_itch_v1_05.session_state.size = 1
+
+-- Display: Session State
+asx_securities_ntp_itch_v1_05.session_state.display = function(value)
+  if value == "P" then
+    return "Session State: Pre Open (P)"
+  end
+  if value == "O" then
+    return "Session State: Opened (O)"
+  end
+  if value == "R" then
+    return "Session State: Regulatory Halt (R)"
+  end
+  if value == "H" then
+    return "Session State: Halted (H)"
+  end
+  if value == "C" then
+    return "Session State: Closed (C)"
+  end
+  if value == "M" then
+    return "Session State: Maintenance (M)"
+  end
+
+  return "Session State: Unknown("..value..")"
+end
+
+-- Dissect: Session State
+asx_securities_ntp_itch_v1_05.session_state.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.session_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.session_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.session_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+asx_securities_ntp_itch_v1_05.side = {}
+
+-- Size: Side
+asx_securities_ntp_itch_v1_05.side.size = 1
+
+-- Display: Side
+asx_securities_ntp_itch_v1_05.side.display = function(value)
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+asx_securities_ntp_itch_v1_05.side.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Leg
+asx_securities_ntp_itch_v1_05.side_leg = {}
+
+-- Size: Side Leg
+asx_securities_ntp_itch_v1_05.side_leg.size = 1
+
+-- Display: Side Leg
+asx_securities_ntp_itch_v1_05.side_leg.display = function(value)
+  if value == " " then
+    return "Side Leg: Not Defined (<whitespace>)"
+  end
+  if value == "B" then
+    return "Side Leg: Buy (B)"
+  end
+  if value == "S" then
+    return "Side Leg: Sell (S)"
+  end
+
+  return "Side Leg: Unknown("..value..")"
+end
+
+-- Dissect: Side Leg
+asx_securities_ntp_itch_v1_05.side_leg.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.side_leg.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.side_leg.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.side_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Id
+asx_securities_ntp_itch_v1_05.source_id = {}
+
+-- Size: Source Id
+asx_securities_ntp_itch_v1_05.source_id.size = 6
+
+-- Display: Source Id
+asx_securities_ntp_itch_v1_05.source_id.display = function(value)
+  return "Source Id: "..value
+end
+
+-- Dissect: Source Id
+asx_securities_ntp_itch_v1_05.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.source_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.source_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.source_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike
+asx_securities_ntp_itch_v1_05.strike = {}
+
+-- Size: Strike
+asx_securities_ntp_itch_v1_05.strike.size = 8
+
+-- Display: Strike
+asx_securities_ntp_itch_v1_05.strike.display = function(value)
+  return "Strike: "..value
+end
+
+-- Dissect: Strike
+asx_securities_ntp_itch_v1_05.strike.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.strike.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.strike.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price Decimal Position
+asx_securities_ntp_itch_v1_05.strike_price_decimal_position = {}
+
+-- Size: Strike Price Decimal Position
+asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size = 1
+
+-- Display: Strike Price Decimal Position
+asx_securities_ntp_itch_v1_05.strike_price_decimal_position.display = function(value)
+  return "Strike Price Decimal Position: "..value
+end
+
+-- Dissect: Strike Price Decimal Position
+asx_securities_ntp_itch_v1_05.strike_price_decimal_position.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.strike_price_decimal_position.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike_price_decimal_position, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator = {}
+
+-- Size: Strike Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size = 4
+
+-- Display: Strike Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.display = function(value)
+  return "Strike Price Fractional Denominator: "..value
+end
+
+-- Dissect: Strike Price Fractional Denominator
+asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike_price_fractional_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price Minimum Tick
+asx_securities_ntp_itch_v1_05.strike_price_minimum_tick = {}
+
+-- Size: Strike Price Minimum Tick
+asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size = 4
+
+-- Display: Strike Price Minimum Tick
+asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.display = function(value)
+  return "Strike Price Minimum Tick: "..value
+end
+
+-- Dissect: Strike Price Minimum Tick
+asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike_price_minimum_tick, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Name
+asx_securities_ntp_itch_v1_05.symbol_name = {}
+
+-- Size: Symbol Name
+asx_securities_ntp_itch_v1_05.symbol_name.size = 32
+
+-- Display: Symbol Name
+asx_securities_ntp_itch_v1_05.symbol_name.display = function(value)
+  return "Symbol Name: "..value
+end
+
+-- Dissect: Symbol Name
+asx_securities_ntp_itch_v1_05.symbol_name.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.symbol_name.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.symbol_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.symbol_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+asx_securities_ntp_itch_v1_05.text = {}
+
+-- Size: Text
+asx_securities_ntp_itch_v1_05.text.size = 100
+
+-- Display: Text
+asx_securities_ntp_itch_v1_05.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+asx_securities_ntp_itch_v1_05.text.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.text.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_securities_ntp_itch_v1_05.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -530,6 +2553,278 @@ asx_securities_ntp_itch_v1_05.timestamp.dissect = function(buffer, offset, packe
 
   return offset + length, value
 end
+
+-- Total Traded Volume
+asx_securities_ntp_itch_v1_05.total_traded_volume = {}
+
+-- Size: Total Traded Volume
+asx_securities_ntp_itch_v1_05.total_traded_volume.size = 8
+
+-- Display: Total Traded Volume
+asx_securities_ntp_itch_v1_05.total_traded_volume.display = function(value)
+  return "Total Traded Volume: "..value
+end
+
+-- Dissect: Total Traded Volume
+asx_securities_ntp_itch_v1_05.total_traded_volume.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.total_traded_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.total_traded_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.total_traded_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+asx_securities_ntp_itch_v1_05.trade_date = {}
+
+-- Size: Trade Date
+asx_securities_ntp_itch_v1_05.trade_date.size = 2
+
+-- Display: Trade Date
+asx_securities_ntp_itch_v1_05.trade_date.display = function(value)
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+asx_securities_ntp_itch_v1_05.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+asx_securities_ntp_itch_v1_05.trade_id = {}
+
+-- Size: Trade Id
+asx_securities_ntp_itch_v1_05.trade_id.size = 8
+
+-- Display: Trade Id
+asx_securities_ntp_itch_v1_05.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+asx_securities_ntp_itch_v1_05.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price
+asx_securities_ntp_itch_v1_05.trade_price = {}
+
+-- Size: Trade Price
+asx_securities_ntp_itch_v1_05.trade_price.size = 8
+
+-- Display: Trade Price
+asx_securities_ntp_itch_v1_05.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Dissect: Trade Price
+asx_securities_ntp_itch_v1_05.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.trade_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = asx_securities_ntp_itch_v1_05.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Type
+asx_securities_ntp_itch_v1_05.trade_type = {}
+
+-- Size: Trade Type
+asx_securities_ntp_itch_v1_05.trade_type.size = 1
+
+-- Display: Trade Type
+asx_securities_ntp_itch_v1_05.trade_type.display = function(value)
+  if value == "T" then
+    return "Trade Type: Normal Trade (T)"
+  end
+  if value == "t" then
+    return "Trade Type: Normal Cross (t)"
+  end
+  if value == "L" then
+    return "Trade Type: Auction Trade (L)"
+  end
+  if value == "l" then
+    return "Trade Type: Auction Cross (l)"
+  end
+  if value == "S" then
+    return "Trade Type: Combination To Underlying Trade (S)"
+  end
+  if value == "s" then
+    return "Trade Type: Combination To Underlying Cross (s)"
+  end
+  if value == "R" then
+    return "Trade Type: Combination To Combination Trade (R)"
+  end
+  if value == "r" then
+    return "Trade Type: Combination To Combination Cross (r)"
+  end
+  if value == "A" then
+    return "Trade Type: Strip To Strip Trade (A)"
+  end
+  if value == "a" then
+    return "Trade Type: Strip To Strip Cross (a)"
+  end
+  if value == "B" then
+    return "Trade Type: Strip To Outright Trade (B)"
+  end
+  if value == "b" then
+    return "Trade Type: Strip To Outright Cross (b)"
+  end
+
+  return "Trade Type: Unknown("..value..")"
+end
+
+-- Dissect: Trade Type
+asx_securities_ntp_itch_v1_05.trade_type.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.trade_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_securities_ntp_itch_v1_05.trade_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id = {}
+
+-- Size: Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size = 4
+
+-- Display: Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id.display = function(value)
+  return "Tradeable Instrument Id: "..value
+end
+
+-- Dissect: Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.tradeable_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradeable Instrument Id Leg
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg = {}
+
+-- Size: Tradeable Instrument Id Leg
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size = 4
+
+-- Display: Tradeable Instrument Id Leg
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.display = function(value)
+  return "Tradeable Instrument Id Leg: "..value
+end
+
+-- Dissect: Tradeable Instrument Id Leg
+asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id = {}
+
+-- Size: Underlying Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size = 4
+
+-- Display: Underlying Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.display = function(value)
+  return "Underlying Tradeable Instrument Id: "..value
+end
+
+-- Dissect: Underlying Tradeable Instrument Id
+asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Voi Trade Date
+asx_securities_ntp_itch_v1_05.voi_trade_date = {}
+
+-- Size: Voi Trade Date
+asx_securities_ntp_itch_v1_05.voi_trade_date.size = 2
+
+-- Display: Voi Trade Date
+asx_securities_ntp_itch_v1_05.voi_trade_date.display = function(value)
+  return "Voi Trade Date: "..value
+end
+
+-- Dissect: Voi Trade Date
+asx_securities_ntp_itch_v1_05.voi_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.voi_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = asx_securities_ntp_itch_v1_05.voi_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.voi_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volatility
+asx_securities_ntp_itch_v1_05.volatility = {}
+
+-- Size: Volatility
+asx_securities_ntp_itch_v1_05.volatility.size = 8
+
+-- Display: Volatility
+asx_securities_ntp_itch_v1_05.volatility.display = function(value)
+  return "Volatility: "..value
+end
+
+-- Dissect: Volatility
+asx_securities_ntp_itch_v1_05.volatility.dissect = function(buffer, offset, packet, parent)
+  local length = asx_securities_ntp_itch_v1_05.volatility.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = asx_securities_ntp_itch_v1_05.volatility.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.volatility, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Asx Securities Ntp Itch 1.05
+-----------------------------------------------------------------------
 
 -- Volume And Open Interest Message
 asx_securities_ntp_itch_v1_05.volume_and_open_interest_message = {}
@@ -589,144 +2884,6 @@ asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.dissect = functio
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.volume_and_open_interest_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Etr Lower Price
-asx_securities_ntp_itch_v1_05.etr_lower_price = {}
-
--- Size: Etr Lower Price
-asx_securities_ntp_itch_v1_05.etr_lower_price.size = 8
-
--- Display: Etr Lower Price
-asx_securities_ntp_itch_v1_05.etr_lower_price.display = function(value)
-  return "Etr Lower Price: "..value
-end
-
--- Dissect: Etr Lower Price
-asx_securities_ntp_itch_v1_05.etr_lower_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.etr_lower_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.etr_lower_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_lower_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Etr Upper Price
-asx_securities_ntp_itch_v1_05.etr_upper_price = {}
-
--- Size: Etr Upper Price
-asx_securities_ntp_itch_v1_05.etr_upper_price.size = 8
-
--- Display: Etr Upper Price
-asx_securities_ntp_itch_v1_05.etr_upper_price.display = function(value)
-  return "Etr Upper Price: "..value
-end
-
--- Dissect: Etr Upper Price
-asx_securities_ntp_itch_v1_05.etr_upper_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.etr_upper_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.etr_upper_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_upper_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Etr Price
-asx_securities_ntp_itch_v1_05.etr_price = {}
-
--- Size: Etr Price
-asx_securities_ntp_itch_v1_05.etr_price.size = 8
-
--- Display: Etr Price
-asx_securities_ntp_itch_v1_05.etr_price.display = function(value)
-  return "Etr Price: "..value
-end
-
--- Dissect: Etr Price
-asx_securities_ntp_itch_v1_05.etr_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.etr_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.etr_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.etr_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Aot Lower Price
-asx_securities_ntp_itch_v1_05.aot_lower_price = {}
-
--- Size: Aot Lower Price
-asx_securities_ntp_itch_v1_05.aot_lower_price.size = 8
-
--- Display: Aot Lower Price
-asx_securities_ntp_itch_v1_05.aot_lower_price.display = function(value)
-  return "Aot Lower Price: "..value
-end
-
--- Dissect: Aot Lower Price
-asx_securities_ntp_itch_v1_05.aot_lower_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.aot_lower_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.aot_lower_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_lower_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Aot Upper Price
-asx_securities_ntp_itch_v1_05.aot_upper_price = {}
-
--- Size: Aot Upper Price
-asx_securities_ntp_itch_v1_05.aot_upper_price.size = 8
-
--- Display: Aot Upper Price
-asx_securities_ntp_itch_v1_05.aot_upper_price.display = function(value)
-  return "Aot Upper Price: "..value
-end
-
--- Dissect: Aot Upper Price
-asx_securities_ntp_itch_v1_05.aot_upper_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.aot_upper_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.aot_upper_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_upper_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Aot Price
-asx_securities_ntp_itch_v1_05.aot_price = {}
-
--- Size: Aot Price
-asx_securities_ntp_itch_v1_05.aot_price.size = 8
-
--- Display: Aot Price
-asx_securities_ntp_itch_v1_05.aot_price.display = function(value)
-  return "Aot Price: "..value
-end
-
--- Dissect: Aot Price
-asx_securities_ntp_itch_v1_05.aot_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.aot_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.aot_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.aot_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Anomalous Order Threshold Publish Message
@@ -801,65 +2958,6 @@ asx_securities_ntp_itch_v1_05.anomalous_order_threshold_publish_message.dissect 
   end
 end
 
--- Quantity
-asx_securities_ntp_itch_v1_05.quantity = {}
-
--- Size: Quantity
-asx_securities_ntp_itch_v1_05.quantity.size = 4
-
--- Display: Quantity
-asx_securities_ntp_itch_v1_05.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-asx_securities_ntp_itch_v1_05.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Rfq Side
-asx_securities_ntp_itch_v1_05.rfq_side = {}
-
--- Size: Rfq Side
-asx_securities_ntp_itch_v1_05.rfq_side.size = 1
-
--- Display: Rfq Side
-asx_securities_ntp_itch_v1_05.rfq_side.display = function(value)
-  if value == "T" then
-    return "Rfq Side: Two Sided Quote (T)"
-  end
-  if value == "B" then
-    return "Rfq Side: Bid Quote (B)"
-  end
-  if value == "S" then
-    return "Rfq Side: Ask Quote (S)"
-  end
-  if value == "X" then
-    return "Rfq Side: Crossing (X)"
-  end
-
-  return "Rfq Side: Unknown("..value..")"
-end
-
--- Dissect: Rfq Side
-asx_securities_ntp_itch_v1_05.rfq_side.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.rfq_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.rfq_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.rfq_side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Request For Quote Message
 asx_securities_ntp_itch_v1_05.request_for_quote_message = {}
 
@@ -916,52 +3014,6 @@ asx_securities_ntp_itch_v1_05.request_for_quote_message.dissect = function(buffe
   end
 end
 
--- Text
-asx_securities_ntp_itch_v1_05.text = {}
-
--- Size: Text
-asx_securities_ntp_itch_v1_05.text.size = 100
-
--- Display: Text
-asx_securities_ntp_itch_v1_05.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-asx_securities_ntp_itch_v1_05.text.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.text.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Id
-asx_securities_ntp_itch_v1_05.source_id = {}
-
--- Size: Source Id
-asx_securities_ntp_itch_v1_05.source_id.size = 6
-
--- Display: Source Id
-asx_securities_ntp_itch_v1_05.source_id.display = function(value)
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-asx_securities_ntp_itch_v1_05.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.source_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.source_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Text Message
 asx_securities_ntp_itch_v1_05.text_message = {}
 
@@ -1012,144 +3064,6 @@ asx_securities_ntp_itch_v1_05.text_message.dissect = function(buffer, offset, pa
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.text_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Total Traded Volume
-asx_securities_ntp_itch_v1_05.total_traded_volume = {}
-
--- Size: Total Traded Volume
-asx_securities_ntp_itch_v1_05.total_traded_volume.size = 8
-
--- Display: Total Traded Volume
-asx_securities_ntp_itch_v1_05.total_traded_volume.display = function(value)
-  return "Total Traded Volume: "..value
-end
-
--- Dissect: Total Traded Volume
-asx_securities_ntp_itch_v1_05.total_traded_volume.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.total_traded_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.total_traded_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.total_traded_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Volume
-asx_securities_ntp_itch_v1_05.last_volume = {}
-
--- Size: Last Volume
-asx_securities_ntp_itch_v1_05.last_volume.size = 4
-
--- Display: Last Volume
-asx_securities_ntp_itch_v1_05.last_volume.display = function(value)
-  return "Last Volume: "..value
-end
-
--- Dissect: Last Volume
-asx_securities_ntp_itch_v1_05.last_volume.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.last_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.last_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade
-asx_securities_ntp_itch_v1_05.last_trade = {}
-
--- Size: Last Trade
-asx_securities_ntp_itch_v1_05.last_trade.size = 8
-
--- Display: Last Trade
-asx_securities_ntp_itch_v1_05.last_trade.display = function(value)
-  return "Last Trade: "..value
-end
-
--- Dissect: Last Trade
-asx_securities_ntp_itch_v1_05.last_trade.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.last_trade.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.last_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Lowest Trade
-asx_securities_ntp_itch_v1_05.lowest_trade = {}
-
--- Size: Lowest Trade
-asx_securities_ntp_itch_v1_05.lowest_trade.size = 8
-
--- Display: Lowest Trade
-asx_securities_ntp_itch_v1_05.lowest_trade.display = function(value)
-  return "Lowest Trade: "..value
-end
-
--- Dissect: Lowest Trade
-asx_securities_ntp_itch_v1_05.lowest_trade.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.lowest_trade.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.lowest_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.lowest_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Highest Trade
-asx_securities_ntp_itch_v1_05.highest_trade = {}
-
--- Size: Highest Trade
-asx_securities_ntp_itch_v1_05.highest_trade.size = 8
-
--- Display: Highest Trade
-asx_securities_ntp_itch_v1_05.highest_trade.display = function(value)
-  return "Highest Trade: "..value
-end
-
--- Dissect: Highest Trade
-asx_securities_ntp_itch_v1_05.highest_trade.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.highest_trade.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.highest_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.highest_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Trade
-asx_securities_ntp_itch_v1_05.opening_trade = {}
-
--- Size: Opening Trade
-asx_securities_ntp_itch_v1_05.opening_trade.size = 8
-
--- Display: Opening Trade
-asx_securities_ntp_itch_v1_05.opening_trade.display = function(value)
-  return "Opening Trade: "..value
-end
-
--- Dissect: Opening Trade
-asx_securities_ntp_itch_v1_05.opening_trade.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.opening_trade.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.opening_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opening_trade, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Settlement Message
@@ -1296,98 +3210,6 @@ asx_securities_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.dissec
   end
 end
 
--- Ask Quantity
-asx_securities_ntp_itch_v1_05.ask_quantity = {}
-
--- Size: Ask Quantity
-asx_securities_ntp_itch_v1_05.ask_quantity.size = 8
-
--- Display: Ask Quantity
-asx_securities_ntp_itch_v1_05.ask_quantity.display = function(value)
-  return "Ask Quantity: "..value
-end
-
--- Dissect: Ask Quantity
-asx_securities_ntp_itch_v1_05.ask_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.ask_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.ask_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.ask_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Quantity
-asx_securities_ntp_itch_v1_05.bid_quantity = {}
-
--- Size: Bid Quantity
-asx_securities_ntp_itch_v1_05.bid_quantity.size = 8
-
--- Display: Bid Quantity
-asx_securities_ntp_itch_v1_05.bid_quantity.display = function(value)
-  return "Bid Quantity: "..value
-end
-
--- Dissect: Bid Quantity
-asx_securities_ntp_itch_v1_05.bid_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.bid_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.bid_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.bid_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Matched Quantity
-asx_securities_ntp_itch_v1_05.matched_quantity = {}
-
--- Size: Matched Quantity
-asx_securities_ntp_itch_v1_05.matched_quantity.size = 8
-
--- Display: Matched Quantity
-asx_securities_ntp_itch_v1_05.matched_quantity.display = function(value)
-  return "Matched Quantity: "..value
-end
-
--- Dissect: Matched Quantity
-asx_securities_ntp_itch_v1_05.matched_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.matched_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.matched_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.matched_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Equilibrium Price
-asx_securities_ntp_itch_v1_05.equilibrium_price = {}
-
--- Size: Equilibrium Price
-asx_securities_ntp_itch_v1_05.equilibrium_price.size = 8
-
--- Display: Equilibrium Price
-asx_securities_ntp_itch_v1_05.equilibrium_price.display = function(value)
-  return "Equilibrium Price: "..value
-end
-
--- Dissect: Equilibrium Price
-asx_securities_ntp_itch_v1_05.equilibrium_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.equilibrium_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.equilibrium_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.equilibrium_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Equilibrium Price Message
 asx_securities_ntp_itch_v1_05.equilibrium_price_message = {}
 
@@ -1452,29 +3274,6 @@ asx_securities_ntp_itch_v1_05.equilibrium_price_message.dissect = function(buffe
   end
 end
 
--- Trade Id
-asx_securities_ntp_itch_v1_05.trade_id = {}
-
--- Size: Trade Id
-asx_securities_ntp_itch_v1_05.trade_id.size = 8
-
--- Display: Trade Id
-asx_securities_ntp_itch_v1_05.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-asx_securities_ntp_itch_v1_05.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Cancellation Message
 asx_securities_ntp_itch_v1_05.trade_cancellation_message = {}
 
@@ -1525,356 +3324,6 @@ asx_securities_ntp_itch_v1_05.trade_cancellation_message.dissect = function(buff
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.trade_cancellation_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seller Participant Id
-asx_securities_ntp_itch_v1_05.seller_participant_id = {}
-
--- Size: Seller Participant Id
-asx_securities_ntp_itch_v1_05.seller_participant_id.size = 3
-
--- Display: Seller Participant Id
-asx_securities_ntp_itch_v1_05.seller_participant_id.display = function(value)
-  return "Seller Participant Id: "..value
-end
-
--- Dissect: Seller Participant Id
-asx_securities_ntp_itch_v1_05.seller_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seller_participant_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.seller_participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Seller Combination Trade Id
-asx_securities_ntp_itch_v1_05.seller_combination_trade_id = {}
-
--- Size: Seller Combination Trade Id
-asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size = 8
-
--- Display: Seller Combination Trade Id
-asx_securities_ntp_itch_v1_05.seller_combination_trade_id.display = function(value)
-  return "Seller Combination Trade Id: "..value
-end
-
--- Dissect: Seller Combination Trade Id
-asx_securities_ntp_itch_v1_05.seller_combination_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seller_combination_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.seller_combination_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_combination_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Seller Order Id
-asx_securities_ntp_itch_v1_05.seller_order_id = {}
-
--- Size: Seller Order Id
-asx_securities_ntp_itch_v1_05.seller_order_id.size = 8
-
--- Display: Seller Order Id
-asx_securities_ntp_itch_v1_05.seller_order_id.display = function(value)
-  return "Seller Order Id: "..value
-end
-
--- Dissect: Seller Order Id
-asx_securities_ntp_itch_v1_05.seller_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seller_order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.seller_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Seller Side
-asx_securities_ntp_itch_v1_05.seller_side = {}
-
--- Size: Seller Side
-asx_securities_ntp_itch_v1_05.seller_side.size = 1
-
--- Display: Seller Side
-asx_securities_ntp_itch_v1_05.seller_side.display = function(value)
-  if value == "S" then
-    return "Seller Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Seller Side: Buy (B)"
-  end
-
-  return "Seller Side: Unknown("..value..")"
-end
-
--- Dissect: Seller Side
-asx_securities_ntp_itch_v1_05.seller_side.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seller_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.seller_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Seller Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id = {}
-
--- Size: Seller Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size = 4
-
--- Display: Seller Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.display = function(value)
-  return "Seller Tradeable Instrument Id: "..value
-end
-
--- Dissect: Seller Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.seller_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seller_tradeable_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyer Participant Id
-asx_securities_ntp_itch_v1_05.buyer_participant_id = {}
-
--- Size: Buyer Participant Id
-asx_securities_ntp_itch_v1_05.buyer_participant_id.size = 3
-
--- Display: Buyer Participant Id
-asx_securities_ntp_itch_v1_05.buyer_participant_id.display = function(value)
-  return "Buyer Participant Id: "..value
-end
-
--- Dissect: Buyer Participant Id
-asx_securities_ntp_itch_v1_05.buyer_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.buyer_participant_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.buyer_participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyer Combination Trade Id
-asx_securities_ntp_itch_v1_05.buyer_combination_trade_id = {}
-
--- Size: Buyer Combination Trade Id
-asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size = 8
-
--- Display: Buyer Combination Trade Id
-asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.display = function(value)
-  return "Buyer Combination Trade Id: "..value
-end
-
--- Dissect: Buyer Combination Trade Id
-asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.buyer_combination_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_combination_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyer Order Id
-asx_securities_ntp_itch_v1_05.buyer_order_id = {}
-
--- Size: Buyer Order Id
-asx_securities_ntp_itch_v1_05.buyer_order_id.size = 8
-
--- Display: Buyer Order Id
-asx_securities_ntp_itch_v1_05.buyer_order_id.display = function(value)
-  return "Buyer Order Id: "..value
-end
-
--- Dissect: Buyer Order Id
-asx_securities_ntp_itch_v1_05.buyer_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.buyer_order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.buyer_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyer Side
-asx_securities_ntp_itch_v1_05.buyer_side = {}
-
--- Size: Buyer Side
-asx_securities_ntp_itch_v1_05.buyer_side.size = 1
-
--- Display: Buyer Side
-asx_securities_ntp_itch_v1_05.buyer_side.display = function(value)
-  if value == "S" then
-    return "Buyer Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Buyer Side: Buy (B)"
-  end
-
-  return "Buyer Side: Unknown("..value..")"
-end
-
--- Dissect: Buyer Side
-asx_securities_ntp_itch_v1_05.buyer_side.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.buyer_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.buyer_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Buyer Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id = {}
-
--- Size: Buyer Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size = 4
-
--- Display: Buyer Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.display = function(value)
-  return "Buyer Tradeable Instrument Id: "..value
-end
-
--- Dissect: Buyer Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.buyer_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.buyer_tradeable_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price
-asx_securities_ntp_itch_v1_05.trade_price = {}
-
--- Size: Trade Price
-asx_securities_ntp_itch_v1_05.trade_price.size = 8
-
--- Display: Trade Price
-asx_securities_ntp_itch_v1_05.trade_price.display = function(value)
-  return "Trade Price: "..value
-end
-
--- Dissect: Trade Price
-asx_securities_ntp_itch_v1_05.trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.trade_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Executed Quantity
-asx_securities_ntp_itch_v1_05.executed_quantity = {}
-
--- Size: Executed Quantity
-asx_securities_ntp_itch_v1_05.executed_quantity.size = 4
-
--- Display: Executed Quantity
-asx_securities_ntp_itch_v1_05.executed_quantity.display = function(value)
-  return "Executed Quantity: "..value
-end
-
--- Dissect: Executed Quantity
-asx_securities_ntp_itch_v1_05.executed_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.executed_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.executed_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.executed_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Type
-asx_securities_ntp_itch_v1_05.trade_type = {}
-
--- Size: Trade Type
-asx_securities_ntp_itch_v1_05.trade_type.size = 1
-
--- Display: Trade Type
-asx_securities_ntp_itch_v1_05.trade_type.display = function(value)
-  if value == "T" then
-    return "Trade Type: Normal Trade (T)"
-  end
-  if value == "t" then
-    return "Trade Type: Normal Cross (t)"
-  end
-  if value == "L" then
-    return "Trade Type: Auction Trade (L)"
-  end
-  if value == "l" then
-    return "Trade Type: Auction Cross (l)"
-  end
-  if value == "S" then
-    return "Trade Type: Combination To Underlying Trade (S)"
-  end
-  if value == "s" then
-    return "Trade Type: Combination To Underlying Cross (s)"
-  end
-  if value == "R" then
-    return "Trade Type: Combination To Combination Trade (R)"
-  end
-  if value == "r" then
-    return "Trade Type: Combination To Combination Cross (r)"
-  end
-  if value == "A" then
-    return "Trade Type: Strip To Strip Trade (A)"
-  end
-  if value == "a" then
-    return "Trade Type: Strip To Strip Cross (a)"
-  end
-  if value == "B" then
-    return "Trade Type: Strip To Outright Trade (B)"
-  end
-  if value == "b" then
-    return "Trade Type: Strip To Outright Cross (b)"
-  end
-
-  return "Trade Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Type
-asx_securities_ntp_itch_v1_05.trade_type.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.trade_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.trade_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.trade_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Combination Trade Executed Message
@@ -1981,75 +3430,6 @@ asx_securities_ntp_itch_v1_05.combination_trade_executed_message.dissect = funct
   end
 end
 
--- Participant Id Seller
-asx_securities_ntp_itch_v1_05.participant_id_seller = {}
-
--- Size: Participant Id Seller
-asx_securities_ntp_itch_v1_05.participant_id_seller.size = 3
-
--- Display: Participant Id Seller
-asx_securities_ntp_itch_v1_05.participant_id_seller.display = function(value)
-  return "Participant Id Seller: "..value
-end
-
--- Dissect: Participant Id Seller
-asx_securities_ntp_itch_v1_05.participant_id_seller.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.participant_id_seller.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.participant_id_seller.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.participant_id_seller, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Id Buyer
-asx_securities_ntp_itch_v1_05.participant_id_buyer = {}
-
--- Size: Participant Id Buyer
-asx_securities_ntp_itch_v1_05.participant_id_buyer.size = 3
-
--- Display: Participant Id Buyer
-asx_securities_ntp_itch_v1_05.participant_id_buyer.display = function(value)
-  return "Participant Id Buyer: "..value
-end
-
--- Dissect: Participant Id Buyer
-asx_securities_ntp_itch_v1_05.participant_id_buyer.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.participant_id_buyer.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.participant_id_buyer.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.participant_id_buyer, range, value, display)
-
-  return offset + length, value
-end
-
--- Combination Trade Id
-asx_securities_ntp_itch_v1_05.combination_trade_id = {}
-
--- Size: Combination Trade Id
-asx_securities_ntp_itch_v1_05.combination_trade_id.size = 8
-
--- Display: Combination Trade Id
-asx_securities_ntp_itch_v1_05.combination_trade_id.display = function(value)
-  return "Combination Trade Id: "..value
-end
-
--- Dissect: Combination Trade Id
-asx_securities_ntp_itch_v1_05.combination_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.combination_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.combination_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.combination_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Executed Message
 asx_securities_ntp_itch_v1_05.trade_executed_message = {}
 
@@ -2126,59 +3506,6 @@ asx_securities_ntp_itch_v1_05.trade_executed_message.dissect = function(buffer, 
   end
 end
 
--- Order Id
-asx_securities_ntp_itch_v1_05.order_id = {}
-
--- Size: Order Id
-asx_securities_ntp_itch_v1_05.order_id.size = 8
-
--- Display: Order Id
-asx_securities_ntp_itch_v1_05.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-asx_securities_ntp_itch_v1_05.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-asx_securities_ntp_itch_v1_05.side = {}
-
--- Size: Side
-asx_securities_ntp_itch_v1_05.side.size = 1
-
--- Display: Side
-asx_securities_ntp_itch_v1_05.side.display = function(value)
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-asx_securities_ntp_itch_v1_05.side.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Implied Order Deleted Message
 asx_securities_ntp_itch_v1_05.implied_order_deleted_message = {}
 
@@ -2233,52 +3560,6 @@ asx_securities_ntp_itch_v1_05.implied_order_deleted_message.dissect = function(b
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.implied_order_deleted_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price
-asx_securities_ntp_itch_v1_05.price = {}
-
--- Size: Price
-asx_securities_ntp_itch_v1_05.price.size = 8
-
--- Display: Price
-asx_securities_ntp_itch_v1_05.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-asx_securities_ntp_itch_v1_05.price.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Book Priority
-asx_securities_ntp_itch_v1_05.order_book_priority = {}
-
--- Size: Order Book Priority
-asx_securities_ntp_itch_v1_05.order_book_priority.size = 8
-
--- Display: Order Book Priority
-asx_securities_ntp_itch_v1_05.order_book_priority.display = function(value)
-  return "Order Book Priority: "..value
-end
-
--- Dissect: Order Book Priority
-asx_securities_ntp_itch_v1_05.order_book_priority.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.order_book_priority.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.order_book_priority.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.order_book_priority, range, value, display)
-
-  return offset + length, value
 end
 
 -- Implied Order Replaced Message
@@ -2415,105 +3696,6 @@ asx_securities_ntp_itch_v1_05.implied_order_added_message.dissect = function(buf
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.implied_order_added_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Opposite Order Id
-asx_securities_ntp_itch_v1_05.opposite_order_id = {}
-
--- Size: Opposite Order Id
-asx_securities_ntp_itch_v1_05.opposite_order_id.size = 8
-
--- Display: Opposite Order Id
-asx_securities_ntp_itch_v1_05.opposite_order_id.display = function(value)
-  return "Opposite Order Id: "..value
-end
-
--- Dissect: Opposite Order Id
-asx_securities_ntp_itch_v1_05.opposite_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.opposite_order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.opposite_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opposite_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Opposite Side
-asx_securities_ntp_itch_v1_05.opposite_side = {}
-
--- Size: Opposite Side
-asx_securities_ntp_itch_v1_05.opposite_side.size = 1
-
--- Display: Opposite Side
-asx_securities_ntp_itch_v1_05.opposite_side.display = function(value)
-  if value == "S" then
-    return "Opposite Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Opposite Side: Buy (B)"
-  end
-
-  return "Opposite Side: Unknown("..value..")"
-end
-
--- Dissect: Opposite Side
-asx_securities_ntp_itch_v1_05.opposite_side.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.opposite_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.opposite_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opposite_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Opposite Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id = {}
-
--- Size: Opposite Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size = 4
-
--- Display: Opposite Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.display = function(value)
-  return "Opposite Tradeable Instrument Id: "..value
-end
-
--- Dissect: Opposite Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.opposite_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.opposite_tradeable_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Remaining
-asx_securities_ntp_itch_v1_05.quantity_remaining = {}
-
--- Size: Quantity Remaining
-asx_securities_ntp_itch_v1_05.quantity_remaining.size = 4
-
--- Display: Quantity Remaining
-asx_securities_ntp_itch_v1_05.quantity_remaining.display = function(value)
-  return "Quantity Remaining: "..value
-end
-
--- Dissect: Quantity Remaining
-asx_securities_ntp_itch_v1_05.quantity_remaining.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.quantity_remaining.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.quantity_remaining.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.quantity_remaining, range, value, display)
-
-  return offset + length, value
 end
 
 -- Combination Order Executed Message
@@ -2686,29 +3868,6 @@ asx_securities_ntp_itch_v1_05.auction_order_executed_message.dissect = function(
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.auction_order_executed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Counter Party Id
-asx_securities_ntp_itch_v1_05.counter_party_id = {}
-
--- Size: Counter Party Id
-asx_securities_ntp_itch_v1_05.counter_party_id.size = 3
-
--- Display: Counter Party Id
-asx_securities_ntp_itch_v1_05.counter_party_id.display = function(value)
-  return "Counter Party Id: "..value
-end
-
--- Dissect: Counter Party Id
-asx_securities_ntp_itch_v1_05.counter_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.counter_party_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.counter_party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.counter_party_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed Message
@@ -2979,48 +4138,6 @@ asx_securities_ntp_itch_v1_05.add_order_message.dissect = function(buffer, offse
   end
 end
 
--- Session State
-asx_securities_ntp_itch_v1_05.session_state = {}
-
--- Size: Session State
-asx_securities_ntp_itch_v1_05.session_state.size = 1
-
--- Display: Session State
-asx_securities_ntp_itch_v1_05.session_state.display = function(value)
-  if value == "P" then
-    return "Session State: Pre Open (P)"
-  end
-  if value == "O" then
-    return "Session State: Opened (O)"
-  end
-  if value == "R" then
-    return "Session State: Regulatory Halt (R)"
-  end
-  if value == "H" then
-    return "Session State: Halted (H)"
-  end
-  if value == "C" then
-    return "Session State: Closed (C)"
-  end
-  if value == "M" then
-    return "Session State: Maintenance (M)"
-  end
-
-  return "Session State: Unknown("..value..")"
-end
-
--- Dissect: Session State
-asx_securities_ntp_itch_v1_05.session_state.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.session_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.session_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.session_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Book State Message
 asx_securities_ntp_itch_v1_05.order_book_state_message = {}
 
@@ -3071,108 +4188,6 @@ asx_securities_ntp_itch_v1_05.order_book_state_message.dissect = function(buffer
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.order_book_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price Leg
-asx_securities_ntp_itch_v1_05.price_leg = {}
-
--- Size: Price Leg
-asx_securities_ntp_itch_v1_05.price_leg.size = 8
-
--- Display: Price Leg
-asx_securities_ntp_itch_v1_05.price_leg.display = function(value)
-  return "Price Leg: "..value
-end
-
--- Dissect: Price Leg
-asx_securities_ntp_itch_v1_05.price_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price_leg.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.price_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_leg, range, value, display)
-
-  return offset + length, value
-end
-
--- Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg = {}
-
--- Size: Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg.size = 4
-
--- Display: Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg.display = function(value)
-  return "Ratio Leg: "..value
-end
-
--- Dissect: Ratio Leg
-asx_securities_ntp_itch_v1_05.ratio_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.ratio_leg.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.ratio_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.ratio_leg, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Leg
-asx_securities_ntp_itch_v1_05.side_leg = {}
-
--- Size: Side Leg
-asx_securities_ntp_itch_v1_05.side_leg.size = 1
-
--- Display: Side Leg
-asx_securities_ntp_itch_v1_05.side_leg.display = function(value)
-  if value == " " then
-    return "Side Leg: Not Defined (<whitespace>)"
-  end
-  if value == "B" then
-    return "Side Leg: Buy (B)"
-  end
-  if value == "S" then
-    return "Side Leg: Sell (S)"
-  end
-
-  return "Side Leg: Unknown("..value..")"
-end
-
--- Dissect: Side Leg
-asx_securities_ntp_itch_v1_05.side_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.side_leg.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.side_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.side_leg, range, value, display)
-
-  return offset + length, value
-end
-
--- Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg = {}
-
--- Size: Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size = 4
-
--- Display: Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.display = function(value)
-  return "Tradeable Instrument Id Leg: "..value
-end
-
--- Dissect: Tradeable Instrument Id Leg
-asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.tradeable_instrument_id_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.tradeable_instrument_id_leg, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bundle Leg
@@ -3231,203 +4246,6 @@ asx_securities_ntp_itch_v1_05.bundle_leg.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.bundle_leg.fields(buffer, offset, packet, parent, bundle_leg_index)
   end
-end
-
--- Legs
-asx_securities_ntp_itch_v1_05.legs = {}
-
--- Size: Legs
-asx_securities_ntp_itch_v1_05.legs.size = 1
-
--- Display: Legs
-asx_securities_ntp_itch_v1_05.legs.display = function(value)
-  return "Legs: "..value
-end
-
--- Dissect: Legs
-asx_securities_ntp_itch_v1_05.legs.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.legs.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Minimum Tick
-asx_securities_ntp_itch_v1_05.price_minimum_tick = {}
-
--- Size: Price Minimum Tick
-asx_securities_ntp_itch_v1_05.price_minimum_tick.size = 4
-
--- Display: Price Minimum Tick
-asx_securities_ntp_itch_v1_05.price_minimum_tick.display = function(value)
-  return "Price Minimum Tick: "..value
-end
-
--- Dissect: Price Minimum Tick
-asx_securities_ntp_itch_v1_05.price_minimum_tick.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price_minimum_tick.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.price_minimum_tick.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_minimum_tick, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.price_fractional_denominator = {}
-
--- Size: Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.price_fractional_denominator.size = 4
-
--- Display: Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.price_fractional_denominator.display = function(value)
-  return "Price Fractional Denominator: "..value
-end
-
--- Dissect: Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.price_fractional_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price_fractional_denominator.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.price_fractional_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_fractional_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Display Decimals
-asx_securities_ntp_itch_v1_05.price_display_decimals = {}
-
--- Size: Price Display Decimals
-asx_securities_ntp_itch_v1_05.price_display_decimals.size = 1
-
--- Display: Price Display Decimals
-asx_securities_ntp_itch_v1_05.price_display_decimals.display = function(value)
-  return "Price Display Decimals: "..value
-end
-
--- Dissect: Price Display Decimals
-asx_securities_ntp_itch_v1_05.price_display_decimals.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price_display_decimals.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.price_display_decimals.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_display_decimals, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Method
-asx_securities_ntp_itch_v1_05.price_method = {}
-
--- Size: Price Method
-asx_securities_ntp_itch_v1_05.price_method.size = 1
-
--- Display: Price Method
-asx_securities_ntp_itch_v1_05.price_method.display = function(value)
-  if value == 0 then
-    return "Price Method: Net Price (0)"
-  end
-  if value == 2 then
-    return "Price Method: Yield Difference (2)"
-  end
-  if value == 3 then
-    return "Price Method: Individual (3)"
-  end
-  if value == 4 then
-    return "Price Method: Average Price (4)"
-  end
-
-  return "Price Method: Unknown("..value..")"
-end
-
--- Dissect: Price Method
-asx_securities_ntp_itch_v1_05.price_method.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.price_method.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.price_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.price_method, range, value, display)
-
-  return offset + length, value
-end
-
--- Cfi Code
-asx_securities_ntp_itch_v1_05.cfi_code = {}
-
--- Size: Cfi Code
-asx_securities_ntp_itch_v1_05.cfi_code.size = 6
-
--- Display: Cfi Code
-asx_securities_ntp_itch_v1_05.cfi_code.display = function(value)
-  return "Cfi Code: "..value
-end
-
--- Dissect: Cfi Code
-asx_securities_ntp_itch_v1_05.cfi_code.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.cfi_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.cfi_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.cfi_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Long Name
-asx_securities_ntp_itch_v1_05.long_name = {}
-
--- Size: Long Name
-asx_securities_ntp_itch_v1_05.long_name.size = 60
-
--- Display: Long Name
-asx_securities_ntp_itch_v1_05.long_name.display = function(value)
-  return "Long Name: "..value
-end
-
--- Dissect: Long Name
-asx_securities_ntp_itch_v1_05.long_name.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.long_name.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.long_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.long_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Name
-asx_securities_ntp_itch_v1_05.symbol_name = {}
-
--- Size: Symbol Name
-asx_securities_ntp_itch_v1_05.symbol_name.size = 32
-
--- Display: Symbol Name
-asx_securities_ntp_itch_v1_05.symbol_name.display = function(value)
-  return "Symbol Name: "..value
-end
-
--- Dissect: Symbol Name
-asx_securities_ntp_itch_v1_05.symbol_name.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.symbol_name.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.symbol_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.symbol_name, range, value, display)
-
-  return offset + length, value
 end
 
 -- Bundles Symbol Directory
@@ -3658,556 +4476,6 @@ asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.dissect = fun
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.combination_symbol_directory_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Basis Of Quotation
-asx_securities_ntp_itch_v1_05.basis_of_quotation = {}
-
--- Size: Basis Of Quotation
-asx_securities_ntp_itch_v1_05.basis_of_quotation.size = 10
-
--- Display: Basis Of Quotation
-asx_securities_ntp_itch_v1_05.basis_of_quotation.display = function(value)
-  return "Basis Of Quotation: "..value
-end
-
--- Dissect: Basis Of Quotation
-asx_securities_ntp_itch_v1_05.basis_of_quotation.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.basis_of_quotation.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.basis_of_quotation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.basis_of_quotation, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiry Date
-asx_securities_ntp_itch_v1_05.expiry_date = {}
-
--- Size: Expiry Date
-asx_securities_ntp_itch_v1_05.expiry_date.size = 4
-
--- Display: Expiry Date
-asx_securities_ntp_itch_v1_05.expiry_date.display = function(value)
-  return "Expiry Date: "..value
-end
-
--- Dissect: Expiry Date
-asx_securities_ntp_itch_v1_05.expiry_date.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.expiry_date.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.expiry_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.expiry_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Lot Size
-asx_securities_ntp_itch_v1_05.block_lot_size = {}
-
--- Size: Block Lot Size
-asx_securities_ntp_itch_v1_05.block_lot_size.size = 4
-
--- Display: Block Lot Size
-asx_securities_ntp_itch_v1_05.block_lot_size.display = function(value)
-  return "Block Lot Size: "..value
-end
-
--- Dissect: Block Lot Size
-asx_securities_ntp_itch_v1_05.block_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.block_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.block_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.block_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Payments Per Year
-asx_securities_ntp_itch_v1_05.payments_per_year = {}
-
--- Size: Payments Per Year
-asx_securities_ntp_itch_v1_05.payments_per_year.size = 1
-
--- Display: Payments Per Year
-asx_securities_ntp_itch_v1_05.payments_per_year.display = function(value)
-  return "Payments Per Year: "..value
-end
-
--- Dissect: Payments Per Year
-asx_securities_ntp_itch_v1_05.payments_per_year.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.payments_per_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.payments_per_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.payments_per_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Coupon Rate
-asx_securities_ntp_itch_v1_05.coupon_rate = {}
-
--- Size: Coupon Rate
-asx_securities_ntp_itch_v1_05.coupon_rate.size = 2
-
--- Display: Coupon Rate
-asx_securities_ntp_itch_v1_05.coupon_rate.display = function(value)
-  return "Coupon Rate: "..value
-end
-
--- Dissect: Coupon Rate
-asx_securities_ntp_itch_v1_05.coupon_rate.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.coupon_rate.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.coupon_rate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.coupon_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Value
-asx_securities_ntp_itch_v1_05.maturity_value = {}
-
--- Size: Maturity Value
-asx_securities_ntp_itch_v1_05.maturity_value.size = 1
-
--- Display: Maturity Value
-asx_securities_ntp_itch_v1_05.maturity_value.display = function(value)
-  return "Maturity Value: "..value
-end
-
--- Dissect: Maturity Value
-asx_securities_ntp_itch_v1_05.maturity_value.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.maturity_value.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.maturity_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.maturity_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size Or Face Value
-asx_securities_ntp_itch_v1_05.lot_size_or_face_value = {}
-
--- Size: Lot Size Or Face Value
-asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size = 8
-
--- Display: Lot Size Or Face Value
-asx_securities_ntp_itch_v1_05.lot_size_or_face_value.display = function(value)
-  return "Lot Size Or Face Value: "..value
-end
-
--- Dissect: Lot Size Or Face Value
-asx_securities_ntp_itch_v1_05.lot_size_or_face_value.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.lot_size_or_face_value.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.lot_size_or_face_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.lot_size_or_face_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-asx_securities_ntp_itch_v1_05.currency = {}
-
--- Size: Currency
-asx_securities_ntp_itch_v1_05.currency.size = 3
-
--- Display: Currency
-asx_securities_ntp_itch_v1_05.currency.display = function(value)
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-asx_securities_ntp_itch_v1_05.currency.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Volatility
-asx_securities_ntp_itch_v1_05.volatility = {}
-
--- Size: Volatility
-asx_securities_ntp_itch_v1_05.volatility.size = 8
-
--- Display: Volatility
-asx_securities_ntp_itch_v1_05.volatility.display = function(value)
-  return "Volatility: "..value
-end
-
--- Dissect: Volatility
-asx_securities_ntp_itch_v1_05.volatility.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.volatility.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.volatility.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.volatility, range, value, display)
-
-  return offset + length, value
-end
-
--- Prior Day Settlement
-asx_securities_ntp_itch_v1_05.prior_day_settlement = {}
-
--- Size: Prior Day Settlement
-asx_securities_ntp_itch_v1_05.prior_day_settlement.size = 8
-
--- Display: Prior Day Settlement
-asx_securities_ntp_itch_v1_05.prior_day_settlement.display = function(value)
-  return "Prior Day Settlement: "..value
-end
-
--- Dissect: Prior Day Settlement
-asx_securities_ntp_itch_v1_05.prior_day_settlement.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.prior_day_settlement.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.prior_day_settlement.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.prior_day_settlement, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trading Date
-asx_securities_ntp_itch_v1_05.last_trading_date = {}
-
--- Size: Last Trading Date
-asx_securities_ntp_itch_v1_05.last_trading_date.size = 4
-
--- Display: Last Trading Date
-asx_securities_ntp_itch_v1_05.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
-end
-
--- Dissect: Last Trading Date
-asx_securities_ntp_itch_v1_05.last_trading_date.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.last_trading_date.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.last_trading_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.last_trading_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price Minimum Tick
-asx_securities_ntp_itch_v1_05.strike_price_minimum_tick = {}
-
--- Size: Strike Price Minimum Tick
-asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size = 4
-
--- Display: Strike Price Minimum Tick
-asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.display = function(value)
-  return "Strike Price Minimum Tick: "..value
-end
-
--- Dissect: Strike Price Minimum Tick
-asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.strike_price_minimum_tick.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike_price_minimum_tick, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator = {}
-
--- Size: Strike Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size = 4
-
--- Display: Strike Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.display = function(value)
-  return "Strike Price Fractional Denominator: "..value
-end
-
--- Dissect: Strike Price Fractional Denominator
-asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.strike_price_fractional_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike_price_fractional_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price Decimal Position
-asx_securities_ntp_itch_v1_05.strike_price_decimal_position = {}
-
--- Size: Strike Price Decimal Position
-asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size = 1
-
--- Display: Strike Price Decimal Position
-asx_securities_ntp_itch_v1_05.strike_price_decimal_position.display = function(value)
-  return "Strike Price Decimal Position: "..value
-end
-
--- Dissect: Strike Price Decimal Position
-asx_securities_ntp_itch_v1_05.strike_price_decimal_position.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.strike_price_decimal_position.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.strike_price_decimal_position.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike_price_decimal_position, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id = {}
-
--- Size: Underlying Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size = 4
-
--- Display: Underlying Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.display = function(value)
-  return "Underlying Tradeable Instrument Id: "..value
-end
-
--- Dissect: Underlying Tradeable Instrument Id
-asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.underlying_tradeable_instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike
-asx_securities_ntp_itch_v1_05.strike = {}
-
--- Size: Strike
-asx_securities_ntp_itch_v1_05.strike.size = 8
-
--- Display: Strike
-asx_securities_ntp_itch_v1_05.strike.display = function(value)
-  return "Strike: "..value
-end
-
--- Dissect: Strike
-asx_securities_ntp_itch_v1_05.strike.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.strike.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = asx_securities_ntp_itch_v1_05.strike.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.strike, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-asx_securities_ntp_itch_v1_05.option_type = {}
-
--- Size: Option Type
-asx_securities_ntp_itch_v1_05.option_type.size = 1
-
--- Display: Option Type
-asx_securities_ntp_itch_v1_05.option_type.display = function(value)
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-asx_securities_ntp_itch_v1_05.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiry Month
-asx_securities_ntp_itch_v1_05.expiry_month = {}
-
--- Size: Expiry Month
-asx_securities_ntp_itch_v1_05.expiry_month.size = 1
-
--- Display: Expiry Month
-asx_securities_ntp_itch_v1_05.expiry_month.display = function(value)
-  if value == 1 then
-    return "Expiry Month: Jan (1)"
-  end
-  if value == 2 then
-    return "Expiry Month: Feb (2)"
-  end
-  if value == 3 then
-    return "Expiry Month: Mar (3)"
-  end
-  if value == 4 then
-    return "Expiry Month: Apr (4)"
-  end
-  if value == 5 then
-    return "Expiry Month: May (5)"
-  end
-  if value == 6 then
-    return "Expiry Month: Jun (6)"
-  end
-  if value == 7 then
-    return "Expiry Month: Jul (7)"
-  end
-  if value == 8 then
-    return "Expiry Month: Aug (8)"
-  end
-  if value == 9 then
-    return "Expiry Month: Sep (9)"
-  end
-  if value == 10 then
-    return "Expiry Month: Oct (10)"
-  end
-  if value == 11 then
-    return "Expiry Month: Nov (11)"
-  end
-  if value == 12 then
-    return "Expiry Month: Dec (12)"
-  end
-
-  return "Expiry Month: Unknown("..value..")"
-end
-
--- Dissect: Expiry Month
-asx_securities_ntp_itch_v1_05.expiry_month.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.expiry_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.expiry_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.expiry_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiry Year
-asx_securities_ntp_itch_v1_05.expiry_year = {}
-
--- Size: Expiry Year
-asx_securities_ntp_itch_v1_05.expiry_year.size = 2
-
--- Display: Expiry Year
-asx_securities_ntp_itch_v1_05.expiry_year.display = function(value)
-  return "Expiry Year: "..value
-end
-
--- Dissect: Expiry Year
-asx_securities_ntp_itch_v1_05.expiry_year.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.expiry_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.expiry_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.expiry_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument
-asx_securities_ntp_itch_v1_05.instrument = {}
-
--- Size: Instrument
-asx_securities_ntp_itch_v1_05.instrument.size = 6
-
--- Display: Instrument
-asx_securities_ntp_itch_v1_05.instrument.display = function(value)
-  return "Instrument: "..value
-end
-
--- Dissect: Instrument
-asx_securities_ntp_itch_v1_05.instrument.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.instrument.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.instrument.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.instrument, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange
-asx_securities_ntp_itch_v1_05.exchange = {}
-
--- Size: Exchange
-asx_securities_ntp_itch_v1_05.exchange.size = 6
-
--- Display: Exchange
-asx_securities_ntp_itch_v1_05.exchange.display = function(value)
-  return "Exchange: "..value
-end
-
--- Dissect: Exchange
-asx_securities_ntp_itch_v1_05.exchange.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.exchange.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.exchange.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.exchange, range, value, display)
-
-  return offset + length, value
-end
-
--- Isin
-asx_securities_ntp_itch_v1_05.isin = {}
-
--- Size: Isin
-asx_securities_ntp_itch_v1_05.isin.size = 12
-
--- Display: Isin
-asx_securities_ntp_itch_v1_05.isin.display = function(value)
-  return "Isin: "..value
-end
-
--- Dissect: Isin
-asx_securities_ntp_itch_v1_05.isin.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.isin.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_securities_ntp_itch_v1_05.isin.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.isin, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Symbol Directory Message
@@ -4498,33 +4766,6 @@ asx_securities_ntp_itch_v1_05.future_symbol_directory_message.dissect = function
   end
 end
 
--- Event Code
-asx_securities_ntp_itch_v1_05.event_code = {}
-
--- Size: Event Code
-asx_securities_ntp_itch_v1_05.event_code.size = 1
-
--- Display: Event Code
-asx_securities_ntp_itch_v1_05.event_code.display = function(value)
-  if value == "C" then
-    return "Event Code: Business Trade Date Has Ended (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-asx_securities_ntp_itch_v1_05.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- End Of Business Trade Date Message
 asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message = {}
 
@@ -4571,32 +4812,6 @@ asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.dissect = funct
     -- Skip element, add fields directly
     return asx_securities_ntp_itch_v1_05.end_of_business_trade_date_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seconds
-asx_securities_ntp_itch_v1_05.seconds = {}
-
--- Size: Seconds
-asx_securities_ntp_itch_v1_05.seconds.size = 4
-
--- Store: Seconds
-asx_securities_ntp_itch_v1_05.seconds.store = nil
-
--- Display: Seconds
-asx_securities_ntp_itch_v1_05.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-asx_securities_ntp_itch_v1_05.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.seconds, range, value, display)
-
-  return offset + length, value
 end
 
 -- Seconds Message
@@ -4755,131 +4970,6 @@ asx_securities_ntp_itch_v1_05.payload.dissect = function(buffer, offset, packet,
   return offset
 end
 
--- Message Type
-asx_securities_ntp_itch_v1_05.message_type = {}
-
--- Size: Message Type
-asx_securities_ntp_itch_v1_05.message_type.size = 1
-
--- Display: Message Type
-asx_securities_ntp_itch_v1_05.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: End Of Business Trade Date Message (S)"
-  end
-  if value == "f" then
-    return "Message Type: Future Symbol Directory Message (f)"
-  end
-  if value == "h" then
-    return "Message Type: Options Symbol Directory Message (h)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Symbol Directory Message (M)"
-  end
-  if value == "m" then
-    return "Message Type: Bundles Symbol Directory (m)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "X" then
-    return "Message Type: Order Volume Cancelled Message (X)"
-  end
-  if value == "D" then
-    return "Message Type: Order Deleted Message (D)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Auction Order Executed Message (C)"
-  end
-  if value == "e" then
-    return "Message Type: Combination Order Executed Message (e)"
-  end
-  if value == "j" then
-    return "Message Type: Implied Order Added Message (j)"
-  end
-  if value == "l" then
-    return "Message Type: Implied Order Replaced Message (l)"
-  end
-  if value == "k" then
-    return "Message Type: Implied Order Deleted Message (k)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Executed Message (P)"
-  end
-  if value == "p" then
-    return "Message Type: Combination Trade Executed Message (p)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Cancellation Message (B)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Message (Z)"
-  end
-  if value == "t" then
-    return "Message Type: Open High Low Last Trade Adjustment Message (t)"
-  end
-  if value == "Y" then
-    return "Message Type: Market Settlement Message (Y)"
-  end
-  if value == "x" then
-    return "Message Type: Text Message (x)"
-  end
-  if value == "q" then
-    return "Message Type: Request For Quote Message (q)"
-  end
-  if value == "W" then
-    return "Message Type: Anomalous Order Threshold Publish Message (W)"
-  end
-  if value == "V" then
-    return "Message Type: Volume And Open Interest Message (V)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-asx_securities_ntp_itch_v1_05.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_securities_ntp_itch_v1_05.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-asx_securities_ntp_itch_v1_05.message_length = {}
-
--- Size: Message Length
-asx_securities_ntp_itch_v1_05.message_length.size = 2
-
--- Display: Message Length
-asx_securities_ntp_itch_v1_05.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-asx_securities_ntp_itch_v1_05.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 asx_securities_ntp_itch_v1_05.message_header = {}
 
@@ -5013,91 +5103,6 @@ asx_securities_ntp_itch_v1_05.messages.dissect = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Message Count
-asx_securities_ntp_itch_v1_05.message_count = {}
-
--- Size: Message Count
-asx_securities_ntp_itch_v1_05.message_count.size = 2
-
--- Display: Message Count
-asx_securities_ntp_itch_v1_05.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-asx_securities_ntp_itch_v1_05.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = asx_securities_ntp_itch_v1_05.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-asx_securities_ntp_itch_v1_05.sequence_number = {}
-
--- Size: Sequence Number
-asx_securities_ntp_itch_v1_05.sequence_number.size = 8
-
--- Display: Sequence Number
-asx_securities_ntp_itch_v1_05.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-asx_securities_ntp_itch_v1_05.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = asx_securities_ntp_itch_v1_05.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-asx_securities_ntp_itch_v1_05.session = {}
-
--- Size: Session
-asx_securities_ntp_itch_v1_05.session.size = 10
-
--- Display: Session
-asx_securities_ntp_itch_v1_05.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-asx_securities_ntp_itch_v1_05.session.dissect = function(buffer, offset, packet, parent)
-  local length = asx_securities_ntp_itch_v1_05.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = asx_securities_ntp_itch_v1_05.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_securities_ntp_itch_v1_05.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

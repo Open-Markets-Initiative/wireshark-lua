@@ -96,8 +96,133 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Boats CommonHeader Udp 1.1
+-- Boats CommonHeader Udp 1.1 Fields
 -----------------------------------------------------------------------
+
+-- Block Length
+boats_commonheader_udp_v1_1.block_length = {}
+
+-- Size: Block Length
+boats_commonheader_udp_v1_1.block_length.size = 2
+
+-- Display: Block Length
+boats_commonheader_udp_v1_1.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+boats_commonheader_udp_v1_1.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.block_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_commonheader_udp_v1_1.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Header Length
+boats_commonheader_udp_v1_1.header_length = {}
+
+-- Size: Header Length
+boats_commonheader_udp_v1_1.header_length.size = 1
+
+-- Display: Header Length
+boats_commonheader_udp_v1_1.header_length.display = function(value)
+  return "Header Length: "..value
+end
+
+-- Dissect: Header Length
+boats_commonheader_udp_v1_1.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.header_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_commonheader_udp_v1_1.header_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.header_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+boats_commonheader_udp_v1_1.message_count = {}
+
+-- Size: Message Count
+boats_commonheader_udp_v1_1.message_count.size = 2
+
+-- Display: Message Count
+boats_commonheader_udp_v1_1.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+boats_commonheader_udp_v1_1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_commonheader_udp_v1_1.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+boats_commonheader_udp_v1_1.message_length = {}
+
+-- Size: Message Length
+boats_commonheader_udp_v1_1.message_length.size = 2
+
+-- Display: Message Length
+boats_commonheader_udp_v1_1.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+boats_commonheader_udp_v1_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_commonheader_udp_v1_1.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+boats_commonheader_udp_v1_1.message_type = {}
+
+-- Size: Message Type
+boats_commonheader_udp_v1_1.message_type.size = 1
+
+-- Display: Message Type
+boats_commonheader_udp_v1_1.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat Message (0)"
+  end
+  if value == 1 then
+    return "Message Type: Session Shutdown Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Sequenced Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+boats_commonheader_udp_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = boats_commonheader_udp_v1_1.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
 
 -- Payload
 boats_commonheader_udp_v1_1.payload = {}
@@ -116,29 +241,6 @@ boats_commonheader_udp_v1_1.payload.dissect = function(buffer, offset, packet, p
   parent:add(omi_boats_commonheader_udp_v1_1.fields.payload, range, value, display)
 
   return offset + size, value
-end
-
--- Version
-boats_commonheader_udp_v1_1.version = {}
-
--- Size: Version
-boats_commonheader_udp_v1_1.version.size = 2
-
--- Display: Version
-boats_commonheader_udp_v1_1.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-boats_commonheader_udp_v1_1.version.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_commonheader_udp_v1_1.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Schema Id
@@ -160,6 +262,52 @@ boats_commonheader_udp_v1_1.schema_id.dissect = function(buffer, offset, packet,
   local display = boats_commonheader_udp_v1_1.schema_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_boats_commonheader_udp_v1_1.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+boats_commonheader_udp_v1_1.sequence_number = {}
+
+-- Size: Sequence Number
+boats_commonheader_udp_v1_1.sequence_number.size = 8
+
+-- Display: Sequence Number
+boats_commonheader_udp_v1_1.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+boats_commonheader_udp_v1_1.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_commonheader_udp_v1_1.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+boats_commonheader_udp_v1_1.session_id = {}
+
+-- Size: Session Id
+boats_commonheader_udp_v1_1.session_id.size = 8
+
+-- Display: Session Id
+boats_commonheader_udp_v1_1.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+boats_commonheader_udp_v1_1.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = boats_commonheader_udp_v1_1.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -187,28 +335,33 @@ boats_commonheader_udp_v1_1.template_id.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Block Length
-boats_commonheader_udp_v1_1.block_length = {}
+-- Version
+boats_commonheader_udp_v1_1.version = {}
 
--- Size: Block Length
-boats_commonheader_udp_v1_1.block_length.size = 2
+-- Size: Version
+boats_commonheader_udp_v1_1.version.size = 2
 
--- Display: Block Length
-boats_commonheader_udp_v1_1.block_length.display = function(value)
-  return "Block Length: "..value
+-- Display: Version
+boats_commonheader_udp_v1_1.version.display = function(value)
+  return "Version: "..value
 end
 
--- Dissect: Block Length
-boats_commonheader_udp_v1_1.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.block_length.size
+-- Dissect: Version
+boats_commonheader_udp_v1_1.version.dissect = function(buffer, offset, packet, parent)
+  local length = boats_commonheader_udp_v1_1.version.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = boats_commonheader_udp_v1_1.block_length.display(value, buffer, offset, packet, parent)
+  local display = boats_commonheader_udp_v1_1.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.block_length, range, value, display)
+  parent:add(omi_boats_commonheader_udp_v1_1.fields.version, range, value, display)
 
   return offset + length, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect Boats CommonHeader Udp 1.1
+-----------------------------------------------------------------------
 
 -- Sbe Header
 boats_commonheader_udp_v1_1.sbe_header = {}
@@ -307,29 +460,6 @@ boats_commonheader_udp_v1_1.sbe_message.dissect = function(buffer, offset, packe
   end
 end
 
--- Message Length
-boats_commonheader_udp_v1_1.message_length = {}
-
--- Size: Message Length
-boats_commonheader_udp_v1_1.message_length.size = 2
-
--- Display: Message Length
-boats_commonheader_udp_v1_1.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-boats_commonheader_udp_v1_1.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_commonheader_udp_v1_1.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 boats_commonheader_udp_v1_1.message = {}
 
@@ -382,29 +512,6 @@ boats_commonheader_udp_v1_1.message.dissect = function(buffer, offset, packet, p
 
     return index
   end
-end
-
--- Message Count
-boats_commonheader_udp_v1_1.message_count = {}
-
--- Size: Message Count
-boats_commonheader_udp_v1_1.message_count.size = 2
-
--- Display: Message Count
-boats_commonheader_udp_v1_1.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-boats_commonheader_udp_v1_1.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_commonheader_udp_v1_1.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Message
@@ -479,108 +586,6 @@ boats_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset
   end
 
   return offset
-end
-
--- Sequence Number
-boats_commonheader_udp_v1_1.sequence_number = {}
-
--- Size: Sequence Number
-boats_commonheader_udp_v1_1.sequence_number.size = 8
-
--- Display: Sequence Number
-boats_commonheader_udp_v1_1.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-boats_commonheader_udp_v1_1.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_commonheader_udp_v1_1.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-boats_commonheader_udp_v1_1.session_id = {}
-
--- Size: Session Id
-boats_commonheader_udp_v1_1.session_id.size = 8
-
--- Display: Session Id
-boats_commonheader_udp_v1_1.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-boats_commonheader_udp_v1_1.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = boats_commonheader_udp_v1_1.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Header Length
-boats_commonheader_udp_v1_1.header_length = {}
-
--- Size: Header Length
-boats_commonheader_udp_v1_1.header_length.size = 1
-
--- Display: Header Length
-boats_commonheader_udp_v1_1.header_length.display = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-boats_commonheader_udp_v1_1.header_length.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.header_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_commonheader_udp_v1_1.header_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.header_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-boats_commonheader_udp_v1_1.message_type = {}
-
--- Size: Message Type
-boats_commonheader_udp_v1_1.message_type.size = 1
-
--- Display: Message Type
-boats_commonheader_udp_v1_1.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-boats_commonheader_udp_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = boats_commonheader_udp_v1_1.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = boats_commonheader_udp_v1_1.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_boats_commonheader_udp_v1_1.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

@@ -1045,28 +1045,1739 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Futures Streamlined Sbe 5.9
+-- Cme Futures Streamlined Sbe 5.9 Fields
 -----------------------------------------------------------------------
 
--- Security Alt Id Source
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source = {}
+-- Accrual Days
+cme_futures_streamlined_sbe_v5_9.accrual_days = {}
 
--- Size: Security Alt Id Source
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source.size = 1
+-- Size: Accrual Days
+cme_futures_streamlined_sbe_v5_9.accrual_days.size = 4
 
--- Display: Security Alt Id Source
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source.display = function(value)
+-- Display: Accrual Days
+cme_futures_streamlined_sbe_v5_9.accrual_days.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Alt Id Source: No Value"
+  if value == 4294967295 then
+    return "Accrual Days: No Value"
   end
 
-  return "Security Alt Id Source: "..value
+  return "Accrual Days: "..value
 end
 
--- Dissect: Security Alt Id Source
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_alt_id_source.size
+-- Dissect: Accrual Days
+cme_futures_streamlined_sbe_v5_9.accrual_days.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.accrual_days.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.accrual_days.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.accrual_days, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aggressor Side
+cme_futures_streamlined_sbe_v5_9.aggressor_side = {}
+
+-- Size: Aggressor Side
+cme_futures_streamlined_sbe_v5_9.aggressor_side.size = 1
+
+-- Display: Aggressor Side
+cme_futures_streamlined_sbe_v5_9.aggressor_side.display = function(value)
+  if value == 255 then
+    return "Aggressor Side: No Value"
+  end
+  if value == 0 then
+    return "Aggressor Side: No Aggressor (0)"
+  end
+  if value == 1 then
+    return "Aggressor Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Aggressor Side: Sell (2)"
+  end
+
+  return "Aggressor Side: Unknown("..value..")"
+end
+
+-- Dissect: Aggressor Side
+cme_futures_streamlined_sbe_v5_9.aggressor_side.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.aggressor_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.aggressor_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.aggressor_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Id
+cme_futures_streamlined_sbe_v5_9.appl_id = {}
+
+-- Size: Appl Id
+cme_futures_streamlined_sbe_v5_9.appl_id.size = 2
+
+-- Display: Appl Id
+cme_futures_streamlined_sbe_v5_9.appl_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Appl Id: No Value"
+  end
+
+  return "Appl Id: "..value
+end
+
+-- Dissect: Appl Id
+cme_futures_streamlined_sbe_v5_9.appl_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.appl_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.appl_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.appl_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Batch Total Messages
+cme_futures_streamlined_sbe_v5_9.batch_total_messages = {}
+
+-- Size: Batch Total Messages
+cme_futures_streamlined_sbe_v5_9.batch_total_messages.size = 2
+
+-- Display: Batch Total Messages
+cme_futures_streamlined_sbe_v5_9.batch_total_messages.display = function(value)
+  return "Batch Total Messages: "..value
+end
+
+-- Dissect: Batch Total Messages
+cme_futures_streamlined_sbe_v5_9.batch_total_messages.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.batch_total_messages.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.batch_total_messages.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.batch_total_messages, range, value, display)
+
+  return offset + length, value
+end
+
+-- Batch Total Messages Optional
+cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional = {}
+
+-- Size: Batch Total Messages Optional
+cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.size = 2
+
+-- Display: Batch Total Messages Optional
+cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Batch Total Messages Optional: No Value"
+  end
+
+  return "Batch Total Messages Optional: "..value
+end
+
+-- Dissect: Batch Total Messages Optional
+cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.batch_total_messages_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+cme_futures_streamlined_sbe_v5_9.block_length = {}
+
+-- Size: Block Length
+cme_futures_streamlined_sbe_v5_9.block_length.size = 2
+
+-- Display: Block Length
+cme_futures_streamlined_sbe_v5_9.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+cme_futures_streamlined_sbe_v5_9.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Coupon Rate
+cme_futures_streamlined_sbe_v5_9.coupon_rate = {}
+
+-- Size: Coupon Rate
+cme_futures_streamlined_sbe_v5_9.coupon_rate.size = 4
+
+-- Display: Coupon Rate
+cme_futures_streamlined_sbe_v5_9.coupon_rate.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return "Coupon Rate: No Value"
+  end
+
+  return "Coupon Rate: "..value
+end
+
+-- Translate: Coupon Rate
+cme_futures_streamlined_sbe_v5_9.coupon_rate.translate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
+  return raw/10000
+end
+
+-- Dissect: Coupon Rate
+cme_futures_streamlined_sbe_v5_9.coupon_rate.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.coupon_rate.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = cme_futures_streamlined_sbe_v5_9.coupon_rate.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.coupon_rate.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.coupon_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+cme_futures_streamlined_sbe_v5_9.currency = {}
+
+-- Size: Currency
+cme_futures_streamlined_sbe_v5_9.currency.size = 3
+
+-- Display: Currency
+cme_futures_streamlined_sbe_v5_9.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+cme_futures_streamlined_sbe_v5_9.currency.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Day
+cme_futures_streamlined_sbe_v5_9.day = {}
+
+-- Size: Day
+cme_futures_streamlined_sbe_v5_9.day.size = 1
+
+-- Display: Day
+cme_futures_streamlined_sbe_v5_9.day.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Day: No Value"
+  end
+
+  return "Day: "..value
+end
+
+-- Dissect: Day
+cme_futures_streamlined_sbe_v5_9.day.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.day.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Time Optional
+cme_futures_streamlined_sbe_v5_9.event_time_optional = {}
+
+-- Size: Event Time Optional
+cme_futures_streamlined_sbe_v5_9.event_time_optional.size = 8
+
+-- Display: Event Time Optional
+cme_futures_streamlined_sbe_v5_9.event_time_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Event Time Optional: No Value"
+  end
+
+  return "Event Time Optional: "..value
+end
+
+-- Dissect: Event Time Optional
+cme_futures_streamlined_sbe_v5_9.event_time_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.event_time_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.event_time_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.event_time_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Type Optional
+cme_futures_streamlined_sbe_v5_9.event_type_optional = {}
+
+-- Size: Event Type Optional
+cme_futures_streamlined_sbe_v5_9.event_type_optional.size = 1
+
+-- Display: Event Type Optional
+cme_futures_streamlined_sbe_v5_9.event_type_optional.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Event Type Optional: No Value"
+  end
+
+  return "Event Type Optional: "..value
+end
+
+-- Dissect: Event Type Optional
+cme_futures_streamlined_sbe_v5_9.event_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.event_type_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.event_type_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.event_type_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exponent
+cme_futures_streamlined_sbe_v5_9.exponent = {}
+
+-- Size: Exponent
+cme_futures_streamlined_sbe_v5_9.exponent.size = 1
+
+-- Display: Exponent
+cme_futures_streamlined_sbe_v5_9.exponent.display = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Exponent: No Value"
+  end
+
+  return "Exponent: "..value
+end
+
+-- Dissect: Exponent
+cme_futures_streamlined_sbe_v5_9.exponent.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.exponent.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.exponent.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fed Funds Date
+cme_futures_streamlined_sbe_v5_9.fed_funds_date = {}
+
+-- Size: Fed Funds Date
+cme_futures_streamlined_sbe_v5_9.fed_funds_date.size = 2
+
+-- Display: Fed Funds Date
+cme_futures_streamlined_sbe_v5_9.fed_funds_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Fed Funds Date: No Value"
+  end
+
+  return "Fed Funds Date: "..value
+end
+
+-- Dissect: Fed Funds Date
+cme_futures_streamlined_sbe_v5_9.fed_funds_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.fed_funds_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.fed_funds_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.fed_funds_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Headline
+cme_futures_streamlined_sbe_v5_9.headline = {}
+
+-- Size: Headline
+cme_futures_streamlined_sbe_v5_9.headline.size = 50
+
+-- Display: Headline
+cme_futures_streamlined_sbe_v5_9.headline.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Headline: No Value"
+  end
+
+  return "Headline: "..value
+end
+
+-- Dissect: Headline
+cme_futures_streamlined_sbe_v5_9.headline.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.headline.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.headline.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.headline, range, value, display)
+
+  return offset + length, value
+end
+
+-- Heart Bt Int
+cme_futures_streamlined_sbe_v5_9.heart_bt_int = {}
+
+-- Size: Heart Bt Int
+cme_futures_streamlined_sbe_v5_9.heart_bt_int.size = 1
+
+-- Display: Heart Bt Int
+cme_futures_streamlined_sbe_v5_9.heart_bt_int.display = function(value)
+  return "Heart Bt Int: "..value
+end
+
+-- Dissect: Heart Bt Int
+cme_futures_streamlined_sbe_v5_9.heart_bt_int.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.heart_bt_int.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.heart_bt_int.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.heart_bt_int, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inst Attrib Type
+cme_futures_streamlined_sbe_v5_9.inst_attrib_type = {}
+
+-- Size: Inst Attrib Type
+cme_futures_streamlined_sbe_v5_9.inst_attrib_type.size = 1
+
+-- Display: Inst Attrib Type
+cme_futures_streamlined_sbe_v5_9.inst_attrib_type.display = function(value)
+  return "Inst Attrib Type: "..value
+end
+
+-- Dissect: Inst Attrib Type
+cme_futures_streamlined_sbe_v5_9.inst_attrib_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.inst_attrib_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.inst_attrib_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inst Attrib Value
+cme_futures_streamlined_sbe_v5_9.inst_attrib_value = {}
+
+-- Size: Inst Attrib Value
+cme_futures_streamlined_sbe_v5_9.inst_attrib_value.size = 100
+
+-- Display: Inst Attrib Value
+cme_futures_streamlined_sbe_v5_9.inst_attrib_value.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Inst Attrib Value: No Value"
+  end
+
+  return "Inst Attrib Value: "..value
+end
+
+-- Dissect: Inst Attrib Value
+cme_futures_streamlined_sbe_v5_9.inst_attrib_value.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.inst_attrib_value.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.inst_attrib_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Benchmark Curve Name
+cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name = {}
+
+-- Size: Leg Benchmark Curve Name
+cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.size = 5
+
+-- Display: Leg Benchmark Curve Name
+cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Benchmark Curve Name: No Value"
+  end
+
+  return "Leg Benchmark Curve Name: "..value
+end
+
+-- Dissect: Leg Benchmark Curve Name
+cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_benchmark_curve_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Credit Rating
+cme_futures_streamlined_sbe_v5_9.leg_credit_rating = {}
+
+-- Size: Leg Credit Rating
+cme_futures_streamlined_sbe_v5_9.leg_credit_rating.size = 6
+
+-- Display: Leg Credit Rating
+cme_futures_streamlined_sbe_v5_9.leg_credit_rating.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Credit Rating: No Value"
+  end
+
+  return "Leg Credit Rating: "..value
+end
+
+-- Dissect: Leg Credit Rating
+cme_futures_streamlined_sbe_v5_9.leg_credit_rating.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_credit_rating.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_credit_rating.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_credit_rating, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Currency
+cme_futures_streamlined_sbe_v5_9.leg_currency = {}
+
+-- Size: Leg Currency
+cme_futures_streamlined_sbe_v5_9.leg_currency.size = 3
+
+-- Display: Leg Currency
+cme_futures_streamlined_sbe_v5_9.leg_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Currency: No Value"
+  end
+
+  return "Leg Currency: "..value
+end
+
+-- Dissect: Leg Currency
+cme_futures_streamlined_sbe_v5_9.leg_currency.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Date Offset
+cme_futures_streamlined_sbe_v5_9.leg_date_offset = {}
+
+-- Size: Leg Date Offset
+cme_futures_streamlined_sbe_v5_9.leg_date_offset.size = 1
+
+-- Display: Leg Date Offset
+cme_futures_streamlined_sbe_v5_9.leg_date_offset.display = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Leg Date Offset: No Value"
+  end
+
+  return "Leg Date Offset: "..value
+end
+
+-- Dissect: Leg Date Offset
+cme_futures_streamlined_sbe_v5_9.leg_date_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_date_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_date_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_date_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Id
+cme_futures_streamlined_sbe_v5_9.leg_id = {}
+
+-- Size: Leg Id
+cme_futures_streamlined_sbe_v5_9.leg_id.size = 17
+
+-- Display: Leg Id
+cme_futures_streamlined_sbe_v5_9.leg_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Id: No Value"
+  end
+
+  return "Leg Id: "..value
+end
+
+-- Dissect: Leg Id
+cme_futures_streamlined_sbe_v5_9.leg_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Maturity Date
+cme_futures_streamlined_sbe_v5_9.leg_maturity_date = {}
+
+-- Size: Leg Maturity Date
+cme_futures_streamlined_sbe_v5_9.leg_maturity_date.size = 2
+
+-- Display: Leg Maturity Date
+cme_futures_streamlined_sbe_v5_9.leg_maturity_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Leg Maturity Date: No Value"
+  end
+
+  return "Leg Maturity Date: "..value
+end
+
+-- Dissect: Leg Maturity Date
+cme_futures_streamlined_sbe_v5_9.leg_maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Pay Frequencey
+cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey = {}
+
+-- Size: Leg Pay Frequencey
+cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.size = 3
+
+-- Display: Leg Pay Frequencey
+cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Pay Frequencey: No Value"
+  end
+
+  return "Leg Pay Frequencey: "..value
+end
+
+-- Dissect: Leg Pay Frequencey
+cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_pay_frequencey, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Put Or Call
+cme_futures_streamlined_sbe_v5_9.leg_put_or_call = {}
+
+-- Size: Leg Put Or Call
+cme_futures_streamlined_sbe_v5_9.leg_put_or_call.size = 1
+
+-- Display: Leg Put Or Call
+cme_futures_streamlined_sbe_v5_9.leg_put_or_call.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Leg Put Or Call: No Value"
+  end
+
+  return "Leg Put Or Call: "..value
+end
+
+-- Dissect: Leg Put Or Call
+cme_futures_streamlined_sbe_v5_9.leg_put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty Int 32 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null = {}
+
+-- Size: Leg Ratio Qty Int 32 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size = 4
+
+-- Display: Leg Ratio Qty Int 32 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Leg Ratio Qty Int 32 Null: No Value"
+  end
+
+  return "Leg Ratio Qty Int 32 Null: "..value
+end
+
+-- Dissect: Leg Ratio Qty Int 32 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_ratio_qty_int_32_null, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty u Int 16 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null = {}
+
+-- Size: Leg Ratio Qty u Int 16 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size = 2
+
+-- Display: Leg Ratio Qty u Int 16 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Leg Ratio Qty u Int 16 Null: No Value"
+  end
+
+  return "Leg Ratio Qty u Int 16 Null: "..value
+end
+
+-- Dissect: Leg Ratio Qty u Int 16 Null
+cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_ratio_qty_u_int_16_null, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ref Id
+cme_futures_streamlined_sbe_v5_9.leg_ref_id = {}
+
+-- Size: Leg Ref Id
+cme_futures_streamlined_sbe_v5_9.leg_ref_id.size = 17
+
+-- Display: Leg Ref Id
+cme_futures_streamlined_sbe_v5_9.leg_ref_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Ref Id: No Value"
+  end
+
+  return "Leg Ref Id: "..value
+end
+
+-- Dissect: Leg Ref Id
+cme_futures_streamlined_sbe_v5_9.leg_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_ref_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Exchange
+cme_futures_streamlined_sbe_v5_9.leg_security_exchange = {}
+
+-- Size: Leg Security Exchange
+cme_futures_streamlined_sbe_v5_9.leg_security_exchange.size = 4
+
+-- Display: Leg Security Exchange
+cme_futures_streamlined_sbe_v5_9.leg_security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Security Exchange: No Value"
+  end
+
+  return "Leg Security Exchange: "..value
+end
+
+-- Dissect: Leg Security Exchange
+cme_futures_streamlined_sbe_v5_9.leg_security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_security_exchange.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Group
+cme_futures_streamlined_sbe_v5_9.leg_security_group = {}
+
+-- Size: Leg Security Group
+cme_futures_streamlined_sbe_v5_9.leg_security_group.size = 12
+
+-- Display: Leg Security Group
+cme_futures_streamlined_sbe_v5_9.leg_security_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Security Group: No Value"
+  end
+
+  return "Leg Security Group: "..value
+end
+
+-- Dissect: Leg Security Group
+cme_futures_streamlined_sbe_v5_9.leg_security_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_security_group.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_security_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Id
+cme_futures_streamlined_sbe_v5_9.leg_security_id = {}
+
+-- Size: Leg Security Id
+cme_futures_streamlined_sbe_v5_9.leg_security_id.size = 8
+
+-- Display: Leg Security Id
+cme_futures_streamlined_sbe_v5_9.leg_security_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Leg Security Id: No Value"
+  end
+
+  return "Leg Security Id: "..value
+end
+
+-- Dissect: Leg Security Id
+cme_futures_streamlined_sbe_v5_9.leg_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Type
+cme_futures_streamlined_sbe_v5_9.leg_security_type = {}
+
+-- Size: Leg Security Type
+cme_futures_streamlined_sbe_v5_9.leg_security_type.size = 9
+
+-- Display: Leg Security Type
+cme_futures_streamlined_sbe_v5_9.leg_security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Security Type: No Value"
+  end
+
+  return "Leg Security Type: "..value
+end
+
+-- Dissect: Leg Security Type
+cme_futures_streamlined_sbe_v5_9.leg_security_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_security_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- leg Security Type 4
+cme_futures_streamlined_sbe_v5_9.leg_security_type_4 = {}
+
+-- Size: leg Security Type 4
+cme_futures_streamlined_sbe_v5_9.leg_security_type_4.size = 8
+
+-- Display: leg Security Type 4
+cme_futures_streamlined_sbe_v5_9.leg_security_type_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "leg Security Type 4: No Value"
+  end
+
+  return "leg Security Type 4: "..value
+end
+
+-- Dissect: leg Security Type 4
+cme_futures_streamlined_sbe_v5_9.leg_security_type_4.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_security_type_4.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_security_type_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_type_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+cme_futures_streamlined_sbe_v5_9.leg_side = {}
+
+-- Size: Leg Side
+cme_futures_streamlined_sbe_v5_9.leg_side.size = 1
+
+-- Display: Leg Side
+cme_futures_streamlined_sbe_v5_9.leg_side.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Leg Side: No Value"
+  end
+
+  return "Leg Side: "..value
+end
+
+-- Dissect: Leg Side
+cme_futures_streamlined_sbe_v5_9.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Strike Price Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull = {}
+
+-- Size: Leg Strike Price Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.size = 8
+
+-- Display: Leg Strike Price Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Leg Strike Price Pricenull: No Value"
+  end
+
+  return "Leg Strike Price Pricenull: "..value
+end
+
+-- Translate: Leg Strike Price Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Leg Strike Price Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_strike_price_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+cme_futures_streamlined_sbe_v5_9.leg_symbol = {}
+
+-- Size: Leg Symbol
+cme_futures_streamlined_sbe_v5_9.leg_symbol.size = 50
+
+-- Display: Leg Symbol
+cme_futures_streamlined_sbe_v5_9.leg_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Symbol: No Value"
+  end
+
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+cme_futures_streamlined_sbe_v5_9.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure = {}
+
+-- Size: Leg Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.size = 5
+
+-- Display: Leg Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Unit Of Measure: No Value"
+  end
+
+  return "Leg Unit Of Measure: "..value
+end
+
+-- Dissect: Leg Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_unit_of_measure, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency = {}
+
+-- Size: Leg Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.size = 3
+
+-- Display: Leg Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Unit Of Measure Currency: No Value"
+  end
+
+  return "Leg Unit Of Measure Currency: "..value
+end
+
+-- Dissect: Leg Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_unit_of_measure_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Unit Of Measure Qty Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull = {}
+
+-- Size: Leg Unit Of Measure Qty Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size = 8
+
+-- Display: Leg Unit Of Measure Qty Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Leg Unit Of Measure Qty Pricenull: No Value"
+  end
+
+  return "Leg Unit Of Measure Qty Pricenull: "..value
+end
+
+-- Translate: Leg Unit Of Measure Qty Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Leg Unit Of Measure Qty Pricenull
+cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mantissa
+cme_futures_streamlined_sbe_v5_9.mantissa = {}
+
+-- Size: Mantissa
+cme_futures_streamlined_sbe_v5_9.mantissa.size = 8
+
+-- Display: Mantissa
+cme_futures_streamlined_sbe_v5_9.mantissa.display = function(value)
+  -- Check if field has value
+  if value == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Mantissa: No Value"
+  end
+
+  return "Mantissa: "..value
+end
+
+-- Dissect: Mantissa
+cme_futures_streamlined_sbe_v5_9.mantissa.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.mantissa.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = cme_futures_streamlined_sbe_v5_9.mantissa.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.mantissa, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mantissa 32
+cme_futures_streamlined_sbe_v5_9.mantissa_32 = {}
+
+-- Size: Mantissa 32
+cme_futures_streamlined_sbe_v5_9.mantissa_32.size = 4
+
+-- Display: Mantissa 32
+cme_futures_streamlined_sbe_v5_9.mantissa_32.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Mantissa 32: No Value"
+  end
+
+  return "Mantissa 32: "..value
+end
+
+-- Dissect: Mantissa 32
+cme_futures_streamlined_sbe_v5_9.mantissa_32.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.mantissa_32.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.mantissa_32.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.mantissa_32, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Depth
+cme_futures_streamlined_sbe_v5_9.market_depth = {}
+
+-- Size: Market Depth
+cme_futures_streamlined_sbe_v5_9.market_depth.size = 1
+
+-- Display: Market Depth
+cme_futures_streamlined_sbe_v5_9.market_depth.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Market Depth: No Value"
+  end
+
+  return "Market Depth: "..value
+end
+
+-- Dissect: Market Depth
+cme_futures_streamlined_sbe_v5_9.market_depth.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.market_depth.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.market_depth.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.market_depth, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Sector
+cme_futures_streamlined_sbe_v5_9.market_sector = {}
+
+-- Size: Market Sector
+cme_futures_streamlined_sbe_v5_9.market_sector.size = 26
+
+-- Display: Market Sector
+cme_futures_streamlined_sbe_v5_9.market_sector.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Sector: No Value"
+  end
+
+  return "Market Sector: "..value
+end
+
+-- Dissect: Market Sector
+cme_futures_streamlined_sbe_v5_9.market_sector.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.market_sector.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.market_sector.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.market_sector, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+cme_futures_streamlined_sbe_v5_9.maturity_date = {}
+
+-- Size: Maturity Date
+cme_futures_streamlined_sbe_v5_9.maturity_date.size = 2
+
+-- Display: Maturity Date
+cme_futures_streamlined_sbe_v5_9.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Maturity Date: No Value"
+  end
+
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+cme_futures_streamlined_sbe_v5_9.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Code
+cme_futures_streamlined_sbe_v5_9.md_entry_code = {}
+
+-- Size: Md Entry Code
+cme_futures_streamlined_sbe_v5_9.md_entry_code.size = 1
+
+-- Display: Md Entry Code
+cme_futures_streamlined_sbe_v5_9.md_entry_code.display = function(value)
+  if value == 255 then
+    return "Md Entry Code: No Value"
+  end
+  if value == 1 then
+    return "Md Entry Code: Indicative (1)"
+  end
+  if value == 2 then
+    return "Md Entry Code: Pre Market (2)"
+  end
+  if value == 3 then
+    return "Md Entry Code: Preliminary Close (3)"
+  end
+  if value == 4 then
+    return "Md Entry Code: Session Close (4)"
+  end
+  if value == 5 then
+    return "Md Entry Code: Close (5)"
+  end
+
+  return "Md Entry Code: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Code
+cme_futures_streamlined_sbe_v5_9.md_entry_code.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Date
+cme_futures_streamlined_sbe_v5_9.md_entry_date = {}
+
+-- Size: Md Entry Date
+cme_futures_streamlined_sbe_v5_9.md_entry_date.size = 4
+
+-- Display: Md Entry Date
+cme_futures_streamlined_sbe_v5_9.md_entry_date.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Md Entry Date: No Value"
+  end
+
+  return "Md Entry Date: "..value
+end
+
+-- Dissect: Md Entry Date
+cme_futures_streamlined_sbe_v5_9.md_entry_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_date.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Id
+cme_futures_streamlined_sbe_v5_9.md_entry_id = {}
+
+-- Size: Md Entry Id
+cme_futures_streamlined_sbe_v5_9.md_entry_id.size = 26
+
+-- Display: Md Entry Id
+cme_futures_streamlined_sbe_v5_9.md_entry_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Entry Id: No Value"
+  end
+
+  return "Md Entry Id: "..value
+end
+
+-- Dissect: Md Entry Id
+cme_futures_streamlined_sbe_v5_9.md_entry_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Position No
+cme_futures_streamlined_sbe_v5_9.md_entry_position_no = {}
+
+-- Size: Md Entry Position No
+cme_futures_streamlined_sbe_v5_9.md_entry_position_no.size = 4
+
+-- Display: Md Entry Position No
+cme_futures_streamlined_sbe_v5_9.md_entry_position_no.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Md Entry Position No: No Value"
+  end
+
+  return "Md Entry Position No: "..value
+end
+
+-- Dissect: Md Entry Position No
+cme_futures_streamlined_sbe_v5_9.md_entry_position_no.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_position_no.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_position_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_position_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Px
+cme_futures_streamlined_sbe_v5_9.md_entry_px = {}
+
+-- Size: Md Entry Px
+cme_futures_streamlined_sbe_v5_9.md_entry_px.size = 8
+
+-- Display: Md Entry Px
+cme_futures_streamlined_sbe_v5_9.md_entry_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Md Entry Px: No Value"
+  end
+
+  return "Md Entry Px: "..value
+end
+
+-- Translate: Md Entry Px
+cme_futures_streamlined_sbe_v5_9.md_entry_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Md Entry Px
+cme_futures_streamlined_sbe_v5_9.md_entry_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_streamlined_sbe_v5_9.md_entry_px.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Px Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_px_optional = {}
+
+-- Size: Md Entry Px Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.size = 8
+
+-- Display: Md Entry Px Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Md Entry Px Optional: No Value"
+  end
+
+  return "Md Entry Px Optional: "..value
+end
+
+-- Translate: Md Entry Px Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Md Entry Px Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_px_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Size Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_size_optional = {}
+
+-- Size: Md Entry Size Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.size = 8
+
+-- Display: Md Entry Size Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Md Entry Size Optional: No Value"
+  end
+
+  return "Md Entry Size Optional: "..value
+end
+
+-- Dissect: Md Entry Size Optional
+cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_size_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Time
+cme_futures_streamlined_sbe_v5_9.md_entry_time = {}
+
+-- Size: Md Entry Time
+cme_futures_streamlined_sbe_v5_9.md_entry_time.size = 4
+
+-- Display: Md Entry Time
+cme_futures_streamlined_sbe_v5_9.md_entry_time.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Md Entry Time: No Value"
+  end
+
+  return "Md Entry Time: "..value
+end
+
+-- Dissect: Md Entry Time
+cme_futures_streamlined_sbe_v5_9.md_entry_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Type
+cme_futures_streamlined_sbe_v5_9.md_entry_type = {}
+
+-- Size: Md Entry Type
+cme_futures_streamlined_sbe_v5_9.md_entry_type.size = 1
+
+-- Display: Md Entry Type
+cme_futures_streamlined_sbe_v5_9.md_entry_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Entry Type: No Value"
+  end
+
+  return "Md Entry Type: "..value
+end
+
+-- Dissect: Md Entry Type
+cme_futures_streamlined_sbe_v5_9.md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1077,9 +2788,1398 @@ cme_futures_streamlined_sbe_v5_9.security_alt_id_source.dissect = function(buffe
     value = range:string()
   end
 
-  local display = cme_futures_streamlined_sbe_v5_9.security_alt_id_source.display(value, buffer, offset, packet, parent)
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_source, range, value, display)
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Type Indices
+cme_futures_streamlined_sbe_v5_9.md_entry_type_indices = {}
+
+-- Size: Md Entry Type Indices
+cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.size = 1
+
+-- Display: Md Entry Type Indices
+cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Indices: No Value"
+  end
+
+  if value == "0" then
+    return "Md Entry Type Indices: Bid (0)"
+  end
+  if value == "1" then
+    return "Md Entry Type Indices: Offer (1)"
+  end
+  if value == "2" then
+    return "Md Entry Type Indices: Trade (2)"
+  end
+  if value == "3" then
+    return "Md Entry Type Indices: Index Value (3)"
+  end
+  if value == "4" then
+    return "Md Entry Type Indices: Opening Value (4)"
+  end
+  if value == "5" then
+    return "Md Entry Type Indices: Closing Price (5)"
+  end
+  if value == "6" then
+    return "Md Entry Type Indices: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "Md Entry Type Indices: Session High Price (7)"
+  end
+  if value == "8" then
+    return "Md Entry Type Indices: Session Low Price (8)"
+  end
+  if value == "e" then
+    return "Md Entry Type Indices: Trade Volume (e)"
+  end
+
+  return "Md Entry Type Indices: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type Indices
+cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_type_indices, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Feed Type
+cme_futures_streamlined_sbe_v5_9.md_feed_type = {}
+
+-- Size: Md Feed Type
+cme_futures_streamlined_sbe_v5_9.md_feed_type.size = 2
+
+-- Display: Md Feed Type
+cme_futures_streamlined_sbe_v5_9.md_feed_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Feed Type: No Value"
+  end
+
+  return "Md Feed Type: "..value
+end
+
+-- Dissect: Md Feed Type
+cme_futures_streamlined_sbe_v5_9.md_feed_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_feed_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.md_feed_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_feed_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Feed Type 3
+cme_futures_streamlined_sbe_v5_9.md_feed_type_3 = {}
+
+-- Size: Md Feed Type 3
+cme_futures_streamlined_sbe_v5_9.md_feed_type_3.size = 3
+
+-- Display: Md Feed Type 3
+cme_futures_streamlined_sbe_v5_9.md_feed_type_3.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Feed Type 3: No Value"
+  end
+
+  return "Md Feed Type 3: "..value
+end
+
+-- Dissect: Md Feed Type 3
+cme_futures_streamlined_sbe_v5_9.md_feed_type_3.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_feed_type_3.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.md_feed_type_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_feed_type_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Quote Type
+cme_futures_streamlined_sbe_v5_9.md_quote_type = {}
+
+-- Size: Md Quote Type
+cme_futures_streamlined_sbe_v5_9.md_quote_type.size = 1
+
+-- Display: Md Quote Type
+cme_futures_streamlined_sbe_v5_9.md_quote_type.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Md Quote Type: No Value"
+  end
+
+  return "Md Quote Type: "..value
+end
+
+-- Dissect: Md Quote Type
+cme_futures_streamlined_sbe_v5_9.md_quote_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_quote_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.md_quote_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_quote_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Update Action
+cme_futures_streamlined_sbe_v5_9.md_update_action = {}
+
+-- Size: Md Update Action
+cme_futures_streamlined_sbe_v5_9.md_update_action.size = 1
+
+-- Display: Md Update Action
+cme_futures_streamlined_sbe_v5_9.md_update_action.display = function(value)
+  if value == 0 then
+    return "Md Update Action: New (0)"
+  end
+  if value == 1 then
+    return "Md Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "Md Update Action: Delete (2)"
+  end
+  if value == 3 then
+    return "Md Update Action: Delete Thru (3)"
+  end
+  if value == 4 then
+    return "Md Update Action: Delete From (4)"
+  end
+  if value == 5 then
+    return "Md Update Action: Overlay (5)"
+  end
+
+  return "Md Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Md Update Action
+cme_futures_streamlined_sbe_v5_9.md_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_update_action.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.md_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Update Action Char
+cme_futures_streamlined_sbe_v5_9.md_update_action_char = {}
+
+-- Size: Md Update Action Char
+cme_futures_streamlined_sbe_v5_9.md_update_action_char.size = 1
+
+-- Display: Md Update Action Char
+cme_futures_streamlined_sbe_v5_9.md_update_action_char.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Update Action Char: No Value"
+  end
+
+  return "Md Update Action Char: "..value
+end
+
+-- Dissect: Md Update Action Char
+cme_futures_streamlined_sbe_v5_9.md_update_action_char.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.md_update_action_char.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.md_update_action_char.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_update_action_char, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+cme_futures_streamlined_sbe_v5_9.message_size = {}
+
+-- Size: Message Size
+cme_futures_streamlined_sbe_v5_9.message_size.size = 2
+
+-- Display: Message Size
+cme_futures_streamlined_sbe_v5_9.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+cme_futures_streamlined_sbe_v5_9.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Month
+cme_futures_streamlined_sbe_v5_9.month = {}
+
+-- Size: Month
+cme_futures_streamlined_sbe_v5_9.month.size = 1
+
+-- Display: Month
+cme_futures_streamlined_sbe_v5_9.month.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Month: No Value"
+  end
+
+  return "Month: "..value
+end
+
+-- Dissect: Month
+cme_futures_streamlined_sbe_v5_9.month.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.month.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Fixed Payment Date
+cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date = {}
+
+-- Size: Next Fixed Payment Date
+cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.size = 2
+
+-- Display: Next Fixed Payment Date
+cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Next Fixed Payment Date: No Value"
+  end
+
+  return "Next Fixed Payment Date: "..value
+end
+
+-- Dissect: Next Fixed Payment Date
+cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.next_fixed_payment_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Floating Payment Date
+cme_futures_streamlined_sbe_v5_9.next_floating_payment_date = {}
+
+-- Size: Next Floating Payment Date
+cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.size = 2
+
+-- Display: Next Floating Payment Date
+cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Next Floating Payment Date: No Value"
+  end
+
+  return "Next Floating Payment Date: "..value
+end
+
+-- Dissect: Next Floating Payment Date
+cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.next_floating_payment_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nominal
+cme_futures_streamlined_sbe_v5_9.nominal = {}
+
+-- Size: Nominal
+cme_futures_streamlined_sbe_v5_9.nominal.size = 8
+
+-- Display: Nominal
+cme_futures_streamlined_sbe_v5_9.nominal.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Nominal: No Value"
+  end
+
+  return "Nominal: "..value
+end
+
+-- Dissect: Nominal
+cme_futures_streamlined_sbe_v5_9.nominal.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.nominal.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.nominal.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.nominal, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notional Percentage Outstanding
+cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding = {}
+
+-- Size: Notional Percentage Outstanding
+cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.size = 4
+
+-- Display: Notional Percentage Outstanding
+cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return "Notional Percentage Outstanding: No Value"
+  end
+
+  return "Notional Percentage Outstanding: "..value
+end
+
+-- Translate: Notional Percentage Outstanding
+cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.translate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
+  return raw/10000
+end
+
+-- Dissect: Notional Percentage Outstanding
+cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.notional_percentage_outstanding, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+cme_futures_streamlined_sbe_v5_9.num_in_group = {}
+
+-- Size: Num In Group
+cme_futures_streamlined_sbe_v5_9.num_in_group.size = 2
+
+-- Display: Num In Group
+cme_futures_streamlined_sbe_v5_9.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+cme_futures_streamlined_sbe_v5_9.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group 8
+cme_futures_streamlined_sbe_v5_9.num_in_group_8 = {}
+
+-- Size: Num In Group 8
+cme_futures_streamlined_sbe_v5_9.num_in_group_8.size = 1
+
+-- Display: Num In Group 8
+cme_futures_streamlined_sbe_v5_9.num_in_group_8.display = function(value)
+  return "Num In Group 8: "..value
+end
+
+-- Dissect: Num In Group 8
+cme_futures_streamlined_sbe_v5_9.num_in_group_8.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.num_in_group_8.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.num_in_group_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.num_in_group_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Orders
+cme_futures_streamlined_sbe_v5_9.number_of_orders = {}
+
+-- Size: Number Of Orders
+cme_futures_streamlined_sbe_v5_9.number_of_orders.size = 4
+
+-- Display: Number Of Orders
+cme_futures_streamlined_sbe_v5_9.number_of_orders.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Number Of Orders: No Value"
+  end
+
+  return "Number Of Orders: "..value
+end
+
+-- Dissect: Number Of Orders
+cme_futures_streamlined_sbe_v5_9.number_of_orders.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.number_of_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.number_of_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.number_of_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close Settl Flag
+cme_futures_streamlined_sbe_v5_9.open_close_settl_flag = {}
+
+-- Size: Open Close Settl Flag
+cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.size = 1
+
+-- Display: Open Close Settl Flag
+cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.display = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Open Close Settl Flag: No Value"
+  end
+
+  return "Open Close Settl Flag: "..value
+end
+
+-- Dissect: Open Close Settl Flag
+cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.open_close_settl_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+cme_futures_streamlined_sbe_v5_9.order_qty = {}
+
+-- Size: Order Qty
+cme_futures_streamlined_sbe_v5_9.order_qty.size = 8
+
+-- Display: Order Qty
+cme_futures_streamlined_sbe_v5_9.order_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Qty: No Value"
+  end
+
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+cme_futures_streamlined_sbe_v5_9.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Time
+cme_futures_streamlined_sbe_v5_9.orig_time = {}
+
+-- Size: Orig Time
+cme_futures_streamlined_sbe_v5_9.orig_time.size = 8
+
+-- Display: Orig Time
+cme_futures_streamlined_sbe_v5_9.orig_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Orig Time
+cme_futures_streamlined_sbe_v5_9.orig_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.orig_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.orig_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.orig_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number = {}
+
+-- Size: Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size = 4
+
+-- Display: Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
+end
+
+-- Dissect: Packet Sequence Number
+cme_futures_streamlined_sbe_v5_9.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.packet_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id
+cme_futures_streamlined_sbe_v5_9.party_id = {}
+
+-- Size: Party Id
+cme_futures_streamlined_sbe_v5_9.party_id.size = 50
+
+-- Display: Party Id
+cme_futures_streamlined_sbe_v5_9.party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id: No Value"
+  end
+
+  return "Party Id: "..value
+end
+
+-- Dissect: Party Id
+cme_futures_streamlined_sbe_v5_9.party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Role
+cme_futures_streamlined_sbe_v5_9.party_role = {}
+
+-- Size: Party Role
+cme_futures_streamlined_sbe_v5_9.party_role.size = 2
+
+-- Display: Party Role
+cme_futures_streamlined_sbe_v5_9.party_role.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Role: No Value"
+  end
+
+  return "Party Role: "..value
+end
+
+-- Dissect: Party Role
+cme_futures_streamlined_sbe_v5_9.party_role.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.party_role.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.party_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.party_role, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Fixing Date
+cme_futures_streamlined_sbe_v5_9.previous_fixing_date = {}
+
+-- Size: Previous Fixing Date
+cme_futures_streamlined_sbe_v5_9.previous_fixing_date.size = 2
+
+-- Display: Previous Fixing Date
+cme_futures_streamlined_sbe_v5_9.previous_fixing_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Previous Fixing Date: No Value"
+  end
+
+  return "Previous Fixing Date: "..value
+end
+
+-- Dissect: Previous Fixing Date
+cme_futures_streamlined_sbe_v5_9.previous_fixing_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.previous_fixing_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.previous_fixing_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.previous_fixing_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Type
+cme_futures_streamlined_sbe_v5_9.price_type = {}
+
+-- Size: Price Type
+cme_futures_streamlined_sbe_v5_9.price_type.size = 2
+
+-- Display: Price Type
+cme_futures_streamlined_sbe_v5_9.price_type.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Price Type: No Value"
+  end
+
+  return "Price Type: "..value
+end
+
+-- Dissect: Price Type
+cme_futures_streamlined_sbe_v5_9.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.price_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product
+cme_futures_streamlined_sbe_v5_9.product = {}
+
+-- Size: Product
+cme_futures_streamlined_sbe_v5_9.product.size = 1
+
+-- Display: Product
+cme_futures_streamlined_sbe_v5_9.product.display = function(value)
+  return "Product: "..value
+end
+
+-- Dissect: Product
+cme_futures_streamlined_sbe_v5_9.product.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.product.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.product.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.product, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Complex
+cme_futures_streamlined_sbe_v5_9.product_complex = {}
+
+-- Size: Product Complex
+cme_futures_streamlined_sbe_v5_9.product_complex.size = 26
+
+-- Display: Product Complex
+cme_futures_streamlined_sbe_v5_9.product_complex.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product Complex: No Value"
+  end
+
+  return "Product Complex: "..value
+end
+
+-- Dissect: Product Complex
+cme_futures_streamlined_sbe_v5_9.product_complex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.product_complex.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.product_complex.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.product_complex, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Optional
+cme_futures_streamlined_sbe_v5_9.product_optional = {}
+
+-- Size: Product Optional
+cme_futures_streamlined_sbe_v5_9.product_optional.size = 1
+
+-- Display: Product Optional
+cme_futures_streamlined_sbe_v5_9.product_optional.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Product Optional: No Value"
+  end
+
+  return "Product Optional: "..value
+end
+
+-- Dissect: Product Optional
+cme_futures_streamlined_sbe_v5_9.product_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.product_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.product_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.product_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+cme_futures_streamlined_sbe_v5_9.put_or_call = {}
+
+-- Size: Put Or Call
+cme_futures_streamlined_sbe_v5_9.put_or_call.size = 1
+
+-- Display: Put Or Call
+cme_futures_streamlined_sbe_v5_9.put_or_call.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Put Or Call: No Value"
+  end
+
+  return "Put Or Call: "..value
+end
+
+-- Dissect: Put Or Call
+cme_futures_streamlined_sbe_v5_9.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+cme_futures_streamlined_sbe_v5_9.quote_condition = {}
+
+-- Size: Quote Condition
+cme_futures_streamlined_sbe_v5_9.quote_condition.size = 1
+
+-- Display: Quote Condition
+cme_futures_streamlined_sbe_v5_9.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Condition: No Value"
+  end
+
+  return "Quote Condition: "..value
+end
+
+-- Dissect: Quote Condition
+cme_futures_streamlined_sbe_v5_9.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.quote_condition.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id
+cme_futures_streamlined_sbe_v5_9.quote_req_id = {}
+
+-- Size: Quote Req Id
+cme_futures_streamlined_sbe_v5_9.quote_req_id.size = 26
+
+-- Display: Quote Req Id
+cme_futures_streamlined_sbe_v5_9.quote_req_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
+  return "Quote Req Id: "..value
+end
+
+-- Dissect: Quote Req Id
+cme_futures_streamlined_sbe_v5_9.quote_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.quote_req_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.quote_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Type
+cme_futures_streamlined_sbe_v5_9.quote_type = {}
+
+-- Size: Quote Type
+cme_futures_streamlined_sbe_v5_9.quote_type.size = 1
+
+-- Display: Quote Type
+cme_futures_streamlined_sbe_v5_9.quote_type.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Quote Type: No Value"
+  end
+
+  return "Quote Type: "..value
+end
+
+-- Dissect: Quote Type
+cme_futures_streamlined_sbe_v5_9.quote_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.quote_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.quote_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rate Descriptor
+cme_futures_streamlined_sbe_v5_9.rate_descriptor = {}
+
+-- Size: Rate Descriptor
+cme_futures_streamlined_sbe_v5_9.rate_descriptor.size = 8
+
+-- Display: Rate Descriptor
+cme_futures_streamlined_sbe_v5_9.rate_descriptor.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rate Descriptor: No Value"
+  end
+
+  return "Rate Descriptor: "..value
+end
+
+-- Dissect: Rate Descriptor
+cme_futures_streamlined_sbe_v5_9.rate_descriptor.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.rate_descriptor.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.rate_descriptor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rate_descriptor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rate Type
+cme_futures_streamlined_sbe_v5_9.rate_type = {}
+
+-- Size: Rate Type
+cme_futures_streamlined_sbe_v5_9.rate_type.size = 2
+
+-- Display: Rate Type
+cme_futures_streamlined_sbe_v5_9.rate_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rate Type: No Value"
+  end
+
+  return "Rate Type: "..value
+end
+
+-- Dissect: Rate Type
+cme_futures_streamlined_sbe_v5_9.rate_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.rate_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.rate_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rate_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Id 100
+cme_futures_streamlined_sbe_v5_9.reference_id_100 = {}
+
+-- Size: Reference Id 100
+cme_futures_streamlined_sbe_v5_9.reference_id_100.size = 100
+
+-- Display: Reference Id 100
+cme_futures_streamlined_sbe_v5_9.reference_id_100.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reference Id 100: No Value"
+  end
+
+  return "Reference Id 100: "..value
+end
+
+-- Dissect: Reference Id 100
+cme_futures_streamlined_sbe_v5_9.reference_id_100.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.reference_id_100.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.reference_id_100.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reference_id_100, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Id 50
+cme_futures_streamlined_sbe_v5_9.reference_id_50 = {}
+
+-- Size: Reference Id 50
+cme_futures_streamlined_sbe_v5_9.reference_id_50.size = 50
+
+-- Display: Reference Id 50
+cme_futures_streamlined_sbe_v5_9.reference_id_50.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reference Id 50: No Value"
+  end
+
+  return "Reference Id 50: "..value
+end
+
+-- Dissect: Reference Id 50
+cme_futures_streamlined_sbe_v5_9.reference_id_50.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.reference_id_50.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.reference_id_50.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reference_id_50, range, value, display)
+
+  return offset + length, value
+end
+
+-- Related Instrument Type
+cme_futures_streamlined_sbe_v5_9.related_instrument_type = {}
+
+-- Size: Related Instrument Type
+cme_futures_streamlined_sbe_v5_9.related_instrument_type.size = 1
+
+-- Display: Related Instrument Type
+cme_futures_streamlined_sbe_v5_9.related_instrument_type.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Related Instrument Type: No Value"
+  end
+
+  return "Related Instrument Type: "..value
+end
+
+-- Dissect: Related Instrument Type
+cme_futures_streamlined_sbe_v5_9.related_instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.related_instrument_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.related_instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.related_instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Related Security Group
+cme_futures_streamlined_sbe_v5_9.related_security_group = {}
+
+-- Size: Related Security Group
+cme_futures_streamlined_sbe_v5_9.related_security_group.size = 26
+
+-- Display: Related Security Group
+cme_futures_streamlined_sbe_v5_9.related_security_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Related Security Group: No Value"
+  end
+
+  return "Related Security Group: "..value
+end
+
+-- Dissect: Related Security Group
+cme_futures_streamlined_sbe_v5_9.related_security_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.related_security_group.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.related_security_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.related_security_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Related Symbol
+cme_futures_streamlined_sbe_v5_9.related_symbol = {}
+
+-- Size: Related Symbol
+cme_futures_streamlined_sbe_v5_9.related_symbol.size = 50
+
+-- Display: Related Symbol
+cme_futures_streamlined_sbe_v5_9.related_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Related Symbol: No Value"
+  end
+
+  return "Related Symbol: "..value
+end
+
+-- Dissect: Related Symbol
+cme_futures_streamlined_sbe_v5_9.related_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.related_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.related_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.related_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Restructuring Type
+cme_futures_streamlined_sbe_v5_9.restructuring_type = {}
+
+-- Size: Restructuring Type
+cme_futures_streamlined_sbe_v5_9.restructuring_type.size = 2
+
+-- Display: Restructuring Type
+cme_futures_streamlined_sbe_v5_9.restructuring_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Restructuring Type: No Value"
+  end
+
+  return "Restructuring Type: "..value
+end
+
+-- Dissect: Restructuring Type
+cme_futures_streamlined_sbe_v5_9.restructuring_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.restructuring_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.restructuring_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.restructuring_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rpt Seq
+cme_futures_streamlined_sbe_v5_9.rpt_seq = {}
+
+-- Size: Rpt Seq
+cme_futures_streamlined_sbe_v5_9.rpt_seq.size = 4
+
+-- Display: Rpt Seq
+cme_futures_streamlined_sbe_v5_9.rpt_seq.display = function(value)
+  return "Rpt Seq: "..value
+end
+
+-- Dissect: Rpt Seq
+cme_futures_streamlined_sbe_v5_9.rpt_seq.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.rpt_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.rpt_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rpt_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+cme_futures_streamlined_sbe_v5_9.schema_id = {}
+
+-- Size: Schema Id
+cme_futures_streamlined_sbe_v5_9.schema_id.size = 2
+
+-- Display: Schema Id
+cme_futures_streamlined_sbe_v5_9.schema_id.display = function(value)
+  if value == 5 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+cme_futures_streamlined_sbe_v5_9.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sector Group
+cme_futures_streamlined_sbe_v5_9.sector_group = {}
+
+-- Size: Sector Group
+cme_futures_streamlined_sbe_v5_9.sector_group.size = 2
+
+-- Display: Sector Group
+cme_futures_streamlined_sbe_v5_9.sector_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sector Group: No Value"
+  end
+
+  return "Sector Group: "..value
+end
+
+-- Dissect: Sector Group
+cme_futures_streamlined_sbe_v5_9.sector_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.sector_group.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.sector_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.sector_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sector Sub Group
+cme_futures_streamlined_sbe_v5_9.sector_sub_group = {}
+
+-- Size: Sector Sub Group
+cme_futures_streamlined_sbe_v5_9.sector_sub_group.size = 26
+
+-- Display: Sector Sub Group
+cme_futures_streamlined_sbe_v5_9.sector_sub_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sector Sub Group: No Value"
+  end
+
+  return "Sector Sub Group: "..value
+end
+
+-- Dissect: Sector Sub Group
+cme_futures_streamlined_sbe_v5_9.sector_sub_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.sector_sub_group.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.sector_sub_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.sector_sub_group, range, value, display)
 
   return offset + length, value
 end
@@ -1122,6 +4222,1528 @@ cme_futures_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.dissect = fun
 
   return offset + length, value
 end
+
+-- Security Alt Id 50
+cme_futures_streamlined_sbe_v5_9.security_alt_id_50 = {}
+
+-- Size: Security Alt Id 50
+cme_futures_streamlined_sbe_v5_9.security_alt_id_50.size = 26
+
+-- Display: Security Alt Id 50
+cme_futures_streamlined_sbe_v5_9.security_alt_id_50.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id 50: No Value"
+  end
+
+  return "Security Alt Id 50: "..value
+end
+
+-- Dissect: Security Alt Id 50
+cme_futures_streamlined_sbe_v5_9.security_alt_id_50.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_alt_id_50.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_alt_id_50.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_50, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Alt Id Source
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source = {}
+
+-- Size: Security Alt Id Source
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source.size = 1
+
+-- Display: Security Alt Id Source
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id Source: No Value"
+  end
+
+  return "Security Alt Id Source: "..value
+end
+
+-- Dissect: Security Alt Id Source
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_alt_id_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_alt_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Alt Id Source Optional
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional = {}
+
+-- Size: Security Alt Id Source Optional
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.size = 1
+
+-- Display: Security Alt Id Source Optional
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id Source Optional: No Value"
+  end
+
+  return "Security Alt Id Source Optional: "..value
+end
+
+-- Dissect: Security Alt Id Source Optional
+cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_source_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Description
+cme_futures_streamlined_sbe_v5_9.security_description = {}
+
+-- Size: Security Description
+cme_futures_streamlined_sbe_v5_9.security_description.size = 30
+
+-- Display: Security Description
+cme_futures_streamlined_sbe_v5_9.security_description.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Description: No Value"
+  end
+
+  return "Security Description: "..value
+end
+
+-- Dissect: Security Description
+cme_futures_streamlined_sbe_v5_9.security_description.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_description.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_description.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_description, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Exchange
+cme_futures_streamlined_sbe_v5_9.security_exchange = {}
+
+-- Size: Security Exchange
+cme_futures_streamlined_sbe_v5_9.security_exchange.size = 4
+
+-- Display: Security Exchange
+cme_futures_streamlined_sbe_v5_9.security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
+  return "Security Exchange: "..value
+end
+
+-- Dissect: Security Exchange
+cme_futures_streamlined_sbe_v5_9.security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_exchange.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Exchange 4
+cme_futures_streamlined_sbe_v5_9.security_exchange_4 = {}
+
+-- Size: Security Exchange 4
+cme_futures_streamlined_sbe_v5_9.security_exchange_4.size = 4
+
+-- Display: Security Exchange 4
+cme_futures_streamlined_sbe_v5_9.security_exchange_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange 4: No Value"
+  end
+
+  return "Security Exchange 4: "..value
+end
+
+-- Dissect: Security Exchange 4
+cme_futures_streamlined_sbe_v5_9.security_exchange_4.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_exchange_4.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_exchange_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_exchange_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Group 12
+cme_futures_streamlined_sbe_v5_9.security_group_12 = {}
+
+-- Size: Security Group 12
+cme_futures_streamlined_sbe_v5_9.security_group_12.size = 12
+
+-- Display: Security Group 12
+cme_futures_streamlined_sbe_v5_9.security_group_12.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group 12: No Value"
+  end
+
+  return "Security Group 12: "..value
+end
+
+-- Dissect: Security Group 12
+cme_futures_streamlined_sbe_v5_9.security_group_12.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_group_12.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_group_12.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_group_12, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Group 26
+cme_futures_streamlined_sbe_v5_9.security_group_26 = {}
+
+-- Size: Security Group 26
+cme_futures_streamlined_sbe_v5_9.security_group_26.size = 26
+
+-- Display: Security Group 26
+cme_futures_streamlined_sbe_v5_9.security_group_26.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group 26: No Value"
+  end
+
+  return "Security Group 26: "..value
+end
+
+-- Dissect: Security Group 26
+cme_futures_streamlined_sbe_v5_9.security_group_26.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_group_26.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_group_26.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_group_26, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+cme_futures_streamlined_sbe_v5_9.security_id = {}
+
+-- Size: Security Id
+cme_futures_streamlined_sbe_v5_9.security_id.size = 8
+
+-- Display: Security Id
+cme_futures_streamlined_sbe_v5_9.security_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Security Id: No Value"
+  end
+
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+cme_futures_streamlined_sbe_v5_9.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Sub Type
+cme_futures_streamlined_sbe_v5_9.security_sub_type = {}
+
+-- Size: Security Sub Type
+cme_futures_streamlined_sbe_v5_9.security_sub_type.size = 2
+
+-- Display: Security Sub Type
+cme_futures_streamlined_sbe_v5_9.security_sub_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Sub Type: No Value"
+  end
+
+  return "Security Sub Type: "..value
+end
+
+-- Dissect: Security Sub Type
+cme_futures_streamlined_sbe_v5_9.security_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_sub_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_sub_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_sub_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+cme_futures_streamlined_sbe_v5_9.security_type = {}
+
+-- Size: Security Type
+cme_futures_streamlined_sbe_v5_9.security_type.size = 9
+
+-- Display: Security Type
+cme_futures_streamlined_sbe_v5_9.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type: No Value"
+  end
+
+  return "Security Type: "..value
+end
+
+-- Dissect: Security Type
+cme_futures_streamlined_sbe_v5_9.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type 4
+cme_futures_streamlined_sbe_v5_9.security_type_4 = {}
+
+-- Size: Security Type 4
+cme_futures_streamlined_sbe_v5_9.security_type_4.size = 4
+
+-- Display: Security Type 4
+cme_futures_streamlined_sbe_v5_9.security_type_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type 4: No Value"
+  end
+
+  return "Security Type 4: "..value
+end
+
+-- Dissect: Security Type 4
+cme_futures_streamlined_sbe_v5_9.security_type_4.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_type_4.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_type_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_type_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Update Action
+cme_futures_streamlined_sbe_v5_9.security_update_action = {}
+
+-- Size: Security Update Action
+cme_futures_streamlined_sbe_v5_9.security_update_action.size = 1
+
+-- Display: Security Update Action
+cme_futures_streamlined_sbe_v5_9.security_update_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Update Action: No Value"
+  end
+
+  if value == "A" then
+    return "Security Update Action: Add (A)"
+  end
+  if value == "D" then
+    return "Security Update Action: Delete (D)"
+  end
+  if value == "M" then
+    return "Security Update Action: Modify (M)"
+  end
+
+  return "Security Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Security Update Action
+cme_futures_streamlined_sbe_v5_9.security_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.security_update_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.security_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+cme_futures_streamlined_sbe_v5_9.sending_time = {}
+
+-- Size: Sending Time
+cme_futures_streamlined_sbe_v5_9.sending_time.size = 8
+
+-- Display: Sending Time
+cme_futures_streamlined_sbe_v5_9.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+cme_futures_streamlined_sbe_v5_9.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seniority
+cme_futures_streamlined_sbe_v5_9.seniority = {}
+
+-- Size: Seniority
+cme_futures_streamlined_sbe_v5_9.seniority.size = 2
+
+-- Display: Seniority
+cme_futures_streamlined_sbe_v5_9.seniority.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Seniority: No Value"
+  end
+
+  return "Seniority: "..value
+end
+
+-- Dissect: Seniority
+cme_futures_streamlined_sbe_v5_9.seniority.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.seniority.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.seniority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.seniority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settl Date
+cme_futures_streamlined_sbe_v5_9.settl_date = {}
+
+-- Size: Settl Date
+cme_futures_streamlined_sbe_v5_9.settl_date.size = 2
+
+-- Display: Settl Date
+cme_futures_streamlined_sbe_v5_9.settl_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Settl Date: No Value"
+  end
+
+  return "Settl Date: "..value
+end
+
+-- Dissect: Settl Date
+cme_futures_streamlined_sbe_v5_9.settl_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.settl_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.settl_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.settl_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Link Id
+cme_futures_streamlined_sbe_v5_9.strategy_link_id = {}
+
+-- Size: Strategy Link Id
+cme_futures_streamlined_sbe_v5_9.strategy_link_id.size = 26
+
+-- Display: Strategy Link Id
+cme_futures_streamlined_sbe_v5_9.strategy_link_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strategy Link Id: No Value"
+  end
+
+  return "Strategy Link Id: "..value
+end
+
+-- Dissect: Strategy Link Id
+cme_futures_streamlined_sbe_v5_9.strategy_link_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.strategy_link_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.strategy_link_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.strategy_link_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+cme_futures_streamlined_sbe_v5_9.strike_price = {}
+
+-- Size: Strike Price
+cme_futures_streamlined_sbe_v5_9.strike_price.size = 8
+
+-- Display: Strike Price
+cme_futures_streamlined_sbe_v5_9.strike_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Strike Price: No Value"
+  end
+
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+cme_futures_streamlined_sbe_v5_9.strike_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Strike Price
+cme_futures_streamlined_sbe_v5_9.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_streamlined_sbe_v5_9.strike_price.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.strike_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cme_futures_streamlined_sbe_v5_9.symbol = {}
+
+-- Size: Symbol
+cme_futures_streamlined_sbe_v5_9.symbol.size = 50
+
+-- Display: Symbol
+cme_futures_streamlined_sbe_v5_9.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cme_futures_streamlined_sbe_v5_9.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+cme_futures_streamlined_sbe_v5_9.template_id = {}
+
+-- Size: Template Id
+cme_futures_streamlined_sbe_v5_9.template_id.size = 2
+
+-- Display: Template Id
+cme_futures_streamlined_sbe_v5_9.template_id.display = function(value)
+  if value == 312 then
+    return "Template Id: Admin Heartbeat (312)"
+  end
+  if value == 315 then
+    return "Template Id: Admin Login (315)"
+  end
+  if value == 316 then
+    return "Template Id: Admin Logout (316)"
+  end
+  if value == 333 then
+    return "Template Id: Md Incremental Refresh Eris Reference Data And Daily Statistics (333)"
+  end
+  if value == 339 then
+    return "Template Id: Md News Indices (339)"
+  end
+  if value == 340 then
+    return "Template Id: Md Incremental Refresh Trade Blocks 340 (340)"
+  end
+  if value == 345 then
+    return "Template Id: Quote Request (345)"
+  end
+  if value == 347 then
+    return "Template Id: Md Instrument Definition Indices (347)"
+  end
+  if value == 348 then
+    return "Template Id: Md Incremental Refresh Indices (348)"
+  end
+  if value == 349 then
+    return "Template Id: Md Incremental Refresh Trade Blocks 349 (349)"
+  end
+  if value == 351 then
+    return "Template Id: Md Incremental Refresh Eris 351 (351)"
+  end
+  if value == 353 then
+    return "Template Id: Md Incremental Refresh Eris 353 (353)"
+  end
+  if value == 356 then
+    return "Template Id: Md Incremental Refresh Ot C 356 (356)"
+  end
+  if value == 363 then
+    return "Template Id: Md Instrument Definition Eris (363)"
+  end
+  if value == 365 then
+    return "Template Id: Md Incremental Refresh Trade Blocks 365 (365)"
+  end
+  if value == 366 then
+    return "Template Id: Md Incremental Refresh Ot C 366 (366)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+cme_futures_streamlined_sbe_v5_9.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+cme_futures_streamlined_sbe_v5_9.text = {}
+
+-- Size: Text
+cme_futures_streamlined_sbe_v5_9.text.size = 180
+
+-- Display: Text
+cme_futures_streamlined_sbe_v5_9.text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
+  return "Text: "..value
+end
+
+-- Dissect: Text
+cme_futures_streamlined_sbe_v5_9.text.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text 500
+cme_futures_streamlined_sbe_v5_9.text_500 = {}
+
+-- Size: Text 500
+cme_futures_streamlined_sbe_v5_9.text_500.size = 500
+
+-- Display: Text 500
+cme_futures_streamlined_sbe_v5_9.text_500.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text 500: No Value"
+  end
+
+  return "Text 500: "..value
+end
+
+-- Dissect: Text 500
+cme_futures_streamlined_sbe_v5_9.text_500.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.text_500.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.text_500.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.text_500, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+cme_futures_streamlined_sbe_v5_9.trade_date = {}
+
+-- Size: Trade Date
+cme_futures_streamlined_sbe_v5_9.trade_date.size = 2
+
+-- Display: Trade Date
+cme_futures_streamlined_sbe_v5_9.trade_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+cme_futures_streamlined_sbe_v5_9.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+cme_futures_streamlined_sbe_v5_9.trade_id = {}
+
+-- Size: Trade Id
+cme_futures_streamlined_sbe_v5_9.trade_id.size = 4
+
+-- Display: Trade Id
+cme_futures_streamlined_sbe_v5_9.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+cme_futures_streamlined_sbe_v5_9.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_streamlined_sbe_v5_9.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Reference Date
+cme_futures_streamlined_sbe_v5_9.trading_reference_date = {}
+
+-- Size: Trading Reference Date
+cme_futures_streamlined_sbe_v5_9.trading_reference_date.size = 2
+
+-- Display: Trading Reference Date
+cme_futures_streamlined_sbe_v5_9.trading_reference_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Trading Reference Date: No Value"
+  end
+
+  return "Trading Reference Date: "..value
+end
+
+-- Dissect: Trading Reference Date
+cme_futures_streamlined_sbe_v5_9.trading_reference_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.trading_reference_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.trading_reference_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trading_reference_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+cme_futures_streamlined_sbe_v5_9.transact_time = {}
+
+-- Size: Transact Time
+cme_futures_streamlined_sbe_v5_9.transact_time.size = 8
+
+-- Display: Transact Time
+cme_futures_streamlined_sbe_v5_9.transact_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+cme_futures_streamlined_sbe_v5_9.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time Optional
+cme_futures_streamlined_sbe_v5_9.transact_time_optional = {}
+
+-- Size: Transact Time Optional
+cme_futures_streamlined_sbe_v5_9.transact_time_optional.size = 8
+
+-- Display: Transact Time Optional
+cme_futures_streamlined_sbe_v5_9.transact_time_optional.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time Optional: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time Optional
+cme_futures_streamlined_sbe_v5_9.transact_time_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.transact_time_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_streamlined_sbe_v5_9.transact_time_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.transact_time_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Type
+cme_futures_streamlined_sbe_v5_9.trd_type = {}
+
+-- Size: Trd Type
+cme_futures_streamlined_sbe_v5_9.trd_type.size = 1
+
+-- Display: Trd Type
+cme_futures_streamlined_sbe_v5_9.trd_type.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Trd Type: No Value"
+  end
+
+  return "Trd Type: "..value
+end
+
+-- Dissect: Trd Type
+cme_futures_streamlined_sbe_v5_9.trd_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.trd_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.trd_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trd_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Security Exchange Security Exchange
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange = {}
+
+-- Size: Underlying Security Exchange Security Exchange
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size = 4
+
+-- Display: Underlying Security Exchange Security Exchange
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Exchange Security Exchange: No Value"
+  end
+
+  return "Underlying Security Exchange Security Exchange: "..value
+end
+
+-- Dissect: Underlying Security Exchange Security Exchange
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_security_exchange_security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Security Exchange String 4
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4 = {}
+
+-- Size: Underlying Security Exchange String 4
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size = 4
+
+-- Display: Underlying Security Exchange String 4
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Exchange String 4: No Value"
+  end
+
+  return "Underlying Security Exchange String 4: "..value
+end
+
+-- Dissect: Underlying Security Exchange String 4
+cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_security_exchange_string_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Security Type
+cme_futures_streamlined_sbe_v5_9.underlying_security_type = {}
+
+-- Size: Underlying Security Type
+cme_futures_streamlined_sbe_v5_9.underlying_security_type.size = 9
+
+-- Display: Underlying Security Type
+cme_futures_streamlined_sbe_v5_9.underlying_security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Security Type: No Value"
+  end
+
+  return "Underlying Security Type: "..value
+end
+
+-- Dissect: Underlying Security Type
+cme_futures_streamlined_sbe_v5_9.underlying_security_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.underlying_security_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.underlying_security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+cme_futures_streamlined_sbe_v5_9.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+cme_futures_streamlined_sbe_v5_9.underlying_symbol.size = 50
+
+-- Display: Underlying Symbol
+cme_futures_streamlined_sbe_v5_9.underlying_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Symbol: No Value"
+  end
+
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+cme_futures_streamlined_sbe_v5_9.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.underlying_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.unit_of_measure = {}
+
+-- Size: Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.unit_of_measure.size = 5
+
+-- Display: Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.unit_of_measure.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure: No Value"
+  end
+
+  return "Unit Of Measure: "..value
+end
+
+-- Dissect: Unit Of Measure
+cme_futures_streamlined_sbe_v5_9.unit_of_measure.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency = {}
+
+-- Size: Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.size = 3
+
+-- Display: Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure Currency: No Value"
+  end
+
+  return "Unit Of Measure Currency: "..value
+end
+
+-- Dissect: Unit Of Measure Currency
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Measure Currency 3
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3 = {}
+
+-- Size: Unit Of Measure Currency 3
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.size = 3
+
+-- Display: Unit Of Measure Currency 3
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure Currency 3: No Value"
+  end
+
+  return "Unit Of Measure Currency 3: "..value
+end
+
+-- Dissect: Unit Of Measure Currency 3
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_currency_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Measure Qty Optional
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional = {}
+
+-- Size: Unit Of Measure Qty Optional
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.size = 8
+
+-- Display: Unit Of Measure Qty Optional
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Unit Of Measure Qty Optional: No Value"
+  end
+
+  return "Unit Of Measure Qty Optional: "..value
+end
+
+-- Translate: Unit Of Measure Qty Optional
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Unit Of Measure Qty Optional
+cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.translate(raw)
+  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Defined Instrument
+cme_futures_streamlined_sbe_v5_9.user_defined_instrument = {}
+
+-- Size: User Defined Instrument
+cme_futures_streamlined_sbe_v5_9.user_defined_instrument.size = 1
+
+-- Display: User Defined Instrument
+cme_futures_streamlined_sbe_v5_9.user_defined_instrument.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "User Defined Instrument: No Value"
+  end
+
+  return "User Defined Instrument: "..value
+end
+
+-- Dissect: User Defined Instrument
+cme_futures_streamlined_sbe_v5_9.user_defined_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.user_defined_instrument.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.user_defined_instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.user_defined_instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+cme_futures_streamlined_sbe_v5_9.version = {}
+
+-- Size: Version
+cme_futures_streamlined_sbe_v5_9.version.size = 2
+
+-- Display: Version
+cme_futures_streamlined_sbe_v5_9.version.display = function(value)
+  if value == 9 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+cme_futures_streamlined_sbe_v5_9.version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vol Type
+cme_futures_streamlined_sbe_v5_9.vol_type = {}
+
+-- Size: Vol Type
+cme_futures_streamlined_sbe_v5_9.vol_type.size = 2
+
+-- Display: Vol Type
+cme_futures_streamlined_sbe_v5_9.vol_type.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Vol Type: No Value"
+  end
+
+  return "Vol Type: "..value
+end
+
+-- Dissect: Vol Type
+cme_futures_streamlined_sbe_v5_9.vol_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.vol_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.vol_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.vol_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Week
+cme_futures_streamlined_sbe_v5_9.week = {}
+
+-- Size: Week
+cme_futures_streamlined_sbe_v5_9.week.size = 1
+
+-- Display: Week
+cme_futures_streamlined_sbe_v5_9.week.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Week: No Value"
+  end
+
+  return "Week: "..value
+end
+
+-- Dissect: Week
+cme_futures_streamlined_sbe_v5_9.week.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.week.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.week.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.week, range, value, display)
+
+  return offset + length, value
+end
+
+-- Year
+cme_futures_streamlined_sbe_v5_9.year = {}
+
+-- Size: Year
+cme_futures_streamlined_sbe_v5_9.year.size = 2
+
+-- Display: Year
+cme_futures_streamlined_sbe_v5_9.year.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Year: No Value"
+  end
+
+  return "Year: "..value
+end
+
+-- Dissect: Year
+cme_futures_streamlined_sbe_v5_9.year.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.year.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_streamlined_sbe_v5_9.year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Yield Type
+cme_futures_streamlined_sbe_v5_9.yield_type = {}
+
+-- Size: Yield Type
+cme_futures_streamlined_sbe_v5_9.yield_type.size = 8
+
+-- Display: Yield Type
+cme_futures_streamlined_sbe_v5_9.yield_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Yield Type: No Value"
+  end
+
+  return "Yield Type: "..value
+end
+
+-- Dissect: Yield Type
+cme_futures_streamlined_sbe_v5_9.yield_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_streamlined_sbe_v5_9.yield_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_streamlined_sbe_v5_9.yield_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.yield_type, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cme Futures Streamlined Sbe 5.9
+-----------------------------------------------------------------------
 
 -- Otc Security Alt Id Group
 cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_group = {}
@@ -1171,52 +5793,6 @@ cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_group.dissect = function(bu
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_group.fields(buffer, offset, packet, parent, otc_security_alt_id_group_index)
   end
-end
-
--- Num In Group 8
-cme_futures_streamlined_sbe_v5_9.num_in_group_8 = {}
-
--- Size: Num In Group 8
-cme_futures_streamlined_sbe_v5_9.num_in_group_8.size = 1
-
--- Display: Num In Group 8
-cme_futures_streamlined_sbe_v5_9.num_in_group_8.display = function(value)
-  return "Num In Group 8: "..value
-end
-
--- Dissect: Num In Group 8
-cme_futures_streamlined_sbe_v5_9.num_in_group_8.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.num_in_group_8.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.num_in_group_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.num_in_group_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-cme_futures_streamlined_sbe_v5_9.block_length = {}
-
--- Size: Block Length
-cme_futures_streamlined_sbe_v5_9.block_length.size = 2
-
--- Display: Block Length
-cme_futures_streamlined_sbe_v5_9.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-cme_futures_streamlined_sbe_v5_9.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.block_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Group Size
@@ -1320,196 +5896,6 @@ cme_futures_streamlined_sbe_v5_9.otc_security_alt_id_groups.dissect = function(b
   end
 end
 
--- Underlying Security Exchange Security Exchange
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange = {}
-
--- Size: Underlying Security Exchange Security Exchange
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size = 4
-
--- Display: Underlying Security Exchange Security Exchange
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Security Exchange Security Exchange: No Value"
-  end
-
-  return "Underlying Security Exchange Security Exchange: "..value
-end
-
--- Dissect: Underlying Security Exchange Security Exchange
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_security_exchange_security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Security Type
-cme_futures_streamlined_sbe_v5_9.underlying_security_type = {}
-
--- Size: Underlying Security Type
-cme_futures_streamlined_sbe_v5_9.underlying_security_type.size = 9
-
--- Display: Underlying Security Type
-cme_futures_streamlined_sbe_v5_9.underlying_security_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Security Type: No Value"
-  end
-
-  return "Underlying Security Type: "..value
-end
-
--- Dissect: Underlying Security Type
-cme_futures_streamlined_sbe_v5_9.underlying_security_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.underlying_security_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.underlying_security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Week
-cme_futures_streamlined_sbe_v5_9.week = {}
-
--- Size: Week
-cme_futures_streamlined_sbe_v5_9.week.size = 1
-
--- Display: Week
-cme_futures_streamlined_sbe_v5_9.week.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Week: No Value"
-  end
-
-  return "Week: "..value
-end
-
--- Dissect: Week
-cme_futures_streamlined_sbe_v5_9.week.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.week.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.week.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.week, range, value, display)
-
-  return offset + length, value
-end
-
--- Day
-cme_futures_streamlined_sbe_v5_9.day = {}
-
--- Size: Day
-cme_futures_streamlined_sbe_v5_9.day.size = 1
-
--- Display: Day
-cme_futures_streamlined_sbe_v5_9.day.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Day: No Value"
-  end
-
-  return "Day: "..value
-end
-
--- Dissect: Day
-cme_futures_streamlined_sbe_v5_9.day.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.day.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.day, range, value, display)
-
-  return offset + length, value
-end
-
--- Month
-cme_futures_streamlined_sbe_v5_9.month = {}
-
--- Size: Month
-cme_futures_streamlined_sbe_v5_9.month.size = 1
-
--- Display: Month
-cme_futures_streamlined_sbe_v5_9.month.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Month: No Value"
-  end
-
-  return "Month: "..value
-end
-
--- Dissect: Month
-cme_futures_streamlined_sbe_v5_9.month.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.month.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.month, range, value, display)
-
-  return offset + length, value
-end
-
--- Year
-cme_futures_streamlined_sbe_v5_9.year = {}
-
--- Size: Year
-cme_futures_streamlined_sbe_v5_9.year.size = 2
-
--- Display: Year
-cme_futures_streamlined_sbe_v5_9.year.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Year: No Value"
-  end
-
-  return "Year: "..value
-end
-
--- Dissect: Year
-cme_futures_streamlined_sbe_v5_9.year.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.year.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.year, range, value, display)
-
-  return offset + length, value
-end
-
 -- Underlying Maturity Month Year
 cme_futures_streamlined_sbe_v5_9.underlying_maturity_month_year = {}
 
@@ -1560,45 +5946,6 @@ cme_futures_streamlined_sbe_v5_9.underlying_maturity_month_year.dissect = functi
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.underlying_maturity_month_year.fields(buffer, offset, packet, parent)
   end
-end
-
--- Underlying Symbol
-cme_futures_streamlined_sbe_v5_9.underlying_symbol = {}
-
--- Size: Underlying Symbol
-cme_futures_streamlined_sbe_v5_9.underlying_symbol.size = 50
-
--- Display: Underlying Symbol
-cme_futures_streamlined_sbe_v5_9.underlying_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Symbol: No Value"
-  end
-
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-cme_futures_streamlined_sbe_v5_9.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.underlying_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Otc Underlyings Group
@@ -1716,472 +6063,6 @@ cme_futures_streamlined_sbe_v5_9.otc_underlyings_groups.dissect = function(buffe
   end
 end
 
--- Reference Id 100
-cme_futures_streamlined_sbe_v5_9.reference_id_100 = {}
-
--- Size: Reference Id 100
-cme_futures_streamlined_sbe_v5_9.reference_id_100.size = 100
-
--- Display: Reference Id 100
-cme_futures_streamlined_sbe_v5_9.reference_id_100.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reference Id 100: No Value"
-  end
-
-  return "Reference Id 100: "..value
-end
-
--- Dissect: Reference Id 100
-cme_futures_streamlined_sbe_v5_9.reference_id_100.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.reference_id_100.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.reference_id_100.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reference_id_100, range, value, display)
-
-  return offset + length, value
-end
-
--- Vol Type
-cme_futures_streamlined_sbe_v5_9.vol_type = {}
-
--- Size: Vol Type
-cme_futures_streamlined_sbe_v5_9.vol_type.size = 2
-
--- Display: Vol Type
-cme_futures_streamlined_sbe_v5_9.vol_type.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Vol Type: No Value"
-  end
-
-  return "Vol Type: "..value
-end
-
--- Dissect: Vol Type
-cme_futures_streamlined_sbe_v5_9.vol_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.vol_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.vol_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.vol_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Sub Type
-cme_futures_streamlined_sbe_v5_9.security_sub_type = {}
-
--- Size: Security Sub Type
-cme_futures_streamlined_sbe_v5_9.security_sub_type.size = 2
-
--- Display: Security Sub Type
-cme_futures_streamlined_sbe_v5_9.security_sub_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Sub Type: No Value"
-  end
-
-  return "Security Sub Type: "..value
-end
-
--- Dissect: Security Sub Type
-cme_futures_streamlined_sbe_v5_9.security_sub_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_sub_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_sub_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_sub_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Complex
-cme_futures_streamlined_sbe_v5_9.product_complex = {}
-
--- Size: Product Complex
-cme_futures_streamlined_sbe_v5_9.product_complex.size = 26
-
--- Display: Product Complex
-cme_futures_streamlined_sbe_v5_9.product_complex.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Product Complex: No Value"
-  end
-
-  return "Product Complex: "..value
-end
-
--- Dissect: Product Complex
-cme_futures_streamlined_sbe_v5_9.product_complex.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.product_complex.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.product_complex.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.product_complex, range, value, display)
-
-  return offset + length, value
-end
-
--- Sector Sub Group
-cme_futures_streamlined_sbe_v5_9.sector_sub_group = {}
-
--- Size: Sector Sub Group
-cme_futures_streamlined_sbe_v5_9.sector_sub_group.size = 26
-
--- Display: Sector Sub Group
-cme_futures_streamlined_sbe_v5_9.sector_sub_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sector Sub Group: No Value"
-  end
-
-  return "Sector Sub Group: "..value
-end
-
--- Dissect: Sector Sub Group
-cme_futures_streamlined_sbe_v5_9.sector_sub_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.sector_sub_group.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.sector_sub_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.sector_sub_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Sector Group
-cme_futures_streamlined_sbe_v5_9.sector_group = {}
-
--- Size: Sector Group
-cme_futures_streamlined_sbe_v5_9.sector_group.size = 2
-
--- Display: Sector Group
-cme_futures_streamlined_sbe_v5_9.sector_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sector Group: No Value"
-  end
-
-  return "Sector Group: "..value
-end
-
--- Dissect: Sector Group
-cme_futures_streamlined_sbe_v5_9.sector_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.sector_group.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.sector_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.sector_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Sector
-cme_futures_streamlined_sbe_v5_9.market_sector = {}
-
--- Size: Market Sector
-cme_futures_streamlined_sbe_v5_9.market_sector.size = 26
-
--- Display: Market Sector
-cme_futures_streamlined_sbe_v5_9.market_sector.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Market Sector: No Value"
-  end
-
-  return "Market Sector: "..value
-end
-
--- Dissect: Market Sector
-cme_futures_streamlined_sbe_v5_9.market_sector.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.market_sector.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.market_sector.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.market_sector, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-cme_futures_streamlined_sbe_v5_9.quote_condition = {}
-
--- Size: Quote Condition
-cme_futures_streamlined_sbe_v5_9.quote_condition.size = 1
-
--- Display: Quote Condition
-cme_futures_streamlined_sbe_v5_9.quote_condition.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Quote Condition: No Value"
-  end
-
-  return "Quote Condition: "..value
-end
-
--- Dissect: Quote Condition
-cme_futures_streamlined_sbe_v5_9.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.quote_condition.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Settl Date
-cme_futures_streamlined_sbe_v5_9.settl_date = {}
-
--- Size: Settl Date
-cme_futures_streamlined_sbe_v5_9.settl_date.size = 2
-
--- Display: Settl Date
-cme_futures_streamlined_sbe_v5_9.settl_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Settl Date: No Value"
-  end
-
-  return "Settl Date: "..value
-end
-
--- Dissect: Settl Date
-cme_futures_streamlined_sbe_v5_9.settl_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.settl_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.settl_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.settl_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Type
-cme_futures_streamlined_sbe_v5_9.price_type = {}
-
--- Size: Price Type
-cme_futures_streamlined_sbe_v5_9.price_type.size = 2
-
--- Display: Price Type
-cme_futures_streamlined_sbe_v5_9.price_type.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Price Type: No Value"
-  end
-
-  return "Price Type: "..value
-end
-
--- Dissect: Price Type
-cme_futures_streamlined_sbe_v5_9.price_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.price_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Close Settl Flag
-cme_futures_streamlined_sbe_v5_9.open_close_settl_flag = {}
-
--- Size: Open Close Settl Flag
-cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.size = 1
-
--- Display: Open Close Settl Flag
-cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.display = function(value)
-  -- Check if field has value
-  if value == 127 then
-    return "Open Close Settl Flag: No Value"
-  end
-
-  return "Open Close Settl Flag: "..value
-end
-
--- Dissect: Open Close Settl Flag
-cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.open_close_settl_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.open_close_settl_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Date
-cme_futures_streamlined_sbe_v5_9.md_entry_date = {}
-
--- Size: Md Entry Date
-cme_futures_streamlined_sbe_v5_9.md_entry_date.size = 4
-
--- Display: Md Entry Date
-cme_futures_streamlined_sbe_v5_9.md_entry_date.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Md Entry Date: No Value"
-  end
-
-  return "Md Entry Date: "..value
-end
-
--- Dissect: Md Entry Date
-cme_futures_streamlined_sbe_v5_9.md_entry_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_date.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Exponent
-cme_futures_streamlined_sbe_v5_9.exponent = {}
-
--- Size: Exponent
-cme_futures_streamlined_sbe_v5_9.exponent.size = 1
-
--- Display: Exponent
-cme_futures_streamlined_sbe_v5_9.exponent.display = function(value)
-  -- Check if field has value
-  if value == 127 then
-    return "Exponent: No Value"
-  end
-
-  return "Exponent: "..value
-end
-
--- Dissect: Exponent
-cme_futures_streamlined_sbe_v5_9.exponent.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.exponent.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.exponent.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.exponent, range, value, display)
-
-  return offset + length, value
-end
-
--- Mantissa
-cme_futures_streamlined_sbe_v5_9.mantissa = {}
-
--- Size: Mantissa
-cme_futures_streamlined_sbe_v5_9.mantissa.size = 8
-
--- Display: Mantissa
-cme_futures_streamlined_sbe_v5_9.mantissa.display = function(value)
-  -- Check if field has value
-  if value == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Mantissa: No Value"
-  end
-
-  return "Mantissa: "..value
-end
-
--- Dissect: Mantissa
-cme_futures_streamlined_sbe_v5_9.mantissa.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.mantissa.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = cme_futures_streamlined_sbe_v5_9.mantissa.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.mantissa, range, value, display)
-
-  return offset + length, value
-end
-
 -- Unit Of Measure Qty Decimal Optional
 cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional = {}
 
@@ -2233,84 +6114,6 @@ cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional.dissect = 
   end
 end
 
--- Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency = {}
-
--- Size: Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.size = 3
-
--- Display: Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Unit Of Measure Currency: No Value"
-  end
-
-  return "Unit Of Measure Currency: "..value
-end
-
--- Dissect: Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.unit_of_measure = {}
-
--- Size: Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.unit_of_measure.size = 5
-
--- Display: Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.unit_of_measure.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Unit Of Measure: No Value"
-  end
-
-  return "Unit Of Measure: "..value
-end
-
--- Dissect: Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.unit_of_measure.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure, range, value, display)
-
-  return offset + length, value
-end
-
 -- Strike Price Decimal Optional
 cme_futures_streamlined_sbe_v5_9.strike_price_decimal_optional = {}
 
@@ -2360,285 +6163,6 @@ cme_futures_streamlined_sbe_v5_9.strike_price_decimal_optional.dissect = functio
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.strike_price_decimal_optional.fields(buffer, offset, packet, parent)
   end
-end
-
--- Put Or Call
-cme_futures_streamlined_sbe_v5_9.put_or_call = {}
-
--- Size: Put Or Call
-cme_futures_streamlined_sbe_v5_9.put_or_call.size = 1
-
--- Display: Put Or Call
-cme_futures_streamlined_sbe_v5_9.put_or_call.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Put Or Call: No Value"
-  end
-
-  return "Put Or Call: "..value
-end
-
--- Dissect: Put Or Call
-cme_futures_streamlined_sbe_v5_9.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Notional Percentage Outstanding
-cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding = {}
-
--- Size: Notional Percentage Outstanding
-cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.size = 4
-
--- Display: Notional Percentage Outstanding
-cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == 2147483647 then
-    return "Notional Percentage Outstanding: No Value"
-  end
-
-  return "Notional Percentage Outstanding: "..value
-end
-
--- Translate: Notional Percentage Outstanding
-cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.translate = function(raw)
-  -- Check null sentinel value
-  if raw == 2147483647 then
-    return 0/0
-  end
-
-  return raw/10000
-end
-
--- Dissect: Notional Percentage Outstanding
-cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.notional_percentage_outstanding.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.notional_percentage_outstanding, range, value, display)
-
-  return offset + length, value
-end
-
--- Seniority
-cme_futures_streamlined_sbe_v5_9.seniority = {}
-
--- Size: Seniority
-cme_futures_streamlined_sbe_v5_9.seniority.size = 2
-
--- Display: Seniority
-cme_futures_streamlined_sbe_v5_9.seniority.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Seniority: No Value"
-  end
-
-  return "Seniority: "..value
-end
-
--- Dissect: Seniority
-cme_futures_streamlined_sbe_v5_9.seniority.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.seniority.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.seniority.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.seniority, range, value, display)
-
-  return offset + length, value
-end
-
--- Restructuring Type
-cme_futures_streamlined_sbe_v5_9.restructuring_type = {}
-
--- Size: Restructuring Type
-cme_futures_streamlined_sbe_v5_9.restructuring_type.size = 2
-
--- Display: Restructuring Type
-cme_futures_streamlined_sbe_v5_9.restructuring_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Restructuring Type: No Value"
-  end
-
-  return "Restructuring Type: "..value
-end
-
--- Dissect: Restructuring Type
-cme_futures_streamlined_sbe_v5_9.restructuring_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.restructuring_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.restructuring_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.restructuring_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Coupon Rate
-cme_futures_streamlined_sbe_v5_9.coupon_rate = {}
-
--- Size: Coupon Rate
-cme_futures_streamlined_sbe_v5_9.coupon_rate.size = 4
-
--- Display: Coupon Rate
-cme_futures_streamlined_sbe_v5_9.coupon_rate.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == 2147483647 then
-    return "Coupon Rate: No Value"
-  end
-
-  return "Coupon Rate: "..value
-end
-
--- Translate: Coupon Rate
-cme_futures_streamlined_sbe_v5_9.coupon_rate.translate = function(raw)
-  -- Check null sentinel value
-  if raw == 2147483647 then
-    return 0/0
-  end
-
-  return raw/10000
-end
-
--- Dissect: Coupon Rate
-cme_futures_streamlined_sbe_v5_9.coupon_rate.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.coupon_rate.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cme_futures_streamlined_sbe_v5_9.coupon_rate.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.coupon_rate.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.coupon_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-cme_futures_streamlined_sbe_v5_9.maturity_date = {}
-
--- Size: Maturity Date
-cme_futures_streamlined_sbe_v5_9.maturity_date.size = 2
-
--- Display: Maturity Date
-cme_futures_streamlined_sbe_v5_9.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Maturity Date: No Value"
-  end
-
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-cme_futures_streamlined_sbe_v5_9.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Optional
-cme_futures_streamlined_sbe_v5_9.product_optional = {}
-
--- Size: Product Optional
-cme_futures_streamlined_sbe_v5_9.product_optional.size = 1
-
--- Display: Product Optional
-cme_futures_streamlined_sbe_v5_9.product_optional.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Product Optional: No Value"
-  end
-
-  return "Product Optional: "..value
-end
-
--- Dissect: Product Optional
-cme_futures_streamlined_sbe_v5_9.product_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.product_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.product_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.product_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Exchange
-cme_futures_streamlined_sbe_v5_9.security_exchange = {}
-
--- Size: Security Exchange
-cme_futures_streamlined_sbe_v5_9.security_exchange.size = 4
-
--- Display: Security Exchange
-cme_futures_streamlined_sbe_v5_9.security_exchange.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Exchange: No Value"
-  end
-
-  return "Security Exchange: "..value
-end
-
--- Dissect: Security Exchange
-cme_futures_streamlined_sbe_v5_9.security_exchange.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_exchange.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_exchange.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_exchange, range, value, display)
-
-  return offset + length, value
 end
 
 -- Maturity Month Year
@@ -2693,123 +6217,6 @@ cme_futures_streamlined_sbe_v5_9.maturity_month_year.dissect = function(buffer, 
   end
 end
 
--- Security Type
-cme_futures_streamlined_sbe_v5_9.security_type = {}
-
--- Size: Security Type
-cme_futures_streamlined_sbe_v5_9.security_type.size = 9
-
--- Display: Security Type
-cme_futures_streamlined_sbe_v5_9.security_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Type: No Value"
-  end
-
-  return "Security Type: "..value
-end
-
--- Dissect: Security Type
-cme_futures_streamlined_sbe_v5_9.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Group 12
-cme_futures_streamlined_sbe_v5_9.security_group_12 = {}
-
--- Size: Security Group 12
-cme_futures_streamlined_sbe_v5_9.security_group_12.size = 12
-
--- Display: Security Group 12
-cme_futures_streamlined_sbe_v5_9.security_group_12.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group 12: No Value"
-  end
-
-  return "Security Group 12: "..value
-end
-
--- Dissect: Security Group 12
-cme_futures_streamlined_sbe_v5_9.security_group_12.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_group_12.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_group_12.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_group_12, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cme_futures_streamlined_sbe_v5_9.symbol = {}
-
--- Size: Symbol
-cme_futures_streamlined_sbe_v5_9.symbol.size = 50
-
--- Display: Symbol
-cme_futures_streamlined_sbe_v5_9.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cme_futures_streamlined_sbe_v5_9.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Entry Size
 cme_futures_streamlined_sbe_v5_9.md_entry_size = {}
 
@@ -2859,104 +6266,6 @@ cme_futures_streamlined_sbe_v5_9.md_entry_size.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.md_entry_size.fields(buffer, offset, packet, parent)
   end
-end
-
--- Md Entry Px
-cme_futures_streamlined_sbe_v5_9.md_entry_px = {}
-
--- Size: Md Entry Px
-cme_futures_streamlined_sbe_v5_9.md_entry_px.size = 8
-
--- Display: Md Entry Px
-cme_futures_streamlined_sbe_v5_9.md_entry_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Md Entry Px: No Value"
-  end
-
-  return "Md Entry Px: "..value
-end
-
--- Translate: Md Entry Px
-cme_futures_streamlined_sbe_v5_9.md_entry_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Md Entry Px
-cme_futures_streamlined_sbe_v5_9.md_entry_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_streamlined_sbe_v5_9.md_entry_px.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Rpt Seq
-cme_futures_streamlined_sbe_v5_9.rpt_seq = {}
-
--- Size: Rpt Seq
-cme_futures_streamlined_sbe_v5_9.rpt_seq.size = 4
-
--- Display: Rpt Seq
-cme_futures_streamlined_sbe_v5_9.rpt_seq.display = function(value)
-  return "Rpt Seq: "..value
-end
-
--- Dissect: Rpt Seq
-cme_futures_streamlined_sbe_v5_9.rpt_seq.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.rpt_seq.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.rpt_seq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rpt_seq, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Type
-cme_futures_streamlined_sbe_v5_9.md_entry_type = {}
-
--- Size: Md Entry Type
-cme_futures_streamlined_sbe_v5_9.md_entry_type.size = 1
-
--- Display: Md Entry Type
-cme_futures_streamlined_sbe_v5_9.md_entry_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Md Entry Type: No Value"
-  end
-
-  return "Md Entry Type: "..value
-end
-
--- Dissect: Md Entry Type
-cme_futures_streamlined_sbe_v5_9.md_entry_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Otc Group
@@ -3233,34 +6542,6 @@ cme_futures_streamlined_sbe_v5_9.otc_groups.dissect = function(buffer, offset, p
   end
 end
 
--- Batch Total Messages Optional
-cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional = {}
-
--- Size: Batch Total Messages Optional
-cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.size = 2
-
--- Display: Batch Total Messages Optional
-cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Batch Total Messages Optional: No Value"
-  end
-
-  return "Batch Total Messages Optional: "..value
-end
-
--- Dissect: Batch Total Messages Optional
-cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.batch_total_messages_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.batch_total_messages_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Match Event Indicator
 cme_futures_streamlined_sbe_v5_9.match_event_indicator = {}
 
@@ -3350,61 +6631,6 @@ cme_futures_streamlined_sbe_v5_9.match_event_indicator.dissect = function(buffer
   return offset + size, value
 end
 
--- Trade Date
-cme_futures_streamlined_sbe_v5_9.trade_date = {}
-
--- Size: Trade Date
-cme_futures_streamlined_sbe_v5_9.trade_date.size = 2
-
--- Display: Trade Date
-cme_futures_streamlined_sbe_v5_9.trade_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Trade Date: No Value"
-  end
-
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cme_futures_streamlined_sbe_v5_9.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-cme_futures_streamlined_sbe_v5_9.transact_time = {}
-
--- Size: Transact Time
-cme_futures_streamlined_sbe_v5_9.transact_time.size = 8
-
--- Display: Transact Time
-cme_futures_streamlined_sbe_v5_9.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-cme_futures_streamlined_sbe_v5_9.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Incremental Refresh Ot C 366
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366 = {}
 
@@ -3470,168 +6696,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.dissect = funct
   end
 end
 
--- Leg Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency = {}
-
--- Size: Leg Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.size = 3
-
--- Display: Leg Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Unit Of Measure Currency: No Value"
-  end
-
-  return "Leg Unit Of Measure Currency: "..value
-end
-
--- Dissect: Leg Unit Of Measure Currency
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_unit_of_measure_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Put Or Call
-cme_futures_streamlined_sbe_v5_9.leg_put_or_call = {}
-
--- Size: Leg Put Or Call
-cme_futures_streamlined_sbe_v5_9.leg_put_or_call.size = 1
-
--- Display: Leg Put Or Call
-cme_futures_streamlined_sbe_v5_9.leg_put_or_call.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Leg Put Or Call: No Value"
-  end
-
-  return "Leg Put Or Call: "..value
-end
-
--- Dissect: Leg Put Or Call
-cme_futures_streamlined_sbe_v5_9.leg_put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-cme_futures_streamlined_sbe_v5_9.leg_side = {}
-
--- Size: Leg Side
-cme_futures_streamlined_sbe_v5_9.leg_side.size = 1
-
--- Display: Leg Side
-cme_futures_streamlined_sbe_v5_9.leg_side.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Leg Side: No Value"
-  end
-
-  return "Leg Side: "..value
-end
-
--- Dissect: Leg Side
-cme_futures_streamlined_sbe_v5_9.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty u Int 16 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null = {}
-
--- Size: Leg Ratio Qty u Int 16 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size = 2
-
--- Display: Leg Ratio Qty u Int 16 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Leg Ratio Qty u Int 16 Null: No Value"
-  end
-
-  return "Leg Ratio Qty u Int 16 Null: "..value
-end
-
--- Dissect: Leg Ratio Qty u Int 16 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_ratio_qty_u_int_16_null, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Security Exchange
-cme_futures_streamlined_sbe_v5_9.leg_security_exchange = {}
-
--- Size: Leg Security Exchange
-cme_futures_streamlined_sbe_v5_9.leg_security_exchange.size = 4
-
--- Display: Leg Security Exchange
-cme_futures_streamlined_sbe_v5_9.leg_security_exchange.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Security Exchange: No Value"
-  end
-
-  return "Leg Security Exchange: "..value
-end
-
--- Dissect: Leg Security Exchange
-cme_futures_streamlined_sbe_v5_9.leg_security_exchange.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_security_exchange.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_security_exchange.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Unit Of Measure Qty Decimal 64 Null
 cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null = {}
 
@@ -3681,45 +6745,6 @@ cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.dissect
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure = {}
-
--- Size: Leg Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.size = 5
-
--- Display: Leg Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Unit Of Measure: No Value"
-  end
-
-  return "Leg Unit Of Measure: "..value
-end
-
--- Dissect: Leg Unit Of Measure
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_unit_of_measure, range, value, display)
-
-  return offset + length, value
 end
 
 -- Leg Strike Price Decimal 64 Null
@@ -3773,34 +6798,6 @@ cme_futures_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null.dissect = func
   end
 end
 
--- Leg Maturity Date
-cme_futures_streamlined_sbe_v5_9.leg_maturity_date = {}
-
--- Size: Leg Maturity Date
-cme_futures_streamlined_sbe_v5_9.leg_maturity_date.size = 2
-
--- Display: Leg Maturity Date
-cme_futures_streamlined_sbe_v5_9.leg_maturity_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Leg Maturity Date: No Value"
-  end
-
-  return "Leg Maturity Date: "..value
-end
-
--- Dissect: Leg Maturity Date
-cme_futures_streamlined_sbe_v5_9.leg_maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Maturity Month Year
 cme_futures_streamlined_sbe_v5_9.leg_maturity_month_year = {}
 
@@ -3851,190 +6848,6 @@ cme_futures_streamlined_sbe_v5_9.leg_maturity_month_year.dissect = function(buff
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.leg_maturity_month_year.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Security Type
-cme_futures_streamlined_sbe_v5_9.leg_security_type = {}
-
--- Size: Leg Security Type
-cme_futures_streamlined_sbe_v5_9.leg_security_type.size = 9
-
--- Display: Leg Security Type
-cme_futures_streamlined_sbe_v5_9.leg_security_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Security Type: No Value"
-  end
-
-  return "Leg Security Type: "..value
-end
-
--- Dissect: Leg Security Type
-cme_futures_streamlined_sbe_v5_9.leg_security_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_security_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Id
-cme_futures_streamlined_sbe_v5_9.leg_id = {}
-
--- Size: Leg Id
-cme_futures_streamlined_sbe_v5_9.leg_id.size = 17
-
--- Display: Leg Id
-cme_futures_streamlined_sbe_v5_9.leg_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Id: No Value"
-  end
-
-  return "Leg Id: "..value
-end
-
--- Dissect: Leg Id
-cme_futures_streamlined_sbe_v5_9.leg_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Security Group
-cme_futures_streamlined_sbe_v5_9.leg_security_group = {}
-
--- Size: Leg Security Group
-cme_futures_streamlined_sbe_v5_9.leg_security_group.size = 12
-
--- Display: Leg Security Group
-cme_futures_streamlined_sbe_v5_9.leg_security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Security Group: No Value"
-  end
-
-  return "Leg Security Group: "..value
-end
-
--- Dissect: Leg Security Group
-cme_futures_streamlined_sbe_v5_9.leg_security_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_security_group.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_security_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Security Id
-cme_futures_streamlined_sbe_v5_9.leg_security_id = {}
-
--- Size: Leg Security Id
-cme_futures_streamlined_sbe_v5_9.leg_security_id.size = 8
-
--- Display: Leg Security Id
-cme_futures_streamlined_sbe_v5_9.leg_security_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Leg Security Id: No Value"
-  end
-
-  return "Leg Security Id: "..value
-end
-
--- Dissect: Leg Security Id
-cme_futures_streamlined_sbe_v5_9.leg_security_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Symbol
-cme_futures_streamlined_sbe_v5_9.leg_symbol = {}
-
--- Size: Leg Symbol
-cme_futures_streamlined_sbe_v5_9.leg_symbol.size = 50
-
--- Display: Leg Symbol
-cme_futures_streamlined_sbe_v5_9.leg_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Symbol: No Value"
-  end
-
-  return "Leg Symbol: "..value
-end
-
--- Dissect: Leg Symbol
-cme_futures_streamlined_sbe_v5_9.leg_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Blocks Legs Group
@@ -4196,84 +7009,6 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_legs_groups.dissect = function(buf
   end
 end
 
--- Party Role
-cme_futures_streamlined_sbe_v5_9.party_role = {}
-
--- Size: Party Role
-cme_futures_streamlined_sbe_v5_9.party_role.size = 2
-
--- Display: Party Role
-cme_futures_streamlined_sbe_v5_9.party_role.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Role: No Value"
-  end
-
-  return "Party Role: "..value
-end
-
--- Dissect: Party Role
-cme_futures_streamlined_sbe_v5_9.party_role.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.party_role.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.party_role.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.party_role, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id
-cme_futures_streamlined_sbe_v5_9.party_id = {}
-
--- Size: Party Id
-cme_futures_streamlined_sbe_v5_9.party_id.size = 50
-
--- Display: Party Id
-cme_futures_streamlined_sbe_v5_9.party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Id: No Value"
-  end
-
-  return "Party Id: "..value
-end
-
--- Dissect: Party Id
-cme_futures_streamlined_sbe_v5_9.party_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.party_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Blocks Party Ids Group
 cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_group = {}
 
@@ -4379,45 +7114,6 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.dissect = functio
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.trade_blocks_party_ids_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Underlying Security Exchange String 4
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4 = {}
-
--- Size: Underlying Security Exchange String 4
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size = 4
-
--- Display: Underlying Security Exchange String 4
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Security Exchange String 4: No Value"
-  end
-
-  return "Underlying Security Exchange String 4: "..value
-end
-
--- Dissect: Underlying Security Exchange String 4
-cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.underlying_security_exchange_string_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.underlying_security_exchange_string_4, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Blocks Underlyings Group
@@ -4533,386 +7229,6 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.dissect = funct
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.trade_blocks_underlyings_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Ref Id
-cme_futures_streamlined_sbe_v5_9.leg_ref_id = {}
-
--- Size: Leg Ref Id
-cme_futures_streamlined_sbe_v5_9.leg_ref_id.size = 17
-
--- Display: Leg Ref Id
-cme_futures_streamlined_sbe_v5_9.leg_ref_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Ref Id: No Value"
-  end
-
-  return "Leg Ref Id: "..value
-end
-
--- Dissect: Leg Ref Id
-cme_futures_streamlined_sbe_v5_9.leg_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_ref_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Link Id
-cme_futures_streamlined_sbe_v5_9.strategy_link_id = {}
-
--- Size: Strategy Link Id
-cme_futures_streamlined_sbe_v5_9.strategy_link_id.size = 26
-
--- Display: Strategy Link Id
-cme_futures_streamlined_sbe_v5_9.strategy_link_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Strategy Link Id: No Value"
-  end
-
-  return "Strategy Link Id: "..value
-end
-
--- Dissect: Strategy Link Id
-cme_futures_streamlined_sbe_v5_9.strategy_link_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.strategy_link_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.strategy_link_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.strategy_link_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Id
-cme_futures_streamlined_sbe_v5_9.md_entry_id = {}
-
--- Size: Md Entry Id
-cme_futures_streamlined_sbe_v5_9.md_entry_id.size = 26
-
--- Display: Md Entry Id
-cme_futures_streamlined_sbe_v5_9.md_entry_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Md Entry Id: No Value"
-  end
-
-  return "Md Entry Id: "..value
-end
-
--- Dissect: Md Entry Id
-cme_futures_streamlined_sbe_v5_9.md_entry_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Type
-cme_futures_streamlined_sbe_v5_9.trd_type = {}
-
--- Size: Trd Type
-cme_futures_streamlined_sbe_v5_9.trd_type.size = 1
-
--- Display: Trd Type
-cme_futures_streamlined_sbe_v5_9.trd_type.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Trd Type: No Value"
-  end
-
-  return "Trd Type: "..value
-end
-
--- Dissect: Trd Type
-cme_futures_streamlined_sbe_v5_9.trd_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.trd_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.trd_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trd_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Of Measure Currency 3
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3 = {}
-
--- Size: Unit Of Measure Currency 3
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.size = 3
-
--- Display: Unit Of Measure Currency 3
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Unit Of Measure Currency 3: No Value"
-  end
-
-  return "Unit Of Measure Currency 3: "..value
-end
-
--- Dissect: Unit Of Measure Currency 3
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_currency_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_currency_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Exchange 4
-cme_futures_streamlined_sbe_v5_9.security_exchange_4 = {}
-
--- Size: Security Exchange 4
-cme_futures_streamlined_sbe_v5_9.security_exchange_4.size = 4
-
--- Display: Security Exchange 4
-cme_futures_streamlined_sbe_v5_9.security_exchange_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Exchange 4: No Value"
-  end
-
-  return "Security Exchange 4: "..value
-end
-
--- Dissect: Security Exchange 4
-cme_futures_streamlined_sbe_v5_9.security_exchange_4.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_exchange_4.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_exchange_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_exchange_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Aggressor Side
-cme_futures_streamlined_sbe_v5_9.aggressor_side = {}
-
--- Size: Aggressor Side
-cme_futures_streamlined_sbe_v5_9.aggressor_side.size = 1
-
--- Display: Aggressor Side
-cme_futures_streamlined_sbe_v5_9.aggressor_side.display = function(value)
-  if value == 255 then
-    return "Aggressor Side: No Value"
-  end
-  if value == 0 then
-    return "Aggressor Side: No Aggressor (0)"
-  end
-  if value == 1 then
-    return "Aggressor Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Aggressor Side: Sell (2)"
-  end
-
-  return "Aggressor Side: Unknown("..value..")"
-end
-
--- Dissect: Aggressor Side
-cme_futures_streamlined_sbe_v5_9.aggressor_side.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.aggressor_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.aggressor_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.aggressor_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-cme_futures_streamlined_sbe_v5_9.trade_id = {}
-
--- Size: Trade Id
-cme_futures_streamlined_sbe_v5_9.trade_id.size = 4
-
--- Display: Trade Id
-cme_futures_streamlined_sbe_v5_9.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-cme_futures_streamlined_sbe_v5_9.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Orders
-cme_futures_streamlined_sbe_v5_9.number_of_orders = {}
-
--- Size: Number Of Orders
-cme_futures_streamlined_sbe_v5_9.number_of_orders.size = 4
-
--- Display: Number Of Orders
-cme_futures_streamlined_sbe_v5_9.number_of_orders.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Number Of Orders: No Value"
-  end
-
-  return "Number Of Orders: "..value
-end
-
--- Dissect: Number Of Orders
-cme_futures_streamlined_sbe_v5_9.number_of_orders.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.number_of_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.number_of_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.number_of_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id
-cme_futures_streamlined_sbe_v5_9.security_id = {}
-
--- Size: Security Id
-cme_futures_streamlined_sbe_v5_9.security_id.size = 8
-
--- Display: Security Id
-cme_futures_streamlined_sbe_v5_9.security_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Security Id: No Value"
-  end
-
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-cme_futures_streamlined_sbe_v5_9.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Update Action
-cme_futures_streamlined_sbe_v5_9.md_update_action = {}
-
--- Size: Md Update Action
-cme_futures_streamlined_sbe_v5_9.md_update_action.size = 1
-
--- Display: Md Update Action
-cme_futures_streamlined_sbe_v5_9.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
-  if value == 3 then
-    return "Md Update Action: Delete Thru (3)"
-  end
-  if value == 4 then
-    return "Md Update Action: Delete From (4)"
-  end
-  if value == 5 then
-    return "Md Update Action: Overlay (5)"
-  end
-
-  return "Md Update Action: Unknown("..value..")"
-end
-
--- Dissect: Md Update Action
-cme_futures_streamlined_sbe_v5_9.md_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_update_action.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.md_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_update_action, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Blocks Group
@@ -5179,56 +7495,6 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_groups.dissect = function(buffer, 
   end
 end
 
--- Batch Total Messages
-cme_futures_streamlined_sbe_v5_9.batch_total_messages = {}
-
--- Size: Batch Total Messages
-cme_futures_streamlined_sbe_v5_9.batch_total_messages.size = 2
-
--- Display: Batch Total Messages
-cme_futures_streamlined_sbe_v5_9.batch_total_messages.display = function(value)
-  return "Batch Total Messages: "..value
-end
-
--- Dissect: Batch Total Messages
-cme_futures_streamlined_sbe_v5_9.batch_total_messages.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.batch_total_messages.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.batch_total_messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.batch_total_messages, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time Optional
-cme_futures_streamlined_sbe_v5_9.transact_time_optional = {}
-
--- Size: Transact Time Optional
-cme_futures_streamlined_sbe_v5_9.transact_time_optional.size = 8
-
--- Display: Transact Time Optional
-cme_futures_streamlined_sbe_v5_9.transact_time_optional.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time Optional: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time Optional
-cme_futures_streamlined_sbe_v5_9.transact_time_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.transact_time_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.transact_time_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.transact_time_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Incremental Refresh Trade Blocks 365
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365 = {}
 
@@ -5292,81 +7558,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.dissect
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.fields(buffer, offset, packet, parent)
   end
-end
-
--- Security Alt Id Source Optional
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional = {}
-
--- Size: Security Alt Id Source Optional
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.size = 1
-
--- Display: Security Alt Id Source Optional
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Alt Id Source Optional: No Value"
-  end
-
-  return "Security Alt Id Source Optional: "..value
-end
-
--- Dissect: Security Alt Id Source Optional
-cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_alt_id_source_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_source_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Alt Id 50
-cme_futures_streamlined_sbe_v5_9.security_alt_id_50 = {}
-
--- Size: Security Alt Id 50
-cme_futures_streamlined_sbe_v5_9.security_alt_id_50.size = 26
-
--- Display: Security Alt Id 50
-cme_futures_streamlined_sbe_v5_9.security_alt_id_50.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Alt Id 50: No Value"
-  end
-
-  return "Security Alt Id 50: "..value
-end
-
--- Dissect: Security Alt Id 50
-cme_futures_streamlined_sbe_v5_9.security_alt_id_50.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_alt_id_50.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_alt_id_50.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_alt_id_50, range, value, display)
-
-  return offset + length, value
 end
 
 -- Eris Security Alt Id Group
@@ -5527,140 +7718,6 @@ cme_futures_streamlined_sbe_v5_9.interpolation_factor.dissect = function(buffer,
   end
 end
 
--- Leg Date Offset
-cme_futures_streamlined_sbe_v5_9.leg_date_offset = {}
-
--- Size: Leg Date Offset
-cme_futures_streamlined_sbe_v5_9.leg_date_offset.size = 1
-
--- Display: Leg Date Offset
-cme_futures_streamlined_sbe_v5_9.leg_date_offset.display = function(value)
-  -- Check if field has value
-  if value == 127 then
-    return "Leg Date Offset: No Value"
-  end
-
-  return "Leg Date Offset: "..value
-end
-
--- Dissect: Leg Date Offset
-cme_futures_streamlined_sbe_v5_9.leg_date_offset.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_date_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_date_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_date_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- leg Security Type 4
-cme_futures_streamlined_sbe_v5_9.leg_security_type_4 = {}
-
--- Size: leg Security Type 4
-cme_futures_streamlined_sbe_v5_9.leg_security_type_4.size = 8
-
--- Display: leg Security Type 4
-cme_futures_streamlined_sbe_v5_9.leg_security_type_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "leg Security Type 4: No Value"
-  end
-
-  return "leg Security Type 4: "..value
-end
-
--- Dissect: leg Security Type 4
-cme_futures_streamlined_sbe_v5_9.leg_security_type_4.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_security_type_4.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_security_type_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_security_type_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Currency
-cme_futures_streamlined_sbe_v5_9.leg_currency = {}
-
--- Size: Leg Currency
-cme_futures_streamlined_sbe_v5_9.leg_currency.size = 3
-
--- Display: Leg Currency
-cme_futures_streamlined_sbe_v5_9.leg_currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Currency: No Value"
-  end
-
-  return "Leg Currency: "..value
-end
-
--- Dissect: Leg Currency
-cme_futures_streamlined_sbe_v5_9.leg_currency.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty Int 32 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null = {}
-
--- Size: Leg Ratio Qty Int 32 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size = 4
-
--- Display: Leg Ratio Qty Int 32 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Leg Ratio Qty Int 32 Null: No Value"
-  end
-
-  return "Leg Ratio Qty Int 32 Null: "..value
-end
-
--- Dissect: Leg Ratio Qty Int 32 Null
-cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_ratio_qty_int_32_null, range, value, display)
-
-  return offset + length, value
-end
-
 -- Previous Fixing Rate
 cme_futures_streamlined_sbe_v5_9.previous_fixing_rate = {}
 
@@ -5710,151 +7767,6 @@ cme_futures_streamlined_sbe_v5_9.previous_fixing_rate.dissect = function(buffer,
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.previous_fixing_rate.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Pay Frequencey
-cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey = {}
-
--- Size: Leg Pay Frequencey
-cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.size = 3
-
--- Display: Leg Pay Frequencey
-cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Pay Frequencey: No Value"
-  end
-
-  return "Leg Pay Frequencey: "..value
-end
-
--- Dissect: Leg Pay Frequencey
-cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_pay_frequencey.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_pay_frequencey, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Fixing Date
-cme_futures_streamlined_sbe_v5_9.previous_fixing_date = {}
-
--- Size: Previous Fixing Date
-cme_futures_streamlined_sbe_v5_9.previous_fixing_date.size = 2
-
--- Display: Previous Fixing Date
-cme_futures_streamlined_sbe_v5_9.previous_fixing_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Previous Fixing Date: No Value"
-  end
-
-  return "Previous Fixing Date: "..value
-end
-
--- Dissect: Previous Fixing Date
-cme_futures_streamlined_sbe_v5_9.previous_fixing_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.previous_fixing_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.previous_fixing_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.previous_fixing_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Rate Descriptor
-cme_futures_streamlined_sbe_v5_9.rate_descriptor = {}
-
--- Size: Rate Descriptor
-cme_futures_streamlined_sbe_v5_9.rate_descriptor.size = 8
-
--- Display: Rate Descriptor
-cme_futures_streamlined_sbe_v5_9.rate_descriptor.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Rate Descriptor: No Value"
-  end
-
-  return "Rate Descriptor: "..value
-end
-
--- Dissect: Rate Descriptor
-cme_futures_streamlined_sbe_v5_9.rate_descriptor.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.rate_descriptor.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.rate_descriptor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rate_descriptor, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Benchmark Curve Name
-cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name = {}
-
--- Size: Leg Benchmark Curve Name
-cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.size = 5
-
--- Display: Leg Benchmark Curve Name
-cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Benchmark Curve Name: No Value"
-  end
-
-  return "Leg Benchmark Curve Name: "..value
-end
-
--- Dissect: Leg Benchmark Curve Name
-cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_benchmark_curve_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_benchmark_curve_name, range, value, display)
-
-  return offset + length, value
 end
 
 -- Eris Legs Group
@@ -6031,62 +7943,6 @@ cme_futures_streamlined_sbe_v5_9.eris_legs_groups.dissect = function(buffer, off
   end
 end
 
--- Event Time Optional
-cme_futures_streamlined_sbe_v5_9.event_time_optional = {}
-
--- Size: Event Time Optional
-cme_futures_streamlined_sbe_v5_9.event_time_optional.size = 8
-
--- Display: Event Time Optional
-cme_futures_streamlined_sbe_v5_9.event_time_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Event Time Optional: No Value"
-  end
-
-  return "Event Time Optional: "..value
-end
-
--- Dissect: Event Time Optional
-cme_futures_streamlined_sbe_v5_9.event_time_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.event_time_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.event_time_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.event_time_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Type Optional
-cme_futures_streamlined_sbe_v5_9.event_type_optional = {}
-
--- Size: Event Type Optional
-cme_futures_streamlined_sbe_v5_9.event_type_optional.size = 1
-
--- Display: Event Type Optional
-cme_futures_streamlined_sbe_v5_9.event_type_optional.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Event Type Optional: No Value"
-  end
-
-  return "Event Type Optional: "..value
-end
-
--- Dissect: Event Type Optional
-cme_futures_streamlined_sbe_v5_9.event_type_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.event_type_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.event_type_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.event_type_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Events Group
 cme_futures_streamlined_sbe_v5_9.events_group = {}
 
@@ -6192,73 +8048,6 @@ cme_futures_streamlined_sbe_v5_9.events_groups.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.events_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Market Depth
-cme_futures_streamlined_sbe_v5_9.market_depth = {}
-
--- Size: Market Depth
-cme_futures_streamlined_sbe_v5_9.market_depth.size = 1
-
--- Display: Market Depth
-cme_futures_streamlined_sbe_v5_9.market_depth.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Market Depth: No Value"
-  end
-
-  return "Market Depth: "..value
-end
-
--- Dissect: Market Depth
-cme_futures_streamlined_sbe_v5_9.market_depth.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.market_depth.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.market_depth.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.market_depth, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Feed Type 3
-cme_futures_streamlined_sbe_v5_9.md_feed_type_3 = {}
-
--- Size: Md Feed Type 3
-cme_futures_streamlined_sbe_v5_9.md_feed_type_3.size = 3
-
--- Display: Md Feed Type 3
-cme_futures_streamlined_sbe_v5_9.md_feed_type_3.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Md Feed Type 3: No Value"
-  end
-
-  return "Md Feed Type 3: "..value
-end
-
--- Dissect: Md Feed Type 3
-cme_futures_streamlined_sbe_v5_9.md_feed_type_3.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_feed_type_3.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.md_feed_type_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_feed_type_3, range, value, display)
-
-  return offset + length, value
 end
 
 -- Eris Feed Types Group
@@ -6368,155 +8157,6 @@ cme_futures_streamlined_sbe_v5_9.eris_feed_types_groups.dissect = function(buffe
   end
 end
 
--- Appl Id
-cme_futures_streamlined_sbe_v5_9.appl_id = {}
-
--- Size: Appl Id
-cme_futures_streamlined_sbe_v5_9.appl_id.size = 2
-
--- Display: Appl Id
-cme_futures_streamlined_sbe_v5_9.appl_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Appl Id: No Value"
-  end
-
-  return "Appl Id: "..value
-end
-
--- Dissect: Appl Id
-cme_futures_streamlined_sbe_v5_9.appl_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.appl_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.appl_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.appl_id, range, value, display)
-
-  return offset + length, value
-end
-
--- User Defined Instrument
-cme_futures_streamlined_sbe_v5_9.user_defined_instrument = {}
-
--- Size: User Defined Instrument
-cme_futures_streamlined_sbe_v5_9.user_defined_instrument.size = 1
-
--- Display: User Defined Instrument
-cme_futures_streamlined_sbe_v5_9.user_defined_instrument.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "User Defined Instrument: No Value"
-  end
-
-  return "User Defined Instrument: "..value
-end
-
--- Dissect: User Defined Instrument
-cme_futures_streamlined_sbe_v5_9.user_defined_instrument.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.user_defined_instrument.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.user_defined_instrument.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.user_defined_instrument, range, value, display)
-
-  return offset + length, value
-end
-
--- Rate Type
-cme_futures_streamlined_sbe_v5_9.rate_type = {}
-
--- Size: Rate Type
-cme_futures_streamlined_sbe_v5_9.rate_type.size = 2
-
--- Display: Rate Type
-cme_futures_streamlined_sbe_v5_9.rate_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Rate Type: No Value"
-  end
-
-  return "Rate Type: "..value
-end
-
--- Dissect: Rate Type
-cme_futures_streamlined_sbe_v5_9.rate_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.rate_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.rate_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.rate_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Update Action
-cme_futures_streamlined_sbe_v5_9.security_update_action = {}
-
--- Size: Security Update Action
-cme_futures_streamlined_sbe_v5_9.security_update_action.size = 1
-
--- Display: Security Update Action
-cme_futures_streamlined_sbe_v5_9.security_update_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Update Action: No Value"
-  end
-
-  if value == "A" then
-    return "Security Update Action: Add (A)"
-  end
-  if value == "D" then
-    return "Security Update Action: Delete (D)"
-  end
-  if value == "M" then
-    return "Security Update Action: Modify (M)"
-  end
-
-  return "Security Update Action: Unknown("..value..")"
-end
-
--- Dissect: Security Update Action
-cme_futures_streamlined_sbe_v5_9.security_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_update_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_update_action, range, value, display)
-
-  return offset + length, value
-end
-
 -- Min Price Increment
 cme_futures_streamlined_sbe_v5_9.min_price_increment = {}
 
@@ -6566,84 +8206,6 @@ cme_futures_streamlined_sbe_v5_9.min_price_increment.dissect = function(buffer, 
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.min_price_increment.fields(buffer, offset, packet, parent)
   end
-end
-
--- Currency
-cme_futures_streamlined_sbe_v5_9.currency = {}
-
--- Size: Currency
-cme_futures_streamlined_sbe_v5_9.currency.size = 3
-
--- Display: Currency
-cme_futures_streamlined_sbe_v5_9.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-cme_futures_streamlined_sbe_v5_9.currency.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type 4
-cme_futures_streamlined_sbe_v5_9.security_type_4 = {}
-
--- Size: Security Type 4
-cme_futures_streamlined_sbe_v5_9.security_type_4.size = 4
-
--- Display: Security Type 4
-cme_futures_streamlined_sbe_v5_9.security_type_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Type 4: No Value"
-  end
-
-  return "Security Type 4: "..value
-end
-
--- Dissect: Security Type 4
-cme_futures_streamlined_sbe_v5_9.security_type_4.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_type_4.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_type_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_type_4, range, value, display)
-
-  return offset + length, value
 end
 
 -- Md Instrument Definition Eris
@@ -6871,45 +8433,6 @@ cme_futures_streamlined_sbe_v5_9.strike_price_decimal.dissect = function(buffer,
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.strike_price_decimal.fields(buffer, offset, packet, parent)
   end
-end
-
--- Md Entry Px Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_px_optional = {}
-
--- Size: Md Entry Px Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.size = 8
-
--- Display: Md Entry Px Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Md Entry Px Optional: No Value"
-  end
-
-  return "Md Entry Px Optional: "..value
-end
-
--- Translate: Md Entry Px Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Md Entry Px Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_px_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_px_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Otc Original Group
@@ -7251,140 +8774,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.dissect = funct
   end
 end
 
--- Md Quote Type
-cme_futures_streamlined_sbe_v5_9.md_quote_type = {}
-
--- Size: Md Quote Type
-cme_futures_streamlined_sbe_v5_9.md_quote_type.size = 1
-
--- Display: Md Quote Type
-cme_futures_streamlined_sbe_v5_9.md_quote_type.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Md Quote Type: No Value"
-  end
-
-  return "Md Quote Type: "..value
-end
-
--- Dissect: Md Quote Type
-cme_futures_streamlined_sbe_v5_9.md_quote_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_quote_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.md_quote_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_quote_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Id 50
-cme_futures_streamlined_sbe_v5_9.reference_id_50 = {}
-
--- Size: Reference Id 50
-cme_futures_streamlined_sbe_v5_9.reference_id_50.size = 50
-
--- Display: Reference Id 50
-cme_futures_streamlined_sbe_v5_9.reference_id_50.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reference Id 50: No Value"
-  end
-
-  return "Reference Id 50: "..value
-end
-
--- Dissect: Reference Id 50
-cme_futures_streamlined_sbe_v5_9.reference_id_50.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.reference_id_50.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.reference_id_50.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.reference_id_50, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Group 26
-cme_futures_streamlined_sbe_v5_9.security_group_26 = {}
-
--- Size: Security Group 26
-cme_futures_streamlined_sbe_v5_9.security_group_26.size = 26
-
--- Display: Security Group 26
-cme_futures_streamlined_sbe_v5_9.security_group_26.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group 26: No Value"
-  end
-
-  return "Security Group 26: "..value
-end
-
--- Dissect: Security Group 26
-cme_futures_streamlined_sbe_v5_9.security_group_26.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_group_26.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_group_26.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_group_26, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Position No
-cme_futures_streamlined_sbe_v5_9.md_entry_position_no = {}
-
--- Size: Md Entry Position No
-cme_futures_streamlined_sbe_v5_9.md_entry_position_no.size = 4
-
--- Display: Md Entry Position No
-cme_futures_streamlined_sbe_v5_9.md_entry_position_no.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Md Entry Position No: No Value"
-  end
-
-  return "Md Entry Position No: "..value
-end
-
--- Dissect: Md Entry Position No
-cme_futures_streamlined_sbe_v5_9.md_entry_position_no.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_position_no.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_position_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_position_no, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cal Fut Px
 cme_futures_streamlined_sbe_v5_9.cal_fut_px = {}
 
@@ -7436,34 +8825,6 @@ cme_futures_streamlined_sbe_v5_9.cal_fut_px.dissect = function(buffer, offset, p
   end
 end
 
--- Md Entry Size Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_size_optional = {}
-
--- Size: Md Entry Size Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.size = 8
-
--- Display: Md Entry Size Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Md Entry Size Optional: No Value"
-  end
-
-  return "Md Entry Size Optional: "..value
-end
-
--- Dissect: Md Entry Size Optional
-cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_size_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_size_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Entry Px Decimal
 cme_futures_streamlined_sbe_v5_9.md_entry_px_decimal = {}
 
@@ -7513,42 +8874,6 @@ cme_futures_streamlined_sbe_v5_9.md_entry_px_decimal.dissect = function(buffer, 
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.md_entry_px_decimal.fields(buffer, offset, packet, parent)
   end
-end
-
--- Md Update Action Char
-cme_futures_streamlined_sbe_v5_9.md_update_action_char = {}
-
--- Size: Md Update Action Char
-cme_futures_streamlined_sbe_v5_9.md_update_action_char.size = 1
-
--- Display: Md Update Action Char
-cme_futures_streamlined_sbe_v5_9.md_update_action_char.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Md Update Action Char: No Value"
-  end
-
-  return "Md Update Action Char: "..value
-end
-
--- Dissect: Md Update Action Char
-cme_futures_streamlined_sbe_v5_9.md_update_action_char.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_update_action_char.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.md_update_action_char.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_update_action_char, range, value, display)
-
-  return offset + length, value
 end
 
 -- Eris Group
@@ -8074,84 +9399,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.dissect = funct
   end
 end
 
--- Leg Unit Of Measure Qty Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull = {}
-
--- Size: Leg Unit Of Measure Qty Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size = 8
-
--- Display: Leg Unit Of Measure Qty Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Leg Unit Of Measure Qty Pricenull: No Value"
-  end
-
-  return "Leg Unit Of Measure Qty Pricenull: "..value
-end
-
--- Translate: Leg Unit Of Measure Qty Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Leg Unit Of Measure Qty Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty_pricenull, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Strike Price Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull = {}
-
--- Size: Leg Strike Price Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.size = 8
-
--- Display: Leg Strike Price Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Leg Strike Price Pricenull: No Value"
-  end
-
-  return "Leg Strike Price Pricenull: "..value
-end
-
--- Translate: Leg Strike Price Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Leg Strike Price Pricenull
-cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.leg_strike_price_pricenull.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_strike_price_pricenull, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Blocks Original Legs Group
 cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_group = {}
 
@@ -8309,84 +9556,6 @@ cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.dissect = fun
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.trade_blocks_original_legs_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Strike Price
-cme_futures_streamlined_sbe_v5_9.strike_price = {}
-
--- Size: Strike Price
-cme_futures_streamlined_sbe_v5_9.strike_price.size = 8
-
--- Display: Strike Price
-cme_futures_streamlined_sbe_v5_9.strike_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Strike Price: No Value"
-  end
-
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-cme_futures_streamlined_sbe_v5_9.strike_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Strike Price
-cme_futures_streamlined_sbe_v5_9.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_streamlined_sbe_v5_9.strike_price.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.strike_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Of Measure Qty Optional
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional = {}
-
--- Size: Unit Of Measure Qty Optional
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.size = 8
-
--- Display: Unit Of Measure Qty Optional
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Unit Of Measure Qty Optional: No Value"
-  end
-
-  return "Unit Of Measure Qty Optional: "..value
-end
-
--- Translate: Unit Of Measure Qty Optional
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Unit Of Measure Qty Optional
-cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.translate(raw)
-  local display = cme_futures_streamlined_sbe_v5_9.unit_of_measure_qty_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Blocks Legacy Group
@@ -8718,76 +9887,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.dissect
   end
 end
 
--- Md Entry Time
-cme_futures_streamlined_sbe_v5_9.md_entry_time = {}
-
--- Size: Md Entry Time
-cme_futures_streamlined_sbe_v5_9.md_entry_time.size = 4
-
--- Display: Md Entry Time
-cme_futures_streamlined_sbe_v5_9.md_entry_time.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Md Entry Time: No Value"
-  end
-
-  return "Md Entry Time: "..value
-end
-
--- Dissect: Md Entry Time
-cme_futures_streamlined_sbe_v5_9.md_entry_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Code
-cme_futures_streamlined_sbe_v5_9.md_entry_code = {}
-
--- Size: Md Entry Code
-cme_futures_streamlined_sbe_v5_9.md_entry_code.size = 1
-
--- Display: Md Entry Code
-cme_futures_streamlined_sbe_v5_9.md_entry_code.display = function(value)
-  if value == 255 then
-    return "Md Entry Code: No Value"
-  end
-  if value == 1 then
-    return "Md Entry Code: Indicative (1)"
-  end
-  if value == 2 then
-    return "Md Entry Code: Pre Market (2)"
-  end
-  if value == 3 then
-    return "Md Entry Code: Preliminary Close (3)"
-  end
-  if value == 4 then
-    return "Md Entry Code: Session Close (4)"
-  end
-  if value == 5 then
-    return "Md Entry Code: Close (5)"
-  end
-
-  return "Md Entry Code: Unknown("..value..")"
-end
-
--- Dissect: Md Entry Code
-cme_futures_streamlined_sbe_v5_9.md_entry_code.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Percent Trading
 cme_futures_streamlined_sbe_v5_9.percent_trading = {}
 
@@ -8992,112 +10091,6 @@ cme_futures_streamlined_sbe_v5_9.yield.dissect = function(buffer, offset, packet
   end
 end
 
--- Yield Type
-cme_futures_streamlined_sbe_v5_9.yield_type = {}
-
--- Size: Yield Type
-cme_futures_streamlined_sbe_v5_9.yield_type.size = 8
-
--- Display: Yield Type
-cme_futures_streamlined_sbe_v5_9.yield_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Yield Type: No Value"
-  end
-
-  return "Yield Type: "..value
-end
-
--- Dissect: Yield Type
-cme_futures_streamlined_sbe_v5_9.yield_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.yield_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.yield_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.yield_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Type Indices
-cme_futures_streamlined_sbe_v5_9.md_entry_type_indices = {}
-
--- Size: Md Entry Type Indices
-cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.size = 1
-
--- Display: Md Entry Type Indices
-cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Md Entry Type Indices: No Value"
-  end
-
-  if value == "0" then
-    return "Md Entry Type Indices: Bid (0)"
-  end
-  if value == "1" then
-    return "Md Entry Type Indices: Offer (1)"
-  end
-  if value == "2" then
-    return "Md Entry Type Indices: Trade (2)"
-  end
-  if value == "3" then
-    return "Md Entry Type Indices: Index Value (3)"
-  end
-  if value == "4" then
-    return "Md Entry Type Indices: Opening Value (4)"
-  end
-  if value == "5" then
-    return "Md Entry Type Indices: Closing Price (5)"
-  end
-  if value == "6" then
-    return "Md Entry Type Indices: Settlement Price (6)"
-  end
-  if value == "7" then
-    return "Md Entry Type Indices: Session High Price (7)"
-  end
-  if value == "8" then
-    return "Md Entry Type Indices: Session Low Price (8)"
-  end
-  if value == "e" then
-    return "Md Entry Type Indices: Trade Volume (e)"
-  end
-
-  return "Md Entry Type Indices: Unknown("..value..")"
-end
-
--- Dissect: Md Entry Type Indices
-cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.md_entry_type_indices.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_entry_type_indices, range, value, display)
-
-  return offset + length, value
-end
-
 -- Incremental Refresh Indices Group
 cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_group = {}
 
@@ -9257,45 +10250,6 @@ cme_futures_streamlined_sbe_v5_9.incremental_refresh_indices_groups.dissect = fu
   end
 end
 
--- Md Feed Type
-cme_futures_streamlined_sbe_v5_9.md_feed_type = {}
-
--- Size: Md Feed Type
-cme_futures_streamlined_sbe_v5_9.md_feed_type.size = 2
-
--- Display: Md Feed Type
-cme_futures_streamlined_sbe_v5_9.md_feed_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Md Feed Type: No Value"
-  end
-
-  return "Md Feed Type: "..value
-end
-
--- Dissect: Md Feed Type
-cme_futures_streamlined_sbe_v5_9.md_feed_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.md_feed_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.md_feed_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.md_feed_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Incremental Refresh Indices
 cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices = {}
 
@@ -9361,68 +10315,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_indices.dissect = functi
   end
 end
 
--- Inst Attrib Value
-cme_futures_streamlined_sbe_v5_9.inst_attrib_value = {}
-
--- Size: Inst Attrib Value
-cme_futures_streamlined_sbe_v5_9.inst_attrib_value.size = 100
-
--- Display: Inst Attrib Value
-cme_futures_streamlined_sbe_v5_9.inst_attrib_value.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Inst Attrib Value: No Value"
-  end
-
-  return "Inst Attrib Value: "..value
-end
-
--- Dissect: Inst Attrib Value
-cme_futures_streamlined_sbe_v5_9.inst_attrib_value.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.inst_attrib_value.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.inst_attrib_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Inst Attrib Type
-cme_futures_streamlined_sbe_v5_9.inst_attrib_type = {}
-
--- Size: Inst Attrib Type
-cme_futures_streamlined_sbe_v5_9.inst_attrib_type.size = 1
-
--- Display: Inst Attrib Type
-cme_futures_streamlined_sbe_v5_9.inst_attrib_type.display = function(value)
-  return "Inst Attrib Type: "..value
-end
-
--- Dissect: Inst Attrib Type
-cme_futures_streamlined_sbe_v5_9.inst_attrib_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.inst_attrib_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.inst_attrib_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.inst_attrib_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Inst Attrib Group
 cme_futures_streamlined_sbe_v5_9.inst_attrib_group = {}
 
@@ -9471,29 +10363,6 @@ cme_futures_streamlined_sbe_v5_9.inst_attrib_group.dissect = function(buffer, of
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.inst_attrib_group.fields(buffer, offset, packet, parent, inst_attrib_group_index)
   end
-end
-
--- Num In Group
-cme_futures_streamlined_sbe_v5_9.num_in_group = {}
-
--- Size: Num In Group
-cme_futures_streamlined_sbe_v5_9.num_in_group.size = 2
-
--- Display: Num In Group
-cme_futures_streamlined_sbe_v5_9.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-cme_futures_streamlined_sbe_v5_9.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.num_in_group, range, value, display)
-
-  return offset + length, value
 end
 
 -- Group Size Encoding
@@ -9597,29 +10466,6 @@ cme_futures_streamlined_sbe_v5_9.inst_attrib_groups.dissect = function(buffer, o
   end
 end
 
--- Product
-cme_futures_streamlined_sbe_v5_9.product = {}
-
--- Size: Product
-cme_futures_streamlined_sbe_v5_9.product.size = 1
-
--- Display: Product
-cme_futures_streamlined_sbe_v5_9.product.display = function(value)
-  return "Product: "..value
-end
-
--- Dissect: Product
-cme_futures_streamlined_sbe_v5_9.product.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.product.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.product.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.product, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Instrument Definition Indices
 cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices = {}
 
@@ -9703,62 +10549,6 @@ cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.dissect = func
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.md_instrument_definition_indices.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quote Type
-cme_futures_streamlined_sbe_v5_9.quote_type = {}
-
--- Size: Quote Type
-cme_futures_streamlined_sbe_v5_9.quote_type.size = 1
-
--- Display: Quote Type
-cme_futures_streamlined_sbe_v5_9.quote_type.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Quote Type: No Value"
-  end
-
-  return "Quote Type: "..value
-end
-
--- Dissect: Quote Type
-cme_futures_streamlined_sbe_v5_9.quote_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.quote_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.quote_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-cme_futures_streamlined_sbe_v5_9.order_qty = {}
-
--- Size: Order Qty
-cme_futures_streamlined_sbe_v5_9.order_qty.size = 8
-
--- Display: Order Qty
-cme_futures_streamlined_sbe_v5_9.order_qty.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Qty: No Value"
-  end
-
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-cme_futures_streamlined_sbe_v5_9.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.order_qty, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Request Related Sym Group
@@ -9913,45 +10703,6 @@ cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.dissect = func
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.quote_request_related_sym_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quote Req Id
-cme_futures_streamlined_sbe_v5_9.quote_req_id = {}
-
--- Size: Quote Req Id
-cme_futures_streamlined_sbe_v5_9.quote_req_id.size = 26
-
--- Display: Quote Req Id
-cme_futures_streamlined_sbe_v5_9.quote_req_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Quote Req Id: No Value"
-  end
-
-  return "Quote Req Id: "..value
-end
-
--- Dissect: Quote Req Id
-cme_futures_streamlined_sbe_v5_9.quote_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.quote_req_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.quote_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.quote_req_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Request
@@ -10338,45 +11089,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.dissect
   end
 end
 
--- Text 500
-cme_futures_streamlined_sbe_v5_9.text_500 = {}
-
--- Size: Text 500
-cme_futures_streamlined_sbe_v5_9.text_500.size = 500
-
--- Display: Text 500
-cme_futures_streamlined_sbe_v5_9.text_500.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text 500: No Value"
-  end
-
-  return "Text 500: "..value
-end
-
--- Dissect: Text 500
-cme_futures_streamlined_sbe_v5_9.text_500.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.text_500.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.text_500.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.text_500, range, value, display)
-
-  return offset + length, value
-end
-
 -- Lines Of Text Group
 cme_futures_streamlined_sbe_v5_9.lines_of_text_group = {}
 
@@ -10583,72 +11295,6 @@ cme_futures_streamlined_sbe_v5_9.news_indices_related_sym_groups.dissect = funct
   end
 end
 
--- Orig Time
-cme_futures_streamlined_sbe_v5_9.orig_time = {}
-
--- Size: Orig Time
-cme_futures_streamlined_sbe_v5_9.orig_time.size = 8
-
--- Display: Orig Time
-cme_futures_streamlined_sbe_v5_9.orig_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Orig Time
-cme_futures_streamlined_sbe_v5_9.orig_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.orig_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.orig_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.orig_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Headline
-cme_futures_streamlined_sbe_v5_9.headline = {}
-
--- Size: Headline
-cme_futures_streamlined_sbe_v5_9.headline.size = 50
-
--- Display: Headline
-cme_futures_streamlined_sbe_v5_9.headline.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Headline: No Value"
-  end
-
-  return "Headline: "..value
-end
-
--- Dissect: Headline
-cme_futures_streamlined_sbe_v5_9.headline.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.headline.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.headline.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.headline, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md News Indices
 cme_futures_streamlined_sbe_v5_9.md_news_indices = {}
 
@@ -10712,112 +11358,6 @@ cme_futures_streamlined_sbe_v5_9.md_news_indices.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.md_news_indices.fields(buffer, offset, packet, parent)
   end
-end
-
--- Related Security Group
-cme_futures_streamlined_sbe_v5_9.related_security_group = {}
-
--- Size: Related Security Group
-cme_futures_streamlined_sbe_v5_9.related_security_group.size = 26
-
--- Display: Related Security Group
-cme_futures_streamlined_sbe_v5_9.related_security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Related Security Group: No Value"
-  end
-
-  return "Related Security Group: "..value
-end
-
--- Dissect: Related Security Group
-cme_futures_streamlined_sbe_v5_9.related_security_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.related_security_group.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.related_security_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.related_security_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Related Symbol
-cme_futures_streamlined_sbe_v5_9.related_symbol = {}
-
--- Size: Related Symbol
-cme_futures_streamlined_sbe_v5_9.related_symbol.size = 50
-
--- Display: Related Symbol
-cme_futures_streamlined_sbe_v5_9.related_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Related Symbol: No Value"
-  end
-
-  return "Related Symbol: "..value
-end
-
--- Dissect: Related Symbol
-cme_futures_streamlined_sbe_v5_9.related_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.related_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.related_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.related_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Related Instrument Type
-cme_futures_streamlined_sbe_v5_9.related_instrument_type = {}
-
--- Size: Related Instrument Type
-cme_futures_streamlined_sbe_v5_9.related_instrument_type.size = 1
-
--- Display: Related Instrument Type
-cme_futures_streamlined_sbe_v5_9.related_instrument_type.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Related Instrument Type: No Value"
-  end
-
-  return "Related Instrument Type: "..value
-end
-
--- Dissect: Related Instrument Type
-cme_futures_streamlined_sbe_v5_9.related_instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.related_instrument_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.related_instrument_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.related_instrument_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Incremental Refresh Eris Related Instruments Group
@@ -10929,45 +11469,6 @@ cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_gr
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Security Description
-cme_futures_streamlined_sbe_v5_9.security_description = {}
-
--- Size: Security Description
-cme_futures_streamlined_sbe_v5_9.security_description.size = 30
-
--- Display: Security Description
-cme_futures_streamlined_sbe_v5_9.security_description.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Description: No Value"
-  end
-
-  return "Security Description: "..value
-end
-
--- Dissect: Security Description
-cme_futures_streamlined_sbe_v5_9.security_description.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.security_description.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.security_description.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.security_description, range, value, display)
-
-  return offset + length, value
 end
 
 -- Final Settlement Futures Price
@@ -11174,34 +11675,6 @@ cme_futures_streamlined_sbe_v5_9.p_v_01.dissect = function(buffer, offset, packe
   end
 end
 
--- Next Floating Payment Date
-cme_futures_streamlined_sbe_v5_9.next_floating_payment_date = {}
-
--- Size: Next Floating Payment Date
-cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.size = 2
-
--- Display: Next Floating Payment Date
-cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Next Floating Payment Date: No Value"
-  end
-
-  return "Next Floating Payment Date: "..value
-end
-
--- Dissect: Next Floating Payment Date
-cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.next_floating_payment_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.next_floating_payment_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Contract Multiplier
 cme_futures_streamlined_sbe_v5_9.leg_contract_multiplier = {}
 
@@ -11253,129 +11726,6 @@ cme_futures_streamlined_sbe_v5_9.leg_contract_multiplier.dissect = function(buff
   end
 end
 
--- Leg Credit Rating
-cme_futures_streamlined_sbe_v5_9.leg_credit_rating = {}
-
--- Size: Leg Credit Rating
-cme_futures_streamlined_sbe_v5_9.leg_credit_rating.size = 6
-
--- Display: Leg Credit Rating
-cme_futures_streamlined_sbe_v5_9.leg_credit_rating.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Credit Rating: No Value"
-  end
-
-  return "Leg Credit Rating: "..value
-end
-
--- Dissect: Leg Credit Rating
-cme_futures_streamlined_sbe_v5_9.leg_credit_rating.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.leg_credit_rating.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.leg_credit_rating.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.leg_credit_rating, range, value, display)
-
-  return offset + length, value
-end
-
--- Nominal
-cme_futures_streamlined_sbe_v5_9.nominal = {}
-
--- Size: Nominal
-cme_futures_streamlined_sbe_v5_9.nominal.size = 8
-
--- Display: Nominal
-cme_futures_streamlined_sbe_v5_9.nominal.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Nominal: No Value"
-  end
-
-  return "Nominal: "..value
-end
-
--- Dissect: Nominal
-cme_futures_streamlined_sbe_v5_9.nominal.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.nominal.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.nominal.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.nominal, range, value, display)
-
-  return offset + length, value
-end
-
--- Accrual Days
-cme_futures_streamlined_sbe_v5_9.accrual_days = {}
-
--- Size: Accrual Days
-cme_futures_streamlined_sbe_v5_9.accrual_days.size = 4
-
--- Display: Accrual Days
-cme_futures_streamlined_sbe_v5_9.accrual_days.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Accrual Days: No Value"
-  end
-
-  return "Accrual Days: "..value
-end
-
--- Dissect: Accrual Days
-cme_futures_streamlined_sbe_v5_9.accrual_days.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.accrual_days.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.accrual_days.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.accrual_days, range, value, display)
-
-  return offset + length, value
-end
-
--- Fed Funds Date
-cme_futures_streamlined_sbe_v5_9.fed_funds_date = {}
-
--- Size: Fed Funds Date
-cme_futures_streamlined_sbe_v5_9.fed_funds_date.size = 2
-
--- Display: Fed Funds Date
-cme_futures_streamlined_sbe_v5_9.fed_funds_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Fed Funds Date: No Value"
-  end
-
-  return "Fed Funds Date: "..value
-end
-
--- Dissect: Fed Funds Date
-cme_futures_streamlined_sbe_v5_9.fed_funds_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.fed_funds_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.fed_funds_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.fed_funds_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Previous Eris Pai
 cme_futures_streamlined_sbe_v5_9.previous_eris_pai = {}
 
@@ -11425,34 +11775,6 @@ cme_futures_streamlined_sbe_v5_9.previous_eris_pai.dissect = function(buffer, of
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.previous_eris_pai.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trading Reference Date
-cme_futures_streamlined_sbe_v5_9.trading_reference_date = {}
-
--- Size: Trading Reference Date
-cme_futures_streamlined_sbe_v5_9.trading_reference_date.size = 2
-
--- Display: Trading Reference Date
-cme_futures_streamlined_sbe_v5_9.trading_reference_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Trading Reference Date: No Value"
-  end
-
-  return "Trading Reference Date: "..value
-end
-
--- Dissect: Trading Reference Date
-cme_futures_streamlined_sbe_v5_9.trading_reference_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.trading_reference_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.trading_reference_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.trading_reference_date, range, value, display)
-
-  return offset + length, value
 end
 
 -- Next Floating Payment Amount
@@ -11555,34 +11877,6 @@ cme_futures_streamlined_sbe_v5_9.next_fixed_payment_amount.dissect = function(bu
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.next_fixed_payment_amount.fields(buffer, offset, packet, parent)
   end
-end
-
--- Next Fixed Payment Date
-cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date = {}
-
--- Size: Next Fixed Payment Date
-cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.size = 2
-
--- Display: Next Fixed Payment Date
-cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Next Fixed Payment Date: No Value"
-  end
-
-  return "Next Fixed Payment Date: "..value
-end
-
--- Dissect: Next Fixed Payment Date
-cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.next_fixed_payment_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.next_fixed_payment_date, range, value, display)
-
-  return offset + length, value
 end
 
 -- Floating Payment
@@ -12195,34 +12489,6 @@ cme_futures_streamlined_sbe_v5_9.fair_coupon_pct.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.fair_coupon_pct.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mantissa 32
-cme_futures_streamlined_sbe_v5_9.mantissa_32 = {}
-
--- Size: Mantissa 32
-cme_futures_streamlined_sbe_v5_9.mantissa_32.size = 4
-
--- Display: Mantissa 32
-cme_futures_streamlined_sbe_v5_9.mantissa_32.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Mantissa 32: No Value"
-  end
-
-  return "Mantissa 32: "..value
-end
-
--- Dissect: Mantissa 32
-cme_futures_streamlined_sbe_v5_9.mantissa_32.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.mantissa_32.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.mantissa_32.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.mantissa_32, range, value, display)
-
-  return offset + length, value
 end
 
 -- Coupon Rate Optional
@@ -12871,45 +13137,6 @@ cme_futures_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_
   end
 end
 
--- Text
-cme_futures_streamlined_sbe_v5_9.text = {}
-
--- Size: Text
-cme_futures_streamlined_sbe_v5_9.text.size = 180
-
--- Display: Text
-cme_futures_streamlined_sbe_v5_9.text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text: No Value"
-  end
-
-  return "Text: "..value
-end
-
--- Dissect: Text
-cme_futures_streamlined_sbe_v5_9.text.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.text.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_streamlined_sbe_v5_9.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Admin Logout
 cme_futures_streamlined_sbe_v5_9.admin_logout = {}
 
@@ -12948,29 +13175,6 @@ cme_futures_streamlined_sbe_v5_9.admin_logout.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return cme_futures_streamlined_sbe_v5_9.admin_logout.fields(buffer, offset, packet, parent)
   end
-end
-
--- Heart Bt Int
-cme_futures_streamlined_sbe_v5_9.heart_bt_int = {}
-
--- Size: Heart Bt Int
-cme_futures_streamlined_sbe_v5_9.heart_bt_int.size = 1
-
--- Display: Heart Bt Int
-cme_futures_streamlined_sbe_v5_9.heart_bt_int.display = function(value)
-  return "Heart Bt Int: "..value
-end
-
--- Dissect: Heart Bt Int
-cme_futures_streamlined_sbe_v5_9.heart_bt_int.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.heart_bt_int.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_streamlined_sbe_v5_9.heart_bt_int.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.heart_bt_int, range, value, display)
-
-  return offset + length, value
 end
 
 -- Admin Login
@@ -13086,132 +13290,6 @@ cme_futures_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, pack
   return offset
 end
 
--- Version
-cme_futures_streamlined_sbe_v5_9.version = {}
-
--- Size: Version
-cme_futures_streamlined_sbe_v5_9.version.size = 2
-
--- Display: Version
-cme_futures_streamlined_sbe_v5_9.version.display = function(value)
-  if value == 9 then
-    return "Version: Version"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-cme_futures_streamlined_sbe_v5_9.version.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-cme_futures_streamlined_sbe_v5_9.schema_id = {}
-
--- Size: Schema Id
-cme_futures_streamlined_sbe_v5_9.schema_id.size = 2
-
--- Display: Schema Id
-cme_futures_streamlined_sbe_v5_9.schema_id.display = function(value)
-  if value == 5 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-cme_futures_streamlined_sbe_v5_9.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-cme_futures_streamlined_sbe_v5_9.template_id = {}
-
--- Size: Template Id
-cme_futures_streamlined_sbe_v5_9.template_id.size = 2
-
--- Display: Template Id
-cme_futures_streamlined_sbe_v5_9.template_id.display = function(value)
-  if value == 312 then
-    return "Template Id: Admin Heartbeat (312)"
-  end
-  if value == 315 then
-    return "Template Id: Admin Login (315)"
-  end
-  if value == 316 then
-    return "Template Id: Admin Logout (316)"
-  end
-  if value == 333 then
-    return "Template Id: Md Incremental Refresh Eris Reference Data And Daily Statistics (333)"
-  end
-  if value == 339 then
-    return "Template Id: Md News Indices (339)"
-  end
-  if value == 340 then
-    return "Template Id: Md Incremental Refresh Trade Blocks 340 (340)"
-  end
-  if value == 345 then
-    return "Template Id: Quote Request (345)"
-  end
-  if value == 347 then
-    return "Template Id: Md Instrument Definition Indices (347)"
-  end
-  if value == 348 then
-    return "Template Id: Md Incremental Refresh Indices (348)"
-  end
-  if value == 349 then
-    return "Template Id: Md Incremental Refresh Trade Blocks 349 (349)"
-  end
-  if value == 351 then
-    return "Template Id: Md Incremental Refresh Eris 351 (351)"
-  end
-  if value == 353 then
-    return "Template Id: Md Incremental Refresh Eris 353 (353)"
-  end
-  if value == 356 then
-    return "Template Id: Md Incremental Refresh Ot C 356 (356)"
-  end
-  if value == 363 then
-    return "Template Id: Md Instrument Definition Eris (363)"
-  end
-  if value == 365 then
-    return "Template Id: Md Incremental Refresh Trade Blocks 365 (365)"
-  end
-  if value == 366 then
-    return "Template Id: Md Incremental Refresh Ot C 366 (366)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-cme_futures_streamlined_sbe_v5_9.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 cme_futures_streamlined_sbe_v5_9.message_header = {}
 
@@ -13264,29 +13342,6 @@ cme_futures_streamlined_sbe_v5_9.message_header.dissect = function(buffer, offse
   end
 end
 
--- Message Size
-cme_futures_streamlined_sbe_v5_9.message_size = {}
-
--- Size: Message Size
-cme_futures_streamlined_sbe_v5_9.message_size.size = 2
-
--- Display: Message Size
-cme_futures_streamlined_sbe_v5_9.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-cme_futures_streamlined_sbe_v5_9.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 cme_futures_streamlined_sbe_v5_9.message = {}
 
@@ -13333,56 +13388,6 @@ cme_futures_streamlined_sbe_v5_9.message.dissect = function(buffer, offset, pack
 
     return index
   end
-end
-
--- Sending Time
-cme_futures_streamlined_sbe_v5_9.sending_time = {}
-
--- Size: Sending Time
-cme_futures_streamlined_sbe_v5_9.sending_time.size = 8
-
--- Display: Sending Time
-cme_futures_streamlined_sbe_v5_9.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-cme_futures_streamlined_sbe_v5_9.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_streamlined_sbe_v5_9.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Sequence Number
-cme_futures_streamlined_sbe_v5_9.packet_sequence_number = {}
-
--- Size: Packet Sequence Number
-cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size = 4
-
--- Display: Packet Sequence Number
-cme_futures_streamlined_sbe_v5_9.packet_sequence_number.display = function(value)
-  return "Packet Sequence Number: "..value
-end
-
--- Dissect: Packet Sequence Number
-cme_futures_streamlined_sbe_v5_9.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_streamlined_sbe_v5_9.packet_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_streamlined_sbe_v5_9.fields.packet_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Binary Packet Header

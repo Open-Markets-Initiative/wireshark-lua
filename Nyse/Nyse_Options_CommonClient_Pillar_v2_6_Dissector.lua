@@ -87,47 +87,62 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Options CommonClient Pillar 2.6
+-- Nyse Options CommonClient Pillar 2.6 Fields
 -----------------------------------------------------------------------
 
--- Payload
-nyse_options_commonclient_pillar_v2_6.payload = {}
+-- Delivery Flag
+nyse_options_commonclient_pillar_v2_6.delivery_flag = {}
 
--- Display: Payload
-nyse_options_commonclient_pillar_v2_6.payload.display = function(value)
-  return "Payload: "..value
+-- Size: Delivery Flag
+nyse_options_commonclient_pillar_v2_6.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+nyse_options_commonclient_pillar_v2_6.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: Heartbeat (1)"
+  end
+  if value == 10 then
+    return "Delivery Flag: Pillar Failover (10)"
+  end
+  if value == 11 then
+    return "Delivery Flag: Original Message (11)"
+  end
+  if value == 12 then
+    return "Delivery Flag: Sequence Number Reset Message (12)"
+  end
+  if value == 13 then
+    return "Delivery Flag: One Retransmission Packet (13)"
+  end
+  if value == 15 then
+    return "Delivery Flag: Retransmission Sequence Message (15)"
+  end
+  if value == 17 then
+    return "Delivery Flag: One Refresh Packet (17)"
+  end
+  if value == 18 then
+    return "Delivery Flag: Refresh Sequence Start (18)"
+  end
+  if value == 19 then
+    return "Delivery Flag: Refresh Sequence Message (19)"
+  end
+  if value == 20 then
+    return "Delivery Flag: Refresh Sequence End (20)"
+  end
+  if value == 21 then
+    return "Delivery Flag: Message Unavailable (21)"
+  end
+
+  return "Delivery Flag: Unknown("..value..")"
 end
 
--- Dissect runtime sized field: Payload
-nyse_options_commonclient_pillar_v2_6.payload.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_commonclient_pillar_v2_6.payload.display(value, packet, parent, size)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.payload, range, value, display)
-
-  return offset + size, value
-end
-
--- Message Type
-nyse_options_commonclient_pillar_v2_6.message_type = {}
-
--- Size: Message Type
-nyse_options_commonclient_pillar_v2_6.message_type.size = 2
-
--- Display: Message Type
-nyse_options_commonclient_pillar_v2_6.message_type.display = function(value)
-  return "Message Type: "..value
-end
-
--- Dissect: Message Type
-nyse_options_commonclient_pillar_v2_6.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.message_type.size
+-- Dissect: Delivery Flag
+nyse_options_commonclient_pillar_v2_6.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.delivery_flag.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.message_type.display(value, buffer, offset, packet, parent)
+  local display = nyse_options_commonclient_pillar_v2_6.delivery_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message_type, range, value, display)
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
@@ -154,6 +169,168 @@ nyse_options_commonclient_pillar_v2_6.message_size.dissect = function(buffer, of
 
   return offset + length, value
 end
+
+-- Message Type
+nyse_options_commonclient_pillar_v2_6.message_type = {}
+
+-- Size: Message Type
+nyse_options_commonclient_pillar_v2_6.message_type.size = 2
+
+-- Display: Message Type
+nyse_options_commonclient_pillar_v2_6.message_type.display = function(value)
+  return "Message Type: "..value
+end
+
+-- Dissect: Message Type
+nyse_options_commonclient_pillar_v2_6.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_commonclient_pillar_v2_6.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_options_commonclient_pillar_v2_6.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_options_commonclient_pillar_v2_6.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_options_commonclient_pillar_v2_6.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_options_commonclient_pillar_v2_6.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_commonclient_pillar_v2_6.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Msgs
+nyse_options_commonclient_pillar_v2_6.number_msgs = {}
+
+-- Size: Number Msgs
+nyse_options_commonclient_pillar_v2_6.number_msgs.size = 1
+
+-- Display: Number Msgs
+nyse_options_commonclient_pillar_v2_6.number_msgs.display = function(value)
+  return "Number Msgs: "..value
+end
+
+-- Dissect: Number Msgs
+nyse_options_commonclient_pillar_v2_6.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.number_msgs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_commonclient_pillar_v2_6.number_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.number_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload
+nyse_options_commonclient_pillar_v2_6.payload = {}
+
+-- Display: Payload
+nyse_options_commonclient_pillar_v2_6.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect runtime sized field: Payload
+nyse_options_commonclient_pillar_v2_6.payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_commonclient_pillar_v2_6.payload.display(value, packet, parent, size)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.payload, range, value, display)
+
+  return offset + size, value
+end
+
+-- Pkt Size
+nyse_options_commonclient_pillar_v2_6.pkt_size = {}
+
+-- Size: Pkt Size
+nyse_options_commonclient_pillar_v2_6.pkt_size.size = 2
+
+-- Display: Pkt Size
+nyse_options_commonclient_pillar_v2_6.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+nyse_options_commonclient_pillar_v2_6.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_commonclient_pillar_v2_6.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nyse_options_commonclient_pillar_v2_6.seconds = {}
+
+-- Size: Seconds
+nyse_options_commonclient_pillar_v2_6.seconds.size = 4
+
+-- Display: Seconds
+nyse_options_commonclient_pillar_v2_6.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nyse_options_commonclient_pillar_v2_6.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_commonclient_pillar_v2_6.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+nyse_options_commonclient_pillar_v2_6.seq_num = {}
+
+-- Size: Seq Num
+nyse_options_commonclient_pillar_v2_6.seq_num.size = 4
+
+-- Display: Seq Num
+nyse_options_commonclient_pillar_v2_6.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+nyse_options_commonclient_pillar_v2_6.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_commonclient_pillar_v2_6.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_commonclient_pillar_v2_6.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Options CommonClient Pillar 2.6
+-----------------------------------------------------------------------
 
 -- Message Header
 nyse_options_commonclient_pillar_v2_6.message_header = {}
@@ -253,52 +430,6 @@ nyse_options_commonclient_pillar_v2_6.message.dissect = function(buffer, offset,
   end
 end
 
--- Nanoseconds
-nyse_options_commonclient_pillar_v2_6.nanoseconds = {}
-
--- Size: Nanoseconds
-nyse_options_commonclient_pillar_v2_6.nanoseconds.size = 4
-
--- Display: Nanoseconds
-nyse_options_commonclient_pillar_v2_6.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-nyse_options_commonclient_pillar_v2_6.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Seconds
-nyse_options_commonclient_pillar_v2_6.seconds = {}
-
--- Size: Seconds
-nyse_options_commonclient_pillar_v2_6.seconds.size = 4
-
--- Display: Seconds
-nyse_options_commonclient_pillar_v2_6.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-nyse_options_commonclient_pillar_v2_6.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.seconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Send Time
 nyse_options_commonclient_pillar_v2_6.send_time = {}
 
@@ -354,132 +485,6 @@ nyse_options_commonclient_pillar_v2_6.send_time.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return nyse_options_commonclient_pillar_v2_6.send_time.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seq Num
-nyse_options_commonclient_pillar_v2_6.seq_num = {}
-
--- Size: Seq Num
-nyse_options_commonclient_pillar_v2_6.seq_num.size = 4
-
--- Display: Seq Num
-nyse_options_commonclient_pillar_v2_6.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-nyse_options_commonclient_pillar_v2_6.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Msgs
-nyse_options_commonclient_pillar_v2_6.number_msgs = {}
-
--- Size: Number Msgs
-nyse_options_commonclient_pillar_v2_6.number_msgs.size = 1
-
--- Display: Number Msgs
-nyse_options_commonclient_pillar_v2_6.number_msgs.display = function(value)
-  return "Number Msgs: "..value
-end
-
--- Dissect: Number Msgs
-nyse_options_commonclient_pillar_v2_6.number_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.number_msgs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.number_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.number_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Flag
-nyse_options_commonclient_pillar_v2_6.delivery_flag = {}
-
--- Size: Delivery Flag
-nyse_options_commonclient_pillar_v2_6.delivery_flag.size = 1
-
--- Display: Delivery Flag
-nyse_options_commonclient_pillar_v2_6.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
-
-  return "Delivery Flag: Unknown("..value..")"
-end
-
--- Dissect: Delivery Flag
-nyse_options_commonclient_pillar_v2_6.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.delivery_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.delivery_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.delivery_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Pkt Size
-nyse_options_commonclient_pillar_v2_6.pkt_size = {}
-
--- Size: Pkt Size
-nyse_options_commonclient_pillar_v2_6.pkt_size.size = 2
-
--- Display: Pkt Size
-nyse_options_commonclient_pillar_v2_6.pkt_size.display = function(value)
-  return "Pkt Size: "..value
-end
-
--- Dissect: Pkt Size
-nyse_options_commonclient_pillar_v2_6.pkt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_commonclient_pillar_v2_6.pkt_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_commonclient_pillar_v2_6.pkt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_commonclient_pillar_v2_6.fields.pkt_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

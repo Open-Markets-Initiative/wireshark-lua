@@ -259,54 +259,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Jpx OseDerivatives GeniumInet Itch 1.1
+-- Jpx OseDerivatives GeniumInet Itch 1.1 Fields
 -----------------------------------------------------------------------
-
--- Reserved 24
-jpx_osederivatives_geniuminet_itch_v1_1.reserved_24 = {}
-
--- Size: Reserved 24
-jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.size = 24
-
--- Display: Reserved 24
-jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.display = function(value)
-  return "Reserved 24: "..value
-end
-
--- Dissect: Reserved 24
-jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.reserved_24, range, value, display)
-
-  return offset + length, value
-end
-
--- Equilibrium Price
-jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price = {}
-
--- Size: Equilibrium Price
-jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.size = 4
-
--- Display: Equilibrium Price
-jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.display = function(value)
-  return "Equilibrium Price: "..value
-end
-
--- Dissect: Equilibrium Price
-jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.equilibrium_price, range, value, display)
-
-  return offset + length, value
-end
 
 -- Available Ask Quantity At Equilibrium Price
 jpx_osederivatives_geniuminet_itch_v1_1.available_ask_quantity_at_equilibrium_price = {}
@@ -354,6 +308,753 @@ jpx_osederivatives_geniuminet_itch_v1_1.available_bid_quantity_at_equilibrium_pr
   return offset + length, value
 end
 
+-- Block Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size = {}
+
+-- Size: Block Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.size = 4
+
+-- Display: Block Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.display = function(value)
+  return "Block Lot Size: "..value
+end
+
+-- Dissect: Block Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.block_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Combination Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id = {}
+
+-- Size: Combination Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.size = 4
+
+-- Display: Combination Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.display = function(value)
+  return "Combination Orderbook Id: "..value
+end
+
+-- Dissect: Combination Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.combination_orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Combo Group Id
+jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id = {}
+
+-- Size: Combo Group Id
+jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.size = 4
+
+-- Display: Combo Group Id
+jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.display = function(value)
+  return "Combo Group Id: "..value
+end
+
+-- Dissect: Combo Group Id
+jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.combo_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Counterparty Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id = {}
+
+-- Size: Counterparty Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.size = 7
+
+-- Display: Counterparty Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.display = function(value)
+  return "Counterparty Participant Id: "..value
+end
+
+-- Dissect: Counterparty Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.counterparty_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimals In Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value = {}
+
+-- Size: Decimals In Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.size = 2
+
+-- Display: Decimals In Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.display = function(value)
+  return "Decimals In Nominal Value: "..value
+end
+
+-- Dissect: Decimals In Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.decimals_in_nominal_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimals In Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price = {}
+
+-- Size: Decimals In Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.size = 2
+
+-- Display: Decimals In Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.display = function(value)
+  return "Decimals In Price: "..value
+end
+
+-- Dissect: Decimals In Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.decimals_in_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decimals In Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price = {}
+
+-- Size: Decimals In Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.size = 2
+
+-- Display: Decimals In Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.display = function(value)
+  return "Decimals In Strike Price: "..value
+end
+
+-- Dissect: Decimals In Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.decimals_in_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Equilibrium Price
+jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price = {}
+
+-- Size: Equilibrium Price
+jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.size = 4
+
+-- Display: Equilibrium Price
+jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.display = function(value)
+  return "Equilibrium Price: "..value
+end
+
+-- Dissect: Equilibrium Price
+jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.equilibrium_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+jpx_osederivatives_geniuminet_itch_v1_1.event_code = {}
+
+-- Size: Event Code
+jpx_osederivatives_geniuminet_itch_v1_1.event_code.size = 1
+
+-- Display: Event Code
+jpx_osederivatives_geniuminet_itch_v1_1.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+jpx_osederivatives_geniuminet_itch_v1_1.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity = {}
+
+-- Size: Executed Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.size = 8
+
+-- Display: Executed Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Date
+jpx_osederivatives_geniuminet_itch_v1_1.expiration_date = {}
+
+-- Size: Expiration Date
+jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.size = 4
+
+-- Display: Expiration Date
+jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.display = function(value)
+  return "Expiration Date: "..value
+end
+
+-- Dissect: Expiration Date
+jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.expiration_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Product
+jpx_osederivatives_geniuminet_itch_v1_1.financial_product = {}
+
+-- Size: Financial Product
+jpx_osederivatives_geniuminet_itch_v1_1.financial_product.size = 1
+
+-- Display: Financial Product
+jpx_osederivatives_geniuminet_itch_v1_1.financial_product.display = function(value)
+  if value == 1 then
+    return "Financial Product: Option (1)"
+  end
+  if value == 2 then
+    return "Financial Product: Forward (2)"
+  end
+  if value == 3 then
+    return "Financial Product: Future (3)"
+  end
+  if value == 4 then
+    return "Financial Product: Fra (4)"
+  end
+  if value == 5 then
+    return "Financial Product: Cash (5)"
+  end
+  if value == 6 then
+    return "Financial Product: Payment (6)"
+  end
+  if value == 7 then
+    return "Financial Product: Exchange Rate (7)"
+  end
+  if value == 8 then
+    return "Financial Product: Interest Rate Swap (8)"
+  end
+  if value == 9 then
+    return "Financial Product: Repo (9)"
+  end
+  if value == 10 then
+    return "Financial Product: Synthetic Box Leg Or Reference (10)"
+  end
+  if value == 11 then
+    return "Financial Product: Combination (11)"
+  end
+  if value == 12 then
+    return "Financial Product: Guarantee (12)"
+  end
+  if value == 13 then
+    return "Financial Product: Otc General (13)"
+  end
+  if value == 14 then
+    return "Financial Product: Equity Warrant (14)"
+  end
+  if value == 15 then
+    return "Financial Product: Security Lending (15)"
+  end
+
+  return "Financial Product: Unknown("..value..")"
+end
+
+-- Dissect: Financial Product
+jpx_osederivatives_geniuminet_itch_v1_1.financial_product.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.financial_product.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.financial_product.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.financial_product, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+jpx_osederivatives_geniuminet_itch_v1_1.isin = {}
+
+-- Size: Isin
+jpx_osederivatives_geniuminet_itch_v1_1.isin.size = 12
+
+-- Display: Isin
+jpx_osederivatives_geniuminet_itch_v1_1.isin.display = function(value)
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+jpx_osederivatives_geniuminet_itch_v1_1.isin.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.isin.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id = {}
+
+-- Size: Leg Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.size = 4
+
+-- Display: Leg Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.display = function(value)
+  return "Leg Orderbook Id: "..value
+end
+
+-- Dissect: Leg Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.leg_orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio = {}
+
+-- Size: Leg Ratio
+jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+jpx_osederivatives_geniuminet_itch_v1_1.leg_side = {}
+
+-- Size: Leg Side
+jpx_osederivatives_geniuminet_itch_v1_1.leg_side.size = 1
+
+-- Display: Leg Side
+jpx_osederivatives_geniuminet_itch_v1_1.leg_side.display = function(value)
+  if value == "B" then
+    return "Leg Side: As Defined (B)"
+  end
+  if value == "C" then
+    return "Leg Side: Opposite (C)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+jpx_osederivatives_geniuminet_itch_v1_1.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Long Name
+jpx_osederivatives_geniuminet_itch_v1_1.long_name = {}
+
+-- Size: Long Name
+jpx_osederivatives_geniuminet_itch_v1_1.long_name.size = 32
+
+-- Display: Long Name
+jpx_osederivatives_geniuminet_itch_v1_1.long_name.display = function(value)
+  return "Long Name: "..value
+end
+
+-- Dissect: Long Name
+jpx_osederivatives_geniuminet_itch_v1_1.long_name.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.long_name.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.long_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.long_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Type
+jpx_osederivatives_geniuminet_itch_v1_1.lot_type = {}
+
+-- Size: Lot Type
+jpx_osederivatives_geniuminet_itch_v1_1.lot_type.size = 1
+
+-- Display: Lot Type
+jpx_osederivatives_geniuminet_itch_v1_1.lot_type.display = function(value)
+  if value == 0 then
+    return "Lot Type: Undefined (0)"
+  end
+  if value == 1 then
+    return "Lot Type: Odd Lot (1)"
+  end
+  if value == 2 then
+    return "Lot Type: Round Lot (2)"
+  end
+  if value == 3 then
+    return "Lot Type: Block Lot (3)"
+  end
+  if value == 4 then
+    return "Lot Type: All Or None Lot (4)"
+  end
+
+  return "Lot Type: Unknown("..value..")"
+end
+
+-- Dissect: Lot Type
+jpx_osederivatives_geniuminet_itch_v1_1.lot_type.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.lot_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.lot_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.lot_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Id
+jpx_osederivatives_geniuminet_itch_v1_1.match_id = {}
+
+-- Size: Match Id
+jpx_osederivatives_geniuminet_itch_v1_1.match_id.size = 8
+
+-- Display: Match Id
+jpx_osederivatives_geniuminet_itch_v1_1.match_id.display = function(value)
+  return "Match Id: "..value
+end
+
+-- Dissect: Match Id
+jpx_osederivatives_geniuminet_itch_v1_1.match_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.match_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+jpx_osederivatives_geniuminet_itch_v1_1.message_count = {}
+
+-- Size: Message Count
+jpx_osederivatives_geniuminet_itch_v1_1.message_count.size = 2
+
+-- Display: Message Count
+jpx_osederivatives_geniuminet_itch_v1_1.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+jpx_osederivatives_geniuminet_itch_v1_1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+jpx_osederivatives_geniuminet_itch_v1_1.message_length = {}
+
+-- Size: Message Length
+jpx_osederivatives_geniuminet_itch_v1_1.message_length.size = 2
+
+-- Display: Message Length
+jpx_osederivatives_geniuminet_itch_v1_1.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+jpx_osederivatives_geniuminet_itch_v1_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+jpx_osederivatives_geniuminet_itch_v1_1.message_type = {}
+
+-- Size: Message Type
+jpx_osederivatives_geniuminet_itch_v1_1.message_type.size = 1
+
+-- Display: Message Type
+jpx_osederivatives_geniuminet_itch_v1_1.message_type.display = function(value)
+  if value == "T" then
+    return "Message Type: Seconds Message (T)"
+  end
+  if value == "R" then
+    return "Message Type: Order Book Directory (R)"
+  end
+  if value == "M" then
+    return "Message Type: Combination Orderbook Leg (M)"
+  end
+  if value == "L" then
+    return "Message Type: Tick Size Table Entry (L)"
+  end
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "O" then
+    return "Message Type: Order Book State Message (O)"
+  end
+  if value == "A" then
+    return "Message Type: Add Order No Mpid (A)"
+  end
+  if value == "F" then
+    return "Message Type: Add Order With Mpid (F)"
+  end
+  if value == "E" then
+    return "Message Type: Order Executed Message (E)"
+  end
+  if value == "C" then
+    return "Message Type: Order Executed With Price Message (C)"
+  end
+  if value == "U" then
+    return "Message Type: Order Replace Message (U)"
+  end
+  if value == "D" then
+    return "Message Type: Order Delete Message (D)"
+  end
+  if value == "P" then
+    return "Message Type: Trade Message (P)"
+  end
+  if value == "Z" then
+    return "Message Type: Equilibrium Price Update (Z)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+jpx_osederivatives_geniuminet_itch_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Orderbook Position
+jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position = {}
+
+-- Size: New Orderbook Position
+jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.size = 4
+
+-- Display: New Orderbook Position
+jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.display = function(value)
+  return "New Orderbook Position: "..value
+end
+
+-- Dissect: New Orderbook Position
+jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.new_orderbook_position, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.nominal_value = {}
+
+-- Size: Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.size = 8
+
+-- Display: Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.display = function(value)
+  return "Nominal Value: "..value
+end
+
+-- Dissect: Nominal Value
+jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.nominal_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Legs
+jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs = {}
+
+-- Size: Number Of Legs
+jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.size = 1
+
+-- Display: Number Of Legs
+jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Occurred At Cross
+jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross = {}
+
+-- Size: Occurred At Cross
+jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.size = 1
+
+-- Display: Occurred At Cross
+jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.display = function(value)
+  if value == "N" then
+    return "Occurred At Cross: No (N)"
+  end
+  if value == "Y" then
+    return "Occurred At Cross: Yes (Y)"
+  end
+
+  return "Occurred At Cross: Unknown("..value..")"
+end
+
+-- Dissect: Occurred At Cross
+jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.occurred_at_cross, range, value, display)
+
+  return offset + length, value
+end
+
+-- Odd Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size = {}
+
+-- Size: Odd Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.size = 4
+
+-- Display: Odd Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.display = function(value)
+  return "Odd Lot Size: "..value
+end
+
+-- Dissect: Odd Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.odd_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Book Id
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_id = {}
 
@@ -373,6 +1074,552 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.dissect = function(buffer,
   local display = jpx_osederivatives_geniuminet_itch_v1_1.order_book_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_book_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Position
+jpx_osederivatives_geniuminet_itch_v1_1.order_book_position = {}
+
+-- Size: Order Book Position
+jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.size = 4
+
+-- Display: Order Book Position
+jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.display = function(value)
+  return "Order Book Position: "..value
+end
+
+-- Dissect: Order Book Position
+jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_book_position, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+jpx_osederivatives_geniuminet_itch_v1_1.order_id = {}
+
+-- Size: Order Id
+jpx_osederivatives_geniuminet_itch_v1_1.order_id.size = 8
+
+-- Display: Order Id
+jpx_osederivatives_geniuminet_itch_v1_1.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Owner Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id = {}
+
+-- Size: Owner Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.size = 7
+
+-- Display: Owner Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.display = function(value)
+  return "Owner Participant Id: "..value
+end
+
+-- Dissect: Owner Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.owner_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id = {}
+
+-- Size: Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id.size = 7
+
+-- Display: Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id.display = function(value)
+  return "Participant Id: "..value
+end
+
+-- Dissect: Participant Id
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.participant_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id Counterparty
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty = {}
+
+-- Size: Participant Id Counterparty
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.size = 7
+
+-- Display: Participant Id Counterparty
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.display = function(value)
+  return "Participant Id Counterparty: "..value
+end
+
+-- Dissect: Participant Id Counterparty
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id_counterparty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id Owner
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner = {}
+
+-- Size: Participant Id Owner
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.size = 7
+
+-- Display: Participant Id Owner
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.display = function(value)
+  return "Participant Id Owner: "..value
+end
+
+-- Dissect: Participant Id Owner
+jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id_owner, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+jpx_osederivatives_geniuminet_itch_v1_1.price = {}
+
+-- Size: Price
+jpx_osederivatives_geniuminet_itch_v1_1.price.size = 4
+
+-- Display: Price
+jpx_osederivatives_geniuminet_itch_v1_1.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+jpx_osederivatives_geniuminet_itch_v1_1.price.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price From
+jpx_osederivatives_geniuminet_itch_v1_1.price_from = {}
+
+-- Size: Price From
+jpx_osederivatives_geniuminet_itch_v1_1.price_from.size = 4
+
+-- Display: Price From
+jpx_osederivatives_geniuminet_itch_v1_1.price_from.display = function(value)
+  return "Price From: "..value
+end
+
+-- Dissect: Price From
+jpx_osederivatives_geniuminet_itch_v1_1.price_from.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.price_from.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.price_from.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price_from, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price To
+jpx_osederivatives_geniuminet_itch_v1_1.price_to = {}
+
+-- Size: Price To
+jpx_osederivatives_geniuminet_itch_v1_1.price_to.size = 4
+
+-- Display: Price To
+jpx_osederivatives_geniuminet_itch_v1_1.price_to.display = function(value)
+  return "Price To: "..value
+end
+
+-- Dissect: Price To
+jpx_osederivatives_geniuminet_itch_v1_1.price_to.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.price_to.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.price_to.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price_to, range, value, display)
+
+  return offset + length, value
+end
+
+-- Printable
+jpx_osederivatives_geniuminet_itch_v1_1.printable = {}
+
+-- Size: Printable
+jpx_osederivatives_geniuminet_itch_v1_1.printable.size = 1
+
+-- Display: Printable
+jpx_osederivatives_geniuminet_itch_v1_1.printable.display = function(value)
+  if value == "N" then
+    return "Printable: Non Printable (N)"
+  end
+  if value == "Y" then
+    return "Printable: Printable (Y)"
+  end
+
+  return "Printable: Unknown("..value..")"
+end
+
+-- Dissect: Printable
+jpx_osederivatives_geniuminet_itch_v1_1.printable.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.printable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.printable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.printable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+jpx_osederivatives_geniuminet_itch_v1_1.put_or_call = {}
+
+-- Size: Put Or Call
+jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.size = 1
+
+-- Display: Put Or Call
+jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.display = function(value)
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+  if value == 2 then
+    return "Put Or Call: Put (2)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.quantity = {}
+
+-- Size: Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.quantity.size = 8
+
+-- Display: Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+jpx_osederivatives_geniuminet_itch_v1_1.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 24
+jpx_osederivatives_geniuminet_itch_v1_1.reserved_24 = {}
+
+-- Size: Reserved 24
+jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.size = 24
+
+-- Display: Reserved 24
+jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.display = function(value)
+  return "Reserved 24: "..value
+end
+
+-- Dissect: Reserved 24
+jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.reserved_24.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.reserved_24, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size = {}
+
+-- Size: Round Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds = {}
+
+-- Size: Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds.size = 4
+
+-- Store: Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds.store = nil
+
+-- Display: Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+jpx_osederivatives_geniuminet_itch_v1_1.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+jpx_osederivatives_geniuminet_itch_v1_1.sequence_number = {}
+
+-- Size: Sequence Number
+jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.size = 8
+
+-- Display: Sequence Number
+jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+jpx_osederivatives_geniuminet_itch_v1_1.session = {}
+
+-- Size: Session
+jpx_osederivatives_geniuminet_itch_v1_1.session.size = 10
+
+-- Display: Session
+jpx_osederivatives_geniuminet_itch_v1_1.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+jpx_osederivatives_geniuminet_itch_v1_1.session.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+jpx_osederivatives_geniuminet_itch_v1_1.side = {}
+
+-- Size: Side
+jpx_osederivatives_geniuminet_itch_v1_1.side.size = 1
+
+-- Display: Side
+jpx_osederivatives_geniuminet_itch_v1_1.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy Order (B)"
+  end
+  if value == "S" then
+    return "Side: Sell Order (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+jpx_osederivatives_geniuminet_itch_v1_1.side.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- State Name
+jpx_osederivatives_geniuminet_itch_v1_1.state_name = {}
+
+-- Size: State Name
+jpx_osederivatives_geniuminet_itch_v1_1.state_name.size = 20
+
+-- Display: State Name
+jpx_osederivatives_geniuminet_itch_v1_1.state_name.display = function(value)
+  return "State Name: "..value
+end
+
+-- Dissect: State Name
+jpx_osederivatives_geniuminet_itch_v1_1.state_name.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.state_name.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.state_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.state_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.strike_price = {}
+
+-- Size: Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.strike_price.size = 4
+
+-- Display: Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+jpx_osederivatives_geniuminet_itch_v1_1.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.strike_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+jpx_osederivatives_geniuminet_itch_v1_1.symbol = {}
+
+-- Size: Symbol
+jpx_osederivatives_geniuminet_itch_v1_1.symbol.size = 32
+
+-- Display: Symbol
+jpx_osederivatives_geniuminet_itch_v1_1.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+jpx_osederivatives_geniuminet_itch_v1_1.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Size
+jpx_osederivatives_geniuminet_itch_v1_1.tick_size = {}
+
+-- Size: Tick Size
+jpx_osederivatives_geniuminet_itch_v1_1.tick_size.size = 8
+
+-- Display: Tick Size
+jpx_osederivatives_geniuminet_itch_v1_1.tick_size.display = function(value)
+  return "Tick Size: "..value
+end
+
+-- Dissect: Tick Size
+jpx_osederivatives_geniuminet_itch_v1_1.tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.tick_size.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.tick_size, range, value, display)
 
   return offset + length, value
 end
@@ -406,6 +1653,80 @@ jpx_osederivatives_geniuminet_itch_v1_1.timestamp.dissect = function(buffer, off
 
   return offset + length, value
 end
+
+-- Trade Price
+jpx_osederivatives_geniuminet_itch_v1_1.trade_price = {}
+
+-- Size: Trade Price
+jpx_osederivatives_geniuminet_itch_v1_1.trade_price.size = 4
+
+-- Display: Trade Price
+jpx_osederivatives_geniuminet_itch_v1_1.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Dissect: Trade Price
+jpx_osederivatives_geniuminet_itch_v1_1.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.trade_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Currency
+jpx_osederivatives_geniuminet_itch_v1_1.trading_currency = {}
+
+-- Size: Trading Currency
+jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.size = 3
+
+-- Display: Trading Currency
+jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.display = function(value)
+  return "Trading Currency: "..value
+end
+
+-- Dissect: Trading Currency
+jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trading_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id = {}
+
+-- Size: Underlying Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.size = 4
+
+-- Display: Underlying Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.display = function(value)
+  return "Underlying Orderbook Id: "..value
+end
+
+-- Dissect: Underlying Orderbook Id
+jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.underlying_orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Jpx OseDerivatives GeniumInet Itch 1.1
+-----------------------------------------------------------------------
 
 -- Equilibrium Price Update
 jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update = {}
@@ -465,234 +1786,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.dissect = funct
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_itch_v1_1.equilibrium_price_update.fields(buffer, offset, packet, parent)
   end
-end
-
--- Occurred At Cross
-jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross = {}
-
--- Size: Occurred At Cross
-jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.size = 1
-
--- Display: Occurred At Cross
-jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.display = function(value)
-  if value == "N" then
-    return "Occurred At Cross: No (N)"
-  end
-  if value == "Y" then
-    return "Occurred At Cross: Yes (Y)"
-  end
-
-  return "Occurred At Cross: Unknown("..value..")"
-end
-
--- Dissect: Occurred At Cross
-jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.occurred_at_cross.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.occurred_at_cross, range, value, display)
-
-  return offset + length, value
-end
-
--- Printable
-jpx_osederivatives_geniuminet_itch_v1_1.printable = {}
-
--- Size: Printable
-jpx_osederivatives_geniuminet_itch_v1_1.printable.size = 1
-
--- Display: Printable
-jpx_osederivatives_geniuminet_itch_v1_1.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
-
-  return "Printable: Unknown("..value..")"
-end
-
--- Dissect: Printable
-jpx_osederivatives_geniuminet_itch_v1_1.printable.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.printable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.printable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.printable, range, value, display)
-
-  return offset + length, value
-end
-
--- Counterparty Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id = {}
-
--- Size: Counterparty Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.size = 7
-
--- Display: Counterparty Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.display = function(value)
-  return "Counterparty Participant Id: "..value
-end
-
--- Dissect: Counterparty Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.counterparty_participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.counterparty_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Owner Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id = {}
-
--- Size: Owner Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.size = 7
-
--- Display: Owner Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.display = function(value)
-  return "Owner Participant Id: "..value
-end
-
--- Dissect: Owner Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.owner_participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.owner_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price
-jpx_osederivatives_geniuminet_itch_v1_1.trade_price = {}
-
--- Size: Trade Price
-jpx_osederivatives_geniuminet_itch_v1_1.trade_price.size = 4
-
--- Display: Trade Price
-jpx_osederivatives_geniuminet_itch_v1_1.trade_price.display = function(value)
-  return "Trade Price: "..value
-end
-
--- Dissect: Trade Price
-jpx_osederivatives_geniuminet_itch_v1_1.trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.trade_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.quantity = {}
-
--- Size: Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.quantity.size = 8
-
--- Display: Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-jpx_osederivatives_geniuminet_itch_v1_1.side = {}
-
--- Size: Side
-jpx_osederivatives_geniuminet_itch_v1_1.side.size = 1
-
--- Display: Side
-jpx_osederivatives_geniuminet_itch_v1_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-jpx_osederivatives_geniuminet_itch_v1_1.side.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Combo Group Id
-jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id = {}
-
--- Size: Combo Group Id
-jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.size = 4
-
--- Display: Combo Group Id
-jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.display = function(value)
-  return "Combo Group Id: "..value
-end
-
--- Dissect: Combo Group Id
-jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.combo_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.combo_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Id
-jpx_osederivatives_geniuminet_itch_v1_1.match_id = {}
-
--- Size: Match Id
-jpx_osederivatives_geniuminet_itch_v1_1.match_id.size = 8
-
--- Display: Match Id
-jpx_osederivatives_geniuminet_itch_v1_1.match_id.display = function(value)
-  return "Match Id: "..value
-end
-
--- Dissect: Match Id
-jpx_osederivatives_geniuminet_itch_v1_1.match_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.match_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.match_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Message
@@ -773,29 +1866,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.trade_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_itch_v1_1.trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Order Id
-jpx_osederivatives_geniuminet_itch_v1_1.order_id = {}
-
--- Size: Order Id
-jpx_osederivatives_geniuminet_itch_v1_1.order_id.size = 8
-
--- Display: Order Id
-jpx_osederivatives_geniuminet_itch_v1_1.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-jpx_osederivatives_geniuminet_itch_v1_1.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Delete Message
@@ -928,52 +1998,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_attributes.dissect = function(buff
   return offset + size, value
 end
 
--- Price
-jpx_osederivatives_geniuminet_itch_v1_1.price = {}
-
--- Size: Price
-jpx_osederivatives_geniuminet_itch_v1_1.price.size = 4
-
--- Display: Price
-jpx_osederivatives_geniuminet_itch_v1_1.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-jpx_osederivatives_geniuminet_itch_v1_1.price.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- New Orderbook Position
-jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position = {}
-
--- Size: New Orderbook Position
-jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.size = 4
-
--- Display: New Orderbook Position
-jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.display = function(value)
-  return "New Orderbook Position: "..value
-end
-
--- Dissect: New Orderbook Position
-jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.new_orderbook_position.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.new_orderbook_position, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Replace Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message = {}
 
@@ -1040,29 +2064,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.dissect = function
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_itch_v1_1.order_replace_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Executed Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity = {}
-
--- Size: Executed Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.size = 8
-
--- Display: Executed Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.display = function(value)
-  return "Executed Quantity: "..value
-end
-
--- Dissect: Executed Quantity
-jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.executed_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.executed_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed With Price Message
@@ -1149,52 +2150,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_executed_with_price_message.dissec
   end
 end
 
--- Participant Id Counterparty
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty = {}
-
--- Size: Participant Id Counterparty
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.size = 7
-
--- Display: Participant Id Counterparty
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.display = function(value)
-  return "Participant Id Counterparty: "..value
-end
-
--- Dissect: Participant Id Counterparty
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_counterparty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id_counterparty, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Id Owner
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner = {}
-
--- Size: Participant Id Owner
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.size = 7
-
--- Display: Participant Id Owner
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.display = function(value)
-  return "Participant Id Owner: "..value
-end
-
--- Dissect: Participant Id Owner
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.participant_id_owner.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id_owner, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Executed Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message = {}
 
@@ -1265,91 +2220,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.dissect = functio
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_itch_v1_1.order_executed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id = {}
-
--- Size: Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id.size = 7
-
--- Display: Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id.display = function(value)
-  return "Participant Id: "..value
-end
-
--- Dissect: Participant Id
-jpx_osederivatives_geniuminet_itch_v1_1.participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.participant_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.participant_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Type
-jpx_osederivatives_geniuminet_itch_v1_1.lot_type = {}
-
--- Size: Lot Type
-jpx_osederivatives_geniuminet_itch_v1_1.lot_type.size = 1
-
--- Display: Lot Type
-jpx_osederivatives_geniuminet_itch_v1_1.lot_type.display = function(value)
-  if value == 0 then
-    return "Lot Type: Undefined (0)"
-  end
-  if value == 1 then
-    return "Lot Type: Odd Lot (1)"
-  end
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
-  if value == 3 then
-    return "Lot Type: Block Lot (3)"
-  end
-  if value == 4 then
-    return "Lot Type: All Or None Lot (4)"
-  end
-
-  return "Lot Type: Unknown("..value..")"
-end
-
--- Dissect: Lot Type
-jpx_osederivatives_geniuminet_itch_v1_1.lot_type.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.lot_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.lot_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.lot_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Book Position
-jpx_osederivatives_geniuminet_itch_v1_1.order_book_position = {}
-
--- Size: Order Book Position
-jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.size = 4
-
--- Display: Order Book Position
-jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.display = function(value)
-  return "Order Book Position: "..value
-end
-
--- Dissect: Order Book Position
-jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.order_book_position.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.order_book_position, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Order With Mpid
@@ -1500,29 +2370,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.add_order_no_mpid.dissect = function(buf
   end
 end
 
--- State Name
-jpx_osederivatives_geniuminet_itch_v1_1.state_name = {}
-
--- Size: State Name
-jpx_osederivatives_geniuminet_itch_v1_1.state_name.size = 20
-
--- Display: State Name
-jpx_osederivatives_geniuminet_itch_v1_1.state_name.display = function(value)
-  return "State Name: "..value
-end
-
--- Dissect: State Name
-jpx_osederivatives_geniuminet_itch_v1_1.state_name.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.state_name.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.state_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.state_name, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Book State Message
 jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message = {}
 
@@ -1571,36 +2418,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_book_state_message.dissect = funct
   end
 end
 
--- Event Code
-jpx_osederivatives_geniuminet_itch_v1_1.event_code = {}
-
--- Size: Event Code
-jpx_osederivatives_geniuminet_itch_v1_1.event_code.size = 1
-
--- Display: Event Code
-jpx_osederivatives_geniuminet_itch_v1_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-jpx_osederivatives_geniuminet_itch_v1_1.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 jpx_osederivatives_geniuminet_itch_v1_1.system_event_message = {}
 
@@ -1643,75 +2460,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.dissect = function(
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_itch_v1_1.system_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price To
-jpx_osederivatives_geniuminet_itch_v1_1.price_to = {}
-
--- Size: Price To
-jpx_osederivatives_geniuminet_itch_v1_1.price_to.size = 4
-
--- Display: Price To
-jpx_osederivatives_geniuminet_itch_v1_1.price_to.display = function(value)
-  return "Price To: "..value
-end
-
--- Dissect: Price To
-jpx_osederivatives_geniuminet_itch_v1_1.price_to.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.price_to.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.price_to.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price_to, range, value, display)
-
-  return offset + length, value
-end
-
--- Price From
-jpx_osederivatives_geniuminet_itch_v1_1.price_from = {}
-
--- Size: Price From
-jpx_osederivatives_geniuminet_itch_v1_1.price_from.size = 4
-
--- Display: Price From
-jpx_osederivatives_geniuminet_itch_v1_1.price_from.display = function(value)
-  return "Price From: "..value
-end
-
--- Dissect: Price From
-jpx_osederivatives_geniuminet_itch_v1_1.price_from.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.price_from.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.price_from.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.price_from, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Size
-jpx_osederivatives_geniuminet_itch_v1_1.tick_size = {}
-
--- Size: Tick Size
-jpx_osederivatives_geniuminet_itch_v1_1.tick_size.size = 8
-
--- Display: Tick Size
-jpx_osederivatives_geniuminet_itch_v1_1.tick_size.display = function(value)
-  return "Tick Size: "..value
-end
-
--- Dissect: Tick Size
-jpx_osederivatives_geniuminet_itch_v1_1.tick_size.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.tick_size.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.tick_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.tick_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tick Size Table Entry
@@ -1770,105 +2518,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.tick_size_table_entry.dissect = function
   end
 end
 
--- Leg Ratio
-jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio = {}
-
--- Size: Leg Ratio
-jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.size = 4
-
--- Display: Leg Ratio
-jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.display = function(value)
-  return "Leg Ratio: "..value
-end
-
--- Dissect: Leg Ratio
-jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.leg_ratio.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.leg_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-jpx_osederivatives_geniuminet_itch_v1_1.leg_side = {}
-
--- Size: Leg Side
-jpx_osederivatives_geniuminet_itch_v1_1.leg_side.size = 1
-
--- Display: Leg Side
-jpx_osederivatives_geniuminet_itch_v1_1.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-jpx_osederivatives_geniuminet_itch_v1_1.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.leg_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id = {}
-
--- Size: Leg Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.size = 4
-
--- Display: Leg Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.display = function(value)
-  return "Leg Orderbook Id: "..value
-end
-
--- Dissect: Leg Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.leg_orderbook_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.leg_orderbook_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Combination Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id = {}
-
--- Size: Combination Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.size = 4
-
--- Display: Combination Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.display = function(value)
-  return "Combination Orderbook Id: "..value
-end
-
--- Dissect: Combination Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.combination_orderbook_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Combination Orderbook Leg
 jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg = {}
 
@@ -1923,450 +2572,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.dissect = func
     -- Skip element, add fields directly
     return jpx_osederivatives_geniuminet_itch_v1_1.combination_orderbook_leg.fields(buffer, offset, packet, parent)
   end
-end
-
--- Put Or Call
-jpx_osederivatives_geniuminet_itch_v1_1.put_or_call = {}
-
--- Size: Put Or Call
-jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.size = 1
-
--- Display: Put Or Call
-jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.display = function(value)
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
-
-  return "Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Put Or Call
-jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Decimals In Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price = {}
-
--- Size: Decimals In Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.size = 2
-
--- Display: Decimals In Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.display = function(value)
-  return "Decimals In Strike Price: "..value
-end
-
--- Dissect: Decimals In Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.decimals_in_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Date
-jpx_osederivatives_geniuminet_itch_v1_1.expiration_date = {}
-
--- Size: Expiration Date
-jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.size = 4
-
--- Display: Expiration Date
-jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.display = function(value)
-  return "Expiration Date: "..value
-end
-
--- Dissect: Expiration Date
-jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.expiration_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.expiration_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.strike_price = {}
-
--- Size: Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.strike_price.size = 4
-
--- Display: Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-jpx_osederivatives_geniuminet_itch_v1_1.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.strike_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id = {}
-
--- Size: Underlying Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.size = 4
-
--- Display: Underlying Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.display = function(value)
-  return "Underlying Orderbook Id: "..value
-end
-
--- Dissect: Underlying Orderbook Id
-jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.underlying_orderbook_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.underlying_orderbook_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Legs
-jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs = {}
-
--- Size: Number Of Legs
-jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.size = 1
-
--- Display: Number Of Legs
-jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.display = function(value)
-  return "Number Of Legs: "..value
-end
-
--- Dissect: Number Of Legs
-jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.number_of_legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.number_of_legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.nominal_value = {}
-
--- Size: Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.size = 8
-
--- Display: Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.display = function(value)
-  return "Nominal Value: "..value
-end
-
--- Dissect: Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.nominal_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.nominal_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size = {}
-
--- Size: Block Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.size = 4
-
--- Display: Block Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.display = function(value)
-  return "Block Lot Size: "..value
-end
-
--- Dissect: Block Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.block_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.block_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size = {}
-
--- Size: Round Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.size = 4
-
--- Display: Round Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Odd Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size = {}
-
--- Size: Odd Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.size = 4
-
--- Display: Odd Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.display = function(value)
-  return "Odd Lot Size: "..value
-end
-
--- Dissect: Odd Lot Size
-jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.odd_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.odd_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Decimals In Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value = {}
-
--- Size: Decimals In Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.size = 2
-
--- Display: Decimals In Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.display = function(value)
-  return "Decimals In Nominal Value: "..value
-end
-
--- Dissect: Decimals In Nominal Value
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_nominal_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.decimals_in_nominal_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Decimals In Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price = {}
-
--- Size: Decimals In Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.size = 2
-
--- Display: Decimals In Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.display = function(value)
-  return "Decimals In Price: "..value
-end
-
--- Dissect: Decimals In Price
-jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.decimals_in_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.decimals_in_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Currency
-jpx_osederivatives_geniuminet_itch_v1_1.trading_currency = {}
-
--- Size: Trading Currency
-jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.size = 3
-
--- Display: Trading Currency
-jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.display = function(value)
-  return "Trading Currency: "..value
-end
-
--- Dissect: Trading Currency
-jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.trading_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.trading_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Financial Product
-jpx_osederivatives_geniuminet_itch_v1_1.financial_product = {}
-
--- Size: Financial Product
-jpx_osederivatives_geniuminet_itch_v1_1.financial_product.size = 1
-
--- Display: Financial Product
-jpx_osederivatives_geniuminet_itch_v1_1.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Or Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
-
-  return "Financial Product: Unknown("..value..")"
-end
-
--- Dissect: Financial Product
-jpx_osederivatives_geniuminet_itch_v1_1.financial_product.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.financial_product.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.financial_product.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.financial_product, range, value, display)
-
-  return offset + length, value
-end
-
--- Isin
-jpx_osederivatives_geniuminet_itch_v1_1.isin = {}
-
--- Size: Isin
-jpx_osederivatives_geniuminet_itch_v1_1.isin.size = 12
-
--- Display: Isin
-jpx_osederivatives_geniuminet_itch_v1_1.isin.display = function(value)
-  return "Isin: "..value
-end
-
--- Dissect: Isin
-jpx_osederivatives_geniuminet_itch_v1_1.isin.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.isin.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.isin.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.isin, range, value, display)
-
-  return offset + length, value
-end
-
--- Long Name
-jpx_osederivatives_geniuminet_itch_v1_1.long_name = {}
-
--- Size: Long Name
-jpx_osederivatives_geniuminet_itch_v1_1.long_name.size = 32
-
--- Display: Long Name
-jpx_osederivatives_geniuminet_itch_v1_1.long_name.display = function(value)
-  return "Long Name: "..value
-end
-
--- Dissect: Long Name
-jpx_osederivatives_geniuminet_itch_v1_1.long_name.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.long_name.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.long_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.long_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-jpx_osederivatives_geniuminet_itch_v1_1.symbol = {}
-
--- Size: Symbol
-jpx_osederivatives_geniuminet_itch_v1_1.symbol.size = 32
-
--- Display: Symbol
-jpx_osederivatives_geniuminet_itch_v1_1.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-jpx_osederivatives_geniuminet_itch_v1_1.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Book Directory
@@ -2481,32 +2686,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.order_book_directory.dissect = function(
   end
 end
 
--- Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds = {}
-
--- Size: Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds.size = 4
-
--- Store: Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds.store = nil
-
--- Display: Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-jpx_osederivatives_geniuminet_itch_v1_1.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Seconds Message
 jpx_osederivatives_geniuminet_itch_v1_1.seconds_message = {}
 
@@ -2613,95 +2792,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.payload.dissect = function(buffer, offse
   end
 
   return offset
-end
-
--- Message Type
-jpx_osederivatives_geniuminet_itch_v1_1.message_type = {}
-
--- Size: Message Type
-jpx_osederivatives_geniuminet_itch_v1_1.message_type.size = 1
-
--- Display: Message Type
-jpx_osederivatives_geniuminet_itch_v1_1.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Message Type: Order Book Directory (R)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Orderbook Leg (M)"
-  end
-  if value == "L" then
-    return "Message Type: Tick Size Table Entry (L)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order No Mpid (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order With Mpid (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Update (Z)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-jpx_osederivatives_geniuminet_itch_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-jpx_osederivatives_geniuminet_itch_v1_1.message_length = {}
-
--- Size: Message Length
-jpx_osederivatives_geniuminet_itch_v1_1.message_length.size = 2
-
--- Display: Message Length
-jpx_osederivatives_geniuminet_itch_v1_1.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-jpx_osederivatives_geniuminet_itch_v1_1.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2837,91 +2927,6 @@ jpx_osederivatives_geniuminet_itch_v1_1.messages.dissect = function(buffer, offs
   end
 
   return offset
-end
-
--- Message Count
-jpx_osederivatives_geniuminet_itch_v1_1.message_count = {}
-
--- Size: Message Count
-jpx_osederivatives_geniuminet_itch_v1_1.message_count.size = 2
-
--- Display: Message Count
-jpx_osederivatives_geniuminet_itch_v1_1.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-jpx_osederivatives_geniuminet_itch_v1_1.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-jpx_osederivatives_geniuminet_itch_v1_1.sequence_number = {}
-
--- Size: Sequence Number
-jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.size = 8
-
--- Display: Sequence Number
-jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-jpx_osederivatives_geniuminet_itch_v1_1.session = {}
-
--- Size: Session
-jpx_osederivatives_geniuminet_itch_v1_1.session.size = 10
-
--- Display: Session
-jpx_osederivatives_geniuminet_itch_v1_1.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-jpx_osederivatives_geniuminet_itch_v1_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_itch_v1_1.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = jpx_osederivatives_geniuminet_itch_v1_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v1_1.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

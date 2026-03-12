@@ -171,69 +171,28 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme BrokerTec Ust Sbe 10.1
+-- Cme BrokerTec Ust Sbe 10.1 Fields
 -----------------------------------------------------------------------
 
--- Price Type
-cme_brokertec_ust_sbe_v10_1.price_type = {}
+-- Block Length
+cme_brokertec_ust_sbe_v10_1.block_length = {}
 
--- Size: Price Type
-cme_brokertec_ust_sbe_v10_1.price_type.size = 1
+-- Size: Block Length
+cme_brokertec_ust_sbe_v10_1.block_length.size = 2
 
--- Display: Price Type
-cme_brokertec_ust_sbe_v10_1.price_type.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Price Type: No Value"
-  end
-
-  return "Price Type: "..value
+-- Display: Block Length
+cme_brokertec_ust_sbe_v10_1.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Price Type
-cme_brokertec_ust_sbe_v10_1.price_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.price_type.size
+-- Dissect: Block Length
+cme_brokertec_ust_sbe_v10_1.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.block_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.price_type.display(value, buffer, offset, packet, parent)
+  local display = cme_brokertec_ust_sbe_v10_1.block_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Condition
-cme_brokertec_ust_sbe_v10_1.trade_condition = {}
-
--- Size: Trade Condition
-cme_brokertec_ust_sbe_v10_1.trade_condition.size = 1
-
--- Display: Trade Condition
-cme_brokertec_ust_sbe_v10_1.trade_condition.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trade Condition: No Value"
-  end
-
-  return "Trade Condition: "..value
-end
-
--- Dissect: Trade Condition
-cme_brokertec_ust_sbe_v10_1.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.trade_condition.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_brokertec_ust_sbe_v10_1.trade_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.trade_condition, range, value, display)
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -266,6 +225,34 @@ cme_brokertec_ust_sbe_v10_1.exponent.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa = {}
+
+-- Size: Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa.size = 8
+
+-- Display: Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Mantissa: No Value"
+  end
+
+  return "Mantissa: "..value
+end
+
+-- Dissect: Mantissa
+cme_brokertec_ust_sbe_v10_1.mantissa.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.mantissa.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = cme_brokertec_ust_sbe_v10_1.mantissa.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mantissa 32
 cme_brokertec_ust_sbe_v10_1.mantissa_32 = {}
 
@@ -290,132 +277,6 @@ cme_brokertec_ust_sbe_v10_1.mantissa_32.dissect = function(buffer, offset, packe
   local display = cme_brokertec_ust_sbe_v10_1.mantissa_32.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa_32, range, value, display)
-
-  return offset + length, value
-end
-
--- Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate = {}
-
--- Size: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.size =
-  cme_brokertec_ust_sbe_v10_1.mantissa_32.size + 
-  cme_brokertec_ust_sbe_v10_1.exponent.size
-
--- Display: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
-  end
-
-  return ""..value
-end
-
--- Dissect Fields: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa 32: int32
-  index, mantissa_32 = cme_brokertec_ust_sbe_v10_1.mantissa_32.dissect(buffer, index, packet, parent)
-
-  -- Exponent: int8
-  index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local coupon_rate = mantissa_32 / factor( exponent )
-
-  return index, coupon_rate
-end
-
--- Dissect: Coupon Rate
-cme_brokertec_ust_sbe_v10_1.coupon_rate.dissect = function(buffer, offset, packet, parent)
-  if show.coupon_rate then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, buffer(offset, 0))
-    local index, value = cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_brokertec_ust_sbe_v10_1.coupon_rate.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Alt Id Source
-cme_brokertec_ust_sbe_v10_1.security_alt_id_source = {}
-
--- Size: Security Alt Id Source
-cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size = 1
-
--- Display: Security Alt Id Source
-cme_brokertec_ust_sbe_v10_1.security_alt_id_source.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Alt Id Source: No Value"
-  end
-
-  return "Security Alt Id Source: "..value
-end
-
--- Dissect: Security Alt Id Source
-cme_brokertec_ust_sbe_v10_1.security_alt_id_source.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_brokertec_ust_sbe_v10_1.security_alt_id_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.security_alt_id_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Alt Id
-cme_brokertec_ust_sbe_v10_1.security_alt_id = {}
-
--- Size: Security Alt Id
-cme_brokertec_ust_sbe_v10_1.security_alt_id.size = 12
-
--- Display: Security Alt Id
-cme_brokertec_ust_sbe_v10_1.security_alt_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Alt Id: No Value"
-  end
-
-  return "Security Alt Id: "..value
-end
-
--- Dissect: Security Alt Id
-cme_brokertec_ust_sbe_v10_1.security_alt_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.security_alt_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_brokertec_ust_sbe_v10_1.security_alt_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.security_alt_id, range, value, display)
 
   return offset + length, value
 end
@@ -448,101 +309,6 @@ cme_brokertec_ust_sbe_v10_1.maturity_date.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Symbol
-cme_brokertec_ust_sbe_v10_1.symbol = {}
-
--- Size: Symbol
-cme_brokertec_ust_sbe_v10_1.symbol.size = 20
-
--- Display: Symbol
-cme_brokertec_ust_sbe_v10_1.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cme_brokertec_ust_sbe_v10_1.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_brokertec_ust_sbe_v10_1.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Volume
-cme_brokertec_ust_sbe_v10_1.trade_volume = {}
-
--- Size: Trade Volume
-cme_brokertec_ust_sbe_v10_1.trade_volume.size = 4
-
--- Display: Trade Volume
-cme_brokertec_ust_sbe_v10_1.trade_volume.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Trade Volume: No Value"
-  end
-
-  return "Trade Volume: "..value
-end
-
--- Dissect: Trade Volume
-cme_brokertec_ust_sbe_v10_1.trade_volume.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.trade_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.trade_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.trade_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Price Level
-cme_brokertec_ust_sbe_v10_1.md_price_level = {}
-
--- Size: Md Price Level
-cme_brokertec_ust_sbe_v10_1.md_price_level.size = 1
-
--- Display: Md Price Level
-cme_brokertec_ust_sbe_v10_1.md_price_level.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Md Price Level: No Value"
-  end
-
-  return "Md Price Level: "..value
-end
-
--- Dissect: Md Price Level
-cme_brokertec_ust_sbe_v10_1.md_price_level.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.md_price_level.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.md_price_level.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_price_level, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Entry Size
 cme_brokertec_ust_sbe_v10_1.md_entry_size = {}
 
@@ -569,85 +335,6 @@ cme_brokertec_ust_sbe_v10_1.md_entry_size.dissect = function(buffer, offset, pac
   parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_size, range, value, display)
 
   return offset + length, value
-end
-
--- Mantissa
-cme_brokertec_ust_sbe_v10_1.mantissa = {}
-
--- Size: Mantissa
-cme_brokertec_ust_sbe_v10_1.mantissa.size = 8
-
--- Display: Mantissa
-cme_brokertec_ust_sbe_v10_1.mantissa.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Mantissa: No Value"
-  end
-
-  return "Mantissa: "..value
-end
-
--- Dissect: Mantissa
-cme_brokertec_ust_sbe_v10_1.mantissa.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.mantissa.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = cme_brokertec_ust_sbe_v10_1.mantissa.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.mantissa, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px = {}
-
--- Size: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.size =
-  cme_brokertec_ust_sbe_v10_1.mantissa.size + 
-  cme_brokertec_ust_sbe_v10_1.exponent.size
-
--- Display: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(raw, value)
-  if raw ~= nil then
-    return "No Value"
-  end
-
-  return ""..value
-end
-
--- Dissect Fields: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa: int64
-  index, mantissa = cme_brokertec_ust_sbe_v10_1.mantissa.dissect(buffer, index, packet, parent)
-
-  -- Exponent: int8
-  index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local md_entry_px = mantissa / factor( exponent )
-
-  return index, md_entry_px
-end
-
--- Dissect: Md Entry Px
-cme_brokertec_ust_sbe_v10_1.md_entry_px.dissect = function(buffer, offset, packet, parent)
-  if show.md_entry_px then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, buffer(offset, 0))
-    local index, value = cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_brokertec_ust_sbe_v10_1.md_entry_px.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Md Entry Type
@@ -720,6 +407,34 @@ cme_brokertec_ust_sbe_v10_1.md_entry_type.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Md Price Level
+cme_brokertec_ust_sbe_v10_1.md_price_level = {}
+
+-- Size: Md Price Level
+cme_brokertec_ust_sbe_v10_1.md_price_level.size = 1
+
+-- Display: Md Price Level
+cme_brokertec_ust_sbe_v10_1.md_price_level.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Md Price Level: No Value"
+  end
+
+  return "Md Price Level: "..value
+end
+
+-- Dissect: Md Price Level
+cme_brokertec_ust_sbe_v10_1.md_price_level.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.md_price_level.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.md_price_level.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_price_level, range, value, display)
+
+  return offset + length, value
+end
+
 -- Md Update Action
 cme_brokertec_ust_sbe_v10_1.md_update_action = {}
 
@@ -751,6 +466,554 @@ cme_brokertec_ust_sbe_v10_1.md_update_action.dissect = function(buffer, offset, 
   parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_update_action, range, value, display)
 
   return offset + length, value
+end
+
+-- Message Size
+cme_brokertec_ust_sbe_v10_1.message_size = {}
+
+-- Size: Message Size
+cme_brokertec_ust_sbe_v10_1.message_size.size = 2
+
+-- Display: Message Size
+cme_brokertec_ust_sbe_v10_1.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+cme_brokertec_ust_sbe_v10_1.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group = {}
+
+-- Size: Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group.size = 1
+
+-- Display: Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+cme_brokertec_ust_sbe_v10_1.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number = {}
+
+-- Size: Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size = 4
+
+-- Display: Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
+end
+
+-- Dissect: Packet Sequence Number
+cme_brokertec_ust_sbe_v10_1.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.packet_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Type
+cme_brokertec_ust_sbe_v10_1.price_type = {}
+
+-- Size: Price Type
+cme_brokertec_ust_sbe_v10_1.price_type.size = 1
+
+-- Display: Price Type
+cme_brokertec_ust_sbe_v10_1.price_type.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Price Type: No Value"
+  end
+
+  return "Price Type: "..value
+end
+
+-- Dissect: Price Type
+cme_brokertec_ust_sbe_v10_1.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.price_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+cme_brokertec_ust_sbe_v10_1.schema_id = {}
+
+-- Size: Schema Id
+cme_brokertec_ust_sbe_v10_1.schema_id.size = 2
+
+-- Display: Schema Id
+cme_brokertec_ust_sbe_v10_1.schema_id.display = function(value)
+  if value == 10 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+cme_brokertec_ust_sbe_v10_1.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Alt Id
+cme_brokertec_ust_sbe_v10_1.security_alt_id = {}
+
+-- Size: Security Alt Id
+cme_brokertec_ust_sbe_v10_1.security_alt_id.size = 12
+
+-- Display: Security Alt Id
+cme_brokertec_ust_sbe_v10_1.security_alt_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id: No Value"
+  end
+
+  return "Security Alt Id: "..value
+end
+
+-- Dissect: Security Alt Id
+cme_brokertec_ust_sbe_v10_1.security_alt_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.security_alt_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_brokertec_ust_sbe_v10_1.security_alt_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.security_alt_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Alt Id Source
+cme_brokertec_ust_sbe_v10_1.security_alt_id_source = {}
+
+-- Size: Security Alt Id Source
+cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size = 1
+
+-- Display: Security Alt Id Source
+cme_brokertec_ust_sbe_v10_1.security_alt_id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id Source: No Value"
+  end
+
+  return "Security Alt Id Source: "..value
+end
+
+-- Dissect: Security Alt Id Source
+cme_brokertec_ust_sbe_v10_1.security_alt_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.security_alt_id_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_brokertec_ust_sbe_v10_1.security_alt_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.security_alt_id_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+cme_brokertec_ust_sbe_v10_1.sending_time = {}
+
+-- Size: Sending Time
+cme_brokertec_ust_sbe_v10_1.sending_time.size = 8
+
+-- Display: Sending Time
+cme_brokertec_ust_sbe_v10_1.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+cme_brokertec_ust_sbe_v10_1.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_brokertec_ust_sbe_v10_1.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cme_brokertec_ust_sbe_v10_1.symbol = {}
+
+-- Size: Symbol
+cme_brokertec_ust_sbe_v10_1.symbol.size = 20
+
+-- Display: Symbol
+cme_brokertec_ust_sbe_v10_1.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cme_brokertec_ust_sbe_v10_1.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_brokertec_ust_sbe_v10_1.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+cme_brokertec_ust_sbe_v10_1.template_id = {}
+
+-- Size: Template Id
+cme_brokertec_ust_sbe_v10_1.template_id.size = 2
+
+-- Display: Template Id
+cme_brokertec_ust_sbe_v10_1.template_id.display = function(value)
+  if value == 405 then
+    return "Template Id: Md Incremental Refresh Btec (405)"
+  end
+  if value == 411 then
+    return "Template Id: Admin Heartbeat (411)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+cme_brokertec_ust_sbe_v10_1.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition
+cme_brokertec_ust_sbe_v10_1.trade_condition = {}
+
+-- Size: Trade Condition
+cme_brokertec_ust_sbe_v10_1.trade_condition.size = 1
+
+-- Display: Trade Condition
+cme_brokertec_ust_sbe_v10_1.trade_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Condition: No Value"
+  end
+
+  return "Trade Condition: "..value
+end
+
+-- Dissect: Trade Condition
+cme_brokertec_ust_sbe_v10_1.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.trade_condition.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_brokertec_ust_sbe_v10_1.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+cme_brokertec_ust_sbe_v10_1.trade_date = {}
+
+-- Size: Trade Date
+cme_brokertec_ust_sbe_v10_1.trade_date.size = 2
+
+-- Display: Trade Date
+cme_brokertec_ust_sbe_v10_1.trade_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+cme_brokertec_ust_sbe_v10_1.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Volume
+cme_brokertec_ust_sbe_v10_1.trade_volume = {}
+
+-- Size: Trade Volume
+cme_brokertec_ust_sbe_v10_1.trade_volume.size = 4
+
+-- Display: Trade Volume
+cme_brokertec_ust_sbe_v10_1.trade_volume.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Trade Volume: No Value"
+  end
+
+  return "Trade Volume: "..value
+end
+
+-- Dissect: Trade Volume
+cme_brokertec_ust_sbe_v10_1.trade_volume.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.trade_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.trade_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+cme_brokertec_ust_sbe_v10_1.transact_time = {}
+
+-- Size: Transact Time
+cme_brokertec_ust_sbe_v10_1.transact_time.size = 8
+
+-- Display: Transact Time
+cme_brokertec_ust_sbe_v10_1.transact_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+cme_brokertec_ust_sbe_v10_1.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_brokertec_ust_sbe_v10_1.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+cme_brokertec_ust_sbe_v10_1.version = {}
+
+-- Size: Version
+cme_brokertec_ust_sbe_v10_1.version.size = 2
+
+-- Display: Version
+cme_brokertec_ust_sbe_v10_1.version.display = function(value)
+  if value == 1 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+cme_brokertec_ust_sbe_v10_1.version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ust_sbe_v10_1.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_brokertec_ust_sbe_v10_1.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cme BrokerTec Ust Sbe 10.1
+-----------------------------------------------------------------------
+
+-- Coupon Rate
+cme_brokertec_ust_sbe_v10_1.coupon_rate = {}
+
+-- Size: Coupon Rate
+cme_brokertec_ust_sbe_v10_1.coupon_rate.size =
+  cme_brokertec_ust_sbe_v10_1.mantissa_32.size + 
+  cme_brokertec_ust_sbe_v10_1.exponent.size
+
+-- Display: Coupon Rate
+cme_brokertec_ust_sbe_v10_1.coupon_rate.display = function(raw, value)
+  if raw ~= nil then
+    return "No Value"
+  end
+
+  return ""..value
+end
+
+-- Dissect Fields: Coupon Rate
+cme_brokertec_ust_sbe_v10_1.coupon_rate.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa 32: int32
+  index, mantissa_32 = cme_brokertec_ust_sbe_v10_1.mantissa_32.dissect(buffer, index, packet, parent)
+
+  -- Exponent: int8
+  index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local coupon_rate = mantissa_32 / factor( exponent )
+
+  return index, coupon_rate
+end
+
+-- Dissect: Coupon Rate
+cme_brokertec_ust_sbe_v10_1.coupon_rate.dissect = function(buffer, offset, packet, parent)
+  if show.coupon_rate then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.coupon_rate, buffer(offset, 0))
+    local index, value = cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1.coupon_rate.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1.coupon_rate.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Md Entry Px
+cme_brokertec_ust_sbe_v10_1.md_entry_px = {}
+
+-- Size: Md Entry Px
+cme_brokertec_ust_sbe_v10_1.md_entry_px.size =
+  cme_brokertec_ust_sbe_v10_1.mantissa.size + 
+  cme_brokertec_ust_sbe_v10_1.exponent.size
+
+-- Display: Md Entry Px
+cme_brokertec_ust_sbe_v10_1.md_entry_px.display = function(raw, value)
+  if raw ~= nil then
+    return "No Value"
+  end
+
+  return ""..value
+end
+
+-- Dissect Fields: Md Entry Px
+cme_brokertec_ust_sbe_v10_1.md_entry_px.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: int64
+  index, mantissa = cme_brokertec_ust_sbe_v10_1.mantissa.dissect(buffer, index, packet, parent)
+
+  -- Exponent: int8
+  index, exponent = cme_brokertec_ust_sbe_v10_1.exponent.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local md_entry_px = mantissa / factor( exponent )
+
+  return index, md_entry_px
+end
+
+-- Dissect: Md Entry Px
+cme_brokertec_ust_sbe_v10_1.md_entry_px.dissect = function(buffer, offset, packet, parent)
+  if show.md_entry_px then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.md_entry_px, buffer(offset, 0))
+    local index, value = cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ust_sbe_v10_1.md_entry_px.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ust_sbe_v10_1.md_entry_px.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Incremental Refresh Btec Group
@@ -845,52 +1108,6 @@ cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.dissect = function(bu
     -- Skip element, add fields directly
     return cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_group.fields(buffer, offset, packet, parent, incremental_refresh_btec_group_index)
   end
-end
-
--- Num In Group
-cme_brokertec_ust_sbe_v10_1.num_in_group = {}
-
--- Size: Num In Group
-cme_brokertec_ust_sbe_v10_1.num_in_group.size = 1
-
--- Display: Num In Group
-cme_brokertec_ust_sbe_v10_1.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-cme_brokertec_ust_sbe_v10_1.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-cme_brokertec_ust_sbe_v10_1.block_length = {}
-
--- Size: Block Length
-cme_brokertec_ust_sbe_v10_1.block_length.size = 2
-
--- Display: Block Length
-cme_brokertec_ust_sbe_v10_1.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-cme_brokertec_ust_sbe_v10_1.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.block_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Group Size
@@ -994,61 +1211,6 @@ cme_brokertec_ust_sbe_v10_1.incremental_refresh_btec_groups.dissect = function(b
   end
 end
 
--- Transact Time
-cme_brokertec_ust_sbe_v10_1.transact_time = {}
-
--- Size: Transact Time
-cme_brokertec_ust_sbe_v10_1.transact_time.size = 8
-
--- Display: Transact Time
-cme_brokertec_ust_sbe_v10_1.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-cme_brokertec_ust_sbe_v10_1.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_brokertec_ust_sbe_v10_1.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-cme_brokertec_ust_sbe_v10_1.trade_date = {}
-
--- Size: Trade Date
-cme_brokertec_ust_sbe_v10_1.trade_date.size = 2
-
--- Display: Trade Date
-cme_brokertec_ust_sbe_v10_1.trade_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Trade Date: No Value"
-  end
-
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cme_brokertec_ust_sbe_v10_1.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Incremental Refresh Btec
 cme_brokertec_ust_sbe_v10_1.md_incremental_refresh_btec = {}
 
@@ -1121,90 +1283,6 @@ cme_brokertec_ust_sbe_v10_1.payload.dissect = function(buffer, offset, packet, p
   return offset
 end
 
--- Version
-cme_brokertec_ust_sbe_v10_1.version = {}
-
--- Size: Version
-cme_brokertec_ust_sbe_v10_1.version.size = 2
-
--- Display: Version
-cme_brokertec_ust_sbe_v10_1.version.display = function(value)
-  if value == 1 then
-    return "Version: Version"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-cme_brokertec_ust_sbe_v10_1.version.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-cme_brokertec_ust_sbe_v10_1.schema_id = {}
-
--- Size: Schema Id
-cme_brokertec_ust_sbe_v10_1.schema_id.size = 2
-
--- Display: Schema Id
-cme_brokertec_ust_sbe_v10_1.schema_id.display = function(value)
-  if value == 10 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-cme_brokertec_ust_sbe_v10_1.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-cme_brokertec_ust_sbe_v10_1.template_id = {}
-
--- Size: Template Id
-cme_brokertec_ust_sbe_v10_1.template_id.size = 2
-
--- Display: Template Id
-cme_brokertec_ust_sbe_v10_1.template_id.display = function(value)
-  if value == 405 then
-    return "Template Id: Md Incremental Refresh Btec (405)"
-  end
-  if value == 411 then
-    return "Template Id: Admin Heartbeat (411)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-cme_brokertec_ust_sbe_v10_1.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 cme_brokertec_ust_sbe_v10_1.message_header = {}
 
@@ -1257,29 +1335,6 @@ cme_brokertec_ust_sbe_v10_1.message_header.dissect = function(buffer, offset, pa
   end
 end
 
--- Message Size
-cme_brokertec_ust_sbe_v10_1.message_size = {}
-
--- Size: Message Size
-cme_brokertec_ust_sbe_v10_1.message_size.size = 2
-
--- Display: Message Size
-cme_brokertec_ust_sbe_v10_1.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-cme_brokertec_ust_sbe_v10_1.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 cme_brokertec_ust_sbe_v10_1.message = {}
 
@@ -1326,56 +1381,6 @@ cme_brokertec_ust_sbe_v10_1.message.dissect = function(buffer, offset, packet, p
 
     return index
   end
-end
-
--- Sending Time
-cme_brokertec_ust_sbe_v10_1.sending_time = {}
-
--- Size: Sending Time
-cme_brokertec_ust_sbe_v10_1.sending_time.size = 8
-
--- Display: Sending Time
-cme_brokertec_ust_sbe_v10_1.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-cme_brokertec_ust_sbe_v10_1.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_brokertec_ust_sbe_v10_1.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Sequence Number
-cme_brokertec_ust_sbe_v10_1.packet_sequence_number = {}
-
--- Size: Packet Sequence Number
-cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size = 4
-
--- Display: Packet Sequence Number
-cme_brokertec_ust_sbe_v10_1.packet_sequence_number.display = function(value)
-  return "Packet Sequence Number: "..value
-end
-
--- Dissect: Packet Sequence Number
-cme_brokertec_ust_sbe_v10_1.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ust_sbe_v10_1.packet_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ust_sbe_v10_1.fields.packet_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Binary Packet Header

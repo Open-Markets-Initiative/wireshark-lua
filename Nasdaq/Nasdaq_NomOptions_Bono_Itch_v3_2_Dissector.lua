@@ -225,28 +225,681 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq NomOptions Bono Itch 3.2
+-- Nasdaq NomOptions Bono Itch 3.2 Fields
 -----------------------------------------------------------------------
 
--- Original Volume
-nasdaq_nomoptions_bono_itch_v3_2.original_volume = {}
+-- Ask Price 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_2 = {}
 
--- Size: Original Volume
-nasdaq_nomoptions_bono_itch_v3_2.original_volume.size = 4
+-- Size: Ask Price 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size = 2
 
--- Display: Original Volume
-nasdaq_nomoptions_bono_itch_v3_2.original_volume.display = function(value)
-  return "Original Volume: "..value
+-- Display: Ask Price 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.display = function(value)
+  return "Ask Price 2: "..value
 end
 
--- Dissect: Original Volume
-nasdaq_nomoptions_bono_itch_v3_2.original_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.original_volume.size
+-- Translate: Ask Price 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Ask Price 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_4 = {}
+
+-- Size: Ask Price 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size = 4
+
+-- Display: Ask Price 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.display = function(value)
+  return "Ask Price 4: "..value
+end
+
+-- Translate: Ask Price 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Ask Price 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_2 = {}
+
+-- Size: Ask Size 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size = 2
+
+-- Display: Ask Size 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.display = function(value)
+  return "Ask Size 2: "..value
+end
+
+-- Dissect: Ask Size 2
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.original_volume.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_volume, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_4 = {}
+
+-- Size: Ask Size 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size = 4
+
+-- Display: Ask Size 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.display = function(value)
+  return "Ask Size 4: "..value
+end
+
+-- Dissect: Ask Size 4
+nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_2 = {}
+
+-- Size: Bid Price 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size = 2
+
+-- Display: Bid Price 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.display = function(value)
+  return "Bid Price 2: "..value
+end
+
+-- Translate: Bid Price 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_4 = {}
+
+-- Size: Bid Price 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size = 4
+
+-- Display: Bid Price 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.display = function(value)
+  return "Bid Price 4: "..value
+end
+
+-- Translate: Bid Price 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Bid Price 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_price_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_2 = {}
+
+-- Size: Bid Size 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size = 2
+
+-- Display: Bid Size 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.display = function(value)
+  return "Bid Size 2: "..value
+end
+
+-- Dissect: Bid Size 2
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_4 = {}
+
+-- Size: Bid Size 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size = 4
+
+-- Display: Bid Size 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.display = function(value)
+  return "Bid Size 4: "..value
+end
+
+-- Dissect: Bid Size 4
+nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.cross_id = {}
+
+-- Size: Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.cross_id.size = 4
+
+-- Display: Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.cross_id.display = function(value)
+  return "Cross Id: "..value
+end
+
+-- Dissect: Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_nomoptions_bono_itch_v3_2.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt In Effect (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_nomoptions_bono_itch_v3_2.event_code = {}
+
+-- Size: Event Code
+nasdaq_nomoptions_bono_itch_v3_2.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_nomoptions_bono_itch_v3_2.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Opening Process (Q)"
+  end
+  if value == "N" then
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
+  end
+  if value == "L" then
+    return "Event Code: Start Of Late Hours Closing Process (L)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_nomoptions_bono_itch_v3_2.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Day
+nasdaq_nomoptions_bono_itch_v3_2.expiration_day = {}
+
+-- Size: Expiration Day
+nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size = 1
+
+-- Display: Expiration Day
+nasdaq_nomoptions_bono_itch_v3_2.expiration_day.display = function(value)
+  return "Expiration Day: "..value
+end
+
+-- Dissect: Expiration Day
+nasdaq_nomoptions_bono_itch_v3_2.expiration_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.expiration_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Month
+nasdaq_nomoptions_bono_itch_v3_2.expiration_month = {}
+
+-- Size: Expiration Month
+nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size = 1
+
+-- Display: Expiration Month
+nasdaq_nomoptions_bono_itch_v3_2.expiration_month.display = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+nasdaq_nomoptions_bono_itch_v3_2.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Year
+nasdaq_nomoptions_bono_itch_v3_2.expiration_year = {}
+
+-- Size: Expiration Year
+nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size = 1
+
+-- Display: Expiration Year
+nasdaq_nomoptions_bono_itch_v3_2.expiration_year.display = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+nasdaq_nomoptions_bono_itch_v3_2.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_nomoptions_bono_itch_v3_2.message_count = {}
+
+-- Size: Message Count
+nasdaq_nomoptions_bono_itch_v3_2.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_nomoptions_bono_itch_v3_2.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_nomoptions_bono_itch_v3_2.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_nomoptions_bono_itch_v3_2.message_length = {}
+
+-- Size: Message Length
+nasdaq_nomoptions_bono_itch_v3_2.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_nomoptions_bono_itch_v3_2.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_nomoptions_bono_itch_v3_2.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_nomoptions_bono_itch_v3_2.message_type = {}
+
+-- Size: Message Type
+nasdaq_nomoptions_bono_itch_v3_2.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_nomoptions_bono_itch_v3_2.message_type.display = function(value)
+  if value == "T" then
+    return "Message Type: Timestamp Message (T)"
+  end
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "D" then
+    return "Message Type: Options Directory Message (D)"
+  end
+  if value == "H" then
+    return "Message Type: Trading Action Message (H)"
+  end
+  if value == "O" then
+    return "Message Type: Security Open Closed Message (O)"
+  end
+  if value == "q" then
+    return "Message Type: Short Best Bid And Ask Update Message (q)"
+  end
+  if value == "Q" then
+    return "Message Type: Long Best Bid And Ask Update Message (Q)"
+  end
+  if value == "a" then
+    return "Message Type: Short Best Ask Update Message (a)"
+  end
+  if value == "b" then
+    return "Message Type: Short Best Bid Update Message (b)"
+  end
+  if value == "A" then
+    return "Message Type: Long Best Ask Update Message (A)"
+  end
+  if value == "B" then
+    return "Message Type: Long Best Bid Update Message (B)"
+  end
+  if value == "R" then
+    return "Message Type: Trade Report Message (R)"
+  end
+  if value == "X" then
+    return "Message Type: Broken Trade Report Message (X)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_nomoptions_bono_itch_v3_2.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nasdaq_nomoptions_bono_itch_v3_2.mpv = {}
+
+-- Size: Mpv
+nasdaq_nomoptions_bono_itch_v3_2.mpv.size = 1
+
+-- Display: Mpv
+nasdaq_nomoptions_bono_itch_v3_2.mpv.display = function(value)
+  if value == "E" then
+    return "Mpv: Penny Everywhere (E)"
+  end
+  if value == "S" then
+    return "Mpv: Scaled (S)"
+  end
+  if value == "P" then
+    return "Mpv: Penny Pilot (P)"
+  end
+
+  return "Mpv: Unknown("..value..")"
+end
+
+-- Dissect: Mpv
+nasdaq_nomoptions_bono_itch_v3_2.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.mpv.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nasdaq_nomoptions_bono_itch_v3_2.nanoseconds = {}
+
+-- Size: Nanoseconds
+nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_nomoptions_bono_itch_v3_2.open_state = {}
+
+-- Size: Open State
+nasdaq_nomoptions_bono_itch_v3_2.open_state.size = 1
+
+-- Display: Open State
+nasdaq_nomoptions_bono_itch_v3_2.open_state.display = function(value)
+  if value == "Y" then
+    return "Open State: Open For Auto Execution (Y)"
+  end
+  if value == "N" then
+    return "Open State: Closed For Auto Execution (N)"
+  end
+
+  return "Open State: Unknown("..value..")"
+end
+
+-- Dissect: Open State
+nasdaq_nomoptions_bono_itch_v3_2.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Closing Type
+nasdaq_nomoptions_bono_itch_v3_2.option_closing_type = {}
+
+-- Size: Option Closing Type
+nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size = 1
+
+-- Display: Option Closing Type
+nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.display = function(value)
+  if value == "N" then
+    return "Option Closing Type: Normal (N)"
+  end
+  if value == "L" then
+    return "Option Closing Type: Late (L)"
+  end
+
+  return "Option Closing Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Closing Type
+nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_nomoptions_bono_itch_v3_2.option_id = {}
+
+-- Size: Option Id
+nasdaq_nomoptions_bono_itch_v3_2.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_nomoptions_bono_itch_v3_2.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_nomoptions_bono_itch_v3_2.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_nomoptions_bono_itch_v3_2.option_type = {}
+
+-- Size: Option Type
+nasdaq_nomoptions_bono_itch_v3_2.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_nomoptions_bono_itch_v3_2.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_nomoptions_bono_itch_v3_2.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.original_cross_id = {}
+
+-- Size: Original Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size = 4
+
+-- Display: Original Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.display = function(value)
+  return "Original Cross Id: "..value
+end
+
+-- Dissect: Original Cross Id
+nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -280,74 +933,478 @@ nasdaq_nomoptions_bono_itch_v3_2.original_price.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Original Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.original_cross_id = {}
+-- Original Volume
+nasdaq_nomoptions_bono_itch_v3_2.original_volume = {}
 
--- Size: Original Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size = 4
+-- Size: Original Volume
+nasdaq_nomoptions_bono_itch_v3_2.original_volume.size = 4
 
--- Display: Original Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.display = function(value)
-  return "Original Cross Id: "..value
+-- Display: Original Volume
+nasdaq_nomoptions_bono_itch_v3_2.original_volume.display = function(value)
+  return "Original Volume: "..value
 end
 
--- Dissect: Original Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.size
+-- Dissect: Original Volume
+nasdaq_nomoptions_bono_itch_v3_2.original_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.original_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.original_cross_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.original_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_cross_id, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.original_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Option Id
-nasdaq_nomoptions_bono_itch_v3_2.option_id = {}
+-- Price 2
+nasdaq_nomoptions_bono_itch_v3_2.price_2 = {}
 
--- Size: Option Id
-nasdaq_nomoptions_bono_itch_v3_2.option_id.size = 4
+-- Size: Price 2
+nasdaq_nomoptions_bono_itch_v3_2.price_2.size = 2
 
--- Display: Option Id
-nasdaq_nomoptions_bono_itch_v3_2.option_id.display = function(value)
-  return "Option Id: "..value
+-- Display: Price 2
+nasdaq_nomoptions_bono_itch_v3_2.price_2.display = function(value)
+  return "Price 2: "..value
 end
 
--- Dissect: Option Id
-nasdaq_nomoptions_bono_itch_v3_2.option_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.option_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.option_id.display(value, buffer, offset, packet, parent)
+-- Translate: Price 2
+nasdaq_nomoptions_bono_itch_v3_2.price_2.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_id, range, value, display)
+-- Dissect: Price 2
+nasdaq_nomoptions_bono_itch_v3_2.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.price_2.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.price_2.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.price_2, range, value, display)
 
   return offset + length, value
 end
 
--- Nanoseconds
-nasdaq_nomoptions_bono_itch_v3_2.nanoseconds = {}
+-- Price 4
+nasdaq_nomoptions_bono_itch_v3_2.price_4 = {}
 
--- Size: Nanoseconds
-nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size = 4
+-- Size: Price 4
+nasdaq_nomoptions_bono_itch_v3_2.price_4.size = 4
 
--- Display: Nanoseconds
-nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
+-- Display: Price 4
+nasdaq_nomoptions_bono_itch_v3_2.price_4.display = function(value)
+  return "Price 4: "..value
 end
 
--- Dissect: Nanoseconds
-nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.nanoseconds.display(value, buffer, offset, packet, parent)
+-- Translate: Price 4
+nasdaq_nomoptions_bono_itch_v3_2.price_4.translate = function(raw)
+  return raw/10000
+end
 
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.nanoseconds, range, value, display)
+-- Dissect: Price 4
+nasdaq_nomoptions_bono_itch_v3_2.price_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.price_4.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.price_4.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.price_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.price_4, range, value, display)
 
   return offset + length, value
 end
+
+-- Quote Condition
+nasdaq_nomoptions_bono_itch_v3_2.quote_condition = {}
+
+-- Size: Quote Condition
+nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size = 1
+
+-- Display: Quote Condition
+nasdaq_nomoptions_bono_itch_v3_2.quote_condition.display = function(value)
+  if value == "" then
+    return "Quote Condition: Regular Quoteautox Eligible (<whitespace>)"
+  end
+  if value == "R" then
+    return "Quote Condition: Rotational Quote (R)"
+  end
+  if value == "X" then
+    return "Quote Condition: Bid Side Firm (X)"
+  end
+  if value == "Y" then
+    return "Quote Condition: Ask Side Firm (Y)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nasdaq_nomoptions_bono_itch_v3_2.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nasdaq_nomoptions_bono_itch_v3_2.seconds = {}
+
+-- Size: Seconds
+nasdaq_nomoptions_bono_itch_v3_2.seconds.size = 4
+
+-- Display: Seconds
+nasdaq_nomoptions_bono_itch_v3_2.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nasdaq_nomoptions_bono_itch_v3_2.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_nomoptions_bono_itch_v3_2.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size = 6
+
+-- Display: Security Symbol
+nasdaq_nomoptions_bono_itch_v3_2.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_nomoptions_bono_itch_v3_2.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nomoptions_bono_itch_v3_2.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_nomoptions_bono_itch_v3_2.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_nomoptions_bono_itch_v3_2.session = {}
+
+-- Size: Session
+nasdaq_nomoptions_bono_itch_v3_2.session.size = 10
+
+-- Display: Session
+nasdaq_nomoptions_bono_itch_v3_2.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_nomoptions_bono_itch_v3_2.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_nomoptions_bono_itch_v3_2.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size 2
+nasdaq_nomoptions_bono_itch_v3_2.size_2 = {}
+
+-- Size: Size 2
+nasdaq_nomoptions_bono_itch_v3_2.size_2.size = 2
+
+-- Display: Size 2
+nasdaq_nomoptions_bono_itch_v3_2.size_2.display = function(value)
+  return "Size 2: "..value
+end
+
+-- Dissect: Size 2
+nasdaq_nomoptions_bono_itch_v3_2.size_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.size_2.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size 4
+nasdaq_nomoptions_bono_itch_v3_2.size_4 = {}
+
+-- Size: Size 4
+nasdaq_nomoptions_bono_itch_v3_2.size_4.size = 4
+
+-- Display: Size 4
+nasdaq_nomoptions_bono_itch_v3_2.size_4.display = function(value)
+  return "Size 4: "..value
+end
+
+-- Dissect: Size 4
+nasdaq_nomoptions_bono_itch_v3_2.size_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.size_4.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+nasdaq_nomoptions_bono_itch_v3_2.source = {}
+
+-- Size: Source
+nasdaq_nomoptions_bono_itch_v3_2.source.size = 1
+
+-- Display: Source
+nasdaq_nomoptions_bono_itch_v3_2.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+nasdaq_nomoptions_bono_itch_v3_2.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nasdaq_nomoptions_bono_itch_v3_2.strike_price = {}
+
+-- Size: Strike Price
+nasdaq_nomoptions_bono_itch_v3_2.strike_price.size = 4
+
+-- Display: Strike Price
+nasdaq_nomoptions_bono_itch_v3_2.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+nasdaq_nomoptions_bono_itch_v3_2.strike_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Strike Price
+nasdaq_nomoptions_bono_itch_v3_2.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_nomoptions_bono_itch_v3_2.strike_price.translate(raw)
+  local display = nasdaq_nomoptions_bono_itch_v3_2.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Subversion
+nasdaq_nomoptions_bono_itch_v3_2.subversion = {}
+
+-- Size: Subversion
+nasdaq_nomoptions_bono_itch_v3_2.subversion.size = 1
+
+-- Display: Subversion
+nasdaq_nomoptions_bono_itch_v3_2.subversion.display = function(value)
+  return "Subversion: "..value
+end
+
+-- Dissect: Subversion
+nasdaq_nomoptions_bono_itch_v3_2.subversion.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.subversion.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.subversion.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.subversion, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradable
+nasdaq_nomoptions_bono_itch_v3_2.tradable = {}
+
+-- Size: Tradable
+nasdaq_nomoptions_bono_itch_v3_2.tradable.size = 1
+
+-- Display: Tradable
+nasdaq_nomoptions_bono_itch_v3_2.tradable.display = function(value)
+  if value == "Y" then
+    return "Tradable: Tradable (Y)"
+  end
+  if value == "N" then
+    return "Tradable: Not Tradable (N)"
+  end
+
+  return "Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Tradable
+nasdaq_nomoptions_bono_itch_v3_2.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition
+nasdaq_nomoptions_bono_itch_v3_2.trade_condition = {}
+
+-- Size: Trade Condition
+nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size = 1
+
+-- Display: Trade Condition
+nasdaq_nomoptions_bono_itch_v3_2.trade_condition.display = function(value)
+  return "Trade Condition: "..value
+end
+
+-- Dissect: Trade Condition
+nasdaq_nomoptions_bono_itch_v3_2.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_nomoptions_bono_itch_v3_2.version = {}
+
+-- Size: Version
+nasdaq_nomoptions_bono_itch_v3_2.version.size = 1
+
+-- Display: Version
+nasdaq_nomoptions_bono_itch_v3_2.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_nomoptions_bono_itch_v3_2.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nasdaq_nomoptions_bono_itch_v3_2.volume = {}
+
+-- Size: Volume
+nasdaq_nomoptions_bono_itch_v3_2.volume.size = 4
+
+-- Display: Volume
+nasdaq_nomoptions_bono_itch_v3_2.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nasdaq_nomoptions_bono_itch_v3_2.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_bono_itch_v3_2.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nomoptions_bono_itch_v3_2.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq NomOptions Bono Itch 3.2
+-----------------------------------------------------------------------
 
 -- Broken Trade Report Message
 nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message = {}
@@ -403,104 +1460,6 @@ nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message.dissect = function(
     -- Skip element, add fields directly
     return nasdaq_nomoptions_bono_itch_v3_2.broken_trade_report_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Volume
-nasdaq_nomoptions_bono_itch_v3_2.volume = {}
-
--- Size: Volume
-nasdaq_nomoptions_bono_itch_v3_2.volume.size = 4
-
--- Display: Volume
-nasdaq_nomoptions_bono_itch_v3_2.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-nasdaq_nomoptions_bono_itch_v3_2.volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 4
-nasdaq_nomoptions_bono_itch_v3_2.price_4 = {}
-
--- Size: Price 4
-nasdaq_nomoptions_bono_itch_v3_2.price_4.size = 4
-
--- Display: Price 4
-nasdaq_nomoptions_bono_itch_v3_2.price_4.display = function(value)
-  return "Price 4: "..value
-end
-
--- Translate: Price 4
-nasdaq_nomoptions_bono_itch_v3_2.price_4.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price 4
-nasdaq_nomoptions_bono_itch_v3_2.price_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.price_4.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.price_4.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.price_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.price_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Condition
-nasdaq_nomoptions_bono_itch_v3_2.trade_condition = {}
-
--- Size: Trade Condition
-nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size = 1
-
--- Display: Trade Condition
-nasdaq_nomoptions_bono_itch_v3_2.trade_condition.display = function(value)
-  return "Trade Condition: "..value
-end
-
--- Dissect: Trade Condition
-nasdaq_nomoptions_bono_itch_v3_2.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.trade_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.trade_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trade_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.cross_id = {}
-
--- Size: Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.cross_id.size = 4
-
--- Display: Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.cross_id.display = function(value)
-  return "Cross Id: "..value
-end
-
--- Dissect: Cross Id
-nasdaq_nomoptions_bono_itch_v3_2.cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.cross_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.cross_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Report Message
@@ -561,65 +1520,6 @@ nasdaq_nomoptions_bono_itch_v3_2.trade_report_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return nasdaq_nomoptions_bono_itch_v3_2.trade_report_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Size 4
-nasdaq_nomoptions_bono_itch_v3_2.size_4 = {}
-
--- Size: Size 4
-nasdaq_nomoptions_bono_itch_v3_2.size_4.size = 4
-
--- Display: Size 4
-nasdaq_nomoptions_bono_itch_v3_2.size_4.display = function(value)
-  return "Size 4: "..value
-end
-
--- Dissect: Size 4
-nasdaq_nomoptions_bono_itch_v3_2.size_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.size_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-nasdaq_nomoptions_bono_itch_v3_2.quote_condition = {}
-
--- Size: Quote Condition
-nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size = 1
-
--- Display: Quote Condition
-nasdaq_nomoptions_bono_itch_v3_2.quote_condition.display = function(value)
-  if value == "" then
-    return "Quote Condition: Regular Quoteautox Eligible (<whitespace>)"
-  end
-  if value == "R" then
-    return "Quote Condition: Rotational Quote (R)"
-  end
-  if value == "X" then
-    return "Quote Condition: Bid Side Firm (X)"
-  end
-  if value == "Y" then
-    return "Quote Condition: Ask Side Firm (Y)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-nasdaq_nomoptions_bono_itch_v3_2.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.quote_condition, range, value, display)
-
-  return offset + length, value
 end
 
 -- Long Best Bid Update Message
@@ -734,58 +1634,6 @@ nasdaq_nomoptions_bono_itch_v3_2.long_best_ask_update_message.dissect = function
   end
 end
 
--- Size 2
-nasdaq_nomoptions_bono_itch_v3_2.size_2 = {}
-
--- Size: Size 2
-nasdaq_nomoptions_bono_itch_v3_2.size_2.size = 2
-
--- Display: Size 2
-nasdaq_nomoptions_bono_itch_v3_2.size_2.display = function(value)
-  return "Size 2: "..value
-end
-
--- Dissect: Size 2
-nasdaq_nomoptions_bono_itch_v3_2.size_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.size_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 2
-nasdaq_nomoptions_bono_itch_v3_2.price_2 = {}
-
--- Size: Price 2
-nasdaq_nomoptions_bono_itch_v3_2.price_2.size = 2
-
--- Display: Price 2
-nasdaq_nomoptions_bono_itch_v3_2.price_2.display = function(value)
-  return "Price 2: "..value
-end
-
--- Translate: Price 2
-nasdaq_nomoptions_bono_itch_v3_2.price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price 2
-nasdaq_nomoptions_bono_itch_v3_2.price_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.price_2.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.price_2.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.price_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Short Best Bid Update Message
 nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_update_message = {}
 
@@ -898,110 +1746,6 @@ nasdaq_nomoptions_bono_itch_v3_2.short_best_ask_update_message.dissect = functio
   end
 end
 
--- Ask Size 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_4 = {}
-
--- Size: Ask Size 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size = 4
-
--- Display: Ask Size 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.display = function(value)
-  return "Ask Size 4: "..value
-end
-
--- Dissect: Ask Size 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_4 = {}
-
--- Size: Ask Price 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size = 4
-
--- Display: Ask Price 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.display = function(value)
-  return "Ask Price 4: "..value
-end
-
--- Translate: Ask Price 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Ask Price 4
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_4 = {}
-
--- Size: Bid Size 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size = 4
-
--- Display: Bid Size 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.display = function(value)
-  return "Bid Size 4: "..value
-end
-
--- Dissect: Bid Size 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_4 = {}
-
--- Size: Bid Price 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size = 4
-
--- Display: Bid Price 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.display = function(value)
-  return "Bid Price 4: "..value
-end
-
--- Translate: Bid Price 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Bid Price 4
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_price_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Long Best Bid And Ask Update Message
 nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message = {}
 
@@ -1064,110 +1808,6 @@ nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message.dissect = 
     -- Skip element, add fields directly
     return nasdaq_nomoptions_bono_itch_v3_2.long_best_bid_and_ask_update_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ask Size 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_2 = {}
-
--- Size: Ask Size 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size = 2
-
--- Display: Ask Size 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.display = function(value)
-  return "Ask Size 2: "..value
-end
-
--- Dissect: Ask Size 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_2 = {}
-
--- Size: Ask Price 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size = 2
-
--- Display: Ask Price 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.display = function(value)
-  return "Ask Price 2: "..value
-end
-
--- Translate: Ask Price 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Ask Price 2
-nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.ask_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_2 = {}
-
--- Size: Bid Size 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size = 2
-
--- Display: Bid Size 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.display = function(value)
-  return "Bid Size 2: "..value
-end
-
--- Dissect: Bid Size 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_2 = {}
-
--- Size: Bid Price 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size = 2
-
--- Display: Bid Price 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.display = function(value)
-  return "Bid Price 2: "..value
-end
-
--- Translate: Bid Price 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price 2
-nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.bid_price_2, range, value, display)
-
-  return offset + length, value
 end
 
 -- Short Best Bid And Ask Update Message
@@ -1234,36 +1874,6 @@ nasdaq_nomoptions_bono_itch_v3_2.short_best_bid_and_ask_update_message.dissect =
   end
 end
 
--- Open State
-nasdaq_nomoptions_bono_itch_v3_2.open_state = {}
-
--- Size: Open State
-nasdaq_nomoptions_bono_itch_v3_2.open_state.size = 1
-
--- Display: Open State
-nasdaq_nomoptions_bono_itch_v3_2.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
-
-  return "Open State: Unknown("..value..")"
-end
-
--- Dissect: Open State
-nasdaq_nomoptions_bono_itch_v3_2.open_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.open_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.open_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.open_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Open Closed Message
 nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message = {}
 
@@ -1312,36 +1922,6 @@ nasdaq_nomoptions_bono_itch_v3_2.security_open_closed_message.dissect = function
   end
 end
 
--- Current Trading State
-nasdaq_nomoptions_bono_itch_v3_2.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Action Message
 nasdaq_nomoptions_bono_itch_v3_2.trading_action_message = {}
 
@@ -1388,296 +1968,6 @@ nasdaq_nomoptions_bono_itch_v3_2.trading_action_message.dissect = function(buffe
     -- Skip element, add fields directly
     return nasdaq_nomoptions_bono_itch_v3_2.trading_action_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mpv
-nasdaq_nomoptions_bono_itch_v3_2.mpv = {}
-
--- Size: Mpv
-nasdaq_nomoptions_bono_itch_v3_2.mpv.size = 1
-
--- Display: Mpv
-nasdaq_nomoptions_bono_itch_v3_2.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
-
-  return "Mpv: Unknown("..value..")"
-end
-
--- Dissect: Mpv
-nasdaq_nomoptions_bono_itch_v3_2.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.mpv.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Tradable
-nasdaq_nomoptions_bono_itch_v3_2.tradable = {}
-
--- Size: Tradable
-nasdaq_nomoptions_bono_itch_v3_2.tradable.size = 1
-
--- Display: Tradable
-nasdaq_nomoptions_bono_itch_v3_2.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
-
-  return "Tradable: Unknown("..value..")"
-end
-
--- Dissect: Tradable
-nasdaq_nomoptions_bono_itch_v3_2.tradable.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.tradable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.tradable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Closing Type
-nasdaq_nomoptions_bono_itch_v3_2.option_closing_type = {}
-
--- Size: Option Closing Type
-nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size = 1
-
--- Display: Option Closing Type
-nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
-
-  return "Option Closing Type: Unknown("..value..")"
-end
-
--- Dissect: Option Closing Type
-nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.option_closing_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_closing_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size = 13
-
--- Display: Underlying Symbol
-nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nomoptions_bono_itch_v3_2.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Source
-nasdaq_nomoptions_bono_itch_v3_2.source = {}
-
--- Size: Source
-nasdaq_nomoptions_bono_itch_v3_2.source.size = 1
-
--- Display: Source
-nasdaq_nomoptions_bono_itch_v3_2.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-nasdaq_nomoptions_bono_itch_v3_2.source.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-nasdaq_nomoptions_bono_itch_v3_2.option_type = {}
-
--- Size: Option Type
-nasdaq_nomoptions_bono_itch_v3_2.option_type.size = 1
-
--- Display: Option Type
-nasdaq_nomoptions_bono_itch_v3_2.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-nasdaq_nomoptions_bono_itch_v3_2.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-nasdaq_nomoptions_bono_itch_v3_2.strike_price = {}
-
--- Size: Strike Price
-nasdaq_nomoptions_bono_itch_v3_2.strike_price.size = 4
-
--- Display: Strike Price
-nasdaq_nomoptions_bono_itch_v3_2.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-nasdaq_nomoptions_bono_itch_v3_2.strike_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Strike Price
-nasdaq_nomoptions_bono_itch_v3_2.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_nomoptions_bono_itch_v3_2.strike_price.translate(raw)
-  local display = nasdaq_nomoptions_bono_itch_v3_2.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Day
-nasdaq_nomoptions_bono_itch_v3_2.expiration_day = {}
-
--- Size: Expiration Day
-nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size = 1
-
--- Display: Expiration Day
-nasdaq_nomoptions_bono_itch_v3_2.expiration_day.display = function(value)
-  return "Expiration Day: "..value
-end
-
--- Dissect: Expiration Day
-nasdaq_nomoptions_bono_itch_v3_2.expiration_day.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.expiration_day.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.expiration_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Month
-nasdaq_nomoptions_bono_itch_v3_2.expiration_month = {}
-
--- Size: Expiration Month
-nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size = 1
-
--- Display: Expiration Month
-nasdaq_nomoptions_bono_itch_v3_2.expiration_month.display = function(value)
-  return "Expiration Month: "..value
-end
-
--- Dissect: Expiration Month
-nasdaq_nomoptions_bono_itch_v3_2.expiration_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.expiration_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.expiration_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Year
-nasdaq_nomoptions_bono_itch_v3_2.expiration_year = {}
-
--- Size: Expiration Year
-nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size = 1
-
--- Display: Expiration Year
-nasdaq_nomoptions_bono_itch_v3_2.expiration_year.display = function(value)
-  return "Expiration Year: "..value
-end
-
--- Dissect: Expiration Year
-nasdaq_nomoptions_bono_itch_v3_2.expiration_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.expiration_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.expiration_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol
-nasdaq_nomoptions_bono_itch_v3_2.security_symbol = {}
-
--- Size: Security Symbol
-nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size = 6
-
--- Display: Security Symbol
-nasdaq_nomoptions_bono_itch_v3_2.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-nasdaq_nomoptions_bono_itch_v3_2.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nomoptions_bono_itch_v3_2.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.security_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Directory Message
@@ -1768,97 +2058,6 @@ nasdaq_nomoptions_bono_itch_v3_2.options_directory_message.dissect = function(bu
   end
 end
 
--- Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion = {}
-
--- Size: Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion.size = 1
-
--- Display: Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion.display = function(value)
-  return "Subversion: "..value
-end
-
--- Dissect: Subversion
-nasdaq_nomoptions_bono_itch_v3_2.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.subversion.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.subversion.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.subversion, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-nasdaq_nomoptions_bono_itch_v3_2.version = {}
-
--- Size: Version
-nasdaq_nomoptions_bono_itch_v3_2.version.size = 1
-
--- Display: Version
-nasdaq_nomoptions_bono_itch_v3_2.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-nasdaq_nomoptions_bono_itch_v3_2.version.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Code
-nasdaq_nomoptions_bono_itch_v3_2.event_code = {}
-
--- Size: Event Code
-nasdaq_nomoptions_bono_itch_v3_2.event_code.size = 1
-
--- Display: Event Code
-nasdaq_nomoptions_bono_itch_v3_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_nomoptions_bono_itch_v3_2.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 nasdaq_nomoptions_bono_itch_v3_2.system_event_message = {}
 
@@ -1909,29 +2108,6 @@ nasdaq_nomoptions_bono_itch_v3_2.system_event_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return nasdaq_nomoptions_bono_itch_v3_2.system_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seconds
-nasdaq_nomoptions_bono_itch_v3_2.seconds = {}
-
--- Size: Seconds
-nasdaq_nomoptions_bono_itch_v3_2.seconds.size = 4
-
--- Display: Seconds
-nasdaq_nomoptions_bono_itch_v3_2.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-nasdaq_nomoptions_bono_itch_v3_2.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.seconds, range, value, display)
-
-  return offset + length, value
 end
 
 -- Timestamp Message
@@ -2033,92 +2209,6 @@ nasdaq_nomoptions_bono_itch_v3_2.payload.dissect = function(buffer, offset, pack
   end
 
   return offset
-end
-
--- Message Type
-nasdaq_nomoptions_bono_itch_v3_2.message_type = {}
-
--- Size: Message Type
-nasdaq_nomoptions_bono_itch_v3_2.message_type.size = 1
-
--- Display: Message Type
-nasdaq_nomoptions_bono_itch_v3_2.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Timestamp Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Options Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Closed Message (O)"
-  end
-  if value == "q" then
-    return "Message Type: Short Best Bid And Ask Update Message (q)"
-  end
-  if value == "Q" then
-    return "Message Type: Long Best Bid And Ask Update Message (Q)"
-  end
-  if value == "a" then
-    return "Message Type: Short Best Ask Update Message (a)"
-  end
-  if value == "b" then
-    return "Message Type: Short Best Bid Update Message (b)"
-  end
-  if value == "A" then
-    return "Message Type: Long Best Ask Update Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Long Best Bid Update Message (B)"
-  end
-  if value == "R" then
-    return "Message Type: Trade Report Message (R)"
-  end
-  if value == "X" then
-    return "Message Type: Broken Trade Report Message (X)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_nomoptions_bono_itch_v3_2.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_nomoptions_bono_itch_v3_2.message_length = {}
-
--- Size: Message Length
-nasdaq_nomoptions_bono_itch_v3_2.message_length.size = 2
-
--- Display: Message Length
-nasdaq_nomoptions_bono_itch_v3_2.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_nomoptions_bono_itch_v3_2.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2254,91 +2344,6 @@ nasdaq_nomoptions_bono_itch_v3_2.messages.dissect = function(buffer, offset, pac
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_nomoptions_bono_itch_v3_2.message_count = {}
-
--- Size: Message Count
-nasdaq_nomoptions_bono_itch_v3_2.message_count.size = 2
-
--- Display: Message Count
-nasdaq_nomoptions_bono_itch_v3_2.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_nomoptions_bono_itch_v3_2.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_nomoptions_bono_itch_v3_2.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_nomoptions_bono_itch_v3_2.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_nomoptions_bono_itch_v3_2.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nomoptions_bono_itch_v3_2.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_nomoptions_bono_itch_v3_2.session = {}
-
--- Size: Session
-nasdaq_nomoptions_bono_itch_v3_2.session.size = 10
-
--- Display: Session
-nasdaq_nomoptions_bono_itch_v3_2.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_nomoptions_bono_itch_v3_2.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_bono_itch_v3_2.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_nomoptions_bono_itch_v3_2.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

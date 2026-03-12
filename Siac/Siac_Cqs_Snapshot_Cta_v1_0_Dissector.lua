@@ -193,8 +193,170 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Siac Cqs Snapshot Cta 1.0
+-- Siac Cqs Snapshot Cta 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Auction Collar Lower Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price = {}
+
+-- Size: Auction Collar Lower Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.size = 8
+
+-- Display: Auction Collar Lower Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.display = function(value)
+  return "Auction Collar Lower Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Lower Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Lower Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Reference Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price = {}
+
+-- Size: Auction Collar Reference Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.size = 8
+
+-- Display: Auction Collar Reference Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.display = function(value)
+  return "Auction Collar Reference Price: "..value
+end
+
+-- Translate: Auction Collar Reference Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Reference Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Collar Upper Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price = {}
+
+-- Size: Auction Collar Upper Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.size = 8
+
+-- Display: Auction Collar Upper Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.display = function(value)
+  return "Auction Collar Upper Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Upper Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Auction Collar Upper Threshold Price
+siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+siac_cqs_snapshot_cta_v1_0.bid_price = {}
+
+-- Size: Bid Price
+siac_cqs_snapshot_cta_v1_0.bid_price.size = 8
+
+-- Display: Bid Price
+siac_cqs_snapshot_cta_v1_0.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+siac_cqs_snapshot_cta_v1_0.bid_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bid Price
+siac_cqs_snapshot_cta_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.bid_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+siac_cqs_snapshot_cta_v1_0.bid_size = {}
+
+-- Size: Bid Size
+siac_cqs_snapshot_cta_v1_0.bid_size.size = 4
+
+-- Display: Bid Size
+siac_cqs_snapshot_cta_v1_0.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+siac_cqs_snapshot_cta_v1_0.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Checksum
+siac_cqs_snapshot_cta_v1_0.block_checksum = {}
+
+-- Size: Block Checksum
+siac_cqs_snapshot_cta_v1_0.block_checksum.size = 2
+
+-- Display: Block Checksum
+siac_cqs_snapshot_cta_v1_0.block_checksum.display = function(value)
+  return "Block Checksum: "..value
+end
+
+-- Dissect: Block Checksum
+siac_cqs_snapshot_cta_v1_0.block_checksum.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.block_checksum.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.block_checksum.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum, range, value, display)
+
+  return offset + length, value
+end
 
 -- Block Pad Byte
 siac_cqs_snapshot_cta_v1_0.block_pad_byte = {}
@@ -219,135 +381,141 @@ siac_cqs_snapshot_cta_v1_0.block_pad_byte.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Halt Reason
-siac_cqs_snapshot_cta_v1_0.halt_reason = {}
+-- Block Sequence Number
+siac_cqs_snapshot_cta_v1_0.block_sequence_number = {}
 
--- Size: Halt Reason
-siac_cqs_snapshot_cta_v1_0.halt_reason.size = 1
+-- Size: Block Sequence Number
+siac_cqs_snapshot_cta_v1_0.block_sequence_number.size = 4
 
--- Display: Halt Reason
-siac_cqs_snapshot_cta_v1_0.halt_reason.display = function(value)
-  if value == " " then
-    return "Halt Reason: Not Applicable (<whitespace>)"
+-- Display: Block Sequence Number
+siac_cqs_snapshot_cta_v1_0.block_sequence_number.display = function(value)
+  return "Block Sequence Number: "..value
+end
+
+-- Dissect: Block Sequence Number
+siac_cqs_snapshot_cta_v1_0.block_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.block_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.block_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Size
+siac_cqs_snapshot_cta_v1_0.block_size = {}
+
+-- Size: Block Size
+siac_cqs_snapshot_cta_v1_0.block_size.size = 2
+
+-- Display: Block Size
+siac_cqs_snapshot_cta_v1_0.block_size.display = function(value)
+  return "Block Size: "..value
+end
+
+-- Dissect: Block Size
+siac_cqs_snapshot_cta_v1_0.block_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.block_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.block_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Flag
+siac_cqs_snapshot_cta_v1_0.delivery_flag = {}
+
+-- Size: Delivery Flag
+siac_cqs_snapshot_cta_v1_0.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+siac_cqs_snapshot_cta_v1_0.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: First Block Of Snapshot Sequence (1)"
   end
-  if value == "A" then
-    return "Halt Reason: Additional Information Requested (A)"
+  if value == 2 then
+    return "Delivery Flag: Intermediate Block Of Snapshot Sequence (2)"
   end
-  if value == "C" then
-    return "Halt Reason: Regulatory Concern (C)"
+  if value == 3 then
+    return "Delivery Flag: Last Block Of Snapshot Sequence (3)"
   end
-  if value == "D" then
-    return "Halt Reason: News Released (D)"
+  if value == 4 then
+    return "Delivery Flag: Only One Block In Snapshot Sequence (4)"
   end
-  if value == "E" then
-    return "Halt Reason: Merger Effective (E)"
-  end
-  if value == "F" then
-    return "Halt Reason: Etf Component Prices Not Available (F)"
-  end
-  if value == "I" then
-    return "Halt Reason: Order Imbalance (I)"
-  end
-  if value == "M" then
-    return "Halt Reason: Limit Up Limit Down Trading Pause (M)"
-  end
-  if value == "N" then
-    return "Halt Reason: Corporate Action (N)"
-  end
-  if value == "O" then
-    return "Halt Reason: New Security Offering (O)"
-  end
-  if value == "P" then
-    return "Halt Reason: News Pending (P)"
-  end
-  if value == "V" then
-    return "Halt Reason: Intraday Indicative Value Not Available (V)"
-  end
-  if value == "X" then
-    return "Halt Reason: Operational (X)"
-  end
-  if value == "Y" then
-    return "Halt Reason: Subpenny Trading (Y)"
+
+  return "Delivery Flag: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Flag
+siac_cqs_snapshot_cta_v1_0.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.delivery_flag.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.delivery_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.delivery_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+siac_cqs_snapshot_cta_v1_0.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+siac_cqs_snapshot_cta_v1_0.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+siac_cqs_snapshot_cta_v1_0.financial_status_indicator.display = function(value)
+  if value == "0" then
+    return "Financial Status Indicator: Financial Status Not Applicable (0)"
   end
   if value == "1" then
-    return "Halt Reason: Market Wide Circuit Breaker Level 1 Breached (1)"
+    return "Financial Status Indicator: Bankrupt (1)"
   end
   if value == "2" then
-    return "Halt Reason: Market Wide Circuit Breaker Level 2 Breached (2)"
+    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
   end
   if value == "3" then
-    return "Halt Reason: Market Wide Circuit Breaker Level 3 Breached (3)"
+    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
+  end
+  if value == "4" then
+    return "Financial Status Indicator: Late Filing (4)"
+  end
+  if value == "5" then
+    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
+  end
+  if value == "6" then
+    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
+  end
+  if value == "7" then
+    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
+  end
+  if value == "8" then
+    return "Financial Status Indicator: Creations Suspended (8)"
+  end
+  if value == "9" then
+    return "Financial Status Indicator: Redemptions Suspended (9)"
+  end
+  if value == "A" then
+    return "Financial Status Indicator: Liquidation (A)"
   end
 
-  return "Halt Reason: Unknown("..value..")"
+  return "Financial Status Indicator: Unknown("..value..")"
 end
 
--- Dissect: Halt Reason
-siac_cqs_snapshot_cta_v1_0.halt_reason.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.halt_reason.size
+-- Dissect: Financial Status Indicator
+siac_cqs_snapshot_cta_v1_0.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.financial_status_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.halt_reason.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.financial_status_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.halt_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Low Indication Price
-siac_cqs_snapshot_cta_v1_0.low_indication_price = {}
-
--- Size: Low Indication Price
-siac_cqs_snapshot_cta_v1_0.low_indication_price.size = 8
-
--- Display: Low Indication Price
-siac_cqs_snapshot_cta_v1_0.low_indication_price.display = function(value)
-  return "Low Indication Price: "..value
-end
-
--- Translate: Low Indication Price
-siac_cqs_snapshot_cta_v1_0.low_indication_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Low Indication Price
-siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.low_indication_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.low_indication_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.low_indication_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.low_indication_price, range, value, display)
-
-  return offset + length, value
-end
-
--- High Indication Price
-siac_cqs_snapshot_cta_v1_0.high_indication_price = {}
-
--- Size: High Indication Price
-siac_cqs_snapshot_cta_v1_0.high_indication_price.size = 8
-
--- Display: High Indication Price
-siac_cqs_snapshot_cta_v1_0.high_indication_price.display = function(value)
-  return "High Indication Price: "..value
-end
-
--- Translate: High Indication Price
-siac_cqs_snapshot_cta_v1_0.high_indication_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: High Indication Price
-siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.high_indication_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.high_indication_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.high_indication_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.high_indication_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -391,147 +559,6 @@ siac_cqs_snapshot_cta_v1_0.finra_bbo_luld_indicator.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Finra Best Offer Market Maker Id
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id = {}
-
--- Size: Finra Best Offer Market Maker Id
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.size = 4
-
--- Display: Finra Best Offer Market Maker Id
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.display = function(value)
-  return "Finra Best Offer Market Maker Id: "..value
-end
-
--- Dissect: Finra Best Offer Market Maker Id
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Offer Size
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_size = {}
-
--- Size: Finra Best Offer Size
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.size = 4
-
--- Display: Finra Best Offer Size
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.display = function(value)
-  return "Finra Best Offer Size: "..value
-end
-
--- Dissect: Finra Best Offer Size
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Offer Price
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_price = {}
-
--- Size: Finra Best Offer Price
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.size = 8
-
--- Display: Finra Best Offer Price
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.display = function(value)
-  return "Finra Best Offer Price: "..value
-end
-
--- Translate: Finra Best Offer Price
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Finra Best Offer Price
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition = {}
-
--- Size: Finra Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.size = 1
-
--- Display: Finra Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.display = function(value)
-  if value == " " then
-    return "Finra Best Offer Quote Condition: Quote Condition Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Finra Best Offer Quote Condition: Slow Quote On Offer Side (A)"
-  end
-  if value == "B" then
-    return "Finra Best Offer Quote Condition: Slow Quote On Bid Side (B)"
-  end
-  if value == "C" then
-    return "Finra Best Offer Quote Condition: Closing (C)"
-  end
-  if value == "E" then
-    return "Finra Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
-  end
-  if value == "F" then
-    return "Finra Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
-  end
-  if value == "H" then
-    return "Finra Best Offer Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
-  end
-  if value == "L" then
-    return "Finra Best Offer Quote Condition: Closed Market Maker (L)"
-  end
-  if value == "N" then
-    return "Finra Best Offer Quote Condition: Non Firm Quote (N)"
-  end
-  if value == "O" then
-    return "Finra Best Offer Quote Condition: Opening Quote (O)"
-  end
-  if value == "R" then
-    return "Finra Best Offer Quote Condition: Regular Finra Open (R)"
-  end
-  if value == "U" then
-    return "Finra Best Offer Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
-  end
-  if value == "W" then
-    return "Finra Best Offer Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
-  end
-  if value == "4" then
-    return "Finra Best Offer Quote Condition: On Demand Intra Day Auction (4)"
-  end
-
-  return "Finra Best Offer Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Finra Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
 -- Finra Best Bid Market Maker Id
 siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id = {}
 
@@ -551,29 +578,6 @@ siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id.dissect = function(buf
   local display = siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_market_maker_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Best Bid Size
-siac_cqs_snapshot_cta_v1_0.finra_best_bid_size = {}
-
--- Size: Finra Best Bid Size
-siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.size = 4
-
--- Display: Finra Best Bid Size
-siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.display = function(value)
-  return "Finra Best Bid Size: "..value
-end
-
--- Dissect: Finra Best Bid Size
-siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -673,200 +677,412 @@ siac_cqs_snapshot_cta_v1_0.finra_best_bid_quote_condition.dissect = function(buf
   return offset + length, value
 end
 
--- Security Symbol
-siac_cqs_snapshot_cta_v1_0.security_symbol = {}
+-- Finra Best Bid Size
+siac_cqs_snapshot_cta_v1_0.finra_best_bid_size = {}
 
--- Size: Security Symbol
-siac_cqs_snapshot_cta_v1_0.security_symbol.size = 11
+-- Size: Finra Best Bid Size
+siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.size = 4
 
--- Display: Security Symbol
-siac_cqs_snapshot_cta_v1_0.security_symbol.display = function(value)
-  return "Security Symbol: "..value
+-- Display: Finra Best Bid Size
+siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.display = function(value)
+  return "Finra Best Bid Size: "..value
 end
 
--- Dissect: Security Symbol
-siac_cqs_snapshot_cta_v1_0.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.security_symbol.size
+-- Dissect: Finra Best Bid Size
+siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.security_symbol.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.security_symbol, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_size, range, value, display)
 
   return offset + length, value
 end
 
--- Participant Id
-siac_cqs_snapshot_cta_v1_0.participant_id = {}
+-- Finra Best Offer Market Maker Id
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id = {}
 
--- Size: Participant Id
-siac_cqs_snapshot_cta_v1_0.participant_id.size = 1
+-- Size: Finra Best Offer Market Maker Id
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.size = 4
 
--- Display: Participant Id
-siac_cqs_snapshot_cta_v1_0.participant_id.display = function(value)
+-- Display: Finra Best Offer Market Maker Id
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.display = function(value)
+  return "Finra Best Offer Market Maker Id: "..value
+end
+
+-- Dissect: Finra Best Offer Market Maker Id
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_market_maker_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Best Offer Price
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_price = {}
+
+-- Size: Finra Best Offer Price
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.size = 8
+
+-- Display: Finra Best Offer Price
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.display = function(value)
+  return "Finra Best Offer Price: "..value
+end
+
+-- Translate: Finra Best Offer Price
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Finra Best Offer Price
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition = {}
+
+-- Size: Finra Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.size = 1
+
+-- Display: Finra Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.display = function(value)
+  if value == " " then
+    return "Finra Best Offer Quote Condition: Quote Condition Not Applicable (<whitespace>)"
+  end
   if value == "A" then
-    return "Participant Id: Nyse American (A)"
+    return "Finra Best Offer Quote Condition: Slow Quote On Offer Side (A)"
   end
   if value == "B" then
-    return "Participant Id: Nasdaq Bx (B)"
+    return "Finra Best Offer Quote Condition: Slow Quote On Bid Side (B)"
   end
   if value == "C" then
-    return "Participant Id: Nyse National (C)"
+    return "Finra Best Offer Quote Condition: Closing (C)"
   end
-  if value == "D" then
-    return "Participant Id: Adf (D)"
+  if value == "E" then
+    return "Finra Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
+  end
+  if value == "F" then
+    return "Finra Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
   end
   if value == "H" then
-    return "Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Participant Id: Cboe Edgx (K)"
+    return "Finra Best Offer Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
   end
   if value == "L" then
-    return "Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Participant Id: Nyse Chicago (M)"
+    return "Finra Best Offer Quote Condition: Closed Market Maker (L)"
   end
   if value == "N" then
-    return "Participant Id: Nyse (N)"
+    return "Finra Best Offer Quote Condition: Non Firm Quote (N)"
   end
-  if value == "P" then
-    return "Participant Id: Nyse Arca (P)"
+  if value == "O" then
+    return "Finra Best Offer Quote Condition: Opening Quote (O)"
   end
-  if value == "S" then
-    return "Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "Participant Id: Nasdaq (T)"
+  if value == "R" then
+    return "Finra Best Offer Quote Condition: Regular Finra Open (R)"
   end
   if value == "U" then
-    return "Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "Participant Id: Iex (V)"
+    return "Finra Best Offer Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
   end
   if value == "W" then
-    return "Participant Id: Cbsx (W)"
+    return "Finra Best Offer Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
   end
-  if value == "X" then
-    return "Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Participant Id: Cboe Bzx (Z)"
+  if value == "4" then
+    return "Finra Best Offer Quote Condition: On Demand Intra Day Auction (4)"
   end
 
-  return "Participant Id: Unknown("..value..")"
+  return "Finra Best Offer Quote Condition: Unknown("..value..")"
 end
 
--- Dissect: Participant Id
-siac_cqs_snapshot_cta_v1_0.participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.participant_id.size
+-- Dissect: Finra Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.participant_id.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_quote_condition, range, value, display)
 
   return offset + length, value
 end
 
--- Finra Snapshot Message
-siac_cqs_snapshot_cta_v1_0.finra_snapshot_message = {}
+-- Finra Best Offer Size
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_size = {}
 
--- Read runtime size of: Finra Snapshot Message
-siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.size = function(buffer, offset)
-  local index = offset
+-- Size: Finra Best Offer Size
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.size = 4
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
+-- Display: Finra Best Offer Size
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.display = function(value)
+  return "Finra Best Offer Size: "..value
 end
 
--- Display: Finra Snapshot Message
-siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.display = function(packet, parent, length)
-  return ""
+-- Dissect: Finra Best Offer Size
+siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_offer_size, range, value, display)
+
+  return offset + length, value
 end
 
--- Dissect Fields: Finra Snapshot Message
-siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields = function(buffer, offset, packet, parent, size_of_finra_snapshot_message)
-  local index = offset
+-- Future
+siac_cqs_snapshot_cta_v1_0.future = {}
 
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v1_0.participant_id.dissect(buffer, index, packet, parent)
+-- Size: Future
+siac_cqs_snapshot_cta_v1_0.future.size = 1
 
-  -- Security Symbol: Char[]
-  index, security_symbol = siac_cqs_snapshot_cta_v1_0.security_symbol.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Bid Quote Condition: Char
-  index, finra_best_bid_quote_condition = siac_cqs_snapshot_cta_v1_0.finra_best_bid_quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Bid Price: Long
-  index, finra_best_bid_price = siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Bid Size: Integer
-  index, finra_best_bid_size = siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Bid Market Maker Id: Char[]
-  index, finra_best_bid_market_maker_id = siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Offer Quote Condition: Char
-  index, finra_best_offer_quote_condition = siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Offer Price: Long
-  index, finra_best_offer_price = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Offer Size: Integer
-  index, finra_best_offer_size = siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.dissect(buffer, index, packet, parent)
-
-  -- Finra Best Offer Market Maker Id: Char[]
-  index, finra_best_offer_market_maker_id = siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.dissect(buffer, index, packet, parent)
-
-  -- Finra Bbo Luld Indicator: Char
-  index, finra_bbo_luld_indicator = siac_cqs_snapshot_cta_v1_0.finra_bbo_luld_indicator.dissect(buffer, index, packet, parent)
-
-  -- High Indication Price: Long
-  index, high_indication_price = siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect(buffer, index, packet, parent)
-
-  -- Low Indication Price: Long
-  index, low_indication_price = siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect(buffer, index, packet, parent)
-
-  -- Halt Reason: Char
-  index, halt_reason = siac_cqs_snapshot_cta_v1_0.halt_reason.dissect(buffer, index, packet, parent)
-
-  return index
+-- Display: Future
+siac_cqs_snapshot_cta_v1_0.future.display = function(value)
+  return "Future: "..value
 end
 
--- Dissect: Finra Snapshot Message
-siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_finra_snapshot_message)
-  local size_of_finra_snapshot_message = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.size(buffer, offset)
-  local index = offset + size_of_finra_snapshot_message
+-- Dissect: Future
+siac_cqs_snapshot_cta_v1_0.future.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.future.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.future.display(value, buffer, offset, packet, parent)
 
-  -- Optionally add group/struct element to protocol tree
-  if show.finra_snapshot_message then
-    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message, buffer(offset, 0))
-    local current = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields(buffer, offset, packet, parent, size_of_finra_snapshot_message)
-    parent:set_len(size_of_finra_snapshot_message)
-    local display = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.display(buffer, packet, parent)
-    parent:append_text(display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.future, range, value, display)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields(buffer, offset, packet, parent, size_of_finra_snapshot_message)
+  return offset + length, value
+end
 
-    return index
+-- Halt Reason
+siac_cqs_snapshot_cta_v1_0.halt_reason = {}
+
+-- Size: Halt Reason
+siac_cqs_snapshot_cta_v1_0.halt_reason.size = 1
+
+-- Display: Halt Reason
+siac_cqs_snapshot_cta_v1_0.halt_reason.display = function(value)
+  if value == " " then
+    return "Halt Reason: Not Applicable (<whitespace>)"
   end
+  if value == "A" then
+    return "Halt Reason: Additional Information Requested (A)"
+  end
+  if value == "C" then
+    return "Halt Reason: Regulatory Concern (C)"
+  end
+  if value == "D" then
+    return "Halt Reason: News Released (D)"
+  end
+  if value == "E" then
+    return "Halt Reason: Merger Effective (E)"
+  end
+  if value == "F" then
+    return "Halt Reason: Etf Component Prices Not Available (F)"
+  end
+  if value == "I" then
+    return "Halt Reason: Order Imbalance (I)"
+  end
+  if value == "M" then
+    return "Halt Reason: Limit Up Limit Down Trading Pause (M)"
+  end
+  if value == "N" then
+    return "Halt Reason: Corporate Action (N)"
+  end
+  if value == "O" then
+    return "Halt Reason: New Security Offering (O)"
+  end
+  if value == "P" then
+    return "Halt Reason: News Pending (P)"
+  end
+  if value == "V" then
+    return "Halt Reason: Intraday Indicative Value Not Available (V)"
+  end
+  if value == "X" then
+    return "Halt Reason: Operational (X)"
+  end
+  if value == "Y" then
+    return "Halt Reason: Subpenny Trading (Y)"
+  end
+  if value == "1" then
+    return "Halt Reason: Market Wide Circuit Breaker Level 1 Breached (1)"
+  end
+  if value == "2" then
+    return "Halt Reason: Market Wide Circuit Breaker Level 2 Breached (2)"
+  end
+  if value == "3" then
+    return "Halt Reason: Market Wide Circuit Breaker Level 3 Breached (3)"
+  end
+
+  return "Halt Reason: Unknown("..value..")"
+end
+
+-- Dissect: Halt Reason
+siac_cqs_snapshot_cta_v1_0.halt_reason.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.halt_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.halt_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.halt_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Indication Price
+siac_cqs_snapshot_cta_v1_0.high_indication_price = {}
+
+-- Size: High Indication Price
+siac_cqs_snapshot_cta_v1_0.high_indication_price.size = 8
+
+-- Display: High Indication Price
+siac_cqs_snapshot_cta_v1_0.high_indication_price.display = function(value)
+  return "High Indication Price: "..value
+end
+
+-- Translate: High Indication Price
+siac_cqs_snapshot_cta_v1_0.high_indication_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: High Indication Price
+siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.high_indication_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.high_indication_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.high_indication_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.high_indication_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+siac_cqs_snapshot_cta_v1_0.instrument_type = {}
+
+-- Size: Instrument Type
+siac_cqs_snapshot_cta_v1_0.instrument_type.size = 1
+
+-- Display: Instrument Type
+siac_cqs_snapshot_cta_v1_0.instrument_type.display = function(value)
+  if value == "0" then
+    return "Instrument Type: Cta Eligible Equity (0)"
+  end
+  if value == "1" then
+    return "Instrument Type: Local Issue (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Corporate Bond (2)"
+  end
+  if value == "3" then
+    return "Instrument Type: Government Bond (3)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+siac_cqs_snapshot_cta_v1_0.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.instrument_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Seq Num
+siac_cqs_snapshot_cta_v1_0.last_seq_num = {}
+
+-- Size: Last Seq Num
+siac_cqs_snapshot_cta_v1_0.last_seq_num.size = 1
+
+-- Display: Last Seq Num
+siac_cqs_snapshot_cta_v1_0.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+siac_cqs_snapshot_cta_v1_0.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Indication Price
+siac_cqs_snapshot_cta_v1_0.low_indication_price = {}
+
+-- Size: Low Indication Price
+siac_cqs_snapshot_cta_v1_0.low_indication_price.size = 8
+
+-- Display: Low Indication Price
+siac_cqs_snapshot_cta_v1_0.low_indication_price.display = function(value)
+  return "Low Indication Price: "..value
+end
+
+-- Translate: Low Indication Price
+siac_cqs_snapshot_cta_v1_0.low_indication_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Low Indication Price
+siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.low_indication_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.low_indication_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.low_indication_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.low_indication_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Limit Price Band
+siac_cqs_snapshot_cta_v1_0.lower_limit_price_band = {}
+
+-- Size: Lower Limit Price Band
+siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.size = 8
+
+-- Display: Lower Limit Price Band
+siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.display = function(value)
+  return "Lower Limit Price Band: "..value
+end
+
+-- Translate: Lower Limit Price Band
+siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Lower Limit Price Band
+siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band, range, value, display)
+
+  return offset + length, value
 end
 
 -- Luld Indicator
@@ -935,533 +1151,167 @@ siac_cqs_snapshot_cta_v1_0.market_condition.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Settlement Condition
-siac_cqs_snapshot_cta_v1_0.settlement_condition = {}
+-- Message Category
+siac_cqs_snapshot_cta_v1_0.message_category = {}
 
--- Size: Settlement Condition
-siac_cqs_snapshot_cta_v1_0.settlement_condition.size = 1
+-- Size: Message Category
+siac_cqs_snapshot_cta_v1_0.message_category.size = 1
 
--- Display: Settlement Condition
-siac_cqs_snapshot_cta_v1_0.settlement_condition.display = function(value)
-  if value == " " then
-    return "Settlement Condition: Regular Way Settlement (<whitespace>)"
-  end
-  if value == "A" then
-    return "Settlement Condition: Cash Only Settlement (A)"
-  end
-  if value == "B" then
-    return "Settlement Condition: Next Day Only Settlement (B)"
-  end
-
-  return "Settlement Condition: Unknown("..value..")"
-end
-
--- Dissect: Settlement Condition
-siac_cqs_snapshot_cta_v1_0.settlement_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.settlement_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.settlement_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.settlement_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Retail Interest Indicator
-siac_cqs_snapshot_cta_v1_0.retail_interest_indicator = {}
-
--- Size: Retail Interest Indicator
-siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.size = 1
-
--- Display: Retail Interest Indicator
-siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.display = function(value)
-  if value == " " then
-    return "Retail Interest Indicator: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Retail Interest Indicator: Retail Interest On Bid Quote (A)"
-  end
-  if value == "B" then
-    return "Retail Interest Indicator: Retail Interest On Offer Quote (B)"
-  end
-  if value == "C" then
-    return "Retail Interest Indicator: Retail Interest On Both The Bid And Offer Quotes (C)"
-  end
-
-  return "Retail Interest Indicator: Unknown("..value..")"
-end
-
--- Dissect: Retail Interest Indicator
-siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size
-siac_cqs_snapshot_cta_v1_0.offer_size = {}
-
--- Size: Offer Size
-siac_cqs_snapshot_cta_v1_0.offer_size.size = 4
-
--- Display: Offer Size
-siac_cqs_snapshot_cta_v1_0.offer_size.display = function(value)
-  return "Offer Size: "..value
-end
-
--- Dissect: Offer Size
-siac_cqs_snapshot_cta_v1_0.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price
-siac_cqs_snapshot_cta_v1_0.offer_price = {}
-
--- Size: Offer Price
-siac_cqs_snapshot_cta_v1_0.offer_price.size = 8
-
--- Display: Offer Price
-siac_cqs_snapshot_cta_v1_0.offer_price.display = function(value)
-  return "Offer Price: "..value
-end
-
--- Translate: Offer Price
-siac_cqs_snapshot_cta_v1_0.offer_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Offer Price
-siac_cqs_snapshot_cta_v1_0.offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.offer_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-siac_cqs_snapshot_cta_v1_0.bid_size = {}
-
--- Size: Bid Size
-siac_cqs_snapshot_cta_v1_0.bid_size.size = 4
-
--- Display: Bid Size
-siac_cqs_snapshot_cta_v1_0.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-siac_cqs_snapshot_cta_v1_0.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-siac_cqs_snapshot_cta_v1_0.bid_price = {}
-
--- Size: Bid Price
-siac_cqs_snapshot_cta_v1_0.bid_price.size = 8
-
--- Display: Bid Price
-siac_cqs_snapshot_cta_v1_0.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-siac_cqs_snapshot_cta_v1_0.bid_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Bid Price
-siac_cqs_snapshot_cta_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.bid_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-siac_cqs_snapshot_cta_v1_0.quote_condition = {}
-
--- Size: Quote Condition
-siac_cqs_snapshot_cta_v1_0.quote_condition.size = 1
-
--- Display: Quote Condition
-siac_cqs_snapshot_cta_v1_0.quote_condition.display = function(value)
-  if value == " " then
-    return "Quote Condition: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Quote Condition: Slow Quote On Offer Side (A)"
-  end
-  if value == "B" then
-    return "Quote Condition: Slow Quote On Bid Side (B)"
-  end
-  if value == "C" then
-    return "Quote Condition: Closing (C)"
-  end
-  if value == "E" then
-    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
-  end
-  if value == "F" then
-    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
-  end
-  if value == "H" then
-    return "Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
-  end
-  if value == "L" then
-    return "Quote Condition: Closed Market Maker (L)"
-  end
-  if value == "N" then
-    return "Quote Condition: Non Firm Quote (N)"
-  end
-  if value == "O" then
-    return "Quote Condition: Opening Quote (O)"
-  end
-  if value == "R" then
-    return "Quote Condition: Regular Finra Open (R)"
-  end
-  if value == "U" then
-    return "Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
-  end
-  if value == "W" then
-    return "Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
-  end
-  if value == "4" then
-    return "Quote Condition: On Demand Intra Day Auction (4)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-siac_cqs_snapshot_cta_v1_0.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant Snapshot Message
-siac_cqs_snapshot_cta_v1_0.participant_snapshot_message = {}
-
--- Read runtime size of: Participant Snapshot Message
-siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  return message_length - 4
-end
-
--- Display: Participant Snapshot Message
-siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Participant Snapshot Message
-siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields = function(buffer, offset, packet, parent, size_of_participant_snapshot_message)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_snapshot_cta_v1_0.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Security Symbol: Char[]
-  index, security_symbol = siac_cqs_snapshot_cta_v1_0.security_symbol.dissect(buffer, index, packet, parent)
-
-  -- Quote Condition: Char
-  index, quote_condition = siac_cqs_snapshot_cta_v1_0.quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Bid Price: Long
-  index, bid_price = siac_cqs_snapshot_cta_v1_0.bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Size: Integer
-  index, bid_size = siac_cqs_snapshot_cta_v1_0.bid_size.dissect(buffer, index, packet, parent)
-
-  -- Offer Price: Long
-  index, offer_price = siac_cqs_snapshot_cta_v1_0.offer_price.dissect(buffer, index, packet, parent)
-
-  -- Offer Size: Integer
-  index, offer_size = siac_cqs_snapshot_cta_v1_0.offer_size.dissect(buffer, index, packet, parent)
-
-  -- Retail Interest Indicator: Char
-  index, retail_interest_indicator = siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.dissect(buffer, index, packet, parent)
-
-  -- Settlement Condition: Char
-  index, settlement_condition = siac_cqs_snapshot_cta_v1_0.settlement_condition.dissect(buffer, index, packet, parent)
-
-  -- Market Condition: Char
-  index, market_condition = siac_cqs_snapshot_cta_v1_0.market_condition.dissect(buffer, index, packet, parent)
-
-  -- Luld Indicator: Char
-  index, luld_indicator = siac_cqs_snapshot_cta_v1_0.luld_indicator.dissect(buffer, index, packet, parent)
-
-  -- High Indication Price: Long
-  index, high_indication_price = siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect(buffer, index, packet, parent)
-
-  -- Low Indication Price: Long
-  index, low_indication_price = siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect(buffer, index, packet, parent)
-
-  -- Halt Reason: Char
-  index, halt_reason = siac_cqs_snapshot_cta_v1_0.halt_reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Participant Snapshot Message
-siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_participant_snapshot_message)
-  local size_of_participant_snapshot_message = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.size(buffer, offset)
-  local index = offset + size_of_participant_snapshot_message
-
-  -- Optionally add group/struct element to protocol tree
-  if show.participant_snapshot_message then
-    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message, buffer(offset, 0))
-    local current = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields(buffer, offset, packet, parent, size_of_participant_snapshot_message)
-    parent:set_len(size_of_participant_snapshot_message)
-    local display = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields(buffer, offset, packet, parent, size_of_participant_snapshot_message)
-
-    return index
-  end
-end
-
--- Future
-siac_cqs_snapshot_cta_v1_0.future = {}
-
--- Size: Future
-siac_cqs_snapshot_cta_v1_0.future.size = 1
-
--- Display: Future
-siac_cqs_snapshot_cta_v1_0.future.display = function(value)
-  return "Future: "..value
-end
-
--- Dissect: Future
-siac_cqs_snapshot_cta_v1_0.future.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.future.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.future.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.future, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Restriction Indicator
-siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator = {}
-
--- Size: Short Sale Restriction Indicator
-siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.size = 1
-
--- Display: Short Sale Restriction Indicator
-siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.display = function(value)
-  if value == " " then
-    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
-  end
-  if value == "A" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction Activated (A)"
-  end
-  if value == "C" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction Continued (C)"
-  end
-  if value == "D" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction Deactivated (D)"
-  end
-  if value == "E" then
-    return "Short Sale Restriction Indicator: Short Sale Restriction In Effect (E)"
-  end
-
-  return "Short Sale Restriction Indicator: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction Indicator
-siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Financial Status Indicator
-siac_cqs_snapshot_cta_v1_0.financial_status_indicator = {}
-
--- Size: Financial Status Indicator
-siac_cqs_snapshot_cta_v1_0.financial_status_indicator.size = 1
-
--- Display: Financial Status Indicator
-siac_cqs_snapshot_cta_v1_0.financial_status_indicator.display = function(value)
-  if value == "0" then
-    return "Financial Status Indicator: Financial Status Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Financial Status Indicator: Bankrupt (1)"
-  end
-  if value == "2" then
-    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
-  end
-  if value == "3" then
-    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
-  end
-  if value == "4" then
-    return "Financial Status Indicator: Late Filing (4)"
-  end
-  if value == "5" then
-    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
-  end
-  if value == "6" then
-    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
-  end
-  if value == "7" then
-    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
-  end
-  if value == "8" then
-    return "Financial Status Indicator: Creations Suspended (8)"
-  end
-  if value == "9" then
-    return "Financial Status Indicator: Redemptions Suspended (9)"
-  end
-  if value == "A" then
-    return "Financial Status Indicator: Liquidation (A)"
-  end
-
-  return "Financial Status Indicator: Unknown("..value..")"
-end
-
--- Dissect: Financial Status Indicator
-siac_cqs_snapshot_cta_v1_0.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.financial_status_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.financial_status_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Primary Listing Market Participant Id
-siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id = {}
-
--- Size: Primary Listing Market Participant Id
-siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.size = 1
-
--- Display: Primary Listing Market Participant Id
-siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.display = function(value)
-  if value == " " then
-    return "Primary Listing Market Participant Id: Not Applicable (<whitespace>)"
-  end
-  if value == "A" then
-    return "Primary Listing Market Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Primary Listing Market Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Primary Listing Market Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Primary Listing Market Participant Id: Adf (D)"
-  end
-  if value == "H" then
-    return "Primary Listing Market Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "Primary Listing Market Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Primary Listing Market Participant Id: Cboe Edga (J)"
-  end
+-- Display: Message Category
+siac_cqs_snapshot_cta_v1_0.message_category.display = function(value)
   if value == "K" then
-    return "Primary Listing Market Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Primary Listing Market Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Primary Listing Market Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Primary Listing Market Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Primary Listing Market Participant Id: Nyse Arca (P)"
-  end
-  if value == "T" then
-    return "Primary Listing Market Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "Primary Listing Market Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "Primary Listing Market Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Primary Listing Market Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Primary Listing Market Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Primary Listing Market Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Primary Listing Market Participant Id: Cboe Bzx (Z)"
+    return "Message Category: Snapshot (K)"
   end
 
-  return "Primary Listing Market Participant Id: Unknown("..value..")"
+  return "Message Category: Unknown("..value..")"
 end
 
--- Dissect: Primary Listing Market Participant Id
-siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.size
+-- Dissect: Message Category
+siac_cqs_snapshot_cta_v1_0.message_category.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.message_category.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.message_category.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+siac_cqs_snapshot_cta_v1_0.message_length = {}
+
+-- Size: Message Length
+siac_cqs_snapshot_cta_v1_0.message_length.size = 2
+
+-- Display: Message Length
+siac_cqs_snapshot_cta_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+siac_cqs_snapshot_cta_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Messages In Block
+siac_cqs_snapshot_cta_v1_0.messages_in_block = {}
+
+-- Size: Messages In Block
+siac_cqs_snapshot_cta_v1_0.messages_in_block.size = 1
+
+-- Display: Messages In Block
+siac_cqs_snapshot_cta_v1_0.messages_in_block.display = function(value)
+  return "Messages In Block: "..value
+end
+
+-- Dissect: Messages In Block
+siac_cqs_snapshot_cta_v1_0.messages_in_block.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.messages_in_block.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.messages_in_block.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1 = {}
+
+-- Size: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size = 8
+
+-- Display: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 2
+siac_cqs_snapshot_cta_v1_0.mwcb_level_2 = {}
+
+-- Size: Mwcb Level 2
+siac_cqs_snapshot_cta_v1_0.mwcb_level_2.size = 8
+
+-- Display: Mwcb Level 2
+siac_cqs_snapshot_cta_v1_0.mwcb_level_2.display = function(value)
+  return "Mwcb Level 2: "..value
+end
+
+-- Dissect: Mwcb Level 2
+siac_cqs_snapshot_cta_v1_0.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 3
+siac_cqs_snapshot_cta_v1_0.mwcb_level_3 = {}
+
+-- Size: Mwcb Level 3
+siac_cqs_snapshot_cta_v1_0.mwcb_level_3.size = 8
+
+-- Display: Mwcb Level 3
+siac_cqs_snapshot_cta_v1_0.mwcb_level_3.display = function(value)
+  return "Mwcb Level 3: "..value
+end
+
+-- Dissect: Mwcb Level 3
+siac_cqs_snapshot_cta_v1_0.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+siac_cqs_snapshot_cta_v1_0.nanoseconds = {}
+
+-- Size: Nanoseconds
+siac_cqs_snapshot_cta_v1_0.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+siac_cqs_snapshot_cta_v1_0.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+siac_cqs_snapshot_cta_v1_0.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.nanoseconds, range, value, display)
 
   return offset + length, value
 end
@@ -1520,227 +1370,86 @@ siac_cqs_snapshot_cta_v1_0.national_bbo_luld_indicator.dissect = function(buffer
   return offset + length, value
 end
 
--- National Best Offer Size
-siac_cqs_snapshot_cta_v1_0.national_best_offer_size = {}
+-- National Best Bid Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id = {}
 
--- Size: National Best Offer Size
-siac_cqs_snapshot_cta_v1_0.national_best_offer_size.size = 4
+-- Size: National Best Bid Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.size = 1
 
--- Display: National Best Offer Size
-siac_cqs_snapshot_cta_v1_0.national_best_offer_size.display = function(value)
-  return "National Best Offer Size: "..value
-end
-
--- Dissect: National Best Offer Size
-siac_cqs_snapshot_cta_v1_0.national_best_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- National Best Offer Price
-siac_cqs_snapshot_cta_v1_0.national_best_offer_price = {}
-
--- Size: National Best Offer Price
-siac_cqs_snapshot_cta_v1_0.national_best_offer_price.size = 8
-
--- Display: National Best Offer Price
-siac_cqs_snapshot_cta_v1_0.national_best_offer_price.display = function(value)
-  return "National Best Offer Price: "..value
-end
-
--- Translate: National Best Offer Price
-siac_cqs_snapshot_cta_v1_0.national_best_offer_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: National Best Offer Price
-siac_cqs_snapshot_cta_v1_0.national_best_offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- National Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition = {}
-
--- Size: National Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.size = 1
-
--- Display: National Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.display = function(value)
-  if value == " " then
-    return "National Best Offer Quote Condition: Quote Condition Not Applicable (<whitespace>)"
-  end
+-- Display: National Best Bid Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.display = function(value)
   if value == "A" then
-    return "National Best Offer Quote Condition: Slow Quote On Offer Side (A)"
+    return "National Best Bid Participant Id: Nyse American (A)"
   end
   if value == "B" then
-    return "National Best Offer Quote Condition: Slow Quote On Bid Side (B)"
+    return "National Best Bid Participant Id: Nasdaq Bx (B)"
   end
   if value == "C" then
-    return "National Best Offer Quote Condition: Closing (C)"
-  end
-  if value == "E" then
-    return "National Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
-  end
-  if value == "F" then
-    return "National Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
-  end
-  if value == "H" then
-    return "National Best Offer Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
-  end
-  if value == "L" then
-    return "National Best Offer Quote Condition: Closed Market Maker (L)"
-  end
-  if value == "N" then
-    return "National Best Offer Quote Condition: Non Firm Quote (N)"
-  end
-  if value == "O" then
-    return "National Best Offer Quote Condition: Opening Quote (O)"
-  end
-  if value == "R" then
-    return "National Best Offer Quote Condition: Regular Finra Open (R)"
-  end
-  if value == "U" then
-    return "National Best Offer Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
-  end
-  if value == "W" then
-    return "National Best Offer Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
-  end
-  if value == "4" then
-    return "National Best Offer Quote Condition: On Demand Intra Day Auction (4)"
-  end
-
-  return "National Best Offer Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: National Best Offer Quote Condition
-siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- National Best Offer Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id = {}
-
--- Size: National Best Offer Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.size = 1
-
--- Display: National Best Offer Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.display = function(value)
-  if value == "A" then
-    return "National Best Offer Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "National Best Offer Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "National Best Offer Participant Id: Nyse National (C)"
+    return "National Best Bid Participant Id: Nyse National (C)"
   end
   if value == "D" then
-    return "National Best Offer Participant Id: Adf (D)"
+    return "National Best Bid Participant Id: Adf (D)"
   end
   if value == "H" then
-    return "National Best Offer Participant Id: Miax (H)"
+    return "National Best Bid Participant Id: Miax (H)"
   end
   if value == "I" then
-    return "National Best Offer Participant Id: Ise (I)"
+    return "National Best Bid Participant Id: Ise (I)"
   end
   if value == "J" then
-    return "National Best Offer Participant Id: Cboe Edga (J)"
+    return "National Best Bid Participant Id: Cboe Edga (J)"
   end
   if value == "K" then
-    return "National Best Offer Participant Id: Cboe Edgx (K)"
+    return "National Best Bid Participant Id: Cboe Edgx (K)"
   end
   if value == "L" then
-    return "National Best Offer Participant Id: Ltse (L)"
+    return "National Best Bid Participant Id: Ltse (L)"
   end
   if value == "M" then
-    return "National Best Offer Participant Id: Nyse Chicago (M)"
+    return "National Best Bid Participant Id: Nyse Chicago (M)"
   end
   if value == "N" then
-    return "National Best Offer Participant Id: Nyse (N)"
+    return "National Best Bid Participant Id: Nyse (N)"
   end
   if value == "P" then
-    return "National Best Offer Participant Id: Nyse Arca (P)"
+    return "National Best Bid Participant Id: Nyse Arca (P)"
   end
   if value == "S" then
-    return "National Best Offer Participant Id: Cqs (S)"
+    return "National Best Bid Participant Id: Cqs (S)"
   end
   if value == "T" then
-    return "National Best Offer Participant Id: Nasdaq (T)"
+    return "National Best Bid Participant Id: Nasdaq (T)"
   end
   if value == "U" then
-    return "National Best Offer Participant Id: Memx (U)"
+    return "National Best Bid Participant Id: Memx (U)"
   end
   if value == "V" then
-    return "National Best Offer Participant Id: Iex (V)"
+    return "National Best Bid Participant Id: Iex (V)"
   end
   if value == "W" then
-    return "National Best Offer Participant Id: Cbsx (W)"
+    return "National Best Bid Participant Id: Cbsx (W)"
   end
   if value == "X" then
-    return "National Best Offer Participant Id: Nasdaq Psx (X)"
+    return "National Best Bid Participant Id: Nasdaq Psx (X)"
   end
   if value == "Y" then
-    return "National Best Offer Participant Id: Cboe Byx (Y)"
+    return "National Best Bid Participant Id: Cboe Byx (Y)"
   end
   if value == "Z" then
-    return "National Best Offer Participant Id: Cboe Bzx (Z)"
+    return "National Best Bid Participant Id: Cboe Bzx (Z)"
   end
 
-  return "National Best Offer Participant Id: Unknown("..value..")"
+  return "National Best Bid Participant Id: Unknown("..value..")"
 end
 
--- Dissect: National Best Offer Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.size
+-- Dissect: National Best Bid Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_participant_id, range, value, display)
-
-  return offset + length, value
-end
-
--- National Best Bid Size
-siac_cqs_snapshot_cta_v1_0.national_best_bid_size = {}
-
--- Size: National Best Bid Size
-siac_cqs_snapshot_cta_v1_0.national_best_bid_size.size = 4
-
--- Display: National Best Bid Size
-siac_cqs_snapshot_cta_v1_0.national_best_bid_size.display = function(value)
-  return "National Best Bid Size: "..value
-end
-
--- Dissect: National Best Bid Size
-siac_cqs_snapshot_cta_v1_0.national_best_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.national_best_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.national_best_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_size, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1840,86 +1549,227 @@ siac_cqs_snapshot_cta_v1_0.national_best_bid_quote_condition.dissect = function(
   return offset + length, value
 end
 
--- National Best Bid Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id = {}
+-- National Best Bid Size
+siac_cqs_snapshot_cta_v1_0.national_best_bid_size = {}
 
--- Size: National Best Bid Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.size = 1
+-- Size: National Best Bid Size
+siac_cqs_snapshot_cta_v1_0.national_best_bid_size.size = 4
 
--- Display: National Best Bid Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.display = function(value)
-  if value == "A" then
-    return "National Best Bid Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "National Best Bid Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "National Best Bid Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "National Best Bid Participant Id: Adf (D)"
-  end
-  if value == "H" then
-    return "National Best Bid Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "National Best Bid Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "National Best Bid Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "National Best Bid Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "National Best Bid Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "National Best Bid Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "National Best Bid Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "National Best Bid Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "National Best Bid Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "National Best Bid Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "National Best Bid Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "National Best Bid Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "National Best Bid Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "National Best Bid Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "National Best Bid Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "National Best Bid Participant Id: Cboe Bzx (Z)"
-  end
-
-  return "National Best Bid Participant Id: Unknown("..value..")"
+-- Display: National Best Bid Size
+siac_cqs_snapshot_cta_v1_0.national_best_bid_size.display = function(value)
+  return "National Best Bid Size: "..value
 end
 
--- Dissect: National Best Bid Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.size
+-- Dissect: National Best Bid Size
+siac_cqs_snapshot_cta_v1_0.national_best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.national_best_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.national_best_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- National Best Offer Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id = {}
+
+-- Size: National Best Offer Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.size = 1
+
+-- Display: National Best Offer Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.display = function(value)
+  if value == "A" then
+    return "National Best Offer Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "National Best Offer Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "National Best Offer Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "National Best Offer Participant Id: Adf (D)"
+  end
+  if value == "H" then
+    return "National Best Offer Participant Id: Miax (H)"
+  end
+  if value == "I" then
+    return "National Best Offer Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "National Best Offer Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "National Best Offer Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "National Best Offer Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "National Best Offer Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "National Best Offer Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "National Best Offer Participant Id: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "National Best Offer Participant Id: Cqs (S)"
+  end
+  if value == "T" then
+    return "National Best Offer Participant Id: Nasdaq (T)"
+  end
+  if value == "U" then
+    return "National Best Offer Participant Id: Memx (U)"
+  end
+  if value == "V" then
+    return "National Best Offer Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "National Best Offer Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "National Best Offer Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "National Best Offer Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "National Best Offer Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "National Best Offer Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: National Best Offer Participant Id
+siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- National Best Offer Price
+siac_cqs_snapshot_cta_v1_0.national_best_offer_price = {}
+
+-- Size: National Best Offer Price
+siac_cqs_snapshot_cta_v1_0.national_best_offer_price.size = 8
+
+-- Display: National Best Offer Price
+siac_cqs_snapshot_cta_v1_0.national_best_offer_price.display = function(value)
+  return "National Best Offer Price: "..value
+end
+
+-- Translate: National Best Offer Price
+siac_cqs_snapshot_cta_v1_0.national_best_offer_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: National Best Offer Price
+siac_cqs_snapshot_cta_v1_0.national_best_offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- National Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition = {}
+
+-- Size: National Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.size = 1
+
+-- Display: National Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.display = function(value)
+  if value == " " then
+    return "National Best Offer Quote Condition: Quote Condition Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "National Best Offer Quote Condition: Slow Quote On Offer Side (A)"
+  end
+  if value == "B" then
+    return "National Best Offer Quote Condition: Slow Quote On Bid Side (B)"
+  end
+  if value == "C" then
+    return "National Best Offer Quote Condition: Closing (C)"
+  end
+  if value == "E" then
+    return "National Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
+  end
+  if value == "F" then
+    return "National Best Offer Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
+  end
+  if value == "H" then
+    return "National Best Offer Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
+  end
+  if value == "L" then
+    return "National Best Offer Quote Condition: Closed Market Maker (L)"
+  end
+  if value == "N" then
+    return "National Best Offer Quote Condition: Non Firm Quote (N)"
+  end
+  if value == "O" then
+    return "National Best Offer Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "National Best Offer Quote Condition: Regular Finra Open (R)"
+  end
+  if value == "U" then
+    return "National Best Offer Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
+  end
+  if value == "W" then
+    return "National Best Offer Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
+  end
+  if value == "4" then
+    return "National Best Offer Quote Condition: On Demand Intra Day Auction (4)"
+  end
+
+  return "National Best Offer Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: National Best Offer Quote Condition
+siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- National Best Offer Size
+siac_cqs_snapshot_cta_v1_0.national_best_offer_size = {}
+
+-- Size: National Best Offer Size
+siac_cqs_snapshot_cta_v1_0.national_best_offer_size.size = 4
+
+-- Display: National Best Offer Size
+siac_cqs_snapshot_cta_v1_0.national_best_offer_size.display = function(value)
+  return "National Best Offer Size: "..value
+end
+
+-- Dissect: National Best Offer Size
+siac_cqs_snapshot_cta_v1_0.national_best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.national_best_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.national_best_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -1947,89 +1797,527 @@ siac_cqs_snapshot_cta_v1_0.number_of_extensions.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Auction Collar Lower Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price = {}
+-- Offer Price
+siac_cqs_snapshot_cta_v1_0.offer_price = {}
 
--- Size: Auction Collar Lower Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.size = 8
+-- Size: Offer Price
+siac_cqs_snapshot_cta_v1_0.offer_price.size = 8
 
--- Display: Auction Collar Lower Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.display = function(value)
-  return "Auction Collar Lower Threshold Price: "..value
+-- Display: Offer Price
+siac_cqs_snapshot_cta_v1_0.offer_price.display = function(value)
+  return "Offer Price: "..value
 end
 
--- Translate: Auction Collar Lower Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.translate = function(raw)
+-- Translate: Offer Price
+siac_cqs_snapshot_cta_v1_0.offer_price.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Auction Collar Lower Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.size
+-- Dissect: Offer Price
+siac_cqs_snapshot_cta_v1_0.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.offer_price.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.auction_collar_lower_threshold_price.display(value, buffer, offset, packet, parent)
+  local value = siac_cqs_snapshot_cta_v1_0.offer_price.translate(raw)
+  local display = siac_cqs_snapshot_cta_v1_0.offer_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_lower_threshold_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_price, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Collar Upper Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price = {}
+-- Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size = {}
 
--- Size: Auction Collar Upper Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.size = 8
+-- Size: Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size.size = 4
 
--- Display: Auction Collar Upper Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.display = function(value)
-  return "Auction Collar Upper Threshold Price: "..value
+-- Display: Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size.display = function(value)
+  return "Offer Size: "..value
 end
 
--- Translate: Auction Collar Upper Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Auction Collar Upper Threshold Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.size
+-- Dissect: Offer Size
+siac_cqs_snapshot_cta_v1_0.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.offer_size.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.auction_collar_upper_threshold_price.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.offer_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Collar Reference Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price = {}
+-- Participant Id
+siac_cqs_snapshot_cta_v1_0.participant_id = {}
 
--- Size: Auction Collar Reference Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.size = 8
+-- Size: Participant Id
+siac_cqs_snapshot_cta_v1_0.participant_id.size = 1
 
--- Display: Auction Collar Reference Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.display = function(value)
-  return "Auction Collar Reference Price: "..value
+-- Display: Participant Id
+siac_cqs_snapshot_cta_v1_0.participant_id.display = function(value)
+  if value == "A" then
+    return "Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Participant Id: Adf (D)"
+  end
+  if value == "H" then
+    return "Participant Id: Miax (H)"
+  end
+  if value == "I" then
+    return "Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Participant Id: Nyse Arca (P)"
+  end
+  if value == "S" then
+    return "Participant Id: Cqs (S)"
+  end
+  if value == "T" then
+    return "Participant Id: Nasdaq (T)"
+  end
+  if value == "U" then
+    return "Participant Id: Memx (U)"
+  end
+  if value == "V" then
+    return "Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Participant Id: Unknown("..value..")"
 end
 
--- Translate: Auction Collar Reference Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Auction Collar Reference Price
-siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.size
+-- Dissect: Participant Id
+siac_cqs_snapshot_cta_v1_0.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.participant_id.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.auction_collar_reference_price.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.participant_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Listing Market Participant Id
+siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id = {}
+
+-- Size: Primary Listing Market Participant Id
+siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.size = 1
+
+-- Display: Primary Listing Market Participant Id
+siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.display = function(value)
+  if value == " " then
+    return "Primary Listing Market Participant Id: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Primary Listing Market Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Primary Listing Market Participant Id: Nasdaq Bx (B)"
+  end
+  if value == "C" then
+    return "Primary Listing Market Participant Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Primary Listing Market Participant Id: Adf (D)"
+  end
+  if value == "H" then
+    return "Primary Listing Market Participant Id: Miax (H)"
+  end
+  if value == "I" then
+    return "Primary Listing Market Participant Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Primary Listing Market Participant Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Primary Listing Market Participant Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Primary Listing Market Participant Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Primary Listing Market Participant Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Primary Listing Market Participant Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Primary Listing Market Participant Id: Nyse Arca (P)"
+  end
+  if value == "T" then
+    return "Primary Listing Market Participant Id: Nasdaq (T)"
+  end
+  if value == "U" then
+    return "Primary Listing Market Participant Id: Memx (U)"
+  end
+  if value == "V" then
+    return "Primary Listing Market Participant Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Primary Listing Market Participant Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Primary Listing Market Participant Id: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Primary Listing Market Participant Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Primary Listing Market Participant Id: Cboe Bzx (Z)"
+  end
+
+  return "Primary Listing Market Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Primary Listing Market Participant Id
+siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.primary_listing_market_participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+siac_cqs_snapshot_cta_v1_0.quote_condition = {}
+
+-- Size: Quote Condition
+siac_cqs_snapshot_cta_v1_0.quote_condition.size = 1
+
+-- Display: Quote Condition
+siac_cqs_snapshot_cta_v1_0.quote_condition.display = function(value)
+  if value == " " then
+    return "Quote Condition: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Quote Condition: Slow Quote On Offer Side (A)"
+  end
+  if value == "B" then
+    return "Quote Condition: Slow Quote On Bid Side (B)"
+  end
+  if value == "C" then
+    return "Quote Condition: Closing (C)"
+  end
+  if value == "E" then
+    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Bid Side (E)"
+  end
+  if value == "F" then
+    return "Quote Condition: Slow Quote Due To Lrp Or Gap Quote On The Offer Side (F)"
+  end
+  if value == "H" then
+    return "Quote Condition: Slow Quote On The Bid And Offer Sides (H)"
+  end
+  if value == "L" then
+    return "Quote Condition: Closed Market Maker (L)"
+  end
+  if value == "N" then
+    return "Quote Condition: Non Firm Quote (N)"
+  end
+  if value == "O" then
+    return "Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Quote Condition: Regular Finra Open (R)"
+  end
+  if value == "U" then
+    return "Quote Condition: Slow Quote Due To Liquidity Replenishment Point Or Gap Quote On Both The Bid And Offer Sides (U)"
+  end
+  if value == "W" then
+    return "Quote Condition: Slow Quote Due To Set Slow List On Both The Bid And Offer Sides (W)"
+  end
+  if value == "4" then
+    return "Quote Condition: On Demand Intra Day Auction (4)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+siac_cqs_snapshot_cta_v1_0.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+siac_cqs_snapshot_cta_v1_0.reserved = {}
+
+-- Size: Reserved
+siac_cqs_snapshot_cta_v1_0.reserved.size = 1
+
+-- Display: Reserved
+siac_cqs_snapshot_cta_v1_0.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+siac_cqs_snapshot_cta_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retail Interest Indicator
+siac_cqs_snapshot_cta_v1_0.retail_interest_indicator = {}
+
+-- Size: Retail Interest Indicator
+siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.size = 1
+
+-- Display: Retail Interest Indicator
+siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.display = function(value)
+  if value == " " then
+    return "Retail Interest Indicator: Not Applicable (<whitespace>)"
+  end
+  if value == "A" then
+    return "Retail Interest Indicator: Retail Interest On Bid Quote (A)"
+  end
+  if value == "B" then
+    return "Retail Interest Indicator: Retail Interest On Offer Quote (B)"
+  end
+  if value == "C" then
+    return "Retail Interest Indicator: Retail Interest On Both The Bid And Offer Quotes (C)"
+  end
+
+  return "Retail Interest Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Retail Interest Indicator
+siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+siac_cqs_snapshot_cta_v1_0.seconds = {}
+
+-- Size: Seconds
+siac_cqs_snapshot_cta_v1_0.seconds.size = 4
+
+-- Display: Seconds
+siac_cqs_snapshot_cta_v1_0.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+siac_cqs_snapshot_cta_v1_0.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+siac_cqs_snapshot_cta_v1_0.security_symbol = {}
+
+-- Size: Security Symbol
+siac_cqs_snapshot_cta_v1_0.security_symbol.size = 11
+
+-- Display: Security Symbol
+siac_cqs_snapshot_cta_v1_0.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+siac_cqs_snapshot_cta_v1_0.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.security_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Condition
+siac_cqs_snapshot_cta_v1_0.settlement_condition = {}
+
+-- Size: Settlement Condition
+siac_cqs_snapshot_cta_v1_0.settlement_condition.size = 1
+
+-- Display: Settlement Condition
+siac_cqs_snapshot_cta_v1_0.settlement_condition.display = function(value)
+  if value == " " then
+    return "Settlement Condition: Regular Way Settlement (<whitespace>)"
+  end
+  if value == "A" then
+    return "Settlement Condition: Cash Only Settlement (A)"
+  end
+  if value == "B" then
+    return "Settlement Condition: Next Day Only Settlement (B)"
+  end
+
+  return "Settlement Condition: Unknown("..value..")"
+end
+
+-- Dissect: Settlement Condition
+siac_cqs_snapshot_cta_v1_0.settlement_condition.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.settlement_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.settlement_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.settlement_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction Indicator
+siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator = {}
+
+-- Size: Short Sale Restriction Indicator
+siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.size = 1
+
+-- Display: Short Sale Restriction Indicator
+siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.display = function(value)
+  if value == " " then
+    return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
+  end
+  if value == "A" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Activated (A)"
+  end
+  if value == "C" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Continued (C)"
+  end
+  if value == "D" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "E" then
+    return "Short Sale Restriction Indicator: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Short Sale Restriction Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction Indicator
+siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.short_sale_restriction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Snapshot Message Type
+siac_cqs_snapshot_cta_v1_0.snapshot_message_type = {}
+
+-- Size: Snapshot Message Type
+siac_cqs_snapshot_cta_v1_0.snapshot_message_type.size = 1
+
+-- Display: Snapshot Message Type
+siac_cqs_snapshot_cta_v1_0.snapshot_message_type.display = function(value)
+  if value == "T" then
+    return "Snapshot Message Type: Line Integrity Message (T)"
+  end
+  if value == "K" then
+    return "Snapshot Message Type: Market Wide Circuit Breaker Decline Level Status Snapshot Message (K)"
+  end
+  if value == "C" then
+    return "Snapshot Message Type: Consolidated Snapshot Message (C)"
+  end
+  if value == "P" then
+    return "Snapshot Message Type: Participant Snapshot Message (P)"
+  end
+  if value == "F" then
+    return "Snapshot Message Type: Finra Snapshot Message (F)"
+  end
+
+  return "Snapshot Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Snapshot Message Type
+siac_cqs_snapshot_cta_v1_0.snapshot_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.snapshot_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = siac_cqs_snapshot_cta_v1_0.snapshot_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tot Pub Seq Rollover
+siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover = {}
+
+-- Size: Tot Pub Seq Rollover
+siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size = 1
+
+-- Display: Tot Pub Seq Rollover
+siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.display = function(value)
+  return "Tot Pub Seq Rollover: "..value
+end
+
+-- Dissect: Tot Pub Seq Rollover
+siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover, range, value, display)
 
   return offset + length, value
 end
@@ -2063,69 +2351,210 @@ siac_cqs_snapshot_cta_v1_0.upper_limit_price_band.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Lower Limit Price Band
-siac_cqs_snapshot_cta_v1_0.lower_limit_price_band = {}
+-- Version
+siac_cqs_snapshot_cta_v1_0.version = {}
 
--- Size: Lower Limit Price Band
-siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.size = 8
+-- Size: Version
+siac_cqs_snapshot_cta_v1_0.version.size = 1
 
--- Display: Lower Limit Price Band
-siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.display = function(value)
-  return "Lower Limit Price Band: "..value
+-- Display: Version
+siac_cqs_snapshot_cta_v1_0.version.display = function(value)
+  return "Version: "..value
 end
 
--- Translate: Lower Limit Price Band
-siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Lower Limit Price Band
-siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.size
+-- Dissect: Version
+siac_cqs_snapshot_cta_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.version.size
   local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.translate(raw)
-  local display = siac_cqs_snapshot_cta_v1_0.lower_limit_price_band.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
 
--- Instrument Type
-siac_cqs_snapshot_cta_v1_0.instrument_type = {}
 
--- Size: Instrument Type
-siac_cqs_snapshot_cta_v1_0.instrument_type.size = 1
+-----------------------------------------------------------------------
+-- Dissect Siac Cqs Snapshot Cta 1.0
+-----------------------------------------------------------------------
 
--- Display: Instrument Type
-siac_cqs_snapshot_cta_v1_0.instrument_type.display = function(value)
-  if value == "0" then
-    return "Instrument Type: Cta Eligible Equity (0)"
-  end
-  if value == "1" then
-    return "Instrument Type: Local Issue (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Corporate Bond (2)"
-  end
-  if value == "3" then
-    return "Instrument Type: Government Bond (3)"
-  end
+-- Finra Snapshot Message
+siac_cqs_snapshot_cta_v1_0.finra_snapshot_message = {}
 
-  return "Instrument Type: Unknown("..value..")"
+-- Read runtime size of: Finra Snapshot Message
+siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
--- Dissect: Instrument Type
-siac_cqs_snapshot_cta_v1_0.instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.instrument_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.instrument_type.display(value, buffer, offset, packet, parent)
+-- Display: Finra Snapshot Message
+siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.display = function(packet, parent, length)
+  return ""
+end
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.instrument_type, range, value, display)
+-- Dissect Fields: Finra Snapshot Message
+siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields = function(buffer, offset, packet, parent, size_of_finra_snapshot_message)
+  local index = offset
 
-  return offset + length, value
+  -- Participant Id: Char
+  index, participant_id = siac_cqs_snapshot_cta_v1_0.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Char[]
+  index, security_symbol = siac_cqs_snapshot_cta_v1_0.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Bid Quote Condition: Char
+  index, finra_best_bid_quote_condition = siac_cqs_snapshot_cta_v1_0.finra_best_bid_quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Bid Price: Long
+  index, finra_best_bid_price = siac_cqs_snapshot_cta_v1_0.finra_best_bid_price.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Bid Size: Integer
+  index, finra_best_bid_size = siac_cqs_snapshot_cta_v1_0.finra_best_bid_size.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Bid Market Maker Id: Char[]
+  index, finra_best_bid_market_maker_id = siac_cqs_snapshot_cta_v1_0.finra_best_bid_market_maker_id.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Offer Quote Condition: Char
+  index, finra_best_offer_quote_condition = siac_cqs_snapshot_cta_v1_0.finra_best_offer_quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Offer Price: Long
+  index, finra_best_offer_price = siac_cqs_snapshot_cta_v1_0.finra_best_offer_price.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Offer Size: Integer
+  index, finra_best_offer_size = siac_cqs_snapshot_cta_v1_0.finra_best_offer_size.dissect(buffer, index, packet, parent)
+
+  -- Finra Best Offer Market Maker Id: Char[]
+  index, finra_best_offer_market_maker_id = siac_cqs_snapshot_cta_v1_0.finra_best_offer_market_maker_id.dissect(buffer, index, packet, parent)
+
+  -- Finra Bbo Luld Indicator: Char
+  index, finra_bbo_luld_indicator = siac_cqs_snapshot_cta_v1_0.finra_bbo_luld_indicator.dissect(buffer, index, packet, parent)
+
+  -- High Indication Price: Long
+  index, high_indication_price = siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect(buffer, index, packet, parent)
+
+  -- Low Indication Price: Long
+  index, low_indication_price = siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect(buffer, index, packet, parent)
+
+  -- Halt Reason: Char
+  index, halt_reason = siac_cqs_snapshot_cta_v1_0.halt_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Finra Snapshot Message
+siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_finra_snapshot_message)
+  local size_of_finra_snapshot_message = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.size(buffer, offset)
+  local index = offset + size_of_finra_snapshot_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.finra_snapshot_message then
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.finra_snapshot_message, buffer(offset, 0))
+    local current = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields(buffer, offset, packet, parent, size_of_finra_snapshot_message)
+    parent:set_len(size_of_finra_snapshot_message)
+    local display = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.fields(buffer, offset, packet, parent, size_of_finra_snapshot_message)
+
+    return index
+  end
+end
+
+-- Participant Snapshot Message
+siac_cqs_snapshot_cta_v1_0.participant_snapshot_message = {}
+
+-- Read runtime size of: Participant Snapshot Message
+siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
+-- Display: Participant Snapshot Message
+siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Participant Snapshot Message
+siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields = function(buffer, offset, packet, parent, size_of_participant_snapshot_message)
+  local index = offset
+
+  -- Participant Id: Char
+  index, participant_id = siac_cqs_snapshot_cta_v1_0.participant_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Char[]
+  index, security_symbol = siac_cqs_snapshot_cta_v1_0.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Quote Condition: Char
+  index, quote_condition = siac_cqs_snapshot_cta_v1_0.quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Long
+  index, bid_price = siac_cqs_snapshot_cta_v1_0.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Size: Integer
+  index, bid_size = siac_cqs_snapshot_cta_v1_0.bid_size.dissect(buffer, index, packet, parent)
+
+  -- Offer Price: Long
+  index, offer_price = siac_cqs_snapshot_cta_v1_0.offer_price.dissect(buffer, index, packet, parent)
+
+  -- Offer Size: Integer
+  index, offer_size = siac_cqs_snapshot_cta_v1_0.offer_size.dissect(buffer, index, packet, parent)
+
+  -- Retail Interest Indicator: Char
+  index, retail_interest_indicator = siac_cqs_snapshot_cta_v1_0.retail_interest_indicator.dissect(buffer, index, packet, parent)
+
+  -- Settlement Condition: Char
+  index, settlement_condition = siac_cqs_snapshot_cta_v1_0.settlement_condition.dissect(buffer, index, packet, parent)
+
+  -- Market Condition: Char
+  index, market_condition = siac_cqs_snapshot_cta_v1_0.market_condition.dissect(buffer, index, packet, parent)
+
+  -- Luld Indicator: Char
+  index, luld_indicator = siac_cqs_snapshot_cta_v1_0.luld_indicator.dissect(buffer, index, packet, parent)
+
+  -- High Indication Price: Long
+  index, high_indication_price = siac_cqs_snapshot_cta_v1_0.high_indication_price.dissect(buffer, index, packet, parent)
+
+  -- Low Indication Price: Long
+  index, low_indication_price = siac_cqs_snapshot_cta_v1_0.low_indication_price.dissect(buffer, index, packet, parent)
+
+  -- Halt Reason: Char
+  index, halt_reason = siac_cqs_snapshot_cta_v1_0.halt_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Participant Snapshot Message
+siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.dissect = function(buffer, offset, packet, parent, size_of_participant_snapshot_message)
+  local size_of_participant_snapshot_message = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.size(buffer, offset)
+  local index = offset + size_of_participant_snapshot_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.participant_snapshot_message then
+    parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message, buffer(offset, 0))
+    local current = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields(buffer, offset, packet, parent, size_of_participant_snapshot_message)
+    parent:set_len(size_of_participant_snapshot_message)
+    local display = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.fields(buffer, offset, packet, parent, size_of_participant_snapshot_message)
+
+    return index
+  end
 end
 
 -- Consolidated Snapshot Message
@@ -2248,98 +2677,6 @@ siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.dissect = function(buff
 
     return index
   end
-end
-
--- Reserved
-siac_cqs_snapshot_cta_v1_0.reserved = {}
-
--- Size: Reserved
-siac_cqs_snapshot_cta_v1_0.reserved.size = 1
-
--- Display: Reserved
-siac_cqs_snapshot_cta_v1_0.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-siac_cqs_snapshot_cta_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 3
-siac_cqs_snapshot_cta_v1_0.mwcb_level_3 = {}
-
--- Size: Mwcb Level 3
-siac_cqs_snapshot_cta_v1_0.mwcb_level_3.size = 8
-
--- Display: Mwcb Level 3
-siac_cqs_snapshot_cta_v1_0.mwcb_level_3.display = function(value)
-  return "Mwcb Level 3: "..value
-end
-
--- Dissect: Mwcb Level 3
-siac_cqs_snapshot_cta_v1_0.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 2
-siac_cqs_snapshot_cta_v1_0.mwcb_level_2 = {}
-
--- Size: Mwcb Level 2
-siac_cqs_snapshot_cta_v1_0.mwcb_level_2.size = 8
-
--- Display: Mwcb Level 2
-siac_cqs_snapshot_cta_v1_0.mwcb_level_2.display = function(value)
-  return "Mwcb Level 2: "..value
-end
-
--- Dissect: Mwcb Level 2
-siac_cqs_snapshot_cta_v1_0.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 1
-siac_cqs_snapshot_cta_v1_0.mwcb_level_1 = {}
-
--- Size: Mwcb Level 1
-siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size = 8
-
--- Display: Mwcb Level 1
-siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display = function(value)
-  return "Mwcb Level 1: "..value
-end
-
--- Dissect: Mwcb Level 1
-siac_cqs_snapshot_cta_v1_0.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Wide Circuit Breaker Decline Level Status Snapshot Message
@@ -2483,45 +2820,6 @@ siac_cqs_snapshot_cta_v1_0.snapshot_payload.dissect = function(buffer, offset, p
   return offset
 end
 
--- Snapshot Message Type
-siac_cqs_snapshot_cta_v1_0.snapshot_message_type = {}
-
--- Size: Snapshot Message Type
-siac_cqs_snapshot_cta_v1_0.snapshot_message_type.size = 1
-
--- Display: Snapshot Message Type
-siac_cqs_snapshot_cta_v1_0.snapshot_message_type.display = function(value)
-  if value == "T" then
-    return "Snapshot Message Type: Line Integrity Message (T)"
-  end
-  if value == "K" then
-    return "Snapshot Message Type: Market Wide Circuit Breaker Decline Level Status Snapshot Message (K)"
-  end
-  if value == "C" then
-    return "Snapshot Message Type: Consolidated Snapshot Message (C)"
-  end
-  if value == "P" then
-    return "Snapshot Message Type: Participant Snapshot Message (P)"
-  end
-  if value == "F" then
-    return "Snapshot Message Type: Finra Snapshot Message (F)"
-  end
-
-  return "Snapshot Message Type: Unknown("..value..")"
-end
-
--- Dissect: Snapshot Message Type
-siac_cqs_snapshot_cta_v1_0.snapshot_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.snapshot_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.snapshot_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Snapshot
 siac_cqs_snapshot_cta_v1_0.snapshot = {}
 
@@ -2586,56 +2884,6 @@ siac_cqs_snapshot_cta_v1_0.payload.dissect = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Message Category
-siac_cqs_snapshot_cta_v1_0.message_category = {}
-
--- Size: Message Category
-siac_cqs_snapshot_cta_v1_0.message_category.size = 1
-
--- Display: Message Category
-siac_cqs_snapshot_cta_v1_0.message_category.display = function(value)
-  if value == "K" then
-    return "Message Category: Snapshot (K)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-siac_cqs_snapshot_cta_v1_0.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-siac_cqs_snapshot_cta_v1_0.message_length = {}
-
--- Size: Message Length
-siac_cqs_snapshot_cta_v1_0.message_length.size = 2
-
--- Display: Message Length
-siac_cqs_snapshot_cta_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-siac_cqs_snapshot_cta_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2733,75 +2981,6 @@ siac_cqs_snapshot_cta_v1_0.message.dissect = function(buffer, offset, packet, pa
   end
 end
 
--- Block Checksum
-siac_cqs_snapshot_cta_v1_0.block_checksum = {}
-
--- Size: Block Checksum
-siac_cqs_snapshot_cta_v1_0.block_checksum.size = 2
-
--- Display: Block Checksum
-siac_cqs_snapshot_cta_v1_0.block_checksum.display = function(value)
-  return "Block Checksum: "..value
-end
-
--- Dissect: Block Checksum
-siac_cqs_snapshot_cta_v1_0.block_checksum.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.block_checksum.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.block_checksum.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum, range, value, display)
-
-  return offset + length, value
-end
-
--- Nanoseconds
-siac_cqs_snapshot_cta_v1_0.nanoseconds = {}
-
--- Size: Nanoseconds
-siac_cqs_snapshot_cta_v1_0.nanoseconds.size = 4
-
--- Display: Nanoseconds
-siac_cqs_snapshot_cta_v1_0.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-siac_cqs_snapshot_cta_v1_0.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Seconds
-siac_cqs_snapshot_cta_v1_0.seconds = {}
-
--- Size: Seconds
-siac_cqs_snapshot_cta_v1_0.seconds.size = 4
-
--- Display: Seconds
-siac_cqs_snapshot_cta_v1_0.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-siac_cqs_snapshot_cta_v1_0.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sip Block Timestamp
 siac_cqs_snapshot_cta_v1_0.sip_block_timestamp = {}
 
@@ -2844,180 +3023,6 @@ siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.fields(buffer, offset, packet, parent)
   end
-end
-
--- Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover = {}
-
--- Size: Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size = 1
-
--- Display: Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.display = function(value)
-  return "Tot Pub Seq Rollover: "..value
-end
-
--- Dissect: Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num = {}
-
--- Size: Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num.size = 1
-
--- Display: Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag = {}
-
--- Size: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.size = 1
-
--- Display: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: First Block Of Snapshot Sequence (1)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Intermediate Block Of Snapshot Sequence (2)"
-  end
-  if value == 3 then
-    return "Delivery Flag: Last Block Of Snapshot Sequence (3)"
-  end
-  if value == 4 then
-    return "Delivery Flag: Only One Block In Snapshot Sequence (4)"
-  end
-
-  return "Delivery Flag: Unknown("..value..")"
-end
-
--- Dissect: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.delivery_flag.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.delivery_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.delivery_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages In Block
-siac_cqs_snapshot_cta_v1_0.messages_in_block = {}
-
--- Size: Messages In Block
-siac_cqs_snapshot_cta_v1_0.messages_in_block.size = 1
-
--- Display: Messages In Block
-siac_cqs_snapshot_cta_v1_0.messages_in_block.display = function(value)
-  return "Messages In Block: "..value
-end
-
--- Dissect: Messages In Block
-siac_cqs_snapshot_cta_v1_0.messages_in_block.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.messages_in_block.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.messages_in_block.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Sequence Number
-siac_cqs_snapshot_cta_v1_0.block_sequence_number = {}
-
--- Size: Block Sequence Number
-siac_cqs_snapshot_cta_v1_0.block_sequence_number.size = 4
-
--- Display: Block Sequence Number
-siac_cqs_snapshot_cta_v1_0.block_sequence_number.display = function(value)
-  return "Block Sequence Number: "..value
-end
-
--- Dissect: Block Sequence Number
-siac_cqs_snapshot_cta_v1_0.block_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.block_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.block_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Size
-siac_cqs_snapshot_cta_v1_0.block_size = {}
-
--- Size: Block Size
-siac_cqs_snapshot_cta_v1_0.block_size.size = 2
-
--- Display: Block Size
-siac_cqs_snapshot_cta_v1_0.block_size.display = function(value)
-  return "Block Size: "..value
-end
-
--- Dissect: Block Size
-siac_cqs_snapshot_cta_v1_0.block_size.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.block_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.block_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-siac_cqs_snapshot_cta_v1_0.version = {}
-
--- Size: Version
-siac_cqs_snapshot_cta_v1_0.version.size = 1
-
--- Display: Version
-siac_cqs_snapshot_cta_v1_0.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-siac_cqs_snapshot_cta_v1_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Block Header

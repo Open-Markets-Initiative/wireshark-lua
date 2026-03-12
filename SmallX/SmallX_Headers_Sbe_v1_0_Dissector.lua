@@ -90,8 +90,146 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect SmallX Headers Sbe 1.0
+-- SmallX Headers Sbe 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Block Length
+smallx_headers_sbe_v1_0.block_length = {}
+
+-- Size: Block Length
+smallx_headers_sbe_v1_0.block_length.size = 2
+
+-- Display: Block Length
+smallx_headers_sbe_v1_0.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+smallx_headers_sbe_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = smallx_headers_sbe_v1_0.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+smallx_headers_sbe_v1_0.channel_id = {}
+
+-- Size: Channel Id
+smallx_headers_sbe_v1_0.channel_id.size = 1
+
+-- Display: Channel Id
+smallx_headers_sbe_v1_0.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+smallx_headers_sbe_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_headers_sbe_v1_0.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Frame Length
+smallx_headers_sbe_v1_0.frame_length = {}
+
+-- Size: Frame Length
+smallx_headers_sbe_v1_0.frame_length.size = 1
+
+-- Display: Frame Length
+smallx_headers_sbe_v1_0.frame_length.display = function(value)
+  return "Frame Length: "..value
+end
+
+-- Dissect: Frame Length
+smallx_headers_sbe_v1_0.frame_length.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.frame_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_headers_sbe_v1_0.frame_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.frame_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Incarnation
+smallx_headers_sbe_v1_0.incarnation = {}
+
+-- Size: Incarnation
+smallx_headers_sbe_v1_0.incarnation.size = 2
+
+-- Display: Incarnation
+smallx_headers_sbe_v1_0.incarnation.display = function(value)
+  return "Incarnation: "..value
+end
+
+-- Dissect: Incarnation
+smallx_headers_sbe_v1_0.incarnation.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.incarnation.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_headers_sbe_v1_0.incarnation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.incarnation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+smallx_headers_sbe_v1_0.message_count = {}
+
+-- Size: Message Count
+smallx_headers_sbe_v1_0.message_count.size = 1
+
+-- Display: Message Count
+smallx_headers_sbe_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+smallx_headers_sbe_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_headers_sbe_v1_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Sequence
+smallx_headers_sbe_v1_0.message_sequence = {}
+
+-- Size: Message Sequence
+smallx_headers_sbe_v1_0.message_sequence.size = 4
+
+-- Display: Message Sequence
+smallx_headers_sbe_v1_0.message_sequence.display = function(value)
+  return "Message Sequence: "..value
+end
+
+-- Dissect: Message Sequence
+smallx_headers_sbe_v1_0.message_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.message_sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = smallx_headers_sbe_v1_0.message_sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.message_sequence, range, value, display)
+
+  return offset + length, value
+end
 
 -- Payload
 smallx_headers_sbe_v1_0.payload = {}
@@ -110,29 +248,6 @@ smallx_headers_sbe_v1_0.payload.dissect = function(buffer, offset, packet, paren
   parent:add(omi_smallx_headers_sbe_v1_0.fields.payload, range, value, display)
 
   return offset + size, value
-end
-
--- Version
-smallx_headers_sbe_v1_0.version = {}
-
--- Size: Version
-smallx_headers_sbe_v1_0.version.size = 2
-
--- Display: Version
-smallx_headers_sbe_v1_0.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-smallx_headers_sbe_v1_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = smallx_headers_sbe_v1_0.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Schema Id
@@ -154,6 +269,29 @@ smallx_headers_sbe_v1_0.schema_id.dissect = function(buffer, offset, packet, par
   local display = smallx_headers_sbe_v1_0.schema_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_headers_sbe_v1_0.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+smallx_headers_sbe_v1_0.source = {}
+
+-- Size: Source
+smallx_headers_sbe_v1_0.source.size = 1
+
+-- Display: Source
+smallx_headers_sbe_v1_0.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+smallx_headers_sbe_v1_0.source.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = smallx_headers_sbe_v1_0.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.source, range, value, display)
 
   return offset + length, value
 end
@@ -181,28 +319,33 @@ smallx_headers_sbe_v1_0.template_id.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Block Length
-smallx_headers_sbe_v1_0.block_length = {}
+-- Version
+smallx_headers_sbe_v1_0.version = {}
 
--- Size: Block Length
-smallx_headers_sbe_v1_0.block_length.size = 2
+-- Size: Version
+smallx_headers_sbe_v1_0.version.size = 2
 
--- Display: Block Length
-smallx_headers_sbe_v1_0.block_length.display = function(value)
-  return "Block Length: "..value
+-- Display: Version
+smallx_headers_sbe_v1_0.version.display = function(value)
+  return "Version: "..value
 end
 
--- Dissect: Block Length
-smallx_headers_sbe_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.block_length.size
+-- Dissect: Version
+smallx_headers_sbe_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_headers_sbe_v1_0.version.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = smallx_headers_sbe_v1_0.block_length.display(value, buffer, offset, packet, parent)
+  local display = smallx_headers_sbe_v1_0.version.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.block_length, range, value, display)
+  parent:add(omi_smallx_headers_sbe_v1_0.fields.version, range, value, display)
 
   return offset + length, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect SmallX Headers Sbe 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 smallx_headers_sbe_v1_0.message_header = {}
@@ -256,29 +399,6 @@ smallx_headers_sbe_v1_0.message_header.dissect = function(buffer, offset, packet
   end
 end
 
--- Frame Length
-smallx_headers_sbe_v1_0.frame_length = {}
-
--- Size: Frame Length
-smallx_headers_sbe_v1_0.frame_length.size = 1
-
--- Display: Frame Length
-smallx_headers_sbe_v1_0.frame_length.display = function(value)
-  return "Frame Length: "..value
-end
-
--- Dissect: Frame Length
-smallx_headers_sbe_v1_0.frame_length.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.frame_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_headers_sbe_v1_0.frame_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.frame_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Frame
 smallx_headers_sbe_v1_0.sbe_frame = {}
 
@@ -325,52 +445,6 @@ smallx_headers_sbe_v1_0.sbe_frame.dissect = function(buffer, offset, packet, par
 
     return index
   end
-end
-
--- Message Count
-smallx_headers_sbe_v1_0.message_count = {}
-
--- Size: Message Count
-smallx_headers_sbe_v1_0.message_count.size = 1
-
--- Display: Message Count
-smallx_headers_sbe_v1_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-smallx_headers_sbe_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_headers_sbe_v1_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Sequence
-smallx_headers_sbe_v1_0.message_sequence = {}
-
--- Size: Message Sequence
-smallx_headers_sbe_v1_0.message_sequence.size = 4
-
--- Display: Message Sequence
-smallx_headers_sbe_v1_0.message_sequence.display = function(value)
-  return "Message Sequence: "..value
-end
-
--- Dissect: Message Sequence
-smallx_headers_sbe_v1_0.message_sequence.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.message_sequence.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_headers_sbe_v1_0.message_sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.message_sequence, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Flags
@@ -428,75 +502,6 @@ smallx_headers_sbe_v1_0.packet_flags.dissect = function(buffer, offset, packet, 
   end
 
   return offset + size, value
-end
-
--- Source
-smallx_headers_sbe_v1_0.source = {}
-
--- Size: Source
-smallx_headers_sbe_v1_0.source.size = 1
-
--- Display: Source
-smallx_headers_sbe_v1_0.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-smallx_headers_sbe_v1_0.source.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_headers_sbe_v1_0.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Incarnation
-smallx_headers_sbe_v1_0.incarnation = {}
-
--- Size: Incarnation
-smallx_headers_sbe_v1_0.incarnation.size = 2
-
--- Display: Incarnation
-smallx_headers_sbe_v1_0.incarnation.display = function(value)
-  return "Incarnation: "..value
-end
-
--- Dissect: Incarnation
-smallx_headers_sbe_v1_0.incarnation.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.incarnation.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = smallx_headers_sbe_v1_0.incarnation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.incarnation, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-smallx_headers_sbe_v1_0.channel_id = {}
-
--- Size: Channel Id
-smallx_headers_sbe_v1_0.channel_id.size = 1
-
--- Display: Channel Id
-smallx_headers_sbe_v1_0.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-smallx_headers_sbe_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_headers_sbe_v1_0.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = smallx_headers_sbe_v1_0.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_smallx_headers_sbe_v1_0.fields.channel_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

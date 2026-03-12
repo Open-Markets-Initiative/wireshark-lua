@@ -191,7 +191,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Options DeepFeed Xdp 1.3.a
+-- Nyse Options DeepFeed Xdp 1.3.a Fields
 -----------------------------------------------------------------------
 
 -- Channel Id
@@ -213,385 +213,6 @@ nyse_options_deepfeed_xdp_v1_3_a.channel_id.dissect = function(buffer, offset, p
   local display = nyse_options_deepfeed_xdp_v1_3_a.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-nyse_options_deepfeed_xdp_v1_3_a.product_id = {}
-
--- Size: Product Id
-nyse_options_deepfeed_xdp_v1_3_a.product_id.size = 1
-
--- Display: Product Id
-nyse_options_deepfeed_xdp_v1_3_a.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-nyse_options_deepfeed_xdp_v1_3_a.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.product_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Time Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_time_ns = {}
-
--- Size: Source Time Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size = 4
-
--- Display: Source Time Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.display = function(value)
-  return "Source Time Ns: "..value
-end
-
--- Dissect: Source Time Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Time
-nyse_options_deepfeed_xdp_v1_3_a.source_time = {}
-
--- Size: Source Time
-nyse_options_deepfeed_xdp_v1_3_a.source_time.size = 4
-
--- Display: Source Time
-nyse_options_deepfeed_xdp_v1_3_a.source_time.display = function(value)
-  return "Source Time: "..value
-end
-
--- Dissect: Source Time
-nyse_options_deepfeed_xdp_v1_3_a.source_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.source_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.source_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number Reset Message
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message = {}
-
--- Size: Sequence Number Reset Message
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.size =
-  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
-  nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size + 
-  nyse_options_deepfeed_xdp_v1_3_a.product_id.size + 
-  nyse_options_deepfeed_xdp_v1_3_a.channel_id.size
-
--- Display: Sequence Number Reset Message
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sequence Number Reset Message
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = nyse_options_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
-
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
-
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = nyse_options_deepfeed_xdp_v1_3_a.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = nyse_options_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sequence Number Reset Message
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.sequence_number_reset_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reserved 2
-nyse_options_deepfeed_xdp_v1_3_a.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_options_deepfeed_xdp_v1_3_a.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_options_deepfeed_xdp_v1_3_a.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Id
-nyse_options_deepfeed_xdp_v1_3_a.stream_id = {}
-
--- Size: Stream Id
-nyse_options_deepfeed_xdp_v1_3_a.stream_id.size = 2
-
--- Display: Stream Id
-nyse_options_deepfeed_xdp_v1_3_a.stream_id.display = function(value)
-  return "Stream Id: "..value
-end
-
--- Dissect: Stream Id
-nyse_options_deepfeed_xdp_v1_3_a.stream_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.stream_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.stream_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Id Message
-nyse_options_deepfeed_xdp_v1_3_a.stream_id_message = {}
-
--- Size: Stream Id Message
-nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.size =
-  nyse_options_deepfeed_xdp_v1_3_a.stream_id.size + 
-  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
-
--- Display: Stream Id Message
-nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Id Message
-nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index, stream_id = nyse_options_deepfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 2: 2 Byte
-  index, reserved_2 = nyse_options_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Id Message
-nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.stream_id_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
-    local index = nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Group Id
-nyse_options_deepfeed_xdp_v1_3_a.group_id = {}
-
--- Size: Group Id
-nyse_options_deepfeed_xdp_v1_3_a.group_id.size = 4
-
--- Display: Group Id
-nyse_options_deepfeed_xdp_v1_3_a.group_id.display = function(value)
-  return "Group Id: "..value
-end
-
--- Dissect: Group Id
-nyse_options_deepfeed_xdp_v1_3_a.group_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.group_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Symbol Root
-nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root = {}
-
--- Size: Option Symbol Root
-nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.size = 5
-
--- Display: Option Symbol Root
-nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.display = function(value)
-  return "Option Symbol Root: "..value
-end
-
--- Dissect: Option Symbol Root
-nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size = 11
-
--- Display: Underlying Symbol
-nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Scale Code
-nyse_options_deepfeed_xdp_v1_3_a.price_scale_code = {}
-
--- Size: Price Scale Code
-nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size = 1
-
--- Display: Price Scale Code
-nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
-end
-
--- Dissect: Price Scale Code
-nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.price_scale_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-nyse_options_deepfeed_xdp_v1_3_a.strike_price = {}
-
--- Size: Strike Price
-nyse_options_deepfeed_xdp_v1_3_a.strike_price.size = 10
-
--- Display: Strike Price
-nyse_options_deepfeed_xdp_v1_3_a.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-nyse_options_deepfeed_xdp_v1_3_a.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.strike_price.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Put Or Call
-nyse_options_deepfeed_xdp_v1_3_a.put_or_call = {}
-
--- Size: Put Or Call
-nyse_options_deepfeed_xdp_v1_3_a.put_or_call.size = 1
-
--- Display: Put Or Call
-nyse_options_deepfeed_xdp_v1_3_a.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-
-  return "Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Put Or Call
-nyse_options_deepfeed_xdp_v1_3_a.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-nyse_options_deepfeed_xdp_v1_3_a.maturity_date = {}
-
--- Size: Maturity Date
-nyse_options_deepfeed_xdp_v1_3_a.maturity_date.size = 6
-
--- Display: Maturity Date
-nyse_options_deepfeed_xdp_v1_3_a.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-nyse_options_deepfeed_xdp_v1_3_a.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -619,71 +240,239 @@ nyse_options_deepfeed_xdp_v1_3_a.contract_multiplier.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Underlying Index
-nyse_options_deepfeed_xdp_v1_3_a.underlying_index = {}
+-- Delivery Flag
+nyse_options_deepfeed_xdp_v1_3_a.delivery_flag = {}
 
--- Size: Underlying Index
-nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size = 4
+-- Size: Delivery Flag
+nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.size = 1
 
--- Display: Underlying Index
-nyse_options_deepfeed_xdp_v1_3_a.underlying_index.display = function(value)
-  return "Underlying Index: "..value
+-- Display: Delivery Flag
+nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: Heartbeat (1)"
+  end
+  if value == 10 then
+    return "Delivery Flag: Xdp Failover (10)"
+  end
+  if value == 11 then
+    return "Delivery Flag: Original Message (11)"
+  end
+  if value == 12 then
+    return "Delivery Flag: Sequence Number Reset Message (12)"
+  end
+  if value == 13 then
+    return "Delivery Flag: One Retransmission Packet (13)"
+  end
+  if value == 15 then
+    return "Delivery Flag: Retransmission Sequence Message (15)"
+  end
+  if value == 17 then
+    return "Delivery Flag: One Refresh Packet (17)"
+  end
+  if value == 18 then
+    return "Delivery Flag: Refresh Sequence Start (18)"
+  end
+  if value == 19 then
+    return "Delivery Flag: Refresh Sequence Message (19)"
+  end
+  if value == 20 then
+    return "Delivery Flag: Refresh Sequence End (20)"
+  end
+  if value == 21 then
+    return "Delivery Flag: Message Unavailable (21)"
+  end
+
+  return "Delivery Flag: Unknown("..value..")"
 end
 
--- Dissect: Underlying Index
-nyse_options_deepfeed_xdp_v1_3_a.underlying_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size
+-- Dissect: Delivery Flag
+nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.underlying_index.display(value, buffer, offset, packet, parent)
+  local display = nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index, range, value, display)
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved B 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1 = {}
+-- Exchange Code
+nyse_options_deepfeed_xdp_v1_3_a.exchange_code = {}
 
--- Size: Reserved B 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.size = 1
+-- Size: Exchange Code
+nyse_options_deepfeed_xdp_v1_3_a.exchange_code.size = 1
 
--- Display: Reserved B 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.display = function(value)
-  return "Reserved B 1: "..value
+-- Display: Exchange Code
+nyse_options_deepfeed_xdp_v1_3_a.exchange_code.display = function(value)
+  if value == "N" then
+    return "Exchange Code: Nyse (N)"
+  end
+  if value == "P" then
+    return "Exchange Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Exchange Code: Nasdaq (Q)"
+  end
+  if value == "A" then
+    return "Exchange Code: Nyse Mkt (A)"
+  end
+  if value == "1" then
+    return "Exchange Code: Global Otc (1)"
+  end
+  if value == "2" then
+    return "Exchange Code: Arca Local Nontapeb Index (2)"
+  end
+
+  return "Exchange Code: Unknown("..value..")"
 end
 
--- Dissect: Reserved B 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.size
+-- Dissect: Exchange Code
+nyse_options_deepfeed_xdp_v1_3_a.exchange_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.exchange_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_b_1, range, value, display)
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
 
   return offset + length, value
 end
 
--- System Id
-nyse_options_deepfeed_xdp_v1_3_a.system_id = {}
+-- First Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume = {}
 
--- Size: System Id
-nyse_options_deepfeed_xdp_v1_3_a.system_id.size = 1
+-- Size: First Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size = 2
 
--- Display: System Id
-nyse_options_deepfeed_xdp_v1_3_a.system_id.display = function(value)
-  return "System Id: "..value
+-- Display: First Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.display = function(value)
+  return "First Level Customer Volume: "..value
 end
 
--- Dissect: System Id
-nyse_options_deepfeed_xdp_v1_3_a.system_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.system_id.size
+-- Dissect: First Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.system_id.display(value, buffer, offset, packet, parent)
+  local display = nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.system_id, range, value, display)
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_customer_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Level Price
+nyse_options_deepfeed_xdp_v1_3_a.first_level_price = {}
+
+-- Size: First Level Price
+nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size = 4
+
+-- Display: First Level Price
+nyse_options_deepfeed_xdp_v1_3_a.first_level_price.display = function(value)
+  return "First Level Price: "..value
+end
+
+-- Dissect: First Level Price
+nyse_options_deepfeed_xdp_v1_3_a.first_level_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.first_level_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_volume = {}
+
+-- Size: First Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.size = 2
+
+-- Display: First Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.display = function(value)
+  return "First Level Volume: "..value
+end
+
+-- Dissect: First Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_volume = {}
+
+-- Size: First Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_volume.size = 2
+
+-- Display: First Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_volume.display = function(value)
+  return "First Volume: "..value
+end
+
+-- Dissect: First Volume
+nyse_options_deepfeed_xdp_v1_3_a.first_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.first_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.first_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group Id
+nyse_options_deepfeed_xdp_v1_3_a.group_id = {}
+
+-- Size: Group Id
+nyse_options_deepfeed_xdp_v1_3_a.group_id.size = 4
+
+-- Display: Group Id
+nyse_options_deepfeed_xdp_v1_3_a.group_id.display = function(value)
+  return "Group Id: "..value
+end
+
+-- Dissect: Group Id
+nyse_options_deepfeed_xdp_v1_3_a.group_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.group_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Halt Condition
+nyse_options_deepfeed_xdp_v1_3_a.halt_condition = {}
+
+-- Size: Halt Condition
+nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size = 1
+
+-- Display: Halt Condition
+nyse_options_deepfeed_xdp_v1_3_a.halt_condition.display = function(value)
+  return "Halt Condition: "..value
+end
+
+-- Dissect: Halt Condition
+nyse_options_deepfeed_xdp_v1_3_a.halt_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.halt_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -739,6 +528,392 @@ nyse_options_deepfeed_xdp_v1_3_a.market_id.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Maturity Date
+nyse_options_deepfeed_xdp_v1_3_a.maturity_date = {}
+
+-- Size: Maturity Date
+nyse_options_deepfeed_xdp_v1_3_a.maturity_date.size = 6
+
+-- Display: Maturity Date
+nyse_options_deepfeed_xdp_v1_3_a.maturity_date.display = function(value)
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+nyse_options_deepfeed_xdp_v1_3_a.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nyse_options_deepfeed_xdp_v1_3_a.message_count = {}
+
+-- Size: Message Count
+nyse_options_deepfeed_xdp_v1_3_a.message_count.size = 1
+
+-- Display: Message Count
+nyse_options_deepfeed_xdp_v1_3_a.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nyse_options_deepfeed_xdp_v1_3_a.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+nyse_options_deepfeed_xdp_v1_3_a.message_size = {}
+
+-- Size: Message Size
+nyse_options_deepfeed_xdp_v1_3_a.message_size.size = 2
+
+-- Display: Message Size
+nyse_options_deepfeed_xdp_v1_3_a.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+nyse_options_deepfeed_xdp_v1_3_a.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_options_deepfeed_xdp_v1_3_a.message_type = {}
+
+-- Size: Message Type
+nyse_options_deepfeed_xdp_v1_3_a.message_type.size = 2
+
+-- Display: Message Type
+nyse_options_deepfeed_xdp_v1_3_a.message_type.display = function(value)
+  if value == 403 then
+    return "Message Type: Outright Market Depth Buy Message (403)"
+  end
+  if value == 405 then
+    return "Message Type: Outright Market Depth Sell Message (405)"
+  end
+  if value == 419 then
+    return "Message Type: Underlying Status Message (419)"
+  end
+  if value == 421 then
+    return "Message Type: Outright Series Status Message (421)"
+  end
+  if value == 503 then
+    return "Message Type: Refresh Outright Market Depth Buy Message (503)"
+  end
+  if value == 505 then
+    return "Message Type: Refresh Outright Market Depth Sell Message (505)"
+  end
+  if value == 435 then
+    return "Message Type: Underlying Index Mapping Message (435)"
+  end
+  if value == 437 then
+    return "Message Type: Series Index Mapping Message (437)"
+  end
+  if value == 455 then
+    return "Message Type: Stream Id Message (455)"
+  end
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_options_deepfeed_xdp_v1_3_a.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_options_deepfeed_xdp_v1_3_a.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Symbol Root
+nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root = {}
+
+-- Size: Option Symbol Root
+nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.size = 5
+
+-- Display: Option Symbol Root
+nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.display = function(value)
+  return "Option Symbol Root: "..value
+end
+
+-- Dissect: Option Symbol Root
+nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.option_symbol_root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Size
+nyse_options_deepfeed_xdp_v1_3_a.packet_size = {}
+
+-- Size: Packet Size
+nyse_options_deepfeed_xdp_v1_3_a.packet_size.size = 2
+
+-- Display: Packet Size
+nyse_options_deepfeed_xdp_v1_3_a.packet_size.display = function(value)
+  return "Packet Size: "..value
+end
+
+-- Dissect: Packet Size
+nyse_options_deepfeed_xdp_v1_3_a.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.packet_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.packet_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Resolution
+nyse_options_deepfeed_xdp_v1_3_a.price_resolution = {}
+
+-- Size: Price Resolution
+nyse_options_deepfeed_xdp_v1_3_a.price_resolution.size = 1
+
+-- Display: Price Resolution
+nyse_options_deepfeed_xdp_v1_3_a.price_resolution.display = function(value)
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
+end
+
+-- Dissect: Price Resolution
+nyse_options_deepfeed_xdp_v1_3_a.price_resolution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.price_resolution.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.price_resolution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.price_resolution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale Code
+nyse_options_deepfeed_xdp_v1_3_a.price_scale_code = {}
+
+-- Size: Price Scale Code
+nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size = 1
+
+-- Display: Price Scale Code
+nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.display = function(value)
+  return "Price Scale Code: "..value
+end
+
+-- Dissect: Price Scale Code
+nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.price_scale_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_options_deepfeed_xdp_v1_3_a.product_id = {}
+
+-- Size: Product Id
+nyse_options_deepfeed_xdp_v1_3_a.product_id.size = 1
+
+-- Display: Product Id
+nyse_options_deepfeed_xdp_v1_3_a.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nyse_options_deepfeed_xdp_v1_3_a.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+nyse_options_deepfeed_xdp_v1_3_a.put_or_call = {}
+
+-- Size: Put Or Call
+nyse_options_deepfeed_xdp_v1_3_a.put_or_call.size = 1
+
+-- Display: Put Or Call
+nyse_options_deepfeed_xdp_v1_3_a.put_or_call.display = function(value)
+  if value == 0 then
+    return "Put Or Call: Put (0)"
+  end
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+nyse_options_deepfeed_xdp_v1_3_a.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+nyse_options_deepfeed_xdp_v1_3_a.quote_condition = {}
+
+-- Size: Quote Condition
+nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size = 1
+
+-- Display: Quote Condition
+nyse_options_deepfeed_xdp_v1_3_a.quote_condition.display = function(value)
+  if value == "1" then
+    return "Quote Condition: Regular Trading (1)"
+  end
+  if value == "2" then
+    return "Quote Condition: Rotation (2)"
+  end
+  if value == "3" then
+    return "Quote Condition: Trading Halted (3)"
+  end
+  if value == "4" then
+    return "Quote Condition: Preopen (4)"
+  end
+  if value == "5" then
+    return "Quote Condition: Rotation Legal Width Quote Pending (5)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nyse_options_deepfeed_xdp_v1_3_a.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_1 = {}
+
+-- Size: Reserved 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size = 1
+
+-- Display: Reserved 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+nyse_options_deepfeed_xdp_v1_3_a.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_options_deepfeed_xdp_v1_3_a.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_options_deepfeed_xdp_v1_3_a.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved A 1
 nyse_options_deepfeed_xdp_v1_3_a.reserved_a_1 = {}
 
@@ -758,6 +933,264 @@ nyse_options_deepfeed_xdp_v1_3_a.reserved_a_1.dissect = function(buffer, offset,
   local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_a_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_a_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved B 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1 = {}
+
+-- Size: Reserved B 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.size = 1
+
+-- Display: Reserved B 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.display = function(value)
+  return "Reserved B 1: "..value
+end
+
+-- Dissect: Reserved B 1
+nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_b_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_b_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume = {}
+
+-- Size: Second Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size = 2
+
+-- Display: Second Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.display = function(value)
+  return "Second Level Customer Volume: "..value
+end
+
+-- Dissect: Second Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Level Price
+nyse_options_deepfeed_xdp_v1_3_a.second_level_price = {}
+
+-- Size: Second Level Price
+nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size = 4
+
+-- Display: Second Level Price
+nyse_options_deepfeed_xdp_v1_3_a.second_level_price.display = function(value)
+  return "Second Level Price: "..value
+end
+
+-- Dissect: Second Level Price
+nyse_options_deepfeed_xdp_v1_3_a.second_level_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.second_level_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_volume = {}
+
+-- Size: Second Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.size = 2
+
+-- Display: Second Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.display = function(value)
+  return "Second Level Volume: "..value
+end
+
+-- Dissect: Second Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_volume = {}
+
+-- Size: Second Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_volume.size = 2
+
+-- Display: Second Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_volume.display = function(value)
+  return "Second Volume: "..value
+end
+
+-- Dissect: Second Volume
+nyse_options_deepfeed_xdp_v1_3_a.second_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.second_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.second_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+nyse_options_deepfeed_xdp_v1_3_a.security_status = {}
+
+-- Size: Security Status
+nyse_options_deepfeed_xdp_v1_3_a.security_status.size = 1
+
+-- Display: Security Status
+nyse_options_deepfeed_xdp_v1_3_a.security_status.display = function(value)
+  if value == "L" then
+    return "Security Status: Light Up A Dark Series (L)"
+  end
+  if value == "N" then
+    return "Security Status: Open A Dark Series (N)"
+  end
+  if value == "O" then
+    return "Security Status: Open (O)"
+  end
+  if value == "X" then
+    return "Security Status: Close (X)"
+  end
+  if value == "S" then
+    return "Security Status: Halt (S)"
+  end
+  if value == "U" then
+    return "Security Status: Unhalt (U)"
+  end
+  if value == "T" then
+    return "Security Status: Unhalt A Dark Series (T)"
+  end
+  if value == "Q" then
+    return "Security Status: End Of Rfq Auction (Q)"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+nyse_options_deepfeed_xdp_v1_3_a.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.security_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+nyse_options_deepfeed_xdp_v1_3_a.security_type = {}
+
+-- Size: Security Type
+nyse_options_deepfeed_xdp_v1_3_a.security_type.size = 1
+
+-- Display: Security Type
+nyse_options_deepfeed_xdp_v1_3_a.security_type.display = function(value)
+  if value == "A" then
+    return "Security Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Security Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Security Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Security Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Security Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Security Type: American Depository Shares (H)"
+  end
+  if value == "I" then
+    return "Security Type: Units (I)"
+  end
+  if value == "M" then
+    return "Security Type: Miscliquid Trust (M)"
+  end
+  if value == "O" then
+    return "Security Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Security Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Security Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Security Type: Shares Of Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Security Type: Test (T)"
+  end
+  if value == "U" then
+    return "Security Type: Units (U)"
+  end
+  if value == "W" then
+    return "Security Type: Warrant (W)"
+  end
+  if value == "X" then
+    return "Security Type: Index (X)"
+  end
+
+  return "Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Type
+nyse_options_deepfeed_xdp_v1_3_a.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.security_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number = {}
+
+-- Size: Sequence Number
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number.size = 4
+
+-- Display: Sequence Number
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -783,6 +1216,452 @@ nyse_options_deepfeed_xdp_v1_3_a.series_index.dissect = function(buffer, offset,
   parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.series_index, range, value, display)
 
   return offset + length, value
+end
+
+-- Source Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_ns = {}
+
+-- Size: Source Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_ns.size = 4
+
+-- Display: Source Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_ns.display = function(value)
+  return "Source Ns: "..value
+end
+
+-- Dissect: Source Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.source_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.source_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time
+nyse_options_deepfeed_xdp_v1_3_a.source_time = {}
+
+-- Size: Source Time
+nyse_options_deepfeed_xdp_v1_3_a.source_time.size = 4
+
+-- Display: Source Time
+nyse_options_deepfeed_xdp_v1_3_a.source_time.display = function(value)
+  return "Source Time: "..value
+end
+
+-- Dissect: Source Time
+nyse_options_deepfeed_xdp_v1_3_a.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.source_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.source_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_time_ns = {}
+
+-- Size: Source Time Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size = 4
+
+-- Display: Source Time Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.display = function(value)
+  return "Source Time Ns: "..value
+end
+
+-- Dissect: Source Time Ns
+nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Id
+nyse_options_deepfeed_xdp_v1_3_a.stream_id = {}
+
+-- Size: Stream Id
+nyse_options_deepfeed_xdp_v1_3_a.stream_id.size = 2
+
+-- Display: Stream Id
+nyse_options_deepfeed_xdp_v1_3_a.stream_id.display = function(value)
+  return "Stream Id: "..value
+end
+
+-- Dissect: Stream Id
+nyse_options_deepfeed_xdp_v1_3_a.stream_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.stream_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.stream_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nyse_options_deepfeed_xdp_v1_3_a.strike_price = {}
+
+-- Size: Strike Price
+nyse_options_deepfeed_xdp_v1_3_a.strike_price.size = 10
+
+-- Display: Strike Price
+nyse_options_deepfeed_xdp_v1_3_a.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+nyse_options_deepfeed_xdp_v1_3_a.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.strike_price.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num = {}
+
+-- Size: Symbol Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size = 4
+
+-- Display: Symbol Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.display = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Id
+nyse_options_deepfeed_xdp_v1_3_a.system_id = {}
+
+-- Size: System Id
+nyse_options_deepfeed_xdp_v1_3_a.system_id.size = 1
+
+-- Display: System Id
+nyse_options_deepfeed_xdp_v1_3_a.system_id.display = function(value)
+  return "System Id: "..value
+end
+
+-- Dissect: System Id
+nyse_options_deepfeed_xdp_v1_3_a.system_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.system_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.system_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume = {}
+
+-- Size: Third Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size = 2
+
+-- Display: Third Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.display = function(value)
+  return "Third Level Customer Volume: "..value
+end
+
+-- Dissect: Third Level Customer Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_customer_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Level Price
+nyse_options_deepfeed_xdp_v1_3_a.third_level_price = {}
+
+-- Size: Third Level Price
+nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size = 4
+
+-- Display: Third Level Price
+nyse_options_deepfeed_xdp_v1_3_a.third_level_price.display = function(value)
+  return "Third Level Price: "..value
+end
+
+-- Dissect: Third Level Price
+nyse_options_deepfeed_xdp_v1_3_a.third_level_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.third_level_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_volume = {}
+
+-- Size: Third Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.size = 2
+
+-- Display: Third Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.display = function(value)
+  return "Third Level Volume: "..value
+end
+
+-- Dissect: Third Level Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_volume = {}
+
+-- Size: Third Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_volume.size = 2
+
+-- Display: Third Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_volume.display = function(value)
+  return "Third Volume: "..value
+end
+
+-- Dissect: Third Volume
+nyse_options_deepfeed_xdp_v1_3_a.third_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.third_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.third_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nyse_options_deepfeed_xdp_v1_3_a.timestamp = {}
+
+-- Size: Timestamp
+nyse_options_deepfeed_xdp_v1_3_a.timestamp.size = 4
+
+-- Display: Timestamp
+nyse_options_deepfeed_xdp_v1_3_a.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+nyse_options_deepfeed_xdp_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Index
+nyse_options_deepfeed_xdp_v1_3_a.underlying_index = {}
+
+-- Size: Underlying Index
+nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size = 4
+
+-- Display: Underlying Index
+nyse_options_deepfeed_xdp_v1_3_a.underlying_index.display = function(value)
+  return "Underlying Index: "..value
+end
+
+-- Dissect: Underlying Index
+nyse_options_deepfeed_xdp_v1_3_a.underlying_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.underlying_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.underlying_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num = {}
+
+-- Size: Underlying Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.size = 4
+
+-- Display: Underlying Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.display = function(value)
+  return "Underlying Seq Num: "..value
+end
+
+-- Dissect: Underlying Seq Num
+nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size = 11
+
+-- Display: Underlying Symbol
+nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_options_deepfeed_xdp_v1_3_a.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Options DeepFeed Xdp 1.3.a
+-----------------------------------------------------------------------
+
+-- Sequence Number Reset Message
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message = {}
+
+-- Size: Sequence Number Reset Message
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.source_time.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.product_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.channel_id.size
+
+-- Display: Sequence Number Reset Message
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequence Number Reset Message
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  index, source_time = nyse_options_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  index, source_time_ns = nyse_options_deepfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  index, product_id = nyse_options_deepfeed_xdp_v1_3_a.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  index, channel_id = nyse_options_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequence Number Reset Message
+nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
+  if show.sequence_number_reset_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_options_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Id Message
+nyse_options_deepfeed_xdp_v1_3_a.stream_id_message = {}
+
+-- Size: Stream Id Message
+nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.size =
+  nyse_options_deepfeed_xdp_v1_3_a.stream_id.size + 
+  nyse_options_deepfeed_xdp_v1_3_a.reserved_2.size
+
+-- Display: Stream Id Message
+nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Id Message
+nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  index, stream_id = nyse_options_deepfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: 2 Byte
+  index, reserved_2 = nyse_options_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Id Message
+nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
+  if show.stream_id_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
+    local index = nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_options_deepfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Series Index Mapping Message
@@ -885,176 +1764,6 @@ nyse_options_deepfeed_xdp_v1_3_a.series_index_mapping_message.dissect = function
   end
 end
 
--- Reserved 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_1 = {}
-
--- Size: Reserved 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size = 1
-
--- Display: Reserved 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-nyse_options_deepfeed_xdp_v1_3_a.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_deepfeed_xdp_v1_3_a.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Resolution
-nyse_options_deepfeed_xdp_v1_3_a.price_resolution = {}
-
--- Size: Price Resolution
-nyse_options_deepfeed_xdp_v1_3_a.price_resolution.size = 1
-
--- Display: Price Resolution
-nyse_options_deepfeed_xdp_v1_3_a.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
-
-  return "Price Resolution: Unknown("..value..")"
-end
-
--- Dissect: Price Resolution
-nyse_options_deepfeed_xdp_v1_3_a.price_resolution.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.price_resolution.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.price_resolution.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.price_resolution, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type
-nyse_options_deepfeed_xdp_v1_3_a.security_type = {}
-
--- Size: Security Type
-nyse_options_deepfeed_xdp_v1_3_a.security_type.size = 1
-
--- Display: Security Type
-nyse_options_deepfeed_xdp_v1_3_a.security_type.display = function(value)
-  if value == "A" then
-    return "Security Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Security Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Security Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Security Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Security Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Security Type: American Depository Shares (H)"
-  end
-  if value == "I" then
-    return "Security Type: Units (I)"
-  end
-  if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
-  end
-  if value == "O" then
-    return "Security Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Security Type: Preferred Stock (P)"
-  end
-  if value == "R" then
-    return "Security Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Security Type: Test (T)"
-  end
-  if value == "U" then
-    return "Security Type: Units (U)"
-  end
-  if value == "W" then
-    return "Security Type: Warrant (W)"
-  end
-  if value == "X" then
-    return "Security Type: Index (X)"
-  end
-
-  return "Security Type: Unknown("..value..")"
-end
-
--- Dissect: Security Type
-nyse_options_deepfeed_xdp_v1_3_a.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.security_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange Code
-nyse_options_deepfeed_xdp_v1_3_a.exchange_code = {}
-
--- Size: Exchange Code
-nyse_options_deepfeed_xdp_v1_3_a.exchange_code.size = 1
-
--- Display: Exchange Code
-nyse_options_deepfeed_xdp_v1_3_a.exchange_code.display = function(value)
-  if value == "N" then
-    return "Exchange Code: Nyse (N)"
-  end
-  if value == "P" then
-    return "Exchange Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Exchange Code: Nasdaq (Q)"
-  end
-  if value == "A" then
-    return "Exchange Code: Nyse Mkt (A)"
-  end
-  if value == "1" then
-    return "Exchange Code: Global Otc (1)"
-  end
-  if value == "2" then
-    return "Exchange Code: Arca Local Nontapeb Index (2)"
-  end
-
-  return "Exchange Code: Unknown("..value..")"
-end
-
--- Dissect: Exchange Code
-nyse_options_deepfeed_xdp_v1_3_a.exchange_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.exchange_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.exchange_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Underlying Index Mapping Message
 nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message = {}
 
@@ -1129,275 +1838,6 @@ nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.dissect = func
     -- Skip element, add fields directly
     return nyse_options_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Third Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume = {}
-
--- Size: Third Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size = 2
-
--- Display: Third Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.display = function(value)
-  return "Third Level Customer Volume: "..value
-end
-
--- Dissect: Third Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.third_level_customer_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_customer_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Second Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume = {}
-
--- Size: Second Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size = 2
-
--- Display: Second Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.display = function(value)
-  return "Second Level Customer Volume: "..value
-end
-
--- Dissect: Second Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.second_level_customer_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- First Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume = {}
-
--- Size: First Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size = 2
-
--- Display: First Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.display = function(value)
-  return "First Level Customer Volume: "..value
-end
-
--- Dissect: First Level Customer Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.first_level_customer_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_customer_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-nyse_options_deepfeed_xdp_v1_3_a.quote_condition = {}
-
--- Size: Quote Condition
-nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size = 1
-
--- Display: Quote Condition
-nyse_options_deepfeed_xdp_v1_3_a.quote_condition.display = function(value)
-  if value == "1" then
-    return "Quote Condition: Regular Trading (1)"
-  end
-  if value == "2" then
-    return "Quote Condition: Rotation (2)"
-  end
-  if value == "3" then
-    return "Quote Condition: Trading Halted (3)"
-  end
-  if value == "4" then
-    return "Quote Condition: Preopen (4)"
-  end
-  if value == "5" then
-    return "Quote Condition: Rotation Legal Width Quote Pending (5)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-nyse_options_deepfeed_xdp_v1_3_a.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Third Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_volume = {}
-
--- Size: Third Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_volume.size = 2
-
--- Display: Third Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_volume.display = function(value)
-  return "Third Volume: "..value
-end
-
--- Dissect: Third Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.third_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.third_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Second Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_volume = {}
-
--- Size: Second Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_volume.size = 2
-
--- Display: Second Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_volume.display = function(value)
-  return "Second Volume: "..value
-end
-
--- Dissect: Second Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.second_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.second_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- First Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_volume = {}
-
--- Size: First Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_volume.size = 2
-
--- Display: First Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_volume.display = function(value)
-  return "First Volume: "..value
-end
-
--- Dissect: First Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.first_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.first_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Third Level Price
-nyse_options_deepfeed_xdp_v1_3_a.third_level_price = {}
-
--- Size: Third Level Price
-nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size = 4
-
--- Display: Third Level Price
-nyse_options_deepfeed_xdp_v1_3_a.third_level_price.display = function(value)
-  return "Third Level Price: "..value
-end
-
--- Dissect: Third Level Price
-nyse_options_deepfeed_xdp_v1_3_a.third_level_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.third_level_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.third_level_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Second Level Price
-nyse_options_deepfeed_xdp_v1_3_a.second_level_price = {}
-
--- Size: Second Level Price
-nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size = 4
-
--- Display: Second Level Price
-nyse_options_deepfeed_xdp_v1_3_a.second_level_price.display = function(value)
-  return "Second Level Price: "..value
-end
-
--- Dissect: Second Level Price
-nyse_options_deepfeed_xdp_v1_3_a.second_level_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.second_level_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.second_level_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price, range, value, display)
-
-  return offset + length, value
-end
-
--- First Level Price
-nyse_options_deepfeed_xdp_v1_3_a.first_level_price = {}
-
--- Size: First Level Price
-nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size = 4
-
--- Display: First Level Price
-nyse_options_deepfeed_xdp_v1_3_a.first_level_price.display = function(value)
-  return "First Level Price: "..value
-end
-
--- Dissect: First Level Price
-nyse_options_deepfeed_xdp_v1_3_a.first_level_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.first_level_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.first_level_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num = {}
-
--- Size: Symbol Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size = 4
-
--- Display: Symbol Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.display = function(value)
-  return "Symbol Seq Num: "..value
-end
-
--- Dissect: Symbol Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Refresh Outright Market Depth Sell Message
@@ -1500,29 +1940,6 @@ nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.diss
   end
 end
 
--- Source Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_ns = {}
-
--- Size: Source Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_ns.size = 4
-
--- Display: Source Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_ns.display = function(value)
-  return "Source Ns: "..value
-end
-
--- Dissect: Source Ns
-nyse_options_deepfeed_xdp_v1_3_a.source_ns.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.source_ns.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.source_ns.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
-
-  return offset + length, value
-end
-
 -- Refresh Outright Market Depth Buy Message
 nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message = {}
 
@@ -1623,77 +2040,6 @@ nyse_options_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.disse
   end
 end
 
--- Halt Condition
-nyse_options_deepfeed_xdp_v1_3_a.halt_condition = {}
-
--- Size: Halt Condition
-nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size = 1
-
--- Display: Halt Condition
-nyse_options_deepfeed_xdp_v1_3_a.halt_condition.display = function(value)
-  return "Halt Condition: "..value
-end
-
--- Dissect: Halt Condition
-nyse_options_deepfeed_xdp_v1_3_a.halt_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.halt_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.halt_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Status
-nyse_options_deepfeed_xdp_v1_3_a.security_status = {}
-
--- Size: Security Status
-nyse_options_deepfeed_xdp_v1_3_a.security_status.size = 1
-
--- Display: Security Status
-nyse_options_deepfeed_xdp_v1_3_a.security_status.display = function(value)
-  if value == "L" then
-    return "Security Status: Light Up A Dark Series (L)"
-  end
-  if value == "N" then
-    return "Security Status: Open A Dark Series (N)"
-  end
-  if value == "O" then
-    return "Security Status: Open (O)"
-  end
-  if value == "X" then
-    return "Security Status: Close (X)"
-  end
-  if value == "S" then
-    return "Security Status: Halt (S)"
-  end
-  if value == "U" then
-    return "Security Status: Unhalt (U)"
-  end
-  if value == "T" then
-    return "Security Status: Unhalt A Dark Series (T)"
-  end
-  if value == "Q" then
-    return "Security Status: End Of Rfq Auction (Q)"
-  end
-
-  return "Security Status: Unknown("..value..")"
-end
-
--- Dissect: Security Status
-nyse_options_deepfeed_xdp_v1_3_a.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.security_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.security_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Outright Series Status Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message = {}
 
@@ -1756,29 +2102,6 @@ nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message.dissect = functi
     -- Skip element, add fields directly
     return nyse_options_deepfeed_xdp_v1_3_a.outright_series_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Underlying Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num = {}
-
--- Size: Underlying Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.size = 4
-
--- Display: Underlying Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.display = function(value)
-  return "Underlying Seq Num: "..value
-end
-
--- Dissect: Underlying Seq Num
-nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.underlying_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Underlying Status Message
@@ -1945,75 +2268,6 @@ nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.dissect = fu
   end
 end
 
--- Third Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_volume = {}
-
--- Size: Third Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.size = 2
-
--- Display: Third Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.display = function(value)
-  return "Third Level Volume: "..value
-end
-
--- Dissect: Third Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.third_level_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.third_level_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Second Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_volume = {}
-
--- Size: Second Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.size = 2
-
--- Display: Second Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.display = function(value)
-  return "Second Level Volume: "..value
-end
-
--- Dissect: Second Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.second_level_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- First Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_volume = {}
-
--- Size: First Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.size = 2
-
--- Display: First Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.display = function(value)
-  return "First Level Volume: "..value
-end
-
--- Dissect: First Level Volume
-nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.first_level_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.first_level_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Outright Market Depth Buy Message
 nyse_options_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message = {}
 
@@ -2163,83 +2417,6 @@ nyse_options_deepfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, pack
   return offset
 end
 
--- Message Type
-nyse_options_deepfeed_xdp_v1_3_a.message_type = {}
-
--- Size: Message Type
-nyse_options_deepfeed_xdp_v1_3_a.message_type.size = 2
-
--- Display: Message Type
-nyse_options_deepfeed_xdp_v1_3_a.message_type.display = function(value)
-  if value == 403 then
-    return "Message Type: Outright Market Depth Buy Message (403)"
-  end
-  if value == 405 then
-    return "Message Type: Outright Market Depth Sell Message (405)"
-  end
-  if value == 419 then
-    return "Message Type: Underlying Status Message (419)"
-  end
-  if value == 421 then
-    return "Message Type: Outright Series Status Message (421)"
-  end
-  if value == 503 then
-    return "Message Type: Refresh Outright Market Depth Buy Message (503)"
-  end
-  if value == 505 then
-    return "Message Type: Refresh Outright Market Depth Sell Message (505)"
-  end
-  if value == 435 then
-    return "Message Type: Underlying Index Mapping Message (435)"
-  end
-  if value == 437 then
-    return "Message Type: Series Index Mapping Message (437)"
-  end
-  if value == 455 then
-    return "Message Type: Stream Id Message (455)"
-  end
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nyse_options_deepfeed_xdp_v1_3_a.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Size
-nyse_options_deepfeed_xdp_v1_3_a.message_size = {}
-
--- Size: Message Size
-nyse_options_deepfeed_xdp_v1_3_a.message_size.size = 2
-
--- Display: Message Size
-nyse_options_deepfeed_xdp_v1_3_a.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-nyse_options_deepfeed_xdp_v1_3_a.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 nyse_options_deepfeed_xdp_v1_3_a.message_header = {}
 
@@ -2344,178 +2521,6 @@ nyse_options_deepfeed_xdp_v1_3_a.message.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return nyse_options_deepfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, message_index)
   end
-end
-
--- Nanoseconds
-nyse_options_deepfeed_xdp_v1_3_a.nanoseconds = {}
-
--- Size: Nanoseconds
-nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.size = 4
-
--- Display: Nanoseconds
-nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-nyse_options_deepfeed_xdp_v1_3_a.timestamp = {}
-
--- Size: Timestamp
-nyse_options_deepfeed_xdp_v1_3_a.timestamp.size = 4
-
--- Display: Timestamp
-nyse_options_deepfeed_xdp_v1_3_a.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_options_deepfeed_xdp_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number = {}
-
--- Size: Sequence Number
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number.size = 4
-
--- Display: Sequence Number
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nyse_options_deepfeed_xdp_v1_3_a.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Count
-nyse_options_deepfeed_xdp_v1_3_a.message_count = {}
-
--- Size: Message Count
-nyse_options_deepfeed_xdp_v1_3_a.message_count.size = 1
-
--- Display: Message Count
-nyse_options_deepfeed_xdp_v1_3_a.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nyse_options_deepfeed_xdp_v1_3_a.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Flag
-nyse_options_deepfeed_xdp_v1_3_a.delivery_flag = {}
-
--- Size: Delivery Flag
-nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.size = 1
-
--- Display: Delivery Flag
-nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Xdp Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
-
-  return "Delivery Flag: Unknown("..value..")"
-end
-
--- Dissect: Delivery Flag
-nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.delivery_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Size
-nyse_options_deepfeed_xdp_v1_3_a.packet_size = {}
-
--- Size: Packet Size
-nyse_options_deepfeed_xdp_v1_3_a.packet_size.size = 2
-
--- Display: Packet Size
-nyse_options_deepfeed_xdp_v1_3_a.packet_size.display = function(value)
-  return "Packet Size: "..value
-end
-
--- Dissect: Packet Size
-nyse_options_deepfeed_xdp_v1_3_a.packet_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_options_deepfeed_xdp_v1_3_a.packet_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_options_deepfeed_xdp_v1_3_a.packet_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_options_deepfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

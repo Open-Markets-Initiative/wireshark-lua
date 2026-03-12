@@ -241,204 +241,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Currenex Forex OrderService Cbp 26.0
+-- Currenex Forex OrderService Cbp 26.0 Fields
 -----------------------------------------------------------------------
-
--- Etx
-currenex_forex_orderservice_cbp_v26_0.etx = {}
-
--- Size: Etx
-currenex_forex_orderservice_cbp_v26_0.etx.size = 1
-
--- Display: Etx
-currenex_forex_orderservice_cbp_v26_0.etx.display = function(value)
-  return "Etx: "..value
-end
-
--- Dissect: Etx
-currenex_forex_orderservice_cbp_v26_0.etx.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.etx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.etx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.etx, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Code
-currenex_forex_orderservice_cbp_v26_0.reason_code = {}
-
--- Size: Reason Code
-currenex_forex_orderservice_cbp_v26_0.reason_code.size = 1
-
--- Display: Reason Code
-currenex_forex_orderservice_cbp_v26_0.reason_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Reason Code: No Value"
-  end
-
-  if value == "1" then
-    return "Reason Code: Not Resendable (1)"
-  end
-  if value == "2" then
-    return "Reason Code: Not Available (2)"
-  end
-
-  return "Reason Code: Unknown("..value..")"
-end
-
--- Dissect: Reason Code
-currenex_forex_orderservice_cbp_v26_0.reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.reason_code.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_orderservice_cbp_v26_0.reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.reason_code, range, value, display)
-
-  return offset + length, value
-end
-
--- New Seq No
-currenex_forex_orderservice_cbp_v26_0.new_seq_no = {}
-
--- Size: New Seq No
-currenex_forex_orderservice_cbp_v26_0.new_seq_no.size = 4
-
--- Display: New Seq No
-currenex_forex_orderservice_cbp_v26_0.new_seq_no.display = function(value)
-  return "New Seq No: "..value
-end
-
--- Dissect: New Seq No
-currenex_forex_orderservice_cbp_v26_0.new_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.new_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.new_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.new_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Gap Fill
-currenex_forex_orderservice_cbp_v26_0.gap_fill = {}
-
--- Size: Gap Fill
-currenex_forex_orderservice_cbp_v26_0.gap_fill.size =
-  currenex_forex_orderservice_cbp_v26_0.new_seq_no.size + 
-  currenex_forex_orderservice_cbp_v26_0.reason_code.size
-
--- Display: Gap Fill
-currenex_forex_orderservice_cbp_v26_0.gap_fill.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Gap Fill
-currenex_forex_orderservice_cbp_v26_0.gap_fill.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- New Seq No: Integer
-  index, new_seq_no = currenex_forex_orderservice_cbp_v26_0.new_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Reason Code: Alpha
-  index, reason_code = currenex_forex_orderservice_cbp_v26_0.reason_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Gap Fill
-currenex_forex_orderservice_cbp_v26_0.gap_fill.dissect = function(buffer, offset, packet, parent)
-  if show.gap_fill then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.gap_fill, buffer(offset, 0))
-    local index = currenex_forex_orderservice_cbp_v26_0.gap_fill.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_orderservice_cbp_v26_0.gap_fill.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_orderservice_cbp_v26_0.gap_fill.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Begin Seq No
-currenex_forex_orderservice_cbp_v26_0.begin_seq_no = {}
-
--- Size: Begin Seq No
-currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size = 4
-
--- Display: Begin Seq No
-currenex_forex_orderservice_cbp_v26_0.begin_seq_no.display = function(value)
-  return "Begin Seq No: "..value
-end
-
--- Dissect: Begin Seq No
-currenex_forex_orderservice_cbp_v26_0.begin_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.begin_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.begin_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Resend Request
-currenex_forex_orderservice_cbp_v26_0.resend_request = {}
-
--- Size: Resend Request
-currenex_forex_orderservice_cbp_v26_0.resend_request.size =
-  currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size
-
--- Display: Resend Request
-currenex_forex_orderservice_cbp_v26_0.resend_request.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Resend Request
-currenex_forex_orderservice_cbp_v26_0.resend_request.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Begin Seq No: Integer
-  index, begin_seq_no = currenex_forex_orderservice_cbp_v26_0.begin_seq_no.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Resend Request
-currenex_forex_orderservice_cbp_v26_0.resend_request.dissect = function(buffer, offset, packet, parent)
-  if show.resend_request then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.resend_request, buffer(offset, 0))
-    local index = currenex_forex_orderservice_cbp_v26_0.resend_request.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_orderservice_cbp_v26_0.resend_request.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_orderservice_cbp_v26_0.resend_request.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Aggressor Flag
 currenex_forex_orderservice_cbp_v26_0.aggressor_flag = {}
@@ -486,94 +290,117 @@ currenex_forex_orderservice_cbp_v26_0.aggressor_flag.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Leaves Amt
-currenex_forex_orderservice_cbp_v26_0.leaves_amt = {}
+-- Begin Seq No
+currenex_forex_orderservice_cbp_v26_0.begin_seq_no = {}
 
--- Size: Leaves Amt
-currenex_forex_orderservice_cbp_v26_0.leaves_amt.size = 8
+-- Size: Begin Seq No
+currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size = 4
 
--- Display: Leaves Amt
-currenex_forex_orderservice_cbp_v26_0.leaves_amt.display = function(value)
-  return "Leaves Amt: "..value
+-- Display: Begin Seq No
+currenex_forex_orderservice_cbp_v26_0.begin_seq_no.display = function(value)
+  return "Begin Seq No: "..value
 end
 
--- Dissect: Leaves Amt
-currenex_forex_orderservice_cbp_v26_0.leaves_amt.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.leaves_amt.size
+-- Dissect: Begin Seq No
+currenex_forex_orderservice_cbp_v26_0.begin_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.leaves_amt.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.begin_seq_no.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.leaves_amt, range, value, display)
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.begin_seq_no, range, value, display)
 
   return offset + length, value
 end
 
--- Transact Time
-currenex_forex_orderservice_cbp_v26_0.transact_time = {}
+-- Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.cl_order_id = {}
 
--- Size: Transact Time
-currenex_forex_orderservice_cbp_v26_0.transact_time.size = 8
+-- Size: Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.cl_order_id.size = 4
 
--- Display: Transact Time
-currenex_forex_orderservice_cbp_v26_0.transact_time.display = function(value)
-  return "Transact Time: "..value
+-- Display: Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.cl_order_id.display = function(value)
+  return "Cl Order Id: "..value
 end
 
--- Dissect: Transact Time
-currenex_forex_orderservice_cbp_v26_0.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.transact_time.size
+-- Dissect: Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.cl_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.transact_time.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.cl_order_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.transact_time, range, value, display)
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.cl_order_id, range, value, display)
 
   return offset + length, value
 end
 
--- Trade Date
-currenex_forex_orderservice_cbp_v26_0.trade_date = {}
+-- Error Code
+currenex_forex_orderservice_cbp_v26_0.error_code = {}
 
--- Size: Trade Date
-currenex_forex_orderservice_cbp_v26_0.trade_date.size = 8
+-- Size: Error Code
+currenex_forex_orderservice_cbp_v26_0.error_code.size = 2
 
--- Display: Trade Date
-currenex_forex_orderservice_cbp_v26_0.trade_date.display = function(value)
-  return "Trade Date: "..value
+-- Display: Error Code
+currenex_forex_orderservice_cbp_v26_0.error_code.display = function(value)
+  return "Error Code: "..value
 end
 
--- Dissect: Trade Date
-currenex_forex_orderservice_cbp_v26_0.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.trade_date.size
+-- Dissect: Error Code
+currenex_forex_orderservice_cbp_v26_0.error_code.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.error_code.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.trade_date.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.error_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_date, range, value, display)
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.error_code, range, value, display)
 
   return offset + length, value
 end
 
--- Settle Date
-currenex_forex_orderservice_cbp_v26_0.settle_date = {}
+-- Etx
+currenex_forex_orderservice_cbp_v26_0.etx = {}
 
--- Size: Settle Date
-currenex_forex_orderservice_cbp_v26_0.settle_date.size = 8
+-- Size: Etx
+currenex_forex_orderservice_cbp_v26_0.etx.size = 1
 
--- Display: Settle Date
-currenex_forex_orderservice_cbp_v26_0.settle_date.display = function(value)
-  return "Settle Date: "..value
+-- Display: Etx
+currenex_forex_orderservice_cbp_v26_0.etx.display = function(value)
+  return "Etx: "..value
 end
 
--- Dissect: Settle Date
-currenex_forex_orderservice_cbp_v26_0.settle_date.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.settle_date.size
+-- Dissect: Etx
+currenex_forex_orderservice_cbp_v26_0.etx.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.etx.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.settle_date.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.etx.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.settle_date, range, value, display)
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.etx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Broker
+currenex_forex_orderservice_cbp_v26_0.exec_broker = {}
+
+-- Size: Exec Broker
+currenex_forex_orderservice_cbp_v26_0.exec_broker.size = 4
+
+-- Display: Exec Broker
+currenex_forex_orderservice_cbp_v26_0.exec_broker.display = function(value)
+  return "Exec Broker: "..value
+end
+
+-- Dissect: Exec Broker
+currenex_forex_orderservice_cbp_v26_0.exec_broker.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.exec_broker.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_orderservice_cbp_v26_0.exec_broker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.exec_broker, range, value, display)
 
   return offset + length, value
 end
@@ -616,6 +443,1075 @@ currenex_forex_orderservice_cbp_v26_0.exec_type.dissect = function(buffer, offse
   parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.exec_type, range, value, display)
 
   return offset + length, value
+end
+
+-- Execution Id
+currenex_forex_orderservice_cbp_v26_0.execution_id = {}
+
+-- Size: Execution Id
+currenex_forex_orderservice_cbp_v26_0.execution_id.size = 20
+
+-- Display: Execution Id
+currenex_forex_orderservice_cbp_v26_0.execution_id.display = function(value)
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+currenex_forex_orderservice_cbp_v26_0.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.execution_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_orderservice_cbp_v26_0.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Type
+currenex_forex_orderservice_cbp_v26_0.expire_type = {}
+
+-- Size: Expire Type
+currenex_forex_orderservice_cbp_v26_0.expire_type.size = 1
+
+-- Display: Expire Type
+currenex_forex_orderservice_cbp_v26_0.expire_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Expire Type: No Value"
+  end
+
+  if value == "G" then
+    return "Expire Type: Gtc (G)"
+  end
+  if value == "I" then
+    return "Expire Type: Ioc (I)"
+  end
+
+  return "Expire Type: Unknown("..value..")"
+end
+
+-- Dissect: Expire Type
+currenex_forex_orderservice_cbp_v26_0.expire_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.expire_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_orderservice_cbp_v26_0.expire_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.expire_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Amt
+currenex_forex_orderservice_cbp_v26_0.fill_amt = {}
+
+-- Size: Fill Amt
+currenex_forex_orderservice_cbp_v26_0.fill_amt.size = 8
+
+-- Display: Fill Amt
+currenex_forex_orderservice_cbp_v26_0.fill_amt.display = function(value)
+  return "Fill Amt: "..value
+end
+
+-- Dissect: Fill Amt
+currenex_forex_orderservice_cbp_v26_0.fill_amt.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.fill_amt.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.fill_amt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.fill_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Rate
+currenex_forex_orderservice_cbp_v26_0.fill_rate = {}
+
+-- Size: Fill Rate
+currenex_forex_orderservice_cbp_v26_0.fill_rate.size = 4
+
+-- Display: Fill Rate
+currenex_forex_orderservice_cbp_v26_0.fill_rate.display = function(value)
+  return "Fill Rate: "..value
+end
+
+-- Dissect: Fill Rate
+currenex_forex_orderservice_cbp_v26_0.fill_rate.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.fill_rate.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.fill_rate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.fill_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Id
+currenex_forex_orderservice_cbp_v26_0.instrument_id = {}
+
+-- Size: Instrument Id
+currenex_forex_orderservice_cbp_v26_0.instrument_id.size = 20
+
+-- Display: Instrument Id
+currenex_forex_orderservice_cbp_v26_0.instrument_id.display = function(value)
+  return "Instrument Id: "..value
+end
+
+-- Dissect: Instrument Id
+currenex_forex_orderservice_cbp_v26_0.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.instrument_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_orderservice_cbp_v26_0.instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Index
+currenex_forex_orderservice_cbp_v26_0.instrument_index = {}
+
+-- Size: Instrument Index
+currenex_forex_orderservice_cbp_v26_0.instrument_index.size = 2
+
+-- Display: Instrument Index
+currenex_forex_orderservice_cbp_v26_0.instrument_index.display = function(value)
+  return "Instrument Index: "..value
+end
+
+-- Dissect: Instrument Index
+currenex_forex_orderservice_cbp_v26_0.instrument_index.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.instrument_index.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.instrument_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+currenex_forex_orderservice_cbp_v26_0.instrument_type = {}
+
+-- Size: Instrument Type
+currenex_forex_orderservice_cbp_v26_0.instrument_type.size = 1
+
+-- Display: Instrument Type
+currenex_forex_orderservice_cbp_v26_0.instrument_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Type: No Value"
+  end
+
+  if value == "1" then
+    return "Instrument Type: Foreign Exchange (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Cash Metals (2)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+currenex_forex_orderservice_cbp_v26_0.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.instrument_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_orderservice_cbp_v26_0.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Amt
+currenex_forex_orderservice_cbp_v26_0.leaves_amt = {}
+
+-- Size: Leaves Amt
+currenex_forex_orderservice_cbp_v26_0.leaves_amt.size = 8
+
+-- Display: Leaves Amt
+currenex_forex_orderservice_cbp_v26_0.leaves_amt.display = function(value)
+  return "Leaves Amt: "..value
+end
+
+-- Dissect: Leaves Amt
+currenex_forex_orderservice_cbp_v26_0.leaves_amt.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.leaves_amt.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.leaves_amt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.leaves_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+currenex_forex_orderservice_cbp_v26_0.message_type = {}
+
+-- Size: Message Type
+currenex_forex_orderservice_cbp_v26_0.message_type.size = 1
+
+-- Display: Message Type
+currenex_forex_orderservice_cbp_v26_0.message_type.display = function(value)
+  if value == "A" then
+    return "Message Type: Logon (A)"
+  end
+  if value == "B" then
+    return "Message Type: Logout (B)"
+  end
+  if value == "C" then
+    return "Message Type: Heartbeat (C)"
+  end
+  if value == "E" then
+    return "Message Type: Instrument Info Request (E)"
+  end
+  if value == "D" then
+    return "Message Type: Instrument Info (D)"
+  end
+  if value == "L" then
+    return "Message Type: New Order Request (L)"
+  end
+  if value == "M" then
+    return "Message Type: New Order Ack (M)"
+  end
+  if value == "N" then
+    return "Message Type: Order Cancel Request (N)"
+  end
+  if value == "O" then
+    return "Message Type: Order Cancel Reject (O)"
+  end
+  if value == "P" then
+    return "Message Type: Order Replace Or Cancel Request (P)"
+  end
+  if value == "Q" then
+    return "Message Type: Order Replace Or Cancel Ack (Q)"
+  end
+  if value == "R" then
+    return "Message Type: Order Canceled Or Expired (R)"
+  end
+  if value == "T" then
+    return "Message Type: Trade (T)"
+  end
+  if value == "U" then
+    return "Message Type: Pending Fill (U)"
+  end
+  if value == "V" then
+    return "Message Type: Pending Fill Cancel (V)"
+  end
+  if value == "t" then
+    return "Message Type: Trade Pending (t)"
+  end
+  if value == "2" then
+    return "Message Type: Resend Request (2)"
+  end
+  if value == "4" then
+    return "Message Type: Gap Fill (4)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+currenex_forex_orderservice_cbp_v26_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = currenex_forex_orderservice_cbp_v26_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Amt
+currenex_forex_orderservice_cbp_v26_0.min_amt = {}
+
+-- Size: Min Amt
+currenex_forex_orderservice_cbp_v26_0.min_amt.size = 8
+
+-- Display: Min Amt
+currenex_forex_orderservice_cbp_v26_0.min_amt.display = function(value)
+  return "Min Amt: "..value
+end
+
+-- Dissect: Min Amt
+currenex_forex_orderservice_cbp_v26_0.min_amt.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.min_amt.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.min_amt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.min_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.new_cl_order_id = {}
+
+-- Size: New Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size = 4
+
+-- Display: New Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.display = function(value)
+  return "New Cl Order Id: "..value
+end
+
+-- Dissect: New Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.new_cl_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Seq No
+currenex_forex_orderservice_cbp_v26_0.new_seq_no = {}
+
+-- Size: New Seq No
+currenex_forex_orderservice_cbp_v26_0.new_seq_no.size = 4
+
+-- Display: New Seq No
+currenex_forex_orderservice_cbp_v26_0.new_seq_no.display = function(value)
+  return "New Seq No: "..value
+end
+
+-- Dissect: New Seq No
+currenex_forex_orderservice_cbp_v26_0.new_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.new_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.new_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.new_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Amt
+currenex_forex_orderservice_cbp_v26_0.order_amt = {}
+
+-- Size: Order Amt
+currenex_forex_orderservice_cbp_v26_0.order_amt.size = 8
+
+-- Display: Order Amt
+currenex_forex_orderservice_cbp_v26_0.order_amt.display = function(value)
+  return "Order Amt: "..value
+end
+
+-- Dissect: Order Amt
+currenex_forex_orderservice_cbp_v26_0.order_amt.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.order_amt.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.order_amt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+currenex_forex_orderservice_cbp_v26_0.order_id = {}
+
+-- Size: Order Id
+currenex_forex_orderservice_cbp_v26_0.order_id.size = 8
+
+-- Display: Order Id
+currenex_forex_orderservice_cbp_v26_0.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+currenex_forex_orderservice_cbp_v26_0.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.order_id.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+currenex_forex_orderservice_cbp_v26_0.order_type = {}
+
+-- Size: Order Type
+currenex_forex_orderservice_cbp_v26_0.order_type.size = 1
+
+-- Display: Order Type
+currenex_forex_orderservice_cbp_v26_0.order_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Type: No Value"
+  end
+
+  if value == "F" then
+    return "Order Type: Limit (F)"
+  end
+  if value == "Z" then
+    return "Order Type: Iceberg (Z)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+currenex_forex_orderservice_cbp_v26_0.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.order_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_orderservice_cbp_v26_0.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id = {}
+
+-- Size: Orig Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size = 4
+
+-- Display: Orig Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.display = function(value)
+  return "Orig Cl Order Id: "..value
+end
+
+-- Dissect: Orig Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.orig_cl_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+currenex_forex_orderservice_cbp_v26_0.password = {}
+
+-- Size: Password
+currenex_forex_orderservice_cbp_v26_0.password.size = 20
+
+-- Display: Password
+currenex_forex_orderservice_cbp_v26_0.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+currenex_forex_orderservice_cbp_v26_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_orderservice_cbp_v26_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id = {}
+
+-- Size: Prev Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size = 4
+
+-- Display: Prev Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.display = function(value)
+  return "Prev Cl Order Id: "..value
+end
+
+-- Dissect: Prev Cl Order Id
+currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.prev_cl_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+currenex_forex_orderservice_cbp_v26_0.price = {}
+
+-- Size: Price
+currenex_forex_orderservice_cbp_v26_0.price.size = 4
+
+-- Display: Price
+currenex_forex_orderservice_cbp_v26_0.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+currenex_forex_orderservice_cbp_v26_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+currenex_forex_orderservice_cbp_v26_0.reason = {}
+
+-- Size: Reason
+currenex_forex_orderservice_cbp_v26_0.reason.size = 3
+
+-- Display: Reason
+currenex_forex_orderservice_cbp_v26_0.reason.display = function(value)
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+currenex_forex_orderservice_cbp_v26_0.reason.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_orderservice_cbp_v26_0.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason Code
+currenex_forex_orderservice_cbp_v26_0.reason_code = {}
+
+-- Size: Reason Code
+currenex_forex_orderservice_cbp_v26_0.reason_code.size = 1
+
+-- Display: Reason Code
+currenex_forex_orderservice_cbp_v26_0.reason_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reason Code: No Value"
+  end
+
+  if value == "1" then
+    return "Reason Code: Not Resendable (1)"
+  end
+  if value == "2" then
+    return "Reason Code: Not Available (2)"
+  end
+
+  return "Reason Code: Unknown("..value..")"
+end
+
+-- Dissect: Reason Code
+currenex_forex_orderservice_cbp_v26_0.reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.reason_code.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_orderservice_cbp_v26_0.reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+currenex_forex_orderservice_cbp_v26_0.sequence_number = {}
+
+-- Size: Sequence Number
+currenex_forex_orderservice_cbp_v26_0.sequence_number.size = 4
+
+-- Display: Sequence Number
+currenex_forex_orderservice_cbp_v26_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+currenex_forex_orderservice_cbp_v26_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = currenex_forex_orderservice_cbp_v26_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+currenex_forex_orderservice_cbp_v26_0.session_id = {}
+
+-- Size: Session Id
+currenex_forex_orderservice_cbp_v26_0.session_id.size = 4
+
+-- Display: Session Id
+currenex_forex_orderservice_cbp_v26_0.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+currenex_forex_orderservice_cbp_v26_0.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.session_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settle Date
+currenex_forex_orderservice_cbp_v26_0.settle_date = {}
+
+-- Size: Settle Date
+currenex_forex_orderservice_cbp_v26_0.settle_date.size = 8
+
+-- Display: Settle Date
+currenex_forex_orderservice_cbp_v26_0.settle_date.display = function(value)
+  return "Settle Date: "..value
+end
+
+-- Dissect: Settle Date
+currenex_forex_orderservice_cbp_v26_0.settle_date.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.settle_date.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.settle_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.settle_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Date
+currenex_forex_orderservice_cbp_v26_0.settlement_date = {}
+
+-- Size: Settlement Date
+currenex_forex_orderservice_cbp_v26_0.settlement_date.size = 8
+
+-- Display: Settlement Date
+currenex_forex_orderservice_cbp_v26_0.settlement_date.display = function(value)
+  return "Settlement Date: "..value
+end
+
+-- Dissect: Settlement Date
+currenex_forex_orderservice_cbp_v26_0.settlement_date.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.settlement_date.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.settlement_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.settlement_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Show Amt
+currenex_forex_orderservice_cbp_v26_0.show_amt = {}
+
+-- Size: Show Amt
+currenex_forex_orderservice_cbp_v26_0.show_amt.size = 8
+
+-- Display: Show Amt
+currenex_forex_orderservice_cbp_v26_0.show_amt.display = function(value)
+  return "Show Amt: "..value
+end
+
+-- Dissect: Show Amt
+currenex_forex_orderservice_cbp_v26_0.show_amt.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.show_amt.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.show_amt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.show_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+currenex_forex_orderservice_cbp_v26_0.side = {}
+
+-- Size: Side
+currenex_forex_orderservice_cbp_v26_0.side.size = 1
+
+-- Display: Side
+currenex_forex_orderservice_cbp_v26_0.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+currenex_forex_orderservice_cbp_v26_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_orderservice_cbp_v26_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Soh
+currenex_forex_orderservice_cbp_v26_0.soh = {}
+
+-- Size: Soh
+currenex_forex_orderservice_cbp_v26_0.soh.size = 1
+
+-- Display: Soh
+currenex_forex_orderservice_cbp_v26_0.soh.display = function(value)
+  if value == 1 then
+    return "Soh: Soh"
+  end
+
+  return "Soh: Unknown("..value..")"
+end
+
+-- Dissect: Soh
+currenex_forex_orderservice_cbp_v26_0.soh.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.soh.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.soh.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.soh, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+currenex_forex_orderservice_cbp_v26_0.status = {}
+
+-- Size: Status
+currenex_forex_orderservice_cbp_v26_0.status.size = 1
+
+-- Display: Status
+currenex_forex_orderservice_cbp_v26_0.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
+  if value == "C" then
+    return "Status: Confirmed (C)"
+  end
+  if value == "R" then
+    return "Status: Rejected (R)"
+  end
+  if value == "P" then
+    return "Status: Replaced (P)"
+  end
+  if value == "C" then
+    return "Status: Cancelled (C)"
+  end
+  if value == "E" then
+    return "Status: Expired (E)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+currenex_forex_orderservice_cbp_v26_0.status.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_orderservice_cbp_v26_0.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+currenex_forex_orderservice_cbp_v26_0.trade_date = {}
+
+-- Size: Trade Date
+currenex_forex_orderservice_cbp_v26_0.trade_date.size = 8
+
+-- Display: Trade Date
+currenex_forex_orderservice_cbp_v26_0.trade_date.display = function(value)
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+currenex_forex_orderservice_cbp_v26_0.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Link Id
+currenex_forex_orderservice_cbp_v26_0.trade_link_id = {}
+
+-- Size: Trade Link Id
+currenex_forex_orderservice_cbp_v26_0.trade_link_id.size = 4
+
+-- Display: Trade Link Id
+currenex_forex_orderservice_cbp_v26_0.trade_link_id.display = function(value)
+  return "Trade Link Id: "..value
+end
+
+-- Dissect: Trade Link Id
+currenex_forex_orderservice_cbp_v26_0.trade_link_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.trade_link_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.trade_link_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_link_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+currenex_forex_orderservice_cbp_v26_0.transact_time = {}
+
+-- Size: Transact Time
+currenex_forex_orderservice_cbp_v26_0.transact_time.size = 8
+
+-- Display: Transact Time
+currenex_forex_orderservice_cbp_v26_0.transact_time.display = function(value)
+  return "Transact Time: "..value
+end
+
+-- Dissect: Transact Time
+currenex_forex_orderservice_cbp_v26_0.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_orderservice_cbp_v26_0.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Type
+currenex_forex_orderservice_cbp_v26_0.type = {}
+
+-- Size: Type
+currenex_forex_orderservice_cbp_v26_0.type.size = 2
+
+-- Display: Type
+currenex_forex_orderservice_cbp_v26_0.type.display = function(value)
+  if value == 0 then
+    return "Type: User (0)"
+  end
+  if value == 1 then
+    return "Type: System (1)"
+  end
+  if value == 2 then
+    return "Type: Below Min (2)"
+  end
+
+  return "Type: Unknown("..value..")"
+end
+
+-- Dissect: Type
+currenex_forex_orderservice_cbp_v26_0.type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.type.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_orderservice_cbp_v26_0.type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.type, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Id
+currenex_forex_orderservice_cbp_v26_0.user_id = {}
+
+-- Size: User Id
+currenex_forex_orderservice_cbp_v26_0.user_id.size = 20
+
+-- Display: User Id
+currenex_forex_orderservice_cbp_v26_0.user_id.display = function(value)
+  return "User Id: "..value
+end
+
+-- Dissect: User Id
+currenex_forex_orderservice_cbp_v26_0.user_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_orderservice_cbp_v26_0.user_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_orderservice_cbp_v26_0.user_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.user_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Currenex Forex OrderService Cbp 26.0
+-----------------------------------------------------------------------
+
+-- Gap Fill
+currenex_forex_orderservice_cbp_v26_0.gap_fill = {}
+
+-- Size: Gap Fill
+currenex_forex_orderservice_cbp_v26_0.gap_fill.size =
+  currenex_forex_orderservice_cbp_v26_0.new_seq_no.size + 
+  currenex_forex_orderservice_cbp_v26_0.reason_code.size
+
+-- Display: Gap Fill
+currenex_forex_orderservice_cbp_v26_0.gap_fill.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Gap Fill
+currenex_forex_orderservice_cbp_v26_0.gap_fill.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- New Seq No: Integer
+  index, new_seq_no = currenex_forex_orderservice_cbp_v26_0.new_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Reason Code: Alpha
+  index, reason_code = currenex_forex_orderservice_cbp_v26_0.reason_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gap Fill
+currenex_forex_orderservice_cbp_v26_0.gap_fill.dissect = function(buffer, offset, packet, parent)
+  if show.gap_fill then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.gap_fill, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0.gap_fill.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0.gap_fill.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0.gap_fill.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Resend Request
+currenex_forex_orderservice_cbp_v26_0.resend_request = {}
+
+-- Size: Resend Request
+currenex_forex_orderservice_cbp_v26_0.resend_request.size =
+  currenex_forex_orderservice_cbp_v26_0.begin_seq_no.size
+
+-- Display: Resend Request
+currenex_forex_orderservice_cbp_v26_0.resend_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Resend Request
+currenex_forex_orderservice_cbp_v26_0.resend_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Begin Seq No: Integer
+  index, begin_seq_no = currenex_forex_orderservice_cbp_v26_0.begin_seq_no.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Resend Request
+currenex_forex_orderservice_cbp_v26_0.resend_request.dissect = function(buffer, offset, packet, parent)
+  if show.resend_request then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.resend_request, buffer(offset, 0))
+    local index = currenex_forex_orderservice_cbp_v26_0.resend_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_orderservice_cbp_v26_0.resend_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_orderservice_cbp_v26_0.resend_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Pending
@@ -678,75 +1574,6 @@ currenex_forex_orderservice_cbp_v26_0.trade_pending.dissect = function(buffer, o
   end
 end
 
--- Trade Link Id
-currenex_forex_orderservice_cbp_v26_0.trade_link_id = {}
-
--- Size: Trade Link Id
-currenex_forex_orderservice_cbp_v26_0.trade_link_id.size = 4
-
--- Display: Trade Link Id
-currenex_forex_orderservice_cbp_v26_0.trade_link_id.display = function(value)
-  return "Trade Link Id: "..value
-end
-
--- Dissect: Trade Link Id
-currenex_forex_orderservice_cbp_v26_0.trade_link_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.trade_link_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.trade_link_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.trade_link_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-currenex_forex_orderservice_cbp_v26_0.order_id = {}
-
--- Size: Order Id
-currenex_forex_orderservice_cbp_v26_0.order_id.size = 8
-
--- Display: Order Id
-currenex_forex_orderservice_cbp_v26_0.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-currenex_forex_orderservice_cbp_v26_0.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.order_id.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.cl_order_id = {}
-
--- Size: Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.cl_order_id.size = 4
-
--- Display: Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.cl_order_id.display = function(value)
-  return "Cl Order Id: "..value
-end
-
--- Dissect: Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.cl_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.cl_order_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.cl_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.cl_order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Pending Fill Cancel
 currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel = {}
 
@@ -793,75 +1620,6 @@ currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.dissect = function(buf
     -- Skip element, add fields directly
     return currenex_forex_orderservice_cbp_v26_0.pending_fill_cancel.fields(buffer, offset, packet, parent)
   end
-end
-
--- Exec Broker
-currenex_forex_orderservice_cbp_v26_0.exec_broker = {}
-
--- Size: Exec Broker
-currenex_forex_orderservice_cbp_v26_0.exec_broker.size = 4
-
--- Display: Exec Broker
-currenex_forex_orderservice_cbp_v26_0.exec_broker.display = function(value)
-  return "Exec Broker: "..value
-end
-
--- Dissect: Exec Broker
-currenex_forex_orderservice_cbp_v26_0.exec_broker.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.exec_broker.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_orderservice_cbp_v26_0.exec_broker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.exec_broker, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Rate
-currenex_forex_orderservice_cbp_v26_0.fill_rate = {}
-
--- Size: Fill Rate
-currenex_forex_orderservice_cbp_v26_0.fill_rate.size = 4
-
--- Display: Fill Rate
-currenex_forex_orderservice_cbp_v26_0.fill_rate.display = function(value)
-  return "Fill Rate: "..value
-end
-
--- Dissect: Fill Rate
-currenex_forex_orderservice_cbp_v26_0.fill_rate.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.fill_rate.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.fill_rate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.fill_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Amt
-currenex_forex_orderservice_cbp_v26_0.fill_amt = {}
-
--- Size: Fill Amt
-currenex_forex_orderservice_cbp_v26_0.fill_amt.size = 8
-
--- Display: Fill Amt
-currenex_forex_orderservice_cbp_v26_0.fill_amt.display = function(value)
-  return "Fill Amt: "..value
-end
-
--- Dissect: Fill Amt
-currenex_forex_orderservice_cbp_v26_0.fill_amt.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.fill_amt.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.fill_amt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.fill_amt, range, value, display)
-
-  return offset + length, value
 end
 
 -- Pending Fill
@@ -926,95 +1684,6 @@ currenex_forex_orderservice_cbp_v26_0.pending_fill.dissect = function(buffer, of
     -- Skip element, add fields directly
     return currenex_forex_orderservice_cbp_v26_0.pending_fill.fields(buffer, offset, packet, parent)
   end
-end
-
--- Execution Id
-currenex_forex_orderservice_cbp_v26_0.execution_id = {}
-
--- Size: Execution Id
-currenex_forex_orderservice_cbp_v26_0.execution_id.size = 20
-
--- Display: Execution Id
-currenex_forex_orderservice_cbp_v26_0.execution_id.display = function(value)
-  return "Execution Id: "..value
-end
-
--- Dissect: Execution Id
-currenex_forex_orderservice_cbp_v26_0.execution_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.execution_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_orderservice_cbp_v26_0.execution_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.execution_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-currenex_forex_orderservice_cbp_v26_0.side = {}
-
--- Size: Side
-currenex_forex_orderservice_cbp_v26_0.side.size = 1
-
--- Display: Side
-currenex_forex_orderservice_cbp_v26_0.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-currenex_forex_orderservice_cbp_v26_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_orderservice_cbp_v26_0.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Index
-currenex_forex_orderservice_cbp_v26_0.instrument_index = {}
-
--- Size: Instrument Index
-currenex_forex_orderservice_cbp_v26_0.instrument_index.size = 2
-
--- Display: Instrument Index
-currenex_forex_orderservice_cbp_v26_0.instrument_index.display = function(value)
-  return "Instrument Index: "..value
-end
-
--- Dissect: Instrument Index
-currenex_forex_orderservice_cbp_v26_0.instrument_index.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.instrument_index.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.instrument_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_index, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade
@@ -1109,91 +1778,6 @@ currenex_forex_orderservice_cbp_v26_0.trade.dissect = function(buffer, offset, p
   end
 end
 
--- Type
-currenex_forex_orderservice_cbp_v26_0.type = {}
-
--- Size: Type
-currenex_forex_orderservice_cbp_v26_0.type.size = 2
-
--- Display: Type
-currenex_forex_orderservice_cbp_v26_0.type.display = function(value)
-  if value == 0 then
-    return "Type: User (0)"
-  end
-  if value == 1 then
-    return "Type: System (1)"
-  end
-  if value == 2 then
-    return "Type: Below Min (2)"
-  end
-
-  return "Type: Unknown("..value..")"
-end
-
--- Dissect: Type
-currenex_forex_orderservice_cbp_v26_0.type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.type.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.type, range, value, display)
-
-  return offset + length, value
-end
-
--- Status
-currenex_forex_orderservice_cbp_v26_0.status = {}
-
--- Size: Status
-currenex_forex_orderservice_cbp_v26_0.status.size = 1
-
--- Display: Status
-currenex_forex_orderservice_cbp_v26_0.status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Status: No Value"
-  end
-
-  if value == "C" then
-    return "Status: Confirmed (C)"
-  end
-  if value == "R" then
-    return "Status: Rejected (R)"
-  end
-  if value == "P" then
-    return "Status: Replaced (P)"
-  end
-  if value == "C" then
-    return "Status: Cancelled (C)"
-  end
-  if value == "E" then
-    return "Status: Expired (E)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-currenex_forex_orderservice_cbp_v26_0.status.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_orderservice_cbp_v26_0.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Canceled Or Expired
 currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired = {}
 
@@ -1246,75 +1830,6 @@ currenex_forex_orderservice_cbp_v26_0.order_canceled_or_expired.dissect = functi
   end
 end
 
--- Error Code
-currenex_forex_orderservice_cbp_v26_0.error_code = {}
-
--- Size: Error Code
-currenex_forex_orderservice_cbp_v26_0.error_code.size = 2
-
--- Display: Error Code
-currenex_forex_orderservice_cbp_v26_0.error_code.display = function(value)
-  return "Error Code: "..value
-end
-
--- Dissect: Error Code
-currenex_forex_orderservice_cbp_v26_0.error_code.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.error_code.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.error_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.error_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id = {}
-
--- Size: Prev Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size = 4
-
--- Display: Prev Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.display = function(value)
-  return "Prev Cl Order Id: "..value
-end
-
--- Dissect: Prev Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.prev_cl_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.prev_cl_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- New Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.new_cl_order_id = {}
-
--- Size: New Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size = 4
-
--- Display: New Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.display = function(value)
-  return "New Cl Order Id: "..value
-end
-
--- Dissect: New Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.new_cl_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.new_cl_order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Replace Or Cancel Ack
 currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack = {}
 
@@ -1365,75 +1880,6 @@ currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.dissect = func
     -- Skip element, add fields directly
     return currenex_forex_orderservice_cbp_v26_0.order_replace_or_cancel_ack.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price
-currenex_forex_orderservice_cbp_v26_0.price = {}
-
--- Size: Price
-currenex_forex_orderservice_cbp_v26_0.price.size = 4
-
--- Display: Price
-currenex_forex_orderservice_cbp_v26_0.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-currenex_forex_orderservice_cbp_v26_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Amt
-currenex_forex_orderservice_cbp_v26_0.order_amt = {}
-
--- Size: Order Amt
-currenex_forex_orderservice_cbp_v26_0.order_amt.size = 8
-
--- Display: Order Amt
-currenex_forex_orderservice_cbp_v26_0.order_amt.display = function(value)
-  return "Order Amt: "..value
-end
-
--- Dissect: Order Amt
-currenex_forex_orderservice_cbp_v26_0.order_amt.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.order_amt.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.order_amt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_amt, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id = {}
-
--- Size: Orig Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size = 4
-
--- Display: Orig Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.display = function(value)
-  return "Orig Cl Order Id: "..value
-end
-
--- Dissect: Orig Cl Order Id
-currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.orig_cl_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.orig_cl_order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Replace Or Cancel Request
@@ -1640,138 +2086,6 @@ currenex_forex_orderservice_cbp_v26_0.new_order_ack.dissect = function(buffer, o
   end
 end
 
--- Expire Type
-currenex_forex_orderservice_cbp_v26_0.expire_type = {}
-
--- Size: Expire Type
-currenex_forex_orderservice_cbp_v26_0.expire_type.size = 1
-
--- Display: Expire Type
-currenex_forex_orderservice_cbp_v26_0.expire_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Expire Type: No Value"
-  end
-
-  if value == "G" then
-    return "Expire Type: Gtc (G)"
-  end
-  if value == "I" then
-    return "Expire Type: Ioc (I)"
-  end
-
-  return "Expire Type: Unknown("..value..")"
-end
-
--- Dissect: Expire Type
-currenex_forex_orderservice_cbp_v26_0.expire_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.expire_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_orderservice_cbp_v26_0.expire_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.expire_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Show Amt
-currenex_forex_orderservice_cbp_v26_0.show_amt = {}
-
--- Size: Show Amt
-currenex_forex_orderservice_cbp_v26_0.show_amt.size = 8
-
--- Display: Show Amt
-currenex_forex_orderservice_cbp_v26_0.show_amt.display = function(value)
-  return "Show Amt: "..value
-end
-
--- Dissect: Show Amt
-currenex_forex_orderservice_cbp_v26_0.show_amt.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.show_amt.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.show_amt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.show_amt, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Amt
-currenex_forex_orderservice_cbp_v26_0.min_amt = {}
-
--- Size: Min Amt
-currenex_forex_orderservice_cbp_v26_0.min_amt.size = 8
-
--- Display: Min Amt
-currenex_forex_orderservice_cbp_v26_0.min_amt.display = function(value)
-  return "Min Amt: "..value
-end
-
--- Dissect: Min Amt
-currenex_forex_orderservice_cbp_v26_0.min_amt.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.min_amt.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.min_amt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.min_amt, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Type
-currenex_forex_orderservice_cbp_v26_0.order_type = {}
-
--- Size: Order Type
-currenex_forex_orderservice_cbp_v26_0.order_type.size = 1
-
--- Display: Order Type
-currenex_forex_orderservice_cbp_v26_0.order_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Order Type: No Value"
-  end
-
-  if value == "F" then
-    return "Order Type: Limit (F)"
-  end
-  if value == "Z" then
-    return "Order Type: Iceberg (Z)"
-  end
-
-  return "Order Type: Unknown("..value..")"
-end
-
--- Dissect: Order Type
-currenex_forex_orderservice_cbp_v26_0.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.order_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_orderservice_cbp_v26_0.order_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.order_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- New Order Request
 currenex_forex_orderservice_cbp_v26_0.new_order_request = {}
 
@@ -1842,118 +2156,6 @@ currenex_forex_orderservice_cbp_v26_0.new_order_request.dissect = function(buffe
     -- Skip element, add fields directly
     return currenex_forex_orderservice_cbp_v26_0.new_order_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Settlement Date
-currenex_forex_orderservice_cbp_v26_0.settlement_date = {}
-
--- Size: Settlement Date
-currenex_forex_orderservice_cbp_v26_0.settlement_date.size = 8
-
--- Display: Settlement Date
-currenex_forex_orderservice_cbp_v26_0.settlement_date.display = function(value)
-  return "Settlement Date: "..value
-end
-
--- Dissect: Settlement Date
-currenex_forex_orderservice_cbp_v26_0.settlement_date.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.settlement_date.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_orderservice_cbp_v26_0.settlement_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.settlement_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Id
-currenex_forex_orderservice_cbp_v26_0.instrument_id = {}
-
--- Size: Instrument Id
-currenex_forex_orderservice_cbp_v26_0.instrument_id.size = 20
-
--- Display: Instrument Id
-currenex_forex_orderservice_cbp_v26_0.instrument_id.display = function(value)
-  return "Instrument Id: "..value
-end
-
--- Dissect: Instrument Id
-currenex_forex_orderservice_cbp_v26_0.instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.instrument_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_orderservice_cbp_v26_0.instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Type
-currenex_forex_orderservice_cbp_v26_0.instrument_type = {}
-
--- Size: Instrument Type
-currenex_forex_orderservice_cbp_v26_0.instrument_type.size = 1
-
--- Display: Instrument Type
-currenex_forex_orderservice_cbp_v26_0.instrument_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Type: No Value"
-  end
-
-  if value == "1" then
-    return "Instrument Type: Foreign Exchange (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Cash Metals (2)"
-  end
-
-  return "Instrument Type: Unknown("..value..")"
-end
-
--- Dissect: Instrument Type
-currenex_forex_orderservice_cbp_v26_0.instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.instrument_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_orderservice_cbp_v26_0.instrument_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.instrument_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-currenex_forex_orderservice_cbp_v26_0.session_id = {}
-
--- Size: Session Id
-currenex_forex_orderservice_cbp_v26_0.session_id.size = 4
-
--- Display: Session Id
-currenex_forex_orderservice_cbp_v26_0.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-currenex_forex_orderservice_cbp_v26_0.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.session_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.session_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Info
@@ -2092,52 +2294,6 @@ currenex_forex_orderservice_cbp_v26_0.heartbeat.dissect = function(buffer, offse
   end
 end
 
--- Reason
-currenex_forex_orderservice_cbp_v26_0.reason = {}
-
--- Size: Reason
-currenex_forex_orderservice_cbp_v26_0.reason.size = 3
-
--- Display: Reason
-currenex_forex_orderservice_cbp_v26_0.reason.display = function(value)
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-currenex_forex_orderservice_cbp_v26_0.reason.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_orderservice_cbp_v26_0.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- User Id
-currenex_forex_orderservice_cbp_v26_0.user_id = {}
-
--- Size: User Id
-currenex_forex_orderservice_cbp_v26_0.user_id.size = 20
-
--- Display: User Id
-currenex_forex_orderservice_cbp_v26_0.user_id.display = function(value)
-  return "User Id: "..value
-end
-
--- Dissect: User Id
-currenex_forex_orderservice_cbp_v26_0.user_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.user_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_orderservice_cbp_v26_0.user_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.user_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logout
 currenex_forex_orderservice_cbp_v26_0.logout = {}
 
@@ -2184,29 +2340,6 @@ currenex_forex_orderservice_cbp_v26_0.logout.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return currenex_forex_orderservice_cbp_v26_0.logout.fields(buffer, offset, packet, parent)
   end
-end
-
--- Password
-currenex_forex_orderservice_cbp_v26_0.password = {}
-
--- Size: Password
-currenex_forex_orderservice_cbp_v26_0.password.size = 20
-
--- Display: Password
-currenex_forex_orderservice_cbp_v26_0.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-currenex_forex_orderservice_cbp_v26_0.password.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.password.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_orderservice_cbp_v26_0.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.password, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon
@@ -2338,107 +2471,6 @@ currenex_forex_orderservice_cbp_v26_0.message_body.dissect = function(buffer, of
   return offset
 end
 
--- Message Type
-currenex_forex_orderservice_cbp_v26_0.message_type = {}
-
--- Size: Message Type
-currenex_forex_orderservice_cbp_v26_0.message_type.size = 1
-
--- Display: Message Type
-currenex_forex_orderservice_cbp_v26_0.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logout (B)"
-  end
-  if value == "C" then
-    return "Message Type: Heartbeat (C)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Info Request (E)"
-  end
-  if value == "D" then
-    return "Message Type: Instrument Info (D)"
-  end
-  if value == "L" then
-    return "Message Type: New Order Request (L)"
-  end
-  if value == "M" then
-    return "Message Type: New Order Ack (M)"
-  end
-  if value == "N" then
-    return "Message Type: Order Cancel Request (N)"
-  end
-  if value == "O" then
-    return "Message Type: Order Cancel Reject (O)"
-  end
-  if value == "P" then
-    return "Message Type: Order Replace Or Cancel Request (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Order Replace Or Cancel Ack (Q)"
-  end
-  if value == "R" then
-    return "Message Type: Order Canceled Or Expired (R)"
-  end
-  if value == "T" then
-    return "Message Type: Trade (T)"
-  end
-  if value == "U" then
-    return "Message Type: Pending Fill (U)"
-  end
-  if value == "V" then
-    return "Message Type: Pending Fill Cancel (V)"
-  end
-  if value == "t" then
-    return "Message Type: Trade Pending (t)"
-  end
-  if value == "2" then
-    return "Message Type: Resend Request (2)"
-  end
-  if value == "4" then
-    return "Message Type: Gap Fill (4)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-currenex_forex_orderservice_cbp_v26_0.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = currenex_forex_orderservice_cbp_v26_0.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-currenex_forex_orderservice_cbp_v26_0.sequence_number = {}
-
--- Size: Sequence Number
-currenex_forex_orderservice_cbp_v26_0.sequence_number.size = 4
-
--- Display: Sequence Number
-currenex_forex_orderservice_cbp_v26_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-currenex_forex_orderservice_cbp_v26_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = currenex_forex_orderservice_cbp_v26_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 currenex_forex_orderservice_cbp_v26_0.message_header = {}
 
@@ -2485,33 +2517,6 @@ currenex_forex_orderservice_cbp_v26_0.message_header.dissect = function(buffer, 
     -- Skip element, add fields directly
     return currenex_forex_orderservice_cbp_v26_0.message_header.fields(buffer, offset, packet, parent)
   end
-end
-
--- Soh
-currenex_forex_orderservice_cbp_v26_0.soh = {}
-
--- Size: Soh
-currenex_forex_orderservice_cbp_v26_0.soh.size = 1
-
--- Display: Soh
-currenex_forex_orderservice_cbp_v26_0.soh.display = function(value)
-  if value == 1 then
-    return "Soh: Soh"
-  end
-
-  return "Soh: Unknown("..value..")"
-end
-
--- Dissect: Soh
-currenex_forex_orderservice_cbp_v26_0.soh.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_orderservice_cbp_v26_0.soh.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_orderservice_cbp_v26_0.soh.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_orderservice_cbp_v26_0.fields.soh, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

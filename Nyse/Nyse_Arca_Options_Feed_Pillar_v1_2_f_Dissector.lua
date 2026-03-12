@@ -355,28 +355,202 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Arca Options Feed Pillar 1.2.f
+-- Nyse Arca Options Feed Pillar 1.2.f Fields
 -----------------------------------------------------------------------
 
--- Total Volume
-nyse_arca_options_feed_pillar_v1_2_f.total_volume = {}
+-- Auction Id
+nyse_arca_options_feed_pillar_v1_2_f.auction_id = {}
 
--- Size: Total Volume
-nyse_arca_options_feed_pillar_v1_2_f.total_volume.size = 4
+-- Size: Auction Id
+nyse_arca_options_feed_pillar_v1_2_f.auction_id.size = 8
 
--- Display: Total Volume
-nyse_arca_options_feed_pillar_v1_2_f.total_volume.display = function(value)
-  return "Total Volume: "..value
+-- Display: Auction Id
+nyse_arca_options_feed_pillar_v1_2_f.auction_id.display = function(value)
+  return "Auction Id: "..value
 end
 
--- Dissect: Total Volume
-nyse_arca_options_feed_pillar_v1_2_f.total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.total_volume.size
+-- Dissect: Auction Id
+nyse_arca_options_feed_pillar_v1_2_f.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Interest Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price = {}
+
+-- Size: Auction Interest Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.size = 4
+
+-- Display: Auction Interest Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.display = function(value)
+  return "Auction Interest Clearing Price: "..value
+end
+
+-- Dissect: Auction Interest Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_interest_clearing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Status
+nyse_arca_options_feed_pillar_v1_2_f.auction_status = {}
+
+-- Size: Auction Status
+nyse_arca_options_feed_pillar_v1_2_f.auction_status.size = 1
+
+-- Display: Auction Status
+nyse_arca_options_feed_pillar_v1_2_f.auction_status.display = function(value)
+  if value == 0 then
+    return "Auction Status: Will Run As Usual (0)"
+  end
+  if value == 4 then
+    return "Auction Status: Auction Will Not Run Because Legal Width Quote Does Not Exist (4)"
+  end
+  if value == 5 then
+    return "Auction Status: Auction Will Not Run Because Market Maker Quote Is Not Received (5)"
+  end
+
+  return "Auction Status: Unknown("..value..")"
+end
+
+-- Dissect: Auction Status
+nyse_arca_options_feed_pillar_v1_2_f.auction_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_status.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.total_volume.display(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_volume, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+nyse_arca_options_feed_pillar_v1_2_f.auction_type = {}
+
+-- Size: Auction Type
+nyse_arca_options_feed_pillar_v1_2_f.auction_type.size = 1
+
+-- Display: Auction Type
+nyse_arca_options_feed_pillar_v1_2_f.auction_type.display = function(value)
+  if value == "m" then
+    return "Auction Type: Core Opening Auction (m)"
+  end
+  if value == "h" then
+    return "Auction Type: Reopening Auction (h)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+nyse_arca_options_feed_pillar_v1_2_f.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num = {}
+
+-- Size: Begin Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.size = 4
+
+-- Display: Begin Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.display = function(value)
+  return "Begin Seq Num: "..value
+end
+
+-- Dissect: Begin Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+nyse_arca_options_feed_pillar_v1_2_f.capacity = {}
+
+-- Size: Capacity
+nyse_arca_options_feed_pillar_v1_2_f.capacity.size = 1
+
+-- Display: Capacity
+nyse_arca_options_feed_pillar_v1_2_f.capacity.display = function(value)
+  if value == " " then
+    return "Capacity: Not Specified (<whitespace>)"
+  end
+  if value == "0" then
+    return "Capacity: Customer (0)"
+  end
+  if value == "1" then
+    return "Capacity: Firm (1)"
+  end
+  if value == "2" then
+    return "Capacity: Broker Dealer (2)"
+  end
+  if value == "3" then
+    return "Capacity: Market Maker (3)"
+  end
+  if value == "8" then
+    return "Capacity: Professional Customer (8)"
+  end
+
+  return "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+nyse_arca_options_feed_pillar_v1_2_f.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+nyse_arca_options_feed_pillar_v1_2_f.channel_id = {}
+
+-- Size: Channel Id
+nyse_arca_options_feed_pillar_v1_2_f.channel_id.size = 1
+
+-- Display: Channel Id
+nyse_arca_options_feed_pillar_v1_2_f.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+nyse_arca_options_feed_pillar_v1_2_f.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -404,48 +578,410 @@ nyse_arca_options_feed_pillar_v1_2_f.close.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Open
-nyse_arca_options_feed_pillar_v1_2_f.open = {}
+-- Closing Only Indicator
+nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator = {}
 
--- Size: Open
-nyse_arca_options_feed_pillar_v1_2_f.open.size = 4
+-- Size: Closing Only Indicator
+nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.size = 1
 
--- Display: Open
-nyse_arca_options_feed_pillar_v1_2_f.open.display = function(value)
-  return "Open: "..value
+-- Display: Closing Only Indicator
+nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.display = function(value)
+  if value == "0" then
+    return "Closing Only Indicator: Standard Series (0)"
+  end
+  if value == "1" then
+    return "Closing Only Indicator: Call (1)"
+  end
+
+  return "Closing Only Indicator: Unknown("..value..")"
 end
 
--- Dissect: Open
-nyse_arca_options_feed_pillar_v1_2_f.open.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.open.size
+-- Dissect: Closing Only Indicator
+nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.open.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.open, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.closing_only_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Low Price
-nyse_arca_options_feed_pillar_v1_2_f.low_price = {}
+-- Continuous Book Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price = {}
 
--- Size: Low Price
-nyse_arca_options_feed_pillar_v1_2_f.low_price.size = 4
+-- Size: Continuous Book Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.size = 4
 
--- Display: Low Price
-nyse_arca_options_feed_pillar_v1_2_f.low_price.display = function(value)
-  return "Low Price: "..value
+-- Display: Continuous Book Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.display = function(value)
+  return "Continuous Book Clearing Price: "..value
 end
 
--- Dissect: Low Price
-nyse_arca_options_feed_pillar_v1_2_f.low_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.low_price.size
+-- Dissect: Continuous Book Clearing Price
+nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.low_price.display(value, buffer, offset, packet, parent)
+  local display = nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.low_price, range, value, display)
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.continuous_book_clearing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Multiplier
+nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier = {}
+
+-- Size: Contract Multiplier
+nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.size = 2
+
+-- Display: Contract Multiplier
+nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.display = function(value)
+  return "Contract Multiplier: "..value
+end
+
+-- Dissect: Contract Multiplier
+nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.contract_multiplier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id
+nyse_arca_options_feed_pillar_v1_2_f.cross_id = {}
+
+-- Size: Cross Id
+nyse_arca_options_feed_pillar_v1_2_f.cross_id.size = 4
+
+-- Display: Cross Id
+nyse_arca_options_feed_pillar_v1_2_f.cross_id.display = function(value)
+  return "Cross Id: "..value
+end
+
+-- Dissect: Cross Id
+nyse_arca_options_feed_pillar_v1_2_f.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+nyse_arca_options_feed_pillar_v1_2_f.cross_type = {}
+
+-- Size: Cross Type
+nyse_arca_options_feed_pillar_v1_2_f.cross_type.size = 1
+
+-- Display: Cross Type
+nyse_arca_options_feed_pillar_v1_2_f.cross_type.display = function(value)
+  if value == "0" then
+    return "Cross Type: Market Center Opening Auction (0)"
+  end
+  if value == "5" then
+    return "Cross Type: Market Center Reopening Auction (5)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
+end
+
+-- Dissect: Cross Type
+nyse_arca_options_feed_pillar_v1_2_f.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Refresh Pkt
+nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt = {}
+
+-- Size: Current Refresh Pkt
+nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.size = 2
+
+-- Display: Current Refresh Pkt
+nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.display = function(value)
+  return "Current Refresh Pkt: "..value
+end
+
+-- Dissect: Current Refresh Pkt
+nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.current_refresh_pkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Indicator
+nyse_arca_options_feed_pillar_v1_2_f.cust_indicator = {}
+
+-- Size: Cust Indicator
+nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.size = 1
+
+-- Display: Cust Indicator
+nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.display = function(value)
+  if value == "C" then
+    return "Cust Indicator: Customer (C)"
+  end
+  if value == "N" then
+    return "Cust Indicator: Noncustomer (N)"
+  end
+  if value == "D" then
+    return "Cust Indicator: Derived (D)"
+  end
+
+  return "Cust Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Cust Indicator
+nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cust_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Flag
+nyse_arca_options_feed_pillar_v1_2_f.delivery_flag = {}
+
+-- Size: Delivery Flag
+nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: Heartbeat (1)"
+  end
+  if value == 10 then
+    return "Delivery Flag: Pillar Failover (10)"
+  end
+  if value == 11 then
+    return "Delivery Flag: Original Message (11)"
+  end
+  if value == 12 then
+    return "Delivery Flag: Sequence Number Reset Message (12)"
+  end
+  if value == 13 then
+    return "Delivery Flag: One Retransmission Packet (13)"
+  end
+  if value == 15 then
+    return "Delivery Flag: Retransmission Sequence Message (15)"
+  end
+  if value == 17 then
+    return "Delivery Flag: One Refresh Packet (17)"
+  end
+  if value == 18 then
+    return "Delivery Flag: Refresh Sequence Start (18)"
+  end
+  if value == 19 then
+    return "Delivery Flag: Refresh Sequence Message (19)"
+  end
+  if value == 20 then
+    return "Delivery Flag: Refresh Sequence End (20)"
+  end
+  if value == 21 then
+    return "Delivery Flag: Message Unavailable (21)"
+  end
+
+  return "Delivery Flag: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Flag
+nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.delivery_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.end_seq_num = {}
+
+-- Size: End Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.size = 4
+
+-- Display: End Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.display = function(value)
+  return "End Seq Num: "..value
+end
+
+-- Dissect: End Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Code
+nyse_arca_options_feed_pillar_v1_2_f.exchange_code = {}
+
+-- Size: Exchange Code
+nyse_arca_options_feed_pillar_v1_2_f.exchange_code.size = 1
+
+-- Display: Exchange Code
+nyse_arca_options_feed_pillar_v1_2_f.exchange_code.display = function(value)
+  if value == "A" then
+    return "Exchange Code: Nyse American (A)"
+  end
+  if value == "L" then
+    return "Exchange Code: Ltse (L)"
+  end
+  if value == "N" then
+    return "Exchange Code: Nyse (N)"
+  end
+  if value == "P" then
+    return "Exchange Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Exchange Code: Nasdaq (Q)"
+  end
+  if value == "V" then
+    return "Exchange Code: Iex (V)"
+  end
+  if value == "Z" then
+    return "Exchange Code: Cboe (Z)"
+  end
+  if value == " " then
+    return "Exchange Code: Otc Or Indexed Product (<whitespace>)"
+  end
+
+  return "Exchange Code: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Code
+nyse_arca_options_feed_pillar_v1_2_f.exchange_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.exchange_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.exchange_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.exchange_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Id
+nyse_arca_options_feed_pillar_v1_2_f.firm_id = {}
+
+-- Size: Firm Id
+nyse_arca_options_feed_pillar_v1_2_f.firm_id.size = 5
+
+-- Display: Firm Id
+nyse_arca_options_feed_pillar_v1_2_f.firm_id.display = function(value)
+  return "Firm Id: "..value
+end
+
+-- Dissect: Firm Id
+nyse_arca_options_feed_pillar_v1_2_f.firm_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.firm_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.firm_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.firm_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Halt Condition
+nyse_arca_options_feed_pillar_v1_2_f.halt_condition = {}
+
+-- Size: Halt Condition
+nyse_arca_options_feed_pillar_v1_2_f.halt_condition.size = 1
+
+-- Display: Halt Condition
+nyse_arca_options_feed_pillar_v1_2_f.halt_condition.display = function(value)
+  if value == "~" then
+    return "Halt Condition: Security Not Delayed Or Halted (~)"
+  end
+  if value == "D" then
+    return "Halt Condition: News Released (D)"
+  end
+  if value == "I" then
+    return "Halt Condition: Order Imbalance (I)"
+  end
+  if value == "P" then
+    return "Halt Condition: News Pending (P)"
+  end
+  if value == "M" then
+    return "Halt Condition: Luld Pause (M)"
+  end
+  if value == "X" then
+    return "Halt Condition: Equipment Changeover (X)"
+  end
+  if value == "A" then
+    return "Halt Condition: Additional Information Requested (A)"
+  end
+  if value == "C" then
+    return "Halt Condition: Regulatory Concern (C)"
+  end
+  if value == "E" then
+    return "Halt Condition: Merger Effective (E)"
+  end
+  if value == "F" then
+    return "Halt Condition: Etf Component Prices Not Available (F)"
+  end
+  if value == "N" then
+    return "Halt Condition: Corporate Action (N)"
+  end
+  if value == "O" then
+    return "Halt Condition: New Security Offering (O)"
+  end
+  if value == "V" then
+    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+  end
+  if value == "1" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
+  end
+  if value == "2" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
+  end
+  if value == "3" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
+  end
+
+  return "Halt Condition: Unknown("..value..")"
+end
+
+-- Dissect: Halt Condition
+nyse_arca_options_feed_pillar_v1_2_f.halt_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.halt_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.halt_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.halt_condition, range, value, display)
 
   return offset + length, value
 end
@@ -473,6 +1009,1385 @@ nyse_arca_options_feed_pillar_v1_2_f.high_price.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Id
+nyse_arca_options_feed_pillar_v1_2_f.id = {}
+
+-- Size: Id
+nyse_arca_options_feed_pillar_v1_2_f.id.size = 4
+
+-- Display: Id
+nyse_arca_options_feed_pillar_v1_2_f.id.display = function(value)
+  return "Id: "..value
+end
+
+-- Dissect: Id
+nyse_arca_options_feed_pillar_v1_2_f.id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Side
+nyse_arca_options_feed_pillar_v1_2_f.imbalance_side = {}
+
+-- Size: Imbalance Side
+nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.size = 1
+
+-- Display: Imbalance Side
+nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.display = function(value)
+  if value == "B" then
+    return "Imbalance Side: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Imbalance Side: Sell Side (S)"
+  end
+  if value == "-" then
+    return "Imbalance Side: Indicates No Imbalance (-)"
+  end
+
+  return "Imbalance Side: Unknown("..value..")"
+end
+
+-- Dissect: Imbalance Side
+nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.imbalance_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Match Price
+nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price = {}
+
+-- Size: Indicative Match Price
+nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.size = 4
+
+-- Display: Indicative Match Price
+nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.display = function(value)
+  return "Indicative Match Price: "..value
+end
+
+-- Dissect: Indicative Match Price
+nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.indicative_match_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_seq_num = {}
+
+-- Size: Last Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num = {}
+
+-- Size: Last Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.size = 4
+
+-- Display: Last Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.display = function(value)
+  return "Last Symbol Seq Num: "..value
+end
+
+-- Dissect: Last Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+nyse_arca_options_feed_pillar_v1_2_f.lot_size = {}
+
+-- Size: Lot Size
+nyse_arca_options_feed_pillar_v1_2_f.lot_size.size = 2
+
+-- Display: Lot Size
+nyse_arca_options_feed_pillar_v1_2_f.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+nyse_arca_options_feed_pillar_v1_2_f.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+nyse_arca_options_feed_pillar_v1_2_f.low_price = {}
+
+-- Size: Low Price
+nyse_arca_options_feed_pillar_v1_2_f.low_price.size = 4
+
+-- Display: Low Price
+nyse_arca_options_feed_pillar_v1_2_f.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Dissect: Low Price
+nyse_arca_options_feed_pillar_v1_2_f.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.low_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Collar
+nyse_arca_options_feed_pillar_v1_2_f.lower_collar = {}
+
+-- Size: Lower Collar
+nyse_arca_options_feed_pillar_v1_2_f.lower_collar.size = 4
+
+-- Display: Lower Collar
+nyse_arca_options_feed_pillar_v1_2_f.lower_collar.display = function(value)
+  return "Lower Collar: "..value
+end
+
+-- Dissect: Lower Collar
+nyse_arca_options_feed_pillar_v1_2_f.lower_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.lower_collar.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.lower_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lower_collar, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id
+nyse_arca_options_feed_pillar_v1_2_f.market_id = {}
+
+-- Size: Market Id
+nyse_arca_options_feed_pillar_v1_2_f.market_id.size = 2
+
+-- Display: Market Id
+nyse_arca_options_feed_pillar_v1_2_f.market_id.display = function(value)
+  return "Market Id: "..value
+end
+
+-- Dissect: Market Id
+nyse_arca_options_feed_pillar_v1_2_f.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.market_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty = {}
+
+-- Size: Market Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.size = 4
+
+-- Display: Market Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.display = function(value)
+  return "Market Imbalance Qty: "..value
+end
+
+-- Dissect: Market Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_imbalance_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market State
+nyse_arca_options_feed_pillar_v1_2_f.market_state = {}
+
+-- Size: Market State
+nyse_arca_options_feed_pillar_v1_2_f.market_state.size = 1
+
+-- Display: Market State
+nyse_arca_options_feed_pillar_v1_2_f.market_state.display = function(value)
+  if value == "P" then
+    return "Market State: Preopening (P)"
+  end
+  if value == "E" then
+    return "Market State: Early Session (E)"
+  end
+  if value == "O" then
+    return "Market State: Core Session (O)"
+  end
+  if value == "L" then
+    return "Market State: Late Session (L)"
+  end
+  if value == "X" then
+    return "Market State: Closed (X)"
+  end
+
+  return "Market State: Unknown("..value..")"
+end
+
+-- Dissect: Market State
+nyse_arca_options_feed_pillar_v1_2_f.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.market_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.market_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+nyse_arca_options_feed_pillar_v1_2_f.maturity_date = {}
+
+-- Size: Maturity Date
+nyse_arca_options_feed_pillar_v1_2_f.maturity_date.size = 6
+
+-- Display: Maturity Date
+nyse_arca_options_feed_pillar_v1_2_f.maturity_date.display = function(value)
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+nyse_arca_options_feed_pillar_v1_2_f.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+nyse_arca_options_feed_pillar_v1_2_f.message_size = {}
+
+-- Size: Message Size
+nyse_arca_options_feed_pillar_v1_2_f.message_size.size = 2
+
+-- Display: Message Size
+nyse_arca_options_feed_pillar_v1_2_f.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+nyse_arca_options_feed_pillar_v1_2_f.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_arca_options_feed_pillar_v1_2_f.message_type = {}
+
+-- Size: Message Type
+nyse_arca_options_feed_pillar_v1_2_f.message_type.size = 2
+
+-- Display: Message Type
+nyse_arca_options_feed_pillar_v1_2_f.message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Time Reference Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Symbol Index Mapping Message (3)"
+  end
+  if value == 10 then
+    return "Message Type: Retransmission Request Message (10)"
+  end
+  if value == 11 then
+    return "Message Type: Request Response Message (11)"
+  end
+  if value == 12 then
+    return "Message Type: Heartbeat Response Message (12)"
+  end
+  if value == 13 then
+    return "Message Type: Symbol Index Mapping Request Message (13)"
+  end
+  if value == 15 then
+    return "Message Type: Refresh Request Message (15)"
+  end
+  if value == 31 then
+    return "Message Type: Message Unavailable Message (31)"
+  end
+  if value == 32 then
+    return "Message Type: Symbol Clear Message (32)"
+  end
+  if value == 34 then
+    return "Message Type: Security Status Message (34)"
+  end
+  if value == 35 then
+    return "Message Type: Refresh Header Message (35)"
+  end
+  if value == 50 then
+    return "Message Type: Outright Series Index Mapping (50)"
+  end
+  if value == 51 then
+    return "Message Type: Outright Series Index Mapping (51)"
+  end
+  if value == 300 then
+    return "Message Type: Options Add Order Message (300)"
+  end
+  if value == 301 then
+    return "Message Type: Options Modify Order Message (301)"
+  end
+  if value == 302 then
+    return "Message Type: Options Delete Order Message Message (302)"
+  end
+  if value == 303 then
+    return "Message Type: Options Order Execution Message Message (303)"
+  end
+  if value == 304 then
+    return "Message Type: Options Replace Order Message Message (304)"
+  end
+  if value == 305 then
+    return "Message Type: Options Imbalance Message Message (305)"
+  end
+  if value == 306 then
+    return "Message Type: Options Add Order Refresh Message (306)"
+  end
+  if value == 307 then
+    return "Message Type: Options Series Rfq Message (307)"
+  end
+  if value == 310 then
+    return "Message Type: Options Non Displayed Trade Message (310)"
+  end
+  if value == 311 then
+    return "Message Type: Options Cross Trade Message (311)"
+  end
+  if value == 312 then
+    return "Message Type: Options Trade Cancel Message (312)"
+  end
+  if value == 323 then
+    return "Message Type: Options Outright Series Summary Message (323)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_arca_options_feed_pillar_v1_2_f.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_arca_options_feed_pillar_v1_2_f.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Order Id
+nyse_arca_options_feed_pillar_v1_2_f.new_order_id = {}
+
+-- Size: New Order Id
+nyse_arca_options_feed_pillar_v1_2_f.new_order_id.size = 8
+
+-- Display: New Order Id
+nyse_arca_options_feed_pillar_v1_2_f.new_order_id.display = function(value)
+  return "New Order Id: "..value
+end
+
+-- Dissect: New Order Id
+nyse_arca_options_feed_pillar_v1_2_f.new_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.new_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.new_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.new_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Source Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num = {}
+
+-- Size: Next Source Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.size = 4
+
+-- Display: Next Source Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.display = function(value)
+  return "Next Source Seq Num: "..value
+end
+
+-- Dissect: Next Source Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.next_source_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Msgs
+nyse_arca_options_feed_pillar_v1_2_f.number_msgs = {}
+
+-- Size: Number Msgs
+nyse_arca_options_feed_pillar_v1_2_f.number_msgs.size = 1
+
+-- Display: Number Msgs
+nyse_arca_options_feed_pillar_v1_2_f.number_msgs.display = function(value)
+  return "Number Msgs: "..value
+end
+
+-- Dissect: Number Msgs
+nyse_arca_options_feed_pillar_v1_2_f.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.number_msgs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.number_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.number_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open
+nyse_arca_options_feed_pillar_v1_2_f.open = {}
+
+-- Size: Open
+nyse_arca_options_feed_pillar_v1_2_f.open.size = 4
+
+-- Display: Open
+nyse_arca_options_feed_pillar_v1_2_f.open.display = function(value)
+  return "Open: "..value
+end
+
+-- Dissect: Open
+nyse_arca_options_feed_pillar_v1_2_f.open.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.open.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.open.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.open, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Symbol Root
+nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root = {}
+
+-- Size: Option Symbol Root
+nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.size = 6
+
+-- Display: Option Symbol Root
+nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.display = function(value)
+  return "Option Symbol Root: "..value
+end
+
+-- Dissect: Option Symbol Root
+nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.option_symbol_root, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+nyse_arca_options_feed_pillar_v1_2_f.order_id = {}
+
+-- Size: Order Id
+nyse_arca_options_feed_pillar_v1_2_f.order_id.size = 8
+
+-- Display: Order Id
+nyse_arca_options_feed_pillar_v1_2_f.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+nyse_arca_options_feed_pillar_v1_2_f.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Paired Qty
+nyse_arca_options_feed_pillar_v1_2_f.paired_qty = {}
+
+-- Size: Paired Qty
+nyse_arca_options_feed_pillar_v1_2_f.paired_qty.size = 4
+
+-- Display: Paired Qty
+nyse_arca_options_feed_pillar_v1_2_f.paired_qty.display = function(value)
+  return "Paired Qty: "..value
+end
+
+-- Dissect: Paired Qty
+nyse_arca_options_feed_pillar_v1_2_f.paired_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.paired_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.paired_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.paired_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant
+nyse_arca_options_feed_pillar_v1_2_f.participant = {}
+
+-- Size: Participant
+nyse_arca_options_feed_pillar_v1_2_f.participant.size = 4
+
+-- Display: Participant
+nyse_arca_options_feed_pillar_v1_2_f.participant.display = function(value)
+  return "Participant: "..value
+end
+
+-- Dissect: Participant
+nyse_arca_options_feed_pillar_v1_2_f.participant.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.participant.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.participant.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.participant, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pkt Size
+nyse_arca_options_feed_pillar_v1_2_f.pkt_size = {}
+
+-- Size: Pkt Size
+nyse_arca_options_feed_pillar_v1_2_f.pkt_size.size = 2
+
+-- Display: Pkt Size
+nyse_arca_options_feed_pillar_v1_2_f.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+nyse_arca_options_feed_pillar_v1_2_f.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Position Change
+nyse_arca_options_feed_pillar_v1_2_f.position_change = {}
+
+-- Size: Position Change
+nyse_arca_options_feed_pillar_v1_2_f.position_change.size = 1
+
+-- Display: Position Change
+nyse_arca_options_feed_pillar_v1_2_f.position_change.display = function(value)
+  return "Position Change: "..value
+end
+
+-- Dissect: Position Change
+nyse_arca_options_feed_pillar_v1_2_f.position_change.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.position_change.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.position_change.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.position_change, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Price
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_price = {}
+
+-- Size: Prev Close Price
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.size = 4
+
+-- Display: Prev Close Price
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.display = function(value)
+  return "Prev Close Price: "..value
+end
+
+-- Dissect: Prev Close Price
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Volume
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume = {}
+
+-- Size: Prev Close Volume
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.size = 4
+
+-- Display: Prev Close Volume
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.display = function(value)
+  return "Prev Close Volume: "..value
+end
+
+-- Dissect: Prev Close Volume
+nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nyse_arca_options_feed_pillar_v1_2_f.price = {}
+
+-- Size: Price
+nyse_arca_options_feed_pillar_v1_2_f.price.size = 4
+
+-- Display: Price
+nyse_arca_options_feed_pillar_v1_2_f.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+nyse_arca_options_feed_pillar_v1_2_f.price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 1
+nyse_arca_options_feed_pillar_v1_2_f.price_1 = {}
+
+-- Size: Price 1
+nyse_arca_options_feed_pillar_v1_2_f.price_1.size = 4
+
+-- Display: Price 1
+nyse_arca_options_feed_pillar_v1_2_f.price_1.display = function(value)
+  return "Price 1: "..value
+end
+
+-- Dissect: Price 1
+nyse_arca_options_feed_pillar_v1_2_f.price_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.price_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.price_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 2
+nyse_arca_options_feed_pillar_v1_2_f.price_2 = {}
+
+-- Size: Price 2
+nyse_arca_options_feed_pillar_v1_2_f.price_2.size = 4
+
+-- Display: Price 2
+nyse_arca_options_feed_pillar_v1_2_f.price_2.display = function(value)
+  return "Price 2: "..value
+end
+
+-- Dissect: Price 2
+nyse_arca_options_feed_pillar_v1_2_f.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.price_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Resolution
+nyse_arca_options_feed_pillar_v1_2_f.price_resolution = {}
+
+-- Size: Price Resolution
+nyse_arca_options_feed_pillar_v1_2_f.price_resolution.size = 1
+
+-- Display: Price Resolution
+nyse_arca_options_feed_pillar_v1_2_f.price_resolution.display = function(value)
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
+end
+
+-- Dissect: Price Resolution
+nyse_arca_options_feed_pillar_v1_2_f.price_resolution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.price_resolution.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.price_resolution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_resolution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale Code
+nyse_arca_options_feed_pillar_v1_2_f.price_scale_code = {}
+
+-- Size: Price Scale Code
+nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.size = 1
+
+-- Display: Price Scale Code
+nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.display = function(value)
+  if value == 6 then
+    return "Price Scale Code: Low Priced Securities (6)"
+  end
+  if value == 4 then
+    return "Price Scale Code: Medium Priced Securities (4)"
+  end
+  if value == 3 then
+    return "Price Scale Code: High Priced Securities (3)"
+  end
+
+  return "Price Scale Code: Unknown("..value..")"
+end
+
+-- Dissect: Price Scale Code
+nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Type
+nyse_arca_options_feed_pillar_v1_2_f.price_type = {}
+
+-- Size: Price Type
+nyse_arca_options_feed_pillar_v1_2_f.price_type.size = 1
+
+-- Display: Price Type
+nyse_arca_options_feed_pillar_v1_2_f.price_type.display = function(value)
+  if value == 0 then
+    return "Price Type: Strike Price Is Amount (0)"
+  end
+  if value == 1 then
+    return "Price Type: Strike Price Is Amount (1)"
+  end
+
+  return "Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Price Type
+nyse_arca_options_feed_pillar_v1_2_f.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.price_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Printable Flag
+nyse_arca_options_feed_pillar_v1_2_f.printable_flag = {}
+
+-- Size: Printable Flag
+nyse_arca_options_feed_pillar_v1_2_f.printable_flag.size = 1
+
+-- Display: Printable Flag
+nyse_arca_options_feed_pillar_v1_2_f.printable_flag.display = function(value)
+  if value == 0 then
+    return "Printable Flag: Trade Not Included In Total Volume (0)"
+  end
+  if value == 1 then
+    return "Printable Flag: Trade Included In Total Volume (1)"
+  end
+
+  return "Printable Flag: Unknown("..value..")"
+end
+
+-- Dissect: Printable Flag
+nyse_arca_options_feed_pillar_v1_2_f.printable_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.printable_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.printable_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.printable_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_arca_options_feed_pillar_v1_2_f.product_id = {}
+
+-- Size: Product Id
+nyse_arca_options_feed_pillar_v1_2_f.product_id.size = 1
+
+-- Display: Product Id
+nyse_arca_options_feed_pillar_v1_2_f.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nyse_arca_options_feed_pillar_v1_2_f.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Put Or Call
+nyse_arca_options_feed_pillar_v1_2_f.put_or_call = {}
+
+-- Size: Put Or Call
+nyse_arca_options_feed_pillar_v1_2_f.put_or_call.size = 1
+
+-- Display: Put Or Call
+nyse_arca_options_feed_pillar_v1_2_f.put_or_call.display = function(value)
+  if value == 0 then
+    return "Put Or Call: Put (0)"
+  end
+  if value == 1 then
+    return "Put Or Call: Call (1)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Put Or Call
+nyse_arca_options_feed_pillar_v1_2_f.put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.request_seq_num = {}
+
+-- Size: Request Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.size = 4
+
+-- Display: Request Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.display = function(value)
+  return "Request Seq Num: "..value
+end
+
+-- Dissect: Request Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+nyse_arca_options_feed_pillar_v1_2_f.reserved_1 = {}
+
+-- Size: Reserved 1
+nyse_arca_options_feed_pillar_v1_2_f.reserved_1.size = 1
+
+-- Display: Reserved 1
+nyse_arca_options_feed_pillar_v1_2_f.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nyse_arca_options_feed_pillar_v1_2_f.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+nyse_arca_options_feed_pillar_v1_2_f.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_arca_options_feed_pillar_v1_2_f.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_arca_options_feed_pillar_v1_2_f.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_arca_options_feed_pillar_v1_2_f.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 3
+nyse_arca_options_feed_pillar_v1_2_f.reserved_3 = {}
+
+-- Size: Reserved 3
+nyse_arca_options_feed_pillar_v1_2_f.reserved_3.size = 3
+
+-- Display: Reserved 3
+nyse_arca_options_feed_pillar_v1_2_f.reserved_3.display = function(value)
+  return "Reserved 3: "..value
+end
+
+-- Dissect: Reserved 3
+nyse_arca_options_feed_pillar_v1_2_f.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+nyse_arca_options_feed_pillar_v1_2_f.reserved_4 = {}
+
+-- Size: Reserved 4
+nyse_arca_options_feed_pillar_v1_2_f.reserved_4.size = 4
+
+-- Display: Reserved 4
+nyse_arca_options_feed_pillar_v1_2_f.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+nyse_arca_options_feed_pillar_v1_2_f.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 6
+nyse_arca_options_feed_pillar_v1_2_f.reserved_6 = {}
+
+-- Size: Reserved 6
+nyse_arca_options_feed_pillar_v1_2_f.reserved_6.size = 6
+
+-- Display: Reserved 6
+nyse_arca_options_feed_pillar_v1_2_f.reserved_6.display = function(value)
+  return "Reserved 6: "..value
+end
+
+-- Dissect: Reserved 6
+nyse_arca_options_feed_pillar_v1_2_f.reserved_6.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_6.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmit Method
+nyse_arca_options_feed_pillar_v1_2_f.retransmit_method = {}
+
+-- Size: Retransmit Method
+nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.size = 1
+
+-- Display: Retransmit Method
+nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.display = function(value)
+  return "Retransmit Method: "..value
+end
+
+-- Dissect: Retransmit Method
+nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmit_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Status
+nyse_arca_options_feed_pillar_v1_2_f.rfq_status = {}
+
+-- Size: Rfq Status
+nyse_arca_options_feed_pillar_v1_2_f.rfq_status.size = 1
+
+-- Display: Rfq Status
+nyse_arca_options_feed_pillar_v1_2_f.rfq_status.display = function(value)
+  if value == "O" then
+    return "Rfq Status: Start (O)"
+  end
+  if value == "Q" then
+    return "Rfq Status: End (Q)"
+  end
+
+  return "Rfq Status: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Status
+nyse_arca_options_feed_pillar_v1_2_f.rfq_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.rfq_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.rfq_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.rfq_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot
+nyse_arca_options_feed_pillar_v1_2_f.round_lot = {}
+
+-- Size: Round Lot
+nyse_arca_options_feed_pillar_v1_2_f.round_lot.size = 1
+
+-- Display: Round Lot
+nyse_arca_options_feed_pillar_v1_2_f.round_lot.display = function(value)
+  if value == "Y" then
+    return "Round Lot: Yes (Y)"
+  end
+  if value == "N" then
+    return "Round Lot: No (N)"
+  end
+
+  return "Round Lot: Unknown("..value..")"
+end
+
+-- Dissect: Round Lot
+nyse_arca_options_feed_pillar_v1_2_f.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.round_lot.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.round_lot.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nyse_arca_options_feed_pillar_v1_2_f.seconds = {}
+
+-- Size: Seconds
+nyse_arca_options_feed_pillar_v1_2_f.seconds.size = 4
+
+-- Display: Seconds
+nyse_arca_options_feed_pillar_v1_2_f.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nyse_arca_options_feed_pillar_v1_2_f.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+nyse_arca_options_feed_pillar_v1_2_f.security_status = {}
+
+-- Size: Security Status
+nyse_arca_options_feed_pillar_v1_2_f.security_status.size = 1
+
+-- Display: Security Status
+nyse_arca_options_feed_pillar_v1_2_f.security_status.display = function(value)
+  if value == "4" then
+    return "Security Status: Trading Halt (4)"
+  end
+  if value == "5" then
+    return "Security Status: Resume (5)"
+  end
+  if value == "6" then
+    return "Security Status: Suspend (6)"
+  end
+  if value == "A" then
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
+  end
+  if value == "C" then
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
+  end
+  if value == "D" then
+    return "Security Status: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "P" then
+    return "Security Status: Preopening (P)"
+  end
+  if value == "B" then
+    return "Security Status: Begin Accepting Orders (B)"
+  end
+  if value == "E" then
+    return "Security Status: Early Session (E)"
+  end
+  if value == "O" then
+    return "Security Status: Core Session (O)"
+  end
+  if value == "L" then
+    return "Security Status: Late Session (L)"
+  end
+  if value == "X" then
+    return "Security Status: Closed (X)"
+  end
+  if value == "I" then
+    return "Security Status: Halt Resume Price Indication (I)"
+  end
+  if value == "G" then
+    return "Security Status: Pre Opening Price Indication (G)"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+nyse_arca_options_feed_pillar_v1_2_f.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.security_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+nyse_arca_options_feed_pillar_v1_2_f.security_type = {}
+
+-- Size: Security Type
+nyse_arca_options_feed_pillar_v1_2_f.security_type.size = 1
+
+-- Display: Security Type
+nyse_arca_options_feed_pillar_v1_2_f.security_type.display = function(value)
+  if value == "A" then
+    return "Security Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Security Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Security Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Security Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Security Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Security Type: Us Depositary Shares (H)"
+  end
+  if value == "I" then
+    return "Security Type: Units (I)"
+  end
+  if value == "L" then
+    return "Security Type: Index Linked Notes (L)"
+  end
+  if value == "M" then
+    return "Security Type: Miscliquid Trust (M)"
+  end
+  if value == "O" then
+    return "Security Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Security Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Security Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Security Type: Shares Of Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Security Type: Test (T)"
+  end
+  if value == "U" then
+    return "Security Type: Closed End Fund (U)"
+  end
+  if value == "W" then
+    return "Security Type: Warrant (W)"
+  end
+
+  return "Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Type
+nyse_arca_options_feed_pillar_v1_2_f.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.security_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.seq_num = {}
+
+-- Size: Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.seq_num.size = 4
+
+-- Display: Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
 -- Series Index
 nyse_arca_options_feed_pillar_v1_2_f.series_index = {}
 
@@ -492,6 +2407,161 @@ nyse_arca_options_feed_pillar_v1_2_f.series_index.dissect = function(buffer, off
   local display = nyse_arca_options_feed_pillar_v1_2_f.series_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.series_seq_num = {}
+
+-- Size: Series Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.size = 4
+
+-- Display: Series Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.display = function(value)
+  return "Series Seq Num: "..value
+end
+
+-- Dissect: Series Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Series Type
+nyse_arca_options_feed_pillar_v1_2_f.series_type = {}
+
+-- Size: Series Type
+nyse_arca_options_feed_pillar_v1_2_f.series_type.size = 1
+
+-- Display: Series Type
+nyse_arca_options_feed_pillar_v1_2_f.series_type.display = function(value)
+  if value == 0 then
+    return "Series Type: Standard (0)"
+  end
+  if value == 1 then
+    return "Series Type: Flex (1)"
+  end
+  if value == 1 then
+    return "Series Type: Flex Percentage (1)"
+  end
+
+  return "Series Type: Unknown("..value..")"
+end
+
+-- Dissect: Series Type
+nyse_arca_options_feed_pillar_v1_2_f.series_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.series_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.series_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session State
+nyse_arca_options_feed_pillar_v1_2_f.session_state = {}
+
+-- Size: Session State
+nyse_arca_options_feed_pillar_v1_2_f.session_state.size = 1
+
+-- Display: Session State
+nyse_arca_options_feed_pillar_v1_2_f.session_state.display = function(value)
+  return "Session State: "..value
+end
+
+-- Dissect: Session State
+nyse_arca_options_feed_pillar_v1_2_f.session_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.session_state.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.session_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.session_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nyse_arca_options_feed_pillar_v1_2_f.side = {}
+
+-- Size: Side
+nyse_arca_options_feed_pillar_v1_2_f.side.size = 1
+
+-- Display: Side
+nyse_arca_options_feed_pillar_v1_2_f.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nyse_arca_options_feed_pillar_v1_2_f.side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Id
+nyse_arca_options_feed_pillar_v1_2_f.source_id = {}
+
+-- Size: Source Id
+nyse_arca_options_feed_pillar_v1_2_f.source_id.size = 10
+
+-- Display: Source Id
+nyse_arca_options_feed_pillar_v1_2_f.source_id.display = function(value)
+  return "Source Id: "..value
+end
+
+-- Dissect: Source Id
+nyse_arca_options_feed_pillar_v1_2_f.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.source_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.source_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time
+nyse_arca_options_feed_pillar_v1_2_f.source_time = {}
+
+-- Size: Source Time
+nyse_arca_options_feed_pillar_v1_2_f.source_time.size = 4
+
+-- Display: Source Time
+nyse_arca_options_feed_pillar_v1_2_f.source_time.display = function(value)
+  return "Source Time: "..value
+end
+
+-- Dissect: Source Time
+nyse_arca_options_feed_pillar_v1_2_f.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.source_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.source_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -518,6 +2588,635 @@ nyse_arca_options_feed_pillar_v1_2_f.source_time_ns.dissect = function(buffer, o
 
   return offset + length, value
 end
+
+-- Ssr State
+nyse_arca_options_feed_pillar_v1_2_f.ssr_state = {}
+
+-- Size: Ssr State
+nyse_arca_options_feed_pillar_v1_2_f.ssr_state.size = 1
+
+-- Display: Ssr State
+nyse_arca_options_feed_pillar_v1_2_f.ssr_state.display = function(value)
+  if value == "~" then
+    return "Ssr State: No Short Sale Restriction In Effect (~)"
+  end
+  if value == "E" then
+    return "Ssr State: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Ssr State: Unknown("..value..")"
+end
+
+-- Dissect: Ssr State
+nyse_arca_options_feed_pillar_v1_2_f.ssr_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.ssr_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.ssr_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr Triggering Exchange Id
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id = {}
+
+-- Size: Ssr Triggering Exchange Id
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.size = 1
+
+-- Display: Ssr Triggering Exchange Id
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.display = function(value)
+  if value == "A" then
+    return "Ssr Triggering Exchange Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+  end
+  if value == "C" then
+    return "Ssr Triggering Exchange Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Ssr Triggering Exchange Id: Finra (D)"
+  end
+  if value == "I" then
+    return "Ssr Triggering Exchange Id: Ise (I)"
+  end
+  if value == "J" then
+    return "Ssr Triggering Exchange Id: Edga (J)"
+  end
+  if value == "K" then
+    return "Ssr Triggering Exchange Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Ssr Triggering Exchange Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Ssr Triggering Exchange Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Ssr Triggering Exchange Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
+  end
+  if value == "S" then
+    return "Ssr Triggering Exchange Id: Cts (S)"
+  end
+  if value == "T" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
+  end
+  if value == "V" then
+    return "Ssr Triggering Exchange Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Ssr Triggering Exchange Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
+  end
+  if value == "Y" then
+    return "Ssr Triggering Exchange Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
+  end
+  if value == "H" then
+    return "Ssr Triggering Exchange Id: Miax (H)"
+  end
+  if value == "U" then
+    return "Ssr Triggering Exchange Id: Memx (U)"
+  end
+
+  return "Ssr Triggering Exchange Id: Unknown("..value..")"
+end
+
+-- Dissect: Ssr Triggering Exchange Id
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_exchange_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr Triggering Volume
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume = {}
+
+-- Size: Ssr Triggering Volume
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.size = 4
+
+-- Display: Ssr Triggering Volume
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.display = function(value)
+  return "Ssr Triggering Volume: "..value
+end
+
+-- Dissect: Ssr Triggering Volume
+nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+nyse_arca_options_feed_pillar_v1_2_f.status = {}
+
+-- Size: Status
+nyse_arca_options_feed_pillar_v1_2_f.status.size = 1
+
+-- Display: Status
+nyse_arca_options_feed_pillar_v1_2_f.status.display = function(value)
+  if value == "0" then
+    return "Status: Accepted (0)"
+  end
+  if value == "1" then
+    return "Status: Rejected (1)"
+  end
+  if value == "2" then
+    return "Status: Invalid Sequence Range (2)"
+  end
+  if value == "3" then
+    return "Status: Maximum Sequence Range (3)"
+  end
+  if value == "4" then
+    return "Status: Maximum Request In A Day (4)"
+  end
+  if value == "5" then
+    return "Status: Maximum Refresh Requests In A Day (5)"
+  end
+  if value == "6" then
+    return "Status: Old Seq Num Ttl (6)"
+  end
+  if value == "7" then
+    return "Status: Invalid Channel Id (7)"
+  end
+  if value == "8" then
+    return "Status: Invalid Product Id (8)"
+  end
+  if value == "9" then
+    return "Status: Invalid Msg Type Or Msg Size (9)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+nyse_arca_options_feed_pillar_v1_2_f.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nyse_arca_options_feed_pillar_v1_2_f.strike_price = {}
+
+-- Size: Strike Price
+nyse_arca_options_feed_pillar_v1_2_f.strike_price.size = 10
+
+-- Display: Strike Price
+nyse_arca_options_feed_pillar_v1_2_f.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+nyse_arca_options_feed_pillar_v1_2_f.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.strike_price.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+nyse_arca_options_feed_pillar_v1_2_f.symbol = {}
+
+-- Size: Symbol
+nyse_arca_options_feed_pillar_v1_2_f.symbol.size = 11
+
+-- Display: Symbol
+nyse_arca_options_feed_pillar_v1_2_f.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+nyse_arca_options_feed_pillar_v1_2_f.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Index
+nyse_arca_options_feed_pillar_v1_2_f.symbol_index = {}
+
+-- Size: Symbol Index
+nyse_arca_options_feed_pillar_v1_2_f.symbol_index.size = 4
+
+-- Display: Symbol Index
+nyse_arca_options_feed_pillar_v1_2_f.symbol_index.display = function(value)
+  return "Symbol Index: "..value
+end
+
+-- Dissect: Symbol Index
+nyse_arca_options_feed_pillar_v1_2_f.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.symbol_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num = {}
+
+-- Size: Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.size = 4
+
+-- Display: Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.display = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Id
+nyse_arca_options_feed_pillar_v1_2_f.system_id = {}
+
+-- Size: System Id
+nyse_arca_options_feed_pillar_v1_2_f.system_id.size = 1
+
+-- Display: System Id
+nyse_arca_options_feed_pillar_v1_2_f.system_id.display = function(value)
+  return "System Id: "..value
+end
+
+-- Dissect: System Id
+nyse_arca_options_feed_pillar_v1_2_f.system_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.system_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.system_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+nyse_arca_options_feed_pillar_v1_2_f.time = {}
+
+-- Size: Time
+nyse_arca_options_feed_pillar_v1_2_f.time.size = 4
+
+-- Display: Time
+nyse_arca_options_feed_pillar_v1_2_f.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+nyse_arca_options_feed_pillar_v1_2_f.time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty = {}
+
+-- Size: Total Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.size = 4
+
+-- Display: Total Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.display = function(value)
+  return "Total Imbalance Qty: "..value
+end
+
+-- Dissect: Total Imbalance Qty
+nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_imbalance_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Quantity
+nyse_arca_options_feed_pillar_v1_2_f.total_quantity = {}
+
+-- Size: Total Quantity
+nyse_arca_options_feed_pillar_v1_2_f.total_quantity.size = 4
+
+-- Display: Total Quantity
+nyse_arca_options_feed_pillar_v1_2_f.total_quantity.display = function(value)
+  return "Total Quantity: "..value
+end
+
+-- Dissect: Total Quantity
+nyse_arca_options_feed_pillar_v1_2_f.total_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.total_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.total_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Refresh Pkts
+nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts = {}
+
+-- Size: Total Refresh Pkts
+nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.size = 2
+
+-- Display: Total Refresh Pkts
+nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.display = function(value)
+  return "Total Refresh Pkts: "..value
+end
+
+-- Dissect: Total Refresh Pkts
+nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_refresh_pkts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume
+nyse_arca_options_feed_pillar_v1_2_f.total_volume = {}
+
+-- Size: Total Volume
+nyse_arca_options_feed_pillar_v1_2_f.total_volume.size = 4
+
+-- Display: Total Volume
+nyse_arca_options_feed_pillar_v1_2_f.total_volume.display = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+nyse_arca_options_feed_pillar_v1_2_f.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.total_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.total_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Cond 1
+nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1 = {}
+
+-- Size: Trade Cond 1
+nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.size = 1
+
+-- Display: Trade Cond 1
+nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.display = function(value)
+  return "Trade Cond 1: "..value
+end
+
+-- Dissect: Trade Cond 1
+nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_cond_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+nyse_arca_options_feed_pillar_v1_2_f.trade_id = {}
+
+-- Size: Trade Id
+nyse_arca_options_feed_pillar_v1_2_f.trade_id.size = 4
+
+-- Display: Trade Id
+nyse_arca_options_feed_pillar_v1_2_f.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+nyse_arca_options_feed_pillar_v1_2_f.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Type
+nyse_arca_options_feed_pillar_v1_2_f.type = {}
+
+-- Size: Type
+nyse_arca_options_feed_pillar_v1_2_f.type.size = 1
+
+-- Display: Type
+nyse_arca_options_feed_pillar_v1_2_f.type.display = function(value)
+  if value == "P" then
+    return "Type: Price Improvement (P)"
+  end
+  if value == "F" then
+    return "Type: Facilitation (F)"
+  end
+  if value == "S" then
+    return "Type: Solicitation (S)"
+  end
+  if value == "B" then
+    return "Type: Bold (B)"
+  end
+  if value == "C" then
+    return "Type: Coa (C)"
+  end
+
+  return "Type: Unknown("..value..")"
+end
+
+-- Dissect: Type
+nyse_arca_options_feed_pillar_v1_2_f.type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Index
+nyse_arca_options_feed_pillar_v1_2_f.underlying_index = {}
+
+-- Size: Underlying Index
+nyse_arca_options_feed_pillar_v1_2_f.underlying_index.size = 4
+
+-- Display: Underlying Index
+nyse_arca_options_feed_pillar_v1_2_f.underlying_index.display = function(value)
+  return "Underlying Index: "..value
+end
+
+-- Dissect: Underlying Index
+nyse_arca_options_feed_pillar_v1_2_f.underlying_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.underlying_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.underlying_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.size = 11
+
+-- Display: Underlying Symbol
+nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Upper Collar
+nyse_arca_options_feed_pillar_v1_2_f.upper_collar = {}
+
+-- Size: Upper Collar
+nyse_arca_options_feed_pillar_v1_2_f.upper_collar.size = 4
+
+-- Display: Upper Collar
+nyse_arca_options_feed_pillar_v1_2_f.upper_collar.display = function(value)
+  return "Upper Collar: "..value
+end
+
+-- Dissect: Upper Collar
+nyse_arca_options_feed_pillar_v1_2_f.upper_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.upper_collar.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.upper_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.upper_collar, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nyse_arca_options_feed_pillar_v1_2_f.volume = {}
+
+-- Size: Volume
+nyse_arca_options_feed_pillar_v1_2_f.volume.size = 4
+
+-- Display: Volume
+nyse_arca_options_feed_pillar_v1_2_f.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nyse_arca_options_feed_pillar_v1_2_f.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Working Price
+nyse_arca_options_feed_pillar_v1_2_f.working_price = {}
+
+-- Size: Working Price
+nyse_arca_options_feed_pillar_v1_2_f.working_price.size = 4
+
+-- Display: Working Price
+nyse_arca_options_feed_pillar_v1_2_f.working_price.display = function(value)
+  return "Working Price: "..value
+end
+
+-- Dissect: Working Price
+nyse_arca_options_feed_pillar_v1_2_f.working_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arca_options_feed_pillar_v1_2_f.working_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arca_options_feed_pillar_v1_2_f.working_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.working_price, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Arca Options Feed Pillar 1.2.f
+-----------------------------------------------------------------------
 
 -- Options Outright Series Summary Message
 nyse_arca_options_feed_pillar_v1_2_f.options_outright_series_summary_message = {}
@@ -583,52 +3282,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_outright_series_summary_message.dis
   end
 end
 
--- Trade Id
-nyse_arca_options_feed_pillar_v1_2_f.trade_id = {}
-
--- Size: Trade Id
-nyse_arca_options_feed_pillar_v1_2_f.trade_id.size = 4
-
--- Display: Trade Id
-nyse_arca_options_feed_pillar_v1_2_f.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-nyse_arca_options_feed_pillar_v1_2_f.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Series Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.series_seq_num = {}
-
--- Size: Series Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.size = 4
-
--- Display: Series Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.display = function(value)
-  return "Series Seq Num: "..value
-end
-
--- Dissect: Series Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.series_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Options Trade Cancel Message
 nyse_arca_options_feed_pillar_v1_2_f.options_trade_cancel_message = {}
 
@@ -679,105 +3332,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_trade_cancel_message.dissect = func
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.options_trade_cancel_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cross Type
-nyse_arca_options_feed_pillar_v1_2_f.cross_type = {}
-
--- Size: Cross Type
-nyse_arca_options_feed_pillar_v1_2_f.cross_type.size = 1
-
--- Display: Cross Type
-nyse_arca_options_feed_pillar_v1_2_f.cross_type.display = function(value)
-  if value == "0" then
-    return "Cross Type: Market Center Opening Auction (0)"
-  end
-  if value == "5" then
-    return "Cross Type: Market Center Reopening Auction (5)"
-  end
-
-  return "Cross Type: Unknown("..value..")"
-end
-
--- Dissect: Cross Type
-nyse_arca_options_feed_pillar_v1_2_f.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.cross_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Volume
-nyse_arca_options_feed_pillar_v1_2_f.volume = {}
-
--- Size: Volume
-nyse_arca_options_feed_pillar_v1_2_f.volume.size = 4
-
--- Display: Volume
-nyse_arca_options_feed_pillar_v1_2_f.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-nyse_arca_options_feed_pillar_v1_2_f.volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-nyse_arca_options_feed_pillar_v1_2_f.price = {}
-
--- Size: Price
-nyse_arca_options_feed_pillar_v1_2_f.price.size = 4
-
--- Display: Price
-nyse_arca_options_feed_pillar_v1_2_f.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-nyse_arca_options_feed_pillar_v1_2_f.price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Id
-nyse_arca_options_feed_pillar_v1_2_f.cross_id = {}
-
--- Size: Cross Id
-nyse_arca_options_feed_pillar_v1_2_f.cross_id.size = 4
-
--- Display: Cross Id
-nyse_arca_options_feed_pillar_v1_2_f.cross_id.display = function(value)
-  return "Cross Id: "..value
-end
-
--- Dissect: Cross Id
-nyse_arca_options_feed_pillar_v1_2_f.cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.cross_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cross_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Cross Trade Message
@@ -842,112 +3396,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_cross_trade_message.dissect = funct
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.options_cross_trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price Type
-nyse_arca_options_feed_pillar_v1_2_f.price_type = {}
-
--- Size: Price Type
-nyse_arca_options_feed_pillar_v1_2_f.price_type.size = 1
-
--- Display: Price Type
-nyse_arca_options_feed_pillar_v1_2_f.price_type.display = function(value)
-  if value == 0 then
-    return "Price Type: Strike Price Is Amount (0)"
-  end
-  if value == 1 then
-    return "Price Type: Strike Price Is Amount (1)"
-  end
-
-  return "Price Type: Unknown("..value..")"
-end
-
--- Dissect: Price Type
-nyse_arca_options_feed_pillar_v1_2_f.price_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.price_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 3
-nyse_arca_options_feed_pillar_v1_2_f.reserved_3 = {}
-
--- Size: Reserved 3
-nyse_arca_options_feed_pillar_v1_2_f.reserved_3.size = 3
-
--- Display: Reserved 3
-nyse_arca_options_feed_pillar_v1_2_f.reserved_3.display = function(value)
-  return "Reserved 3: "..value
-end
-
--- Dissect: Reserved 3
-nyse_arca_options_feed_pillar_v1_2_f.reserved_3.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_3.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Cond 1
-nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1 = {}
-
--- Size: Trade Cond 1
-nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.size = 1
-
--- Display: Trade Cond 1
-nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.display = function(value)
-  return "Trade Cond 1: "..value
-end
-
--- Dissect: Trade Cond 1
-nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.trade_cond_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.trade_cond_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Printable Flag
-nyse_arca_options_feed_pillar_v1_2_f.printable_flag = {}
-
--- Size: Printable Flag
-nyse_arca_options_feed_pillar_v1_2_f.printable_flag.size = 1
-
--- Display: Printable Flag
-nyse_arca_options_feed_pillar_v1_2_f.printable_flag.display = function(value)
-  if value == 0 then
-    return "Printable Flag: Trade Not Included In Total Volume (0)"
-  end
-  if value == 1 then
-    return "Printable Flag: Trade Included In Total Volume (1)"
-  end
-
-  return "Printable Flag: Unknown("..value..")"
-end
-
--- Dissect: Printable Flag
-nyse_arca_options_feed_pillar_v1_2_f.printable_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.printable_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.printable_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.printable_flag, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Non Displayed Trade Message
@@ -1024,239 +3472,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_non_displayed_trade_message.dissect
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.options_non_displayed_trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Rfq Status
-nyse_arca_options_feed_pillar_v1_2_f.rfq_status = {}
-
--- Size: Rfq Status
-nyse_arca_options_feed_pillar_v1_2_f.rfq_status.size = 1
-
--- Display: Rfq Status
-nyse_arca_options_feed_pillar_v1_2_f.rfq_status.display = function(value)
-  if value == "O" then
-    return "Rfq Status: Start (O)"
-  end
-  if value == "Q" then
-    return "Rfq Status: End (Q)"
-  end
-
-  return "Rfq Status: Unknown("..value..")"
-end
-
--- Dissect: Rfq Status
-nyse_arca_options_feed_pillar_v1_2_f.rfq_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.rfq_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.rfq_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.rfq_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Id
-nyse_arca_options_feed_pillar_v1_2_f.auction_id = {}
-
--- Size: Auction Id
-nyse_arca_options_feed_pillar_v1_2_f.auction_id.size = 8
-
--- Display: Auction Id
-nyse_arca_options_feed_pillar_v1_2_f.auction_id.display = function(value)
-  return "Auction Id: "..value
-end
-
--- Dissect: Auction Id
-nyse_arca_options_feed_pillar_v1_2_f.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Participant
-nyse_arca_options_feed_pillar_v1_2_f.participant = {}
-
--- Size: Participant
-nyse_arca_options_feed_pillar_v1_2_f.participant.size = 4
-
--- Display: Participant
-nyse_arca_options_feed_pillar_v1_2_f.participant.display = function(value)
-  return "Participant: "..value
-end
-
--- Dissect: Participant
-nyse_arca_options_feed_pillar_v1_2_f.participant.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.participant.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.participant.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.participant, range, value, display)
-
-  return offset + length, value
-end
-
--- Working Price
-nyse_arca_options_feed_pillar_v1_2_f.working_price = {}
-
--- Size: Working Price
-nyse_arca_options_feed_pillar_v1_2_f.working_price.size = 4
-
--- Display: Working Price
-nyse_arca_options_feed_pillar_v1_2_f.working_price.display = function(value)
-  return "Working Price: "..value
-end
-
--- Dissect: Working Price
-nyse_arca_options_feed_pillar_v1_2_f.working_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.working_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.working_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.working_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Quantity
-nyse_arca_options_feed_pillar_v1_2_f.total_quantity = {}
-
--- Size: Total Quantity
-nyse_arca_options_feed_pillar_v1_2_f.total_quantity.size = 4
-
--- Display: Total Quantity
-nyse_arca_options_feed_pillar_v1_2_f.total_quantity.display = function(value)
-  return "Total Quantity: "..value
-end
-
--- Dissect: Total Quantity
-nyse_arca_options_feed_pillar_v1_2_f.total_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.total_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.total_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Capacity
-nyse_arca_options_feed_pillar_v1_2_f.capacity = {}
-
--- Size: Capacity
-nyse_arca_options_feed_pillar_v1_2_f.capacity.size = 1
-
--- Display: Capacity
-nyse_arca_options_feed_pillar_v1_2_f.capacity.display = function(value)
-  if value == " " then
-    return "Capacity: Not Specified (<whitespace>)"
-  end
-  if value == "0" then
-    return "Capacity: Customer (0)"
-  end
-  if value == "1" then
-    return "Capacity: Firm (1)"
-  end
-  if value == "2" then
-    return "Capacity: Broker Dealer (2)"
-  end
-  if value == "3" then
-    return "Capacity: Market Maker (3)"
-  end
-  if value == "8" then
-    return "Capacity: Professional Customer (8)"
-  end
-
-  return "Capacity: Unknown("..value..")"
-end
-
--- Dissect: Capacity
-nyse_arca_options_feed_pillar_v1_2_f.capacity.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.capacity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Type
-nyse_arca_options_feed_pillar_v1_2_f.type = {}
-
--- Size: Type
-nyse_arca_options_feed_pillar_v1_2_f.type.size = 1
-
--- Display: Type
-nyse_arca_options_feed_pillar_v1_2_f.type.display = function(value)
-  if value == "P" then
-    return "Type: Price Improvement (P)"
-  end
-  if value == "F" then
-    return "Type: Facilitation (F)"
-  end
-  if value == "S" then
-    return "Type: Solicitation (S)"
-  end
-  if value == "B" then
-    return "Type: Bold (B)"
-  end
-  if value == "C" then
-    return "Type: Coa (C)"
-  end
-
-  return "Type: Unknown("..value..")"
-end
-
--- Dissect: Type
-nyse_arca_options_feed_pillar_v1_2_f.type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.type, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-nyse_arca_options_feed_pillar_v1_2_f.side = {}
-
--- Size: Side
-nyse_arca_options_feed_pillar_v1_2_f.side.size = 1
-
--- Display: Side
-nyse_arca_options_feed_pillar_v1_2_f.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-nyse_arca_options_feed_pillar_v1_2_f.side.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.side, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Series Rfq Message
@@ -1339,108 +3554,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_series_rfq_message.dissect = functi
   end
 end
 
--- Cust Indicator
-nyse_arca_options_feed_pillar_v1_2_f.cust_indicator = {}
-
--- Size: Cust Indicator
-nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.size = 1
-
--- Display: Cust Indicator
-nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.display = function(value)
-  if value == "C" then
-    return "Cust Indicator: Customer (C)"
-  end
-  if value == "N" then
-    return "Cust Indicator: Noncustomer (N)"
-  end
-  if value == "D" then
-    return "Cust Indicator: Derived (D)"
-  end
-
-  return "Cust Indicator: Unknown("..value..")"
-end
-
--- Dissect: Cust Indicator
-nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.cust_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.cust_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1
-nyse_arca_options_feed_pillar_v1_2_f.reserved_1 = {}
-
--- Size: Reserved 1
-nyse_arca_options_feed_pillar_v1_2_f.reserved_1.size = 1
-
--- Display: Reserved 1
-nyse_arca_options_feed_pillar_v1_2_f.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-nyse_arca_options_feed_pillar_v1_2_f.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Firm Id
-nyse_arca_options_feed_pillar_v1_2_f.firm_id = {}
-
--- Size: Firm Id
-nyse_arca_options_feed_pillar_v1_2_f.firm_id.size = 5
-
--- Display: Firm Id
-nyse_arca_options_feed_pillar_v1_2_f.firm_id.display = function(value)
-  return "Firm Id: "..value
-end
-
--- Dissect: Firm Id
-nyse_arca_options_feed_pillar_v1_2_f.firm_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.firm_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.firm_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.firm_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-nyse_arca_options_feed_pillar_v1_2_f.order_id = {}
-
--- Size: Order Id
-nyse_arca_options_feed_pillar_v1_2_f.order_id.size = 8
-
--- Display: Order Id
-nyse_arca_options_feed_pillar_v1_2_f.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-nyse_arca_options_feed_pillar_v1_2_f.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Options Add Order Refresh Message
 nyse_arca_options_feed_pillar_v1_2_f.options_add_order_refresh_message = {}
 
@@ -1515,332 +3628,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_add_order_refresh_message.dissect =
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.options_add_order_refresh_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Auction Status
-nyse_arca_options_feed_pillar_v1_2_f.auction_status = {}
-
--- Size: Auction Status
-nyse_arca_options_feed_pillar_v1_2_f.auction_status.size = 1
-
--- Display: Auction Status
-nyse_arca_options_feed_pillar_v1_2_f.auction_status.display = function(value)
-  if value == 0 then
-    return "Auction Status: Will Run As Usual (0)"
-  end
-  if value == 4 then
-    return "Auction Status: Auction Will Not Run Because Legal Width Quote Does Not Exist (4)"
-  end
-  if value == 5 then
-    return "Auction Status: Auction Will Not Run Because Market Maker Quote Is Not Received (5)"
-  end
-
-  return "Auction Status: Unknown("..value..")"
-end
-
--- Dissect: Auction Status
-nyse_arca_options_feed_pillar_v1_2_f.auction_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Lower Collar
-nyse_arca_options_feed_pillar_v1_2_f.lower_collar = {}
-
--- Size: Lower Collar
-nyse_arca_options_feed_pillar_v1_2_f.lower_collar.size = 4
-
--- Display: Lower Collar
-nyse_arca_options_feed_pillar_v1_2_f.lower_collar.display = function(value)
-  return "Lower Collar: "..value
-end
-
--- Dissect: Lower Collar
-nyse_arca_options_feed_pillar_v1_2_f.lower_collar.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.lower_collar.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.lower_collar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lower_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Upper Collar
-nyse_arca_options_feed_pillar_v1_2_f.upper_collar = {}
-
--- Size: Upper Collar
-nyse_arca_options_feed_pillar_v1_2_f.upper_collar.size = 4
-
--- Display: Upper Collar
-nyse_arca_options_feed_pillar_v1_2_f.upper_collar.display = function(value)
-  return "Upper Collar: "..value
-end
-
--- Dissect: Upper Collar
-nyse_arca_options_feed_pillar_v1_2_f.upper_collar.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.upper_collar.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.upper_collar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.upper_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Indicative Match Price
-nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price = {}
-
--- Size: Indicative Match Price
-nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.size = 4
-
--- Display: Indicative Match Price
-nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.display = function(value)
-  return "Indicative Match Price: "..value
-end
-
--- Dissect: Indicative Match Price
-nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.indicative_match_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.indicative_match_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 4
-nyse_arca_options_feed_pillar_v1_2_f.reserved_4 = {}
-
--- Size: Reserved 4
-nyse_arca_options_feed_pillar_v1_2_f.reserved_4.size = 4
-
--- Display: Reserved 4
-nyse_arca_options_feed_pillar_v1_2_f.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-nyse_arca_options_feed_pillar_v1_2_f.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Interest Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price = {}
-
--- Size: Auction Interest Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.size = 4
-
--- Display: Auction Interest Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.display = function(value)
-  return "Auction Interest Clearing Price: "..value
-end
-
--- Dissect: Auction Interest Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_interest_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Continuous Book Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price = {}
-
--- Size: Continuous Book Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.size = 4
-
--- Display: Continuous Book Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.display = function(value)
-  return "Continuous Book Clearing Price: "..value
-end
-
--- Dissect: Continuous Book Clearing Price
-nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.continuous_book_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Side
-nyse_arca_options_feed_pillar_v1_2_f.imbalance_side = {}
-
--- Size: Imbalance Side
-nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.size = 1
-
--- Display: Imbalance Side
-nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.display = function(value)
-  if value == "B" then
-    return "Imbalance Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Imbalance Side: Sell Side (S)"
-  end
-  if value == "-" then
-    return "Imbalance Side: Indicates No Imbalance (-)"
-  end
-
-  return "Imbalance Side: Unknown("..value..")"
-end
-
--- Dissect: Imbalance Side
-nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.imbalance_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.imbalance_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Type
-nyse_arca_options_feed_pillar_v1_2_f.auction_type = {}
-
--- Size: Auction Type
-nyse_arca_options_feed_pillar_v1_2_f.auction_type.size = 1
-
--- Display: Auction Type
-nyse_arca_options_feed_pillar_v1_2_f.auction_type.display = function(value)
-  if value == "m" then
-    return "Auction Type: Core Opening Auction (m)"
-  end
-  if value == "h" then
-    return "Auction Type: Reopening Auction (h)"
-  end
-
-  return "Auction Type: Unknown("..value..")"
-end
-
--- Dissect: Auction Type
-nyse_arca_options_feed_pillar_v1_2_f.auction_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.auction_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.auction_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.auction_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 2
-nyse_arca_options_feed_pillar_v1_2_f.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_arca_options_feed_pillar_v1_2_f.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_arca_options_feed_pillar_v1_2_f.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_arca_options_feed_pillar_v1_2_f.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty = {}
-
--- Size: Market Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.size = 4
-
--- Display: Market Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.display = function(value)
-  return "Market Imbalance Qty: "..value
-end
-
--- Dissect: Market Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.market_imbalance_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty = {}
-
--- Size: Total Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.size = 4
-
--- Display: Total Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.display = function(value)
-  return "Total Imbalance Qty: "..value
-end
-
--- Dissect: Total Imbalance Qty
-nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.total_imbalance_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Paired Qty
-nyse_arca_options_feed_pillar_v1_2_f.paired_qty = {}
-
--- Size: Paired Qty
-nyse_arca_options_feed_pillar_v1_2_f.paired_qty.size = 4
-
--- Display: Paired Qty
-nyse_arca_options_feed_pillar_v1_2_f.paired_qty.display = function(value)
-  return "Paired Qty: "..value
-end
-
--- Dissect: Paired Qty
-nyse_arca_options_feed_pillar_v1_2_f.paired_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.paired_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.paired_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.paired_qty, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Imbalance Message Message
@@ -1945,29 +3732,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_imbalance_message_message.dissect =
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.options_imbalance_message_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- New Order Id
-nyse_arca_options_feed_pillar_v1_2_f.new_order_id = {}
-
--- Size: New Order Id
-nyse_arca_options_feed_pillar_v1_2_f.new_order_id.size = 8
-
--- Display: New Order Id
-nyse_arca_options_feed_pillar_v1_2_f.new_order_id.display = function(value)
-  return "New Order Id: "..value
-end
-
--- Dissect: New Order Id
-nyse_arca_options_feed_pillar_v1_2_f.new_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.new_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.new_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.new_order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Replace Order Message Message
@@ -2154,29 +3918,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_delete_order_message_message.dissec
   end
 end
 
--- Position Change
-nyse_arca_options_feed_pillar_v1_2_f.position_change = {}
-
--- Size: Position Change
-nyse_arca_options_feed_pillar_v1_2_f.position_change.size = 1
-
--- Display: Position Change
-nyse_arca_options_feed_pillar_v1_2_f.position_change.display = function(value)
-  return "Position Change: "..value
-end
-
--- Dissect: Position Change
-nyse_arca_options_feed_pillar_v1_2_f.position_change.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.position_change.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.position_change.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.position_change, range, value, display)
-
-  return offset + length, value
-end
-
 -- Options Modify Order Message
 nyse_arca_options_feed_pillar_v1_2_f.options_modify_order_message = {}
 
@@ -2325,316 +4066,6 @@ nyse_arca_options_feed_pillar_v1_2_f.options_add_order_message.dissect = functio
   end
 end
 
--- Closing Only Indicator
-nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator = {}
-
--- Size: Closing Only Indicator
-nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.size = 1
-
--- Display: Closing Only Indicator
-nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.display = function(value)
-  if value == "0" then
-    return "Closing Only Indicator: Standard Series (0)"
-  end
-  if value == "1" then
-    return "Closing Only Indicator: Call (1)"
-  end
-
-  return "Closing Only Indicator: Unknown("..value..")"
-end
-
--- Dissect: Closing Only Indicator
-nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.closing_only_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.closing_only_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-nyse_arca_options_feed_pillar_v1_2_f.strike_price = {}
-
--- Size: Strike Price
-nyse_arca_options_feed_pillar_v1_2_f.strike_price.size = 10
-
--- Display: Strike Price
-nyse_arca_options_feed_pillar_v1_2_f.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-nyse_arca_options_feed_pillar_v1_2_f.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.strike_price.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Put Or Call
-nyse_arca_options_feed_pillar_v1_2_f.put_or_call = {}
-
--- Size: Put Or Call
-nyse_arca_options_feed_pillar_v1_2_f.put_or_call.size = 1
-
--- Display: Put Or Call
-nyse_arca_options_feed_pillar_v1_2_f.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-
-  return "Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Put Or Call
-nyse_arca_options_feed_pillar_v1_2_f.put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-nyse_arca_options_feed_pillar_v1_2_f.maturity_date = {}
-
--- Size: Maturity Date
-nyse_arca_options_feed_pillar_v1_2_f.maturity_date.size = 6
-
--- Display: Maturity Date
-nyse_arca_options_feed_pillar_v1_2_f.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-nyse_arca_options_feed_pillar_v1_2_f.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Multiplier
-nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier = {}
-
--- Size: Contract Multiplier
-nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.size = 2
-
--- Display: Contract Multiplier
-nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.display = function(value)
-  return "Contract Multiplier: "..value
-end
-
--- Dissect: Contract Multiplier
-nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.contract_multiplier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.contract_multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Scale Code
-nyse_arca_options_feed_pillar_v1_2_f.price_scale_code = {}
-
--- Size: Price Scale Code
-nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.size = 1
-
--- Display: Price Scale Code
-nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.display = function(value)
-  if value == 6 then
-    return "Price Scale Code: Low Priced Securities (6)"
-  end
-  if value == 4 then
-    return "Price Scale Code: Medium Priced Securities (4)"
-  end
-  if value == 3 then
-    return "Price Scale Code: High Priced Securities (3)"
-  end
-
-  return "Price Scale Code: Unknown("..value..")"
-end
-
--- Dissect: Price Scale Code
-nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.price_scale_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_scale_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Index
-nyse_arca_options_feed_pillar_v1_2_f.underlying_index = {}
-
--- Size: Underlying Index
-nyse_arca_options_feed_pillar_v1_2_f.underlying_index.size = 4
-
--- Display: Underlying Index
-nyse_arca_options_feed_pillar_v1_2_f.underlying_index.display = function(value)
-  return "Underlying Index: "..value
-end
-
--- Dissect: Underlying Index
-nyse_arca_options_feed_pillar_v1_2_f.underlying_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.underlying_index.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.underlying_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_index, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.size = 11
-
--- Display: Underlying Symbol
-nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Symbol Root
-nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root = {}
-
--- Size: Option Symbol Root
-nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.size = 6
-
--- Display: Option Symbol Root
-nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.display = function(value)
-  return "Option Symbol Root: "..value
-end
-
--- Dissect: Option Symbol Root
-nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.option_symbol_root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.option_symbol_root, range, value, display)
-
-  return offset + length, value
-end
-
--- System Id
-nyse_arca_options_feed_pillar_v1_2_f.system_id = {}
-
--- Size: System Id
-nyse_arca_options_feed_pillar_v1_2_f.system_id.size = 1
-
--- Display: System Id
-nyse_arca_options_feed_pillar_v1_2_f.system_id.display = function(value)
-  return "System Id: "..value
-end
-
--- Dissect: System Id
-nyse_arca_options_feed_pillar_v1_2_f.system_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.system_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.system_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.system_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Id
-nyse_arca_options_feed_pillar_v1_2_f.market_id = {}
-
--- Size: Market Id
-nyse_arca_options_feed_pillar_v1_2_f.market_id.size = 2
-
--- Display: Market Id
-nyse_arca_options_feed_pillar_v1_2_f.market_id.display = function(value)
-  return "Market Id: "..value
-end
-
--- Dissect: Market Id
-nyse_arca_options_feed_pillar_v1_2_f.market_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.market_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Series Type
-nyse_arca_options_feed_pillar_v1_2_f.series_type = {}
-
--- Size: Series Type
-nyse_arca_options_feed_pillar_v1_2_f.series_type.size = 1
-
--- Display: Series Type
-nyse_arca_options_feed_pillar_v1_2_f.series_type.display = function(value)
-  if value == 0 then
-    return "Series Type: Standard (0)"
-  end
-  if value == 1 then
-    return "Series Type: Flex (1)"
-  end
-  if value == 1 then
-    return "Series Type: Flex Percentage (1)"
-  end
-
-  return "Series Type: Unknown("..value..")"
-end
-
--- Dissect: Series Type
-nyse_arca_options_feed_pillar_v1_2_f.series_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.series_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.series_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.series_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Outright Series Index Mapping
 nyse_arca_options_feed_pillar_v1_2_f.outright_series_index_mapping = {}
 
@@ -2727,98 +4158,6 @@ nyse_arca_options_feed_pillar_v1_2_f.outright_series_index_mapping.dissect = fun
   end
 end
 
--- Last Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num = {}
-
--- Size: Last Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.size = 4
-
--- Display: Last Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.display = function(value)
-  return "Last Symbol Seq Num: "..value
-end
-
--- Dissect: Last Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_symbol_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_seq_num = {}
-
--- Size: Last Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.size = 4
-
--- Display: Last Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Refresh Pkts
-nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts = {}
-
--- Size: Total Refresh Pkts
-nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.size = 2
-
--- Display: Total Refresh Pkts
-nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.display = function(value)
-  return "Total Refresh Pkts: "..value
-end
-
--- Dissect: Total Refresh Pkts
-nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.total_refresh_pkts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.total_refresh_pkts, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Refresh Pkt
-nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt = {}
-
--- Size: Current Refresh Pkt
-nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.size = 2
-
--- Display: Current Refresh Pkt
-nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.display = function(value)
-  return "Current Refresh Pkt: "..value
-end
-
--- Dissect: Current Refresh Pkt
-nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.current_refresh_pkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.current_refresh_pkt, range, value, display)
-
-  return offset + length, value
-end
-
 -- Refresh Header Message
 nyse_arca_options_feed_pillar_v1_2_f.refresh_header_message = {}
 
@@ -2869,484 +4208,6 @@ nyse_arca_options_feed_pillar_v1_2_f.refresh_header_message.dissect = function(b
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.refresh_header_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Session State
-nyse_arca_options_feed_pillar_v1_2_f.session_state = {}
-
--- Size: Session State
-nyse_arca_options_feed_pillar_v1_2_f.session_state.size = 1
-
--- Display: Session State
-nyse_arca_options_feed_pillar_v1_2_f.session_state.display = function(value)
-  return "Session State: "..value
-end
-
--- Dissect: Session State
-nyse_arca_options_feed_pillar_v1_2_f.session_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.session_state.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.session_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.session_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Market State
-nyse_arca_options_feed_pillar_v1_2_f.market_state = {}
-
--- Size: Market State
-nyse_arca_options_feed_pillar_v1_2_f.market_state.size = 1
-
--- Display: Market State
-nyse_arca_options_feed_pillar_v1_2_f.market_state.display = function(value)
-  if value == "P" then
-    return "Market State: Preopening (P)"
-  end
-  if value == "E" then
-    return "Market State: Early Session (E)"
-  end
-  if value == "O" then
-    return "Market State: Core Session (O)"
-  end
-  if value == "L" then
-    return "Market State: Late Session (L)"
-  end
-  if value == "X" then
-    return "Market State: Closed (X)"
-  end
-
-  return "Market State: Unknown("..value..")"
-end
-
--- Dissect: Market State
-nyse_arca_options_feed_pillar_v1_2_f.market_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.market_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.market_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.market_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr State
-nyse_arca_options_feed_pillar_v1_2_f.ssr_state = {}
-
--- Size: Ssr State
-nyse_arca_options_feed_pillar_v1_2_f.ssr_state.size = 1
-
--- Display: Ssr State
-nyse_arca_options_feed_pillar_v1_2_f.ssr_state.display = function(value)
-  if value == "~" then
-    return "Ssr State: No Short Sale Restriction In Effect (~)"
-  end
-  if value == "E" then
-    return "Ssr State: Short Sale Restriction In Effect (E)"
-  end
-
-  return "Ssr State: Unknown("..value..")"
-end
-
--- Dissect: Ssr State
-nyse_arca_options_feed_pillar_v1_2_f.ssr_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.ssr_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.ssr_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Time
-nyse_arca_options_feed_pillar_v1_2_f.time = {}
-
--- Size: Time
-nyse_arca_options_feed_pillar_v1_2_f.time.size = 4
-
--- Display: Time
-nyse_arca_options_feed_pillar_v1_2_f.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-nyse_arca_options_feed_pillar_v1_2_f.time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr Triggering Volume
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume = {}
-
--- Size: Ssr Triggering Volume
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.size = 4
-
--- Display: Ssr Triggering Volume
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.display = function(value)
-  return "Ssr Triggering Volume: "..value
-end
-
--- Dissect: Ssr Triggering Volume
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr Triggering Exchange Id
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id = {}
-
--- Size: Ssr Triggering Exchange Id
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.size = 1
-
--- Display: Ssr Triggering Exchange Id
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.display = function(value)
-  if value == "A" then
-    return "Ssr Triggering Exchange Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Ssr Triggering Exchange Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Ssr Triggering Exchange Id: Finra (D)"
-  end
-  if value == "I" then
-    return "Ssr Triggering Exchange Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Ssr Triggering Exchange Id: Edga (J)"
-  end
-  if value == "K" then
-    return "Ssr Triggering Exchange Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Ssr Triggering Exchange Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Ssr Triggering Exchange Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Ssr Triggering Exchange Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
-  end
-  if value == "S" then
-    return "Ssr Triggering Exchange Id: Cts (S)"
-  end
-  if value == "T" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
-  end
-  if value == "V" then
-    return "Ssr Triggering Exchange Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Ssr Triggering Exchange Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
-  end
-  if value == "Y" then
-    return "Ssr Triggering Exchange Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
-  end
-  if value == "H" then
-    return "Ssr Triggering Exchange Id: Miax (H)"
-  end
-  if value == "U" then
-    return "Ssr Triggering Exchange Id: Memx (U)"
-  end
-
-  return "Ssr Triggering Exchange Id: Unknown("..value..")"
-end
-
--- Dissect: Ssr Triggering Exchange Id
-nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.ssr_triggering_exchange_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 2
-nyse_arca_options_feed_pillar_v1_2_f.price_2 = {}
-
--- Size: Price 2
-nyse_arca_options_feed_pillar_v1_2_f.price_2.size = 4
-
--- Display: Price 2
-nyse_arca_options_feed_pillar_v1_2_f.price_2.display = function(value)
-  return "Price 2: "..value
-end
-
--- Dissect: Price 2
-nyse_arca_options_feed_pillar_v1_2_f.price_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.price_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 1
-nyse_arca_options_feed_pillar_v1_2_f.price_1 = {}
-
--- Size: Price 1
-nyse_arca_options_feed_pillar_v1_2_f.price_1.size = 4
-
--- Display: Price 1
-nyse_arca_options_feed_pillar_v1_2_f.price_1.display = function(value)
-  return "Price 1: "..value
-end
-
--- Dissect: Price 1
-nyse_arca_options_feed_pillar_v1_2_f.price_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.price_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.price_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Halt Condition
-nyse_arca_options_feed_pillar_v1_2_f.halt_condition = {}
-
--- Size: Halt Condition
-nyse_arca_options_feed_pillar_v1_2_f.halt_condition.size = 1
-
--- Display: Halt Condition
-nyse_arca_options_feed_pillar_v1_2_f.halt_condition.display = function(value)
-  if value == "~" then
-    return "Halt Condition: Security Not Delayed Or Halted (~)"
-  end
-  if value == "D" then
-    return "Halt Condition: News Released (D)"
-  end
-  if value == "I" then
-    return "Halt Condition: Order Imbalance (I)"
-  end
-  if value == "P" then
-    return "Halt Condition: News Pending (P)"
-  end
-  if value == "M" then
-    return "Halt Condition: Luld Pause (M)"
-  end
-  if value == "X" then
-    return "Halt Condition: Equipment Changeover (X)"
-  end
-  if value == "A" then
-    return "Halt Condition: Additional Information Requested (A)"
-  end
-  if value == "C" then
-    return "Halt Condition: Regulatory Concern (C)"
-  end
-  if value == "E" then
-    return "Halt Condition: Merger Effective (E)"
-  end
-  if value == "F" then
-    return "Halt Condition: Etf Component Prices Not Available (F)"
-  end
-  if value == "N" then
-    return "Halt Condition: Corporate Action (N)"
-  end
-  if value == "O" then
-    return "Halt Condition: New Security Offering (O)"
-  end
-  if value == "V" then
-    return "Halt Condition: Intraday Indicative Value Not Available (V)"
-  end
-  if value == "1" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
-  end
-  if value == "2" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
-  end
-  if value == "3" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
-  end
-
-  return "Halt Condition: Unknown("..value..")"
-end
-
--- Dissect: Halt Condition
-nyse_arca_options_feed_pillar_v1_2_f.halt_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.halt_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.halt_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.halt_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Status
-nyse_arca_options_feed_pillar_v1_2_f.security_status = {}
-
--- Size: Security Status
-nyse_arca_options_feed_pillar_v1_2_f.security_status.size = 1
-
--- Display: Security Status
-nyse_arca_options_feed_pillar_v1_2_f.security_status.display = function(value)
-  if value == "4" then
-    return "Security Status: Trading Halt (4)"
-  end
-  if value == "5" then
-    return "Security Status: Resume (5)"
-  end
-  if value == "6" then
-    return "Security Status: Suspend (6)"
-  end
-  if value == "A" then
-    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
-  end
-  if value == "C" then
-    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
-  end
-  if value == "D" then
-    return "Security Status: Short Sale Restriction Deactivated (D)"
-  end
-  if value == "P" then
-    return "Security Status: Preopening (P)"
-  end
-  if value == "B" then
-    return "Security Status: Begin Accepting Orders (B)"
-  end
-  if value == "E" then
-    return "Security Status: Early Session (E)"
-  end
-  if value == "O" then
-    return "Security Status: Core Session (O)"
-  end
-  if value == "L" then
-    return "Security Status: Late Session (L)"
-  end
-  if value == "X" then
-    return "Security Status: Closed (X)"
-  end
-  if value == "I" then
-    return "Security Status: Halt Resume Price Indication (I)"
-  end
-  if value == "G" then
-    return "Security Status: Pre Opening Price Indication (G)"
-  end
-
-  return "Security Status: Unknown("..value..")"
-end
-
--- Dissect: Security Status
-nyse_arca_options_feed_pillar_v1_2_f.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.security_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num = {}
-
--- Size: Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.size = 4
-
--- Display: Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.display = function(value)
-  return "Symbol Seq Num: "..value
-end
-
--- Dissect: Symbol Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Index
-nyse_arca_options_feed_pillar_v1_2_f.symbol_index = {}
-
--- Size: Symbol Index
-nyse_arca_options_feed_pillar_v1_2_f.symbol_index.size = 4
-
--- Display: Symbol Index
-nyse_arca_options_feed_pillar_v1_2_f.symbol_index.display = function(value)
-  return "Symbol Index: "..value
-end
-
--- Dissect: Symbol Index
-nyse_arca_options_feed_pillar_v1_2_f.symbol_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.symbol_index.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.symbol_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol_index, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Time
-nyse_arca_options_feed_pillar_v1_2_f.source_time = {}
-
--- Size: Source Time
-nyse_arca_options_feed_pillar_v1_2_f.source_time.size = 4
-
--- Display: Source Time
-nyse_arca_options_feed_pillar_v1_2_f.source_time.display = function(value)
-  return "Source Time: "..value
-end
-
--- Dissect: Source Time
-nyse_arca_options_feed_pillar_v1_2_f.source_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.source_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.source_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Status Message
@@ -3445,29 +4306,6 @@ nyse_arca_options_feed_pillar_v1_2_f.security_status_message.dissect = function(
   end
 end
 
--- Next Source Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num = {}
-
--- Size: Next Source Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.size = 4
-
--- Display: Next Source Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.display = function(value)
-  return "Next Source Seq Num: "..value
-end
-
--- Dissect: Next Source Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.next_source_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.next_source_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Clear Message
 nyse_arca_options_feed_pillar_v1_2_f.symbol_clear_message = {}
 
@@ -3518,98 +4356,6 @@ nyse_arca_options_feed_pillar_v1_2_f.symbol_clear_message.dissect = function(buf
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.symbol_clear_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Channel Id
-nyse_arca_options_feed_pillar_v1_2_f.channel_id = {}
-
--- Size: Channel Id
-nyse_arca_options_feed_pillar_v1_2_f.channel_id.size = 1
-
--- Display: Channel Id
-nyse_arca_options_feed_pillar_v1_2_f.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-nyse_arca_options_feed_pillar_v1_2_f.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-nyse_arca_options_feed_pillar_v1_2_f.product_id = {}
-
--- Size: Product Id
-nyse_arca_options_feed_pillar_v1_2_f.product_id.size = 1
-
--- Display: Product Id
-nyse_arca_options_feed_pillar_v1_2_f.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-nyse_arca_options_feed_pillar_v1_2_f.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.product_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- End Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.end_seq_num = {}
-
--- Size: End Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.size = 4
-
--- Display: End Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
-end
-
--- Dissect: End Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.end_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num = {}
-
--- Size: Begin Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Unavailable Message
@@ -3664,29 +4410,6 @@ nyse_arca_options_feed_pillar_v1_2_f.message_unavailable_message.dissect = funct
   end
 end
 
--- Source Id
-nyse_arca_options_feed_pillar_v1_2_f.source_id = {}
-
--- Size: Source Id
-nyse_arca_options_feed_pillar_v1_2_f.source_id.size = 10
-
--- Display: Source Id
-nyse_arca_options_feed_pillar_v1_2_f.source_id.display = function(value)
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-nyse_arca_options_feed_pillar_v1_2_f.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.source_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.source_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Refresh Request Message
 nyse_arca_options_feed_pillar_v1_2_f.refresh_request_message = {}
 
@@ -3737,29 +4460,6 @@ nyse_arca_options_feed_pillar_v1_2_f.refresh_request_message.dissect = function(
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.refresh_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Retransmit Method
-nyse_arca_options_feed_pillar_v1_2_f.retransmit_method = {}
-
--- Size: Retransmit Method
-nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.size = 1
-
--- Display: Retransmit Method
-nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
-end
-
--- Dissect: Retransmit Method
-nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.retransmit_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.retransmit_method, range, value, display)
-
-  return offset + length, value
 end
 
 -- Symbol Index Mapping Request Message
@@ -3856,83 +4556,6 @@ nyse_arca_options_feed_pillar_v1_2_f.heartbeat_response_message.dissect = functi
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.heartbeat_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Status
-nyse_arca_options_feed_pillar_v1_2_f.status = {}
-
--- Size: Status
-nyse_arca_options_feed_pillar_v1_2_f.status.size = 1
-
--- Display: Status
-nyse_arca_options_feed_pillar_v1_2_f.status.display = function(value)
-  if value == "0" then
-    return "Status: Accepted (0)"
-  end
-  if value == "1" then
-    return "Status: Rejected (1)"
-  end
-  if value == "2" then
-    return "Status: Invalid Sequence Range (2)"
-  end
-  if value == "3" then
-    return "Status: Maximum Sequence Range (3)"
-  end
-  if value == "4" then
-    return "Status: Maximum Request In A Day (4)"
-  end
-  if value == "5" then
-    return "Status: Maximum Refresh Requests In A Day (5)"
-  end
-  if value == "6" then
-    return "Status: Old Seq Num Ttl (6)"
-  end
-  if value == "7" then
-    return "Status: Invalid Channel Id (7)"
-  end
-  if value == "8" then
-    return "Status: Invalid Product Id (8)"
-  end
-  if value == "9" then
-    return "Status: Invalid Msg Type Or Msg Size (9)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-nyse_arca_options_feed_pillar_v1_2_f.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.request_seq_num = {}
-
--- Size: Request Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.size = 4
-
--- Display: Request Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.display = function(value)
-  return "Request Seq Num: "..value
-end
-
--- Dissect: Request Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.request_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.request_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Request Response Message
@@ -4055,304 +4678,6 @@ nyse_arca_options_feed_pillar_v1_2_f.retransmission_request_message.dissect = fu
   end
 end
 
--- Reserved 6
-nyse_arca_options_feed_pillar_v1_2_f.reserved_6 = {}
-
--- Size: Reserved 6
-nyse_arca_options_feed_pillar_v1_2_f.reserved_6.size = 6
-
--- Display: Reserved 6
-nyse_arca_options_feed_pillar_v1_2_f.reserved_6.display = function(value)
-  return "Reserved 6: "..value
-end
-
--- Dissect: Reserved 6
-nyse_arca_options_feed_pillar_v1_2_f.reserved_6.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.reserved_6.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_arca_options_feed_pillar_v1_2_f.reserved_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.reserved_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot
-nyse_arca_options_feed_pillar_v1_2_f.round_lot = {}
-
--- Size: Round Lot
-nyse_arca_options_feed_pillar_v1_2_f.round_lot.size = 1
-
--- Display: Round Lot
-nyse_arca_options_feed_pillar_v1_2_f.round_lot.display = function(value)
-  if value == "Y" then
-    return "Round Lot: Yes (Y)"
-  end
-  if value == "N" then
-    return "Round Lot: No (N)"
-  end
-
-  return "Round Lot: Unknown("..value..")"
-end
-
--- Dissect: Round Lot
-nyse_arca_options_feed_pillar_v1_2_f.round_lot.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.round_lot.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.round_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.round_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Resolution
-nyse_arca_options_feed_pillar_v1_2_f.price_resolution = {}
-
--- Size: Price Resolution
-nyse_arca_options_feed_pillar_v1_2_f.price_resolution.size = 1
-
--- Display: Price Resolution
-nyse_arca_options_feed_pillar_v1_2_f.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
-
-  return "Price Resolution: Unknown("..value..")"
-end
-
--- Dissect: Price Resolution
-nyse_arca_options_feed_pillar_v1_2_f.price_resolution.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.price_resolution.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.price_resolution.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.price_resolution, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Close Volume
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume = {}
-
--- Size: Prev Close Volume
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.size = 4
-
--- Display: Prev Close Volume
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.display = function(value)
-  return "Prev Close Volume: "..value
-end
-
--- Dissect: Prev Close Volume
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.prev_close_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Close Price
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_price = {}
-
--- Size: Prev Close Price
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.size = 4
-
--- Display: Prev Close Price
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.display = function(value)
-  return "Prev Close Price: "..value
-end
-
--- Dissect: Prev Close Price
-nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.prev_close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.prev_close_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size
-nyse_arca_options_feed_pillar_v1_2_f.lot_size = {}
-
--- Size: Lot Size
-nyse_arca_options_feed_pillar_v1_2_f.lot_size.size = 2
-
--- Display: Lot Size
-nyse_arca_options_feed_pillar_v1_2_f.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-nyse_arca_options_feed_pillar_v1_2_f.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type
-nyse_arca_options_feed_pillar_v1_2_f.security_type = {}
-
--- Size: Security Type
-nyse_arca_options_feed_pillar_v1_2_f.security_type.size = 1
-
--- Display: Security Type
-nyse_arca_options_feed_pillar_v1_2_f.security_type.display = function(value)
-  if value == "A" then
-    return "Security Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Security Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Security Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Security Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Security Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Security Type: Us Depositary Shares (H)"
-  end
-  if value == "I" then
-    return "Security Type: Units (I)"
-  end
-  if value == "L" then
-    return "Security Type: Index Linked Notes (L)"
-  end
-  if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
-  end
-  if value == "O" then
-    return "Security Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Security Type: Preferred Stock (P)"
-  end
-  if value == "R" then
-    return "Security Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Security Type: Test (T)"
-  end
-  if value == "U" then
-    return "Security Type: Closed End Fund (U)"
-  end
-  if value == "W" then
-    return "Security Type: Warrant (W)"
-  end
-
-  return "Security Type: Unknown("..value..")"
-end
-
--- Dissect: Security Type
-nyse_arca_options_feed_pillar_v1_2_f.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.security_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange Code
-nyse_arca_options_feed_pillar_v1_2_f.exchange_code = {}
-
--- Size: Exchange Code
-nyse_arca_options_feed_pillar_v1_2_f.exchange_code.size = 1
-
--- Display: Exchange Code
-nyse_arca_options_feed_pillar_v1_2_f.exchange_code.display = function(value)
-  if value == "A" then
-    return "Exchange Code: Nyse American (A)"
-  end
-  if value == "L" then
-    return "Exchange Code: Ltse (L)"
-  end
-  if value == "N" then
-    return "Exchange Code: Nyse (N)"
-  end
-  if value == "P" then
-    return "Exchange Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Exchange Code: Nasdaq (Q)"
-  end
-  if value == "V" then
-    return "Exchange Code: Iex (V)"
-  end
-  if value == "Z" then
-    return "Exchange Code: Cboe (Z)"
-  end
-  if value == " " then
-    return "Exchange Code: Otc Or Indexed Product (<whitespace>)"
-  end
-
-  return "Exchange Code: Unknown("..value..")"
-end
-
--- Dissect: Exchange Code
-nyse_arca_options_feed_pillar_v1_2_f.exchange_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.exchange_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.exchange_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.exchange_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-nyse_arca_options_feed_pillar_v1_2_f.symbol = {}
-
--- Size: Symbol
-nyse_arca_options_feed_pillar_v1_2_f.symbol.size = 11
-
--- Display: Symbol
-nyse_arca_options_feed_pillar_v1_2_f.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-nyse_arca_options_feed_pillar_v1_2_f.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Index Mapping Message
 nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_message = {}
 
@@ -4443,29 +4768,6 @@ nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_message.dissect = func
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Id
-nyse_arca_options_feed_pillar_v1_2_f.id = {}
-
--- Size: Id
-nyse_arca_options_feed_pillar_v1_2_f.id.size = 4
-
--- Display: Id
-nyse_arca_options_feed_pillar_v1_2_f.id.display = function(value)
-  return "Id: "..value
-end
-
--- Dissect: Id
-nyse_arca_options_feed_pillar_v1_2_f.id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Time Reference Message
@@ -4681,131 +4983,6 @@ nyse_arca_options_feed_pillar_v1_2_f.payload.dissect = function(buffer, offset, 
   return offset
 end
 
--- Message Type
-nyse_arca_options_feed_pillar_v1_2_f.message_type = {}
-
--- Size: Message Type
-nyse_arca_options_feed_pillar_v1_2_f.message_type.size = 2
-
--- Display: Message Type
-nyse_arca_options_feed_pillar_v1_2_f.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 50 then
-    return "Message Type: Outright Series Index Mapping (50)"
-  end
-  if value == 51 then
-    return "Message Type: Outright Series Index Mapping (51)"
-  end
-  if value == 300 then
-    return "Message Type: Options Add Order Message (300)"
-  end
-  if value == 301 then
-    return "Message Type: Options Modify Order Message (301)"
-  end
-  if value == 302 then
-    return "Message Type: Options Delete Order Message Message (302)"
-  end
-  if value == 303 then
-    return "Message Type: Options Order Execution Message Message (303)"
-  end
-  if value == 304 then
-    return "Message Type: Options Replace Order Message Message (304)"
-  end
-  if value == 305 then
-    return "Message Type: Options Imbalance Message Message (305)"
-  end
-  if value == 306 then
-    return "Message Type: Options Add Order Refresh Message (306)"
-  end
-  if value == 307 then
-    return "Message Type: Options Series Rfq Message (307)"
-  end
-  if value == 310 then
-    return "Message Type: Options Non Displayed Trade Message (310)"
-  end
-  if value == 311 then
-    return "Message Type: Options Cross Trade Message (311)"
-  end
-  if value == 312 then
-    return "Message Type: Options Trade Cancel Message (312)"
-  end
-  if value == 323 then
-    return "Message Type: Options Outright Series Summary Message (323)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nyse_arca_options_feed_pillar_v1_2_f.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Size
-nyse_arca_options_feed_pillar_v1_2_f.message_size = {}
-
--- Size: Message Size
-nyse_arca_options_feed_pillar_v1_2_f.message_size.size = 2
-
--- Display: Message Size
-nyse_arca_options_feed_pillar_v1_2_f.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-nyse_arca_options_feed_pillar_v1_2_f.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 nyse_arca_options_feed_pillar_v1_2_f.message_header = {}
 
@@ -4901,52 +5078,6 @@ nyse_arca_options_feed_pillar_v1_2_f.message.dissect = function(buffer, offset, 
   end
 end
 
--- Nanoseconds
-nyse_arca_options_feed_pillar_v1_2_f.nanoseconds = {}
-
--- Size: Nanoseconds
-nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.size = 4
-
--- Display: Nanoseconds
-nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Seconds
-nyse_arca_options_feed_pillar_v1_2_f.seconds = {}
-
--- Size: Seconds
-nyse_arca_options_feed_pillar_v1_2_f.seconds.size = 4
-
--- Display: Seconds
-nyse_arca_options_feed_pillar_v1_2_f.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-nyse_arca_options_feed_pillar_v1_2_f.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.seconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Send Time
 nyse_arca_options_feed_pillar_v1_2_f.send_time = {}
 
@@ -5002,132 +5133,6 @@ nyse_arca_options_feed_pillar_v1_2_f.send_time.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return nyse_arca_options_feed_pillar_v1_2_f.send_time.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.seq_num = {}
-
--- Size: Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.seq_num.size = 4
-
--- Display: Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-nyse_arca_options_feed_pillar_v1_2_f.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Msgs
-nyse_arca_options_feed_pillar_v1_2_f.number_msgs = {}
-
--- Size: Number Msgs
-nyse_arca_options_feed_pillar_v1_2_f.number_msgs.size = 1
-
--- Display: Number Msgs
-nyse_arca_options_feed_pillar_v1_2_f.number_msgs.display = function(value)
-  return "Number Msgs: "..value
-end
-
--- Dissect: Number Msgs
-nyse_arca_options_feed_pillar_v1_2_f.number_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.number_msgs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.number_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.number_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Flag
-nyse_arca_options_feed_pillar_v1_2_f.delivery_flag = {}
-
--- Size: Delivery Flag
-nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.size = 1
-
--- Display: Delivery Flag
-nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
-
-  return "Delivery Flag: Unknown("..value..")"
-end
-
--- Dissect: Delivery Flag
-nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.delivery_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.delivery_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Pkt Size
-nyse_arca_options_feed_pillar_v1_2_f.pkt_size = {}
-
--- Size: Pkt Size
-nyse_arca_options_feed_pillar_v1_2_f.pkt_size.size = 2
-
--- Display: Pkt Size
-nyse_arca_options_feed_pillar_v1_2_f.pkt_size.display = function(value)
-  return "Pkt Size: "..value
-end
-
--- Dissect: Pkt Size
-nyse_arca_options_feed_pillar_v1_2_f.pkt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arca_options_feed_pillar_v1_2_f.pkt_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arca_options_feed_pillar_v1_2_f.pkt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arca_options_feed_pillar_v1_2_f.fields.pkt_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

@@ -389,110 +389,1318 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq Utdf Output Utp 1.5
+-- Nasdaq Utdf Output Utp 1.5 Fields
 -----------------------------------------------------------------------
 
--- Participant Token
-nasdaq_utdf_output_utp_v1_5.participant_token = {}
+-- Action Timestamp
+nasdaq_utdf_output_utp_v1_5.action_timestamp = {}
 
--- Size: Participant Token
-nasdaq_utdf_output_utp_v1_5.participant_token.size = 8
+-- Size: Action Timestamp
+nasdaq_utdf_output_utp_v1_5.action_timestamp.size = 8
 
--- Display: Participant Token
-nasdaq_utdf_output_utp_v1_5.participant_token.display = function(value)
-  return "Participant Token: "..value
+-- Display: Action Timestamp
+nasdaq_utdf_output_utp_v1_5.action_timestamp.display = function(value)
+  return "Action Timestamp: "..value
 end
 
--- Dissect: Participant Token
-nasdaq_utdf_output_utp_v1_5.participant_token.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.participant_token.size
+-- Dissect: Action Timestamp
+nasdaq_utdf_output_utp_v1_5.action_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.action_timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.participant_token.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utdf_output_utp_v1_5.action_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_token, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp, range, value, display)
 
   return offset + length, value
 end
 
--- Participant Timestamp
-nasdaq_utdf_output_utp_v1_5.participant_timestamp = {}
+-- Administrative Message Type
+nasdaq_utdf_output_utp_v1_5.administrative_message_type = {}
 
--- Size: Participant Timestamp
-nasdaq_utdf_output_utp_v1_5.participant_timestamp.size = 8
+-- Size: Administrative Message Type
+nasdaq_utdf_output_utp_v1_5.administrative_message_type.size = 1
 
--- Display: Participant Timestamp
-nasdaq_utdf_output_utp_v1_5.participant_timestamp.display = function(value)
-  return "Participant Timestamp: "..value
-end
-
--- Dissect: Participant Timestamp
-nasdaq_utdf_output_utp_v1_5.participant_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.participant_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.participant_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Sip Timestamp
-nasdaq_utdf_output_utp_v1_5.sip_timestamp = {}
-
--- Size: Sip Timestamp
-nasdaq_utdf_output_utp_v1_5.sip_timestamp.size = 8
-
--- Display: Sip Timestamp
-nasdaq_utdf_output_utp_v1_5.sip_timestamp.display = function(value)
-  return "Sip Timestamp: "..value
-end
-
--- Dissect: Sip Timestamp
-nasdaq_utdf_output_utp_v1_5.sip_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.sip_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.sip_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Sub Market Center Id
-nasdaq_utdf_output_utp_v1_5.sub_market_center_id = {}
-
--- Size: Sub Market Center Id
-nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size = 1
-
--- Display: Sub Market Center Id
-nasdaq_utdf_output_utp_v1_5.sub_market_center_id.display = function(value)
-  if value == "N" then
-    return "Sub Market Center Id: Nyse Trf (N)"
+-- Display: Administrative Message Type
+nasdaq_utdf_output_utp_v1_5.administrative_message_type.display = function(value)
+  if value == "A" then
+    return "Administrative Message Type: General Administrative Message (A)"
   end
-  if value == "Q" then
-    return "Sub Market Center Id: Nasdaq Trf Carteret (Q)"
+  if value == "H" then
+    return "Administrative Message Type: Cross Sro Trading Action Message (H)"
+  end
+  if value == "H" then
+    return "Administrative Message Type: Market Center Trading Action Message (H)"
   end
   if value == "B" then
-    return "Sub Market Center Id: Nasdaq Trf Chicago (B)"
+    return "Administrative Message Type: Issue Symbol Directory Message (B)"
   end
-  if value == " " then
-    return "Sub Market Center Id: Finra Alternative Display Facility (<whitespace>)"
+  if value == "V" then
+    return "Administrative Message Type: Regulation Sho Short Sale Price Test Restricted Indicator Message (V)"
+  end
+  if value == "P" then
+    return "Administrative Message Type: Limit Up Limit Down Price Band Message (P)"
+  end
+  if value == "C" then
+    return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (C)"
+  end
+  if value == "D" then
+    return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (D)"
+  end
+  if value == "E" then
+    return "Administrative Message Type: Auction Collar Message (E)"
+  end
+  if value == "Z" then
+    return "Administrative Message Type: Closing Trade Summary Report Message (Z)"
   end
 
-  return "Sub Market Center Id: Unknown("..value..")"
+  return "Administrative Message Type: Unknown("..value..")"
 end
 
--- Dissect: Sub Market Center Id
-nasdaq_utdf_output_utp_v1_5.sub_market_center_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size
+-- Dissect: Administrative Message Type
+nasdaq_utdf_output_utp_v1_5.administrative_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.administrative_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.sub_market_center_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utdf_output_utp_v1_5.administrative_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sub_market_center_id, range, value, display)
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- As Of Action
+nasdaq_utdf_output_utp_v1_5.as_of_action = {}
+
+-- Size: As Of Action
+nasdaq_utdf_output_utp_v1_5.as_of_action.size = 1
+
+-- Display: As Of Action
+nasdaq_utdf_output_utp_v1_5.as_of_action.display = function(value)
+  if value == "A" then
+    return "As Of Action: Trade Addition (A)"
+  end
+  if value == "C" then
+    return "As Of Action: Trade Cancel (C)"
+  end
+
+  return "As Of Action: Unknown("..value..")"
+end
+
+-- Dissect: As Of Action
+nasdaq_utdf_output_utp_v1_5.as_of_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.as_of_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.as_of_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.as_of_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Authenticity
+nasdaq_utdf_output_utp_v1_5.authenticity = {}
+
+-- Size: Authenticity
+nasdaq_utdf_output_utp_v1_5.authenticity.size = 1
+
+-- Display: Authenticity
+nasdaq_utdf_output_utp_v1_5.authenticity.display = function(value)
+  if value == "P" then
+    return "Authenticity: Production (P)"
+  end
+  if value == "T" then
+    return "Authenticity: Test (T)"
+  end
+  if value == "D" then
+    return "Authenticity: Demo (D)"
+  end
+  if value == "X" then
+    return "Authenticity: Deleted (X)"
+  end
+
+  return "Authenticity: Unknown("..value..")"
+end
+
+-- Dissect: Authenticity
+nasdaq_utdf_output_utp_v1_5.authenticity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.authenticity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.authenticity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.authenticity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Collar Down Price
+nasdaq_utdf_output_utp_v1_5.collar_down_price = {}
+
+-- Size: Collar Down Price
+nasdaq_utdf_output_utp_v1_5.collar_down_price.size = 8
+
+-- Display: Collar Down Price
+nasdaq_utdf_output_utp_v1_5.collar_down_price.display = function(value)
+  return "Collar Down Price: "..value
+end
+
+-- Translate: Collar Down Price
+nasdaq_utdf_output_utp_v1_5.collar_down_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Collar Down Price
+nasdaq_utdf_output_utp_v1_5.collar_down_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.collar_down_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.collar_down_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.collar_down_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Collar Extension Indicator
+nasdaq_utdf_output_utp_v1_5.collar_extension_indicator = {}
+
+-- Size: Collar Extension Indicator
+nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.size = 1
+
+-- Display: Collar Extension Indicator
+nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.display = function(value)
+  return "Collar Extension Indicator: "..value
+end
+
+-- Dissect: Collar Extension Indicator
+nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Collar Reference Price
+nasdaq_utdf_output_utp_v1_5.collar_reference_price = {}
+
+-- Size: Collar Reference Price
+nasdaq_utdf_output_utp_v1_5.collar_reference_price.size = 8
+
+-- Display: Collar Reference Price
+nasdaq_utdf_output_utp_v1_5.collar_reference_price.display = function(value)
+  return "Collar Reference Price: "..value
+end
+
+-- Translate: Collar Reference Price
+nasdaq_utdf_output_utp_v1_5.collar_reference_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Collar Reference Price
+nasdaq_utdf_output_utp_v1_5.collar_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.collar_reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.collar_reference_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.collar_reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Collar Up Price
+nasdaq_utdf_output_utp_v1_5.collar_up_price = {}
+
+-- Size: Collar Up Price
+nasdaq_utdf_output_utp_v1_5.collar_up_price.size = 8
+
+-- Display: Collar Up Price
+nasdaq_utdf_output_utp_v1_5.collar_up_price.display = function(value)
+  return "Collar Up Price: "..value
+end
+
+-- Translate: Collar Up Price
+nasdaq_utdf_output_utp_v1_5.collar_up_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Collar Up Price
+nasdaq_utdf_output_utp_v1_5.collar_up_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.collar_up_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.collar_up_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.collar_up_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.consolidated_high_price = {}
+
+-- Size: Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.consolidated_high_price.size = 8
+
+-- Display: Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.consolidated_high_price.display = function(value)
+  return "Consolidated High Price: "..value
+end
+
+-- Translate: Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.consolidated_high_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.consolidated_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Last Price
+nasdaq_utdf_output_utp_v1_5.consolidated_last_price = {}
+
+-- Size: Consolidated Last Price
+nasdaq_utdf_output_utp_v1_5.consolidated_last_price.size = 8
+
+-- Display: Consolidated Last Price
+nasdaq_utdf_output_utp_v1_5.consolidated_last_price.display = function(value)
+  return "Consolidated Last Price: "..value
+end
+
+-- Translate: Consolidated Last Price
+nasdaq_utdf_output_utp_v1_5.consolidated_last_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Consolidated Last Price
+nasdaq_utdf_output_utp_v1_5.consolidated_last_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.consolidated_low_price = {}
+
+-- Size: Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.consolidated_low_price.size = 8
+
+-- Display: Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.consolidated_low_price.display = function(value)
+  return "Consolidated Low Price: "..value
+end
+
+-- Translate: Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.consolidated_low_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.consolidated_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator = {}
+
+-- Size: Consolidated Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.size = 1
+
+-- Display: Consolidated Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.display = function(value)
+  if value == "0" then
+    return "Consolidated Price Change Indicator: No Prices Changed (0)"
+  end
+  if value == "1" then
+    return "Consolidated Price Change Indicator: Consolidated Last Price Changed (1)"
+  end
+  if value == "2" then
+    return "Consolidated Price Change Indicator: Consolidated Low Price Changed (2)"
+  end
+  if value == "3" then
+    return "Consolidated Price Change Indicator: Consolidated Last And Consolidated Low Prices Changed (3)"
+  end
+  if value == "4" then
+    return "Consolidated Price Change Indicator: Consolidated High Price Changed (4)"
+  end
+  if value == "5" then
+    return "Consolidated Price Change Indicator: Consolidated Last And Consolidated High Prices Changed (5)"
+  end
+  if value == "6" then
+    return "Consolidated Price Change Indicator: Consolidated High And Consolidated Low Prices Changed (6)"
+  end
+  if value == "7" then
+    return "Consolidated Price Change Indicator: All Consolidated Prices Changed (7)"
+  end
+
+  return "Consolidated Price Change Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Consolidated Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.consolidated_volume = {}
+
+-- Size: Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.consolidated_volume.size = 8
+
+-- Display: Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.consolidated_volume.display = function(value)
+  return "Consolidated Volume: "..value
+end
+
+-- Dissect: Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.consolidated_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.consolidated_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.consolidated_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Control Message Type
+nasdaq_utdf_output_utp_v1_5.control_message_type = {}
+
+-- Size: Control Message Type
+nasdaq_utdf_output_utp_v1_5.control_message_type.size = 1
+
+-- Display: Control Message Type
+nasdaq_utdf_output_utp_v1_5.control_message_type.display = function(value)
+  if value == "I" then
+    return "Control Message Type: Start Of Day Message (I)"
+  end
+  if value == "J" then
+    return "Control Message Type: End Of Day Message (J)"
+  end
+  if value == "O" then
+    return "Control Message Type: Market Session Open Message (O)"
+  end
+  if value == "C" then
+    return "Control Message Type: Market Session Close Message (C)"
+  end
+  if value == "Z" then
+    return "Control Message Type: End Of Transmissions Message (Z)"
+  end
+  if value == "X" then
+    return "Control Message Type: End Of Trade Reporting Message (X)"
+  end
+  if value == "S" then
+    return "Control Message Type: End Of Consolidated Last Sale Eligibility (S)"
+  end
+
+  return "Control Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Control Message Type
+nasdaq_utdf_output_utp_v1_5.control_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.control_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.control_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.control_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days = {}
+
+-- Size: Corrected Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.size = 2
+
+-- Display: Corrected Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.display = function(value)
+  return "Corrected Sellers Sale Days: "..value
+end
+
+-- Dissect: Corrected Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Trade Id
+nasdaq_utdf_output_utp_v1_5.corrected_trade_id = {}
+
+-- Size: Corrected Trade Id
+nasdaq_utdf_output_utp_v1_5.corrected_trade_id.size = 8
+
+-- Display: Corrected Trade Id
+nasdaq_utdf_output_utp_v1_5.corrected_trade_id.display = function(value)
+  return "Corrected Trade Id: "..value
+end
+
+-- Dissect: Corrected Trade Id
+nasdaq_utdf_output_utp_v1_5.corrected_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Trade Price
+nasdaq_utdf_output_utp_v1_5.corrected_trade_price = {}
+
+-- Size: Corrected Trade Price
+nasdaq_utdf_output_utp_v1_5.corrected_trade_price.size = 8
+
+-- Display: Corrected Trade Price
+nasdaq_utdf_output_utp_v1_5.corrected_trade_price.display = function(value)
+  return "Corrected Trade Price: "..value
+end
+
+-- Translate: Corrected Trade Price
+nasdaq_utdf_output_utp_v1_5.corrected_trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Corrected Trade Price
+nasdaq_utdf_output_utp_v1_5.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag = {}
+
+-- Size: Corrected Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.size = 1
+
+-- Display: Corrected Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.display = function(value)
+  return "Corrected Trade Through Exempt Flag: "..value
+end
+
+-- Dissect: Corrected Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Volume
+nasdaq_utdf_output_utp_v1_5.corrected_volume = {}
+
+-- Size: Corrected Volume
+nasdaq_utdf_output_utp_v1_5.corrected_volume.size = 4
+
+-- Display: Corrected Volume
+nasdaq_utdf_output_utp_v1_5.corrected_volume.display = function(value)
+  return "Corrected Volume: "..value
+end
+
+-- Dissect: Corrected Volume
+nasdaq_utdf_output_utp_v1_5.corrected_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.corrected_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.corrected_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+nasdaq_utdf_output_utp_v1_5.count = {}
+
+-- Size: Count
+nasdaq_utdf_output_utp_v1_5.count.size = 2
+
+-- Display: Count
+nasdaq_utdf_output_utp_v1_5.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+nasdaq_utdf_output_utp_v1_5.count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Market Center Volume
+nasdaq_utdf_output_utp_v1_5.current_market_center_volume = {}
+
+-- Size: Current Market Center Volume
+nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size = 8
+
+-- Display: Current Market Center Volume
+nasdaq_utdf_output_utp_v1_5.current_market_center_volume.display = function(value)
+  return "Current Market Center Volume: "..value
+end
+
+-- Dissect: Current Market Center Volume
+nasdaq_utdf_output_utp_v1_5.current_market_center_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.current_market_center_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Daily Consolidated Closing Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price = {}
+
+-- Size: Daily Consolidated Closing Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.size = 8
+
+-- Display: Daily Consolidated Closing Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.display = function(value)
+  return "Daily Consolidated Closing Price: "..value
+end
+
+-- Translate: Daily Consolidated Closing Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Daily Consolidated Closing Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Daily Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price = {}
+
+-- Size: Daily Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.size = 8
+
+-- Display: Daily Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.display = function(value)
+  return "Daily Consolidated High Price: "..value
+end
+
+-- Translate: Daily Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Daily Consolidated High Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Daily Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price = {}
+
+-- Size: Daily Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.size = 8
+
+-- Display: Daily Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.display = function(value)
+  return "Daily Consolidated Low Price: "..value
+end
+
+-- Translate: Daily Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Daily Consolidated Low Price
+nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Status Indicator
+nasdaq_utdf_output_utp_v1_5.financial_status_indicator = {}
+
+-- Size: Financial Status Indicator
+nasdaq_utdf_output_utp_v1_5.financial_status_indicator.size = 1
+
+-- Display: Financial Status Indicator
+nasdaq_utdf_output_utp_v1_5.financial_status_indicator.display = function(value)
+  if value == "C" then
+    return "Financial Status Indicator: Creations And Or Redemptions Suspended (C)"
+  end
+  if value == "D" then
+    return "Financial Status Indicator: Deficient (D)"
+  end
+  if value == "E" then
+    return "Financial Status Indicator: Delinquent (E)"
+  end
+  if value == "Q" then
+    return "Financial Status Indicator: Bankrupt (Q)"
+  end
+  if value == "Q" then
+    return "Financial Status Indicator: Normal (Q)"
+  end
+  if value == "G" then
+    return "Financial Status Indicator: Normal (G)"
+  end
+  if value == "H" then
+    return "Financial Status Indicator: Deficient And Delinquent (H)"
+  end
+  if value == "J" then
+    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
+  end
+  if value == "K" then
+    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
+  end
+
+  return "Financial Status Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Financial Status Indicator
+nasdaq_utdf_output_utp_v1_5.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.financial_status_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.financial_status_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.financial_status_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Finra Timestamp
+nasdaq_utdf_output_utp_v1_5.finra_timestamp = {}
+
+-- Size: Finra Timestamp
+nasdaq_utdf_output_utp_v1_5.finra_timestamp.size = 8
+
+-- Display: Finra Timestamp
+nasdaq_utdf_output_utp_v1_5.finra_timestamp.display = function(value)
+  return "Finra Timestamp: "..value
+end
+
+-- Dissect: Finra Timestamp
+nasdaq_utdf_output_utp_v1_5.finra_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.finra_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.finra_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue Name
+nasdaq_utdf_output_utp_v1_5.issue_name = {}
+
+-- Size: Issue Name
+nasdaq_utdf_output_utp_v1_5.issue_name.size = 30
+
+-- Display: Issue Name
+nasdaq_utdf_output_utp_v1_5.issue_name.display = function(value)
+  return "Issue Name: "..value
+end
+
+-- Dissect: Issue Name
+nasdaq_utdf_output_utp_v1_5.issue_name.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.issue_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.issue_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue Subtype
+nasdaq_utdf_output_utp_v1_5.issue_subtype = {}
+
+-- Size: Issue Subtype
+nasdaq_utdf_output_utp_v1_5.issue_subtype.size = 2
+
+-- Display: Issue Subtype
+nasdaq_utdf_output_utp_v1_5.issue_subtype.display = function(value)
+  return "Issue Subtype: "..value
+end
+
+-- Dissect: Issue Subtype
+nasdaq_utdf_output_utp_v1_5.issue_subtype.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.issue_subtype.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.issue_subtype.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_subtype, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue Type
+nasdaq_utdf_output_utp_v1_5.issue_type = {}
+
+-- Size: Issue Type
+nasdaq_utdf_output_utp_v1_5.issue_type.size = 1
+
+-- Display: Issue Type
+nasdaq_utdf_output_utp_v1_5.issue_type.display = function(value)
+  if value == "A" then
+    return "Issue Type: American Depository Receipt (A)"
+  end
+  if value == "B" then
+    return "Issue Type: Bond (B)"
+  end
+  if value == "C" then
+    return "Issue Type: Common Stock (C)"
+  end
+  if value == "F" then
+    return "Issue Type: Depository Receipt (F)"
+  end
+  if value == "I" then
+    return "Issue Type: Rule 144a (I)"
+  end
+  if value == "L" then
+    return "Issue Type: Limited Partnership (L)"
+  end
+  if value == "N" then
+    return "Issue Type: Note (N)"
+  end
+  if value == "O" then
+    return "Issue Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Issue Type: Preferred Stock (P)"
+  end
+  if value == "Q" then
+    return "Issue Type: Other Securities (Q)"
+  end
+  if value == "R" then
+    return "Issue Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Issue Type: Shares Of Beneficial Interest (S)"
+  end
+  if value == "T" then
+    return "Issue Type: Convertible Debenture (T)"
+  end
+  if value == "U" then
+    return "Issue Type: Unit (U)"
+  end
+  if value == "V" then
+    return "Issue Type: Units Of Beneficial Interest (V)"
+  end
+  if value == "W" then
+    return "Issue Type: Warrant (W)"
+  end
+
+  return "Issue Type: Unknown("..value..")"
+end
+
+-- Dissect: Issue Type
+nasdaq_utdf_output_utp_v1_5.issue_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.issue_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.issue_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 1
+nasdaq_utdf_output_utp_v1_5.level_1 = {}
+
+-- Size: Level 1
+nasdaq_utdf_output_utp_v1_5.level_1.size = 1
+
+-- Display: Level 1
+nasdaq_utdf_output_utp_v1_5.level_1.display = function(value)
+  if value == "@" then
+    return "Level 1: Regular Trade (@)"
+  end
+  if value == "C" then
+    return "Level 1: Cash (C)"
+  end
+  if value == "N" then
+    return "Level 1: Next Day (N)"
+  end
+  if value == "R" then
+    return "Level 1: Seller (R)"
+  end
+  if value == "Y" then
+    return "Level 1: Yellow Flag (Y)"
+  end
+  if value == " " then
+    return "Level 1: Not Available (<whitespace>)"
+  end
+
+  return "Level 1: Unknown("..value..")"
+end
+
+-- Dissect: Level 1
+nasdaq_utdf_output_utp_v1_5.level_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.level_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 2
+nasdaq_utdf_output_utp_v1_5.level_2 = {}
+
+-- Size: Level 2
+nasdaq_utdf_output_utp_v1_5.level_2.size = 1
+
+-- Display: Level 2
+nasdaq_utdf_output_utp_v1_5.level_2.display = function(value)
+  if value == "F" then
+    return "Level 2: Intermarket Sweep (F)"
+  end
+  if value == "O" then
+    return "Level 2: Opening Prints (O)"
+  end
+  if value == "4" then
+    return "Level 2: Derivatively Priced (4)"
+  end
+  if value == "5" then
+    return "Level 2: Re Opening Prints (5)"
+  end
+  if value == "6" then
+    return "Level 2: Closing Prints (6)"
+  end
+  if value == "7" then
+    return "Level 2: Qualified Contingent Trade (7)"
+  end
+  if value == "8" then
+    return "Level 2: Placeholder For 611 Exempt (8)"
+  end
+  if value == "9" then
+    return "Level 2: Corrected Consolidated Close (9)"
+  end
+  if value == " " then
+    return "Level 2: Not Available (<whitespace>)"
+  end
+
+  return "Level 2: Unknown("..value..")"
+end
+
+-- Dissect: Level 2
+nasdaq_utdf_output_utp_v1_5.level_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.level_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.level_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 3
+nasdaq_utdf_output_utp_v1_5.level_3 = {}
+
+-- Size: Level 3
+nasdaq_utdf_output_utp_v1_5.level_3.size = 1
+
+-- Display: Level 3
+nasdaq_utdf_output_utp_v1_5.level_3.display = function(value)
+  if value == "T" then
+    return "Level 3: Form T (T)"
+  end
+  if value == "L" then
+    return "Level 3: Sold Last (L)"
+  end
+  if value == "Z" then
+    return "Level 3: Sold Out Of Sequence (Z)"
+  end
+  if value == "U" then
+    return "Level 3: Extended Trading Hours (U)"
+  end
+  if value == " " then
+    return "Level 3: Not Available (<whitespace>)"
+  end
+  if value == "1" then
+    return "Level 3: Stopped Stock (1)"
+  end
+  if value == "A" then
+    return "Level 3: Acquisition (A)"
+  end
+  if value == "B" then
+    return "Level 3: Bunched (B)"
+  end
+  if value == "D" then
+    return "Level 3: Distribution (D)"
+  end
+  if value == "E" then
+    return "Level 3: Placeholder Future (E)"
+  end
+  if value == "G" then
+    return "Level 3: Bunched Sold Trade (G)"
+  end
+  if value == "H" then
+    return "Level 3: Price Variation (H)"
+  end
+  if value == "I" then
+    return "Level 3: Odd Lot Trade (I)"
+  end
+  if value == "K" then
+    return "Level 3: Rule 155 (K)"
+  end
+  if value == "M" then
+    return "Level 3: Market Center Official Close Price (M)"
+  end
+  if value == "P" then
+    return "Level 3: Prior Reference Price (P)"
+  end
+  if value == "Q" then
+    return "Level 3: Market Center Official Open Price (Q)"
+  end
+  if value == "S" then
+    return "Level 3: Split Trade (S)"
+  end
+  if value == "V" then
+    return "Level 3: Contingent Trade (V)"
+  end
+  if value == "W" then
+    return "Level 3: Average Price Trade (W)"
+  end
+  if value == "X" then
+    return "Level 3: Cross Trade (X)"
+  end
+
+  return "Level 3: Unknown("..value..")"
+end
+
+-- Dissect: Level 3
+nasdaq_utdf_output_utp_v1_5.level_3.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.level_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.level_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Level 4
+nasdaq_utdf_output_utp_v1_5.level_4 = {}
+
+-- Size: Level 4
+nasdaq_utdf_output_utp_v1_5.level_4.size = 1
+
+-- Display: Level 4
+nasdaq_utdf_output_utp_v1_5.level_4.display = function(value)
+  return "Level 4: "..value
+end
+
+-- Dissect: Level 4
+nasdaq_utdf_output_utp_v1_5.level_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.level_4.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.level_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Down Price
+nasdaq_utdf_output_utp_v1_5.limit_down_price = {}
+
+-- Size: Limit Down Price
+nasdaq_utdf_output_utp_v1_5.limit_down_price.size = 8
+
+-- Display: Limit Down Price
+nasdaq_utdf_output_utp_v1_5.limit_down_price.display = function(value)
+  return "Limit Down Price: "..value
+end
+
+-- Translate: Limit Down Price
+nasdaq_utdf_output_utp_v1_5.limit_down_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Limit Down Price
+nasdaq_utdf_output_utp_v1_5.limit_down_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.limit_down_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.limit_down_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.limit_down_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Up Price
+nasdaq_utdf_output_utp_v1_5.limit_up_price = {}
+
+-- Size: Limit Up Price
+nasdaq_utdf_output_utp_v1_5.limit_up_price.size = 8
+
+-- Display: Limit Up Price
+nasdaq_utdf_output_utp_v1_5.limit_up_price.display = function(value)
+  return "Limit Up Price: "..value
+end
+
+-- Translate: Limit Up Price
+nasdaq_utdf_output_utp_v1_5.limit_up_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Limit Up Price
+nasdaq_utdf_output_utp_v1_5.limit_up_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.limit_up_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.limit_up_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.limit_up_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Luld Price Band Indicator
+nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator = {}
+
+-- Size: Luld Price Band Indicator
+nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.size = 1
+
+-- Display: Luld Price Band Indicator
+nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.display = function(value)
+  if value == "A" then
+    return "Luld Price Band Indicator: Opening Update (A)"
+  end
+  if value == "B" then
+    return "Luld Price Band Indicator: Intra Day Update (B)"
+  end
+  if value == "C" then
+    return "Luld Price Band Indicator: Restated Value (C)"
+  end
+  if value == "D" then
+    return "Luld Price Band Indicator: Suspended During Trading Halt Or Trading Pause (D)"
+  end
+  if value == "E" then
+    return "Luld Price Band Indicator: Re Opening Update (E)"
+  end
+  if value == "F" then
+    return "Luld Price Band Indicator: Outside Price Band Rule Hours (F)"
+  end
+  if value == " " then
+    return "Luld Price Band Indicator: None Provided (<whitespace>)"
+  end
+
+  return "Luld Price Band Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Luld Price Band Indicator
+nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Luld Timestamp
+nasdaq_utdf_output_utp_v1_5.luld_timestamp = {}
+
+-- Size: Luld Timestamp
+nasdaq_utdf_output_utp_v1_5.luld_timestamp.size = 8
+
+-- Display: Luld Timestamp
+nasdaq_utdf_output_utp_v1_5.luld_timestamp.display = function(value)
+  return "Luld Timestamp: "..value
+end
+
+-- Dissect: Luld Timestamp
+nasdaq_utdf_output_utp_v1_5.luld_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.luld_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.luld_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Center Close Indicator
+nasdaq_utdf_output_utp_v1_5.market_center_close_indicator = {}
+
+-- Size: Market Center Close Indicator
+nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size = 1
+
+-- Display: Market Center Close Indicator
+nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.display = function(value)
+  if value == "M" then
+    return "Market Center Close Indicator: Based On M Sale Condition (M)"
+  end
+  if value == " " then
+    return "Market Center Close Indicator: Not Based On M Sale Condition (<whitespace>)"
+  end
+
+  return "Market Center Close Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Market Center Close Indicator
+nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Center Closing Price
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price = {}
+
+-- Size: Market Center Closing Price
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size = 8
+
+-- Display: Market Center Closing Price
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price.display = function(value)
+  return "Market Center Closing Price: "..value
+end
+
+-- Translate: Market Center Closing Price
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Market Center Closing Price
+nasdaq_utdf_output_utp_v1_5.market_center_closing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Center Identifier
+nasdaq_utdf_output_utp_v1_5.market_center_identifier = {}
+
+-- Size: Market Center Identifier
+nasdaq_utdf_output_utp_v1_5.market_center_identifier.size = 1
+
+-- Display: Market Center Identifier
+nasdaq_utdf_output_utp_v1_5.market_center_identifier.display = function(value)
+  return "Market Center Identifier: "..value
+end
+
+-- Dissect: Market Center Identifier
+nasdaq_utdf_output_utp_v1_5.market_center_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_center_identifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.market_center_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -580,6 +1788,1278 @@ nasdaq_utdf_output_utp_v1_5.market_center_originator_id.dissect = function(buffe
 
   return offset + length, value
 end
+
+-- Market Center Volume
+nasdaq_utdf_output_utp_v1_5.market_center_volume = {}
+
+-- Size: Market Center Volume
+nasdaq_utdf_output_utp_v1_5.market_center_volume.size = 8
+
+-- Display: Market Center Volume
+nasdaq_utdf_output_utp_v1_5.market_center_volume.display = function(value)
+  return "Market Center Volume: "..value
+end
+
+-- Dissect: Market Center Volume
+nasdaq_utdf_output_utp_v1_5.market_center_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_center_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.market_center_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant High Price
+nasdaq_utdf_output_utp_v1_5.market_participant_high_price = {}
+
+-- Size: Market Participant High Price
+nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size = 8
+
+-- Display: Market Participant High Price
+nasdaq_utdf_output_utp_v1_5.market_participant_high_price.display = function(value)
+  return "Market Participant High Price: "..value
+end
+
+-- Translate: Market Participant High Price
+nasdaq_utdf_output_utp_v1_5.market_participant_high_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Market Participant High Price
+nasdaq_utdf_output_utp_v1_5.market_participant_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Last Price
+nasdaq_utdf_output_utp_v1_5.market_participant_last_price = {}
+
+-- Size: Market Participant Last Price
+nasdaq_utdf_output_utp_v1_5.market_participant_last_price.size = 8
+
+-- Display: Market Participant Last Price
+nasdaq_utdf_output_utp_v1_5.market_participant_last_price.display = function(value)
+  return "Market Participant Last Price: "..value
+end
+
+-- Translate: Market Participant Last Price
+nasdaq_utdf_output_utp_v1_5.market_participant_last_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Market Participant Last Price
+nasdaq_utdf_output_utp_v1_5.market_participant_last_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Low Price
+nasdaq_utdf_output_utp_v1_5.market_participant_low_price = {}
+
+-- Size: Market Participant Low Price
+nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size = 8
+
+-- Display: Market Participant Low Price
+nasdaq_utdf_output_utp_v1_5.market_participant_low_price.display = function(value)
+  return "Market Participant Low Price: "..value
+end
+
+-- Translate: Market Participant Low Price
+nasdaq_utdf_output_utp_v1_5.market_participant_low_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Market Participant Low Price
+nasdaq_utdf_output_utp_v1_5.market_participant_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Volume
+nasdaq_utdf_output_utp_v1_5.market_participant_volume = {}
+
+-- Size: Market Participant Volume
+nasdaq_utdf_output_utp_v1_5.market_participant_volume.size = 8
+
+-- Display: Market Participant Volume
+nasdaq_utdf_output_utp_v1_5.market_participant_volume.display = function(value)
+  return "Market Participant Volume: "..value
+end
+
+-- Dissect: Market Participant Volume
+nasdaq_utdf_output_utp_v1_5.market_participant_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_participant_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.market_participant_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Tier
+nasdaq_utdf_output_utp_v1_5.market_tier = {}
+
+-- Size: Market Tier
+nasdaq_utdf_output_utp_v1_5.market_tier.size = 1
+
+-- Display: Market Tier
+nasdaq_utdf_output_utp_v1_5.market_tier.display = function(value)
+  if value == "Q" then
+    return "Market Tier: Nasdaq Global Select Market (Q)"
+  end
+  if value == "G" then
+    return "Market Tier: Nasdaq Global Market (G)"
+  end
+  if value == "S" then
+    return "Market Tier: Nasdaq Capital Market (S)"
+  end
+
+  return "Market Tier: Unknown("..value..")"
+end
+
+-- Dissect: Market Tier
+nasdaq_utdf_output_utp_v1_5.market_tier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.market_tier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.market_tier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_tier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Category
+nasdaq_utdf_output_utp_v1_5.message_category = {}
+
+-- Size: Message Category
+nasdaq_utdf_output_utp_v1_5.message_category.size = 1
+
+-- Display: Message Category
+nasdaq_utdf_output_utp_v1_5.message_category.display = function(value)
+  return "Message Category: "..value
+end
+
+-- Dissect: Message Category
+nasdaq_utdf_output_utp_v1_5.message_category.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.message_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.message_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_utdf_output_utp_v1_5.message_length = {}
+
+-- Size: Message Length
+nasdaq_utdf_output_utp_v1_5.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_utdf_output_utp_v1_5.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_utdf_output_utp_v1_5.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 1
+nasdaq_utdf_output_utp_v1_5.mwcb_level_1 = {}
+
+-- Size: Mwcb Level 1
+nasdaq_utdf_output_utp_v1_5.mwcb_level_1.size = 8
+
+-- Display: Mwcb Level 1
+nasdaq_utdf_output_utp_v1_5.mwcb_level_1.display = function(value)
+  return "Mwcb Level 1: "..value
+end
+
+-- Dissect: Mwcb Level 1
+nasdaq_utdf_output_utp_v1_5.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.mwcb_level_1.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 2
+nasdaq_utdf_output_utp_v1_5.mwcb_level_2 = {}
+
+-- Size: Mwcb Level 2
+nasdaq_utdf_output_utp_v1_5.mwcb_level_2.size = 8
+
+-- Display: Mwcb Level 2
+nasdaq_utdf_output_utp_v1_5.mwcb_level_2.display = function(value)
+  return "Mwcb Level 2: "..value
+end
+
+-- Dissect: Mwcb Level 2
+nasdaq_utdf_output_utp_v1_5.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.mwcb_level_2.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mwcb Level 3
+nasdaq_utdf_output_utp_v1_5.mwcb_level_3 = {}
+
+-- Size: Mwcb Level 3
+nasdaq_utdf_output_utp_v1_5.mwcb_level_3.size = 8
+
+-- Display: Mwcb Level 3
+nasdaq_utdf_output_utp_v1_5.mwcb_level_3.display = function(value)
+  return "Mwcb Level 3: "..value
+end
+
+-- Dissect: Mwcb Level 3
+nasdaq_utdf_output_utp_v1_5.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.mwcb_level_3.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Market Center Summaries
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries = {}
+
+-- Size: Number Of Market Center Summaries
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.size = 2
+
+-- Display: Number Of Market Center Summaries
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.display = function(value)
+  return "Number Of Market Center Summaries: "..value
+end
+
+-- Dissect: Number Of Market Center Summaries
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Market Center Volumes
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes = {}
+
+-- Size: Number Of Market Center Volumes
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.size = 2
+
+-- Display: Number Of Market Center Volumes
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.display = function(value)
+  return "Number Of Market Center Volumes: "..value
+end
+
+-- Dissect: Number Of Market Center Volumes
+nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Old Symbol
+nasdaq_utdf_output_utp_v1_5.old_symbol = {}
+
+-- Size: Old Symbol
+nasdaq_utdf_output_utp_v1_5.old_symbol.size = 11
+
+-- Display: Old Symbol
+nasdaq_utdf_output_utp_v1_5.old_symbol.display = function(value)
+  return "Old Symbol: "..value
+end
+
+-- Dissect: Old Symbol
+nasdaq_utdf_output_utp_v1_5.old_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.old_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.old_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.old_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days = {}
+
+-- Size: Original Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.size = 2
+
+-- Display: Original Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.display = function(value)
+  return "Original Sellers Sale Days: "..value
+end
+
+-- Dissect: Original Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Trade Id
+nasdaq_utdf_output_utp_v1_5.original_trade_id = {}
+
+-- Size: Original Trade Id
+nasdaq_utdf_output_utp_v1_5.original_trade_id.size = 8
+
+-- Display: Original Trade Id
+nasdaq_utdf_output_utp_v1_5.original_trade_id.display = function(value)
+  return "Original Trade Id: "..value
+end
+
+-- Dissect: Original Trade Id
+nasdaq_utdf_output_utp_v1_5.original_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.original_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.original_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Trade Price
+nasdaq_utdf_output_utp_v1_5.original_trade_price = {}
+
+-- Size: Original Trade Price
+nasdaq_utdf_output_utp_v1_5.original_trade_price.size = 8
+
+-- Display: Original Trade Price
+nasdaq_utdf_output_utp_v1_5.original_trade_price.display = function(value)
+  return "Original Trade Price: "..value
+end
+
+-- Translate: Original Trade Price
+nasdaq_utdf_output_utp_v1_5.original_trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Original Trade Price
+nasdaq_utdf_output_utp_v1_5.original_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.original_trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.original_trade_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.original_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag = {}
+
+-- Size: Original Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.size = 1
+
+-- Display: Original Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.display = function(value)
+  return "Original Trade Through Exempt Flag: "..value
+end
+
+-- Dissect: Original Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Volume
+nasdaq_utdf_output_utp_v1_5.original_volume = {}
+
+-- Size: Original Volume
+nasdaq_utdf_output_utp_v1_5.original_volume.size = 4
+
+-- Display: Original Volume
+nasdaq_utdf_output_utp_v1_5.original_volume.display = function(value)
+  return "Original Volume: "..value
+end
+
+-- Dissect: Original Volume
+nasdaq_utdf_output_utp_v1_5.original_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.original_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.original_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator = {}
+
+-- Size: Participant Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.size = 1
+
+-- Display: Participant Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.display = function(value)
+  if value == "0" then
+    return "Participant Price Change Indicator: No Prices Changed (0)"
+  end
+  if value == "1" then
+    return "Participant Price Change Indicator: Participant Last Price Changed (1)"
+  end
+  if value == "2" then
+    return "Participant Price Change Indicator: Participant Low Price Changed (2)"
+  end
+  if value == "3" then
+    return "Participant Price Change Indicator: Participant Last And Low Prices Changed (3)"
+  end
+  if value == "4" then
+    return "Participant Price Change Indicator: Participant High Price Changed (4)"
+  end
+  if value == "5" then
+    return "Participant Price Change Indicator: Participant Last And High Prices Changed (5)"
+  end
+  if value == "6" then
+    return "Participant Price Change Indicator: Participant High And Low Prices Changed (6)"
+  end
+  if value == "7" then
+    return "Participant Price Change Indicator: All Participant Prices Changed (7)"
+  end
+
+  return "Participant Price Change Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Participant Price Change Indicator
+nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Timestamp
+nasdaq_utdf_output_utp_v1_5.participant_timestamp = {}
+
+-- Size: Participant Timestamp
+nasdaq_utdf_output_utp_v1_5.participant_timestamp.size = 8
+
+-- Display: Participant Timestamp
+nasdaq_utdf_output_utp_v1_5.participant_timestamp.display = function(value)
+  return "Participant Timestamp: "..value
+end
+
+-- Dissect: Participant Timestamp
+nasdaq_utdf_output_utp_v1_5.participant_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.participant_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.participant_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Token
+nasdaq_utdf_output_utp_v1_5.participant_token = {}
+
+-- Size: Participant Token
+nasdaq_utdf_output_utp_v1_5.participant_token.size = 8
+
+-- Display: Participant Token
+nasdaq_utdf_output_utp_v1_5.participant_token.display = function(value)
+  return "Participant Token: "..value
+end
+
+-- Dissect: Participant Token
+nasdaq_utdf_output_utp_v1_5.participant_token.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.participant_token.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.participant_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+nasdaq_utdf_output_utp_v1_5.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+nasdaq_utdf_output_utp_v1_5.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+nasdaq_utdf_output_utp_v1_5.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test In Effect (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Reg Sho In Effect Due To An Intra Day Price Drop (1)"
+  end
+  if value == "2" then
+    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+nasdaq_utdf_output_utp_v1_5.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+nasdaq_utdf_output_utp_v1_5.round_lot_size = {}
+
+-- Size: Round Lot Size
+nasdaq_utdf_output_utp_v1_5.round_lot_size.size = 2
+
+-- Display: Round Lot Size
+nasdaq_utdf_output_utp_v1_5.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+nasdaq_utdf_output_utp_v1_5.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.sellers_sale_days = {}
+
+-- Size: Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.sellers_sale_days.size = 2
+
+-- Display: Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.sellers_sale_days.display = function(value)
+  return "Sellers Sale Days: "..value
+end
+
+-- Dissect: Sellers Sale Days
+nasdaq_utdf_output_utp_v1_5.sellers_sale_days.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.sellers_sale_days.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.sellers_sale_days.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sellers_sale_days, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+nasdaq_utdf_output_utp_v1_5.sequence = {}
+
+-- Size: Sequence
+nasdaq_utdf_output_utp_v1_5.sequence.size = 8
+
+-- Display: Sequence
+nasdaq_utdf_output_utp_v1_5.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+nasdaq_utdf_output_utp_v1_5.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.sequence.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_utdf_output_utp_v1_5.session = {}
+
+-- Size: Session
+nasdaq_utdf_output_utp_v1_5.session.size = 10
+
+-- Display: Session
+nasdaq_utdf_output_utp_v1_5.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_utdf_output_utp_v1_5.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Threshold Indicator
+nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator = {}
+
+-- Size: Short Sale Threshold Indicator
+nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.size = 1
+
+-- Display: Short Sale Threshold Indicator
+nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.display = function(value)
+  if value == "Y" then
+    return "Short Sale Threshold Indicator: Issue Is Restricted (Y)"
+  end
+  if value == "N" then
+    return "Short Sale Threshold Indicator: Issue Is Not Restricted (N)"
+  end
+  if value == " " then
+    return "Short Sale Threshold Indicator: Not Available (<whitespace>)"
+  end
+
+  return "Short Sale Threshold Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Threshold Indicator
+nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.short_sale_threshold_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sip Timestamp
+nasdaq_utdf_output_utp_v1_5.sip_timestamp = {}
+
+-- Size: Sip Timestamp
+nasdaq_utdf_output_utp_v1_5.sip_timestamp.size = 8
+
+-- Display: Sip Timestamp
+nasdaq_utdf_output_utp_v1_5.sip_timestamp.display = function(value)
+  return "Sip Timestamp: "..value
+end
+
+-- Dissect: Sip Timestamp
+nasdaq_utdf_output_utp_v1_5.sip_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.sip_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.sip_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sip_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sub Market Center Id
+nasdaq_utdf_output_utp_v1_5.sub_market_center_id = {}
+
+-- Size: Sub Market Center Id
+nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size = 1
+
+-- Display: Sub Market Center Id
+nasdaq_utdf_output_utp_v1_5.sub_market_center_id.display = function(value)
+  if value == "N" then
+    return "Sub Market Center Id: Nyse Trf (N)"
+  end
+  if value == "Q" then
+    return "Sub Market Center Id: Nasdaq Trf Carteret (Q)"
+  end
+  if value == "B" then
+    return "Sub Market Center Id: Nasdaq Trf Chicago (B)"
+  end
+  if value == " " then
+    return "Sub Market Center Id: Finra Alternative Display Facility (<whitespace>)"
+  end
+
+  return "Sub Market Center Id: Unknown("..value..")"
+end
+
+-- Dissect: Sub Market Center Id
+nasdaq_utdf_output_utp_v1_5.sub_market_center_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.sub_market_center_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.sub_market_center_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sub_market_center_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+nasdaq_utdf_output_utp_v1_5.symbol = {}
+
+-- Size: Symbol
+nasdaq_utdf_output_utp_v1_5.symbol.size = 5
+
+-- Display: Symbol
+nasdaq_utdf_output_utp_v1_5.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+nasdaq_utdf_output_utp_v1_5.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+nasdaq_utdf_output_utp_v1_5.text = {}
+
+-- Display: Text
+nasdaq_utdf_output_utp_v1_5.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect runtime sized field: Text
+nasdaq_utdf_output_utp_v1_5.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.text.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Text Length
+nasdaq_utdf_output_utp_v1_5.text_length = {}
+
+-- Size: Text Length
+nasdaq_utdf_output_utp_v1_5.text_length.size = 2
+
+-- Display: Text Length
+nasdaq_utdf_output_utp_v1_5.text_length.display = function(value)
+  return "Text Length: "..value
+end
+
+-- Dissect: Text Length
+nasdaq_utdf_output_utp_v1_5.text_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.text_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.text_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.text_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp Of Trade
+nasdaq_utdf_output_utp_v1_5.timestamp_of_trade = {}
+
+-- Size: Timestamp Of Trade
+nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.size = 8
+
+-- Display: Timestamp Of Trade
+nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.display = function(value)
+  return "Timestamp Of Trade: "..value
+end
+
+-- Dissect: Timestamp Of Trade
+nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.total_consolidated_volume = {}
+
+-- Size: Total Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.size = 8
+
+-- Display: Total Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.display = function(value)
+  return "Total Consolidated Volume: "..value
+end
+
+-- Dissect: Total Consolidated Volume
+nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Cancellation Type
+nasdaq_utdf_output_utp_v1_5.trade_cancellation_type = {}
+
+-- Size: Trade Cancellation Type
+nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.size = 1
+
+-- Display: Trade Cancellation Type
+nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.display = function(value)
+  return "Trade Cancellation Type: "..value
+end
+
+-- Dissect: Trade Cancellation Type
+nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+nasdaq_utdf_output_utp_v1_5.trade_id = {}
+
+-- Size: Trade Id
+nasdaq_utdf_output_utp_v1_5.trade_id.size = 8
+
+-- Display: Trade Id
+nasdaq_utdf_output_utp_v1_5.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+nasdaq_utdf_output_utp_v1_5.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_utdf_output_utp_v1_5.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Message Type
+nasdaq_utdf_output_utp_v1_5.trade_message_type = {}
+
+-- Size: Trade Message Type
+nasdaq_utdf_output_utp_v1_5.trade_message_type.size = 1
+
+-- Display: Trade Message Type
+nasdaq_utdf_output_utp_v1_5.trade_message_type.display = function(value)
+  if value == "A" then
+    return "Trade Message Type: Trade Report Message Short Form Message (A)"
+  end
+  if value == "W" then
+    return "Trade Message Type: Trade Report Message Long Form Message (W)"
+  end
+  if value == "Z" then
+    return "Trade Message Type: Trade Cancel Error Message (Z)"
+  end
+  if value == "Y" then
+    return "Trade Message Type: Trade Correction Message (Y)"
+  end
+  if value == "H" then
+    return "Trade Message Type: Prior Day As Of Trade Message (H)"
+  end
+
+  return "Trade Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Trade Message Type
+nasdaq_utdf_output_utp_v1_5.trade_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.trade_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price
+nasdaq_utdf_output_utp_v1_5.trade_price = {}
+
+-- Size: Trade Price
+nasdaq_utdf_output_utp_v1_5.trade_price.size = 8
+
+-- Display: Trade Price
+nasdaq_utdf_output_utp_v1_5.trade_price.display = function(value)
+  return "Trade Price: "..value
+end
+
+-- Translate: Trade Price
+nasdaq_utdf_output_utp_v1_5.trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Trade Price
+nasdaq_utdf_output_utp_v1_5.trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utdf_output_utp_v1_5.trade_price.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Price Short
+nasdaq_utdf_output_utp_v1_5.trade_price_short = {}
+
+-- Size: Trade Price Short
+nasdaq_utdf_output_utp_v1_5.trade_price_short.size = 2
+
+-- Display: Trade Price Short
+nasdaq_utdf_output_utp_v1_5.trade_price_short.display = function(value)
+  return "Trade Price Short: "..value
+end
+
+-- Translate: Trade Price Short
+nasdaq_utdf_output_utp_v1_5.trade_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Trade Price Short
+nasdaq_utdf_output_utp_v1_5.trade_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_utdf_output_utp_v1_5.trade_price_short.translate(raw)
+  local display = nasdaq_utdf_output_utp_v1_5.trade_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag = {}
+
+-- Size: Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.size = 1
+
+-- Display: Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.display = function(value)
+  return "Trade Through Exempt Flag: "..value
+end
+
+-- Dissect: Trade Through Exempt Flag
+nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Volume
+nasdaq_utdf_output_utp_v1_5.trade_volume = {}
+
+-- Size: Trade Volume
+nasdaq_utdf_output_utp_v1_5.trade_volume.size = 4
+
+-- Display: Trade Volume
+nasdaq_utdf_output_utp_v1_5.trade_volume.display = function(value)
+  return "Trade Volume: "..value
+end
+
+-- Dissect: Trade Volume
+nasdaq_utdf_output_utp_v1_5.trade_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.trade_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Volume Short
+nasdaq_utdf_output_utp_v1_5.trade_volume_short = {}
+
+-- Size: Trade Volume Short
+nasdaq_utdf_output_utp_v1_5.trade_volume_short.size = 2
+
+-- Display: Trade Volume Short
+nasdaq_utdf_output_utp_v1_5.trade_volume_short.display = function(value)
+  return "Trade Volume Short: "..value
+end
+
+-- Dissect: Trade Volume Short
+nasdaq_utdf_output_utp_v1_5.trade_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trade_volume_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.trade_volume_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Action Code
+nasdaq_utdf_output_utp_v1_5.trading_action_code = {}
+
+-- Size: Trading Action Code
+nasdaq_utdf_output_utp_v1_5.trading_action_code.size = 1
+
+-- Display: Trading Action Code
+nasdaq_utdf_output_utp_v1_5.trading_action_code.display = function(value)
+  if value == "H" then
+    return "Trading Action Code: Trading Halt (H)"
+  end
+  if value == "Q" then
+    return "Trading Action Code: Quotation Resumption Including After Ema (Q)"
+  end
+  if value == "T" then
+    return "Trading Action Code: Trading Resumption (T)"
+  end
+  if value == "P" then
+    return "Trading Action Code: Volatility Trading Pause (P)"
+  end
+
+  return "Trading Action Code: Unknown("..value..")"
+end
+
+-- Dissect: Trading Action Code
+nasdaq_utdf_output_utp_v1_5.trading_action_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trading_action_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.trading_action_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Action Indicator
+nasdaq_utdf_output_utp_v1_5.trading_action_indicator = {}
+
+-- Size: Trading Action Indicator
+nasdaq_utdf_output_utp_v1_5.trading_action_indicator.size = 1
+
+-- Display: Trading Action Indicator
+nasdaq_utdf_output_utp_v1_5.trading_action_indicator.display = function(value)
+  if value == "H" then
+    return "Trading Action Indicator: Trading Halt (H)"
+  end
+  if value == " " then
+    return "Trading Action Indicator: Regular Trading (<whitespace>)"
+  end
+
+  return "Trading Action Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Trading Action Indicator
+nasdaq_utdf_output_utp_v1_5.trading_action_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trading_action_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.trading_action_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Action Reason
+nasdaq_utdf_output_utp_v1_5.trading_action_reason = {}
+
+-- Size: Trading Action Reason
+nasdaq_utdf_output_utp_v1_5.trading_action_reason.size = 6
+
+-- Display: Trading Action Reason
+nasdaq_utdf_output_utp_v1_5.trading_action_reason.display = function(value)
+  return "Trading Action Reason: "..value
+end
+
+-- Dissect: Trading Action Reason
+nasdaq_utdf_output_utp_v1_5.trading_action_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trading_action_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.trading_action_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Action Sequence Number
+nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number = {}
+
+-- Size: Trading Action Sequence Number
+nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.size = 4
+
+-- Display: Trading Action Sequence Number
+nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.display = function(value)
+  return "Trading Action Sequence Number: "..value
+end
+
+-- Dissect: Trading Action Sequence Number
+nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_utdf_output_utp_v1_5.version = {}
+
+-- Size: Version
+nasdaq_utdf_output_utp_v1_5.version.size = 1
+
+-- Display: Version
+nasdaq_utdf_output_utp_v1_5.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_utdf_output_utp_v1_5.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utdf_output_utp_v1_5.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume Message Type
+nasdaq_utdf_output_utp_v1_5.volume_message_type = {}
+
+-- Size: Volume Message Type
+nasdaq_utdf_output_utp_v1_5.volume_message_type.size = 1
+
+-- Display: Volume Message Type
+nasdaq_utdf_output_utp_v1_5.volume_message_type.display = function(value)
+  if value == "M" then
+    return "Volume Message Type: Total Consolidated And Market Center Volume Message (M)"
+  end
+
+  return "Volume Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Volume Message Type
+nasdaq_utdf_output_utp_v1_5.volume_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utdf_output_utp_v1_5.volume_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utdf_output_utp_v1_5.volume_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.volume_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq Utdf Output Utp 1.5
+-----------------------------------------------------------------------
 
 -- Message Info
 nasdaq_utdf_output_utp_v1_5.message_info = {}
@@ -1024,51 +3504,6 @@ nasdaq_utdf_output_utp_v1_5.control_payload.dissect = function(buffer, offset, p
   return offset
 end
 
--- Control Message Type
-nasdaq_utdf_output_utp_v1_5.control_message_type = {}
-
--- Size: Control Message Type
-nasdaq_utdf_output_utp_v1_5.control_message_type.size = 1
-
--- Display: Control Message Type
-nasdaq_utdf_output_utp_v1_5.control_message_type.display = function(value)
-  if value == "I" then
-    return "Control Message Type: Start Of Day Message (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day Message (J)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Open Message (O)"
-  end
-  if value == "C" then
-    return "Control Message Type: Market Session Close Message (C)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Transmissions Message (Z)"
-  end
-  if value == "X" then
-    return "Control Message Type: End Of Trade Reporting Message (X)"
-  end
-  if value == "S" then
-    return "Control Message Type: End Of Consolidated Last Sale Eligibility (S)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
-end
-
--- Dissect: Control Message Type
-nasdaq_utdf_output_utp_v1_5.control_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.control_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.control_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Control
 nasdaq_utdf_output_utp_v1_5.control = {}
 
@@ -1122,52 +3557,6 @@ nasdaq_utdf_output_utp_v1_5.control.dissect = function(buffer, offset, packet, p
   end
 end
 
--- Current Market Center Volume
-nasdaq_utdf_output_utp_v1_5.current_market_center_volume = {}
-
--- Size: Current Market Center Volume
-nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size = 8
-
--- Display: Current Market Center Volume
-nasdaq_utdf_output_utp_v1_5.current_market_center_volume.display = function(value)
-  return "Current Market Center Volume: "..value
-end
-
--- Dissect: Current Market Center Volume
-nasdaq_utdf_output_utp_v1_5.current_market_center_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.current_market_center_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.current_market_center_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Center Identifier
-nasdaq_utdf_output_utp_v1_5.market_center_identifier = {}
-
--- Size: Market Center Identifier
-nasdaq_utdf_output_utp_v1_5.market_center_identifier.size = 1
-
--- Display: Market Center Identifier
-nasdaq_utdf_output_utp_v1_5.market_center_identifier.display = function(value)
-  return "Market Center Identifier: "..value
-end
-
--- Dissect: Market Center Identifier
-nasdaq_utdf_output_utp_v1_5.market_center_identifier.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_center_identifier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.market_center_identifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Center Volume Attachment
 nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment = {}
 
@@ -1216,52 +3605,6 @@ nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.dissect = function(b
     -- Skip element, add fields directly
     return nasdaq_utdf_output_utp_v1_5.market_center_volume_attachment.fields(buffer, offset, packet, parent, market_center_volume_attachment_index)
   end
-end
-
--- Number Of Market Center Volumes
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes = {}
-
--- Size: Number Of Market Center Volumes
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.size = 2
-
--- Display: Number Of Market Center Volumes
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.display = function(value)
-  return "Number Of Market Center Volumes: "..value
-end
-
--- Dissect: Number Of Market Center Volumes
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.number_of_market_center_volumes.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.total_consolidated_volume = {}
-
--- Size: Total Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.size = 8
-
--- Display: Total Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.display = function(value)
-  return "Total Consolidated Volume: "..value
-end
-
--- Dissect: Total Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.total_consolidated_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.total_consolidated_volume, range, value, display)
-
-  return offset + length, value
 end
 
 -- Total Consolidated And Market Center Volume Message
@@ -1338,33 +3681,6 @@ nasdaq_utdf_output_utp_v1_5.volume_payload.dissect = function(buffer, offset, pa
   return offset
 end
 
--- Volume Message Type
-nasdaq_utdf_output_utp_v1_5.volume_message_type = {}
-
--- Size: Volume Message Type
-nasdaq_utdf_output_utp_v1_5.volume_message_type.size = 1
-
--- Display: Volume Message Type
-nasdaq_utdf_output_utp_v1_5.volume_message_type.display = function(value)
-  if value == "M" then
-    return "Volume Message Type: Total Consolidated And Market Center Volume Message (M)"
-  end
-
-  return "Volume Message Type: Unknown("..value..")"
-end
-
--- Dissect: Volume Message Type
-nasdaq_utdf_output_utp_v1_5.volume_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.volume_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.volume_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.volume_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Volume
 nasdaq_utdf_output_utp_v1_5.volume = {}
 
@@ -1416,146 +3732,6 @@ nasdaq_utdf_output_utp_v1_5.volume.dissect = function(buffer, offset, packet, pa
 
     return index
   end
-end
-
--- Market Participant Low Price
-nasdaq_utdf_output_utp_v1_5.market_participant_low_price = {}
-
--- Size: Market Participant Low Price
-nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size = 8
-
--- Display: Market Participant Low Price
-nasdaq_utdf_output_utp_v1_5.market_participant_low_price.display = function(value)
-  return "Market Participant Low Price: "..value
-end
-
--- Translate: Market Participant Low Price
-nasdaq_utdf_output_utp_v1_5.market_participant_low_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Market Participant Low Price
-nasdaq_utdf_output_utp_v1_5.market_participant_low_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.market_participant_low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Participant High Price
-nasdaq_utdf_output_utp_v1_5.market_participant_high_price = {}
-
--- Size: Market Participant High Price
-nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size = 8
-
--- Display: Market Participant High Price
-nasdaq_utdf_output_utp_v1_5.market_participant_high_price.display = function(value)
-  return "Market Participant High Price: "..value
-end
-
--- Translate: Market Participant High Price
-nasdaq_utdf_output_utp_v1_5.market_participant_high_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Market Participant High Price
-nasdaq_utdf_output_utp_v1_5.market_participant_high_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.market_participant_high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Center Close Indicator
-nasdaq_utdf_output_utp_v1_5.market_center_close_indicator = {}
-
--- Size: Market Center Close Indicator
-nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size = 1
-
--- Display: Market Center Close Indicator
-nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.display = function(value)
-  if value == "M" then
-    return "Market Center Close Indicator: Based On M Sale Condition (M)"
-  end
-  if value == " " then
-    return "Market Center Close Indicator: Not Based On M Sale Condition (<whitespace>)"
-  end
-
-  return "Market Center Close Indicator: Unknown("..value..")"
-end
-
--- Dissect: Market Center Close Indicator
-nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.market_center_close_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Center Volume
-nasdaq_utdf_output_utp_v1_5.market_center_volume = {}
-
--- Size: Market Center Volume
-nasdaq_utdf_output_utp_v1_5.market_center_volume.size = 8
-
--- Display: Market Center Volume
-nasdaq_utdf_output_utp_v1_5.market_center_volume.display = function(value)
-  return "Market Center Volume: "..value
-end
-
--- Dissect: Market Center Volume
-nasdaq_utdf_output_utp_v1_5.market_center_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_center_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.market_center_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Center Closing Price
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price = {}
-
--- Size: Market Center Closing Price
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size = 8
-
--- Display: Market Center Closing Price
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price.display = function(value)
-  return "Market Center Closing Price: "..value
-end
-
--- Translate: Market Center Closing Price
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Market Center Closing Price
-nasdaq_utdf_output_utp_v1_5.market_center_closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.market_center_closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Center Closing Price And Volume Summary
@@ -1622,192 +3798,6 @@ nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.disse
     -- Skip element, add fields directly
     return nasdaq_utdf_output_utp_v1_5.market_center_closing_price_and_volume_summary.fields(buffer, offset, packet, parent, market_center_closing_price_and_volume_summary_index)
   end
-end
-
--- Number Of Market Center Summaries
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries = {}
-
--- Size: Number Of Market Center Summaries
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.size = 2
-
--- Display: Number Of Market Center Summaries
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.display = function(value)
-  return "Number Of Market Center Summaries: "..value
-end
-
--- Dissect: Number Of Market Center Summaries
-nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.number_of_market_center_summaries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_summaries, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Action Indicator
-nasdaq_utdf_output_utp_v1_5.trading_action_indicator = {}
-
--- Size: Trading Action Indicator
-nasdaq_utdf_output_utp_v1_5.trading_action_indicator.size = 1
-
--- Display: Trading Action Indicator
-nasdaq_utdf_output_utp_v1_5.trading_action_indicator.display = function(value)
-  if value == "H" then
-    return "Trading Action Indicator: Trading Halt (H)"
-  end
-  if value == " " then
-    return "Trading Action Indicator: Regular Trading (<whitespace>)"
-  end
-
-  return "Trading Action Indicator: Unknown("..value..")"
-end
-
--- Dissect: Trading Action Indicator
-nasdaq_utdf_output_utp_v1_5.trading_action_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trading_action_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.trading_action_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.consolidated_volume = {}
-
--- Size: Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.consolidated_volume.size = 8
-
--- Display: Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.consolidated_volume.display = function(value)
-  return "Consolidated Volume: "..value
-end
-
--- Dissect: Consolidated Volume
-nasdaq_utdf_output_utp_v1_5.consolidated_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.consolidated_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.consolidated_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Daily Consolidated Closing Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price = {}
-
--- Size: Daily Consolidated Closing Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.size = 8
-
--- Display: Daily Consolidated Closing Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.display = function(value)
-  return "Daily Consolidated Closing Price: "..value
-end
-
--- Translate: Daily Consolidated Closing Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Daily Consolidated Closing Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Daily Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price = {}
-
--- Size: Daily Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.size = 8
-
--- Display: Daily Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.display = function(value)
-  return "Daily Consolidated Low Price: "..value
-end
-
--- Translate: Daily Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Daily Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Daily Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price = {}
-
--- Size: Daily Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.size = 8
-
--- Display: Daily Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.display = function(value)
-  return "Daily Consolidated High Price: "..value
-end
-
--- Translate: Daily Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Daily Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.daily_consolidated_high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-nasdaq_utdf_output_utp_v1_5.symbol = {}
-
--- Size: Symbol
-nasdaq_utdf_output_utp_v1_5.symbol.size = 5
-
--- Display: Symbol
-nasdaq_utdf_output_utp_v1_5.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-nasdaq_utdf_output_utp_v1_5.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Closing Trade Summary Report Message
@@ -1889,139 +3879,6 @@ nasdaq_utdf_output_utp_v1_5.closing_trade_summary_report_message.dissect = funct
   end
 end
 
--- Collar Extension Indicator
-nasdaq_utdf_output_utp_v1_5.collar_extension_indicator = {}
-
--- Size: Collar Extension Indicator
-nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.size = 1
-
--- Display: Collar Extension Indicator
-nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.display = function(value)
-  return "Collar Extension Indicator: "..value
-end
-
--- Dissect: Collar Extension Indicator
-nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.collar_extension_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Collar Down Price
-nasdaq_utdf_output_utp_v1_5.collar_down_price = {}
-
--- Size: Collar Down Price
-nasdaq_utdf_output_utp_v1_5.collar_down_price.size = 8
-
--- Display: Collar Down Price
-nasdaq_utdf_output_utp_v1_5.collar_down_price.display = function(value)
-  return "Collar Down Price: "..value
-end
-
--- Translate: Collar Down Price
-nasdaq_utdf_output_utp_v1_5.collar_down_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Collar Down Price
-nasdaq_utdf_output_utp_v1_5.collar_down_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.collar_down_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.collar_down_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.collar_down_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Collar Up Price
-nasdaq_utdf_output_utp_v1_5.collar_up_price = {}
-
--- Size: Collar Up Price
-nasdaq_utdf_output_utp_v1_5.collar_up_price.size = 8
-
--- Display: Collar Up Price
-nasdaq_utdf_output_utp_v1_5.collar_up_price.display = function(value)
-  return "Collar Up Price: "..value
-end
-
--- Translate: Collar Up Price
-nasdaq_utdf_output_utp_v1_5.collar_up_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Collar Up Price
-nasdaq_utdf_output_utp_v1_5.collar_up_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.collar_up_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.collar_up_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.collar_up_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Collar Reference Price
-nasdaq_utdf_output_utp_v1_5.collar_reference_price = {}
-
--- Size: Collar Reference Price
-nasdaq_utdf_output_utp_v1_5.collar_reference_price.size = 8
-
--- Display: Collar Reference Price
-nasdaq_utdf_output_utp_v1_5.collar_reference_price.display = function(value)
-  return "Collar Reference Price: "..value
-end
-
--- Translate: Collar Reference Price
-nasdaq_utdf_output_utp_v1_5.collar_reference_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Collar Reference Price
-nasdaq_utdf_output_utp_v1_5.collar_reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.collar_reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.collar_reference_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.collar_reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Action Sequence Number
-nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number = {}
-
--- Size: Trading Action Sequence Number
-nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.size = 4
-
--- Display: Trading Action Sequence Number
-nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.display = function(value)
-  return "Trading Action Sequence Number: "..value
-end
-
--- Dissect: Trading Action Sequence Number
-nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.trading_action_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Auction Collar Message
 nasdaq_utdf_output_utp_v1_5.auction_collar_message = {}
 
@@ -2090,75 +3947,6 @@ nasdaq_utdf_output_utp_v1_5.auction_collar_message.dissect = function(buffer, of
   end
 end
 
--- Mwcb Level 3
-nasdaq_utdf_output_utp_v1_5.mwcb_level_3 = {}
-
--- Size: Mwcb Level 3
-nasdaq_utdf_output_utp_v1_5.mwcb_level_3.size = 8
-
--- Display: Mwcb Level 3
-nasdaq_utdf_output_utp_v1_5.mwcb_level_3.display = function(value)
-  return "Mwcb Level 3: "..value
-end
-
--- Dissect: Mwcb Level 3
-nasdaq_utdf_output_utp_v1_5.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.mwcb_level_3.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 2
-nasdaq_utdf_output_utp_v1_5.mwcb_level_2 = {}
-
--- Size: Mwcb Level 2
-nasdaq_utdf_output_utp_v1_5.mwcb_level_2.size = 8
-
--- Display: Mwcb Level 2
-nasdaq_utdf_output_utp_v1_5.mwcb_level_2.display = function(value)
-  return "Mwcb Level 2: "..value
-end
-
--- Dissect: Mwcb Level 2
-nasdaq_utdf_output_utp_v1_5.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.mwcb_level_2.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Mwcb Level 1
-nasdaq_utdf_output_utp_v1_5.mwcb_level_1 = {}
-
--- Size: Mwcb Level 1
-nasdaq_utdf_output_utp_v1_5.mwcb_level_1.size = 8
-
--- Display: Mwcb Level 1
-nasdaq_utdf_output_utp_v1_5.mwcb_level_1.display = function(value)
-  return "Mwcb Level 1: "..value
-end
-
--- Dissect: Mwcb Level 1
-nasdaq_utdf_output_utp_v1_5.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.mwcb_level_1.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.mwcb_level_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.mwcb_level_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Wide Circuit Breaker Decline Level Message
 nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message = {}
 
@@ -2216,132 +4004,6 @@ nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.di
 
     return index
   end
-end
-
--- Limit Up Price
-nasdaq_utdf_output_utp_v1_5.limit_up_price = {}
-
--- Size: Limit Up Price
-nasdaq_utdf_output_utp_v1_5.limit_up_price.size = 8
-
--- Display: Limit Up Price
-nasdaq_utdf_output_utp_v1_5.limit_up_price.display = function(value)
-  return "Limit Up Price: "..value
-end
-
--- Translate: Limit Up Price
-nasdaq_utdf_output_utp_v1_5.limit_up_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Limit Up Price
-nasdaq_utdf_output_utp_v1_5.limit_up_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.limit_up_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.limit_up_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.limit_up_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Limit Down Price
-nasdaq_utdf_output_utp_v1_5.limit_down_price = {}
-
--- Size: Limit Down Price
-nasdaq_utdf_output_utp_v1_5.limit_down_price.size = 8
-
--- Display: Limit Down Price
-nasdaq_utdf_output_utp_v1_5.limit_down_price.display = function(value)
-  return "Limit Down Price: "..value
-end
-
--- Translate: Limit Down Price
-nasdaq_utdf_output_utp_v1_5.limit_down_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Limit Down Price
-nasdaq_utdf_output_utp_v1_5.limit_down_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.limit_down_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.limit_down_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.limit_down_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Luld Timestamp
-nasdaq_utdf_output_utp_v1_5.luld_timestamp = {}
-
--- Size: Luld Timestamp
-nasdaq_utdf_output_utp_v1_5.luld_timestamp.size = 8
-
--- Display: Luld Timestamp
-nasdaq_utdf_output_utp_v1_5.luld_timestamp.display = function(value)
-  return "Luld Timestamp: "..value
-end
-
--- Dissect: Luld Timestamp
-nasdaq_utdf_output_utp_v1_5.luld_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.luld_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.luld_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Luld Price Band Indicator
-nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator = {}
-
--- Size: Luld Price Band Indicator
-nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.size = 1
-
--- Display: Luld Price Band Indicator
-nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.display = function(value)
-  if value == "A" then
-    return "Luld Price Band Indicator: Opening Update (A)"
-  end
-  if value == "B" then
-    return "Luld Price Band Indicator: Intra Day Update (B)"
-  end
-  if value == "C" then
-    return "Luld Price Band Indicator: Restated Value (C)"
-  end
-  if value == "D" then
-    return "Luld Price Band Indicator: Suspended During Trading Halt Or Trading Pause (D)"
-  end
-  if value == "E" then
-    return "Luld Price Band Indicator: Re Opening Update (E)"
-  end
-  if value == "F" then
-    return "Luld Price Band Indicator: Outside Price Band Rule Hours (F)"
-  end
-  if value == " " then
-    return "Luld Price Band Indicator: None Provided (<whitespace>)"
-  end
-
-  return "Luld Price Band Indicator: Unknown("..value..")"
-end
-
--- Dissect: Luld Price Band Indicator
-nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.luld_price_band_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Limit Up Limit Down Price Band Message
@@ -2409,39 +4071,6 @@ nasdaq_utdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect = fun
   end
 end
 
--- Reg Sho Action
-nasdaq_utdf_output_utp_v1_5.reg_sho_action = {}
-
--- Size: Reg Sho Action
-nasdaq_utdf_output_utp_v1_5.reg_sho_action.size = 1
-
--- Display: Reg Sho Action
-nasdaq_utdf_output_utp_v1_5.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho In Effect Due To An Intra Day Price Drop (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
-  end
-
-  return "Reg Sho Action: Unknown("..value..")"
-end
-
--- Dissect: Reg Sho Action
-nasdaq_utdf_output_utp_v1_5.reg_sho_action.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.reg_sho_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.reg_sho_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.reg_sho_action, range, value, display)
-
-  return offset + length, value
-end
-
 -- Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_utdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message = {}
 
@@ -2496,323 +4125,6 @@ nasdaq_utdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indi
 
     return index
   end
-end
-
--- Financial Status Indicator
-nasdaq_utdf_output_utp_v1_5.financial_status_indicator = {}
-
--- Size: Financial Status Indicator
-nasdaq_utdf_output_utp_v1_5.financial_status_indicator.size = 1
-
--- Display: Financial Status Indicator
-nasdaq_utdf_output_utp_v1_5.financial_status_indicator.display = function(value)
-  if value == "C" then
-    return "Financial Status Indicator: Creations And Or Redemptions Suspended (C)"
-  end
-  if value == "D" then
-    return "Financial Status Indicator: Deficient (D)"
-  end
-  if value == "E" then
-    return "Financial Status Indicator: Delinquent (E)"
-  end
-  if value == "Q" then
-    return "Financial Status Indicator: Bankrupt (Q)"
-  end
-  if value == "Q" then
-    return "Financial Status Indicator: Normal (Q)"
-  end
-  if value == "G" then
-    return "Financial Status Indicator: Normal (G)"
-  end
-  if value == "H" then
-    return "Financial Status Indicator: Deficient And Delinquent (H)"
-  end
-  if value == "J" then
-    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
-  end
-  if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
-  end
-
-  return "Financial Status Indicator: Unknown("..value..")"
-end
-
--- Dissect: Financial Status Indicator
-nasdaq_utdf_output_utp_v1_5.financial_status_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.financial_status_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.financial_status_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.financial_status_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot Size
-nasdaq_utdf_output_utp_v1_5.round_lot_size = {}
-
--- Size: Round Lot Size
-nasdaq_utdf_output_utp_v1_5.round_lot_size.size = 2
-
--- Display: Round Lot Size
-nasdaq_utdf_output_utp_v1_5.round_lot_size.display = function(value)
-  return "Round Lot Size: "..value
-end
-
--- Dissect: Round Lot Size
-nasdaq_utdf_output_utp_v1_5.round_lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.round_lot_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.round_lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.round_lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Threshold Indicator
-nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator = {}
-
--- Size: Short Sale Threshold Indicator
-nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.size = 1
-
--- Display: Short Sale Threshold Indicator
-nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.display = function(value)
-  if value == "Y" then
-    return "Short Sale Threshold Indicator: Issue Is Restricted (Y)"
-  end
-  if value == "N" then
-    return "Short Sale Threshold Indicator: Issue Is Not Restricted (N)"
-  end
-  if value == " " then
-    return "Short Sale Threshold Indicator: Not Available (<whitespace>)"
-  end
-
-  return "Short Sale Threshold Indicator: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Threshold Indicator
-nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.short_sale_threshold_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Authenticity
-nasdaq_utdf_output_utp_v1_5.authenticity = {}
-
--- Size: Authenticity
-nasdaq_utdf_output_utp_v1_5.authenticity.size = 1
-
--- Display: Authenticity
-nasdaq_utdf_output_utp_v1_5.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
-  if value == "D" then
-    return "Authenticity: Demo (D)"
-  end
-  if value == "X" then
-    return "Authenticity: Deleted (X)"
-  end
-
-  return "Authenticity: Unknown("..value..")"
-end
-
--- Dissect: Authenticity
-nasdaq_utdf_output_utp_v1_5.authenticity.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.authenticity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.authenticity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.authenticity, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Tier
-nasdaq_utdf_output_utp_v1_5.market_tier = {}
-
--- Size: Market Tier
-nasdaq_utdf_output_utp_v1_5.market_tier.size = 1
-
--- Display: Market Tier
-nasdaq_utdf_output_utp_v1_5.market_tier.display = function(value)
-  if value == "Q" then
-    return "Market Tier: Nasdaq Global Select Market (Q)"
-  end
-  if value == "G" then
-    return "Market Tier: Nasdaq Global Market (G)"
-  end
-  if value == "S" then
-    return "Market Tier: Nasdaq Capital Market (S)"
-  end
-
-  return "Market Tier: Unknown("..value..")"
-end
-
--- Dissect: Market Tier
-nasdaq_utdf_output_utp_v1_5.market_tier.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_tier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.market_tier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_tier, range, value, display)
-
-  return offset + length, value
-end
-
--- Issue Subtype
-nasdaq_utdf_output_utp_v1_5.issue_subtype = {}
-
--- Size: Issue Subtype
-nasdaq_utdf_output_utp_v1_5.issue_subtype.size = 2
-
--- Display: Issue Subtype
-nasdaq_utdf_output_utp_v1_5.issue_subtype.display = function(value)
-  return "Issue Subtype: "..value
-end
-
--- Dissect: Issue Subtype
-nasdaq_utdf_output_utp_v1_5.issue_subtype.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.issue_subtype.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.issue_subtype.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_subtype, range, value, display)
-
-  return offset + length, value
-end
-
--- Issue Type
-nasdaq_utdf_output_utp_v1_5.issue_type = {}
-
--- Size: Issue Type
-nasdaq_utdf_output_utp_v1_5.issue_type.size = 1
-
--- Display: Issue Type
-nasdaq_utdf_output_utp_v1_5.issue_type.display = function(value)
-  if value == "A" then
-    return "Issue Type: American Depository Receipt (A)"
-  end
-  if value == "B" then
-    return "Issue Type: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Type: Common Stock (C)"
-  end
-  if value == "F" then
-    return "Issue Type: Depository Receipt (F)"
-  end
-  if value == "I" then
-    return "Issue Type: Rule 144a (I)"
-  end
-  if value == "L" then
-    return "Issue Type: Limited Partnership (L)"
-  end
-  if value == "N" then
-    return "Issue Type: Note (N)"
-  end
-  if value == "O" then
-    return "Issue Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Issue Type: Preferred Stock (P)"
-  end
-  if value == "Q" then
-    return "Issue Type: Other Securities (Q)"
-  end
-  if value == "R" then
-    return "Issue Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Issue Type: Shares Of Beneficial Interest (S)"
-  end
-  if value == "T" then
-    return "Issue Type: Convertible Debenture (T)"
-  end
-  if value == "U" then
-    return "Issue Type: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Type: Units Of Beneficial Interest (V)"
-  end
-  if value == "W" then
-    return "Issue Type: Warrant (W)"
-  end
-
-  return "Issue Type: Unknown("..value..")"
-end
-
--- Dissect: Issue Type
-nasdaq_utdf_output_utp_v1_5.issue_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.issue_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.issue_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Issue Name
-nasdaq_utdf_output_utp_v1_5.issue_name = {}
-
--- Size: Issue Name
-nasdaq_utdf_output_utp_v1_5.issue_name.size = 30
-
--- Display: Issue Name
-nasdaq_utdf_output_utp_v1_5.issue_name.display = function(value)
-  return "Issue Name: "..value
-end
-
--- Dissect: Issue Name
-nasdaq_utdf_output_utp_v1_5.issue_name.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.issue_name.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.issue_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.issue_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Old Symbol
-nasdaq_utdf_output_utp_v1_5.old_symbol = {}
-
--- Size: Old Symbol
-nasdaq_utdf_output_utp_v1_5.old_symbol.size = 11
-
--- Display: Old Symbol
-nasdaq_utdf_output_utp_v1_5.old_symbol.display = function(value)
-  return "Old Symbol: "..value
-end
-
--- Dissect: Old Symbol
-nasdaq_utdf_output_utp_v1_5.old_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.old_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.old_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.old_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Issue Symbol Directory Message
@@ -2895,65 +4207,6 @@ nasdaq_utdf_output_utp_v1_5.issue_symbol_directory_message.dissect = function(bu
   end
 end
 
--- Action Timestamp
-nasdaq_utdf_output_utp_v1_5.action_timestamp = {}
-
--- Size: Action Timestamp
-nasdaq_utdf_output_utp_v1_5.action_timestamp.size = 8
-
--- Display: Action Timestamp
-nasdaq_utdf_output_utp_v1_5.action_timestamp.display = function(value)
-  return "Action Timestamp: "..value
-end
-
--- Dissect: Action Timestamp
-nasdaq_utdf_output_utp_v1_5.action_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.action_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.action_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.action_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Action Code
-nasdaq_utdf_output_utp_v1_5.trading_action_code = {}
-
--- Size: Trading Action Code
-nasdaq_utdf_output_utp_v1_5.trading_action_code.size = 1
-
--- Display: Trading Action Code
-nasdaq_utdf_output_utp_v1_5.trading_action_code.display = function(value)
-  if value == "H" then
-    return "Trading Action Code: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Trading Action Code: Quotation Resumption Including After Ema (Q)"
-  end
-  if value == "T" then
-    return "Trading Action Code: Trading Resumption (T)"
-  end
-  if value == "P" then
-    return "Trading Action Code: Volatility Trading Pause (P)"
-  end
-
-  return "Trading Action Code: Unknown("..value..")"
-end
-
--- Dissect: Trading Action Code
-nasdaq_utdf_output_utp_v1_5.trading_action_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trading_action_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.trading_action_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Center Trading Action Message
 nasdaq_utdf_output_utp_v1_5.market_center_trading_action_message = {}
 
@@ -3014,29 +4267,6 @@ nasdaq_utdf_output_utp_v1_5.market_center_trading_action_message.dissect = funct
 
     return index
   end
-end
-
--- Trading Action Reason
-nasdaq_utdf_output_utp_v1_5.trading_action_reason = {}
-
--- Size: Trading Action Reason
-nasdaq_utdf_output_utp_v1_5.trading_action_reason.size = 6
-
--- Display: Trading Action Reason
-nasdaq_utdf_output_utp_v1_5.trading_action_reason.display = function(value)
-  return "Trading Action Reason: "..value
-end
-
--- Dissect: Trading Action Reason
-nasdaq_utdf_output_utp_v1_5.trading_action_reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trading_action_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.trading_action_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trading_action_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Cross Sro Trading Action Message
@@ -3102,48 +4332,6 @@ nasdaq_utdf_output_utp_v1_5.cross_sro_trading_action_message.dissect = function(
 
     return index
   end
-end
-
--- Text
-nasdaq_utdf_output_utp_v1_5.text = {}
-
--- Display: Text
-nasdaq_utdf_output_utp_v1_5.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect runtime sized field: Text
-nasdaq_utdf_output_utp_v1_5.text.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.text.display(value, packet, parent, size)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.text, range, value, display)
-
-  return offset + size, value
-end
-
--- Text Length
-nasdaq_utdf_output_utp_v1_5.text_length = {}
-
--- Size: Text Length
-nasdaq_utdf_output_utp_v1_5.text_length.size = 2
-
--- Display: Text Length
-nasdaq_utdf_output_utp_v1_5.text_length.display = function(value)
-  return "Text Length: "..value
-end
-
--- Dissect: Text Length
-nasdaq_utdf_output_utp_v1_5.text_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.text_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.text_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.text_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- General Administrative Message
@@ -3251,60 +4439,6 @@ nasdaq_utdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, of
   return offset
 end
 
--- Administrative Message Type
-nasdaq_utdf_output_utp_v1_5.administrative_message_type = {}
-
--- Size: Administrative Message Type
-nasdaq_utdf_output_utp_v1_5.administrative_message_type.size = 1
-
--- Display: Administrative Message Type
-nasdaq_utdf_output_utp_v1_5.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: General Administrative Message (A)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Cross Sro Trading Action Message (H)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Market Center Trading Action Message (H)"
-  end
-  if value == "B" then
-    return "Administrative Message Type: Issue Symbol Directory Message (B)"
-  end
-  if value == "V" then
-    return "Administrative Message Type: Regulation Sho Short Sale Price Test Restricted Indicator Message (V)"
-  end
-  if value == "P" then
-    return "Administrative Message Type: Limit Up Limit Down Price Band Message (P)"
-  end
-  if value == "C" then
-    return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (C)"
-  end
-  if value == "D" then
-    return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (D)"
-  end
-  if value == "E" then
-    return "Administrative Message Type: Auction Collar Message (E)"
-  end
-  if value == "Z" then
-    return "Administrative Message Type: Closing Trade Summary Report Message (Z)"
-  end
-
-  return "Administrative Message Type: Unknown("..value..")"
-end
-
--- Dissect: Administrative Message Type
-nasdaq_utdf_output_utp_v1_5.administrative_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.administrative_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.administrative_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.administrative_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Administrative
 nasdaq_utdf_output_utp_v1_5.administrative = {}
 
@@ -3358,308 +4492,6 @@ nasdaq_utdf_output_utp_v1_5.administrative.dissect = function(buffer, offset, pa
   end
 end
 
--- Timestamp Of Trade
-nasdaq_utdf_output_utp_v1_5.timestamp_of_trade = {}
-
--- Size: Timestamp Of Trade
-nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.size = 8
-
--- Display: Timestamp Of Trade
-nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.display = function(value)
-  return "Timestamp Of Trade: "..value
-end
-
--- Dissect: Timestamp Of Trade
-nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.timestamp_of_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.timestamp_of_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- As Of Action
-nasdaq_utdf_output_utp_v1_5.as_of_action = {}
-
--- Size: As Of Action
-nasdaq_utdf_output_utp_v1_5.as_of_action.size = 1
-
--- Display: As Of Action
-nasdaq_utdf_output_utp_v1_5.as_of_action.display = function(value)
-  if value == "A" then
-    return "As Of Action: Trade Addition (A)"
-  end
-  if value == "C" then
-    return "As Of Action: Trade Cancel (C)"
-  end
-
-  return "As Of Action: Unknown("..value..")"
-end
-
--- Dissect: As Of Action
-nasdaq_utdf_output_utp_v1_5.as_of_action.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.as_of_action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.as_of_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.as_of_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.sellers_sale_days = {}
-
--- Size: Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.sellers_sale_days.size = 2
-
--- Display: Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.sellers_sale_days.display = function(value)
-  return "Sellers Sale Days: "..value
-end
-
--- Dissect: Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.sellers_sale_days.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.sellers_sale_days.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.sellers_sale_days.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sellers_sale_days, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag = {}
-
--- Size: Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.size = 1
-
--- Display: Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.display = function(value)
-  return "Trade Through Exempt Flag: "..value
-end
-
--- Dissect: Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.trade_through_exempt_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Level 4
-nasdaq_utdf_output_utp_v1_5.level_4 = {}
-
--- Size: Level 4
-nasdaq_utdf_output_utp_v1_5.level_4.size = 1
-
--- Display: Level 4
-nasdaq_utdf_output_utp_v1_5.level_4.display = function(value)
-  return "Level 4: "..value
-end
-
--- Dissect: Level 4
-nasdaq_utdf_output_utp_v1_5.level_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.level_4.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.level_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Level 3
-nasdaq_utdf_output_utp_v1_5.level_3 = {}
-
--- Size: Level 3
-nasdaq_utdf_output_utp_v1_5.level_3.size = 1
-
--- Display: Level 3
-nasdaq_utdf_output_utp_v1_5.level_3.display = function(value)
-  if value == "T" then
-    return "Level 3: Form T (T)"
-  end
-  if value == "L" then
-    return "Level 3: Sold Last (L)"
-  end
-  if value == "Z" then
-    return "Level 3: Sold Out Of Sequence (Z)"
-  end
-  if value == "U" then
-    return "Level 3: Extended Trading Hours (U)"
-  end
-  if value == " " then
-    return "Level 3: Not Available (<whitespace>)"
-  end
-  if value == "1" then
-    return "Level 3: Stopped Stock (1)"
-  end
-  if value == "A" then
-    return "Level 3: Acquisition (A)"
-  end
-  if value == "B" then
-    return "Level 3: Bunched (B)"
-  end
-  if value == "D" then
-    return "Level 3: Distribution (D)"
-  end
-  if value == "E" then
-    return "Level 3: Placeholder Future (E)"
-  end
-  if value == "G" then
-    return "Level 3: Bunched Sold Trade (G)"
-  end
-  if value == "H" then
-    return "Level 3: Price Variation (H)"
-  end
-  if value == "I" then
-    return "Level 3: Odd Lot Trade (I)"
-  end
-  if value == "K" then
-    return "Level 3: Rule 155 (K)"
-  end
-  if value == "M" then
-    return "Level 3: Market Center Official Close Price (M)"
-  end
-  if value == "P" then
-    return "Level 3: Prior Reference Price (P)"
-  end
-  if value == "Q" then
-    return "Level 3: Market Center Official Open Price (Q)"
-  end
-  if value == "S" then
-    return "Level 3: Split Trade (S)"
-  end
-  if value == "V" then
-    return "Level 3: Contingent Trade (V)"
-  end
-  if value == "W" then
-    return "Level 3: Average Price Trade (W)"
-  end
-  if value == "X" then
-    return "Level 3: Cross Trade (X)"
-  end
-
-  return "Level 3: Unknown("..value..")"
-end
-
--- Dissect: Level 3
-nasdaq_utdf_output_utp_v1_5.level_3.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.level_3.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.level_3.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Level 2
-nasdaq_utdf_output_utp_v1_5.level_2 = {}
-
--- Size: Level 2
-nasdaq_utdf_output_utp_v1_5.level_2.size = 1
-
--- Display: Level 2
-nasdaq_utdf_output_utp_v1_5.level_2.display = function(value)
-  if value == "F" then
-    return "Level 2: Intermarket Sweep (F)"
-  end
-  if value == "O" then
-    return "Level 2: Opening Prints (O)"
-  end
-  if value == "4" then
-    return "Level 2: Derivatively Priced (4)"
-  end
-  if value == "5" then
-    return "Level 2: Re Opening Prints (5)"
-  end
-  if value == "6" then
-    return "Level 2: Closing Prints (6)"
-  end
-  if value == "7" then
-    return "Level 2: Qualified Contingent Trade (7)"
-  end
-  if value == "8" then
-    return "Level 2: Placeholder For 611 Exempt (8)"
-  end
-  if value == "9" then
-    return "Level 2: Corrected Consolidated Close (9)"
-  end
-  if value == " " then
-    return "Level 2: Not Available (<whitespace>)"
-  end
-
-  return "Level 2: Unknown("..value..")"
-end
-
--- Dissect: Level 2
-nasdaq_utdf_output_utp_v1_5.level_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.level_2.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.level_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Level 1
-nasdaq_utdf_output_utp_v1_5.level_1 = {}
-
--- Size: Level 1
-nasdaq_utdf_output_utp_v1_5.level_1.size = 1
-
--- Display: Level 1
-nasdaq_utdf_output_utp_v1_5.level_1.display = function(value)
-  if value == "@" then
-    return "Level 1: Regular Trade (@)"
-  end
-  if value == "C" then
-    return "Level 1: Cash (C)"
-  end
-  if value == "N" then
-    return "Level 1: Next Day (N)"
-  end
-  if value == "R" then
-    return "Level 1: Seller (R)"
-  end
-  if value == "Y" then
-    return "Level 1: Yellow Flag (Y)"
-  end
-  if value == " " then
-    return "Level 1: Not Available (<whitespace>)"
-  end
-
-  return "Level 1: Unknown("..value..")"
-end
-
--- Dissect: Level 1
-nasdaq_utdf_output_utp_v1_5.level_1.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.level_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.level_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.level_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sale Condition
 nasdaq_utdf_output_utp_v1_5.sale_condition = {}
 
@@ -3710,104 +4542,6 @@ nasdaq_utdf_output_utp_v1_5.sale_condition.dissect = function(buffer, offset, pa
     -- Skip element, add fields directly
     return nasdaq_utdf_output_utp_v1_5.sale_condition.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trade Volume
-nasdaq_utdf_output_utp_v1_5.trade_volume = {}
-
--- Size: Trade Volume
-nasdaq_utdf_output_utp_v1_5.trade_volume.size = 4
-
--- Display: Trade Volume
-nasdaq_utdf_output_utp_v1_5.trade_volume.display = function(value)
-  return "Trade Volume: "..value
-end
-
--- Dissect: Trade Volume
-nasdaq_utdf_output_utp_v1_5.trade_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.trade_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price
-nasdaq_utdf_output_utp_v1_5.trade_price = {}
-
--- Size: Trade Price
-nasdaq_utdf_output_utp_v1_5.trade_price.size = 8
-
--- Display: Trade Price
-nasdaq_utdf_output_utp_v1_5.trade_price.display = function(value)
-  return "Trade Price: "..value
-end
-
--- Translate: Trade Price
-nasdaq_utdf_output_utp_v1_5.trade_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Trade Price
-nasdaq_utdf_output_utp_v1_5.trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.trade_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-nasdaq_utdf_output_utp_v1_5.trade_id = {}
-
--- Size: Trade Id
-nasdaq_utdf_output_utp_v1_5.trade_id.size = 8
-
--- Display: Trade Id
-nasdaq_utdf_output_utp_v1_5.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-nasdaq_utdf_output_utp_v1_5.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Finra Timestamp
-nasdaq_utdf_output_utp_v1_5.finra_timestamp = {}
-
--- Size: Finra Timestamp
-nasdaq_utdf_output_utp_v1_5.finra_timestamp.size = 8
-
--- Display: Finra Timestamp
-nasdaq_utdf_output_utp_v1_5.finra_timestamp.display = function(value)
-  return "Finra Timestamp: "..value
-end
-
--- Dissect: Finra Timestamp
-nasdaq_utdf_output_utp_v1_5.finra_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.finra_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.finra_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.finra_timestamp, range, value, display)
-
-  return offset + length, value
 end
 
 -- Prior Day As Of Trade Message
@@ -3890,239 +4624,6 @@ nasdaq_utdf_output_utp_v1_5.prior_day_as_of_trade_message.dissect = function(buf
   end
 end
 
--- Market Participant Volume
-nasdaq_utdf_output_utp_v1_5.market_participant_volume = {}
-
--- Size: Market Participant Volume
-nasdaq_utdf_output_utp_v1_5.market_participant_volume.size = 8
-
--- Display: Market Participant Volume
-nasdaq_utdf_output_utp_v1_5.market_participant_volume.display = function(value)
-  return "Market Participant Volume: "..value
-end
-
--- Dissect: Market Participant Volume
-nasdaq_utdf_output_utp_v1_5.market_participant_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_participant_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.market_participant_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Participant Last Price
-nasdaq_utdf_output_utp_v1_5.market_participant_last_price = {}
-
--- Size: Market Participant Last Price
-nasdaq_utdf_output_utp_v1_5.market_participant_last_price.size = 8
-
--- Display: Market Participant Last Price
-nasdaq_utdf_output_utp_v1_5.market_participant_last_price.display = function(value)
-  return "Market Participant Last Price: "..value
-end
-
--- Translate: Market Participant Last Price
-nasdaq_utdf_output_utp_v1_5.market_participant_last_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Market Participant Last Price
-nasdaq_utdf_output_utp_v1_5.market_participant_last_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.market_participant_last_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Consolidated Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator = {}
-
--- Size: Consolidated Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.size = 1
-
--- Display: Consolidated Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.display = function(value)
-  if value == "0" then
-    return "Consolidated Price Change Indicator: No Prices Changed (0)"
-  end
-  if value == "1" then
-    return "Consolidated Price Change Indicator: Consolidated Last Price Changed (1)"
-  end
-  if value == "2" then
-    return "Consolidated Price Change Indicator: Consolidated Low Price Changed (2)"
-  end
-  if value == "3" then
-    return "Consolidated Price Change Indicator: Consolidated Last And Consolidated Low Prices Changed (3)"
-  end
-  if value == "4" then
-    return "Consolidated Price Change Indicator: Consolidated High Price Changed (4)"
-  end
-  if value == "5" then
-    return "Consolidated Price Change Indicator: Consolidated Last And Consolidated High Prices Changed (5)"
-  end
-  if value == "6" then
-    return "Consolidated Price Change Indicator: Consolidated High And Consolidated Low Prices Changed (6)"
-  end
-  if value == "7" then
-    return "Consolidated Price Change Indicator: All Consolidated Prices Changed (7)"
-  end
-
-  return "Consolidated Price Change Indicator: Unknown("..value..")"
-end
-
--- Dissect: Consolidated Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Consolidated Last Price
-nasdaq_utdf_output_utp_v1_5.consolidated_last_price = {}
-
--- Size: Consolidated Last Price
-nasdaq_utdf_output_utp_v1_5.consolidated_last_price.size = 8
-
--- Display: Consolidated Last Price
-nasdaq_utdf_output_utp_v1_5.consolidated_last_price.display = function(value)
-  return "Consolidated Last Price: "..value
-end
-
--- Translate: Consolidated Last Price
-nasdaq_utdf_output_utp_v1_5.consolidated_last_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Consolidated Last Price
-nasdaq_utdf_output_utp_v1_5.consolidated_last_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.consolidated_last_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.consolidated_low_price = {}
-
--- Size: Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.consolidated_low_price.size = 8
-
--- Display: Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.consolidated_low_price.display = function(value)
-  return "Consolidated Low Price: "..value
-end
-
--- Translate: Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.consolidated_low_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Consolidated Low Price
-nasdaq_utdf_output_utp_v1_5.consolidated_low_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.consolidated_low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.consolidated_high_price = {}
-
--- Size: Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.consolidated_high_price.size = 8
-
--- Display: Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.consolidated_high_price.display = function(value)
-  return "Consolidated High Price: "..value
-end
-
--- Translate: Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.consolidated_high_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Consolidated High Price
-nasdaq_utdf_output_utp_v1_5.consolidated_high_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.consolidated_high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Corrected Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days = {}
-
--- Size: Corrected Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.size = 2
-
--- Display: Corrected Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.display = function(value)
-  return "Corrected Sellers Sale Days: "..value
-end
-
--- Dissect: Corrected Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.corrected_sellers_sale_days.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days, range, value, display)
-
-  return offset + length, value
-end
-
--- Corrected Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag = {}
-
--- Size: Corrected Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.size = 1
-
--- Display: Corrected Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.display = function(value)
-  return "Corrected Trade Through Exempt Flag: "..value
-end
-
--- Dissect: Corrected Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_through_exempt_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag, range, value, display)
-
-  return offset + length, value
-end
-
 -- Corrected Sale Condition
 nasdaq_utdf_output_utp_v1_5.corrected_sale_condition = {}
 
@@ -4175,127 +4676,6 @@ nasdaq_utdf_output_utp_v1_5.corrected_sale_condition.dissect = function(buffer, 
   end
 end
 
--- Corrected Volume
-nasdaq_utdf_output_utp_v1_5.corrected_volume = {}
-
--- Size: Corrected Volume
-nasdaq_utdf_output_utp_v1_5.corrected_volume.size = 4
-
--- Display: Corrected Volume
-nasdaq_utdf_output_utp_v1_5.corrected_volume.display = function(value)
-  return "Corrected Volume: "..value
-end
-
--- Dissect: Corrected Volume
-nasdaq_utdf_output_utp_v1_5.corrected_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.corrected_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.corrected_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Corrected Trade Price
-nasdaq_utdf_output_utp_v1_5.corrected_trade_price = {}
-
--- Size: Corrected Trade Price
-nasdaq_utdf_output_utp_v1_5.corrected_trade_price.size = 8
-
--- Display: Corrected Trade Price
-nasdaq_utdf_output_utp_v1_5.corrected_trade_price.display = function(value)
-  return "Corrected Trade Price: "..value
-end
-
--- Translate: Corrected Trade Price
-nasdaq_utdf_output_utp_v1_5.corrected_trade_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Corrected Trade Price
-nasdaq_utdf_output_utp_v1_5.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Corrected Trade Id
-nasdaq_utdf_output_utp_v1_5.corrected_trade_id = {}
-
--- Size: Corrected Trade Id
-nasdaq_utdf_output_utp_v1_5.corrected_trade_id.size = 8
-
--- Display: Corrected Trade Id
-nasdaq_utdf_output_utp_v1_5.corrected_trade_id.display = function(value)
-  return "Corrected Trade Id: "..value
-end
-
--- Dissect: Corrected Trade Id
-nasdaq_utdf_output_utp_v1_5.corrected_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.corrected_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.corrected_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days = {}
-
--- Size: Original Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.size = 2
-
--- Display: Original Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.display = function(value)
-  return "Original Sellers Sale Days: "..value
-end
-
--- Dissect: Original Sellers Sale Days
-nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.original_sellers_sale_days.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag = {}
-
--- Size: Original Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.size = 1
-
--- Display: Original Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.display = function(value)
-  return "Original Trade Through Exempt Flag: "..value
-end
-
--- Dissect: Original Trade Through Exempt Flag
-nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.original_trade_through_exempt_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag, range, value, display)
-
-  return offset + length, value
-end
-
 -- Original Sale Condition
 nasdaq_utdf_output_utp_v1_5.original_sale_condition = {}
 
@@ -4346,81 +4726,6 @@ nasdaq_utdf_output_utp_v1_5.original_sale_condition.dissect = function(buffer, o
     -- Skip element, add fields directly
     return nasdaq_utdf_output_utp_v1_5.original_sale_condition.fields(buffer, offset, packet, parent)
   end
-end
-
--- Original Volume
-nasdaq_utdf_output_utp_v1_5.original_volume = {}
-
--- Size: Original Volume
-nasdaq_utdf_output_utp_v1_5.original_volume.size = 4
-
--- Display: Original Volume
-nasdaq_utdf_output_utp_v1_5.original_volume.display = function(value)
-  return "Original Volume: "..value
-end
-
--- Dissect: Original Volume
-nasdaq_utdf_output_utp_v1_5.original_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.original_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.original_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Trade Price
-nasdaq_utdf_output_utp_v1_5.original_trade_price = {}
-
--- Size: Original Trade Price
-nasdaq_utdf_output_utp_v1_5.original_trade_price.size = 8
-
--- Display: Original Trade Price
-nasdaq_utdf_output_utp_v1_5.original_trade_price.display = function(value)
-  return "Original Trade Price: "..value
-end
-
--- Translate: Original Trade Price
-nasdaq_utdf_output_utp_v1_5.original_trade_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Original Trade Price
-nasdaq_utdf_output_utp_v1_5.original_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.original_trade_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_utdf_output_utp_v1_5.original_trade_price.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.original_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Trade Id
-nasdaq_utdf_output_utp_v1_5.original_trade_id = {}
-
--- Size: Original Trade Id
-nasdaq_utdf_output_utp_v1_5.original_trade_id.size = 8
-
--- Display: Original Trade Id
-nasdaq_utdf_output_utp_v1_5.original_trade_id.display = function(value)
-  return "Original Trade Id: "..value
-end
-
--- Dissect: Original Trade Id
-nasdaq_utdf_output_utp_v1_5.original_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.original_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.original_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.original_trade_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Correction Message
@@ -4545,29 +4850,6 @@ nasdaq_utdf_output_utp_v1_5.trade_correction_message.dissect = function(buffer, 
   end
 end
 
--- Trade Cancellation Type
-nasdaq_utdf_output_utp_v1_5.trade_cancellation_type = {}
-
--- Size: Trade Cancellation Type
-nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.size = 1
-
--- Display: Trade Cancellation Type
-nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.display = function(value)
-  return "Trade Cancellation Type: "..value
-end
-
--- Dissect: Trade Cancellation Type
-nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.trade_cancellation_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_cancellation_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Cancel Error Message
 nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message = {}
 
@@ -4675,54 +4957,6 @@ nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message.dissect = function(buffer
   end
 end
 
--- Participant Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator = {}
-
--- Size: Participant Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.size = 1
-
--- Display: Participant Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.display = function(value)
-  if value == "0" then
-    return "Participant Price Change Indicator: No Prices Changed (0)"
-  end
-  if value == "1" then
-    return "Participant Price Change Indicator: Participant Last Price Changed (1)"
-  end
-  if value == "2" then
-    return "Participant Price Change Indicator: Participant Low Price Changed (2)"
-  end
-  if value == "3" then
-    return "Participant Price Change Indicator: Participant Last And Low Prices Changed (3)"
-  end
-  if value == "4" then
-    return "Participant Price Change Indicator: Participant High Price Changed (4)"
-  end
-  if value == "5" then
-    return "Participant Price Change Indicator: Participant Last And High Prices Changed (5)"
-  end
-  if value == "6" then
-    return "Participant Price Change Indicator: Participant High And Low Prices Changed (6)"
-  end
-  if value == "7" then
-    return "Participant Price Change Indicator: All Participant Prices Changed (7)"
-  end
-
-  return "Participant Price Change Indicator: Unknown("..value..")"
-end
-
--- Dissect: Participant Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.participant_price_change_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Report Message Long Form Message
 nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message = {}
 
@@ -4801,58 +5035,6 @@ nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message.dissect = fun
 
     return index
   end
-end
-
--- Trade Volume Short
-nasdaq_utdf_output_utp_v1_5.trade_volume_short = {}
-
--- Size: Trade Volume Short
-nasdaq_utdf_output_utp_v1_5.trade_volume_short.size = 2
-
--- Display: Trade Volume Short
-nasdaq_utdf_output_utp_v1_5.trade_volume_short.display = function(value)
-  return "Trade Volume Short: "..value
-end
-
--- Dissect: Trade Volume Short
-nasdaq_utdf_output_utp_v1_5.trade_volume_short.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_volume_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.trade_volume_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_volume_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Price Short
-nasdaq_utdf_output_utp_v1_5.trade_price_short = {}
-
--- Size: Trade Price Short
-nasdaq_utdf_output_utp_v1_5.trade_price_short.size = 2
-
--- Display: Trade Price Short
-nasdaq_utdf_output_utp_v1_5.trade_price_short.display = function(value)
-  return "Trade Price Short: "..value
-end
-
--- Translate: Trade Price Short
-nasdaq_utdf_output_utp_v1_5.trade_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Trade Price Short
-nasdaq_utdf_output_utp_v1_5.trade_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_utdf_output_utp_v1_5.trade_price_short.translate(raw)
-  local display = nasdaq_utdf_output_utp_v1_5.trade_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_price_short, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Report Message Short Form Message
@@ -4961,45 +5143,6 @@ nasdaq_utdf_output_utp_v1_5.trade_payload.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Trade Message Type
-nasdaq_utdf_output_utp_v1_5.trade_message_type = {}
-
--- Size: Trade Message Type
-nasdaq_utdf_output_utp_v1_5.trade_message_type.size = 1
-
--- Display: Trade Message Type
-nasdaq_utdf_output_utp_v1_5.trade_message_type.display = function(value)
-  if value == "A" then
-    return "Trade Message Type: Trade Report Message Short Form Message (A)"
-  end
-  if value == "W" then
-    return "Trade Message Type: Trade Report Message Long Form Message (W)"
-  end
-  if value == "Z" then
-    return "Trade Message Type: Trade Cancel Error Message (Z)"
-  end
-  if value == "Y" then
-    return "Trade Message Type: Trade Correction Message (Y)"
-  end
-  if value == "H" then
-    return "Trade Message Type: Prior Day As Of Trade Message (H)"
-  end
-
-  return "Trade Message Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Message Type
-nasdaq_utdf_output_utp_v1_5.trade_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.trade_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.trade_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.trade_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade
 nasdaq_utdf_output_utp_v1_5.trade = {}
 
@@ -5076,75 +5219,6 @@ nasdaq_utdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, p
   end
 
   return offset
-end
-
--- Message Category
-nasdaq_utdf_output_utp_v1_5.message_category = {}
-
--- Size: Message Category
-nasdaq_utdf_output_utp_v1_5.message_category.size = 1
-
--- Display: Message Category
-nasdaq_utdf_output_utp_v1_5.message_category.display = function(value)
-  return "Message Category: "..value
-end
-
--- Dissect: Message Category
-nasdaq_utdf_output_utp_v1_5.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-nasdaq_utdf_output_utp_v1_5.version = {}
-
--- Size: Version
-nasdaq_utdf_output_utp_v1_5.version.size = 1
-
--- Display: Version
-nasdaq_utdf_output_utp_v1_5.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-nasdaq_utdf_output_utp_v1_5.version.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_utdf_output_utp_v1_5.message_length = {}
-
--- Size: Message Length
-nasdaq_utdf_output_utp_v1_5.message_length.size = 2
-
--- Display: Message Length
-nasdaq_utdf_output_utp_v1_5.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_utdf_output_utp_v1_5.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -5244,75 +5318,6 @@ nasdaq_utdf_output_utp_v1_5.message.dissect = function(buffer, offset, packet, p
 
     return index
   end
-end
-
--- Count
-nasdaq_utdf_output_utp_v1_5.count = {}
-
--- Size: Count
-nasdaq_utdf_output_utp_v1_5.count.size = 2
-
--- Display: Count
-nasdaq_utdf_output_utp_v1_5.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-nasdaq_utdf_output_utp_v1_5.count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utdf_output_utp_v1_5.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence
-nasdaq_utdf_output_utp_v1_5.sequence = {}
-
--- Size: Sequence
-nasdaq_utdf_output_utp_v1_5.sequence.size = 8
-
--- Display: Sequence
-nasdaq_utdf_output_utp_v1_5.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-nasdaq_utdf_output_utp_v1_5.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.sequence.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_utdf_output_utp_v1_5.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_utdf_output_utp_v1_5.session = {}
-
--- Size: Session
-nasdaq_utdf_output_utp_v1_5.session.size = 10
-
--- Display: Session
-nasdaq_utdf_output_utp_v1_5.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_utdf_output_utp_v1_5.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utdf_output_utp_v1_5.session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utdf_output_utp_v1_5.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utdf_output_utp_v1_5.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

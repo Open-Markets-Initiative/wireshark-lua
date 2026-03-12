@@ -242,144 +242,28 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Equities ImbalancesFeed Pillar 2.2.h
+-- Nyse Equities ImbalancesFeed Pillar 2.2.h Fields
 -----------------------------------------------------------------------
 
--- Significant Imbalance
-nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance = {}
+-- Auction Interest Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price = {}
 
--- Size: Significant Imbalance
-nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.size = 1
+-- Size: Auction Interest Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.size = 4
 
--- Display: Significant Imbalance
-nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.display = function(value)
-  if value == " " then
-    return "Significant Imbalance: Not Applicable (<whitespace>)"
-  end
-  if value == "Y" then
-    return "Significant Imbalance: Yes (Y)"
-  end
-
-  return "Significant Imbalance: Unknown("..value..")"
+-- Display: Auction Interest Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.display = function(value)
+  return "Auction Interest Clearing Price: "..value
 end
 
--- Dissect: Significant Imbalance
-nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.significant_imbalance, range, value, display)
-
-  return offset + length, value
-end
-
--- Unpaired Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side = {}
-
--- Size: Unpaired Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.size = 1
-
--- Display: Unpaired Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.display = function(value)
-  if value == " " then
-    return "Unpaired Side: Not Applicable (<whitespace>)"
-  end
-  if value == "B" then
-    return "Unpaired Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Unpaired Side: Sell Side (S)"
-  end
-
-  return "Unpaired Side: Unknown("..value..")"
-end
-
--- Dissect: Unpaired Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unpaired_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Unpaired Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty = {}
-
--- Size: Unpaired Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.size = 4
-
--- Display: Unpaired Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.display = function(value)
-  return "Unpaired Qty: "..value
-end
-
--- Dissect: Unpaired Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.size
+-- Dissect: Auction Interest Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unpaired_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Num Extensions
-nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions = {}
-
--- Size: Num Extensions
-nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.size = 1
-
--- Display: Num Extensions
-nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.display = function(value)
-  return "Num Extensions: "..value
-end
-
--- Dissect: Num Extensions
-nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.num_extensions, range, value, display)
-
-  return offset + length, value
-end
-
--- Freeze Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status = {}
-
--- Size: Freeze Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.size = 1
-
--- Display: Freeze Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.display = function(value)
-  if value == 0 then
-    return "Freeze Status: No Imbalance Freeze (0)"
-  end
-  if value == 1 then
-    return "Freeze Status: Imbalance Freeze (1)"
-  end
-
-  return "Freeze Status: Unknown("..value..")"
-end
-
--- Dissect: Freeze Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.freeze_status, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.auction_interest_clearing_price, range, value, display)
 
   return offset + length, value
 end
@@ -420,173 +304,25 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_status.dissect = function(buf
   return offset + length, value
 end
 
--- Lower Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar = {}
+-- Auction Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time = {}
 
--- Size: Lower Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.size = 4
+-- Size: Auction Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.size = 2
 
--- Display: Lower Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.display = function(value)
-  return "Lower Collar: "..value
+-- Display: Auction Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.display = function(value)
+  return "Auction Time: "..value
 end
 
--- Dissect: Lower Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.size
+-- Dissect: Auction Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.lower_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Upper Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar = {}
-
--- Size: Upper Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.size = 4
-
--- Display: Upper Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.display = function(value)
-  return "Upper Collar: "..value
-end
-
--- Dissect: Upper Collar
-nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.upper_collar, range, value, display)
-
-  return offset + length, value
-end
-
--- Indicative Match Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price = {}
-
--- Size: Indicative Match Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.size = 4
-
--- Display: Indicative Match Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.display = function(value)
-  return "Indicative Match Price: "..value
-end
-
--- Dissect: Indicative Match Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.indicative_match_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr Filing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price = {}
-
--- Size: Ssr Filing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.size = 4
-
--- Display: Ssr Filing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.display = function(value)
-  return "Ssr Filing Price: "..value
-end
-
--- Dissect: Ssr Filing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_filing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Interest Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price = {}
-
--- Size: Auction Interest Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.size = 4
-
--- Display: Auction Interest Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.display = function(value)
-  return "Auction Interest Clearing Price: "..value
-end
-
--- Dissect: Auction Interest Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.auction_interest_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Continuous Book Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price = {}
-
--- Size: Continuous Book Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.size = 4
-
--- Display: Continuous Book Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.display = function(value)
-  return "Continuous Book Clearing Price: "..value
-end
-
--- Dissect: Continuous Book Clearing Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.continuous_book_clearing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side = {}
-
--- Size: Imbalance Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.size = 1
-
--- Display: Imbalance Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.display = function(value)
-  if value == " " then
-    return "Imbalance Side: No Imbalance (<whitespace>)"
-  end
-  if value == "B" then
-    return "Imbalance Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Imbalance Side: Sell Side (S)"
-  end
-
-  return "Imbalance Side: Unknown("..value..")"
-end
-
--- Dissect: Imbalance Side
-nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.imbalance_side, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.auction_time, range, value, display)
 
   return offset + length, value
 end
@@ -633,25 +369,540 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_type.dissect = function(buffe
   return offset + length, value
 end
 
--- Auction Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time = {}
+-- Begin Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num = {}
 
--- Size: Auction Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.size = 2
+-- Size: Begin Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.size = 4
 
--- Display: Auction Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.display = function(value)
-  return "Auction Time: "..value
+-- Display: Begin Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.display = function(value)
+  return "Begin Seq Num: "..value
 end
 
--- Dissect: Auction Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.size
+-- Dissect: Begin Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.auction_time.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.auction_time, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id = {}
+
+-- Size: Channel Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.size = 1
+
+-- Display: Channel Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Continuous Book Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price = {}
+
+-- Size: Continuous Book Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.size = 4
+
+-- Display: Continuous Book Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.display = function(value)
+  return "Continuous Book Clearing Price: "..value
+end
+
+-- Dissect: Continuous Book Clearing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.continuous_book_clearing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Refresh Pkt
+nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt = {}
+
+-- Size: Current Refresh Pkt
+nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.size = 2
+
+-- Display: Current Refresh Pkt
+nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.display = function(value)
+  return "Current Refresh Pkt: "..value
+end
+
+-- Dissect: Current Refresh Pkt
+nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.current_refresh_pkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Flag
+nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag = {}
+
+-- Size: Delivery Flag
+nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: Heartbeat (1)"
+  end
+  if value == 10 then
+    return "Delivery Flag: Pillar Failover (10)"
+  end
+  if value == 11 then
+    return "Delivery Flag: Original Message (11)"
+  end
+  if value == 12 then
+    return "Delivery Flag: Sequence Number Reset Message (12)"
+  end
+  if value == 13 then
+    return "Delivery Flag: One Retransmission Packet (13)"
+  end
+  if value == 15 then
+    return "Delivery Flag: Retransmission Sequence Message (15)"
+  end
+  if value == 17 then
+    return "Delivery Flag: One Refresh Packet (17)"
+  end
+  if value == 18 then
+    return "Delivery Flag: Refresh Sequence Start (18)"
+  end
+  if value == 19 then
+    return "Delivery Flag: Refresh Sequence Message (19)"
+  end
+  if value == 20 then
+    return "Delivery Flag: Refresh Sequence End (20)"
+  end
+  if value == 21 then
+    return "Delivery Flag: Message Unavailable (21)"
+  end
+
+  return "Delivery Flag: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Flag
+nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.delivery_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num = {}
+
+-- Size: End Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.size = 4
+
+-- Display: End Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.display = function(value)
+  return "End Seq Num: "..value
+end
+
+-- Dissect: End Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code = {}
+
+-- Size: Exchange Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.size = 1
+
+-- Display: Exchange Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.display = function(value)
+  if value == "A" then
+    return "Exchange Code: Nyse American (A)"
+  end
+  if value == "L" then
+    return "Exchange Code: Ltse (L)"
+  end
+  if value == "N" then
+    return "Exchange Code: Nyse (N)"
+  end
+  if value == "P" then
+    return "Exchange Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Exchange Code: Nasdaq (Q)"
+  end
+  if value == "V" then
+    return "Exchange Code: Iex (V)"
+  end
+  if value == "Z" then
+    return "Exchange Code: Cboe (Z)"
+  end
+
+  return "Exchange Code: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.exchange_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Freeze Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status = {}
+
+-- Size: Freeze Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.size = 1
+
+-- Display: Freeze Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.display = function(value)
+  if value == 0 then
+    return "Freeze Status: No Imbalance Freeze (0)"
+  end
+  if value == 1 then
+    return "Freeze Status: Imbalance Freeze (1)"
+  end
+
+  return "Freeze Status: Unknown("..value..")"
+end
+
+-- Dissect: Freeze Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.freeze_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.freeze_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Halt Condition
+nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition = {}
+
+-- Size: Halt Condition
+nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.size = 1
+
+-- Display: Halt Condition
+nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.display = function(value)
+  if value == "~" then
+    return "Halt Condition: Security Not Delayedhalted (~)"
+  end
+  if value == "D" then
+    return "Halt Condition: News Dissemination (D)"
+  end
+  if value == "I" then
+    return "Halt Condition: Order Imbalance (I)"
+  end
+  if value == "P" then
+    return "Halt Condition: News Pending (P)"
+  end
+  if value == "M" then
+    return "Halt Condition: Luld Pause (M)"
+  end
+  if value == "X" then
+    return "Halt Condition: Equipment Changeover (X)"
+  end
+  if value == "A" then
+    return "Halt Condition: Additional Information Requested (A)"
+  end
+  if value == "C" then
+    return "Halt Condition: Regulatory Concern (C)"
+  end
+  if value == "E" then
+    return "Halt Condition: Merger Effective (E)"
+  end
+  if value == "F" then
+    return "Halt Condition: Etf Component Prices Not Available (F)"
+  end
+  if value == "N" then
+    return "Halt Condition: Corporate Action (N)"
+  end
+  if value == "O" then
+    return "Halt Condition: New Security Offering (O)"
+  end
+  if value == "V" then
+    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+  end
+  if value == "1" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
+  end
+  if value == "2" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
+  end
+  if value == "3" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
+  end
+
+  return "Halt Condition: Unknown("..value..")"
+end
+
+-- Dissect: Halt Condition
+nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.halt_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.id = {}
+
+-- Size: Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.id.size = 4
+
+-- Display: Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.id.display = function(value)
+  return "Id: "..value
+end
+
+-- Dissect: Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side = {}
+
+-- Size: Imbalance Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.size = 1
+
+-- Display: Imbalance Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.display = function(value)
+  if value == " " then
+    return "Imbalance Side: No Imbalance (<whitespace>)"
+  end
+  if value == "B" then
+    return "Imbalance Side: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Imbalance Side: Sell Side (S)"
+  end
+
+  return "Imbalance Side: Unknown("..value..")"
+end
+
+-- Dissect: Imbalance Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.imbalance_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Match Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price = {}
+
+-- Size: Indicative Match Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.size = 4
+
+-- Display: Indicative Match Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.display = function(value)
+  return "Indicative Match Price: "..value
+end
+
+-- Dissect: Indicative Match Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.indicative_match_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num = {}
+
+-- Size: Last Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num = {}
+
+-- Size: Last Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.size = 4
+
+-- Display: Last Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.display = function(value)
+  return "Last Symbol Seq Num: "..value
+end
+
+-- Dissect: Last Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.last_symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size = {}
+
+-- Size: Lot Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.size = 2
+
+-- Display: Lot Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar = {}
+
+-- Size: Lower Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.size = 4
+
+-- Display: Lower Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.display = function(value)
+  return "Lower Collar: "..value
+end
+
+-- Dissect: Lower Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.lower_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.lower_collar, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id = {}
+
+-- Size: Market Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.size = 2
+
+-- Display: Market Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.display = function(value)
+  if value == 1 then
+    return "Market Id: Nyse Equities (1)"
+  end
+  if value == 3 then
+    return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse Amex Options (8)"
+  end
+  if value == 9 then
+    return "Market Id: Nyse American Equities (9)"
+  end
+  if value == 10 then
+    return "Market Id: Nyse National Equities (10)"
+  end
+  if value == 11 then
+    return "Market Id: Nyse Chicago (11)"
+  end
+
+  return "Market Id: Unknown("..value..")"
+end
+
+-- Dissect: Market Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_id, range, value, display)
 
   return offset + length, value
 end
@@ -679,25 +930,242 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.market_imbalance_qty.dissect = functi
   return offset + length, value
 end
 
--- Total Imbalance Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty = {}
+-- Market State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state = {}
 
--- Size: Total Imbalance Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.size = 4
+-- Size: Market State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.size = 1
 
--- Display: Total Imbalance Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.display = function(value)
-  return "Total Imbalance Qty: "..value
+-- Display: Market State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.display = function(value)
+  if value == "P" then
+    return "Market State: Preopening (P)"
+  end
+  if value == "E" then
+    return "Market State: Early Session (E)"
+  end
+  if value == "O" then
+    return "Market State: Core Session (O)"
+  end
+  if value == "L" then
+    return "Market State: Late Session (L)"
+  end
+  if value == "X" then
+    return "Market State: Closed (X)"
+  end
+
+  return "Market State: Unknown("..value..")"
 end
 
--- Dissect: Total Imbalance Qty
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.size
+-- Dissect: Market State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size = {}
+
+-- Size: Message Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.size = 2
+
+-- Display: Message Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.total_imbalance_qty, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type = {}
+
+-- Size: Message Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.size = 2
+
+-- Display: Message Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Source Time Reference Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Symbol Index Mapping Message (3)"
+  end
+  if value == 10 then
+    return "Message Type: Retransmission Request Message (10)"
+  end
+  if value == 11 then
+    return "Message Type: Request Response Message (11)"
+  end
+  if value == 12 then
+    return "Message Type: Heartbeat Response Message (12)"
+  end
+  if value == 13 then
+    return "Message Type: Symbol Index Mapping Request Message (13)"
+  end
+  if value == 15 then
+    return "Message Type: Refresh Request Message (15)"
+  end
+  if value == 31 then
+    return "Message Type: Message Unavailable Message (31)"
+  end
+  if value == 32 then
+    return "Message Type: Symbol Clear Message (32)"
+  end
+  if value == 34 then
+    return "Message Type: Security Status Message (34)"
+  end
+  if value == 35 then
+    return "Message Type: Refresh Header Message (35)"
+  end
+  if value == 105 then
+    return "Message Type: Imbalance Message (105)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv = {}
+
+-- Size: Mpv
+nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.size = 2
+
+-- Display: Mpv
+nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Dissect: Mpv
+nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Source Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num = {}
+
+-- Size: Next Source Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.size = 4
+
+-- Display: Next Source Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.display = function(value)
+  return "Next Source Seq Num: "..value
+end
+
+-- Dissect: Next Source Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.next_source_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Extensions
+nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions = {}
+
+-- Size: Num Extensions
+nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.size = 1
+
+-- Display: Num Extensions
+nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.display = function(value)
+  return "Num Extensions: "..value
+end
+
+-- Dissect: Num Extensions
+nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.num_extensions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.num_extensions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs = {}
+
+-- Size: Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size = 1
+
+-- Display: Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.display = function(value)
+  return "Number Msgs: "..value
+end
+
+-- Dissect: Number Msgs
+nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.number_msgs, range, value, display)
 
   return offset + length, value
 end
@@ -725,6 +1193,200 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.paired_qty.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size = {}
+
+-- Size: Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size = 2
+
+-- Display: Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price = {}
+
+-- Size: Prev Close Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.size = 4
+
+-- Display: Prev Close Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.display = function(value)
+  return "Prev Close Price: "..value
+end
+
+-- Dissect: Prev Close Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.prev_close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume = {}
+
+-- Size: Prev Close Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.size = 4
+
+-- Display: Prev Close Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.display = function(value)
+  return "Prev Close Volume: "..value
+end
+
+-- Dissect: Prev Close Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.prev_close_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1 = {}
+
+-- Size: Price 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.size = 4
+
+-- Display: Price 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.display = function(value)
+  return "Price 1: "..value
+end
+
+-- Dissect: Price 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2 = {}
+
+-- Size: Price 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.size = 4
+
+-- Display: Price 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.display = function(value)
+  return "Price 2: "..value
+end
+
+-- Dissect: Price 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Resolution
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution = {}
+
+-- Size: Price Resolution
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.size = 1
+
+-- Display: Price Resolution
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.display = function(value)
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
+end
+
+-- Dissect: Price Resolution
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_resolution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code = {}
+
+-- Size: Price Scale Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.size = 1
+
+-- Display: Price Scale Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.display = function(value)
+  return "Price Scale Code: "..value
+end
+
+-- Dissect: Price Scale Code
+nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id = {}
+
+-- Size: Product Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.size = 1
+
+-- Display: Product Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reference Price
 nyse_equities_imbalancesfeed_pillar_v2_2_h.reference_price = {}
 
@@ -748,48 +1410,424 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.reference_price.dissect = function(bu
   return offset + length, value
 end
 
--- Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num = {}
+-- Request Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num = {}
 
--- Size: Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.size = 4
+-- Size: Request Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.size = 4
 
--- Display: Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.display = function(value)
-  return "Symbol Seq Num: "..value
+-- Display: Request Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.display = function(value)
+  return "Request Seq Num: "..value
 end
 
--- Dissect: Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.size
+-- Dissect: Request Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.request_seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Index
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index = {}
+-- Reserved 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1 = {}
 
--- Size: Symbol Index
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.size = 4
+-- Size: Reserved 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.size = 1
 
--- Display: Symbol Index
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.display = function(value)
-  return "Symbol Index: "..value
+-- Display: Reserved 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Symbol Index
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.size
+-- Dissect: Reserved 1
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4 = {}
+
+-- Size: Reserved 4
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.size = 4
+
+-- Display: Reserved 4
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmit Method
+nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method = {}
+
+-- Size: Retransmit Method
+nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.size = 1
+
+-- Display: Retransmit Method
+nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.display = function(value)
+  return "Retransmit Method: "..value
+end
+
+-- Dissect: Retransmit Method
+nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.retransmit_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot
+nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot = {}
+
+-- Size: Round Lot
+nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.size = 1
+
+-- Display: Round Lot
+nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.display = function(value)
+  if value == "Y" then
+    return "Round Lot: Yes (Y)"
+  end
+  if value == "N" then
+    return "Round Lot: No (N)"
+  end
+
+  return "Round Lot: Unknown("..value..")"
+end
+
+-- Dissect: Round Lot
+nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds = {}
+
+-- Size: Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size = 4
+
+-- Display: Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status = {}
+
+-- Size: Security Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.size = 1
+
+-- Display: Security Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.display = function(value)
+  if value == "4" then
+    return "Security Status: Trading Halt (4)"
+  end
+  if value == "5" then
+    return "Security Status: Resume (5)"
+  end
+  if value == "A" then
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
+  end
+  if value == "C" then
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
+  end
+  if value == "D" then
+    return "Security Status: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "P" then
+    return "Security Status: Preopening (P)"
+  end
+  if value == "E" then
+    return "Security Status: Early Session (E)"
+  end
+  if value == "O" then
+    return "Security Status: Core Session (O)"
+  end
+  if value == "L" then
+    return "Security Status: Late Session Non Nyse Only (L)"
+  end
+  if value == "X" then
+    return "Security Status: Closed (X)"
+  end
+  if value == "I" then
+    return "Security Status: Price Indication (I)"
+  end
+  if value == "G" then
+    return "Security Status: Pre Opening Price Indication (G)"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type = {}
+
+-- Size: Security Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.size = 1
+
+-- Display: Security Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.display = function(value)
+  if value == "A" then
+    return "Security Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Security Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Security Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Security Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Security Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Security Type: Us Depositary Shares (H)"
+  end
+  if value == "I" then
+    return "Security Type: Units (I)"
+  end
+  if value == "L" then
+    return "Security Type: Index Linked Notes (L)"
+  end
+  if value == "M" then
+    return "Security Type: Miscliquid Trust (M)"
+  end
+  if value == "O" then
+    return "Security Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Security Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Security Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Security Type: Shares Of Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Security Type: Test (T)"
+  end
+  if value == "U" then
+    return "Security Type: Closed End Fund (U)"
+  end
+  if value == "W" then
+    return "Security Type: Warrant (W)"
+  end
+
+  return "Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Type
+nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num = {}
+
+-- Size: Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size = 4
+
+-- Display: Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state = {}
+
+-- Size: Session State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.size = 1
+
+-- Display: Session State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.display = function(value)
+  return "Session State: "..value
+end
+
+-- Dissect: Session State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.session_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Significant Imbalance
+nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance = {}
+
+-- Size: Significant Imbalance
+nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.size = 1
+
+-- Display: Significant Imbalance
+nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.display = function(value)
+  if value == " " then
+    return "Significant Imbalance: Not Applicable (<whitespace>)"
+  end
+  if value == "Y" then
+    return "Significant Imbalance: Yes (Y)"
+  end
+
+  return "Significant Imbalance: Unknown("..value..")"
+end
+
+-- Dissect: Significant Imbalance
+nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.significant_imbalance, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id = {}
+
+-- Size: Source Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.size = 10
+
+-- Display: Source Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.display = function(value)
+  return "Source Id: "..value
+end
+
+-- Dissect: Source Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.source_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time = {}
+
+-- Size: Source Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.size = 4
+
+-- Display: Source Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.display = function(value)
+  return "Source Time: "..value
+end
+
+-- Dissect: Source Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -817,28 +1855,481 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time_ns.dissect = function(buf
   return offset + length, value
 end
 
--- Source Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time = {}
+-- Ssr Filing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price = {}
 
--- Size: Source Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.size = 4
+-- Size: Ssr Filing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.size = 4
 
--- Display: Source Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.display = function(value)
-  return "Source Time: "..value
+-- Display: Ssr Filing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.display = function(value)
+  return "Ssr Filing Price: "..value
 end
 
--- Dissect: Source Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.size
+-- Dissect: Ssr Filing Price
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_time.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.source_time, range, value, display)
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_filing_price, range, value, display)
 
   return offset + length, value
 end
+
+-- Ssr State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state = {}
+
+-- Size: Ssr State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.size = 1
+
+-- Display: Ssr State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.display = function(value)
+  if value == "~" then
+    return "Ssr State: No Short Sale Restriction In Effect (~)"
+  end
+  if value == "E" then
+    return "Ssr State: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Ssr State: Unknown("..value..")"
+end
+
+-- Dissect: Ssr State
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr Triggering Exchange Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id = {}
+
+-- Size: Ssr Triggering Exchange Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.size = 1
+
+-- Display: Ssr Triggering Exchange Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.display = function(value)
+  if value == "A" then
+    return "Ssr Triggering Exchange Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+  end
+  if value == "C" then
+    return "Ssr Triggering Exchange Id: Nyse National (C)"
+  end
+  if value == "H" then
+    return "Ssr Triggering Exchange Id: Miami Pearl (H)"
+  end
+  if value == "I" then
+    return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Ssr Triggering Exchange Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Ssr Triggering Exchange Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Ssr Triggering Exchange Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Ssr Triggering Exchange Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Ssr Triggering Exchange Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
+  end
+  if value == "T" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
+  end
+  if value == "U" then
+    return "Ssr Triggering Exchange Id: Memx (U)"
+  end
+  if value == "V" then
+    return "Ssr Triggering Exchange Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Ssr Triggering Exchange Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
+  end
+  if value == "Y" then
+    return "Ssr Triggering Exchange Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
+  end
+
+  return "Ssr Triggering Exchange Id: Unknown("..value..")"
+end
+
+-- Dissect: Ssr Triggering Exchange Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_triggering_exchange_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr Triggering Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume = {}
+
+-- Size: Ssr Triggering Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.size = 4
+
+-- Display: Ssr Triggering Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.display = function(value)
+  return "Ssr Triggering Volume: "..value
+end
+
+-- Dissect: Ssr Triggering Volume
+nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_triggering_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.status = {}
+
+-- Size: Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.status.size = 1
+
+-- Display: Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.status.display = function(value)
+  if value == "0" then
+    return "Status: Message Was Accepted (0)"
+  end
+  if value == "1" then
+    return "Status: Rejected Due To An Invalid Source Id (1)"
+  end
+  if value == "3" then
+    return "Status: Maximum Sequence Range (3)"
+  end
+  if value == "4" then
+    return "Status: Maximum Request In A Day (4)"
+  end
+  if value == "5" then
+    return "Status: Maximum Refresh Requests In A Day (5)"
+  end
+  if value == "6" then
+    return "Status: Old Seq Num Ttl (6)"
+  end
+  if value == "7" then
+    return "Status: Invalid Channel Id (7)"
+  end
+  if value == "8" then
+    return "Status: Invalid Product Id (8)"
+  end
+  if value == "9" then
+    return "Status: Invalid Msg Type Or Msg Size Mismatch (9)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+nyse_equities_imbalancesfeed_pillar_v2_2_h.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol = {}
+
+-- Size: Symbol
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.size = 11
+
+-- Display: Symbol
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Index
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index = {}
+
+-- Size: Symbol Index
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.size = 4
+
+-- Display: Symbol Index
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.display = function(value)
+  return "Symbol Index: "..value
+end
+
+-- Dissect: Symbol Index
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num = {}
+
+-- Size: Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.size = 4
+
+-- Display: Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.display = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id = {}
+
+-- Size: System Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.size = 1
+
+-- Display: System Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.display = function(value)
+  return "System Id: "..value
+end
+
+-- Dissect: System Id
+nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.time = {}
+
+-- Size: Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.time.size = 4
+
+-- Display: Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+nyse_equities_imbalancesfeed_pillar_v2_2_h.time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Imbalance Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty = {}
+
+-- Size: Total Imbalance Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.size = 4
+
+-- Display: Total Imbalance Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.display = function(value)
+  return "Total Imbalance Qty: "..value
+end
+
+-- Dissect: Total Imbalance Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.total_imbalance_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Refresh Pkts
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts = {}
+
+-- Size: Total Refresh Pkts
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.size = 2
+
+-- Display: Total Refresh Pkts
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.display = function(value)
+  return "Total Refresh Pkts: "..value
+end
+
+-- Dissect: Total Refresh Pkts
+nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.total_refresh_pkts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Trade
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade = {}
+
+-- Size: Unit Of Trade
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.size = 2
+
+-- Display: Unit Of Trade
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.display = function(value)
+  return "Unit Of Trade: "..value
+end
+
+-- Dissect: Unit Of Trade
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unit_of_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unpaired Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty = {}
+
+-- Size: Unpaired Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.size = 4
+
+-- Display: Unpaired Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.display = function(value)
+  return "Unpaired Qty: "..value
+end
+
+-- Dissect: Unpaired Qty
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unpaired_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unpaired Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side = {}
+
+-- Size: Unpaired Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.size = 1
+
+-- Display: Unpaired Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.display = function(value)
+  if value == " " then
+    return "Unpaired Side: Not Applicable (<whitespace>)"
+  end
+  if value == "B" then
+    return "Unpaired Side: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Unpaired Side: Sell Side (S)"
+  end
+
+  return "Unpaired Side: Unknown("..value..")"
+end
+
+-- Dissect: Unpaired Side
+nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.unpaired_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unpaired_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Upper Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar = {}
+
+-- Size: Upper Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.size = 4
+
+-- Display: Upper Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.display = function(value)
+  return "Upper Collar: "..value
+end
+
+-- Dissect: Upper Collar
+nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.upper_collar.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.upper_collar, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Equities ImbalancesFeed Pillar 2.2.h
+-----------------------------------------------------------------------
 
 -- Imbalance Message
 nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_message = {}
@@ -968,98 +2459,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.imbalance_message.dissect = function(
   end
 end
 
--- Last Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num = {}
-
--- Size: Last Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.size = 4
-
--- Display: Last Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.display = function(value)
-  return "Last Symbol Seq Num: "..value
-end
-
--- Dissect: Last Symbol Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.last_symbol_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num = {}
-
--- Size: Last Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.size = 4
-
--- Display: Last Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Refresh Pkts
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts = {}
-
--- Size: Total Refresh Pkts
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.size = 2
-
--- Display: Total Refresh Pkts
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.display = function(value)
-  return "Total Refresh Pkts: "..value
-end
-
--- Dissect: Total Refresh Pkts
-nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.total_refresh_pkts, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Refresh Pkt
-nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt = {}
-
--- Size: Current Refresh Pkt
-nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.size = 2
-
--- Display: Current Refresh Pkt
-nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.display = function(value)
-  return "Current Refresh Pkt: "..value
-end
-
--- Dissect: Current Refresh Pkt
-nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.current_refresh_pkt, range, value, display)
-
-  return offset + length, value
-end
-
 -- Refresh Header Message
 nyse_equities_imbalancesfeed_pillar_v2_2_h.refresh_header_message = {}
 
@@ -1110,426 +2509,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.refresh_header_message.dissect = func
     -- Skip element, add fields directly
     return nyse_equities_imbalancesfeed_pillar_v2_2_h.refresh_header_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Session State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state = {}
-
--- Size: Session State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.size = 1
-
--- Display: Session State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.display = function(value)
-  return "Session State: "..value
-end
-
--- Dissect: Session State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.session_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.session_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Market State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state = {}
-
--- Size: Market State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.size = 1
-
--- Display: Market State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.display = function(value)
-  if value == "P" then
-    return "Market State: Preopening (P)"
-  end
-  if value == "E" then
-    return "Market State: Early Session (E)"
-  end
-  if value == "O" then
-    return "Market State: Core Session (O)"
-  end
-  if value == "L" then
-    return "Market State: Late Session (L)"
-  end
-  if value == "X" then
-    return "Market State: Closed (X)"
-  end
-
-  return "Market State: Unknown("..value..")"
-end
-
--- Dissect: Market State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state = {}
-
--- Size: Ssr State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.size = 1
-
--- Display: Ssr State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.display = function(value)
-  if value == "~" then
-    return "Ssr State: No Short Sale Restriction In Effect (~)"
-  end
-  if value == "E" then
-    return "Ssr State: Short Sale Restriction In Effect (E)"
-  end
-
-  return "Ssr State: Unknown("..value..")"
-end
-
--- Dissect: Ssr State
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.time = {}
-
--- Size: Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.time.size = 4
-
--- Display: Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-nyse_equities_imbalancesfeed_pillar_v2_2_h.time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr Triggering Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume = {}
-
--- Size: Ssr Triggering Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.size = 4
-
--- Display: Ssr Triggering Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.display = function(value)
-  return "Ssr Triggering Volume: "..value
-end
-
--- Dissect: Ssr Triggering Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_triggering_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr Triggering Exchange Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id = {}
-
--- Size: Ssr Triggering Exchange Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.size = 1
-
--- Display: Ssr Triggering Exchange Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.display = function(value)
-  if value == "A" then
-    return "Ssr Triggering Exchange Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Ssr Triggering Exchange Id: Nyse National (C)"
-  end
-  if value == "H" then
-    return "Ssr Triggering Exchange Id: Miami Pearl (H)"
-  end
-  if value == "I" then
-    return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Ssr Triggering Exchange Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Ssr Triggering Exchange Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Ssr Triggering Exchange Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Ssr Triggering Exchange Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Ssr Triggering Exchange Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
-  end
-  if value == "T" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
-  end
-  if value == "U" then
-    return "Ssr Triggering Exchange Id: Memx (U)"
-  end
-  if value == "V" then
-    return "Ssr Triggering Exchange Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Ssr Triggering Exchange Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
-  end
-  if value == "Y" then
-    return "Ssr Triggering Exchange Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
-  end
-
-  return "Ssr Triggering Exchange Id: Unknown("..value..")"
-end
-
--- Dissect: Ssr Triggering Exchange Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.ssr_triggering_exchange_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2 = {}
-
--- Size: Price 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.size = 4
-
--- Display: Price 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.display = function(value)
-  return "Price 2: "..value
-end
-
--- Dissect: Price 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1 = {}
-
--- Size: Price 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.size = 4
-
--- Display: Price 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.display = function(value)
-  return "Price 1: "..value
-end
-
--- Dissect: Price 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 4
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4 = {}
-
--- Size: Reserved 4
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.size = 4
-
--- Display: Reserved 4
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Halt Condition
-nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition = {}
-
--- Size: Halt Condition
-nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.size = 1
-
--- Display: Halt Condition
-nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.display = function(value)
-  if value == "~" then
-    return "Halt Condition: Security Not Delayedhalted (~)"
-  end
-  if value == "D" then
-    return "Halt Condition: News Dissemination (D)"
-  end
-  if value == "I" then
-    return "Halt Condition: Order Imbalance (I)"
-  end
-  if value == "P" then
-    return "Halt Condition: News Pending (P)"
-  end
-  if value == "M" then
-    return "Halt Condition: Luld Pause (M)"
-  end
-  if value == "X" then
-    return "Halt Condition: Equipment Changeover (X)"
-  end
-  if value == "A" then
-    return "Halt Condition: Additional Information Requested (A)"
-  end
-  if value == "C" then
-    return "Halt Condition: Regulatory Concern (C)"
-  end
-  if value == "E" then
-    return "Halt Condition: Merger Effective (E)"
-  end
-  if value == "F" then
-    return "Halt Condition: Etf Component Prices Not Available (F)"
-  end
-  if value == "N" then
-    return "Halt Condition: Corporate Action (N)"
-  end
-  if value == "O" then
-    return "Halt Condition: New Security Offering (O)"
-  end
-  if value == "V" then
-    return "Halt Condition: Intraday Indicative Value Not Available (V)"
-  end
-  if value == "1" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
-  end
-  if value == "2" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
-  end
-  if value == "3" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
-  end
-
-  return "Halt Condition: Unknown("..value..")"
-end
-
--- Dissect: Halt Condition
-nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.halt_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.halt_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status = {}
-
--- Size: Security Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.size = 1
-
--- Display: Security Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.display = function(value)
-  if value == "4" then
-    return "Security Status: Trading Halt (4)"
-  end
-  if value == "5" then
-    return "Security Status: Resume (5)"
-  end
-  if value == "A" then
-    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
-  end
-  if value == "C" then
-    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
-  end
-  if value == "D" then
-    return "Security Status: Short Sale Restriction Deactivated (D)"
-  end
-  if value == "P" then
-    return "Security Status: Preopening (P)"
-  end
-  if value == "E" then
-    return "Security Status: Early Session (E)"
-  end
-  if value == "O" then
-    return "Security Status: Core Session (O)"
-  end
-  if value == "L" then
-    return "Security Status: Late Session Non Nyse Only (L)"
-  end
-  if value == "X" then
-    return "Security Status: Closed (X)"
-  end
-  if value == "I" then
-    return "Security Status: Price Indication (I)"
-  end
-  if value == "G" then
-    return "Security Status: Pre Opening Price Indication (G)"
-  end
-
-  return "Security Status: Unknown("..value..")"
-end
-
--- Dissect: Security Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.security_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Status Message
@@ -1628,29 +2607,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.security_status_message.dissect = fun
   end
 end
 
--- Next Source Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num = {}
-
--- Size: Next Source Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.size = 4
-
--- Display: Next Source Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.display = function(value)
-  return "Next Source Seq Num: "..value
-end
-
--- Dissect: Next Source Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.next_source_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Clear Message
 nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_clear_message = {}
 
@@ -1701,98 +2657,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_clear_message.dissect = functi
     -- Skip element, add fields directly
     return nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_clear_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Channel Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id = {}
-
--- Size: Channel Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.size = 1
-
--- Display: Channel Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id = {}
-
--- Size: Product Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.size = 1
-
--- Display: Product Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- End Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num = {}
-
--- Size: End Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.size = 4
-
--- Display: End Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
-end
-
--- Dissect: End Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.end_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num = {}
-
--- Size: Begin Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Unavailable Message
@@ -1847,29 +2711,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.message_unavailable_message.dissect =
   end
 end
 
--- Source Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id = {}
-
--- Size: Source Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.size = 10
-
--- Display: Source Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.display = function(value)
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.source_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Refresh Request Message
 nyse_equities_imbalancesfeed_pillar_v2_2_h.refresh_request_message = {}
 
@@ -1920,29 +2761,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.refresh_request_message.dissect = fun
     -- Skip element, add fields directly
     return nyse_equities_imbalancesfeed_pillar_v2_2_h.refresh_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Retransmit Method
-nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method = {}
-
--- Size: Retransmit Method
-nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.size = 1
-
--- Display: Retransmit Method
-nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
-end
-
--- Dissect: Retransmit Method
-nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmit_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.retransmit_method, range, value, display)
-
-  return offset + length, value
 end
 
 -- Symbol Index Mapping Request Message
@@ -2039,80 +2857,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.heartbeat_response_message.dissect = 
     -- Skip element, add fields directly
     return nyse_equities_imbalancesfeed_pillar_v2_2_h.heartbeat_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.status = {}
-
--- Size: Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.status.size = 1
-
--- Display: Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.status.display = function(value)
-  if value == "0" then
-    return "Status: Message Was Accepted (0)"
-  end
-  if value == "1" then
-    return "Status: Rejected Due To An Invalid Source Id (1)"
-  end
-  if value == "3" then
-    return "Status: Maximum Sequence Range (3)"
-  end
-  if value == "4" then
-    return "Status: Maximum Request In A Day (4)"
-  end
-  if value == "5" then
-    return "Status: Maximum Refresh Requests In A Day (5)"
-  end
-  if value == "6" then
-    return "Status: Old Seq Num Ttl (6)"
-  end
-  if value == "7" then
-    return "Status: Invalid Channel Id (7)"
-  end
-  if value == "8" then
-    return "Status: Invalid Product Id (8)"
-  end
-  if value == "9" then
-    return "Status: Invalid Msg Type Or Msg Size Mismatch (9)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-nyse_equities_imbalancesfeed_pillar_v2_2_h.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num = {}
-
--- Size: Request Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.size = 4
-
--- Display: Request Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.display = function(value)
-  return "Request Seq Num: "..value
-end
-
--- Dissect: Request Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.request_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.request_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Request Response Message
@@ -2235,464 +2979,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.retransmission_request_message.dissec
   end
 end
 
--- Reserved 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Of Trade
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade = {}
-
--- Size: Unit Of Trade
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.size = 2
-
--- Display: Unit Of Trade
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.display = function(value)
-  return "Unit Of Trade: "..value
-end
-
--- Dissect: Unit Of Trade
-nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.unit_of_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Mpv
-nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv = {}
-
--- Size: Mpv
-nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.size = 2
-
--- Display: Mpv
-nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.display = function(value)
-  return "Mpv: "..value
-end
-
--- Dissect: Mpv
-nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot
-nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot = {}
-
--- Size: Round Lot
-nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.size = 1
-
--- Display: Round Lot
-nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.display = function(value)
-  if value == "Y" then
-    return "Round Lot: Yes (Y)"
-  end
-  if value == "N" then
-    return "Round Lot: No (N)"
-  end
-
-  return "Round Lot: Unknown("..value..")"
-end
-
--- Dissect: Round Lot
-nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.round_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.round_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Resolution
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution = {}
-
--- Size: Price Resolution
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.size = 1
-
--- Display: Price Resolution
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
-
-  return "Price Resolution: Unknown("..value..")"
-end
-
--- Dissect: Price Resolution
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_resolution.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_resolution, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Close Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume = {}
-
--- Size: Prev Close Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.size = 4
-
--- Display: Prev Close Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.display = function(value)
-  return "Prev Close Volume: "..value
-end
-
--- Dissect: Prev Close Volume
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.prev_close_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Close Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price = {}
-
--- Size: Prev Close Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.size = 4
-
--- Display: Prev Close Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.display = function(value)
-  return "Prev Close Price: "..value
-end
-
--- Dissect: Prev Close Price
-nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.prev_close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.prev_close_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size = {}
-
--- Size: Lot Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.size = 2
-
--- Display: Lot Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type = {}
-
--- Size: Security Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.size = 1
-
--- Display: Security Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.display = function(value)
-  if value == "A" then
-    return "Security Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Security Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Security Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Security Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Security Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Security Type: Us Depositary Shares (H)"
-  end
-  if value == "I" then
-    return "Security Type: Units (I)"
-  end
-  if value == "L" then
-    return "Security Type: Index Linked Notes (L)"
-  end
-  if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
-  end
-  if value == "O" then
-    return "Security Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Security Type: Preferred Stock (P)"
-  end
-  if value == "R" then
-    return "Security Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Security Type: Test (T)"
-  end
-  if value == "U" then
-    return "Security Type: Closed End Fund (U)"
-  end
-  if value == "W" then
-    return "Security Type: Warrant (W)"
-  end
-
-  return "Security Type: Unknown("..value..")"
-end
-
--- Dissect: Security Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Scale Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code = {}
-
--- Size: Price Scale Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.size = 1
-
--- Display: Price Scale Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
-end
-
--- Dissect: Price Scale Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.price_scale_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.price_scale_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code = {}
-
--- Size: Exchange Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.size = 1
-
--- Display: Exchange Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.display = function(value)
-  if value == "A" then
-    return "Exchange Code: Nyse American (A)"
-  end
-  if value == "L" then
-    return "Exchange Code: Ltse (L)"
-  end
-  if value == "N" then
-    return "Exchange Code: Nyse (N)"
-  end
-  if value == "P" then
-    return "Exchange Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Exchange Code: Nasdaq (Q)"
-  end
-  if value == "V" then
-    return "Exchange Code: Iex (V)"
-  end
-  if value == "Z" then
-    return "Exchange Code: Cboe (Z)"
-  end
-
-  return "Exchange Code: Unknown("..value..")"
-end
-
--- Dissect: Exchange Code
-nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.exchange_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.exchange_code, range, value, display)
-
-  return offset + length, value
-end
-
--- System Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id = {}
-
--- Size: System Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.size = 1
-
--- Display: System Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.display = function(value)
-  return "System Id: "..value
-end
-
--- Dissect: System Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.system_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.system_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id = {}
-
--- Size: Market Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.size = 2
-
--- Display: Market Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse Amex Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Chicago (11)"
-  end
-
-  return "Market Id: Unknown("..value..")"
-end
-
--- Dissect: Market Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1 = {}
-
--- Size: Reserved 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.size = 1
-
--- Display: Reserved 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol = {}
-
--- Size: Symbol
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.size = 11
-
--- Display: Symbol
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Index Mapping Message
 nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_message = {}
 
@@ -2791,29 +3077,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_message.dissect 
     -- Skip element, add fields directly
     return nyse_equities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.id = {}
-
--- Size: Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.id.size = 4
-
--- Display: Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.id.display = function(value)
-  return "Id: "..value
-end
-
--- Dissect: Id
-nyse_equities_imbalancesfeed_pillar_v2_2_h.id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Source Time Reference Message
@@ -2977,92 +3240,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.payload.dissect = function(buffer, of
   return offset
 end
 
--- Message Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type = {}
-
--- Size: Message Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.size = 2
-
--- Display: Message Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 105 then
-    return "Message Type: Imbalance Message (105)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size = {}
-
--- Size: Message Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.size = 2
-
--- Display: Message Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 nyse_equities_imbalancesfeed_pillar_v2_2_h.message_header = {}
 
@@ -3158,52 +3335,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.message.dissect = function(buffer, of
   end
 end
 
--- Nanoseconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds = {}
-
--- Size: Nanoseconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.size = 4
-
--- Display: Nanoseconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Seconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds = {}
-
--- Size: Seconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size = 4
-
--- Display: Seconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Send Time
 nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time = {}
 
@@ -3259,132 +3390,6 @@ nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nyse_equities_imbalancesfeed_pillar_v2_2_h.send_time.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num = {}
-
--- Size: Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size = 4
-
--- Display: Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Msgs
-nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs = {}
-
--- Size: Number Msgs
-nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size = 1
-
--- Display: Number Msgs
-nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.display = function(value)
-  return "Number Msgs: "..value
-end
-
--- Dissect: Number Msgs
-nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.number_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.number_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Flag
-nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag = {}
-
--- Size: Delivery Flag
-nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.size = 1
-
--- Display: Delivery Flag
-nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
-
-  return "Delivery Flag: Unknown("..value..")"
-end
-
--- Dissect: Delivery Flag
-nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.delivery_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.delivery_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Pkt Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size = {}
-
--- Size: Pkt Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size = 2
-
--- Display: Pkt Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.display = function(value)
-  return "Pkt Size: "..value
-end
-
--- Dissect: Pkt Size
-nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_imbalancesfeed_pillar_v2_2_h.pkt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_imbalancesfeed_pillar_v2_2_h.fields.pkt_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

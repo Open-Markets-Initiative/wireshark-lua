@@ -150,26 +150,53 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Coinbase Derivatives Session Tcp 1.2
+-- Coinbase Derivatives Session Tcp 1.2 Fields
 -----------------------------------------------------------------------
 
--- Padding
-coinbase_derivatives_session_tcp_v1_2.padding = {}
+-- Block Length
+coinbase_derivatives_session_tcp_v1_2.block_length = {}
 
--- Display: Padding
-coinbase_derivatives_session_tcp_v1_2.padding.display = function(value)
-  return "Padding: "..value
+-- Size: Block Length
+coinbase_derivatives_session_tcp_v1_2.block_length.size = 2
+
+-- Display: Block Length
+coinbase_derivatives_session_tcp_v1_2.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect runtime sized field: Padding
-coinbase_derivatives_session_tcp_v1_2.padding.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
+-- Dissect: Block Length
+coinbase_derivatives_session_tcp_v1_2.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.block_length.size
+  local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.padding.display(value, packet, parent, size)
+  local display = coinbase_derivatives_session_tcp_v1_2.block_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.padding, range, value, display)
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.block_length, range, value, display)
 
-  return offset + size, value
+  return offset + length, value
+end
+
+-- Correlation Id
+coinbase_derivatives_session_tcp_v1_2.correlation_id = {}
+
+-- Size: Correlation Id
+coinbase_derivatives_session_tcp_v1_2.correlation_id.size = 8
+
+-- Display: Correlation Id
+coinbase_derivatives_session_tcp_v1_2.correlation_id.display = function(value)
+  return "Correlation Id: "..value
+end
+
+-- Dissect: Correlation Id
+coinbase_derivatives_session_tcp_v1_2.correlation_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.correlation_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_session_tcp_v1_2.correlation_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.correlation_id, range, value, display)
+
+  return offset + length, value
 end
 
 -- Details
@@ -211,6 +238,225 @@ coinbase_derivatives_session_tcp_v1_2.details.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Flags
+coinbase_derivatives_session_tcp_v1_2.flags = {}
+
+-- Size: Flags
+coinbase_derivatives_session_tcp_v1_2.flags.size = 1
+
+-- Display: Flags
+coinbase_derivatives_session_tcp_v1_2.flags.display = function(value)
+  return "Flags: "..value
+end
+
+-- Dissect: Flags
+coinbase_derivatives_session_tcp_v1_2.flags.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.flags.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.flags, range, value, display)
+
+  return offset + length, value
+end
+
+-- From Sequence Number
+coinbase_derivatives_session_tcp_v1_2.from_sequence_number = {}
+
+-- Size: From Sequence Number
+coinbase_derivatives_session_tcp_v1_2.from_sequence_number.size = 4
+
+-- Display: From Sequence Number
+coinbase_derivatives_session_tcp_v1_2.from_sequence_number.display = function(value)
+  return "From Sequence Number: "..value
+end
+
+-- Dissect: From Sequence Number
+coinbase_derivatives_session_tcp_v1_2.from_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.from_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.from_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.from_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Heartbeat Interval Seconds
+coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds = {}
+
+-- Size: Heartbeat Interval Seconds
+coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.size = 4
+
+-- Display: Heartbeat Interval Seconds
+coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.display = function(value)
+  return "Heartbeat Interval Seconds: "..value
+end
+
+-- Dissect: Heartbeat Interval Seconds
+coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Processed Seq No
+coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no = {}
+
+-- Size: Last Processed Seq No
+coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.size = 4
+
+-- Display: Last Processed Seq No
+coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.display = function(value)
+  return "Last Processed Seq No: "..value
+end
+
+-- Dissect: Last Processed Seq No
+coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.last_processed_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+coinbase_derivatives_session_tcp_v1_2.message_length = {}
+
+-- Size: Message Length
+coinbase_derivatives_session_tcp_v1_2.message_length.size = 2
+
+-- Display: Message Length
+coinbase_derivatives_session_tcp_v1_2.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+coinbase_derivatives_session_tcp_v1_2.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Sequence Number
+coinbase_derivatives_session_tcp_v1_2.new_sequence_number = {}
+
+-- Size: New Sequence Number
+coinbase_derivatives_session_tcp_v1_2.new_sequence_number.size = 4
+
+-- Display: New Sequence Number
+coinbase_derivatives_session_tcp_v1_2.new_sequence_number.display = function(value)
+  return "New Sequence Number: "..value
+end
+
+-- Dissect: New Sequence Number
+coinbase_derivatives_session_tcp_v1_2.new_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.new_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Padding
+coinbase_derivatives_session_tcp_v1_2.padding = {}
+
+-- Display: Padding
+coinbase_derivatives_session_tcp_v1_2.padding.display = function(value)
+  return "Padding: "..value
+end
+
+-- Dissect runtime sized field: Padding
+coinbase_derivatives_session_tcp_v1_2.padding.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.padding.display(value, packet, parent, size)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.padding, range, value, display)
+
+  return offset + size, value
+end
+
+-- Password
+coinbase_derivatives_session_tcp_v1_2.password = {}
+
+-- Size: Password
+coinbase_derivatives_session_tcp_v1_2.password.size = 32
+
+-- Display: Password
+coinbase_derivatives_session_tcp_v1_2.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+coinbase_derivatives_session_tcp_v1_2.password.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_session_tcp_v1_2.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Protocol Id
+coinbase_derivatives_session_tcp_v1_2.protocol_id = {}
+
+-- Size: Protocol Id
+coinbase_derivatives_session_tcp_v1_2.protocol_id.size = 1
+
+-- Display: Protocol Id
+coinbase_derivatives_session_tcp_v1_2.protocol_id.display = function(value)
+  return "Protocol Id: "..value
+end
+
+-- Dissect: Protocol Id
+coinbase_derivatives_session_tcp_v1_2.protocol_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.protocol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.protocol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.protocol_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reason Reject Reason
 coinbase_derivatives_session_tcp_v1_2.reason_reject_reason = {}
 
@@ -247,6 +493,45 @@ coinbase_derivatives_session_tcp_v1_2.reason_reject_reason.dissect = function(bu
   return offset + length, value
 end
 
+-- Reason String 64
+coinbase_derivatives_session_tcp_v1_2.reason_string_64 = {}
+
+-- Size: Reason String 64
+coinbase_derivatives_session_tcp_v1_2.reason_string_64.size = 64
+
+-- Display: Reason String 64
+coinbase_derivatives_session_tcp_v1_2.reason_string_64.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reason String 64: No Value"
+  end
+
+  return "Reason String 64: "..value
+end
+
+-- Dissect: Reason String 64
+coinbase_derivatives_session_tcp_v1_2.reason_string_64.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.reason_string_64.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_session_tcp_v1_2.reason_string_64.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reason_string_64, range, value, display)
+
+  return offset + length, value
+end
+
 -- Ref Sequence Number
 coinbase_derivatives_session_tcp_v1_2.ref_sequence_number = {}
 
@@ -269,6 +554,281 @@ coinbase_derivatives_session_tcp_v1_2.ref_sequence_number.dissect = function(buf
 
   return offset + length, value
 end
+
+-- Reserved
+coinbase_derivatives_session_tcp_v1_2.reserved = {}
+
+-- Size: Reserved
+coinbase_derivatives_session_tcp_v1_2.reserved.size = 4
+
+-- Display: Reserved
+coinbase_derivatives_session_tcp_v1_2.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+coinbase_derivatives_session_tcp_v1_2.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.reserved.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reset Seq Num
+coinbase_derivatives_session_tcp_v1_2.reset_seq_num = {}
+
+-- Size: Reset Seq Num
+coinbase_derivatives_session_tcp_v1_2.reset_seq_num.size = 1
+
+-- Display: Reset Seq Num
+coinbase_derivatives_session_tcp_v1_2.reset_seq_num.display = function(value)
+  if value == 0 then
+    return "Reset Seq Num: False (0)"
+  end
+  if value == 1 then
+    return "Reset Seq Num: True (1)"
+  end
+
+  return "Reset Seq Num: Unknown("..value..")"
+end
+
+-- Dissect: Reset Seq Num
+coinbase_derivatives_session_tcp_v1_2.reset_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.reset_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_derivatives_session_tcp_v1_2.reset_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reset_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+coinbase_derivatives_session_tcp_v1_2.schema_id = {}
+
+-- Size: Schema Id
+coinbase_derivatives_session_tcp_v1_2.schema_id.size = 2
+
+-- Display: Schema Id
+coinbase_derivatives_session_tcp_v1_2.schema_id.display = function(value)
+  if value == 1100 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+coinbase_derivatives_session_tcp_v1_2.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Time Epoch Nanos
+coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos = {}
+
+-- Size: Send Time Epoch Nanos
+coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size = 8
+
+-- Display: Send Time Epoch Nanos
+coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time Epoch Nanos: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Send Time Epoch Nanos
+coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.send_time_epoch_nanos, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+coinbase_derivatives_session_tcp_v1_2.sequence_number = {}
+
+-- Size: Sequence Number
+coinbase_derivatives_session_tcp_v1_2.sequence_number.size = 4
+
+-- Display: Sequence Number
+coinbase_derivatives_session_tcp_v1_2.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+coinbase_derivatives_session_tcp_v1_2.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+coinbase_derivatives_session_tcp_v1_2.template_id = {}
+
+-- Size: Template Id
+coinbase_derivatives_session_tcp_v1_2.template_id.size = 2
+
+-- Display: Template Id
+coinbase_derivatives_session_tcp_v1_2.template_id.display = function(value)
+  if value == 100 then
+    return "Template Id: Logon Message (100)"
+  end
+  if value == 200 then
+    return "Template Id: Logon Conf Message (200)"
+  end
+  if value == 101 then
+    return "Template Id: Logout Message (101)"
+  end
+  if value == 201 then
+    return "Template Id: Logged Out Message (201)"
+  end
+  if value == 10 then
+    return "Template Id: Heartbeat Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Test Request Message (11)"
+  end
+  if value == 102 then
+    return "Template Id: Resend Request Message (102)"
+  end
+  if value == 202 then
+    return "Template Id: Gap Fill Message (202)"
+  end
+  if value == 210 then
+    return "Template Id: Reject Message (210)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+coinbase_derivatives_session_tcp_v1_2.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- To Sequence Number
+coinbase_derivatives_session_tcp_v1_2.to_sequence_number = {}
+
+-- Size: To Sequence Number
+coinbase_derivatives_session_tcp_v1_2.to_sequence_number.size = 4
+
+-- Display: To Sequence Number
+coinbase_derivatives_session_tcp_v1_2.to_sequence_number.display = function(value)
+  return "To Sequence Number: "..value
+end
+
+-- Dissect: To Sequence Number
+coinbase_derivatives_session_tcp_v1_2.to_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.to_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.to_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.to_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+coinbase_derivatives_session_tcp_v1_2.username = {}
+
+-- Size: Username
+coinbase_derivatives_session_tcp_v1_2.username.size = 16
+
+-- Display: Username
+coinbase_derivatives_session_tcp_v1_2.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
+  return "Username: "..value
+end
+
+-- Dissect: Username
+coinbase_derivatives_session_tcp_v1_2.username.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.username.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_derivatives_session_tcp_v1_2.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+coinbase_derivatives_session_tcp_v1_2.version = {}
+
+-- Size: Version
+coinbase_derivatives_session_tcp_v1_2.version.size = 2
+
+-- Display: Version
+coinbase_derivatives_session_tcp_v1_2.version.display = function(value)
+  if value == 2 then
+    return "Version: Version 1.2"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+coinbase_derivatives_session_tcp_v1_2.version.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_derivatives_session_tcp_v1_2.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_derivatives_session_tcp_v1_2.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Coinbase Derivatives Session Tcp 1.2
+-----------------------------------------------------------------------
 
 -- Reject Message
 coinbase_derivatives_session_tcp_v1_2.reject_message = {}
@@ -316,29 +876,6 @@ coinbase_derivatives_session_tcp_v1_2.reject_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return coinbase_derivatives_session_tcp_v1_2.reject_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- New Sequence Number
-coinbase_derivatives_session_tcp_v1_2.new_sequence_number = {}
-
--- Size: New Sequence Number
-coinbase_derivatives_session_tcp_v1_2.new_sequence_number.size = 4
-
--- Display: New Sequence Number
-coinbase_derivatives_session_tcp_v1_2.new_sequence_number.display = function(value)
-  return "New Sequence Number: "..value
-end
-
--- Dissect: New Sequence Number
-coinbase_derivatives_session_tcp_v1_2.new_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.new_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.new_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Gap Fill Message
@@ -411,52 +948,6 @@ coinbase_derivatives_session_tcp_v1_2.gap_fill_message.dissect = function(buffer
   end
 end
 
--- To Sequence Number
-coinbase_derivatives_session_tcp_v1_2.to_sequence_number = {}
-
--- Size: To Sequence Number
-coinbase_derivatives_session_tcp_v1_2.to_sequence_number.size = 4
-
--- Display: To Sequence Number
-coinbase_derivatives_session_tcp_v1_2.to_sequence_number.display = function(value)
-  return "To Sequence Number: "..value
-end
-
--- Dissect: To Sequence Number
-coinbase_derivatives_session_tcp_v1_2.to_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.to_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.to_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.to_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- From Sequence Number
-coinbase_derivatives_session_tcp_v1_2.from_sequence_number = {}
-
--- Size: From Sequence Number
-coinbase_derivatives_session_tcp_v1_2.from_sequence_number.size = 4
-
--- Display: From Sequence Number
-coinbase_derivatives_session_tcp_v1_2.from_sequence_number.display = function(value)
-  return "From Sequence Number: "..value
-end
-
--- Dissect: From Sequence Number
-coinbase_derivatives_session_tcp_v1_2.from_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.from_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.from_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.from_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Resend Request Message
 coinbase_derivatives_session_tcp_v1_2.resend_request_message = {}
 
@@ -499,29 +990,6 @@ coinbase_derivatives_session_tcp_v1_2.resend_request_message.dissect = function(
     -- Skip element, add fields directly
     return coinbase_derivatives_session_tcp_v1_2.resend_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Correlation Id
-coinbase_derivatives_session_tcp_v1_2.correlation_id = {}
-
--- Size: Correlation Id
-coinbase_derivatives_session_tcp_v1_2.correlation_id.size = 8
-
--- Display: Correlation Id
-coinbase_derivatives_session_tcp_v1_2.correlation_id.display = function(value)
-  return "Correlation Id: "..value
-end
-
--- Dissect: Correlation Id
-coinbase_derivatives_session_tcp_v1_2.correlation_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.correlation_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_session_tcp_v1_2.correlation_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.correlation_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Test Request Message
@@ -604,45 +1072,6 @@ coinbase_derivatives_session_tcp_v1_2.heartbeat_message.dissect = function(buffe
   end
 end
 
--- Reason String 64
-coinbase_derivatives_session_tcp_v1_2.reason_string_64 = {}
-
--- Size: Reason String 64
-coinbase_derivatives_session_tcp_v1_2.reason_string_64.size = 64
-
--- Display: Reason String 64
-coinbase_derivatives_session_tcp_v1_2.reason_string_64.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reason String 64: No Value"
-  end
-
-  return "Reason String 64: "..value
-end
-
--- Dissect: Reason String 64
-coinbase_derivatives_session_tcp_v1_2.reason_string_64.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.reason_string_64.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_session_tcp_v1_2.reason_string_64.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reason_string_64, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logged Out Message
 coinbase_derivatives_session_tcp_v1_2.logged_out_message = {}
 
@@ -723,29 +1152,6 @@ coinbase_derivatives_session_tcp_v1_2.logout_message.dissect = function(buffer, 
   end
 end
 
--- Heartbeat Interval Seconds
-coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds = {}
-
--- Size: Heartbeat Interval Seconds
-coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.size = 4
-
--- Display: Heartbeat Interval Seconds
-coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.display = function(value)
-  return "Heartbeat Interval Seconds: "..value
-end
-
--- Dissect: Heartbeat Interval Seconds
-coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_session_tcp_v1_2.heartbeat_interval_seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logon Conf Message
 coinbase_derivatives_session_tcp_v1_2.logon_conf_message = {}
 
@@ -784,114 +1190,6 @@ coinbase_derivatives_session_tcp_v1_2.logon_conf_message.dissect = function(buff
     -- Skip element, add fields directly
     return coinbase_derivatives_session_tcp_v1_2.logon_conf_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reset Seq Num
-coinbase_derivatives_session_tcp_v1_2.reset_seq_num = {}
-
--- Size: Reset Seq Num
-coinbase_derivatives_session_tcp_v1_2.reset_seq_num.size = 1
-
--- Display: Reset Seq Num
-coinbase_derivatives_session_tcp_v1_2.reset_seq_num.display = function(value)
-  if value == 0 then
-    return "Reset Seq Num: False (0)"
-  end
-  if value == 1 then
-    return "Reset Seq Num: True (1)"
-  end
-
-  return "Reset Seq Num: Unknown("..value..")"
-end
-
--- Dissect: Reset Seq Num
-coinbase_derivatives_session_tcp_v1_2.reset_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.reset_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_derivatives_session_tcp_v1_2.reset_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reset_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-coinbase_derivatives_session_tcp_v1_2.password = {}
-
--- Size: Password
-coinbase_derivatives_session_tcp_v1_2.password.size = 32
-
--- Display: Password
-coinbase_derivatives_session_tcp_v1_2.password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Password: No Value"
-  end
-
-  return "Password: "..value
-end
-
--- Dissect: Password
-coinbase_derivatives_session_tcp_v1_2.password.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.password.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_session_tcp_v1_2.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-coinbase_derivatives_session_tcp_v1_2.username = {}
-
--- Size: Username
-coinbase_derivatives_session_tcp_v1_2.username.size = 16
-
--- Display: Username
-coinbase_derivatives_session_tcp_v1_2.username.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Username: No Value"
-  end
-
-  return "Username: "..value
-end
-
--- Dissect: Username
-coinbase_derivatives_session_tcp_v1_2.username.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.username.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_derivatives_session_tcp_v1_2.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.username, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon Message
@@ -985,299 +1283,6 @@ coinbase_derivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset,
   end
 
   return offset
-end
-
--- Version
-coinbase_derivatives_session_tcp_v1_2.version = {}
-
--- Size: Version
-coinbase_derivatives_session_tcp_v1_2.version.size = 2
-
--- Display: Version
-coinbase_derivatives_session_tcp_v1_2.version.display = function(value)
-  if value == 2 then
-    return "Version: Version 1.2"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-coinbase_derivatives_session_tcp_v1_2.version.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-coinbase_derivatives_session_tcp_v1_2.schema_id = {}
-
--- Size: Schema Id
-coinbase_derivatives_session_tcp_v1_2.schema_id.size = 2
-
--- Display: Schema Id
-coinbase_derivatives_session_tcp_v1_2.schema_id.display = function(value)
-  if value == 1100 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-coinbase_derivatives_session_tcp_v1_2.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-coinbase_derivatives_session_tcp_v1_2.template_id = {}
-
--- Size: Template Id
-coinbase_derivatives_session_tcp_v1_2.template_id.size = 2
-
--- Display: Template Id
-coinbase_derivatives_session_tcp_v1_2.template_id.display = function(value)
-  if value == 100 then
-    return "Template Id: Logon Message (100)"
-  end
-  if value == 200 then
-    return "Template Id: Logon Conf Message (200)"
-  end
-  if value == 101 then
-    return "Template Id: Logout Message (101)"
-  end
-  if value == 201 then
-    return "Template Id: Logged Out Message (201)"
-  end
-  if value == 10 then
-    return "Template Id: Heartbeat Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Test Request Message (11)"
-  end
-  if value == 102 then
-    return "Template Id: Resend Request Message (102)"
-  end
-  if value == 202 then
-    return "Template Id: Gap Fill Message (202)"
-  end
-  if value == 210 then
-    return "Template Id: Reject Message (210)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-coinbase_derivatives_session_tcp_v1_2.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-coinbase_derivatives_session_tcp_v1_2.block_length = {}
-
--- Size: Block Length
-coinbase_derivatives_session_tcp_v1_2.block_length.size = 2
-
--- Display: Block Length
-coinbase_derivatives_session_tcp_v1_2.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-coinbase_derivatives_session_tcp_v1_2.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Send Time Epoch Nanos
-coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos = {}
-
--- Size: Send Time Epoch Nanos
-coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size = 8
-
--- Display: Send Time Epoch Nanos
-coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time Epoch Nanos: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Send Time Epoch Nanos
-coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_derivatives_session_tcp_v1_2.send_time_epoch_nanos.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.send_time_epoch_nanos, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-coinbase_derivatives_session_tcp_v1_2.reserved = {}
-
--- Size: Reserved
-coinbase_derivatives_session_tcp_v1_2.reserved.size = 4
-
--- Display: Reserved
-coinbase_derivatives_session_tcp_v1_2.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-coinbase_derivatives_session_tcp_v1_2.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.reserved.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Processed Seq No
-coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no = {}
-
--- Size: Last Processed Seq No
-coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.size = 4
-
--- Display: Last Processed Seq No
-coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.display = function(value)
-  return "Last Processed Seq No: "..value
-end
-
--- Dissect: Last Processed Seq No
-coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.last_processed_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.last_processed_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-coinbase_derivatives_session_tcp_v1_2.sequence_number = {}
-
--- Size: Sequence Number
-coinbase_derivatives_session_tcp_v1_2.sequence_number.size = 4
-
--- Display: Sequence Number
-coinbase_derivatives_session_tcp_v1_2.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-coinbase_derivatives_session_tcp_v1_2.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-coinbase_derivatives_session_tcp_v1_2.message_length = {}
-
--- Size: Message Length
-coinbase_derivatives_session_tcp_v1_2.message_length.size = 2
-
--- Display: Message Length
-coinbase_derivatives_session_tcp_v1_2.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-coinbase_derivatives_session_tcp_v1_2.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Flags
-coinbase_derivatives_session_tcp_v1_2.flags = {}
-
--- Size: Flags
-coinbase_derivatives_session_tcp_v1_2.flags.size = 1
-
--- Display: Flags
-coinbase_derivatives_session_tcp_v1_2.flags.display = function(value)
-  return "Flags: "..value
-end
-
--- Dissect: Flags
-coinbase_derivatives_session_tcp_v1_2.flags.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.flags.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.flags, range, value, display)
-
-  return offset + length, value
-end
-
--- Protocol Id
-coinbase_derivatives_session_tcp_v1_2.protocol_id = {}
-
--- Size: Protocol Id
-coinbase_derivatives_session_tcp_v1_2.protocol_id.size = 1
-
--- Display: Protocol Id
-coinbase_derivatives_session_tcp_v1_2.protocol_id.display = function(value)
-  return "Protocol Id: "..value
-end
-
--- Dissect: Protocol Id
-coinbase_derivatives_session_tcp_v1_2.protocol_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_derivatives_session_tcp_v1_2.protocol_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = coinbase_derivatives_session_tcp_v1_2.protocol_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_derivatives_session_tcp_v1_2.fields.protocol_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header

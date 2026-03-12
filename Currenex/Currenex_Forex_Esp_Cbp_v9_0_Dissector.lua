@@ -171,415 +171,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Currenex Forex Esp Cbp 9.0
+-- Currenex Forex Esp Cbp 9.0 Fields
 -----------------------------------------------------------------------
-
--- Itch Etx
-currenex_forex_esp_cbp_v9_0.itch_etx = {}
-
--- Size: Itch Etx
-currenex_forex_esp_cbp_v9_0.itch_etx.size = 1
-
--- Display: Itch Etx
-currenex_forex_esp_cbp_v9_0.itch_etx.display = function(value)
-  return "Itch Etx: "..value
-end
-
--- Dissect: Itch Etx
-currenex_forex_esp_cbp_v9_0.itch_etx.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.itch_etx.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.itch_etx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.itch_etx, range, value, display)
-
-  return offset + length, value
-end
-
--- Reject Reason
-currenex_forex_esp_cbp_v9_0.reject_reason = {}
-
--- Size: Reject Reason
-currenex_forex_esp_cbp_v9_0.reject_reason.size = 50
-
--- Display: Reject Reason
-currenex_forex_esp_cbp_v9_0.reject_reason.display = function(value)
-  return "Reject Reason: "..value
-end
-
--- Dissect: Reject Reason
-currenex_forex_esp_cbp_v9_0.reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.reject_reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_esp_cbp_v9_0.reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reject Msg Type
-currenex_forex_esp_cbp_v9_0.reject_msg_type = {}
-
--- Size: Reject Msg Type
-currenex_forex_esp_cbp_v9_0.reject_msg_type.size = 1
-
--- Display: Reject Msg Type
-currenex_forex_esp_cbp_v9_0.reject_msg_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reject Msg Type: No Value"
-  end
-
-  return "Reject Msg Type: "..value
-end
-
--- Dissect: Reject Msg Type
-currenex_forex_esp_cbp_v9_0.reject_msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.reject_msg_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_esp_cbp_v9_0.reject_msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_msg_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-currenex_forex_esp_cbp_v9_0.session_id = {}
-
--- Size: Session Id
-currenex_forex_esp_cbp_v9_0.session_id.size = 4
-
--- Display: Session Id
-currenex_forex_esp_cbp_v9_0.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-currenex_forex_esp_cbp_v9_0.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.session_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reject Message
-currenex_forex_esp_cbp_v9_0.reject_message = {}
-
--- Size: Reject Message
-currenex_forex_esp_cbp_v9_0.reject_message.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.reject_msg_type.size + 
-  currenex_forex_esp_cbp_v9_0.reject_reason.size
-
--- Display: Reject Message
-currenex_forex_esp_cbp_v9_0.reject_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reject Message
-currenex_forex_esp_cbp_v9_0.reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: Integer
-  index, session_id = currenex_forex_esp_cbp_v9_0.session_id.dissect(buffer, index, packet, parent)
-
-  -- Reject Msg Type: Alpha
-  index, reject_msg_type = currenex_forex_esp_cbp_v9_0.reject_msg_type.dissect(buffer, index, packet, parent)
-
-  -- Reject Reason: Alpha
-  index, reject_reason = currenex_forex_esp_cbp_v9_0.reject_reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reject Message
-currenex_forex_esp_cbp_v9_0.reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_message, buffer(offset, 0))
-    local index = currenex_forex_esp_cbp_v9_0.reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_esp_cbp_v9_0.reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_esp_cbp_v9_0.reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Transact Time
-currenex_forex_esp_cbp_v9_0.transact_time = {}
-
--- Size: Transact Time
-currenex_forex_esp_cbp_v9_0.transact_time.size = 8
-
--- Display: Transact Time
-currenex_forex_esp_cbp_v9_0.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
--- Dissect: Transact Time
-currenex_forex_esp_cbp_v9_0.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_esp_cbp_v9_0.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Ticker Type
-currenex_forex_esp_cbp_v9_0.ticker_type = {}
-
--- Size: Ticker Type
-currenex_forex_esp_cbp_v9_0.ticker_type.size = 1
-
--- Display: Ticker Type
-currenex_forex_esp_cbp_v9_0.ticker_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ticker Type: No Value"
-  end
-
-  if value == "1" then
-    return "Ticker Type: Given (1)"
-  end
-  if value == "2" then
-    return "Ticker Type: Paid (2)"
-  end
-
-  return "Ticker Type: Unknown("..value..")"
-end
-
--- Dissect: Ticker Type
-currenex_forex_esp_cbp_v9_0.ticker_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.ticker_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_esp_cbp_v9_0.ticker_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.ticker_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Rate
-currenex_forex_esp_cbp_v9_0.rate = {}
-
--- Size: Rate
-currenex_forex_esp_cbp_v9_0.rate.size = 4
-
--- Display: Rate
-currenex_forex_esp_cbp_v9_0.rate.display = function(value)
-  return "Rate: "..value
-end
-
--- Dissect: Rate
-currenex_forex_esp_cbp_v9_0.rate.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.rate.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.rate.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.rate, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Index
-currenex_forex_esp_cbp_v9_0.instrument_index = {}
-
--- Size: Instrument Index
-currenex_forex_esp_cbp_v9_0.instrument_index.size = 2
-
--- Display: Instrument Index
-currenex_forex_esp_cbp_v9_0.instrument_index.display = function(value)
-  return "Instrument Index: "..value
-end
-
--- Dissect: Instrument Index
-currenex_forex_esp_cbp_v9_0.instrument_index.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.instrument_index.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.instrument_index.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_index, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Ticker Message
-currenex_forex_esp_cbp_v9_0.trade_ticker_message = {}
-
--- Size: Trade Ticker Message
-currenex_forex_esp_cbp_v9_0.trade_ticker_message.size =
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.rate.size + 
-  currenex_forex_esp_cbp_v9_0.ticker_type.size + 
-  currenex_forex_esp_cbp_v9_0.transact_time.size
-
--- Display: Trade Ticker Message
-currenex_forex_esp_cbp_v9_0.trade_ticker_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Ticker Message
-currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Instrument Index: Short
-  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
-
-  -- Rate: Rate
-  index, rate = currenex_forex_esp_cbp_v9_0.rate.dissect(buffer, index, packet, parent)
-
-  -- Ticker Type: Alpha
-  index, ticker_type = currenex_forex_esp_cbp_v9_0.ticker_type.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: Long
-  index, transact_time = currenex_forex_esp_cbp_v9_0.transact_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Ticker Message
-currenex_forex_esp_cbp_v9_0.trade_ticker_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_ticker_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message, buffer(offset, 0))
-    local index = currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_esp_cbp_v9_0.trade_ticker_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Price Id
-currenex_forex_esp_cbp_v9_0.price_id = {}
-
--- Size: Price Id
-currenex_forex_esp_cbp_v9_0.price_id.size = 1
-
--- Display: Price Id
-currenex_forex_esp_cbp_v9_0.price_id.display = function(value)
-  return "Price Id: "..value
-end
-
--- Dissect: Price Id
-currenex_forex_esp_cbp_v9_0.price_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.price_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.price_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Cancel Message
-currenex_forex_esp_cbp_v9_0.price_cancel_message = {}
-
--- Size: Price Cancel Message
-currenex_forex_esp_cbp_v9_0.price_cancel_message.size =
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.price_id.size
-
--- Display: Price Cancel Message
-currenex_forex_esp_cbp_v9_0.price_cancel_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Price Cancel Message
-currenex_forex_esp_cbp_v9_0.price_cancel_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Instrument Index: Short
-  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
-
-  -- Price Id: Integer
-  index, price_id = currenex_forex_esp_cbp_v9_0.price_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Price Cancel Message
-currenex_forex_esp_cbp_v9_0.price_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_cancel_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_cancel_message, buffer(offset, 0))
-    local index = currenex_forex_esp_cbp_v9_0.price_cancel_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_esp_cbp_v9_0.price_cancel_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_esp_cbp_v9_0.price_cancel_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Price Provider
-currenex_forex_esp_cbp_v9_0.price_provider = {}
-
--- Size: Price Provider
-currenex_forex_esp_cbp_v9_0.price_provider.size = 4
-
--- Display: Price Provider
-currenex_forex_esp_cbp_v9_0.price_provider.display = function(value)
-  return "Price Provider: "..value
-end
-
--- Dissect: Price Provider
-currenex_forex_esp_cbp_v9_0.price_provider.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.price_provider.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_esp_cbp_v9_0.price_provider.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_provider, range, value, display)
-
-  return offset + length, value
-end
 
 -- Attributed
 currenex_forex_esp_cbp_v9_0.attributed = {}
@@ -624,48 +217,141 @@ currenex_forex_esp_cbp_v9_0.attributed.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Price
-currenex_forex_esp_cbp_v9_0.price = {}
+-- Instrument Id
+currenex_forex_esp_cbp_v9_0.instrument_id = {}
 
--- Size: Price
-currenex_forex_esp_cbp_v9_0.price.size = 4
+-- Size: Instrument Id
+currenex_forex_esp_cbp_v9_0.instrument_id.size = 20
 
--- Display: Price
-currenex_forex_esp_cbp_v9_0.price.display = function(value)
-  return "Price: "..value
+-- Display: Instrument Id
+currenex_forex_esp_cbp_v9_0.instrument_id.display = function(value)
+  return "Instrument Id: "..value
 end
 
--- Dissect: Price
-currenex_forex_esp_cbp_v9_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.price.size
+-- Dissect: Instrument Id
+currenex_forex_esp_cbp_v9_0.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.instrument_id.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.price.display(value, buffer, offset, packet, parent)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_esp_cbp_v9_0.instrument_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price, range, value, display)
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
 
--- Min Amount
-currenex_forex_esp_cbp_v9_0.min_amount = {}
+-- Instrument Index
+currenex_forex_esp_cbp_v9_0.instrument_index = {}
 
--- Size: Min Amount
-currenex_forex_esp_cbp_v9_0.min_amount.size = 8
+-- Size: Instrument Index
+currenex_forex_esp_cbp_v9_0.instrument_index.size = 2
 
--- Display: Min Amount
-currenex_forex_esp_cbp_v9_0.min_amount.display = function(value)
-  return "Min Amount: "..value
+-- Display: Instrument Index
+currenex_forex_esp_cbp_v9_0.instrument_index.display = function(value)
+  return "Instrument Index: "..value
 end
 
--- Dissect: Min Amount
-currenex_forex_esp_cbp_v9_0.min_amount.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.min_amount.size
+-- Dissect: Instrument Index
+currenex_forex_esp_cbp_v9_0.instrument_index.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.instrument_index.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_esp_cbp_v9_0.min_amount.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.instrument_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.min_amount, range, value, display)
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Type
+currenex_forex_esp_cbp_v9_0.instrument_type = {}
+
+-- Size: Instrument Type
+currenex_forex_esp_cbp_v9_0.instrument_type.size = 1
+
+-- Display: Instrument Type
+currenex_forex_esp_cbp_v9_0.instrument_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Type: No Value"
+  end
+
+  if value == "1" then
+    return "Instrument Type: Foreign Exchange (1)"
+  end
+  if value == "2" then
+    return "Instrument Type: Cash Metals (2)"
+  end
+
+  return "Instrument Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Type
+currenex_forex_esp_cbp_v9_0.instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.instrument_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_esp_cbp_v9_0.instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Itch Etx
+currenex_forex_esp_cbp_v9_0.itch_etx = {}
+
+-- Size: Itch Etx
+currenex_forex_esp_cbp_v9_0.itch_etx.size = 1
+
+-- Display: Itch Etx
+currenex_forex_esp_cbp_v9_0.itch_etx.display = function(value)
+  return "Itch Etx: "..value
+end
+
+-- Dissect: Itch Etx
+currenex_forex_esp_cbp_v9_0.itch_etx.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.itch_etx.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.itch_etx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.itch_etx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Itch Soh
+currenex_forex_esp_cbp_v9_0.itch_soh = {}
+
+-- Size: Itch Soh
+currenex_forex_esp_cbp_v9_0.itch_soh.size = 1
+
+-- Display: Itch Soh
+currenex_forex_esp_cbp_v9_0.itch_soh.display = function(value)
+  if value == 1 then
+    return "Itch Soh: Soh"
+  end
+
+  return "Itch Soh: Unknown("..value..")"
+end
+
+-- Dissect: Itch Soh
+currenex_forex_esp_cbp_v9_0.itch_soh.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.itch_soh.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.itch_soh.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.itch_soh, range, value, display)
 
   return offset + length, value
 end
@@ -693,32 +379,240 @@ currenex_forex_esp_cbp_v9_0.max_amount.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Side
-currenex_forex_esp_cbp_v9_0.side = {}
+-- Message Type
+currenex_forex_esp_cbp_v9_0.message_type = {}
 
--- Size: Side
-currenex_forex_esp_cbp_v9_0.side.size = 1
+-- Size: Message Type
+currenex_forex_esp_cbp_v9_0.message_type.size = 1
 
--- Display: Side
-currenex_forex_esp_cbp_v9_0.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
+-- Display: Message Type
+currenex_forex_esp_cbp_v9_0.message_type.display = function(value)
+  if value == "A" then
+    return "Message Type: Logon (A)"
+  end
+  if value == "B" then
+    return "Message Type: Logout (B)"
+  end
+  if value == "C" then
+    return "Message Type: Heartbeat (C)"
+  end
+  if value == "D" then
+    return "Message Type: Instrument Info (D)"
+  end
+  if value == "F" then
+    return "Message Type: Subscription Request (F)"
+  end
+  if value == "G" then
+    return "Message Type: Subscription Reply (G)"
+  end
+  if value == "H" then
+    return "Message Type: Price Message (H)"
+  end
+  if value == "H" then
+    return "Message Type: Price Cancel Message (H)"
+  end
+  if value == "J" then
+    return "Message Type: Trade Ticker Message (J)"
+  end
+  if value == "J" then
+    return "Message Type: Reject Message (J)"
   end
 
-  if value == "1" then
-    return "Side: Bid (1)"
-  end
-  if value == "2" then
-    return "Side: Offer (2)"
-  end
-
-  return "Side: Unknown("..value..")"
+  return "Message Type: Unknown("..value..")"
 end
 
--- Dissect: Side
-currenex_forex_esp_cbp_v9_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.side.size
+-- Dissect: Message Type
+currenex_forex_esp_cbp_v9_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = currenex_forex_esp_cbp_v9_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Amount
+currenex_forex_esp_cbp_v9_0.min_amount = {}
+
+-- Size: Min Amount
+currenex_forex_esp_cbp_v9_0.min_amount.size = 8
+
+-- Display: Min Amount
+currenex_forex_esp_cbp_v9_0.min_amount.display = function(value)
+  return "Min Amount: "..value
+end
+
+-- Dissect: Min Amount
+currenex_forex_esp_cbp_v9_0.min_amount.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.min_amount.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_esp_cbp_v9_0.min_amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.min_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+currenex_forex_esp_cbp_v9_0.password = {}
+
+-- Size: Password
+currenex_forex_esp_cbp_v9_0.password.size = 20
+
+-- Display: Password
+currenex_forex_esp_cbp_v9_0.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+currenex_forex_esp_cbp_v9_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_esp_cbp_v9_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+currenex_forex_esp_cbp_v9_0.price = {}
+
+-- Size: Price
+currenex_forex_esp_cbp_v9_0.price.size = 4
+
+-- Display: Price
+currenex_forex_esp_cbp_v9_0.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+currenex_forex_esp_cbp_v9_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Id
+currenex_forex_esp_cbp_v9_0.price_id = {}
+
+-- Size: Price Id
+currenex_forex_esp_cbp_v9_0.price_id.size = 1
+
+-- Display: Price Id
+currenex_forex_esp_cbp_v9_0.price_id.display = function(value)
+  return "Price Id: "..value
+end
+
+-- Dissect: Price Id
+currenex_forex_esp_cbp_v9_0.price_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.price_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.price_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Provider
+currenex_forex_esp_cbp_v9_0.price_provider = {}
+
+-- Size: Price Provider
+currenex_forex_esp_cbp_v9_0.price_provider.size = 4
+
+-- Display: Price Provider
+currenex_forex_esp_cbp_v9_0.price_provider.display = function(value)
+  return "Price Provider: "..value
+end
+
+-- Dissect: Price Provider
+currenex_forex_esp_cbp_v9_0.price_provider.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.price_provider.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_esp_cbp_v9_0.price_provider.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_provider, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rate
+currenex_forex_esp_cbp_v9_0.rate = {}
+
+-- Size: Rate
+currenex_forex_esp_cbp_v9_0.rate.size = 4
+
+-- Display: Rate
+currenex_forex_esp_cbp_v9_0.rate.display = function(value)
+  return "Rate: "..value
+end
+
+-- Dissect: Rate
+currenex_forex_esp_cbp_v9_0.rate.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.rate.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.rate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+currenex_forex_esp_cbp_v9_0.reason = {}
+
+-- Size: Reason
+currenex_forex_esp_cbp_v9_0.reason.size = 3
+
+-- Display: Reason
+currenex_forex_esp_cbp_v9_0.reason.display = function(value)
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+currenex_forex_esp_cbp_v9_0.reason.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_esp_cbp_v9_0.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Msg Type
+currenex_forex_esp_cbp_v9_0.reject_msg_type = {}
+
+-- Size: Reject Msg Type
+currenex_forex_esp_cbp_v9_0.reject_msg_type.size = 1
+
+-- Display: Reject Msg Type
+currenex_forex_esp_cbp_v9_0.reject_msg_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reject Msg Type: No Value"
+  end
+
+  return "Reject Msg Type: "..value
+end
+
+-- Dissect: Reject Msg Type
+currenex_forex_esp_cbp_v9_0.reject_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.reject_msg_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -729,79 +623,34 @@ currenex_forex_esp_cbp_v9_0.side.dissect = function(buffer, offset, packet, pare
     value = range:string()
   end
 
-  local display = currenex_forex_esp_cbp_v9_0.side.display(value, buffer, offset, packet, parent)
+  local display = currenex_forex_esp_cbp_v9_0.reject_msg_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.side, range, value, display)
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_msg_type, range, value, display)
 
   return offset + length, value
 end
 
--- Price Message
-currenex_forex_esp_cbp_v9_0.price_message = {}
+-- Reject Reason
+currenex_forex_esp_cbp_v9_0.reject_reason = {}
 
--- Size: Price Message
-currenex_forex_esp_cbp_v9_0.price_message.size =
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.price_id.size + 
-  currenex_forex_esp_cbp_v9_0.side.size + 
-  currenex_forex_esp_cbp_v9_0.max_amount.size + 
-  currenex_forex_esp_cbp_v9_0.min_amount.size + 
-  currenex_forex_esp_cbp_v9_0.price.size + 
-  currenex_forex_esp_cbp_v9_0.attributed.size + 
-  currenex_forex_esp_cbp_v9_0.price_provider.size
+-- Size: Reject Reason
+currenex_forex_esp_cbp_v9_0.reject_reason.size = 50
 
--- Display: Price Message
-currenex_forex_esp_cbp_v9_0.price_message.display = function(packet, parent, length)
-  return ""
+-- Display: Reject Reason
+currenex_forex_esp_cbp_v9_0.reject_reason.display = function(value)
+  return "Reject Reason: "..value
 end
 
--- Dissect Fields: Price Message
-currenex_forex_esp_cbp_v9_0.price_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Reject Reason
+currenex_forex_esp_cbp_v9_0.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.reject_reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_esp_cbp_v9_0.reject_reason.display(value, buffer, offset, packet, parent)
 
-  -- Instrument Index: Short
-  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_reason, range, value, display)
 
-  -- Price Id: Integer
-  index, price_id = currenex_forex_esp_cbp_v9_0.price_id.dissect(buffer, index, packet, parent)
-
-  -- Side: Alpha
-  index, side = currenex_forex_esp_cbp_v9_0.side.dissect(buffer, index, packet, parent)
-
-  -- Max Amount: Amount
-  index, max_amount = currenex_forex_esp_cbp_v9_0.max_amount.dissect(buffer, index, packet, parent)
-
-  -- Min Amount: Amount
-  index, min_amount = currenex_forex_esp_cbp_v9_0.min_amount.dissect(buffer, index, packet, parent)
-
-  -- Price: Rate
-  index, price = currenex_forex_esp_cbp_v9_0.price.dissect(buffer, index, packet, parent)
-
-  -- Attributed: Alpha
-  index, attributed = currenex_forex_esp_cbp_v9_0.attributed.dissect(buffer, index, packet, parent)
-
-  -- Price Provider: Alpha
-  index, price_provider = currenex_forex_esp_cbp_v9_0.price_provider.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Price Message
-currenex_forex_esp_cbp_v9_0.price_message.dissect = function(buffer, offset, packet, parent)
-  if show.price_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_message, buffer(offset, 0))
-    local index = currenex_forex_esp_cbp_v9_0.price_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_esp_cbp_v9_0.price_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_esp_cbp_v9_0.price_message.fields(buffer, offset, packet, parent)
-  end
+  return offset + length, value
 end
 
 -- Reply Type
@@ -847,56 +696,116 @@ currenex_forex_esp_cbp_v9_0.reply_type.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Subscription Reply
-currenex_forex_esp_cbp_v9_0.subscription_reply = {}
+-- Sequence Number
+currenex_forex_esp_cbp_v9_0.sequence_number = {}
 
--- Size: Subscription Reply
-currenex_forex_esp_cbp_v9_0.subscription_reply.size =
-  currenex_forex_esp_cbp_v9_0.session_id.size + 
-  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
-  currenex_forex_esp_cbp_v9_0.reply_type.size + 
-  currenex_forex_esp_cbp_v9_0.reject_reason.size
+-- Size: Sequence Number
+currenex_forex_esp_cbp_v9_0.sequence_number.size = 4
 
--- Display: Subscription Reply
-currenex_forex_esp_cbp_v9_0.subscription_reply.display = function(packet, parent, length)
-  return ""
+-- Display: Sequence Number
+currenex_forex_esp_cbp_v9_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect Fields: Subscription Reply
-currenex_forex_esp_cbp_v9_0.subscription_reply.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect: Sequence Number
+currenex_forex_esp_cbp_v9_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = currenex_forex_esp_cbp_v9_0.sequence_number.display(value, buffer, offset, packet, parent)
 
-  -- Session Id: Integer
-  index, session_id = currenex_forex_esp_cbp_v9_0.session_id.dissect(buffer, index, packet, parent)
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.sequence_number, range, value, display)
 
-  -- Instrument Index: Short
-  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
-
-  -- Reply Type: Alpha
-  index, reply_type = currenex_forex_esp_cbp_v9_0.reply_type.dissect(buffer, index, packet, parent)
-
-  -- Reject Reason: Alpha
-  index, reject_reason = currenex_forex_esp_cbp_v9_0.reject_reason.dissect(buffer, index, packet, parent)
-
-  return index
+  return offset + length, value
 end
 
--- Dissect: Subscription Reply
-currenex_forex_esp_cbp_v9_0.subscription_reply.dissect = function(buffer, offset, packet, parent)
-  if show.subscription_reply then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.subscription_reply, buffer(offset, 0))
-    local index = currenex_forex_esp_cbp_v9_0.subscription_reply.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = currenex_forex_esp_cbp_v9_0.subscription_reply.display(packet, parent, length)
-    parent:append_text(display)
+-- Session Id
+currenex_forex_esp_cbp_v9_0.session_id = {}
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return currenex_forex_esp_cbp_v9_0.subscription_reply.fields(buffer, offset, packet, parent)
+-- Size: Session Id
+currenex_forex_esp_cbp_v9_0.session_id.size = 4
+
+-- Display: Session Id
+currenex_forex_esp_cbp_v9_0.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+currenex_forex_esp_cbp_v9_0.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.session_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = currenex_forex_esp_cbp_v9_0.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Date
+currenex_forex_esp_cbp_v9_0.settlement_date = {}
+
+-- Size: Settlement Date
+currenex_forex_esp_cbp_v9_0.settlement_date.size = 8
+
+-- Display: Settlement Date
+currenex_forex_esp_cbp_v9_0.settlement_date.display = function(value)
+  return "Settlement Date: "..value
+end
+
+-- Dissect: Settlement Date
+currenex_forex_esp_cbp_v9_0.settlement_date.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.settlement_date.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_esp_cbp_v9_0.settlement_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.settlement_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+currenex_forex_esp_cbp_v9_0.side = {}
+
+-- Size: Side
+currenex_forex_esp_cbp_v9_0.side.size = 1
+
+-- Display: Side
+currenex_forex_esp_cbp_v9_0.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
   end
+
+  if value == "1" then
+    return "Side: Bid (1)"
+  end
+  if value == "2" then
+    return "Side: Offer (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+currenex_forex_esp_cbp_v9_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_esp_cbp_v9_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.side, range, value, display)
+
+  return offset + length, value
 end
 
 -- Subscribe To Ticker
@@ -988,6 +897,364 @@ currenex_forex_esp_cbp_v9_0.subscription_type.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Ticker Type
+currenex_forex_esp_cbp_v9_0.ticker_type = {}
+
+-- Size: Ticker Type
+currenex_forex_esp_cbp_v9_0.ticker_type.size = 1
+
+-- Display: Ticker Type
+currenex_forex_esp_cbp_v9_0.ticker_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ticker Type: No Value"
+  end
+
+  if value == "1" then
+    return "Ticker Type: Given (1)"
+  end
+  if value == "2" then
+    return "Ticker Type: Paid (2)"
+  end
+
+  return "Ticker Type: Unknown("..value..")"
+end
+
+-- Dissect: Ticker Type
+currenex_forex_esp_cbp_v9_0.ticker_type.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.ticker_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = currenex_forex_esp_cbp_v9_0.ticker_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.ticker_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+currenex_forex_esp_cbp_v9_0.transact_time = {}
+
+-- Size: Transact Time
+currenex_forex_esp_cbp_v9_0.transact_time.size = 8
+
+-- Display: Transact Time
+currenex_forex_esp_cbp_v9_0.transact_time.display = function(value)
+  return "Transact Time: "..value
+end
+
+-- Dissect: Transact Time
+currenex_forex_esp_cbp_v9_0.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_forex_esp_cbp_v9_0.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Id
+currenex_forex_esp_cbp_v9_0.user_id = {}
+
+-- Size: User Id
+currenex_forex_esp_cbp_v9_0.user_id.size = 20
+
+-- Display: User Id
+currenex_forex_esp_cbp_v9_0.user_id.display = function(value)
+  return "User Id: "..value
+end
+
+-- Dissect: User Id
+currenex_forex_esp_cbp_v9_0.user_id.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_forex_esp_cbp_v9_0.user_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = currenex_forex_esp_cbp_v9_0.user_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.user_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Currenex Forex Esp Cbp 9.0
+-----------------------------------------------------------------------
+
+-- Reject Message
+currenex_forex_esp_cbp_v9_0.reject_message = {}
+
+-- Size: Reject Message
+currenex_forex_esp_cbp_v9_0.reject_message.size =
+  currenex_forex_esp_cbp_v9_0.session_id.size + 
+  currenex_forex_esp_cbp_v9_0.reject_msg_type.size + 
+  currenex_forex_esp_cbp_v9_0.reject_reason.size
+
+-- Display: Reject Message
+currenex_forex_esp_cbp_v9_0.reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reject Message
+currenex_forex_esp_cbp_v9_0.reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: Integer
+  index, session_id = currenex_forex_esp_cbp_v9_0.session_id.dissect(buffer, index, packet, parent)
+
+  -- Reject Msg Type: Alpha
+  index, reject_msg_type = currenex_forex_esp_cbp_v9_0.reject_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Reject Reason: Alpha
+  index, reject_reason = currenex_forex_esp_cbp_v9_0.reject_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reject Message
+currenex_forex_esp_cbp_v9_0.reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reject_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0.reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0.reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0.reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Ticker Message
+currenex_forex_esp_cbp_v9_0.trade_ticker_message = {}
+
+-- Size: Trade Ticker Message
+currenex_forex_esp_cbp_v9_0.trade_ticker_message.size =
+  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
+  currenex_forex_esp_cbp_v9_0.rate.size + 
+  currenex_forex_esp_cbp_v9_0.ticker_type.size + 
+  currenex_forex_esp_cbp_v9_0.transact_time.size
+
+-- Display: Trade Ticker Message
+currenex_forex_esp_cbp_v9_0.trade_ticker_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Ticker Message
+currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Instrument Index: Short
+  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
+
+  -- Rate: Rate
+  index, rate = currenex_forex_esp_cbp_v9_0.rate.dissect(buffer, index, packet, parent)
+
+  -- Ticker Type: Alpha
+  index, ticker_type = currenex_forex_esp_cbp_v9_0.ticker_type.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: Long
+  index, transact_time = currenex_forex_esp_cbp_v9_0.transact_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Ticker Message
+currenex_forex_esp_cbp_v9_0.trade_ticker_message.dissect = function(buffer, offset, packet, parent)
+  if show.trade_ticker_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.trade_ticker_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0.trade_ticker_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0.trade_ticker_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Price Cancel Message
+currenex_forex_esp_cbp_v9_0.price_cancel_message = {}
+
+-- Size: Price Cancel Message
+currenex_forex_esp_cbp_v9_0.price_cancel_message.size =
+  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
+  currenex_forex_esp_cbp_v9_0.price_id.size
+
+-- Display: Price Cancel Message
+currenex_forex_esp_cbp_v9_0.price_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Price Cancel Message
+currenex_forex_esp_cbp_v9_0.price_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Instrument Index: Short
+  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
+
+  -- Price Id: Integer
+  index, price_id = currenex_forex_esp_cbp_v9_0.price_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Price Cancel Message
+currenex_forex_esp_cbp_v9_0.price_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.price_cancel_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_cancel_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0.price_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0.price_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0.price_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Price Message
+currenex_forex_esp_cbp_v9_0.price_message = {}
+
+-- Size: Price Message
+currenex_forex_esp_cbp_v9_0.price_message.size =
+  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
+  currenex_forex_esp_cbp_v9_0.price_id.size + 
+  currenex_forex_esp_cbp_v9_0.side.size + 
+  currenex_forex_esp_cbp_v9_0.max_amount.size + 
+  currenex_forex_esp_cbp_v9_0.min_amount.size + 
+  currenex_forex_esp_cbp_v9_0.price.size + 
+  currenex_forex_esp_cbp_v9_0.attributed.size + 
+  currenex_forex_esp_cbp_v9_0.price_provider.size
+
+-- Display: Price Message
+currenex_forex_esp_cbp_v9_0.price_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Price Message
+currenex_forex_esp_cbp_v9_0.price_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Instrument Index: Short
+  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
+
+  -- Price Id: Integer
+  index, price_id = currenex_forex_esp_cbp_v9_0.price_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = currenex_forex_esp_cbp_v9_0.side.dissect(buffer, index, packet, parent)
+
+  -- Max Amount: Amount
+  index, max_amount = currenex_forex_esp_cbp_v9_0.max_amount.dissect(buffer, index, packet, parent)
+
+  -- Min Amount: Amount
+  index, min_amount = currenex_forex_esp_cbp_v9_0.min_amount.dissect(buffer, index, packet, parent)
+
+  -- Price: Rate
+  index, price = currenex_forex_esp_cbp_v9_0.price.dissect(buffer, index, packet, parent)
+
+  -- Attributed: Alpha
+  index, attributed = currenex_forex_esp_cbp_v9_0.attributed.dissect(buffer, index, packet, parent)
+
+  -- Price Provider: Alpha
+  index, price_provider = currenex_forex_esp_cbp_v9_0.price_provider.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Price Message
+currenex_forex_esp_cbp_v9_0.price_message.dissect = function(buffer, offset, packet, parent)
+  if show.price_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.price_message, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0.price_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0.price_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0.price_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Subscription Reply
+currenex_forex_esp_cbp_v9_0.subscription_reply = {}
+
+-- Size: Subscription Reply
+currenex_forex_esp_cbp_v9_0.subscription_reply.size =
+  currenex_forex_esp_cbp_v9_0.session_id.size + 
+  currenex_forex_esp_cbp_v9_0.instrument_index.size + 
+  currenex_forex_esp_cbp_v9_0.reply_type.size + 
+  currenex_forex_esp_cbp_v9_0.reject_reason.size
+
+-- Display: Subscription Reply
+currenex_forex_esp_cbp_v9_0.subscription_reply.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subscription Reply
+currenex_forex_esp_cbp_v9_0.subscription_reply.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: Integer
+  index, session_id = currenex_forex_esp_cbp_v9_0.session_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Index: Short
+  index, instrument_index = currenex_forex_esp_cbp_v9_0.instrument_index.dissect(buffer, index, packet, parent)
+
+  -- Reply Type: Alpha
+  index, reply_type = currenex_forex_esp_cbp_v9_0.reply_type.dissect(buffer, index, packet, parent)
+
+  -- Reject Reason: Alpha
+  index, reject_reason = currenex_forex_esp_cbp_v9_0.reject_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subscription Reply
+currenex_forex_esp_cbp_v9_0.subscription_reply.dissect = function(buffer, offset, packet, parent)
+  if show.subscription_reply then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.subscription_reply, buffer(offset, 0))
+    local index = currenex_forex_esp_cbp_v9_0.subscription_reply.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = currenex_forex_esp_cbp_v9_0.subscription_reply.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return currenex_forex_esp_cbp_v9_0.subscription_reply.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Subscription Request
 currenex_forex_esp_cbp_v9_0.subscription_request = {}
 
@@ -1038,95 +1305,6 @@ currenex_forex_esp_cbp_v9_0.subscription_request.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return currenex_forex_esp_cbp_v9_0.subscription_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Settlement Date
-currenex_forex_esp_cbp_v9_0.settlement_date = {}
-
--- Size: Settlement Date
-currenex_forex_esp_cbp_v9_0.settlement_date.size = 8
-
--- Display: Settlement Date
-currenex_forex_esp_cbp_v9_0.settlement_date.display = function(value)
-  return "Settlement Date: "..value
-end
-
--- Dissect: Settlement Date
-currenex_forex_esp_cbp_v9_0.settlement_date.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.settlement_date.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = currenex_forex_esp_cbp_v9_0.settlement_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.settlement_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Id
-currenex_forex_esp_cbp_v9_0.instrument_id = {}
-
--- Size: Instrument Id
-currenex_forex_esp_cbp_v9_0.instrument_id.size = 20
-
--- Display: Instrument Id
-currenex_forex_esp_cbp_v9_0.instrument_id.display = function(value)
-  return "Instrument Id: "..value
-end
-
--- Dissect: Instrument Id
-currenex_forex_esp_cbp_v9_0.instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.instrument_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_esp_cbp_v9_0.instrument_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Type
-currenex_forex_esp_cbp_v9_0.instrument_type = {}
-
--- Size: Instrument Type
-currenex_forex_esp_cbp_v9_0.instrument_type.size = 1
-
--- Display: Instrument Type
-currenex_forex_esp_cbp_v9_0.instrument_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Type: No Value"
-  end
-
-  if value == "1" then
-    return "Instrument Type: Foreign Exchange (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Cash Metals (2)"
-  end
-
-  return "Instrument Type: Unknown("..value..")"
-end
-
--- Dissect: Instrument Type
-currenex_forex_esp_cbp_v9_0.instrument_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.instrument_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = currenex_forex_esp_cbp_v9_0.instrument_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.instrument_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Info
@@ -1225,52 +1403,6 @@ currenex_forex_esp_cbp_v9_0.heartbeat.dissect = function(buffer, offset, packet,
   end
 end
 
--- Reason
-currenex_forex_esp_cbp_v9_0.reason = {}
-
--- Size: Reason
-currenex_forex_esp_cbp_v9_0.reason.size = 3
-
--- Display: Reason
-currenex_forex_esp_cbp_v9_0.reason.display = function(value)
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-currenex_forex_esp_cbp_v9_0.reason.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_esp_cbp_v9_0.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- User Id
-currenex_forex_esp_cbp_v9_0.user_id = {}
-
--- Size: User Id
-currenex_forex_esp_cbp_v9_0.user_id.size = 20
-
--- Display: User Id
-currenex_forex_esp_cbp_v9_0.user_id.display = function(value)
-  return "User Id: "..value
-end
-
--- Dissect: User Id
-currenex_forex_esp_cbp_v9_0.user_id.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.user_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_esp_cbp_v9_0.user_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.user_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logout
 currenex_forex_esp_cbp_v9_0.logout = {}
 
@@ -1317,29 +1449,6 @@ currenex_forex_esp_cbp_v9_0.logout.dissect = function(buffer, offset, packet, pa
     -- Skip element, add fields directly
     return currenex_forex_esp_cbp_v9_0.logout.fields(buffer, offset, packet, parent)
   end
-end
-
--- Password
-currenex_forex_esp_cbp_v9_0.password = {}
-
--- Size: Password
-currenex_forex_esp_cbp_v9_0.password.size = 20
-
--- Display: Password
-currenex_forex_esp_cbp_v9_0.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-currenex_forex_esp_cbp_v9_0.password.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.password.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = currenex_forex_esp_cbp_v9_0.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.password, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon
@@ -1439,83 +1548,6 @@ currenex_forex_esp_cbp_v9_0.message_body.dissect = function(buffer, offset, pack
   return offset
 end
 
--- Message Type
-currenex_forex_esp_cbp_v9_0.message_type = {}
-
--- Size: Message Type
-currenex_forex_esp_cbp_v9_0.message_type.size = 1
-
--- Display: Message Type
-currenex_forex_esp_cbp_v9_0.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logout (B)"
-  end
-  if value == "C" then
-    return "Message Type: Heartbeat (C)"
-  end
-  if value == "D" then
-    return "Message Type: Instrument Info (D)"
-  end
-  if value == "F" then
-    return "Message Type: Subscription Request (F)"
-  end
-  if value == "G" then
-    return "Message Type: Subscription Reply (G)"
-  end
-  if value == "H" then
-    return "Message Type: Price Message (H)"
-  end
-  if value == "H" then
-    return "Message Type: Price Cancel Message (H)"
-  end
-  if value == "J" then
-    return "Message Type: Trade Ticker Message (J)"
-  end
-  if value == "J" then
-    return "Message Type: Reject Message (J)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-currenex_forex_esp_cbp_v9_0.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = currenex_forex_esp_cbp_v9_0.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-currenex_forex_esp_cbp_v9_0.sequence_number = {}
-
--- Size: Sequence Number
-currenex_forex_esp_cbp_v9_0.sequence_number.size = 4
-
--- Display: Sequence Number
-currenex_forex_esp_cbp_v9_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-currenex_forex_esp_cbp_v9_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = currenex_forex_esp_cbp_v9_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 currenex_forex_esp_cbp_v9_0.message_header = {}
 
@@ -1562,33 +1594,6 @@ currenex_forex_esp_cbp_v9_0.message_header.dissect = function(buffer, offset, pa
     -- Skip element, add fields directly
     return currenex_forex_esp_cbp_v9_0.message_header.fields(buffer, offset, packet, parent)
   end
-end
-
--- Itch Soh
-currenex_forex_esp_cbp_v9_0.itch_soh = {}
-
--- Size: Itch Soh
-currenex_forex_esp_cbp_v9_0.itch_soh.size = 1
-
--- Display: Itch Soh
-currenex_forex_esp_cbp_v9_0.itch_soh.display = function(value)
-  if value == 1 then
-    return "Itch Soh: Soh"
-  end
-
-  return "Itch Soh: Unknown("..value..")"
-end
-
--- Dissect: Itch Soh
-currenex_forex_esp_cbp_v9_0.itch_soh.dissect = function(buffer, offset, packet, parent)
-  local length = currenex_forex_esp_cbp_v9_0.itch_soh.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = currenex_forex_esp_cbp_v9_0.itch_soh.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_currenex_forex_esp_cbp_v9_0.fields.itch_soh, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

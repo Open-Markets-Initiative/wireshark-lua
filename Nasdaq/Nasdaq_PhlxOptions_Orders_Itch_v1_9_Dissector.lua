@@ -239,64 +239,88 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq PhlxOptions Orders Itch 1.9
+-- Nasdaq PhlxOptions Orders Itch 1.9 Fields
 -----------------------------------------------------------------------
 
--- Volume
-nasdaq_phlxoptions_orders_itch_v1_9.volume = {}
+-- Action
+nasdaq_phlxoptions_orders_itch_v1_9.action = {}
 
--- Size: Volume
-nasdaq_phlxoptions_orders_itch_v1_9.volume.size = 4
+-- Size: Action
+nasdaq_phlxoptions_orders_itch_v1_9.action.size = 1
 
--- Display: Volume
-nasdaq_phlxoptions_orders_itch_v1_9.volume.display = function(value)
-  return "Volume: "..value
+-- Display: Action
+nasdaq_phlxoptions_orders_itch_v1_9.action.display = function(value)
+  if value == "A" then
+    return "Action: Add (A)"
+  end
+  if value == "D" then
+    return "Action: Delete (D)"
+  end
+
+  return "Action: Unknown("..value..")"
 end
 
--- Dissect: Volume
-nasdaq_phlxoptions_orders_itch_v1_9.volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.volume.size
+-- Dissect: Action
+nasdaq_phlxoptions_orders_itch_v1_9.action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.action.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.volume.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.action.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.volume, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.action, range, value, display)
 
   return offset + length, value
 end
 
--- Debit Or Credit
-nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit = {}
+-- All Or None
+nasdaq_phlxoptions_orders_itch_v1_9.all_or_none = {}
 
--- Size: Debit Or Credit
-nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size = 1
+-- Size: All Or None
+nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size = 1
 
--- Display: Debit Or Credit
-nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.display = function(value)
-  if value == "D" then
-    return "Debit Or Credit: Net Debit (D)"
+-- Display: All Or None
+nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.display = function(value)
+  if value == "Y" then
+    return "All Or None: All Or None Order (Y)"
   end
-  if value == "C" then
-    return "Debit Or Credit: Net Credit (C)"
-  end
-  if value == " " then
-    return "Debit Or Credit: Even Or Market Order (<whitespace>)"
-  end
-  if value == "*" then
-    return "Debit Or Credit: Anonymous (*)"
+  if value == "N" then
+    return "All Or None: Not All Or None Order (N)"
   end
 
-  return "Debit Or Credit: Unknown("..value..")"
+  return "All Or None: Unknown("..value..")"
 end
 
--- Dissect: Debit Or Credit
-nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size
+-- Dissect: All Or None
+nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.debit_or_credit, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.all_or_none, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+nasdaq_phlxoptions_orders_itch_v1_9.auction_id = {}
+
+-- Size: Auction Id
+nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size = 4
+
+-- Display: Auction Id
+nasdaq_phlxoptions_orders_itch_v1_9.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+nasdaq_phlxoptions_orders_itch_v1_9.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -330,35 +354,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.auction_side.dissect = function(buffer, offs
   local display = nasdaq_phlxoptions_orders_itch_v1_9.auction_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-nasdaq_phlxoptions_orders_itch_v1_9.price = {}
-
--- Size: Price
-nasdaq_phlxoptions_orders_itch_v1_9.price.size = 4
-
--- Display: Price
-nasdaq_phlxoptions_orders_itch_v1_9.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-nasdaq_phlxoptions_orders_itch_v1_9.price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price
-nasdaq_phlxoptions_orders_itch_v1_9.price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_phlxoptions_orders_itch_v1_9.price.translate(raw)
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -405,48 +400,477 @@ nasdaq_phlxoptions_orders_itch_v1_9.auction_type.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Auction Id
-nasdaq_phlxoptions_orders_itch_v1_9.auction_id = {}
+-- Count
+nasdaq_phlxoptions_orders_itch_v1_9.count = {}
 
--- Size: Auction Id
-nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size = 4
+-- Size: Count
+nasdaq_phlxoptions_orders_itch_v1_9.count.size = 2
 
--- Display: Auction Id
-nasdaq_phlxoptions_orders_itch_v1_9.auction_id.display = function(value)
-  return "Auction Id: "..value
+-- Display: Count
+nasdaq_phlxoptions_orders_itch_v1_9.count.display = function(value)
+  return "Count: "..value
 end
 
--- Dissect: Auction Id
-nasdaq_phlxoptions_orders_itch_v1_9.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size
+-- Dissect: Count
+nasdaq_phlxoptions_orders_itch_v1_9.count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.count.size
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.auction_id.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.auction_id, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.count, range, value, display)
 
   return offset + length, value
 end
 
--- Strategy Id
-nasdaq_phlxoptions_orders_itch_v1_9.strategy_id = {}
+-- Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state = {}
 
--- Size: Strategy Id
-nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size = 4
+-- Size: Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size = 1
 
--- Display: Strategy Id
-nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.display = function(value)
-  return "Strategy Id: "..value
+-- Display: Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt In Effect (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Phlx Trading Resumed (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
 end
 
--- Dissect: Strategy Id
-nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
+-- Dissect: Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator = {}
+
+-- Size: Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size = 1
+
+-- Display: Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.display = function(value)
+  if value == "C" then
+    return "Customer Firm Indicator: Customer Order (C)"
+  end
+  if value == "F" then
+    return "Customer Firm Indicator: Firm Order (F)"
+  end
+  if value == "M" then
+    return "Customer Firm Indicator: Onfloor Market Maker (M)"
+  end
+  if value == "B" then
+    return "Customer Firm Indicator: Broker Dealer Order (B)"
+  end
+  if value == "P" then
+    return "Customer Firm Indicator: Professional Order (P)"
+  end
+  if value == " " then
+    return "Customer Firm Indicator: Na For Implied Order (<whitespace>)"
+  end
+
+  return "Customer Firm Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.customer_firm_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit = {}
+
+-- Size: Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size = 1
+
+-- Display: Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.display = function(value)
+  if value == "D" then
+    return "Debit Or Credit: Net Debit (D)"
+  end
+  if value == "C" then
+    return "Debit Or Credit: Net Credit (C)"
+  end
+  if value == " " then
+    return "Debit Or Credit: Even Or Market Order (<whitespace>)"
+  end
+  if value == "*" then
+    return "Debit Or Credit: Anonymous (*)"
+  end
+
+  return "Debit Or Credit: Unknown("..value..")"
+end
+
+-- Dissect: Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.debit_or_credit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_phlxoptions_orders_itch_v1_9.event_code = {}
+
+-- Size: Event Code
+nasdaq_phlxoptions_orders_itch_v1_9.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_phlxoptions_orders_itch_v1_9.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Opening Process (Q)"
+  end
+  if value == "N" then
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
+  end
+  if value == "L" then
+    return "Event Code: Start Of Late Hours Closing Process (L)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+  if value == "W" then
+    return "Event Code: End Of Wco Early Closing (W)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_phlxoptions_orders_itch_v1_9.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume = {}
+
+-- Size: Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size = 4
+
+-- Display: Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.display = function(value)
+  return "Executable Order Volume: "..value
+end
+
+-- Dissect: Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_id, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.executable_order_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price = {}
+
+-- Size: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size = 4
+
+-- Display: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.display = function(value)
+  return "Explicit Strike Price: "..value
+end
+
+-- Translate: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.translate(raw)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.explicit_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume = {}
+
+-- Size: Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size = 4
+
+-- Display: Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.display = function(value)
+  return "Imbalance Volume: "..value
+end
+
+-- Dissect: Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.imbalance_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator = {}
+
+-- Size: Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size = 1
+
+-- Display: Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.display = function(value)
+  if value == "O" then
+    return "Leg Open Close Indicator: Opens Position (O)"
+  end
+  if value == "C" then
+    return "Leg Open Close Indicator: Closes Position (C)"
+  end
+  if value == " " then
+    return "Leg Open Close Indicator: Stock Leg (<whitespace>)"
+  end
+
+  return "Leg Open Close Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.leg_open_close_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio = {}
+
+-- Size: Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+nasdaq_phlxoptions_orders_itch_v1_9.length = {}
+
+-- Size: Length
+nasdaq_phlxoptions_orders_itch_v1_9.length.size = 2
+
+-- Display: Length
+nasdaq_phlxoptions_orders_itch_v1_9.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+nasdaq_phlxoptions_orders_itch_v1_9.length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Price
+nasdaq_phlxoptions_orders_itch_v1_9.limit_price = {}
+
+-- Size: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size = 4
+
+-- Display: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_9.limit_price.display = function(value)
+  return "Limit Price: "..value
+end
+
+-- Translate: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_9.limit_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_9.limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.translate(raw)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.limit_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier = {}
+
+-- Size: Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size = 1
+
+-- Display: Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.display = function(value)
+  if value == "O" then
+    return "Market Qualifier: Opening Order (O)"
+  end
+  if value == "I" then
+    return "Market Qualifier: Implied Order (I)"
+  end
+  if value == " " then
+    return "Market Qualifier: Na (<whitespace>)"
+  end
+
+  return "Market Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.market_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_9.matched_volume = {}
+
+-- Size: Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size = 4
+
+-- Display: Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.display = function(value)
+  return "Matched Volume: "..value
+end
+
+-- Dissect: Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.matched_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_phlxoptions_orders_itch_v1_9.message_type = {}
+
+-- Size: Message Type
+nasdaq_phlxoptions_orders_itch_v1_9.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_phlxoptions_orders_itch_v1_9.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "D" then
+    return "Message Type: Options Directory Message (D)"
+  end
+  if value == "R" then
+    return "Message Type: Complex Order Strategy Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Security Trading Action Message (H)"
+  end
+  if value == "I" then
+    return "Message Type: Complex Trading Action Message (I)"
+  end
+  if value == "P" then
+    return "Message Type: Security Open Closed Message (P)"
+  end
+  if value == "Q" then
+    return "Message Type: Strategy Open Closed Message (Q)"
+  end
+  if value == "O" then
+    return "Message Type: Simple Order Message (O)"
+  end
+  if value == "X" then
+    return "Message Type: Complex Order Message (X)"
+  end
+  if value == "A" then
+    return "Message Type: Auction Notification Message (A)"
+  end
+  if value == "C" then
+    return "Message Type: Complex Auction Notification Message (C)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_phlxoptions_orders_itch_v1_9.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -474,6 +898,378 @@ nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs = {}
+
+-- Size: Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.size = 1
+
+-- Display: Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator = {}
+
+-- Size: Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size = 1
+
+-- Display: Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.display = function(value)
+  if value == "O" then
+    return "Open Close Indicator: Opens Position (O)"
+  end
+  if value == "C" then
+    return "Open Close Indicator: Closes Position (C)"
+  end
+  if value == " " then
+    return "Open Close Indicator: Na (<whitespace>)"
+  end
+
+  return "Open Close Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.open_close_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_phlxoptions_orders_itch_v1_9.open_state = {}
+
+-- Size: Open State
+nasdaq_phlxoptions_orders_itch_v1_9.open_state.size = 1
+
+-- Display: Open State
+nasdaq_phlxoptions_orders_itch_v1_9.open_state.display = function(value)
+  if value == "Y" then
+    return "Open State: Open For Auto Execution (Y)"
+  end
+  if value == "N" then
+    return "Open State: Closed For Auto Execution (N)"
+  end
+
+  return "Open State: Unknown("..value..")"
+end
+
+-- Dissect: Open State
+nasdaq_phlxoptions_orders_itch_v1_9.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type = {}
+
+-- Size: Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size = 1
+
+-- Display: Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.display = function(value)
+  if value == "N" then
+    return "Option Closing Type: Normal (N)"
+  end
+  if value == "L" then
+    return "Option Closing Type: Late (L)"
+  end
+  if value == "W" then
+    return "Option Closing Type: Wco Early Closing (W)"
+  end
+
+  return "Option Closing Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.option_closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_phlxoptions_orders_itch_v1_9.option_id = {}
+
+-- Size: Option Id
+nasdaq_phlxoptions_orders_itch_v1_9.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_phlxoptions_orders_itch_v1_9.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_type = {}
+
+-- Size: Option Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+  if value == " " then
+    return "Option Type: Stock (<whitespace>)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+nasdaq_phlxoptions_orders_itch_v1_9.order_id = {}
+
+-- Size: Order Id
+nasdaq_phlxoptions_orders_itch_v1_9.order_id.size = 4
+
+-- Display: Order Id
+nasdaq_phlxoptions_orders_itch_v1_9.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+nasdaq_phlxoptions_orders_itch_v1_9.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Status
+nasdaq_phlxoptions_orders_itch_v1_9.order_status = {}
+
+-- Size: Order Status
+nasdaq_phlxoptions_orders_itch_v1_9.order_status.size = 1
+
+-- Display: Order Status
+nasdaq_phlxoptions_orders_itch_v1_9.order_status.display = function(value)
+  if value == "O" then
+    return "Order Status: Open (O)"
+  end
+  if value == "F" then
+    return "Order Status: Filled (F)"
+  end
+  if value == "C" then
+    return "Order Status: Cancelled (C)"
+  end
+  if value == "R" then
+    return "Order Status: Renotification (R)"
+  end
+
+  return "Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Order Status
+nasdaq_phlxoptions_orders_itch_v1_9.order_status.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.order_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+nasdaq_phlxoptions_orders_itch_v1_9.order_type = {}
+
+-- Size: Order Type
+nasdaq_phlxoptions_orders_itch_v1_9.order_type.size = 1
+
+-- Display: Order Type
+nasdaq_phlxoptions_orders_itch_v1_9.order_type.display = function(value)
+  if value == "M" then
+    return "Order Type: Market (M)"
+  end
+  if value == "L" then
+    return "Order Type: Limit (L)"
+  end
+  if value == "*" then
+    return "Order Type: Anonymous (*)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+nasdaq_phlxoptions_orders_itch_v1_9.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume = {}
+
+-- Size: Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size = 4
+
+-- Display: Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.display = function(value)
+  return "Original Order Volume: "..value
+end
+
+-- Dissect: Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.original_order_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable = {}
+
+-- Size: Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size = 1
+
+-- Display: Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.display = function(value)
+  if value == "Y" then
+    return "Phlx Tradable: Tradable (Y)"
+  end
+  if value == "N" then
+    return "Phlx Tradable: Not Tradable (N)"
+  end
+
+  return "Phlx Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.phlx_tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nasdaq_phlxoptions_orders_itch_v1_9.price = {}
+
+-- Size: Price
+nasdaq_phlxoptions_orders_itch_v1_9.price.size = 4
+
+-- Display: Price
+nasdaq_phlxoptions_orders_itch_v1_9.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nasdaq_phlxoptions_orders_itch_v1_9.price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price
+nasdaq_phlxoptions_orders_itch_v1_9.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_phlxoptions_orders_itch_v1_9.price.translate(raw)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+nasdaq_phlxoptions_orders_itch_v1_9.reserved = {}
+
+-- Size: Reserved
+nasdaq_phlxoptions_orders_itch_v1_9.reserved.size = 4
+
+-- Display: Reserved
+nasdaq_phlxoptions_orders_itch_v1_9.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+nasdaq_phlxoptions_orders_itch_v1_9.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
 -- Seconds
 nasdaq_phlxoptions_orders_itch_v1_9.seconds = {}
 
@@ -496,6 +1292,261 @@ nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect = function(buffer, offset, p
 
   return offset + length, value
 end
+
+-- Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size = 5
+
+-- Display: Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+nasdaq_phlxoptions_orders_itch_v1_9.sequence = {}
+
+-- Size: Sequence
+nasdaq_phlxoptions_orders_itch_v1_9.sequence.size = 4
+
+-- Display: Sequence
+nasdaq_phlxoptions_orders_itch_v1_9.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+nasdaq_phlxoptions_orders_itch_v1_9.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.sequence.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_phlxoptions_orders_itch_v1_9.session = {}
+
+-- Size: Session
+nasdaq_phlxoptions_orders_itch_v1_9.session.size = 10
+
+-- Display: Session
+nasdaq_phlxoptions_orders_itch_v1_9.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_phlxoptions_orders_itch_v1_9.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_phlxoptions_orders_itch_v1_9.side = {}
+
+-- Size: Side
+nasdaq_phlxoptions_orders_itch_v1_9.side.size = 1
+
+-- Display: Side
+nasdaq_phlxoptions_orders_itch_v1_9.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+  if value == "*" then
+    return "Side: Hidden (*)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nasdaq_phlxoptions_orders_itch_v1_9.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+nasdaq_phlxoptions_orders_itch_v1_9.source = {}
+
+-- Size: Source
+nasdaq_phlxoptions_orders_itch_v1_9.source.size = 1
+
+-- Display: Source
+nasdaq_phlxoptions_orders_itch_v1_9.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+nasdaq_phlxoptions_orders_itch_v1_9.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_9.strategy_id = {}
+
+-- Size: Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size = 4
+
+-- Display: Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.display = function(value)
+  return "Strategy Id: "..value
+end
+
+-- Dissect: Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+nasdaq_phlxoptions_orders_itch_v1_9.time_in_force = {}
+
+-- Size: Time In Force
+nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size = 1
+
+-- Display: Time In Force
+nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.display = function(value)
+  if value == "D" then
+    return "Time In Force: Day Order (D)"
+  end
+  if value == "G" then
+    return "Time In Force: Gtc (G)"
+  end
+  if value == "I" then
+    return "Time In Force: Ioc (I)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_phlxoptions_orders_itch_v1_9.version = {}
+
+-- Size: Version
+nasdaq_phlxoptions_orders_itch_v1_9.version.size = 1
+
+-- Display: Version
+nasdaq_phlxoptions_orders_itch_v1_9.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_phlxoptions_orders_itch_v1_9.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nasdaq_phlxoptions_orders_itch_v1_9.volume = {}
+
+-- Size: Volume
+nasdaq_phlxoptions_orders_itch_v1_9.volume.size = 4
+
+-- Display: Volume
+nasdaq_phlxoptions_orders_itch_v1_9.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nasdaq_phlxoptions_orders_itch_v1_9.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq PhlxOptions Orders Itch 1.9
+-----------------------------------------------------------------------
 
 -- Complex Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message = {}
@@ -569,137 +1620,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.dissect
   end
 end
 
--- Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved = {}
-
--- Size: Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved.size = 4
-
--- Display: Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Volume
-nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume = {}
-
--- Size: Imbalance Volume
-nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size = 4
-
--- Display: Imbalance Volume
-nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.display = function(value)
-  return "Imbalance Volume: "..value
-end
-
--- Dissect: Imbalance Volume
-nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.imbalance_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Matched Volume
-nasdaq_phlxoptions_orders_itch_v1_9.matched_volume = {}
-
--- Size: Matched Volume
-nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size = 4
-
--- Display: Matched Volume
-nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.display = function(value)
-  return "Matched Volume: "..value
-end
-
--- Dissect: Matched Volume
-nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.matched_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_type = {}
-
--- Size: Option Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_type.size = 1
-
--- Display: Option Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == " " then
-    return "Option Type: Stock (<whitespace>)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Explicit Strike Price
-nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price = {}
-
--- Size: Explicit Strike Price
-nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size = 4
-
--- Display: Explicit Strike Price
-nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.display = function(value)
-  return "Explicit Strike Price: "..value
-end
-
--- Translate: Explicit Strike Price
-nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Explicit Strike Price
-nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.translate(raw)
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.explicit_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration = {}
 
@@ -740,52 +1660,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect = function(buffer, offset
   end
 
   return offset + size, value
-end
-
--- Security Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.security_symbol = {}
-
--- Size: Security Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size = 5
-
--- Display: Security Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.security_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Id
-nasdaq_phlxoptions_orders_itch_v1_9.option_id = {}
-
--- Size: Option Id
-nasdaq_phlxoptions_orders_itch_v1_9.option_id.size = 4
-
--- Display: Option Id
-nasdaq_phlxoptions_orders_itch_v1_9.option_id.display = function(value)
-  return "Option Id: "..value
-end
-
--- Dissect: Option Id
-nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.option_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.option_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.option_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Auction Notification Message
@@ -880,95 +1754,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.dissect = funct
   end
 end
 
--- Leg Ratio
-nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio = {}
-
--- Size: Leg Ratio
-nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size = 4
-
--- Display: Leg Ratio
-nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.display = function(value)
-  return "Leg Ratio: "..value
-end
-
--- Dissect: Leg Ratio
-nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.leg_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-nasdaq_phlxoptions_orders_itch_v1_9.side = {}
-
--- Size: Side
-nasdaq_phlxoptions_orders_itch_v1_9.side.size = 1
-
--- Display: Side
-nasdaq_phlxoptions_orders_itch_v1_9.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "*" then
-    return "Side: Hidden (*)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-nasdaq_phlxoptions_orders_itch_v1_9.side.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator = {}
-
--- Size: Leg Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size = 1
-
--- Display: Leg Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.display = function(value)
-  if value == "O" then
-    return "Leg Open Close Indicator: Opens Position (O)"
-  end
-  if value == "C" then
-    return "Leg Open Close Indicator: Closes Position (C)"
-  end
-  if value == " " then
-    return "Leg Open Close Indicator: Stock Leg (<whitespace>)"
-  end
-
-  return "Leg Open Close Indicator: Unknown("..value..")"
-end
-
--- Dissect: Leg Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.leg_open_close_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Order Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg = {}
 
@@ -1041,324 +1826,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.dissect = function(buffer,
     -- Skip element, add fields directly
     return nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.fields(buffer, offset, packet, parent, complex_order_leg_index)
   end
-end
-
--- Number Of Legs
-nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs = {}
-
--- Size: Number Of Legs
-nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.size = 1
-
--- Display: Number Of Legs
-nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.display = function(value)
-  return "Number Of Legs: "..value
-end
-
--- Dissect: Number Of Legs
-nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.number_of_legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size = 13
-
--- Display: Underlying Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Customer Firm Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator = {}
-
--- Size: Customer Firm Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size = 1
-
--- Display: Customer Firm Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.display = function(value)
-  if value == "C" then
-    return "Customer Firm Indicator: Customer Order (C)"
-  end
-  if value == "F" then
-    return "Customer Firm Indicator: Firm Order (F)"
-  end
-  if value == "M" then
-    return "Customer Firm Indicator: Onfloor Market Maker (M)"
-  end
-  if value == "B" then
-    return "Customer Firm Indicator: Broker Dealer Order (B)"
-  end
-  if value == "P" then
-    return "Customer Firm Indicator: Professional Order (P)"
-  end
-  if value == " " then
-    return "Customer Firm Indicator: Na For Implied Order (<whitespace>)"
-  end
-
-  return "Customer Firm Indicator: Unknown("..value..")"
-end
-
--- Dissect: Customer Firm Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.customer_firm_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-nasdaq_phlxoptions_orders_itch_v1_9.time_in_force = {}
-
--- Size: Time In Force
-nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size = 1
-
--- Display: Time In Force
-nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.display = function(value)
-  if value == "D" then
-    return "Time In Force: Day Order (D)"
-  end
-  if value == "G" then
-    return "Time In Force: Gtc (G)"
-  end
-  if value == "I" then
-    return "Time In Force: Ioc (I)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- All Or None
-nasdaq_phlxoptions_orders_itch_v1_9.all_or_none = {}
-
--- Size: All Or None
-nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size = 1
-
--- Display: All Or None
-nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.display = function(value)
-  if value == "Y" then
-    return "All Or None: All Or None Order (Y)"
-  end
-  if value == "N" then
-    return "All Or None: Not All Or None Order (N)"
-  end
-
-  return "All Or None: Unknown("..value..")"
-end
-
--- Dissect: All Or None
-nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.all_or_none, range, value, display)
-
-  return offset + length, value
-end
-
--- Limit Price
-nasdaq_phlxoptions_orders_itch_v1_9.limit_price = {}
-
--- Size: Limit Price
-nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size = 4
-
--- Display: Limit Price
-nasdaq_phlxoptions_orders_itch_v1_9.limit_price.display = function(value)
-  return "Limit Price: "..value
-end
-
--- Translate: Limit Price
-nasdaq_phlxoptions_orders_itch_v1_9.limit_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Limit Price
-nasdaq_phlxoptions_orders_itch_v1_9.limit_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.translate(raw)
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.limit_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Type
-nasdaq_phlxoptions_orders_itch_v1_9.order_type = {}
-
--- Size: Order Type
-nasdaq_phlxoptions_orders_itch_v1_9.order_type.size = 1
-
--- Display: Order Type
-nasdaq_phlxoptions_orders_itch_v1_9.order_type.display = function(value)
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
-  if value == "*" then
-    return "Order Type: Anonymous (*)"
-  end
-
-  return "Order Type: Unknown("..value..")"
-end
-
--- Dissect: Order Type
-nasdaq_phlxoptions_orders_itch_v1_9.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.order_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.order_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Status
-nasdaq_phlxoptions_orders_itch_v1_9.order_status = {}
-
--- Size: Order Status
-nasdaq_phlxoptions_orders_itch_v1_9.order_status.size = 1
-
--- Display: Order Status
-nasdaq_phlxoptions_orders_itch_v1_9.order_status.display = function(value)
-  if value == "O" then
-    return "Order Status: Open (O)"
-  end
-  if value == "F" then
-    return "Order Status: Filled (F)"
-  end
-  if value == "C" then
-    return "Order Status: Cancelled (C)"
-  end
-  if value == "R" then
-    return "Order Status: Renotification (R)"
-  end
-
-  return "Order Status: Unknown("..value..")"
-end
-
--- Dissect: Order Status
-nasdaq_phlxoptions_orders_itch_v1_9.order_status.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.order_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.order_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Executable Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume = {}
-
--- Size: Executable Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size = 4
-
--- Display: Executable Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.display = function(value)
-  return "Executable Order Volume: "..value
-end
-
--- Dissect: Executable Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.executable_order_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume = {}
-
--- Size: Original Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size = 4
-
--- Display: Original Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.display = function(value)
-  return "Original Order Volume: "..value
-end
-
--- Dissect: Original Order Volume
-nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.original_order_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-nasdaq_phlxoptions_orders_itch_v1_9.order_id = {}
-
--- Size: Order Id
-nasdaq_phlxoptions_orders_itch_v1_9.order_id.size = 4
-
--- Display: Order Id
-nasdaq_phlxoptions_orders_itch_v1_9.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-nasdaq_phlxoptions_orders_itch_v1_9.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Order Message
@@ -1490,72 +1957,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.dissect = function(buf
   end
 end
 
--- Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator = {}
-
--- Size: Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size = 1
-
--- Display: Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.display = function(value)
-  if value == "O" then
-    return "Open Close Indicator: Opens Position (O)"
-  end
-  if value == "C" then
-    return "Open Close Indicator: Closes Position (C)"
-  end
-  if value == " " then
-    return "Open Close Indicator: Na (<whitespace>)"
-  end
-
-  return "Open Close Indicator: Unknown("..value..")"
-end
-
--- Dissect: Open Close Indicator
-nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.open_close_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Qualifier
-nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier = {}
-
--- Size: Market Qualifier
-nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size = 1
-
--- Display: Market Qualifier
-nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.display = function(value)
-  if value == "O" then
-    return "Market Qualifier: Opening Order (O)"
-  end
-  if value == "I" then
-    return "Market Qualifier: Implied Order (I)"
-  end
-  if value == " " then
-    return "Market Qualifier: Na (<whitespace>)"
-  end
-
-  return "Market Qualifier: Unknown("..value..")"
-end
-
--- Dissect: Market Qualifier
-nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.market_qualifier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Simple Order Message
 nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message = {}
 
@@ -1666,36 +2067,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.dissect = function(buff
     -- Skip element, add fields directly
     return nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Open State
-nasdaq_phlxoptions_orders_itch_v1_9.open_state = {}
-
--- Size: Open State
-nasdaq_phlxoptions_orders_itch_v1_9.open_state.size = 1
-
--- Display: Open State
-nasdaq_phlxoptions_orders_itch_v1_9.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
-
-  return "Open State: Unknown("..value..")"
-end
-
--- Dissect: Open State
-nasdaq_phlxoptions_orders_itch_v1_9.open_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.open_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.open_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.open_state, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Open Closed Message
@@ -1816,36 +2187,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.dissect = funct
     -- Skip element, add fields directly
     return nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Current Trading State
-nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Phlx Trading Resumed (T)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Trading Action Message
@@ -2038,59 +2379,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.dissect = functio
   end
 end
 
--- Action
-nasdaq_phlxoptions_orders_itch_v1_9.action = {}
-
--- Size: Action
-nasdaq_phlxoptions_orders_itch_v1_9.action.size = 1
-
--- Display: Action
-nasdaq_phlxoptions_orders_itch_v1_9.action.display = function(value)
-  if value == "A" then
-    return "Action: Add (A)"
-  end
-  if value == "D" then
-    return "Action: Delete (D)"
-  end
-
-  return "Action: Unknown("..value..")"
-end
-
--- Dissect: Action
-nasdaq_phlxoptions_orders_itch_v1_9.action.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.action, range, value, display)
-
-  return offset + length, value
-end
-
--- Source
-nasdaq_phlxoptions_orders_itch_v1_9.source = {}
-
--- Size: Source
-nasdaq_phlxoptions_orders_itch_v1_9.source.size = 1
-
--- Display: Source
-nasdaq_phlxoptions_orders_itch_v1_9.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-nasdaq_phlxoptions_orders_itch_v1_9.source.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Order Strategy Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message = {}
 
@@ -2175,69 +2463,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.dissect = fun
   end
 end
 
--- Phlx Tradable
-nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable = {}
-
--- Size: Phlx Tradable
-nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size = 1
-
--- Display: Phlx Tradable
-nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.display = function(value)
-  if value == "Y" then
-    return "Phlx Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Phlx Tradable: Not Tradable (N)"
-  end
-
-  return "Phlx Tradable: Unknown("..value..")"
-end
-
--- Dissect: Phlx Tradable
-nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.phlx_tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Closing Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type = {}
-
--- Size: Option Closing Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size = 1
-
--- Display: Option Closing Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
-  if value == "W" then
-    return "Option Closing Type: Wco Early Closing (W)"
-  end
-
-  return "Option Closing Type: Unknown("..value..")"
-end
-
--- Dissect: Option Closing Type
-nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.option_closing_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Options Directory Message
 nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message = {}
 
@@ -2316,77 +2541,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.dissect = function
     -- Skip element, add fields directly
     return nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Version
-nasdaq_phlxoptions_orders_itch_v1_9.version = {}
-
--- Size: Version
-nasdaq_phlxoptions_orders_itch_v1_9.version.size = 1
-
--- Display: Version
-nasdaq_phlxoptions_orders_itch_v1_9.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-nasdaq_phlxoptions_orders_itch_v1_9.version.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Code
-nasdaq_phlxoptions_orders_itch_v1_9.event_code = {}
-
--- Size: Event Code
-nasdaq_phlxoptions_orders_itch_v1_9.event_code.size = 1
-
--- Display: Event Code
-nasdaq_phlxoptions_orders_itch_v1_9.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_phlxoptions_orders_itch_v1_9.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.event_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- System Event Message
@@ -2494,86 +2648,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.payload.dissect = function(buffer, offset, p
   return offset
 end
 
--- Message Type
-nasdaq_phlxoptions_orders_itch_v1_9.message_type = {}
-
--- Size: Message Type
-nasdaq_phlxoptions_orders_itch_v1_9.message_type.size = 1
-
--- Display: Message Type
-nasdaq_phlxoptions_orders_itch_v1_9.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Options Directory Message (D)"
-  end
-  if value == "R" then
-    return "Message Type: Complex Order Strategy Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Security Trading Action Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Complex Trading Action Message (I)"
-  end
-  if value == "P" then
-    return "Message Type: Security Open Closed Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Strategy Open Closed Message (Q)"
-  end
-  if value == "O" then
-    return "Message Type: Simple Order Message (O)"
-  end
-  if value == "X" then
-    return "Message Type: Complex Order Message (X)"
-  end
-  if value == "A" then
-    return "Message Type: Auction Notification Message (A)"
-  end
-  if value == "C" then
-    return "Message Type: Complex Auction Notification Message (C)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_phlxoptions_orders_itch_v1_9.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Length
-nasdaq_phlxoptions_orders_itch_v1_9.length = {}
-
--- Size: Length
-nasdaq_phlxoptions_orders_itch_v1_9.length.size = 2
-
--- Display: Length
-nasdaq_phlxoptions_orders_itch_v1_9.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-nasdaq_phlxoptions_orders_itch_v1_9.length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 nasdaq_phlxoptions_orders_itch_v1_9.message_header = {}
 
@@ -2678,75 +2752,6 @@ nasdaq_phlxoptions_orders_itch_v1_9.message.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return nasdaq_phlxoptions_orders_itch_v1_9.message.fields(buffer, offset, packet, parent, message_index)
   end
-end
-
--- Count
-nasdaq_phlxoptions_orders_itch_v1_9.count = {}
-
--- Size: Count
-nasdaq_phlxoptions_orders_itch_v1_9.count.size = 2
-
--- Display: Count
-nasdaq_phlxoptions_orders_itch_v1_9.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-nasdaq_phlxoptions_orders_itch_v1_9.count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence
-nasdaq_phlxoptions_orders_itch_v1_9.sequence = {}
-
--- Size: Sequence
-nasdaq_phlxoptions_orders_itch_v1_9.sequence.size = 4
-
--- Display: Sequence
-nasdaq_phlxoptions_orders_itch_v1_9.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-nasdaq_phlxoptions_orders_itch_v1_9.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.sequence.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_phlxoptions_orders_itch_v1_9.session = {}
-
--- Size: Session
-nasdaq_phlxoptions_orders_itch_v1_9.session.size = 10
-
--- Display: Session
-nasdaq_phlxoptions_orders_itch_v1_9.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_phlxoptions_orders_itch_v1_9.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

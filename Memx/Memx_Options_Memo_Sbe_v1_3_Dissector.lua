@@ -625,1148 +625,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Memx Options Memo Sbe 1.3
+-- Memx Options Memo Sbe 1.3 Fields
 -----------------------------------------------------------------------
-
--- Sending Time
-memx_options_memo_sbe_v1_3.sending_time = {}
-
--- Size: Sending Time
-memx_options_memo_sbe_v1_3.sending_time.size = 8
-
--- Display: Sending Time
-memx_options_memo_sbe_v1_3.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-memx_options_memo_sbe_v1_3.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Lockout Id
-memx_options_memo_sbe_v1_3.lockout_id = {}
-
--- Size: Lockout Id
-memx_options_memo_sbe_v1_3.lockout_id.size = 8
-
--- Display: Lockout Id
-memx_options_memo_sbe_v1_3.lockout_id.display = function(value)
-  return "Lockout Id: "..value
-end
-
--- Dissect: Lockout Id
-memx_options_memo_sbe_v1_3.lockout_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.lockout_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.lockout_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.lockout_id, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId
-memx_options_memo_sbe_v1_3.clordid = {}
-
--- Size: ClOrdId
-memx_options_memo_sbe_v1_3.clordid.size = 20
-
--- Display: ClOrdId
-memx_options_memo_sbe_v1_3.clordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "ClOrdId: No Value"
-  end
-
-  return "ClOrdId: "..value
-end
-
--- Dissect: ClOrdId
-memx_options_memo_sbe_v1_3.clordid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.clordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.clordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.clordid, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Clear Lockout Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message = {}
-
--- Size: Mass Cancel Clear Lockout Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.size =
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.lockout_id.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Mass Cancel Clear Lockout Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Clear Lockout Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Lockout Id: uint64
-  index, lockout_id = memx_options_memo_sbe_v1_3.lockout_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Clear Lockout Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_clear_lockout_done_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Rej Reason
-memx_options_memo_sbe_v1_3.rej_reason = {}
-
--- Size: Rej Reason
-memx_options_memo_sbe_v1_3.rej_reason.size = 2
-
--- Display: Rej Reason
-memx_options_memo_sbe_v1_3.rej_reason.display = function(value)
-  if value == 0 then
-    return "Rej Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Rej Reason: Missing Cl Ord Id (1)"
-  end
-  if value == 2 then
-    return "Rej Reason: Invalid Cl Ord Id (2)"
-  end
-  if value == 3 then
-    return "Rej Reason: Missing Lockout Id (3)"
-  end
-  if value == 4 then
-    return "Rej Reason: Invalid Lockout Id (4)"
-  end
-  if value == 65535 then
-    return "Rej Reason: Null Value (65535)"
-  end
-
-  return "Rej Reason: Unknown("..value..")"
-end
-
--- Dissect: Rej Reason
-memx_options_memo_sbe_v1_3.rej_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.rej_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.rej_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.rej_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Clear Lockout Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message = {}
-
--- Size: Mass Cancel Clear Lockout Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.size =
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.lockout_id.size + 
-  memx_options_memo_sbe_v1_3.rej_reason.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Mass Cancel Clear Lockout Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Clear Lockout Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Lockout Id: uint64
-  index, lockout_id = memx_options_memo_sbe_v1_3.lockout_id.dissect(buffer, index, packet, parent)
-
-  -- Rej Reason: MassCancelClearLockoutRejCode
-  index, rej_reason = memx_options_memo_sbe_v1_3.rej_reason.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Clear Lockout Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_clear_lockout_reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- User Status
-memx_options_memo_sbe_v1_3.user_status = {}
-
--- Size: User Status
-memx_options_memo_sbe_v1_3.user_status.size = 1
-
--- Display: User Status
-memx_options_memo_sbe_v1_3.user_status.display = function(value)
-  if value == 8 then
-    return "User Status: Session Shutdown Warning (8)"
-  end
-  if value == 100 then
-    return "User Status: End Of Events For Session (100)"
-  end
-  if value == 255 then
-    return "User Status: Null Value (255)"
-  end
-
-  return "User Status: Unknown("..value..")"
-end
-
--- Dissect: User Status
-memx_options_memo_sbe_v1_3.user_status.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.user_status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.user_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.user_status, range, value, display)
-
-  return offset + length, value
-end
-
--- User Notification Message
-memx_options_memo_sbe_v1_3.user_notification_message = {}
-
--- Size: User Notification Message
-memx_options_memo_sbe_v1_3.user_notification_message.size =
-  memx_options_memo_sbe_v1_3.sending_time.size + 
-  memx_options_memo_sbe_v1_3.user_status.size
-
--- Display: User Notification Message
-memx_options_memo_sbe_v1_3.user_notification_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Notification Message
-memx_options_memo_sbe_v1_3.user_notification_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- User Status: UserStatusType
-  index, user_status = memx_options_memo_sbe_v1_3.user_status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Notification Message
-memx_options_memo_sbe_v1_3.user_notification_message.dissect = function(buffer, offset, packet, parent)
-  if show.user_notification_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.user_notification_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.user_notification_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.user_notification_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.user_notification_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Party Role uint 8
-memx_options_memo_sbe_v1_3.party_role_uint_8 = {}
-
--- Size: Party Role uint 8
-memx_options_memo_sbe_v1_3.party_role_uint_8.size = 1
-
--- Display: Party Role uint 8
-memx_options_memo_sbe_v1_3.party_role_uint_8.display = function(value)
-  return "Party Role uint 8: "..value
-end
-
--- Dissect: Party Role uint 8
-memx_options_memo_sbe_v1_3.party_role_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.party_role_uint_8.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.party_role_uint_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_role_uint_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Source
-memx_options_memo_sbe_v1_3.party_id_source = {}
-
--- Size: Party Id Source
-memx_options_memo_sbe_v1_3.party_id_source.size = 1
-
--- Display: Party Id Source
-memx_options_memo_sbe_v1_3.party_id_source.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Id Source: No Value"
-  end
-
-  return "Party Id Source: "..value
-end
-
--- Dissect: Party Id Source
-memx_options_memo_sbe_v1_3.party_id_source.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.party_id_source.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.party_id_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_id_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Party I D Execution Report New Party Id
-memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id = {}
-
--- Size: Party I D Execution Report New Party Id
-memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size = 16
-
--- Display: Party I D Execution Report New Party Id
-memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party I D Execution Report New Party Id: No Value"
-  end
-
-  return "Party I D Execution Report New Party Id: "..value
-end
-
--- Dissect: Party I D Execution Report New Party Id
-memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_i_d_execution_report_new_party_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Allocation Report Message Parties Group
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_group = {}
-
--- Size: Allocation Report Message Parties Group
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.size =
-  memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size + 
-  memx_options_memo_sbe_v1_3.party_id_source.size + 
-  memx_options_memo_sbe_v1_3.party_role_uint_8.size
-
--- Display: Allocation Report Message Parties Group
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Report Message Parties Group
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.fields = function(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
-  local index = offset
-
-  -- Implicit Allocation Report Message Parties Group Index
-  if allocation_report_message_parties_group_index ~= nil then
-    local iteration = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_parties_group_index, allocation_report_message_parties_group_index)
-    iteration:set_generated()
-  end
-
-  -- Party I D Execution Report New Party Id: ExecutionReport_NewPartyID
-  index, party_i_d_execution_report_new_party_id = memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Source: char
-  index, party_id_source = memx_options_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
-
-  -- Party Role uint 8: uint8
-  index, party_role_uint_8 = memx_options_memo_sbe_v1_3.party_role_uint_8.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Report Message Parties Group
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.dissect = function(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
-  if show.allocation_report_message_parties_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_parties_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.fields(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.fields(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
-  end
-end
-
--- Num In Group
-memx_options_memo_sbe_v1_3.num_in_group = {}
-
--- Size: Num In Group
-memx_options_memo_sbe_v1_3.num_in_group.size = 1
-
--- Display: Num In Group
-memx_options_memo_sbe_v1_3.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-memx_options_memo_sbe_v1_3.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length Short
-memx_options_memo_sbe_v1_3.block_length_short = {}
-
--- Size: Block Length Short
-memx_options_memo_sbe_v1_3.block_length_short.size = 1
-
--- Display: Block Length Short
-memx_options_memo_sbe_v1_3.block_length_short.display = function(value)
-  return "Block Length Short: "..value
-end
-
--- Dissect: Block Length Short
-memx_options_memo_sbe_v1_3.block_length_short.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.block_length_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.block_length_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.block_length_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Repeating Group Dimensions
-memx_options_memo_sbe_v1_3.repeating_group_dimensions = {}
-
--- Size: Repeating Group Dimensions
-memx_options_memo_sbe_v1_3.repeating_group_dimensions.size =
-  memx_options_memo_sbe_v1_3.block_length_short.size + 
-  memx_options_memo_sbe_v1_3.num_in_group.size
-
--- Display: Repeating Group Dimensions
-memx_options_memo_sbe_v1_3.repeating_group_dimensions.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Repeating Group Dimensions
-memx_options_memo_sbe_v1_3.repeating_group_dimensions.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length Short: uint8
-  index, block_length_short = memx_options_memo_sbe_v1_3.block_length_short.dissect(buffer, index, packet, parent)
-
-  -- Num In Group: uint8
-  index, num_in_group = memx_options_memo_sbe_v1_3.num_in_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Repeating Group Dimensions
-memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect = function(buffer, offset, packet, parent)
-  if show.repeating_group_dimensions then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.repeating_group_dimensions, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.repeating_group_dimensions.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.repeating_group_dimensions.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.repeating_group_dimensions.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Allocation Report Message Parties Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups = {}
-
--- Calculate size of: Allocation Report Message Parties Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_3.repeating_group_dimensions.size
-
-  -- Calculate field size from count
-  local allocation_report_message_parties_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + allocation_report_message_parties_group_count * 18
-
-  return index
-end
-
--- Display: Allocation Report Message Parties Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Report Message Parties Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Repeating Group Dimensions: Struct of 2 fields
-  index, repeating_group_dimensions = memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):uint()
-
-  -- Repeating: Allocation Report Message Parties Group
-  for allocation_report_message_parties_group_index = 1, num_in_group do
-    index, allocation_report_message_parties_group = memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.dissect(buffer, index, packet, parent, allocation_report_message_parties_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Allocation Report Message Parties Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message_parties_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_parties_groups, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Or Close
-memx_options_memo_sbe_v1_3.open_or_close = {}
-
--- Size: Open Or Close
-memx_options_memo_sbe_v1_3.open_or_close.size = 1
-
--- Display: Open Or Close
-memx_options_memo_sbe_v1_3.open_or_close.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Open Or Close: No Value"
-  end
-
-  if value == "O" then
-    return "Open Or Close: Open (O)"
-  end
-  if value == "C" then
-    return "Open Or Close: Close (C)"
-  end
-  if value == "0" then
-    return "Open Or Close: Null Value (0)"
-  end
-
-  return "Open Or Close: Unknown("..value..")"
-end
-
--- Dissect: Open Or Close
-memx_options_memo_sbe_v1_3.open_or_close.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.open_or_close.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.open_or_close.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.open_or_close, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Capacity
-memx_options_memo_sbe_v1_3.trading_capacity = {}
-
--- Size: Trading Capacity
-memx_options_memo_sbe_v1_3.trading_capacity.size = 1
-
--- Display: Trading Capacity
-memx_options_memo_sbe_v1_3.trading_capacity.display = function(value)
-  if value == 1 then
-    return "Trading Capacity: Customer (1)"
-  end
-  if value == 2 then
-    return "Trading Capacity: Professional Customer (2)"
-  end
-  if value == 3 then
-    return "Trading Capacity: Broker Dealer (3)"
-  end
-  if value == 4 then
-    return "Trading Capacity: Broker Dealer Customer (4)"
-  end
-  if value == 5 then
-    return "Trading Capacity: Firm (5)"
-  end
-  if value == 6 then
-    return "Trading Capacity: Market Maker (6)"
-  end
-  if value == 7 then
-    return "Trading Capacity: Away Market Maker (7)"
-  end
-  if value == 255 then
-    return "Trading Capacity: Null Value (255)"
-  end
-
-  return "Trading Capacity: Unknown("..value..")"
-end
-
--- Dissect: Trading Capacity
-memx_options_memo_sbe_v1_3.trading_capacity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.trading_capacity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.trading_capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.trading_capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Qty
-memx_options_memo_sbe_v1_3.alloc_qty = {}
-
--- Size: Alloc Qty
-memx_options_memo_sbe_v1_3.alloc_qty.size = 4
-
--- Display: Alloc Qty
-memx_options_memo_sbe_v1_3.alloc_qty.display = function(value)
-  return "Alloc Qty: "..value
-end
-
--- Dissect: Alloc Qty
-memx_options_memo_sbe_v1_3.alloc_qty.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.alloc_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.alloc_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Allocation Report Message Allocations Group
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group = {}
-
--- Calculate size of: Allocation Report Message Allocations Group
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_3.alloc_qty.size
-
-  index = index + memx_options_memo_sbe_v1_3.trading_capacity.size
-
-  index = index + memx_options_memo_sbe_v1_3.open_or_close.size
-
-  index = index + memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Allocation Report Message Allocations Group
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Report Message Allocations Group
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.fields = function(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
-  local index = offset
-
-  -- Implicit Allocation Report Message Allocations Group Index
-  if allocation_report_message_allocations_group_index ~= nil then
-    local iteration = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_allocations_group_index, allocation_report_message_allocations_group_index)
-    iteration:set_generated()
-  end
-
-  -- Alloc Qty: uint32
-  index, alloc_qty = memx_options_memo_sbe_v1_3.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: TradingCapacityType
-  index, trading_capacity = memx_options_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Open Or Close: OpenOrCloseType
-  index, open_or_close = memx_options_memo_sbe_v1_3.open_or_close.dissect(buffer, index, packet, parent)
-
-  -- Allocation Report Message Parties Groups: Struct of 2 fields
-  index, allocation_report_message_parties_groups = memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Report Message Allocations Group
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.dissect = function(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
-  if show.allocation_report_message_allocations_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_allocations_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.fields(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.fields(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
-  end
-end
-
--- Allocation Report Message Allocations Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups = {}
-
--- Calculate size of: Allocation Report Message Allocations Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_3.repeating_group_dimensions.size
-
-  -- Calculate field size from count
-  local allocation_report_message_allocations_group_count = buffer(offset + index - 1, 1):uint()
-  for i = 1, allocation_report_message_allocations_group_count do
-    index = index + memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.size(buffer, offset + index)
-  end
-  return index
-end
-
--- Display: Allocation Report Message Allocations Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Report Message Allocations Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Repeating Group Dimensions: Struct of 2 fields
-  index, repeating_group_dimensions = memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):uint()
-
-  -- Repeating: Allocation Report Message Allocations Group
-  for allocation_report_message_allocations_group_index = 1, num_in_group do
-    index, allocation_report_message_allocations_group = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.dissect(buffer, index, packet, parent, allocation_report_message_allocations_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Allocation Report Message Allocations Groups
-memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message_allocations_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_allocations_groups, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Date
-memx_options_memo_sbe_v1_3.trade_date = {}
-
--- Size: Trade Date
-memx_options_memo_sbe_v1_3.trade_date.size = 8
-
--- Display: Trade Date
-memx_options_memo_sbe_v1_3.trade_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trade Date: No Value"
-  end
-
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-memx_options_memo_sbe_v1_3.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.trade_date.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity uint 32
-memx_options_memo_sbe_v1_3.quantity_uint_32 = {}
-
--- Size: Quantity uint 32
-memx_options_memo_sbe_v1_3.quantity_uint_32.size = 4
-
--- Display: Quantity uint 32
-memx_options_memo_sbe_v1_3.quantity_uint_32.display = function(value)
-  return "Quantity uint 32: "..value
-end
-
--- Dissect: Quantity uint 32
-memx_options_memo_sbe_v1_3.quantity_uint_32.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.quantity_uint_32.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.quantity_uint_32.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.quantity_uint_32, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-memx_options_memo_sbe_v1_3.side = {}
-
--- Size: Side
-memx_options_memo_sbe_v1_3.side.size = 1
-
--- Display: Side
-memx_options_memo_sbe_v1_3.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-  if value == "B" then
-    return "Side: As Defined (B)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-memx_options_memo_sbe_v1_3.side.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id
-memx_options_memo_sbe_v1_3.security_id = {}
-
--- Size: Security Id
-memx_options_memo_sbe_v1_3.security_id.size = 8
-
--- Display: Security Id
-memx_options_memo_sbe_v1_3.security_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Id: No Value"
-  end
-
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-memx_options_memo_sbe_v1_3.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.security_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Match Id
-memx_options_memo_sbe_v1_3.trd_match_id = {}
-
--- Size: Trd Match Id
-memx_options_memo_sbe_v1_3.trd_match_id.size = 8
-
--- Display: Trd Match Id
-memx_options_memo_sbe_v1_3.trd_match_id.display = function(value)
-  return "Trd Match Id: "..value
-end
-
--- Dissect: Trd Match Id
-memx_options_memo_sbe_v1_3.trd_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.trd_match_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.trd_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.trd_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Ref Id
-memx_options_memo_sbe_v1_3.exec_ref_id = {}
-
--- Size: Exec Ref Id
-memx_options_memo_sbe_v1_3.exec_ref_id.size = 8
-
--- Display: Exec Ref Id
-memx_options_memo_sbe_v1_3.exec_ref_id.display = function(value)
-  return "Exec Ref Id: "..value
-end
-
--- Dissect: Exec Ref Id
-memx_options_memo_sbe_v1_3.exec_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.exec_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.exec_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Status
-memx_options_memo_sbe_v1_3.alloc_status = {}
-
--- Size: Alloc Status
-memx_options_memo_sbe_v1_3.alloc_status.size = 1
-
--- Display: Alloc Status
-memx_options_memo_sbe_v1_3.alloc_status.display = function(value)
-  if value == 0 then
-    return "Alloc Status: Accepted (0)"
-  end
-  if value == 1 then
-    return "Alloc Status: Block Level Reject (1)"
-  end
-  if value == 2 then
-    return "Alloc Status: Account Level Reject (2)"
-  end
-  if value == 255 then
-    return "Alloc Status: Null Value (255)"
-  end
-
-  return "Alloc Status: Unknown("..value..")"
-end
-
--- Dissect: Alloc Status
-memx_options_memo_sbe_v1_3.alloc_status.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.alloc_status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.alloc_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Type
-memx_options_memo_sbe_v1_3.alloc_type = {}
-
--- Size: Alloc Type
-memx_options_memo_sbe_v1_3.alloc_type.size = 1
-
--- Display: Alloc Type
-memx_options_memo_sbe_v1_3.alloc_type.display = function(value)
-  if value == 100 then
-    return "Alloc Type: Post Trade Edit (100)"
-  end
-  if value == 255 then
-    return "Alloc Type: Null Value (255)"
-  end
-
-  return "Alloc Type: Unknown("..value..")"
-end
-
--- Dissect: Alloc Type
-memx_options_memo_sbe_v1_3.alloc_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.alloc_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.alloc_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Trans Type
-memx_options_memo_sbe_v1_3.alloc_trans_type = {}
-
--- Size: Alloc Trans Type
-memx_options_memo_sbe_v1_3.alloc_trans_type.size = 1
-
--- Display: Alloc Trans Type
-memx_options_memo_sbe_v1_3.alloc_trans_type.display = function(value)
-  if value == 0 then
-    return "Alloc Trans Type: New (0)"
-  end
-  if value == 1 then
-    return "Alloc Trans Type: Replace (1)"
-  end
-  if value == 255 then
-    return "Alloc Trans Type: Null Value (255)"
-  end
-
-  return "Alloc Trans Type: Unknown("..value..")"
-end
-
--- Dissect: Alloc Trans Type
-memx_options_memo_sbe_v1_3.alloc_trans_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.alloc_trans_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.alloc_trans_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_trans_type, range, value, display)
-
-  return offset + length, value
-end
 
 -- Alloc Id
 memx_options_memo_sbe_v1_3.alloc_id = {}
@@ -1807,132 +667,27 @@ memx_options_memo_sbe_v1_3.alloc_id.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Alloc Report Id
-memx_options_memo_sbe_v1_3.alloc_report_id = {}
+-- Alloc Qty
+memx_options_memo_sbe_v1_3.alloc_qty = {}
 
--- Size: Alloc Report Id
-memx_options_memo_sbe_v1_3.alloc_report_id.size = 8
+-- Size: Alloc Qty
+memx_options_memo_sbe_v1_3.alloc_qty.size = 4
 
--- Display: Alloc Report Id
-memx_options_memo_sbe_v1_3.alloc_report_id.display = function(value)
-  return "Alloc Report Id: "..value
+-- Display: Alloc Qty
+memx_options_memo_sbe_v1_3.alloc_qty.display = function(value)
+  return "Alloc Qty: "..value
 end
 
--- Dissect: Alloc Report Id
-memx_options_memo_sbe_v1_3.alloc_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.alloc_report_id.size
+-- Dissect: Alloc Qty
+memx_options_memo_sbe_v1_3.alloc_qty.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.alloc_qty.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.alloc_report_id.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.alloc_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_report_id, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_qty, range, value, display)
 
   return offset + length, value
-end
-
--- Allocation Report Message
-memx_options_memo_sbe_v1_3.allocation_report_message = {}
-
--- Calculate size of: Allocation Report Message
-memx_options_memo_sbe_v1_3.allocation_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_3.alloc_report_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.alloc_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.alloc_trans_type.size
-
-  index = index + memx_options_memo_sbe_v1_3.alloc_type.size
-
-  index = index + memx_options_memo_sbe_v1_3.alloc_status.size
-
-  index = index + memx_options_memo_sbe_v1_3.exec_ref_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.trd_match_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.side.size
-
-  index = index + memx_options_memo_sbe_v1_3.quantity_uint_32.size
-
-  index = index + memx_options_memo_sbe_v1_3.trade_date.size
-
-  index = index + memx_options_memo_sbe_v1_3.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Allocation Report Message
-memx_options_memo_sbe_v1_3.allocation_report_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Allocation Report Message
-memx_options_memo_sbe_v1_3.allocation_report_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Alloc Report Id: uint64
-  index, alloc_report_id = memx_options_memo_sbe_v1_3.alloc_report_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Id: AllocationInstructionAckAllocID
-  index, alloc_id = memx_options_memo_sbe_v1_3.alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Trans Type: AllocTransType
-  index, alloc_trans_type = memx_options_memo_sbe_v1_3.alloc_trans_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc Type: AllocType
-  index, alloc_type = memx_options_memo_sbe_v1_3.alloc_type.dissect(buffer, index, packet, parent)
-
-  -- Alloc Status: AllocStatusType
-  index, alloc_status = memx_options_memo_sbe_v1_3.alloc_status.dissect(buffer, index, packet, parent)
-
-  -- Exec Ref Id: uint64
-  index, exec_ref_id = memx_options_memo_sbe_v1_3.exec_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Match Id: uint64
-  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
-
-  -- Quantity uint 32: uint32
-  index, quantity_uint_32 = memx_options_memo_sbe_v1_3.quantity_uint_32.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: AllocationInstructionTradeDate
-  index, trade_date = memx_options_memo_sbe_v1_3.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Allocation Report Message Allocations Groups: Struct of 2 fields
-  index, allocation_report_message_allocations_groups = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Report Message
-memx_options_memo_sbe_v1_3.allocation_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_report_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.allocation_report_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.allocation_report_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.allocation_report_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Alloc Rej Code
@@ -2010,130 +765,378 @@ memx_options_memo_sbe_v1_3.alloc_rej_code.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Allocation Instruction Ack Message
-memx_options_memo_sbe_v1_3.allocation_instruction_ack_message = {}
+-- Alloc Report Id
+memx_options_memo_sbe_v1_3.alloc_report_id = {}
 
--- Size: Allocation Instruction Ack Message
-memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.size =
-  memx_options_memo_sbe_v1_3.alloc_report_id.size + 
-  memx_options_memo_sbe_v1_3.alloc_id.size + 
-  memx_options_memo_sbe_v1_3.alloc_status.size + 
-  memx_options_memo_sbe_v1_3.alloc_rej_code.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
+-- Size: Alloc Report Id
+memx_options_memo_sbe_v1_3.alloc_report_id.size = 8
 
--- Display: Allocation Instruction Ack Message
-memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.display = function(packet, parent, length)
-  return ""
+-- Display: Alloc Report Id
+memx_options_memo_sbe_v1_3.alloc_report_id.display = function(value)
+  return "Alloc Report Id: "..value
 end
 
--- Dissect Fields: Allocation Instruction Ack Message
-memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Alloc Report Id: uint64
-  index, alloc_report_id = memx_options_memo_sbe_v1_3.alloc_report_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Id: AllocationInstructionAckAllocID
-  index, alloc_id = memx_options_memo_sbe_v1_3.alloc_id.dissect(buffer, index, packet, parent)
-
-  -- Alloc Status: AllocStatusType
-  index, alloc_status = memx_options_memo_sbe_v1_3.alloc_status.dissect(buffer, index, packet, parent)
-
-  -- Alloc Rej Code: AllocRejCode
-  index, alloc_rej_code = memx_options_memo_sbe_v1_3.alloc_rej_code.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Allocation Instruction Ack Message
-memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.dissect = function(buffer, offset, packet, parent)
-  if show.allocation_instruction_ack_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_instruction_ack_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Side Optional
-memx_options_memo_sbe_v1_3.side_optional = {}
-
--- Size: Side Optional
-memx_options_memo_sbe_v1_3.side_optional.size = 1
-
--- Display: Side Optional
-memx_options_memo_sbe_v1_3.side_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side Optional: No Value"
-  end
-
-  if value == "1" then
-    return "Side Optional: Buy (1)"
-  end
-  if value == "2" then
-    return "Side Optional: Sell (2)"
-  end
-  if value == "B" then
-    return "Side Optional: As Defined (B)"
-  end
-  if value == 0 then
-    return "Side Optional: No Value"
-  end
-
-  return "Side Optional: Unknown("..value..")"
-end
-
--- Dissect: Side Optional
-memx_options_memo_sbe_v1_3.side_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.side_optional.size
+-- Dissect: Alloc Report Id
+memx_options_memo_sbe_v1_3.alloc_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.alloc_report_id.size
   local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.alloc_report_id.display(value, buffer, offset, packet, parent)
 
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.side_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.side_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_report_id, range, value, display)
 
   return offset + length, value
 end
 
--- Options Security Id Optional
-memx_options_memo_sbe_v1_3.options_security_id_optional = {}
+-- Alloc Status
+memx_options_memo_sbe_v1_3.alloc_status = {}
 
--- Size: Options Security Id Optional
-memx_options_memo_sbe_v1_3.options_security_id_optional.size = 8
+-- Size: Alloc Status
+memx_options_memo_sbe_v1_3.alloc_status.size = 1
 
--- Display: Options Security Id Optional
-memx_options_memo_sbe_v1_3.options_security_id_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Options Security Id Optional: No Value"
+-- Display: Alloc Status
+memx_options_memo_sbe_v1_3.alloc_status.display = function(value)
+  if value == 0 then
+    return "Alloc Status: Accepted (0)"
+  end
+  if value == 1 then
+    return "Alloc Status: Block Level Reject (1)"
+  end
+  if value == 2 then
+    return "Alloc Status: Account Level Reject (2)"
+  end
+  if value == 255 then
+    return "Alloc Status: Null Value (255)"
   end
 
-  return "Options Security Id Optional: "..value
+  return "Alloc Status: Unknown("..value..")"
 end
 
--- Dissect: Options Security Id Optional
-memx_options_memo_sbe_v1_3.options_security_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.options_security_id_optional.size
+-- Dissect: Alloc Status
+memx_options_memo_sbe_v1_3.alloc_status.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.alloc_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.alloc_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Trans Type
+memx_options_memo_sbe_v1_3.alloc_trans_type = {}
+
+-- Size: Alloc Trans Type
+memx_options_memo_sbe_v1_3.alloc_trans_type.size = 1
+
+-- Display: Alloc Trans Type
+memx_options_memo_sbe_v1_3.alloc_trans_type.display = function(value)
+  if value == 0 then
+    return "Alloc Trans Type: New (0)"
+  end
+  if value == 1 then
+    return "Alloc Trans Type: Replace (1)"
+  end
+  if value == 255 then
+    return "Alloc Trans Type: Null Value (255)"
+  end
+
+  return "Alloc Trans Type: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Trans Type
+memx_options_memo_sbe_v1_3.alloc_trans_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.alloc_trans_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.alloc_trans_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_trans_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Type
+memx_options_memo_sbe_v1_3.alloc_type = {}
+
+-- Size: Alloc Type
+memx_options_memo_sbe_v1_3.alloc_type.size = 1
+
+-- Display: Alloc Type
+memx_options_memo_sbe_v1_3.alloc_type.display = function(value)
+  if value == 100 then
+    return "Alloc Type: Post Trade Edit (100)"
+  end
+  if value == 255 then
+    return "Alloc Type: Null Value (255)"
+  end
+
+  return "Alloc Type: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Type
+memx_options_memo_sbe_v1_3.alloc_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.alloc_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.alloc_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.alloc_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Px
+memx_options_memo_sbe_v1_3.bid_px = {}
+
+-- Size: Bid Px
+memx_options_memo_sbe_v1_3.bid_px.size = 2
+
+-- Display: Bid Px
+memx_options_memo_sbe_v1_3.bid_px.display = function(value)
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+memx_options_memo_sbe_v1_3.bid_px.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Px
+memx_options_memo_sbe_v1_3.bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.bid_px.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = memx_options_memo_sbe_v1_3.bid_px.translate(raw)
+  local display = memx_options_memo_sbe_v1_3.bid_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+memx_options_memo_sbe_v1_3.bid_size = {}
+
+-- Size: Bid Size
+memx_options_memo_sbe_v1_3.bid_size.size = 2
+
+-- Display: Bid Size
+memx_options_memo_sbe_v1_3.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+memx_options_memo_sbe_v1_3.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+memx_options_memo_sbe_v1_3.block_length = {}
+
+-- Size: Block Length
+memx_options_memo_sbe_v1_3.block_length.size = 2
+
+-- Display: Block Length
+memx_options_memo_sbe_v1_3.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+memx_options_memo_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.block_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length Short
+memx_options_memo_sbe_v1_3.block_length_short = {}
+
+-- Size: Block Length Short
+memx_options_memo_sbe_v1_3.block_length_short.size = 1
+
+-- Display: Block Length Short
+memx_options_memo_sbe_v1_3.block_length_short.display = function(value)
+  return "Block Length Short: "..value
+end
+
+-- Dissect: Block Length Short
+memx_options_memo_sbe_v1_3.block_length_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.block_length_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.block_length_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.block_length_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Group Id
+memx_options_memo_sbe_v1_3.cancel_group_id = {}
+
+-- Size: Cancel Group Id
+memx_options_memo_sbe_v1_3.cancel_group_id.size = 2
+
+-- Display: Cancel Group Id
+memx_options_memo_sbe_v1_3.cancel_group_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Cancel Group Id: No Value"
+  end
+
+  return "Cancel Group Id: "..value
+end
+
+-- Dissect: Cancel Group Id
+memx_options_memo_sbe_v1_3.cancel_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.cancel_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.cancel_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cancel_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Reason
+memx_options_memo_sbe_v1_3.cancel_reason = {}
+
+-- Size: Cancel Reason
+memx_options_memo_sbe_v1_3.cancel_reason.size = 1
+
+-- Display: Cancel Reason
+memx_options_memo_sbe_v1_3.cancel_reason.display = function(value)
+  if value == 0 then
+    return "Cancel Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Cancel Reason: User Requested Cancel (1)"
+  end
+  if value == 5 then
+    return "Cancel Reason: Execution Price Collar (5)"
+  end
+  if value == 6 then
+    return "Cancel Reason: Halted (6)"
+  end
+  if value == 7 then
+    return "Cancel Reason: Exchange Supervisory (7)"
+  end
+  if value == 8 then
+    return "Cancel Reason: Order Expired (8)"
+  end
+  if value == 10 then
+    return "Cancel Reason: Match Trade Prevention (10)"
+  end
+  if value == 13 then
+    return "Cancel Reason: Participant Disconnect (13)"
+  end
+  if value == 14 then
+    return "Cancel Reason: Order Not Bookable (14)"
+  end
+  if value == 17 then
+    return "Cancel Reason: Firm Disabled (17)"
+  end
+  if value == 18 then
+    return "Cancel Reason: Efid Disabled (18)"
+  end
+  if value == 19 then
+    return "Cancel Reason: Account Disabled (19)"
+  end
+  if value == 22 then
+    return "Cancel Reason: Quote Update Rejected Orig Quote Canceled (22)"
+  end
+  if value == 23 then
+    return "Cancel Reason: Active Risk Breach (23)"
+  end
+  if value == 24 then
+    return "Cancel Reason: Manual Risk Breach (24)"
+  end
+  if value == 25 then
+    return "Cancel Reason: Num Contracts Executed Exceeds Threshold (25)"
+  end
+  if value == 26 then
+    return "Cancel Reason: Notional Value Of Executions Exceeds Threshold (26)"
+  end
+  if value == 27 then
+    return "Cancel Reason: Count Of Executions Exceeds Threshold (27)"
+  end
+  if value == 28 then
+    return "Cancel Reason: Outstanding Percentage Threshold Exceeded (28)"
+  end
+  if value == 29 then
+    return "Cancel Reason: Trips Threshold Exceeded (29)"
+  end
+  if value == 30 then
+    return "Cancel Reason: Gross Notional Value Exceeds Threshold (30)"
+  end
+  if value == 31 then
+    return "Cancel Reason: Net Notional Value Exceeds Threshold (31)"
+  end
+  if value == 32 then
+    return "Cancel Reason: Duplicate Order Threshold Exceeded (32)"
+  end
+  if value == 33 then
+    return "Cancel Reason: Order Rate Threshold Exceeded (33)"
+  end
+  if value == 34 then
+    return "Cancel Reason: Market Order Gross Notional Value Exceeds Threshold (34)"
+  end
+  if value == 35 then
+    return "Cancel Reason: Market Order Net Notional Value Exceeds Threshold (35)"
+  end
+  if value == 255 then
+    return "Cancel Reason: Null Value (255)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reason
+memx_options_memo_sbe_v1_3.cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.cancel_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.cancel_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cancel_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- ClOrdId
+memx_options_memo_sbe_v1_3.clordid = {}
+
+-- Size: ClOrdId
+memx_options_memo_sbe_v1_3.clordid.size = 20
+
+-- Display: ClOrdId
+memx_options_memo_sbe_v1_3.clordid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "ClOrdId: No Value"
+  end
+
+  return "ClOrdId: "..value
+end
+
+-- Dissect: ClOrdId
+memx_options_memo_sbe_v1_3.clordid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.clordid.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2147,9 +1150,103 @@ memx_options_memo_sbe_v1_3.options_security_id_optional.dissect = function(buffe
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_3.options_security_id_optional.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3.clordid.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.options_security_id_optional, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.clordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Trading Capacity
+memx_options_memo_sbe_v1_3.contra_trading_capacity = {}
+
+-- Size: Contra Trading Capacity
+memx_options_memo_sbe_v1_3.contra_trading_capacity.size = 1
+
+-- Display: Contra Trading Capacity
+memx_options_memo_sbe_v1_3.contra_trading_capacity.display = function(value)
+  if value == 1 then
+    return "Contra Trading Capacity: Customer (1)"
+  end
+  if value == 2 then
+    return "Contra Trading Capacity: Professional Customer (2)"
+  end
+  if value == 3 then
+    return "Contra Trading Capacity: Broker Dealer (3)"
+  end
+  if value == 4 then
+    return "Contra Trading Capacity: Broker Dealer Customer (4)"
+  end
+  if value == 5 then
+    return "Contra Trading Capacity: Firm (5)"
+  end
+  if value == 6 then
+    return "Contra Trading Capacity: Market Maker (6)"
+  end
+  if value == 7 then
+    return "Contra Trading Capacity: Away Market Maker (7)"
+  end
+  if value == 255 then
+    return "Contra Trading Capacity: Null Value (255)"
+  end
+
+  return "Contra Trading Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Contra Trading Capacity
+memx_options_memo_sbe_v1_3.contra_trading_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.contra_trading_capacity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.contra_trading_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.contra_trading_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+memx_options_memo_sbe_v1_3.count = {}
+
+-- Size: Count
+memx_options_memo_sbe_v1_3.count.size = 4
+
+-- Display: Count
+memx_options_memo_sbe_v1_3.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+memx_options_memo_sbe_v1_3.count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cum Qty
+memx_options_memo_sbe_v1_3.cum_qty = {}
+
+-- Size: Cum Qty
+memx_options_memo_sbe_v1_3.cum_qty.size = 4
+
+-- Display: Cum Qty
+memx_options_memo_sbe_v1_3.cum_qty.display = function(value)
+  return "Cum Qty: "..value
+end
+
+-- Dissect: Cum Qty
+memx_options_memo_sbe_v1_3.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.cum_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.cum_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cum_qty, range, value, display)
 
   return offset + length, value
 end
@@ -2404,324 +1501,6 @@ memx_options_memo_sbe_v1_3.cxl_rej_response_to.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- List Seq No
-memx_options_memo_sbe_v1_3.list_seq_no = {}
-
--- Size: List Seq No
-memx_options_memo_sbe_v1_3.list_seq_no.size = 1
-
--- Display: List Seq No
-memx_options_memo_sbe_v1_3.list_seq_no.display = function(value)
-  return "List Seq No: "..value
-end
-
--- Dissect: List Seq No
-memx_options_memo_sbe_v1_3.list_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.list_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.list_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.list_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Cancel Reject Message
-memx_options_memo_sbe_v1_3.order_cancel_reject_message = {}
-
--- Size: Order Cancel Reject Message
-memx_options_memo_sbe_v1_3.order_cancel_reject_message.size =
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.list_seq_no.size + 
-  memx_options_memo_sbe_v1_3.cxl_rej_response_to.size + 
-  memx_options_memo_sbe_v1_3.cxl_rej_reason.size + 
-  memx_options_memo_sbe_v1_3.options_security_id_optional.size + 
-  memx_options_memo_sbe_v1_3.side_optional.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Order Cancel Reject Message
-memx_options_memo_sbe_v1_3.order_cancel_reject_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Cancel Reject Message
-memx_options_memo_sbe_v1_3.order_cancel_reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Cxl Rej Response To: CxlRejResponseToType
-  index, cxl_rej_response_to = memx_options_memo_sbe_v1_3.cxl_rej_response_to.dissect(buffer, index, packet, parent)
-
-  -- Cxl Rej Reason: CxlRejReasonCode
-  index, cxl_rej_reason = memx_options_memo_sbe_v1_3.cxl_rej_reason.dissect(buffer, index, packet, parent)
-
-  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
-  index, options_security_id_optional = memx_options_memo_sbe_v1_3.options_security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: SideType
-  index, side_optional = memx_options_memo_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Cancel Reject Message
-memx_options_memo_sbe_v1_3.order_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.order_cancel_reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_cancel_reject_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.order_cancel_reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.order_cancel_reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.order_cancel_reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Total Affected Orders
-memx_options_memo_sbe_v1_3.total_affected_orders = {}
-
--- Size: Total Affected Orders
-memx_options_memo_sbe_v1_3.total_affected_orders.size = 4
-
--- Display: Total Affected Orders
-memx_options_memo_sbe_v1_3.total_affected_orders.display = function(value)
-  return "Total Affected Orders: "..value
-end
-
--- Dissect: Total Affected Orders
-memx_options_memo_sbe_v1_3.total_affected_orders.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.total_affected_orders.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.total_affected_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.total_affected_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_done_message = {}
-
--- Size: Mass Cancel Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_done_message.size =
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.total_affected_orders.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Mass Cancel Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_done_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_done_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Total Affected Orders: uint32
-  index, total_affected_orders = memx_options_memo_sbe_v1_3.total_affected_orders.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Done Message
-memx_options_memo_sbe_v1_3.mass_cancel_done_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_done_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_done_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.mass_cancel_done_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.mass_cancel_done_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.mass_cancel_done_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Mass Cancel Inst
-memx_options_memo_sbe_v1_3.mass_cancel_inst = {}
-
--- Size: Mass Cancel Inst
-memx_options_memo_sbe_v1_3.mass_cancel_inst.size = 1
-
--- Display: Mass Cancel Inst
-memx_options_memo_sbe_v1_3.mass_cancel_inst.display = function(range, value, packet, parent)
-  local flags = {}
-
-  -- Is Lockout flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Lockout"
-  end
-  -- Is Send Cancels flag set?
-  if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Send Cancels"
-  end
-  -- Is Cancel Orders From This Port Only flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Cancel Orders From This Port Only"
-  end
-
-  return table.concat(flags, "|")
-end
-
--- Dissect Bit Fields: Mass Cancel Inst
-memx_options_memo_sbe_v1_3.mass_cancel_inst.bits = function(range, value, packet, parent)
-
-  -- Lockout: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.lockout, range, value)
-
-  -- Send Cancels: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.send_cancels, range, value)
-
-  -- Cancel Orders From This Port Only: 1 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cancel_orders_from_this_port_only, range, value)
-
-  -- Reserved 5: 5 Bit
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.reserved_5, range, value)
-end
-
--- Dissect: Mass Cancel Inst
-memx_options_memo_sbe_v1_3.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
-  local size = memx_options_memo_sbe_v1_3.mass_cancel_inst.size
-  local range = buffer(offset, size)
-  local value = range:le_uint()
-  local display = memx_options_memo_sbe_v1_3.mass_cancel_inst.display(range, value, packet, parent)
-  local element = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_inst, range, display)
-
-  if show.mass_cancel_inst then
-    memx_options_memo_sbe_v1_3.mass_cancel_inst.bits(range, value, packet, element)
-  end
-
-  return offset + size, value
-end
-
--- Cancel Group Id
-memx_options_memo_sbe_v1_3.cancel_group_id = {}
-
--- Size: Cancel Group Id
-memx_options_memo_sbe_v1_3.cancel_group_id.size = 2
-
--- Display: Cancel Group Id
-memx_options_memo_sbe_v1_3.cancel_group_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Cancel Group Id: No Value"
-  end
-
-  return "Cancel Group Id: "..value
-end
-
--- Dissect: Cancel Group Id
-memx_options_memo_sbe_v1_3.cancel_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.cancel_group_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.cancel_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cancel_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlier Optional
-memx_options_memo_sbe_v1_3.underlier_optional = {}
-
--- Size: Underlier Optional
-memx_options_memo_sbe_v1_3.underlier_optional.size = 6
-
--- Display: Underlier Optional
-memx_options_memo_sbe_v1_3.underlier_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Optional: No Value"
-  end
-
-  return "Underlier Optional: "..value
-end
-
--- Dissect: Underlier Optional
-memx_options_memo_sbe_v1_3.underlier_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.underlier_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.underlier_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.underlier_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Or Series
-memx_options_memo_sbe_v1_3.underlying_or_series = {}
-
--- Size: Underlying Or Series
-memx_options_memo_sbe_v1_3.underlying_or_series.size = 1
-
--- Display: Underlying Or Series
-memx_options_memo_sbe_v1_3.underlying_or_series.display = function(value)
-  if value == 0 then
-    return "Underlying Or Series: Cancel All On Underlying (0)"
-  end
-  if value == 1 then
-    return "Underlying Or Series: Cancel All On Series (1)"
-  end
-  if value == 255 then
-    return "Underlying Or Series: Null Value (255)"
-  end
-  if value == 255 then
-    return "Underlying Or Series: No Value"
-  end
-
-  return "Underlying Or Series: Unknown("..value..")"
-end
-
--- Dissect: Underlying Or Series
-memx_options_memo_sbe_v1_3.underlying_or_series.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.underlying_or_series.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.underlying_or_series.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.underlying_or_series, range, value, display)
-
-  return offset + length, value
-end
-
 -- Efid Optional
 memx_options_memo_sbe_v1_3.efid_optional = {}
 
@@ -2757,6 +1536,443 @@ memx_options_memo_sbe_v1_3.efid_optional.dissect = function(buffer, offset, pack
   local display = memx_options_memo_sbe_v1_3.efid_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memo_sbe_v1_3.fields.efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+memx_options_memo_sbe_v1_3.exec_id = {}
+
+-- Size: Exec Id
+memx_options_memo_sbe_v1_3.exec_id.size = 8
+
+-- Display: Exec Id
+memx_options_memo_sbe_v1_3.exec_id.display = function(value)
+  return "Exec Id: "..value
+end
+
+-- Dissect: Exec Id
+memx_options_memo_sbe_v1_3.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.exec_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Ref Id
+memx_options_memo_sbe_v1_3.exec_ref_id = {}
+
+-- Size: Exec Ref Id
+memx_options_memo_sbe_v1_3.exec_ref_id.size = 8
+
+-- Display: Exec Ref Id
+memx_options_memo_sbe_v1_3.exec_ref_id.display = function(value)
+  return "Exec Ref Id: "..value
+end
+
+-- Dissect: Exec Ref Id
+memx_options_memo_sbe_v1_3.exec_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.exec_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.exec_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Ref Id Optional
+memx_options_memo_sbe_v1_3.exec_ref_id_optional = {}
+
+-- Size: Exec Ref Id Optional
+memx_options_memo_sbe_v1_3.exec_ref_id_optional.size = 8
+
+-- Display: Exec Ref Id Optional
+memx_options_memo_sbe_v1_3.exec_ref_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Exec Ref Id Optional: No Value"
+  end
+
+  return "Exec Ref Id Optional: "..value
+end
+
+-- Dissect: Exec Ref Id Optional
+memx_options_memo_sbe_v1_3.exec_ref_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.exec_ref_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.exec_ref_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_ref_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Restatement Reason
+memx_options_memo_sbe_v1_3.exec_restatement_reason = {}
+
+-- Size: Exec Restatement Reason
+memx_options_memo_sbe_v1_3.exec_restatement_reason.size = 1
+
+-- Display: Exec Restatement Reason
+memx_options_memo_sbe_v1_3.exec_restatement_reason.display = function(value)
+  if value == 3 then
+    return "Exec Restatement Reason: Order Reprice (3)"
+  end
+  if value == 5 then
+    return "Exec Restatement Reason: Match Trade Prevention (5)"
+  end
+  if value == 99 then
+    return "Exec Restatement Reason: Other (99)"
+  end
+  if value == 255 then
+    return "Exec Restatement Reason: Null Value (255)"
+  end
+
+  return "Exec Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Exec Restatement Reason
+memx_options_memo_sbe_v1_3.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.exec_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.exec_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Extended Restatement Reason
+memx_options_memo_sbe_v1_3.extended_restatement_reason = {}
+
+-- Size: Extended Restatement Reason
+memx_options_memo_sbe_v1_3.extended_restatement_reason.size = 1
+
+-- Display: Extended Restatement Reason
+memx_options_memo_sbe_v1_3.extended_restatement_reason.display = function(value)
+  if value == 0 then
+    return "Extended Restatement Reason: None (0)"
+  end
+  if value == 3 then
+    return "Extended Restatement Reason: Match Trade Cancel Newest (3)"
+  end
+  if value == 4 then
+    return "Extended Restatement Reason: Match Trade Cancel Oldest (4)"
+  end
+  if value == 6 then
+    return "Extended Restatement Reason: Match Trade Cancel Both (6)"
+  end
+  if value == 255 then
+    return "Extended Restatement Reason: Null Value (255)"
+  end
+  if value == 255 then
+    return "Extended Restatement Reason: No Value"
+  end
+
+  return "Extended Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Extended Restatement Reason
+memx_options_memo_sbe_v1_3.extended_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.extended_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.extended_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.extended_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Liquidity Ind
+memx_options_memo_sbe_v1_3.last_liquidity_ind = {}
+
+-- Size: Last Liquidity Ind
+memx_options_memo_sbe_v1_3.last_liquidity_ind.size = 1
+
+-- Display: Last Liquidity Ind
+memx_options_memo_sbe_v1_3.last_liquidity_ind.display = function(value)
+  if value == 1 then
+    return "Last Liquidity Ind: Added (1)"
+  end
+  if value == 2 then
+    return "Last Liquidity Ind: Removed (2)"
+  end
+  if value == 255 then
+    return "Last Liquidity Ind: Null Value (255)"
+  end
+
+  return "Last Liquidity Ind: Unknown("..value..")"
+end
+
+-- Dissect: Last Liquidity Ind
+memx_options_memo_sbe_v1_3.last_liquidity_ind.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.last_liquidity_ind.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.last_liquidity_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_liquidity_ind, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Mkt
+memx_options_memo_sbe_v1_3.last_mkt = {}
+
+-- Size: Last Mkt
+memx_options_memo_sbe_v1_3.last_mkt.size = 4
+
+-- Display: Last Mkt
+memx_options_memo_sbe_v1_3.last_mkt.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Last Mkt: No Value"
+  end
+
+  return "Last Mkt: "..value
+end
+
+-- Dissect: Last Mkt
+memx_options_memo_sbe_v1_3.last_mkt.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.last_mkt.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.last_mkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_mkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+memx_options_memo_sbe_v1_3.last_px = {}
+
+-- Size: Last Px
+memx_options_memo_sbe_v1_3.last_px.size = 8
+
+-- Display: Last Px
+memx_options_memo_sbe_v1_3.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+memx_options_memo_sbe_v1_3.last_px.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Last Px
+memx_options_memo_sbe_v1_3.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memo_sbe_v1_3.last_px.translate(raw)
+  local display = memx_options_memo_sbe_v1_3.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+memx_options_memo_sbe_v1_3.last_qty = {}
+
+-- Size: Last Qty
+memx_options_memo_sbe_v1_3.last_qty.size = 4
+
+-- Display: Last Qty
+memx_options_memo_sbe_v1_3.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+memx_options_memo_sbe_v1_3.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty Optional
+memx_options_memo_sbe_v1_3.last_qty_optional = {}
+
+-- Size: Last Qty Optional
+memx_options_memo_sbe_v1_3.last_qty_optional.size = 4
+
+-- Display: Last Qty Optional
+memx_options_memo_sbe_v1_3.last_qty_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Qty Optional: No Value"
+  end
+
+  return "Last Qty Optional: "..value
+end
+
+-- Dissect: Last Qty Optional
+memx_options_memo_sbe_v1_3.last_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.last_qty_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.last_qty_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+memx_options_memo_sbe_v1_3.leaves_qty = {}
+
+-- Size: Leaves Qty
+memx_options_memo_sbe_v1_3.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+memx_options_memo_sbe_v1_3.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+memx_options_memo_sbe_v1_3.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- List Seq No
+memx_options_memo_sbe_v1_3.list_seq_no = {}
+
+-- Size: List Seq No
+memx_options_memo_sbe_v1_3.list_seq_no.size = 1
+
+-- Display: List Seq No
+memx_options_memo_sbe_v1_3.list_seq_no.display = function(value)
+  return "List Seq No: "..value
+end
+
+-- Dissect: List Seq No
+memx_options_memo_sbe_v1_3.list_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.list_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.list_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.list_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lockout Id
+memx_options_memo_sbe_v1_3.lockout_id = {}
+
+-- Size: Lockout Id
+memx_options_memo_sbe_v1_3.lockout_id.size = 8
+
+-- Display: Lockout Id
+memx_options_memo_sbe_v1_3.lockout_id.display = function(value)
+  return "Lockout Id: "..value
+end
+
+-- Dissect: Lockout Id
+memx_options_memo_sbe_v1_3.lockout_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.lockout_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.lockout_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.lockout_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lockout Id Optional
+memx_options_memo_sbe_v1_3.lockout_id_optional = {}
+
+-- Size: Lockout Id Optional
+memx_options_memo_sbe_v1_3.lockout_id_optional.size = 8
+
+-- Display: Lockout Id Optional
+memx_options_memo_sbe_v1_3.lockout_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Lockout Id Optional: No Value"
+  end
+
+  return "Lockout Id Optional: "..value
+end
+
+-- Dissect: Lockout Id Optional
+memx_options_memo_sbe_v1_3.lockout_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.lockout_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.lockout_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.lockout_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Reject Code
+memx_options_memo_sbe_v1_3.login_reject_code = {}
+
+-- Size: Login Reject Code
+memx_options_memo_sbe_v1_3.login_reject_code.size = 1
+
+-- Display: Login Reject Code
+memx_options_memo_sbe_v1_3.login_reject_code.display = function(value)
+  if value == "T" then
+    return "Login Reject Code: Malformed Token (T)"
+  end
+  if value == "U" then
+    return "Login Reject Code: Token Type Unsupported (U)"
+  end
+  if value == "V" then
+    return "Login Reject Code: Token Type Invalid (V)"
+  end
+  if value == "A" then
+    return "Login Reject Code: Authorization Failed (A)"
+  end
+
+  return "Login Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Login Reject Code
+memx_options_memo_sbe_v1_3.login_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.login_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_memo_sbe_v1_3.login_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.login_reject_code, range, value, display)
 
   return offset + length, value
 end
@@ -2839,378 +2055,465 @@ memx_options_memo_sbe_v1_3.mass_cancel_reject_reason.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Mass Cancel Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_reject_message = {}
+-- Match Trade Prevention
+memx_options_memo_sbe_v1_3.match_trade_prevention = {}
 
--- Size: Mass Cancel Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_reject_message.size =
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.mass_cancel_reject_reason.size + 
-  memx_options_memo_sbe_v1_3.efid_optional.size + 
-  memx_options_memo_sbe_v1_3.underlying_or_series.size + 
-  memx_options_memo_sbe_v1_3.underlier_optional.size + 
-  memx_options_memo_sbe_v1_3.options_security_id_optional.size + 
-  memx_options_memo_sbe_v1_3.cancel_group_id.size + 
-  memx_options_memo_sbe_v1_3.mass_cancel_inst.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
+-- Size: Match Trade Prevention
+memx_options_memo_sbe_v1_3.match_trade_prevention.size = 1
 
--- Display: Mass Cancel Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_reject_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_reject_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Reject Reason: MassCxlRejReasonCode
-  index, mass_cancel_reject_reason = memx_options_memo_sbe_v1_3.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
-
-  -- Efid Optional: MassCancelRejectEFID
-  index, efid_optional = memx_options_memo_sbe_v1_3.efid_optional.dissect(buffer, index, packet, parent)
-
-  -- Underlying Or Series: UnderlyingOrSeriesType
-  index, underlying_or_series = memx_options_memo_sbe_v1_3.underlying_or_series.dissect(buffer, index, packet, parent)
-
-  -- Underlier Optional: MassCancelRejectUnderlier
-  index, underlier_optional = memx_options_memo_sbe_v1_3.underlier_optional.dissect(buffer, index, packet, parent)
-
-  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
-  index, options_security_id_optional = memx_options_memo_sbe_v1_3.options_security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = memx_options_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Inst: Struct of 4 fields
-  index, mass_cancel_inst = memx_options_memo_sbe_v1_3.mass_cancel_inst.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Reject Message
-memx_options_memo_sbe_v1_3.mass_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
-  if show.mass_cancel_reject_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_reject_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.mass_cancel_reject_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Lockout Id Optional
-memx_options_memo_sbe_v1_3.lockout_id_optional = {}
-
--- Size: Lockout Id Optional
-memx_options_memo_sbe_v1_3.lockout_id_optional.size = 8
-
--- Display: Lockout Id Optional
-memx_options_memo_sbe_v1_3.lockout_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Lockout Id Optional: No Value"
-  end
-
-  return "Lockout Id Optional: "..value
-end
-
--- Dissect: Lockout Id Optional
-memx_options_memo_sbe_v1_3.lockout_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.lockout_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.lockout_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.lockout_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Pending Mass Cancel Message
-memx_options_memo_sbe_v1_3.pending_mass_cancel_message = {}
-
--- Size: Pending Mass Cancel Message
-memx_options_memo_sbe_v1_3.pending_mass_cancel_message.size =
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.mass_cancel_inst.size + 
-  memx_options_memo_sbe_v1_3.lockout_id_optional.size + 
-  memx_options_memo_sbe_v1_3.efid_optional.size + 
-  memx_options_memo_sbe_v1_3.underlying_or_series.size + 
-  memx_options_memo_sbe_v1_3.underlier_optional.size + 
-  memx_options_memo_sbe_v1_3.options_security_id_optional.size + 
-  memx_options_memo_sbe_v1_3.cancel_group_id.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Pending Mass Cancel Message
-memx_options_memo_sbe_v1_3.pending_mass_cancel_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Pending Mass Cancel Message
-memx_options_memo_sbe_v1_3.pending_mass_cancel_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Mass Cancel Inst: Struct of 4 fields
-  index, mass_cancel_inst = memx_options_memo_sbe_v1_3.mass_cancel_inst.dissect(buffer, index, packet, parent)
-
-  -- Lockout Id Optional: uint64
-  index, lockout_id_optional = memx_options_memo_sbe_v1_3.lockout_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Efid Optional: MassCancelRejectEFID
-  index, efid_optional = memx_options_memo_sbe_v1_3.efid_optional.dissect(buffer, index, packet, parent)
-
-  -- Underlying Or Series: UnderlyingOrSeriesType
-  index, underlying_or_series = memx_options_memo_sbe_v1_3.underlying_or_series.dissect(buffer, index, packet, parent)
-
-  -- Underlier Optional: MassCancelRejectUnderlier
-  index, underlier_optional = memx_options_memo_sbe_v1_3.underlier_optional.dissect(buffer, index, packet, parent)
-
-  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
-  index, options_security_id_optional = memx_options_memo_sbe_v1_3.options_security_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = memx_options_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Pending Mass Cancel Message
-memx_options_memo_sbe_v1_3.pending_mass_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.pending_mass_cancel_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.pending_mass_cancel_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.pending_mass_cancel_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.pending_mass_cancel_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.pending_mass_cancel_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Transact Time
-memx_options_memo_sbe_v1_3.transact_time = {}
-
--- Size: Transact Time
-memx_options_memo_sbe_v1_3.transact_time.size = 8
-
--- Display: Transact Time
-memx_options_memo_sbe_v1_3.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
--- Dissect: Transact Time
-memx_options_memo_sbe_v1_3.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Cum Qty
-memx_options_memo_sbe_v1_3.cum_qty = {}
-
--- Size: Cum Qty
-memx_options_memo_sbe_v1_3.cum_qty.size = 4
-
--- Display: Cum Qty
-memx_options_memo_sbe_v1_3.cum_qty.display = function(value)
-  return "Cum Qty: "..value
-end
-
--- Dissect: Cum Qty
-memx_options_memo_sbe_v1_3.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.cum_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.cum_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leaves Qty
-memx_options_memo_sbe_v1_3.leaves_qty = {}
-
--- Size: Leaves Qty
-memx_options_memo_sbe_v1_3.leaves_qty.size = 4
-
--- Display: Leaves Qty
-memx_options_memo_sbe_v1_3.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-memx_options_memo_sbe_v1_3.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty Optional
-memx_options_memo_sbe_v1_3.last_qty_optional = {}
-
--- Size: Last Qty Optional
-memx_options_memo_sbe_v1_3.last_qty_optional.size = 4
-
--- Display: Last Qty Optional
-memx_options_memo_sbe_v1_3.last_qty_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Last Qty Optional: No Value"
-  end
-
-  return "Last Qty Optional: "..value
-end
-
--- Dissect: Last Qty Optional
-memx_options_memo_sbe_v1_3.last_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.last_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.last_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_qty_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-memx_options_memo_sbe_v1_3.last_px = {}
-
--- Size: Last Px
-memx_options_memo_sbe_v1_3.last_px.size = 8
-
--- Display: Last Px
-memx_options_memo_sbe_v1_3.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-memx_options_memo_sbe_v1_3.last_px.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Last Px
-memx_options_memo_sbe_v1_3.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memo_sbe_v1_3.last_px.translate(raw)
-  local display = memx_options_memo_sbe_v1_3.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Extended Restatement Reason
-memx_options_memo_sbe_v1_3.extended_restatement_reason = {}
-
--- Size: Extended Restatement Reason
-memx_options_memo_sbe_v1_3.extended_restatement_reason.size = 1
-
--- Display: Extended Restatement Reason
-memx_options_memo_sbe_v1_3.extended_restatement_reason.display = function(value)
+-- Display: Match Trade Prevention
+memx_options_memo_sbe_v1_3.match_trade_prevention.display = function(value)
   if value == 0 then
-    return "Extended Restatement Reason: None (0)"
+    return "Match Trade Prevention: Cancel Newest (0)"
+  end
+  if value == 1 then
+    return "Match Trade Prevention: Cancel Oldest (1)"
   end
   if value == 3 then
-    return "Extended Restatement Reason: Match Trade Cancel Newest (3)"
-  end
-  if value == 4 then
-    return "Extended Restatement Reason: Match Trade Cancel Oldest (4)"
-  end
-  if value == 6 then
-    return "Extended Restatement Reason: Match Trade Cancel Both (6)"
+    return "Match Trade Prevention: Cancel Both (3)"
   end
   if value == 255 then
-    return "Extended Restatement Reason: Null Value (255)"
+    return "Match Trade Prevention: Null Value (255)"
   end
   if value == 255 then
-    return "Extended Restatement Reason: No Value"
+    return "Match Trade Prevention: No Value"
   end
 
-  return "Extended Restatement Reason: Unknown("..value..")"
+  return "Match Trade Prevention: Unknown("..value..")"
 end
 
--- Dissect: Extended Restatement Reason
-memx_options_memo_sbe_v1_3.extended_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.extended_restatement_reason.size
+-- Dissect: Match Trade Prevention
+memx_options_memo_sbe_v1_3.match_trade_prevention.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.match_trade_prevention.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.extended_restatement_reason.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3.match_trade_prevention.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.extended_restatement_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.match_trade_prevention, range, value, display)
 
   return offset + length, value
 end
 
--- Exec Restatement Reason
-memx_options_memo_sbe_v1_3.exec_restatement_reason = {}
+-- Max Sequence Number
+memx_options_memo_sbe_v1_3.max_sequence_number = {}
 
--- Size: Exec Restatement Reason
-memx_options_memo_sbe_v1_3.exec_restatement_reason.size = 1
+-- Size: Max Sequence Number
+memx_options_memo_sbe_v1_3.max_sequence_number.size = 8
 
--- Display: Exec Restatement Reason
-memx_options_memo_sbe_v1_3.exec_restatement_reason.display = function(value)
+-- Display: Max Sequence Number
+memx_options_memo_sbe_v1_3.max_sequence_number.display = function(value)
+  return "Max Sequence Number: "..value
+end
+
+-- Dissect: Max Sequence Number
+memx_options_memo_sbe_v1_3.max_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.max_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.max_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.max_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+memx_options_memo_sbe_v1_3.message_count = {}
+
+-- Size: Message Count
+memx_options_memo_sbe_v1_3.message_count.size = 8
+
+-- Display: Message Count
+memx_options_memo_sbe_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+memx_options_memo_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+memx_options_memo_sbe_v1_3.message_length = {}
+
+-- Size: Message Length
+memx_options_memo_sbe_v1_3.message_length.size = 2
+
+-- Display: Message Length
+memx_options_memo_sbe_v1_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+memx_options_memo_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+memx_options_memo_sbe_v1_3.message_type = {}
+
+-- Size: Message Type
+memx_options_memo_sbe_v1_3.message_type.size = 1
+
+-- Display: Message Type
+memx_options_memo_sbe_v1_3.message_type.display = function(value)
+  if value == 100 then
+    return "Message Type: Login Request (100)"
+  end
+  if value == 101 then
+    return "Message Type: Replay Request (101)"
+  end
+  if value == 102 then
+    return "Message Type: Replay All Request (102)"
+  end
+  if value == 103 then
+    return "Message Type: Stream Request (103)"
+  end
+  if value == 104 then
+    return "Message Type: Unsequenced Message (104)"
+  end
+  if value == 1 then
+    return "Message Type: Login Accepted (1)"
+  end
+  if value == 2 then
+    return "Message Type: Login Rejected (2)"
+  end
   if value == 3 then
-    return "Exec Restatement Reason: Order Reprice (3)"
+    return "Message Type: Start Of Session (3)"
+  end
+  if value == 3 then
+    return "Message Type: End Of Session (3)"
   end
   if value == 5 then
-    return "Exec Restatement Reason: Match Trade Prevention (5)"
+    return "Message Type: Replay Begin (5)"
   end
-  if value == 99 then
-    return "Exec Restatement Reason: Other (99)"
+  if value == 6 then
+    return "Message Type: Replay Rejected (6)"
   end
-  if value == 255 then
-    return "Exec Restatement Reason: Null Value (255)"
+  if value == 7 then
+    return "Message Type: Replay Complete (7)"
+  end
+  if value == 8 then
+    return "Message Type: Stream Begin (8)"
+  end
+  if value == 9 then
+    return "Message Type: Stream Rejected (9)"
+  end
+  if value == 10 then
+    return "Message Type: Stream Complete (10)"
+  end
+  if value == 11 then
+    return "Message Type: Sequenced Message (11)"
   end
 
-  return "Exec Restatement Reason: Unknown("..value..")"
+  return "Message Type: Unknown("..value..")"
 end
 
--- Dissect: Exec Restatement Reason
-memx_options_memo_sbe_v1_3.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.exec_restatement_reason.size
+-- Dissect: Message Type
+memx_options_memo_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.message_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.exec_restatement_reason.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_restatement_reason, range, value, display)
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mtp Group Id
+memx_options_memo_sbe_v1_3.mtp_group_id = {}
+
+-- Size: Mtp Group Id
+memx_options_memo_sbe_v1_3.mtp_group_id.size = 2
+
+-- Display: Mtp Group Id
+memx_options_memo_sbe_v1_3.mtp_group_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Mtp Group Id: No Value"
+  end
+
+  return "Mtp Group Id: "..value
+end
+
+-- Dissect: Mtp Group Id
+memx_options_memo_sbe_v1_3.mtp_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.mtp_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.mtp_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.mtp_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Sequence Number
+memx_options_memo_sbe_v1_3.next_sequence_number = {}
+
+-- Size: Next Sequence Number
+memx_options_memo_sbe_v1_3.next_sequence_number.size = 8
+
+-- Display: Next Sequence Number
+memx_options_memo_sbe_v1_3.next_sequence_number.display = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+memx_options_memo_sbe_v1_3.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.next_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.next_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+memx_options_memo_sbe_v1_3.num_in_group = {}
+
+-- Size: Num In Group
+memx_options_memo_sbe_v1_3.num_in_group.size = 1
+
+-- Display: Num In Group
+memx_options_memo_sbe_v1_3.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+memx_options_memo_sbe_v1_3.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Orders
+memx_options_memo_sbe_v1_3.number_of_orders = {}
+
+-- Size: Number Of Orders
+memx_options_memo_sbe_v1_3.number_of_orders.size = 1
+
+-- Display: Number Of Orders
+memx_options_memo_sbe_v1_3.number_of_orders.display = function(value)
+  return "Number Of Orders: "..value
+end
+
+-- Dissect: Number Of Orders
+memx_options_memo_sbe_v1_3.number_of_orders.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.number_of_orders.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.number_of_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.number_of_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Px
+memx_options_memo_sbe_v1_3.offer_px = {}
+
+-- Size: Offer Px
+memx_options_memo_sbe_v1_3.offer_px.size = 2
+
+-- Display: Offer Px
+memx_options_memo_sbe_v1_3.offer_px.display = function(value)
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+memx_options_memo_sbe_v1_3.offer_px.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Offer Px
+memx_options_memo_sbe_v1_3.offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = memx_options_memo_sbe_v1_3.offer_px.translate(raw)
+  local display = memx_options_memo_sbe_v1_3.offer_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size
+memx_options_memo_sbe_v1_3.offer_size = {}
+
+-- Size: Offer Size
+memx_options_memo_sbe_v1_3.offer_size.size = 2
+
+-- Display: Offer Size
+memx_options_memo_sbe_v1_3.offer_size.display = function(value)
+  return "Offer Size: "..value
+end
+
+-- Dissect: Offer Size
+memx_options_memo_sbe_v1_3.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Or Close
+memx_options_memo_sbe_v1_3.open_or_close = {}
+
+-- Size: Open Or Close
+memx_options_memo_sbe_v1_3.open_or_close.size = 1
+
+-- Display: Open Or Close
+memx_options_memo_sbe_v1_3.open_or_close.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Open Or Close: No Value"
+  end
+
+  if value == "O" then
+    return "Open Or Close: Open (O)"
+  end
+  if value == "C" then
+    return "Open Or Close: Close (C)"
+  end
+  if value == "0" then
+    return "Open Or Close: Null Value (0)"
+  end
+
+  return "Open Or Close: Unknown("..value..")"
+end
+
+-- Dissect: Open Or Close
+memx_options_memo_sbe_v1_3.open_or_close.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.open_or_close.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.open_or_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.open_or_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Or Close Optional
+memx_options_memo_sbe_v1_3.open_or_close_optional = {}
+
+-- Size: Open Or Close Optional
+memx_options_memo_sbe_v1_3.open_or_close_optional.size = 1
+
+-- Display: Open Or Close Optional
+memx_options_memo_sbe_v1_3.open_or_close_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Open Or Close Optional: No Value"
+  end
+
+  if value == "O" then
+    return "Open Or Close Optional: Open (O)"
+  end
+  if value == "C" then
+    return "Open Or Close Optional: Close (C)"
+  end
+  if value == "0" then
+    return "Open Or Close Optional: Null Value (0)"
+  end
+  if value == 0 then
+    return "Open Or Close Optional: No Value"
+  end
+
+  return "Open Or Close Optional: Unknown("..value..")"
+end
+
+-- Dissect: Open Or Close Optional
+memx_options_memo_sbe_v1_3.open_or_close_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.open_or_close_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.open_or_close_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.open_or_close_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Security Id Optional
+memx_options_memo_sbe_v1_3.options_security_id_optional = {}
+
+-- Size: Options Security Id Optional
+memx_options_memo_sbe_v1_3.options_security_id_optional.size = 8
+
+-- Display: Options Security Id Optional
+memx_options_memo_sbe_v1_3.options_security_id_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Options Security Id Optional: No Value"
+  end
+
+  return "Options Security Id Optional: "..value
+end
+
+-- Dissect: Options Security Id Optional
+memx_options_memo_sbe_v1_3.options_security_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.options_security_id_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.options_security_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.options_security_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3276,366 +2579,6 @@ memx_options_memo_sbe_v1_3.ord_status.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Exec Id
-memx_options_memo_sbe_v1_3.exec_id = {}
-
--- Size: Exec Id
-memx_options_memo_sbe_v1_3.exec_id.size = 8
-
--- Display: Exec Id
-memx_options_memo_sbe_v1_3.exec_id.display = function(value)
-  return "Exec Id: "..value
-end
-
--- Dissect: Exec Id
-memx_options_memo_sbe_v1_3.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-memx_options_memo_sbe_v1_3.order_id = {}
-
--- Size: Order Id
-memx_options_memo_sbe_v1_3.order_id.size = 8
-
--- Display: Order Id
-memx_options_memo_sbe_v1_3.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-memx_options_memo_sbe_v1_3.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Report Restatement Message
-memx_options_memo_sbe_v1_3.execution_report_restatement_message = {}
-
--- Size: Execution Report Restatement Message
-memx_options_memo_sbe_v1_3.execution_report_restatement_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.list_seq_no.size + 
-  memx_options_memo_sbe_v1_3.exec_id.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.security_id.size + 
-  memx_options_memo_sbe_v1_3.exec_restatement_reason.size + 
-  memx_options_memo_sbe_v1_3.extended_restatement_reason.size + 
-  memx_options_memo_sbe_v1_3.side.size + 
-  memx_options_memo_sbe_v1_3.last_px.size + 
-  memx_options_memo_sbe_v1_3.last_qty_optional.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size + 
-  memx_options_memo_sbe_v1_3.transact_time.size
-
--- Display: Execution Report Restatement Message
-memx_options_memo_sbe_v1_3.execution_report_restatement_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Restatement Message
-memx_options_memo_sbe_v1_3.execution_report_restatement_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Restatement Reason: ExecRestatementType
-  index, exec_restatement_reason = memx_options_memo_sbe_v1_3.exec_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Extended Restatement Reason: ExtendedRestatementReasonType
-  index, extended_restatement_reason = memx_options_memo_sbe_v1_3.extended_restatement_reason.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
-
-  -- Last Px: PriceType
-  index, last_px = memx_options_memo_sbe_v1_3.last_px.dissect(buffer, index, packet, parent)
-
-  -- Last Qty Optional: uint32
-  index, last_qty_optional = memx_options_memo_sbe_v1_3.last_qty_optional.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Restatement Message
-memx_options_memo_sbe_v1_3.execution_report_restatement_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_restatement_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_restatement_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_restatement_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_restatement_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_restatement_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Execution Report Trade Break Message
-memx_options_memo_sbe_v1_3.execution_report_trade_break_message = {}
-
--- Size: Execution Report Trade Break Message
-memx_options_memo_sbe_v1_3.execution_report_trade_break_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.trd_match_id.size + 
-  memx_options_memo_sbe_v1_3.exec_id.size + 
-  memx_options_memo_sbe_v1_3.exec_ref_id.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Execution Report Trade Break Message
-memx_options_memo_sbe_v1_3.execution_report_trade_break_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Break Message
-memx_options_memo_sbe_v1_3.execution_report_trade_break_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Trd Match Id: uint64
-  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Ref Id: uint64
-  index, exec_ref_id = memx_options_memo_sbe_v1_3.exec_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Trade Break Message
-memx_options_memo_sbe_v1_3.execution_report_trade_break_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_break_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_trade_break_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_trade_break_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Qty
-memx_options_memo_sbe_v1_3.last_qty = {}
-
--- Size: Last Qty
-memx_options_memo_sbe_v1_3.last_qty.size = 4
-
--- Display: Last Qty
-memx_options_memo_sbe_v1_3.last_qty.display = function(value)
-  return "Last Qty: "..value
-end
-
--- Dissect: Last Qty
-memx_options_memo_sbe_v1_3.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.last_qty.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Report Trade Correction Message
-memx_options_memo_sbe_v1_3.execution_report_trade_correction_message = {}
-
--- Size: Execution Report Trade Correction Message
-memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.trd_match_id.size + 
-  memx_options_memo_sbe_v1_3.exec_id.size + 
-  memx_options_memo_sbe_v1_3.exec_ref_id.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.security_id.size + 
-  memx_options_memo_sbe_v1_3.last_qty.size + 
-  memx_options_memo_sbe_v1_3.last_px.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Execution Report Trade Correction Message
-memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Correction Message
-memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Trd Match Id: uint64
-  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Ref Id: uint64
-  index, exec_ref_id = memx_options_memo_sbe_v1_3.exec_ref_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Last Qty: uint32
-  index, last_qty = memx_options_memo_sbe_v1_3.last_qty.dissect(buffer, index, packet, parent)
-
-  -- Last Px: PriceType
-  index, last_px = memx_options_memo_sbe_v1_3.last_px.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Trade Correction Message
-memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_correction_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_trade_correction_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Price Optional
-memx_options_memo_sbe_v1_3.price_optional = {}
-
--- Size: Price Optional
-memx_options_memo_sbe_v1_3.price_optional.size = 8
-
--- Display: Price Optional
-memx_options_memo_sbe_v1_3.price_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Price Optional: No Value"
-  end
-
-  return "Price Optional: "..value
-end
-
--- Translate: Price Optional
-memx_options_memo_sbe_v1_3.price_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price Optional
-memx_options_memo_sbe_v1_3.price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.price_optional.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memo_sbe_v1_3.price_optional.translate(raw)
-  local display = memx_options_memo_sbe_v1_3.price_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.price_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ord Type
 memx_options_memo_sbe_v1_3.ord_type = {}
 
@@ -3679,6 +2622,57 @@ memx_options_memo_sbe_v1_3.ord_type.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
+-- Order Id
+memx_options_memo_sbe_v1_3.order_id = {}
+
+-- Size: Order Id
+memx_options_memo_sbe_v1_3.order_id.size = 8
+
+-- Display: Order Id
+memx_options_memo_sbe_v1_3.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+memx_options_memo_sbe_v1_3.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id Optional
+memx_options_memo_sbe_v1_3.order_id_optional = {}
+
+-- Size: Order Id Optional
+memx_options_memo_sbe_v1_3.order_id_optional.size = 8
+
+-- Display: Order Id Optional
+memx_options_memo_sbe_v1_3.order_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id Optional: No Value"
+  end
+
+  return "Order Id Optional: "..value
+end
+
+-- Dissect: Order Id Optional
+memx_options_memo_sbe_v1_3.order_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.order_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.order_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Qty
 memx_options_memo_sbe_v1_3.order_qty = {}
 
@@ -3700,1005 +2694,6 @@ memx_options_memo_sbe_v1_3.order_qty.dissect = function(buffer, offset, packet, 
   parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_qty, range, value, display)
 
   return offset + length, value
-end
-
--- OrigClOrdId
-memx_options_memo_sbe_v1_3.origclordid = {}
-
--- Size: OrigClOrdId
-memx_options_memo_sbe_v1_3.origclordid.size = 20
-
--- Display: OrigClOrdId
-memx_options_memo_sbe_v1_3.origclordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "OrigClOrdId: No Value"
-  end
-
-  return "OrigClOrdId: "..value
-end
-
--- Dissect: OrigClOrdId
-memx_options_memo_sbe_v1_3.origclordid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.origclordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.origclordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.origclordid, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Report Replaced Message
-memx_options_memo_sbe_v1_3.execution_report_replaced_message = {}
-
--- Size: Execution Report Replaced Message
-memx_options_memo_sbe_v1_3.execution_report_replaced_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.list_seq_no.size + 
-  memx_options_memo_sbe_v1_3.origclordid.size + 
-  memx_options_memo_sbe_v1_3.exec_id.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.security_id.size + 
-  memx_options_memo_sbe_v1_3.side.size + 
-  memx_options_memo_sbe_v1_3.order_qty.size + 
-  memx_options_memo_sbe_v1_3.ord_type.size + 
-  memx_options_memo_sbe_v1_3.price_optional.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size + 
-  memx_options_memo_sbe_v1_3.transact_time.size
-
--- Display: Execution Report Replaced Message
-memx_options_memo_sbe_v1_3.execution_report_replaced_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Replaced Message
-memx_options_memo_sbe_v1_3.execution_report_replaced_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
-  index, origclordid = memx_options_memo_sbe_v1_3.origclordid.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: uint32
-  index, order_qty = memx_options_memo_sbe_v1_3.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Type: OrdType
-  index, ord_type = memx_options_memo_sbe_v1_3.ord_type.dissect(buffer, index, packet, parent)
-
-  -- Price Optional: PriceType
-  index, price_optional = memx_options_memo_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Replaced Message
-memx_options_memo_sbe_v1_3.execution_report_replaced_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_replaced_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_replaced_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_replaced_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_replaced_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_replaced_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Execution Report Pending Replace Message
-memx_options_memo_sbe_v1_3.execution_report_pending_replace_message = {}
-
--- Size: Execution Report Pending Replace Message
-memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.list_seq_no.size + 
-  memx_options_memo_sbe_v1_3.origclordid.size + 
-  memx_options_memo_sbe_v1_3.exec_id.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.security_id.size + 
-  memx_options_memo_sbe_v1_3.side.size + 
-  memx_options_memo_sbe_v1_3.order_qty.size + 
-  memx_options_memo_sbe_v1_3.ord_type.size + 
-  memx_options_memo_sbe_v1_3.price_optional.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Execution Report Pending Replace Message
-memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Pending Replace Message
-memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
-  index, origclordid = memx_options_memo_sbe_v1_3.origclordid.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
-
-  -- Order Qty: uint32
-  index, order_qty = memx_options_memo_sbe_v1_3.order_qty.dissect(buffer, index, packet, parent)
-
-  -- Ord Type: OrdType
-  index, ord_type = memx_options_memo_sbe_v1_3.ord_type.dissect(buffer, index, packet, parent)
-
-  -- Price Optional: PriceType
-  index, price_optional = memx_options_memo_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Pending Replace Message
-memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_replace_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_pending_replace_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Cancel Reason
-memx_options_memo_sbe_v1_3.cancel_reason = {}
-
--- Size: Cancel Reason
-memx_options_memo_sbe_v1_3.cancel_reason.size = 1
-
--- Display: Cancel Reason
-memx_options_memo_sbe_v1_3.cancel_reason.display = function(value)
-  if value == 0 then
-    return "Cancel Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Cancel Reason: User Requested Cancel (1)"
-  end
-  if value == 5 then
-    return "Cancel Reason: Execution Price Collar (5)"
-  end
-  if value == 6 then
-    return "Cancel Reason: Halted (6)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Exchange Supervisory (7)"
-  end
-  if value == 8 then
-    return "Cancel Reason: Order Expired (8)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Match Trade Prevention (10)"
-  end
-  if value == 13 then
-    return "Cancel Reason: Participant Disconnect (13)"
-  end
-  if value == 14 then
-    return "Cancel Reason: Order Not Bookable (14)"
-  end
-  if value == 17 then
-    return "Cancel Reason: Firm Disabled (17)"
-  end
-  if value == 18 then
-    return "Cancel Reason: Efid Disabled (18)"
-  end
-  if value == 19 then
-    return "Cancel Reason: Account Disabled (19)"
-  end
-  if value == 22 then
-    return "Cancel Reason: Quote Update Rejected Orig Quote Canceled (22)"
-  end
-  if value == 23 then
-    return "Cancel Reason: Active Risk Breach (23)"
-  end
-  if value == 24 then
-    return "Cancel Reason: Manual Risk Breach (24)"
-  end
-  if value == 25 then
-    return "Cancel Reason: Num Contracts Executed Exceeds Threshold (25)"
-  end
-  if value == 26 then
-    return "Cancel Reason: Notional Value Of Executions Exceeds Threshold (26)"
-  end
-  if value == 27 then
-    return "Cancel Reason: Count Of Executions Exceeds Threshold (27)"
-  end
-  if value == 28 then
-    return "Cancel Reason: Outstanding Percentage Threshold Exceeded (28)"
-  end
-  if value == 29 then
-    return "Cancel Reason: Trips Threshold Exceeded (29)"
-  end
-  if value == 30 then
-    return "Cancel Reason: Gross Notional Value Exceeds Threshold (30)"
-  end
-  if value == 31 then
-    return "Cancel Reason: Net Notional Value Exceeds Threshold (31)"
-  end
-  if value == 32 then
-    return "Cancel Reason: Duplicate Order Threshold Exceeded (32)"
-  end
-  if value == 33 then
-    return "Cancel Reason: Order Rate Threshold Exceeded (33)"
-  end
-  if value == 34 then
-    return "Cancel Reason: Market Order Gross Notional Value Exceeds Threshold (34)"
-  end
-  if value == 35 then
-    return "Cancel Reason: Market Order Net Notional Value Exceeds Threshold (35)"
-  end
-  if value == 255 then
-    return "Cancel Reason: Null Value (255)"
-  end
-
-  return "Cancel Reason: Unknown("..value..")"
-end
-
--- Dissect: Cancel Reason
-memx_options_memo_sbe_v1_3.cancel_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.cancel_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.cancel_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cancel_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- OrigClOrdId Optional
-memx_options_memo_sbe_v1_3.origclordid_optional = {}
-
--- Size: OrigClOrdId Optional
-memx_options_memo_sbe_v1_3.origclordid_optional.size = 20
-
--- Display: OrigClOrdId Optional
-memx_options_memo_sbe_v1_3.origclordid_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "OrigClOrdId Optional: No Value"
-  end
-
-  return "OrigClOrdId Optional: "..value
-end
-
--- Dissect: OrigClOrdId Optional
-memx_options_memo_sbe_v1_3.origclordid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.origclordid_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.origclordid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.origclordid_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Report Canceled Message
-memx_options_memo_sbe_v1_3.execution_report_canceled_message = {}
-
--- Size: Execution Report Canceled Message
-memx_options_memo_sbe_v1_3.execution_report_canceled_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.list_seq_no.size + 
-  memx_options_memo_sbe_v1_3.origclordid_optional.size + 
-  memx_options_memo_sbe_v1_3.exec_id.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.cancel_reason.size + 
-  memx_options_memo_sbe_v1_3.security_id.size + 
-  memx_options_memo_sbe_v1_3.side_optional.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size + 
-  memx_options_memo_sbe_v1_3.transact_time.size
-
--- Display: Execution Report Canceled Message
-memx_options_memo_sbe_v1_3.execution_report_canceled_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Canceled Message
-memx_options_memo_sbe_v1_3.execution_report_canceled_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
-  index, origclordid_optional = memx_options_memo_sbe_v1_3.origclordid_optional.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Cancel Reason: CancelReasonCode
-  index, cancel_reason = memx_options_memo_sbe_v1_3.cancel_reason.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: SideType
-  index, side_optional = memx_options_memo_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Canceled Message
-memx_options_memo_sbe_v1_3.execution_report_canceled_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_canceled_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_canceled_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_canceled_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_canceled_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_canceled_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Execution Report Pending Cancel Message
-memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message = {}
-
--- Size: Execution Report Pending Cancel Message
-memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.size =
-  memx_options_memo_sbe_v1_3.order_id.size + 
-  memx_options_memo_sbe_v1_3.clordid.size + 
-  memx_options_memo_sbe_v1_3.list_seq_no.size + 
-  memx_options_memo_sbe_v1_3.origclordid.size + 
-  memx_options_memo_sbe_v1_3.ord_status.size + 
-  memx_options_memo_sbe_v1_3.security_id.size + 
-  memx_options_memo_sbe_v1_3.side_optional.size + 
-  memx_options_memo_sbe_v1_3.leaves_qty.size + 
-  memx_options_memo_sbe_v1_3.cum_qty.size + 
-  memx_options_memo_sbe_v1_3.sending_time.size
-
--- Display: Execution Report Pending Cancel Message
-memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Pending Cancel Message
-memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
-  index, origclordid = memx_options_memo_sbe_v1_3.origclordid.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: SideType
-  index, side_optional = memx_options_memo_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Pending Cancel Message
-memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_pending_cancel_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_pending_cancel_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Party Role Party Role Type
-memx_options_memo_sbe_v1_3.party_role_party_role_type = {}
-
--- Size: Party Role Party Role Type
-memx_options_memo_sbe_v1_3.party_role_party_role_type.size = 1
-
--- Display: Party Role Party Role Type
-memx_options_memo_sbe_v1_3.party_role_party_role_type.display = function(value)
-  if value == 1 then
-    return "Party Role Party Role Type: Executing Firm Id (1)"
-  end
-  if value == 3 then
-    return "Party Role Party Role Type: Actionable Identifier (3)"
-  end
-  if value == 14 then
-    return "Party Role Party Role Type: Give Up Clearing Firm (14)"
-  end
-  if value == 17 then
-    return "Party Role Party Role Type: Contra Efid (17)"
-  end
-  if value == 18 then
-    return "Party Role Party Role Type: Contra Give Up (18)"
-  end
-  if value == 24 then
-    return "Party Role Party Role Type: Optional Occ Data (24)"
-  end
-  if value == 37 then
-    return "Party Role Party Role Type: Contra Mm Sub Account (37)"
-  end
-  if value == 40 then
-    return "Party Role Party Role Type: Cmta (40)"
-  end
-  if value == 41 then
-    return "Party Role Party Role Type: Contra Cmta (41)"
-  end
-  if value == 66 then
-    return "Party Role Party Role Type: Market Maker Sub Account (66)"
-  end
-
-  return "Party Role Party Role Type: Unknown("..value..")"
-end
-
--- Dissect: Party Role Party Role Type
-memx_options_memo_sbe_v1_3.party_role_party_role_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.party_role_party_role_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.party_role_party_role_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_role_party_role_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id
-memx_options_memo_sbe_v1_3.party_id = {}
-
--- Size: Party Id
-memx_options_memo_sbe_v1_3.party_id.size = 16
-
--- Display: Party Id
-memx_options_memo_sbe_v1_3.party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Id: No Value"
-  end
-
-  return "Party Id: "..value
-end
-
--- Dissect: Party Id
-memx_options_memo_sbe_v1_3.party_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Parties Group
-memx_options_memo_sbe_v1_3.parties_group = {}
-
--- Size: Parties Group
-memx_options_memo_sbe_v1_3.parties_group.size =
-  memx_options_memo_sbe_v1_3.party_id.size + 
-  memx_options_memo_sbe_v1_3.party_id_source.size + 
-  memx_options_memo_sbe_v1_3.party_role_party_role_type.size
-
--- Display: Parties Group
-memx_options_memo_sbe_v1_3.parties_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Parties Group
-memx_options_memo_sbe_v1_3.parties_group.fields = function(buffer, offset, packet, parent, parties_group_index)
-  local index = offset
-
-  -- Implicit Parties Group Index
-  if parties_group_index ~= nil then
-    local iteration = parent:add(omi_memx_options_memo_sbe_v1_3.fields.parties_group_index, parties_group_index)
-    iteration:set_generated()
-  end
-
-  -- Party Id: NewOrderSinglePartyID
-  index, party_id = memx_options_memo_sbe_v1_3.party_id.dissect(buffer, index, packet, parent)
-
-  -- Party Id Source: char
-  index, party_id_source = memx_options_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
-
-  -- Party Role Party Role Type: PartyRoleType
-  index, party_role_party_role_type = memx_options_memo_sbe_v1_3.party_role_party_role_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Parties Group
-memx_options_memo_sbe_v1_3.parties_group.dissect = function(buffer, offset, packet, parent, parties_group_index)
-  if show.parties_group then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.parties_group, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.parties_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
-  end
-end
-
--- Parties Groups
-memx_options_memo_sbe_v1_3.parties_groups = {}
-
--- Calculate size of: Parties Groups
-memx_options_memo_sbe_v1_3.parties_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_3.repeating_group_dimensions.size
-
-  -- Calculate field size from count
-  local parties_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + parties_group_count * 18
-
-  return index
-end
-
--- Display: Parties Groups
-memx_options_memo_sbe_v1_3.parties_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Parties Groups
-memx_options_memo_sbe_v1_3.parties_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Repeating Group Dimensions: Struct of 2 fields
-  index, repeating_group_dimensions = memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):uint()
-
-  -- Repeating: Parties Group
-  for parties_group_index = 1, num_in_group do
-    index, parties_group = memx_options_memo_sbe_v1_3.parties_group.dissect(buffer, index, packet, parent, parties_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Parties Groups
-memx_options_memo_sbe_v1_3.parties_groups.dissect = function(buffer, offset, packet, parent)
-  if show.parties_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.parties_groups, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.parties_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.parties_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.parties_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Contra Trading Capacity
-memx_options_memo_sbe_v1_3.contra_trading_capacity = {}
-
--- Size: Contra Trading Capacity
-memx_options_memo_sbe_v1_3.contra_trading_capacity.size = 1
-
--- Display: Contra Trading Capacity
-memx_options_memo_sbe_v1_3.contra_trading_capacity.display = function(value)
-  if value == 1 then
-    return "Contra Trading Capacity: Customer (1)"
-  end
-  if value == 2 then
-    return "Contra Trading Capacity: Professional Customer (2)"
-  end
-  if value == 3 then
-    return "Contra Trading Capacity: Broker Dealer (3)"
-  end
-  if value == 4 then
-    return "Contra Trading Capacity: Broker Dealer Customer (4)"
-  end
-  if value == 5 then
-    return "Contra Trading Capacity: Firm (5)"
-  end
-  if value == 6 then
-    return "Contra Trading Capacity: Market Maker (6)"
-  end
-  if value == 7 then
-    return "Contra Trading Capacity: Away Market Maker (7)"
-  end
-  if value == 255 then
-    return "Contra Trading Capacity: Null Value (255)"
-  end
-
-  return "Contra Trading Capacity: Unknown("..value..")"
-end
-
--- Dissect: Contra Trading Capacity
-memx_options_memo_sbe_v1_3.contra_trading_capacity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.contra_trading_capacity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.contra_trading_capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.contra_trading_capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Mkt
-memx_options_memo_sbe_v1_3.last_mkt = {}
-
--- Size: Last Mkt
-memx_options_memo_sbe_v1_3.last_mkt.size = 4
-
--- Display: Last Mkt
-memx_options_memo_sbe_v1_3.last_mkt.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Last Mkt: No Value"
-  end
-
-  return "Last Mkt: "..value
-end
-
--- Dissect: Last Mkt
-memx_options_memo_sbe_v1_3.last_mkt.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.last_mkt.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.last_mkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_mkt, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Liquidity Ind
-memx_options_memo_sbe_v1_3.last_liquidity_ind = {}
-
--- Size: Last Liquidity Ind
-memx_options_memo_sbe_v1_3.last_liquidity_ind.size = 1
-
--- Display: Last Liquidity Ind
-memx_options_memo_sbe_v1_3.last_liquidity_ind.display = function(value)
-  if value == 1 then
-    return "Last Liquidity Ind: Added (1)"
-  end
-  if value == 2 then
-    return "Last Liquidity Ind: Removed (2)"
-  end
-  if value == 255 then
-    return "Last Liquidity Ind: Null Value (255)"
-  end
-
-  return "Last Liquidity Ind: Unknown("..value..")"
-end
-
--- Dissect: Last Liquidity Ind
-memx_options_memo_sbe_v1_3.last_liquidity_ind.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.last_liquidity_ind.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.last_liquidity_ind.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.last_liquidity_ind, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Report Trade Message
-memx_options_memo_sbe_v1_3.execution_report_trade_message = {}
-
--- Calculate size of: Execution Report Trade Message
-memx_options_memo_sbe_v1_3.execution_report_trade_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_options_memo_sbe_v1_3.order_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.clordid.size
-
-  index = index + memx_options_memo_sbe_v1_3.list_seq_no.size
-
-  index = index + memx_options_memo_sbe_v1_3.trd_match_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.exec_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.ord_status.size
-
-  index = index + memx_options_memo_sbe_v1_3.security_id.size
-
-  index = index + memx_options_memo_sbe_v1_3.side.size
-
-  index = index + memx_options_memo_sbe_v1_3.last_qty.size
-
-  index = index + memx_options_memo_sbe_v1_3.last_px.size
-
-  index = index + memx_options_memo_sbe_v1_3.leaves_qty.size
-
-  index = index + memx_options_memo_sbe_v1_3.cum_qty.size
-
-  index = index + memx_options_memo_sbe_v1_3.sending_time.size
-
-  index = index + memx_options_memo_sbe_v1_3.transact_time.size
-
-  index = index + memx_options_memo_sbe_v1_3.last_liquidity_ind.size
-
-  index = index + memx_options_memo_sbe_v1_3.last_mkt.size
-
-  index = index + memx_options_memo_sbe_v1_3.open_or_close.size
-
-  index = index + memx_options_memo_sbe_v1_3.trading_capacity.size
-
-  index = index + memx_options_memo_sbe_v1_3.contra_trading_capacity.size
-
-  index = index + memx_options_memo_sbe_v1_3.parties_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Execution Report Trade Message
-memx_options_memo_sbe_v1_3.execution_report_trade_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Execution Report Trade Message
-memx_options_memo_sbe_v1_3.execution_report_trade_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Id: uint64
-  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- List Seq No: uint8
-  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
-
-  -- Trd Match Id: uint64
-  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
-
-  -- Exec Id: uint64
-  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
-
-  -- Ord Status: OrdStatusType
-  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
-
-  -- Security Id: AllocationInstructionOptionsSecurityID
-  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  -- Side: SideType
-  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
-
-  -- Last Qty: uint32
-  index, last_qty = memx_options_memo_sbe_v1_3.last_qty.dissect(buffer, index, packet, parent)
-
-  -- Last Px: PriceType
-  index, last_px = memx_options_memo_sbe_v1_3.last_px.dissect(buffer, index, packet, parent)
-
-  -- Leaves Qty: uint32
-  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
-
-  -- Cum Qty: uint32
-  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Transact Time: UTCTimestampNanos
-  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Last Liquidity Ind: LastLiquidityIndType
-  index, last_liquidity_ind = memx_options_memo_sbe_v1_3.last_liquidity_ind.dissect(buffer, index, packet, parent)
-
-  -- Last Mkt: ExecutionReport_TradeLastMkt
-  index, last_mkt = memx_options_memo_sbe_v1_3.last_mkt.dissect(buffer, index, packet, parent)
-
-  -- Open Or Close: OpenOrCloseType
-  index, open_or_close = memx_options_memo_sbe_v1_3.open_or_close.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: TradingCapacityType
-  index, trading_capacity = memx_options_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Contra Trading Capacity: TradingCapacityType
-  index, contra_trading_capacity = memx_options_memo_sbe_v1_3.contra_trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Parties Groups: Struct of 2 fields
-  index, parties_groups = memx_options_memo_sbe_v1_3.parties_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Execution Report Trade Message
-memx_options_memo_sbe_v1_3.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.execution_report_trade_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_trade_message, buffer(offset, 0))
-    local index = memx_options_memo_sbe_v1_3.execution_report_trade_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memo_sbe_v1_3.execution_report_trade_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memo_sbe_v1_3.execution_report_trade_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Order Reject Reason
@@ -4992,6 +2987,3214 @@ memx_options_memo_sbe_v1_3.order_reject_reason.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- OrigClOrdId
+memx_options_memo_sbe_v1_3.origclordid = {}
+
+-- Size: OrigClOrdId
+memx_options_memo_sbe_v1_3.origclordid.size = 20
+
+-- Display: OrigClOrdId
+memx_options_memo_sbe_v1_3.origclordid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "OrigClOrdId: No Value"
+  end
+
+  return "OrigClOrdId: "..value
+end
+
+-- Dissect: OrigClOrdId
+memx_options_memo_sbe_v1_3.origclordid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.origclordid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.origclordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.origclordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrigClOrdId Optional
+memx_options_memo_sbe_v1_3.origclordid_optional = {}
+
+-- Size: OrigClOrdId Optional
+memx_options_memo_sbe_v1_3.origclordid_optional.size = 20
+
+-- Display: OrigClOrdId Optional
+memx_options_memo_sbe_v1_3.origclordid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "OrigClOrdId Optional: No Value"
+  end
+
+  return "OrigClOrdId Optional: "..value
+end
+
+-- Dissect: OrigClOrdId Optional
+memx_options_memo_sbe_v1_3.origclordid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.origclordid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.origclordid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.origclordid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party I D Execution Report New Party Id
+memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id = {}
+
+-- Size: Party I D Execution Report New Party Id
+memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size = 16
+
+-- Display: Party I D Execution Report New Party Id
+memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party I D Execution Report New Party Id: No Value"
+  end
+
+  return "Party I D Execution Report New Party Id: "..value
+end
+
+-- Dissect: Party I D Execution Report New Party Id
+memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_i_d_execution_report_new_party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id
+memx_options_memo_sbe_v1_3.party_id = {}
+
+-- Size: Party Id
+memx_options_memo_sbe_v1_3.party_id.size = 16
+
+-- Display: Party Id
+memx_options_memo_sbe_v1_3.party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id: No Value"
+  end
+
+  return "Party Id: "..value
+end
+
+-- Dissect: Party Id
+memx_options_memo_sbe_v1_3.party_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Source
+memx_options_memo_sbe_v1_3.party_id_source = {}
+
+-- Size: Party Id Source
+memx_options_memo_sbe_v1_3.party_id_source.size = 1
+
+-- Display: Party Id Source
+memx_options_memo_sbe_v1_3.party_id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Source: No Value"
+  end
+
+  return "Party Id Source: "..value
+end
+
+-- Dissect: Party Id Source
+memx_options_memo_sbe_v1_3.party_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.party_id_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.party_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_id_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Role Party Role Type
+memx_options_memo_sbe_v1_3.party_role_party_role_type = {}
+
+-- Size: Party Role Party Role Type
+memx_options_memo_sbe_v1_3.party_role_party_role_type.size = 1
+
+-- Display: Party Role Party Role Type
+memx_options_memo_sbe_v1_3.party_role_party_role_type.display = function(value)
+  if value == 1 then
+    return "Party Role Party Role Type: Executing Firm Id (1)"
+  end
+  if value == 3 then
+    return "Party Role Party Role Type: Actionable Identifier (3)"
+  end
+  if value == 14 then
+    return "Party Role Party Role Type: Give Up Clearing Firm (14)"
+  end
+  if value == 17 then
+    return "Party Role Party Role Type: Contra Efid (17)"
+  end
+  if value == 18 then
+    return "Party Role Party Role Type: Contra Give Up (18)"
+  end
+  if value == 24 then
+    return "Party Role Party Role Type: Optional Occ Data (24)"
+  end
+  if value == 37 then
+    return "Party Role Party Role Type: Contra Mm Sub Account (37)"
+  end
+  if value == 40 then
+    return "Party Role Party Role Type: Cmta (40)"
+  end
+  if value == 41 then
+    return "Party Role Party Role Type: Contra Cmta (41)"
+  end
+  if value == 66 then
+    return "Party Role Party Role Type: Market Maker Sub Account (66)"
+  end
+
+  return "Party Role Party Role Type: Unknown("..value..")"
+end
+
+-- Dissect: Party Role Party Role Type
+memx_options_memo_sbe_v1_3.party_role_party_role_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.party_role_party_role_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.party_role_party_role_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_role_party_role_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Role uint 8
+memx_options_memo_sbe_v1_3.party_role_uint_8 = {}
+
+-- Size: Party Role uint 8
+memx_options_memo_sbe_v1_3.party_role_uint_8.size = 1
+
+-- Display: Party Role uint 8
+memx_options_memo_sbe_v1_3.party_role_uint_8.display = function(value)
+  return "Party Role uint 8: "..value
+end
+
+-- Dissect: Party Role uint 8
+memx_options_memo_sbe_v1_3.party_role_uint_8.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.party_role_uint_8.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.party_role_uint_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.party_role_uint_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pending Message Count
+memx_options_memo_sbe_v1_3.pending_message_count = {}
+
+-- Size: Pending Message Count
+memx_options_memo_sbe_v1_3.pending_message_count.size = 4
+
+-- Display: Pending Message Count
+memx_options_memo_sbe_v1_3.pending_message_count.display = function(value)
+  return "Pending Message Count: "..value
+end
+
+-- Dissect: Pending Message Count
+memx_options_memo_sbe_v1_3.pending_message_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.pending_message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.pending_message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.pending_message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Optional
+memx_options_memo_sbe_v1_3.price_optional = {}
+
+-- Size: Price Optional
+memx_options_memo_sbe_v1_3.price_optional.size = 8
+
+-- Display: Price Optional
+memx_options_memo_sbe_v1_3.price_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Price Optional: No Value"
+  end
+
+  return "Price Optional: "..value
+end
+
+-- Translate: Price Optional
+memx_options_memo_sbe_v1_3.price_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price Optional
+memx_options_memo_sbe_v1_3.price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.price_optional.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memo_sbe_v1_3.price_optional.translate(raw)
+  local display = memx_options_memo_sbe_v1_3.price_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.price_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Short
+memx_options_memo_sbe_v1_3.price_short = {}
+
+-- Size: Price Short
+memx_options_memo_sbe_v1_3.price_short.size = 2
+
+-- Display: Price Short
+memx_options_memo_sbe_v1_3.price_short.display = function(value)
+  return "Price Short: "..value
+end
+
+-- Translate: Price Short
+memx_options_memo_sbe_v1_3.price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Short
+memx_options_memo_sbe_v1_3.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = memx_options_memo_sbe_v1_3.price_short.translate(raw)
+  local display = memx_options_memo_sbe_v1_3.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+memx_options_memo_sbe_v1_3.quantity = {}
+
+-- Size: Quantity
+memx_options_memo_sbe_v1_3.quantity.size = 2
+
+-- Display: Quantity
+memx_options_memo_sbe_v1_3.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+memx_options_memo_sbe_v1_3.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity uint 32
+memx_options_memo_sbe_v1_3.quantity_uint_32 = {}
+
+-- Size: Quantity uint 32
+memx_options_memo_sbe_v1_3.quantity_uint_32.size = 4
+
+-- Display: Quantity uint 32
+memx_options_memo_sbe_v1_3.quantity_uint_32.display = function(value)
+  return "Quantity uint 32: "..value
+end
+
+-- Dissect: Quantity uint 32
+memx_options_memo_sbe_v1_3.quantity_uint_32.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.quantity_uint_32.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.quantity_uint_32.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.quantity_uint_32, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Alloc Report Id
+memx_options_memo_sbe_v1_3.ref_alloc_report_id = {}
+
+-- Size: Ref Alloc Report Id
+memx_options_memo_sbe_v1_3.ref_alloc_report_id.size = 8
+
+-- Display: Ref Alloc Report Id
+memx_options_memo_sbe_v1_3.ref_alloc_report_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Ref Alloc Report Id: No Value"
+  end
+
+  return "Ref Alloc Report Id: "..value
+end
+
+-- Dissect: Ref Alloc Report Id
+memx_options_memo_sbe_v1_3.ref_alloc_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.ref_alloc_report_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.ref_alloc_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.ref_alloc_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rej Reason
+memx_options_memo_sbe_v1_3.rej_reason = {}
+
+-- Size: Rej Reason
+memx_options_memo_sbe_v1_3.rej_reason.size = 2
+
+-- Display: Rej Reason
+memx_options_memo_sbe_v1_3.rej_reason.display = function(value)
+  if value == 0 then
+    return "Rej Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Rej Reason: Missing Cl Ord Id (1)"
+  end
+  if value == 2 then
+    return "Rej Reason: Invalid Cl Ord Id (2)"
+  end
+  if value == 3 then
+    return "Rej Reason: Missing Lockout Id (3)"
+  end
+  if value == 4 then
+    return "Rej Reason: Invalid Lockout Id (4)"
+  end
+  if value == 65535 then
+    return "Rej Reason: Null Value (65535)"
+  end
+
+  return "Rej Reason: Unknown("..value..")"
+end
+
+-- Dissect: Rej Reason
+memx_options_memo_sbe_v1_3.rej_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.rej_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.rej_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.rej_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replay Reject Code
+memx_options_memo_sbe_v1_3.replay_reject_code = {}
+
+-- Size: Replay Reject Code
+memx_options_memo_sbe_v1_3.replay_reject_code.size = 1
+
+-- Display: Replay Reject Code
+memx_options_memo_sbe_v1_3.replay_reject_code.display = function(value)
+  if value == "R" then
+    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
+  end
+  if value == "A" then
+    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
+  end
+  if value == "P" then
+    return "Replay Reject Code: Not The Active Session (P)"
+  end
+  if value == "S" then
+    return "Replay Reject Code: Sequence Number Out Of Range (S)"
+  end
+
+  return "Replay Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Replay Reject Code
+memx_options_memo_sbe_v1_3.replay_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.replay_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_memo_sbe_v1_3.replay_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.replay_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reprice Behavior
+memx_options_memo_sbe_v1_3.reprice_behavior = {}
+
+-- Size: Reprice Behavior
+memx_options_memo_sbe_v1_3.reprice_behavior.size = 1
+
+-- Display: Reprice Behavior
+memx_options_memo_sbe_v1_3.reprice_behavior.display = function(value)
+  if value == 1 then
+    return "Reprice Behavior: Reprice Lock Cancel Cross (1)"
+  end
+  if value == 2 then
+    return "Reprice Behavior: Reprice Lock Reprice Cross (2)"
+  end
+  if value == 255 then
+    return "Reprice Behavior: Null Value (255)"
+  end
+  if value == 255 then
+    return "Reprice Behavior: No Value"
+  end
+
+  return "Reprice Behavior: Unknown("..value..")"
+end
+
+-- Dissect: Reprice Behavior
+memx_options_memo_sbe_v1_3.reprice_behavior.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.reprice_behavior.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.reprice_behavior.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.reprice_behavior, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reprice Frequency
+memx_options_memo_sbe_v1_3.reprice_frequency = {}
+
+-- Size: Reprice Frequency
+memx_options_memo_sbe_v1_3.reprice_frequency.size = 1
+
+-- Display: Reprice Frequency
+memx_options_memo_sbe_v1_3.reprice_frequency.display = function(value)
+  if value == 0 then
+    return "Reprice Frequency: Single Reprice (0)"
+  end
+  if value == 1 then
+    return "Reprice Frequency: Continuous Reprice (1)"
+  end
+  if value == 2 then
+    return "Reprice Frequency: None (2)"
+  end
+  if value == 255 then
+    return "Reprice Frequency: Null Value (255)"
+  end
+  if value == 255 then
+    return "Reprice Frequency: No Value"
+  end
+
+  return "Reprice Frequency: Unknown("..value..")"
+end
+
+-- Dissect: Reprice Frequency
+memx_options_memo_sbe_v1_3.reprice_frequency.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.reprice_frequency.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.reprice_frequency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.reprice_frequency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Group Id
+memx_options_memo_sbe_v1_3.risk_group_id = {}
+
+-- Size: Risk Group Id
+memx_options_memo_sbe_v1_3.risk_group_id.size = 2
+
+-- Display: Risk Group Id
+memx_options_memo_sbe_v1_3.risk_group_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Risk Group Id: No Value"
+  end
+
+  return "Risk Group Id: "..value
+end
+
+-- Dissect: Risk Group Id
+memx_options_memo_sbe_v1_3.risk_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.risk_group_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.risk_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.risk_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+memx_options_memo_sbe_v1_3.schema_id = {}
+
+-- Size: Schema Id
+memx_options_memo_sbe_v1_3.schema_id.size = 1
+
+-- Display: Schema Id
+memx_options_memo_sbe_v1_3.schema_id.display = function(value)
+  if value == 9 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+memx_options_memo_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+memx_options_memo_sbe_v1_3.security_id = {}
+
+-- Size: Security Id
+memx_options_memo_sbe_v1_3.security_id.size = 8
+
+-- Display: Security Id
+memx_options_memo_sbe_v1_3.security_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Id: No Value"
+  end
+
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+memx_options_memo_sbe_v1_3.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.security_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+memx_options_memo_sbe_v1_3.sending_time = {}
+
+-- Size: Sending Time
+memx_options_memo_sbe_v1_3.sending_time.size = 8
+
+-- Display: Sending Time
+memx_options_memo_sbe_v1_3.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+memx_options_memo_sbe_v1_3.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+memx_options_memo_sbe_v1_3.session_id = {}
+
+-- Size: Session Id
+memx_options_memo_sbe_v1_3.session_id.size = 8
+
+-- Display: Session Id
+memx_options_memo_sbe_v1_3.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+memx_options_memo_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+memx_options_memo_sbe_v1_3.side = {}
+
+-- Size: Side
+memx_options_memo_sbe_v1_3.side.size = 1
+
+-- Display: Side
+memx_options_memo_sbe_v1_3.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+  if value == "B" then
+    return "Side: As Defined (B)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+memx_options_memo_sbe_v1_3.side.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Optional
+memx_options_memo_sbe_v1_3.side_optional = {}
+
+-- Size: Side Optional
+memx_options_memo_sbe_v1_3.side_optional.size = 1
+
+-- Display: Side Optional
+memx_options_memo_sbe_v1_3.side_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side Optional: No Value"
+  end
+
+  if value == "1" then
+    return "Side Optional: Buy (1)"
+  end
+  if value == "2" then
+    return "Side Optional: Sell (2)"
+  end
+  if value == "B" then
+    return "Side Optional: As Defined (B)"
+  end
+  if value == 0 then
+    return "Side Optional: No Value"
+  end
+
+  return "Side Optional: Unknown("..value..")"
+end
+
+-- Dissect: Side Optional
+memx_options_memo_sbe_v1_3.side_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.side_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.side_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.side_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Reject Code
+memx_options_memo_sbe_v1_3.stream_reject_code = {}
+
+-- Size: Stream Reject Code
+memx_options_memo_sbe_v1_3.stream_reject_code.size = 1
+
+-- Display: Stream Reject Code
+memx_options_memo_sbe_v1_3.stream_reject_code.display = function(value)
+  if value == "R" then
+    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
+  end
+  if value == "P" then
+    return "Stream Reject Code: Not The Active Session (P)"
+  end
+  if value == "S" then
+    return "Stream Reject Code: Sequence Number Out Of Range (S)"
+  end
+
+  return "Stream Reject Code: Unknown("..value..")"
+end
+
+-- Dissect: Stream Reject Code
+memx_options_memo_sbe_v1_3.stream_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.stream_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_memo_sbe_v1_3.stream_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.stream_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Supported Request Mode
+memx_options_memo_sbe_v1_3.supported_request_mode = {}
+
+-- Size: Supported Request Mode
+memx_options_memo_sbe_v1_3.supported_request_mode.size = 1
+
+-- Display: Supported Request Mode
+memx_options_memo_sbe_v1_3.supported_request_mode.display = function(value)
+  if value == "S" then
+    return "Supported Request Mode: Stream (S)"
+  end
+  if value == "R" then
+    return "Supported Request Mode: Replay (R)"
+  end
+  if value == "T" then
+    return "Supported Request Mode: Snapshot Mode (T)"
+  end
+
+  return "Supported Request Mode: Unknown("..value..")"
+end
+
+-- Dissect: Supported Request Mode
+memx_options_memo_sbe_v1_3.supported_request_mode.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.supported_request_mode.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_memo_sbe_v1_3.supported_request_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.supported_request_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+memx_options_memo_sbe_v1_3.symbol = {}
+
+-- Size: Symbol
+memx_options_memo_sbe_v1_3.symbol.size = 6
+
+-- Display: Symbol
+memx_options_memo_sbe_v1_3.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+memx_options_memo_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+memx_options_memo_sbe_v1_3.template_id = {}
+
+-- Size: Template Id
+memx_options_memo_sbe_v1_3.template_id.size = 1
+
+-- Display: Template Id
+memx_options_memo_sbe_v1_3.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: New Order Single Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Short Two Sided Bulk Quote Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Long Two Sided Bulk Quote Message (3)"
+  end
+  if value == 4 then
+    return "Template Id: Short One Sided Bulk Quote Message (4)"
+  end
+  if value == 5 then
+    return "Template Id: Long One Sided Bulk Quote Message (5)"
+  end
+  if value == 6 then
+    return "Template Id: Order Cancel Replace Request Message (6)"
+  end
+  if value == 7 then
+    return "Template Id: Order Cancel Request Message (7)"
+  end
+  if value == 8 then
+    return "Template Id: Mass Cancel Request Message (8)"
+  end
+  if value == 9 then
+    return "Template Id: Mass Cancel Clear Lockout Request Message (9)"
+  end
+  if value == 10 then
+    return "Template Id: Allocation Instruction Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Execution Report New Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Execution Report Bulk Quote Pending New Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Execution Report Bulk Quote Component New Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Execution Report Rejected Message (14)"
+  end
+  if value == 15 then
+    return "Template Id: Execution Report Trade Message (15)"
+  end
+  if value == 16 then
+    return "Template Id: Execution Report Pending Cancel Message (16)"
+  end
+  if value == 17 then
+    return "Template Id: Execution Report Canceled Message (17)"
+  end
+  if value == 18 then
+    return "Template Id: Execution Report Pending Replace Message (18)"
+  end
+  if value == 19 then
+    return "Template Id: Execution Report Replaced Message (19)"
+  end
+  if value == 20 then
+    return "Template Id: Execution Report Trade Correction Message (20)"
+  end
+  if value == 21 then
+    return "Template Id: Execution Report Trade Break Message (21)"
+  end
+  if value == 22 then
+    return "Template Id: Execution Report Restatement Message (22)"
+  end
+  if value == 23 then
+    return "Template Id: Pending Mass Cancel Message (23)"
+  end
+  if value == 24 then
+    return "Template Id: Mass Cancel Reject Message (24)"
+  end
+  if value == 25 then
+    return "Template Id: Mass Cancel Done Message (25)"
+  end
+  if value == 26 then
+    return "Template Id: Order Cancel Reject Message (26)"
+  end
+  if value == 27 then
+    return "Template Id: Allocation Instruction Ack Message (27)"
+  end
+  if value == 28 then
+    return "Template Id: Allocation Report Message (28)"
+  end
+  if value == 29 then
+    return "Template Id: User Notification Message (29)"
+  end
+  if value == 30 then
+    return "Template Id: Mass Cancel Clear Lockout Reject Message (30)"
+  end
+  if value == 31 then
+    return "Template Id: Mass Cancel Clear Lockout Done Message (31)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+memx_options_memo_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+memx_options_memo_sbe_v1_3.time_in_force = {}
+
+-- Size: Time In Force
+memx_options_memo_sbe_v1_3.time_in_force.size = 1
+
+-- Display: Time In Force
+memx_options_memo_sbe_v1_3.time_in_force.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "3" then
+    return "Time In Force: Immediate Or Cancel (3)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+memx_options_memo_sbe_v1_3.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.time_in_force.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Token
+memx_options_memo_sbe_v1_3.token = {}
+
+-- Size: Token
+memx_options_memo_sbe_v1_3.token.size = 1
+
+-- Display: Token
+memx_options_memo_sbe_v1_3.token.display = function(value)
+  return "Token: "..value
+end
+
+-- Dissect: Token
+memx_options_memo_sbe_v1_3.token.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_memo_sbe_v1_3.token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Token Type
+memx_options_memo_sbe_v1_3.token_type = {}
+
+-- Size: Token Type
+memx_options_memo_sbe_v1_3.token_type.size = 1
+
+-- Display: Token Type
+memx_options_memo_sbe_v1_3.token_type.display = function(value)
+  return "Token Type: "..value
+end
+
+-- Dissect: Token Type
+memx_options_memo_sbe_v1_3.token_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.token_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = memx_options_memo_sbe_v1_3.token_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.token_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Affected Orders
+memx_options_memo_sbe_v1_3.total_affected_orders = {}
+
+-- Size: Total Affected Orders
+memx_options_memo_sbe_v1_3.total_affected_orders.size = 4
+
+-- Display: Total Affected Orders
+memx_options_memo_sbe_v1_3.total_affected_orders.display = function(value)
+  return "Total Affected Orders: "..value
+end
+
+-- Dissect: Total Affected Orders
+memx_options_memo_sbe_v1_3.total_affected_orders.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.total_affected_orders.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.total_affected_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.total_affected_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Sequence Count
+memx_options_memo_sbe_v1_3.total_sequence_count = {}
+
+-- Size: Total Sequence Count
+memx_options_memo_sbe_v1_3.total_sequence_count.size = 8
+
+-- Display: Total Sequence Count
+memx_options_memo_sbe_v1_3.total_sequence_count.display = function(value)
+  return "Total Sequence Count: "..value
+end
+
+-- Dissect: Total Sequence Count
+memx_options_memo_sbe_v1_3.total_sequence_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.total_sequence_count.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.total_sequence_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.total_sequence_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+memx_options_memo_sbe_v1_3.trade_date = {}
+
+-- Size: Trade Date
+memx_options_memo_sbe_v1_3.trade_date.size = 8
+
+-- Display: Trade Date
+memx_options_memo_sbe_v1_3.trade_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+memx_options_memo_sbe_v1_3.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.trade_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Capacity
+memx_options_memo_sbe_v1_3.trading_capacity = {}
+
+-- Size: Trading Capacity
+memx_options_memo_sbe_v1_3.trading_capacity.size = 1
+
+-- Display: Trading Capacity
+memx_options_memo_sbe_v1_3.trading_capacity.display = function(value)
+  if value == 1 then
+    return "Trading Capacity: Customer (1)"
+  end
+  if value == 2 then
+    return "Trading Capacity: Professional Customer (2)"
+  end
+  if value == 3 then
+    return "Trading Capacity: Broker Dealer (3)"
+  end
+  if value == 4 then
+    return "Trading Capacity: Broker Dealer Customer (4)"
+  end
+  if value == 5 then
+    return "Trading Capacity: Firm (5)"
+  end
+  if value == 6 then
+    return "Trading Capacity: Market Maker (6)"
+  end
+  if value == 7 then
+    return "Trading Capacity: Away Market Maker (7)"
+  end
+  if value == 255 then
+    return "Trading Capacity: Null Value (255)"
+  end
+
+  return "Trading Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Trading Capacity
+memx_options_memo_sbe_v1_3.trading_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.trading_capacity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.trading_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.trading_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+memx_options_memo_sbe_v1_3.transact_time = {}
+
+-- Size: Transact Time
+memx_options_memo_sbe_v1_3.transact_time.size = 8
+
+-- Display: Transact Time
+memx_options_memo_sbe_v1_3.transact_time.display = function(value)
+  return "Transact Time: "..value
+end
+
+-- Dissect: Transact Time
+memx_options_memo_sbe_v1_3.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Match Id
+memx_options_memo_sbe_v1_3.trd_match_id = {}
+
+-- Size: Trd Match Id
+memx_options_memo_sbe_v1_3.trd_match_id.size = 8
+
+-- Display: Trd Match Id
+memx_options_memo_sbe_v1_3.trd_match_id.display = function(value)
+  return "Trd Match Id: "..value
+end
+
+-- Dissect: Trd Match Id
+memx_options_memo_sbe_v1_3.trd_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.trd_match_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memo_sbe_v1_3.trd_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.trd_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlier Optional
+memx_options_memo_sbe_v1_3.underlier_optional = {}
+
+-- Size: Underlier Optional
+memx_options_memo_sbe_v1_3.underlier_optional.size = 6
+
+-- Display: Underlier Optional
+memx_options_memo_sbe_v1_3.underlier_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlier Optional: No Value"
+  end
+
+  return "Underlier Optional: "..value
+end
+
+-- Dissect: Underlier Optional
+memx_options_memo_sbe_v1_3.underlier_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.underlier_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memo_sbe_v1_3.underlier_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.underlier_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Or Series
+memx_options_memo_sbe_v1_3.underlying_or_series = {}
+
+-- Size: Underlying Or Series
+memx_options_memo_sbe_v1_3.underlying_or_series.size = 1
+
+-- Display: Underlying Or Series
+memx_options_memo_sbe_v1_3.underlying_or_series.display = function(value)
+  if value == 0 then
+    return "Underlying Or Series: Cancel All On Underlying (0)"
+  end
+  if value == 1 then
+    return "Underlying Or Series: Cancel All On Series (1)"
+  end
+  if value == 255 then
+    return "Underlying Or Series: Null Value (255)"
+  end
+  if value == 255 then
+    return "Underlying Or Series: No Value"
+  end
+
+  return "Underlying Or Series: Unknown("..value..")"
+end
+
+-- Dissect: Underlying Or Series
+memx_options_memo_sbe_v1_3.underlying_or_series.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.underlying_or_series.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.underlying_or_series.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.underlying_or_series, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Status
+memx_options_memo_sbe_v1_3.user_status = {}
+
+-- Size: User Status
+memx_options_memo_sbe_v1_3.user_status.size = 1
+
+-- Display: User Status
+memx_options_memo_sbe_v1_3.user_status.display = function(value)
+  if value == 8 then
+    return "User Status: Session Shutdown Warning (8)"
+  end
+  if value == 100 then
+    return "User Status: End Of Events For Session (100)"
+  end
+  if value == 255 then
+    return "User Status: Null Value (255)"
+  end
+
+  return "User Status: Unknown("..value..")"
+end
+
+-- Dissect: User Status
+memx_options_memo_sbe_v1_3.user_status.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.user_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.user_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.user_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+memx_options_memo_sbe_v1_3.version = {}
+
+-- Size: Version
+memx_options_memo_sbe_v1_3.version.size = 2
+
+-- Display: Version
+memx_options_memo_sbe_v1_3.version.display = function(value)
+  if value == 259 then
+    return "Version: Version 1.3"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+memx_options_memo_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Memx Options Memo Sbe 1.3
+-----------------------------------------------------------------------
+
+-- Mass Cancel Clear Lockout Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message = {}
+
+-- Size: Mass Cancel Clear Lockout Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.size =
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.lockout_id.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Mass Cancel Clear Lockout Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Clear Lockout Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Lockout Id: uint64
+  index, lockout_id = memx_options_memo_sbe_v1_3.lockout_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Clear Lockout Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel_clear_lockout_done_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_clear_lockout_done_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_done_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Clear Lockout Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message = {}
+
+-- Size: Mass Cancel Clear Lockout Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.size =
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.lockout_id.size + 
+  memx_options_memo_sbe_v1_3.rej_reason.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Mass Cancel Clear Lockout Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Clear Lockout Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Lockout Id: uint64
+  index, lockout_id = memx_options_memo_sbe_v1_3.lockout_id.dissect(buffer, index, packet, parent)
+
+  -- Rej Reason: MassCancelClearLockoutRejCode
+  index, rej_reason = memx_options_memo_sbe_v1_3.rej_reason.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Clear Lockout Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel_clear_lockout_reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_clear_lockout_reject_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.mass_cancel_clear_lockout_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- User Notification Message
+memx_options_memo_sbe_v1_3.user_notification_message = {}
+
+-- Size: User Notification Message
+memx_options_memo_sbe_v1_3.user_notification_message.size =
+  memx_options_memo_sbe_v1_3.sending_time.size + 
+  memx_options_memo_sbe_v1_3.user_status.size
+
+-- Display: User Notification Message
+memx_options_memo_sbe_v1_3.user_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Notification Message
+memx_options_memo_sbe_v1_3.user_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- User Status: UserStatusType
+  index, user_status = memx_options_memo_sbe_v1_3.user_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Notification Message
+memx_options_memo_sbe_v1_3.user_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.user_notification_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.user_notification_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.user_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.user_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.user_notification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Report Message Parties Group
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_group = {}
+
+-- Size: Allocation Report Message Parties Group
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.size =
+  memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size + 
+  memx_options_memo_sbe_v1_3.party_id_source.size + 
+  memx_options_memo_sbe_v1_3.party_role_uint_8.size
+
+-- Display: Allocation Report Message Parties Group
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Report Message Parties Group
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.fields = function(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
+  local index = offset
+
+  -- Implicit Allocation Report Message Parties Group Index
+  if allocation_report_message_parties_group_index ~= nil then
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_parties_group_index, allocation_report_message_parties_group_index)
+    iteration:set_generated()
+  end
+
+  -- Party I D Execution Report New Party Id: ExecutionReport_NewPartyID
+  index, party_i_d_execution_report_new_party_id = memx_options_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Source: char
+  index, party_id_source = memx_options_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
+
+  -- Party Role uint 8: uint8
+  index, party_role_uint_8 = memx_options_memo_sbe_v1_3.party_role_uint_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Allocation Report Message Parties Group
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.dissect = function(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
+  if show.allocation_report_message_parties_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_parties_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.fields(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.fields(buffer, offset, packet, parent, allocation_report_message_parties_group_index)
+  end
+end
+
+-- Repeating Group Dimensions
+memx_options_memo_sbe_v1_3.repeating_group_dimensions = {}
+
+-- Size: Repeating Group Dimensions
+memx_options_memo_sbe_v1_3.repeating_group_dimensions.size =
+  memx_options_memo_sbe_v1_3.block_length_short.size + 
+  memx_options_memo_sbe_v1_3.num_in_group.size
+
+-- Display: Repeating Group Dimensions
+memx_options_memo_sbe_v1_3.repeating_group_dimensions.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Repeating Group Dimensions
+memx_options_memo_sbe_v1_3.repeating_group_dimensions.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length Short: uint8
+  index, block_length_short = memx_options_memo_sbe_v1_3.block_length_short.dissect(buffer, index, packet, parent)
+
+  -- Num In Group: uint8
+  index, num_in_group = memx_options_memo_sbe_v1_3.num_in_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Repeating Group Dimensions
+memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect = function(buffer, offset, packet, parent)
+  if show.repeating_group_dimensions then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.repeating_group_dimensions, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.repeating_group_dimensions.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.repeating_group_dimensions.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.repeating_group_dimensions.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Report Message Parties Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups = {}
+
+-- Calculate size of: Allocation Report Message Parties Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_3.repeating_group_dimensions.size
+
+  -- Calculate field size from count
+  local allocation_report_message_parties_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + allocation_report_message_parties_group_count * 18
+
+  return index
+end
+
+-- Display: Allocation Report Message Parties Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Report Message Parties Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Repeating Group Dimensions: Struct of 2 fields
+  index, repeating_group_dimensions = memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Allocation Report Message Parties Group
+  for allocation_report_message_parties_group_index = 1, num_in_group do
+    index, allocation_report_message_parties_group = memx_options_memo_sbe_v1_3.allocation_report_message_parties_group.dissect(buffer, index, packet, parent, allocation_report_message_parties_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Allocation Report Message Parties Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.dissect = function(buffer, offset, packet, parent)
+  if show.allocation_report_message_parties_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_parties_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Report Message Allocations Group
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group = {}
+
+-- Calculate size of: Allocation Report Message Allocations Group
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_3.alloc_qty.size
+
+  index = index + memx_options_memo_sbe_v1_3.trading_capacity.size
+
+  index = index + memx_options_memo_sbe_v1_3.open_or_close.size
+
+  index = index + memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Allocation Report Message Allocations Group
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Report Message Allocations Group
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.fields = function(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
+  local index = offset
+
+  -- Implicit Allocation Report Message Allocations Group Index
+  if allocation_report_message_allocations_group_index ~= nil then
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_allocations_group_index, allocation_report_message_allocations_group_index)
+    iteration:set_generated()
+  end
+
+  -- Alloc Qty: uint32
+  index, alloc_qty = memx_options_memo_sbe_v1_3.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: TradingCapacityType
+  index, trading_capacity = memx_options_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Open Or Close: OpenOrCloseType
+  index, open_or_close = memx_options_memo_sbe_v1_3.open_or_close.dissect(buffer, index, packet, parent)
+
+  -- Allocation Report Message Parties Groups: Struct of 2 fields
+  index, allocation_report_message_parties_groups = memx_options_memo_sbe_v1_3.allocation_report_message_parties_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Allocation Report Message Allocations Group
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.dissect = function(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
+  if show.allocation_report_message_allocations_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_allocations_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.fields(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.fields(buffer, offset, packet, parent, allocation_report_message_allocations_group_index)
+  end
+end
+
+-- Allocation Report Message Allocations Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups = {}
+
+-- Calculate size of: Allocation Report Message Allocations Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_3.repeating_group_dimensions.size
+
+  -- Calculate field size from count
+  local allocation_report_message_allocations_group_count = buffer(offset + index - 1, 1):uint()
+  for i = 1, allocation_report_message_allocations_group_count do
+    index = index + memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.size(buffer, offset + index)
+  end
+  return index
+end
+
+-- Display: Allocation Report Message Allocations Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Report Message Allocations Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Repeating Group Dimensions: Struct of 2 fields
+  index, repeating_group_dimensions = memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Allocation Report Message Allocations Group
+  for allocation_report_message_allocations_group_index = 1, num_in_group do
+    index, allocation_report_message_allocations_group = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_group.dissect(buffer, index, packet, parent, allocation_report_message_allocations_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Allocation Report Message Allocations Groups
+memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.dissect = function(buffer, offset, packet, parent)
+  if show.allocation_report_message_allocations_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message_allocations_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Report Message
+memx_options_memo_sbe_v1_3.allocation_report_message = {}
+
+-- Calculate size of: Allocation Report Message
+memx_options_memo_sbe_v1_3.allocation_report_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_3.alloc_report_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.alloc_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.alloc_trans_type.size
+
+  index = index + memx_options_memo_sbe_v1_3.alloc_type.size
+
+  index = index + memx_options_memo_sbe_v1_3.alloc_status.size
+
+  index = index + memx_options_memo_sbe_v1_3.exec_ref_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.trd_match_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.security_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.side.size
+
+  index = index + memx_options_memo_sbe_v1_3.quantity_uint_32.size
+
+  index = index + memx_options_memo_sbe_v1_3.trade_date.size
+
+  index = index + memx_options_memo_sbe_v1_3.sending_time.size
+
+  index = index + memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Allocation Report Message
+memx_options_memo_sbe_v1_3.allocation_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Report Message
+memx_options_memo_sbe_v1_3.allocation_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Alloc Report Id: uint64
+  index, alloc_report_id = memx_options_memo_sbe_v1_3.alloc_report_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Id: AllocationInstructionAckAllocID
+  index, alloc_id = memx_options_memo_sbe_v1_3.alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Trans Type: AllocTransType
+  index, alloc_trans_type = memx_options_memo_sbe_v1_3.alloc_trans_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc Type: AllocType
+  index, alloc_type = memx_options_memo_sbe_v1_3.alloc_type.dissect(buffer, index, packet, parent)
+
+  -- Alloc Status: AllocStatusType
+  index, alloc_status = memx_options_memo_sbe_v1_3.alloc_status.dissect(buffer, index, packet, parent)
+
+  -- Exec Ref Id: uint64
+  index, exec_ref_id = memx_options_memo_sbe_v1_3.exec_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Match Id: uint64
+  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
+
+  -- Quantity uint 32: uint32
+  index, quantity_uint_32 = memx_options_memo_sbe_v1_3.quantity_uint_32.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: AllocationInstructionTradeDate
+  index, trade_date = memx_options_memo_sbe_v1_3.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Allocation Report Message Allocations Groups: Struct of 2 fields
+  index, allocation_report_message_allocations_groups = memx_options_memo_sbe_v1_3.allocation_report_message_allocations_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Allocation Report Message
+memx_options_memo_sbe_v1_3.allocation_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.allocation_report_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_report_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.allocation_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.allocation_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.allocation_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allocation Instruction Ack Message
+memx_options_memo_sbe_v1_3.allocation_instruction_ack_message = {}
+
+-- Size: Allocation Instruction Ack Message
+memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.size =
+  memx_options_memo_sbe_v1_3.alloc_report_id.size + 
+  memx_options_memo_sbe_v1_3.alloc_id.size + 
+  memx_options_memo_sbe_v1_3.alloc_status.size + 
+  memx_options_memo_sbe_v1_3.alloc_rej_code.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Allocation Instruction Ack Message
+memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Allocation Instruction Ack Message
+memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Alloc Report Id: uint64
+  index, alloc_report_id = memx_options_memo_sbe_v1_3.alloc_report_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Id: AllocationInstructionAckAllocID
+  index, alloc_id = memx_options_memo_sbe_v1_3.alloc_id.dissect(buffer, index, packet, parent)
+
+  -- Alloc Status: AllocStatusType
+  index, alloc_status = memx_options_memo_sbe_v1_3.alloc_status.dissect(buffer, index, packet, parent)
+
+  -- Alloc Rej Code: AllocRejCode
+  index, alloc_rej_code = memx_options_memo_sbe_v1_3.alloc_rej_code.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Allocation Instruction Ack Message
+memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.dissect = function(buffer, offset, packet, parent)
+  if show.allocation_instruction_ack_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.allocation_instruction_ack_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.allocation_instruction_ack_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Cancel Reject Message
+memx_options_memo_sbe_v1_3.order_cancel_reject_message = {}
+
+-- Size: Order Cancel Reject Message
+memx_options_memo_sbe_v1_3.order_cancel_reject_message.size =
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.list_seq_no.size + 
+  memx_options_memo_sbe_v1_3.cxl_rej_response_to.size + 
+  memx_options_memo_sbe_v1_3.cxl_rej_reason.size + 
+  memx_options_memo_sbe_v1_3.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_3.side_optional.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Order Cancel Reject Message
+memx_options_memo_sbe_v1_3.order_cancel_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Cancel Reject Message
+memx_options_memo_sbe_v1_3.order_cancel_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Cxl Rej Response To: CxlRejResponseToType
+  index, cxl_rej_response_to = memx_options_memo_sbe_v1_3.cxl_rej_response_to.dissect(buffer, index, packet, parent)
+
+  -- Cxl Rej Reason: CxlRejReasonCode
+  index, cxl_rej_reason = memx_options_memo_sbe_v1_3.cxl_rej_reason.dissect(buffer, index, packet, parent)
+
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
+  index, options_security_id_optional = memx_options_memo_sbe_v1_3.options_security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: SideType
+  index, side_optional = memx_options_memo_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Cancel Reject Message
+memx_options_memo_sbe_v1_3.order_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.order_cancel_reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_cancel_reject_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.order_cancel_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.order_cancel_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.order_cancel_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_done_message = {}
+
+-- Size: Mass Cancel Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_done_message.size =
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.total_affected_orders.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Mass Cancel Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_done_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_done_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Total Affected Orders: uint32
+  index, total_affected_orders = memx_options_memo_sbe_v1_3.total_affected_orders.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Done Message
+memx_options_memo_sbe_v1_3.mass_cancel_done_message.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel_done_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_done_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.mass_cancel_done_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.mass_cancel_done_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.mass_cancel_done_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Inst
+memx_options_memo_sbe_v1_3.mass_cancel_inst = {}
+
+-- Size: Mass Cancel Inst
+memx_options_memo_sbe_v1_3.mass_cancel_inst.size = 1
+
+-- Display: Mass Cancel Inst
+memx_options_memo_sbe_v1_3.mass_cancel_inst.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Lockout flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Lockout"
+  end
+  -- Is Send Cancels flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Send Cancels"
+  end
+  -- Is Cancel Orders From This Port Only flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cancel Orders From This Port Only"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Mass Cancel Inst
+memx_options_memo_sbe_v1_3.mass_cancel_inst.bits = function(range, value, packet, parent)
+
+  -- Lockout: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.lockout, range, value)
+
+  -- Send Cancels: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.send_cancels, range, value)
+
+  -- Cancel Orders From This Port Only: 1 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.cancel_orders_from_this_port_only, range, value)
+
+  -- Reserved 5: 5 Bit
+  parent:add(omi_memx_options_memo_sbe_v1_3.fields.reserved_5, range, value)
+end
+
+-- Dissect: Mass Cancel Inst
+memx_options_memo_sbe_v1_3.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
+  local size = memx_options_memo_sbe_v1_3.mass_cancel_inst.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = memx_options_memo_sbe_v1_3.mass_cancel_inst.display(range, value, packet, parent)
+  local element = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_inst, range, display)
+
+  if show.mass_cancel_inst then
+    memx_options_memo_sbe_v1_3.mass_cancel_inst.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Mass Cancel Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_reject_message = {}
+
+-- Size: Mass Cancel Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_reject_message.size =
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.mass_cancel_reject_reason.size + 
+  memx_options_memo_sbe_v1_3.efid_optional.size + 
+  memx_options_memo_sbe_v1_3.underlying_or_series.size + 
+  memx_options_memo_sbe_v1_3.underlier_optional.size + 
+  memx_options_memo_sbe_v1_3.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_3.cancel_group_id.size + 
+  memx_options_memo_sbe_v1_3.mass_cancel_inst.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Mass Cancel Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Reject Reason: MassCxlRejReasonCode
+  index, mass_cancel_reject_reason = memx_options_memo_sbe_v1_3.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Efid Optional: MassCancelRejectEFID
+  index, efid_optional = memx_options_memo_sbe_v1_3.efid_optional.dissect(buffer, index, packet, parent)
+
+  -- Underlying Or Series: UnderlyingOrSeriesType
+  index, underlying_or_series = memx_options_memo_sbe_v1_3.underlying_or_series.dissect(buffer, index, packet, parent)
+
+  -- Underlier Optional: MassCancelRejectUnderlier
+  index, underlier_optional = memx_options_memo_sbe_v1_3.underlier_optional.dissect(buffer, index, packet, parent)
+
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
+  index, options_security_id_optional = memx_options_memo_sbe_v1_3.options_security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = memx_options_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Inst: Struct of 4 fields
+  index, mass_cancel_inst = memx_options_memo_sbe_v1_3.mass_cancel_inst.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Reject Message
+memx_options_memo_sbe_v1_3.mass_cancel_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.mass_cancel_reject_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.mass_cancel_reject_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.mass_cancel_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.mass_cancel_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Pending Mass Cancel Message
+memx_options_memo_sbe_v1_3.pending_mass_cancel_message = {}
+
+-- Size: Pending Mass Cancel Message
+memx_options_memo_sbe_v1_3.pending_mass_cancel_message.size =
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.mass_cancel_inst.size + 
+  memx_options_memo_sbe_v1_3.lockout_id_optional.size + 
+  memx_options_memo_sbe_v1_3.efid_optional.size + 
+  memx_options_memo_sbe_v1_3.underlying_or_series.size + 
+  memx_options_memo_sbe_v1_3.underlier_optional.size + 
+  memx_options_memo_sbe_v1_3.options_security_id_optional.size + 
+  memx_options_memo_sbe_v1_3.cancel_group_id.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Pending Mass Cancel Message
+memx_options_memo_sbe_v1_3.pending_mass_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Pending Mass Cancel Message
+memx_options_memo_sbe_v1_3.pending_mass_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Inst: Struct of 4 fields
+  index, mass_cancel_inst = memx_options_memo_sbe_v1_3.mass_cancel_inst.dissect(buffer, index, packet, parent)
+
+  -- Lockout Id Optional: uint64
+  index, lockout_id_optional = memx_options_memo_sbe_v1_3.lockout_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Efid Optional: MassCancelRejectEFID
+  index, efid_optional = memx_options_memo_sbe_v1_3.efid_optional.dissect(buffer, index, packet, parent)
+
+  -- Underlying Or Series: UnderlyingOrSeriesType
+  index, underlying_or_series = memx_options_memo_sbe_v1_3.underlying_or_series.dissect(buffer, index, packet, parent)
+
+  -- Underlier Optional: MassCancelRejectUnderlier
+  index, underlier_optional = memx_options_memo_sbe_v1_3.underlier_optional.dissect(buffer, index, packet, parent)
+
+  -- Options Security Id Optional: MassCancelRejectOptionsSecurityID
+  index, options_security_id_optional = memx_options_memo_sbe_v1_3.options_security_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = memx_options_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Pending Mass Cancel Message
+memx_options_memo_sbe_v1_3.pending_mass_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.pending_mass_cancel_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.pending_mass_cancel_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.pending_mass_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.pending_mass_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.pending_mass_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Restatement Message
+memx_options_memo_sbe_v1_3.execution_report_restatement_message = {}
+
+-- Size: Execution Report Restatement Message
+memx_options_memo_sbe_v1_3.execution_report_restatement_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.list_seq_no.size + 
+  memx_options_memo_sbe_v1_3.exec_id.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.security_id.size + 
+  memx_options_memo_sbe_v1_3.exec_restatement_reason.size + 
+  memx_options_memo_sbe_v1_3.extended_restatement_reason.size + 
+  memx_options_memo_sbe_v1_3.side.size + 
+  memx_options_memo_sbe_v1_3.last_px.size + 
+  memx_options_memo_sbe_v1_3.last_qty_optional.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size + 
+  memx_options_memo_sbe_v1_3.transact_time.size
+
+-- Display: Execution Report Restatement Message
+memx_options_memo_sbe_v1_3.execution_report_restatement_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Restatement Message
+memx_options_memo_sbe_v1_3.execution_report_restatement_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Restatement Reason: ExecRestatementType
+  index, exec_restatement_reason = memx_options_memo_sbe_v1_3.exec_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Extended Restatement Reason: ExtendedRestatementReasonType
+  index, extended_restatement_reason = memx_options_memo_sbe_v1_3.extended_restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
+
+  -- Last Px: PriceType
+  index, last_px = memx_options_memo_sbe_v1_3.last_px.dissect(buffer, index, packet, parent)
+
+  -- Last Qty Optional: uint32
+  index, last_qty_optional = memx_options_memo_sbe_v1_3.last_qty_optional.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Restatement Message
+memx_options_memo_sbe_v1_3.execution_report_restatement_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_restatement_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_restatement_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_restatement_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_restatement_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_restatement_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Trade Break Message
+memx_options_memo_sbe_v1_3.execution_report_trade_break_message = {}
+
+-- Size: Execution Report Trade Break Message
+memx_options_memo_sbe_v1_3.execution_report_trade_break_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.trd_match_id.size + 
+  memx_options_memo_sbe_v1_3.exec_id.size + 
+  memx_options_memo_sbe_v1_3.exec_ref_id.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Execution Report Trade Break Message
+memx_options_memo_sbe_v1_3.execution_report_trade_break_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Break Message
+memx_options_memo_sbe_v1_3.execution_report_trade_break_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Trd Match Id: uint64
+  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Ref Id: uint64
+  index, exec_ref_id = memx_options_memo_sbe_v1_3.exec_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Break Message
+memx_options_memo_sbe_v1_3.execution_report_trade_break_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_trade_break_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_trade_break_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_trade_break_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_trade_break_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Trade Correction Message
+memx_options_memo_sbe_v1_3.execution_report_trade_correction_message = {}
+
+-- Size: Execution Report Trade Correction Message
+memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.trd_match_id.size + 
+  memx_options_memo_sbe_v1_3.exec_id.size + 
+  memx_options_memo_sbe_v1_3.exec_ref_id.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.security_id.size + 
+  memx_options_memo_sbe_v1_3.last_qty.size + 
+  memx_options_memo_sbe_v1_3.last_px.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Execution Report Trade Correction Message
+memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Correction Message
+memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Trd Match Id: uint64
+  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Ref Id: uint64
+  index, exec_ref_id = memx_options_memo_sbe_v1_3.exec_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Last Qty: uint32
+  index, last_qty = memx_options_memo_sbe_v1_3.last_qty.dissect(buffer, index, packet, parent)
+
+  -- Last Px: PriceType
+  index, last_px = memx_options_memo_sbe_v1_3.last_px.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Correction Message
+memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_trade_correction_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_trade_correction_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_trade_correction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Replaced Message
+memx_options_memo_sbe_v1_3.execution_report_replaced_message = {}
+
+-- Size: Execution Report Replaced Message
+memx_options_memo_sbe_v1_3.execution_report_replaced_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.list_seq_no.size + 
+  memx_options_memo_sbe_v1_3.origclordid.size + 
+  memx_options_memo_sbe_v1_3.exec_id.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.security_id.size + 
+  memx_options_memo_sbe_v1_3.side.size + 
+  memx_options_memo_sbe_v1_3.order_qty.size + 
+  memx_options_memo_sbe_v1_3.ord_type.size + 
+  memx_options_memo_sbe_v1_3.price_optional.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size + 
+  memx_options_memo_sbe_v1_3.transact_time.size
+
+-- Display: Execution Report Replaced Message
+memx_options_memo_sbe_v1_3.execution_report_replaced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Replaced Message
+memx_options_memo_sbe_v1_3.execution_report_replaced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
+  index, origclordid = memx_options_memo_sbe_v1_3.origclordid.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: uint32
+  index, order_qty = memx_options_memo_sbe_v1_3.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Type: OrdType
+  index, ord_type = memx_options_memo_sbe_v1_3.ord_type.dissect(buffer, index, packet, parent)
+
+  -- Price Optional: PriceType
+  index, price_optional = memx_options_memo_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Replaced Message
+memx_options_memo_sbe_v1_3.execution_report_replaced_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_replaced_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_replaced_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_replaced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_replaced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_replaced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Pending Replace Message
+memx_options_memo_sbe_v1_3.execution_report_pending_replace_message = {}
+
+-- Size: Execution Report Pending Replace Message
+memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.list_seq_no.size + 
+  memx_options_memo_sbe_v1_3.origclordid.size + 
+  memx_options_memo_sbe_v1_3.exec_id.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.security_id.size + 
+  memx_options_memo_sbe_v1_3.side.size + 
+  memx_options_memo_sbe_v1_3.order_qty.size + 
+  memx_options_memo_sbe_v1_3.ord_type.size + 
+  memx_options_memo_sbe_v1_3.price_optional.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Execution Report Pending Replace Message
+memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Pending Replace Message
+memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
+  index, origclordid = memx_options_memo_sbe_v1_3.origclordid.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: uint32
+  index, order_qty = memx_options_memo_sbe_v1_3.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Ord Type: OrdType
+  index, ord_type = memx_options_memo_sbe_v1_3.ord_type.dissect(buffer, index, packet, parent)
+
+  -- Price Optional: PriceType
+  index, price_optional = memx_options_memo_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Pending Replace Message
+memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_pending_replace_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_pending_replace_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_pending_replace_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Canceled Message
+memx_options_memo_sbe_v1_3.execution_report_canceled_message = {}
+
+-- Size: Execution Report Canceled Message
+memx_options_memo_sbe_v1_3.execution_report_canceled_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.list_seq_no.size + 
+  memx_options_memo_sbe_v1_3.origclordid_optional.size + 
+  memx_options_memo_sbe_v1_3.exec_id.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.cancel_reason.size + 
+  memx_options_memo_sbe_v1_3.security_id.size + 
+  memx_options_memo_sbe_v1_3.side_optional.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size + 
+  memx_options_memo_sbe_v1_3.transact_time.size
+
+-- Display: Execution Report Canceled Message
+memx_options_memo_sbe_v1_3.execution_report_canceled_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Canceled Message
+memx_options_memo_sbe_v1_3.execution_report_canceled_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- OrigClOrdId Optional: ExecutionReport_CanceledOrigClOrdID
+  index, origclordid_optional = memx_options_memo_sbe_v1_3.origclordid_optional.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Cancel Reason: CancelReasonCode
+  index, cancel_reason = memx_options_memo_sbe_v1_3.cancel_reason.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: SideType
+  index, side_optional = memx_options_memo_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Canceled Message
+memx_options_memo_sbe_v1_3.execution_report_canceled_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_canceled_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_canceled_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_canceled_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_canceled_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_canceled_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Pending Cancel Message
+memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message = {}
+
+-- Size: Execution Report Pending Cancel Message
+memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.size =
+  memx_options_memo_sbe_v1_3.order_id.size + 
+  memx_options_memo_sbe_v1_3.clordid.size + 
+  memx_options_memo_sbe_v1_3.list_seq_no.size + 
+  memx_options_memo_sbe_v1_3.origclordid.size + 
+  memx_options_memo_sbe_v1_3.ord_status.size + 
+  memx_options_memo_sbe_v1_3.security_id.size + 
+  memx_options_memo_sbe_v1_3.side_optional.size + 
+  memx_options_memo_sbe_v1_3.leaves_qty.size + 
+  memx_options_memo_sbe_v1_3.cum_qty.size + 
+  memx_options_memo_sbe_v1_3.sending_time.size
+
+-- Display: Execution Report Pending Cancel Message
+memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Pending Cancel Message
+memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- OrigClOrdId: ExecutionReport_PendingCancelOrigClOrdID
+  index, origclordid = memx_options_memo_sbe_v1_3.origclordid.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side Optional: SideType
+  index, side_optional = memx_options_memo_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Pending Cancel Message
+memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_pending_cancel_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_pending_cancel_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_pending_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Parties Group
+memx_options_memo_sbe_v1_3.parties_group = {}
+
+-- Size: Parties Group
+memx_options_memo_sbe_v1_3.parties_group.size =
+  memx_options_memo_sbe_v1_3.party_id.size + 
+  memx_options_memo_sbe_v1_3.party_id_source.size + 
+  memx_options_memo_sbe_v1_3.party_role_party_role_type.size
+
+-- Display: Parties Group
+memx_options_memo_sbe_v1_3.parties_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Parties Group
+memx_options_memo_sbe_v1_3.parties_group.fields = function(buffer, offset, packet, parent, parties_group_index)
+  local index = offset
+
+  -- Implicit Parties Group Index
+  if parties_group_index ~= nil then
+    local iteration = parent:add(omi_memx_options_memo_sbe_v1_3.fields.parties_group_index, parties_group_index)
+    iteration:set_generated()
+  end
+
+  -- Party Id: NewOrderSinglePartyID
+  index, party_id = memx_options_memo_sbe_v1_3.party_id.dissect(buffer, index, packet, parent)
+
+  -- Party Id Source: char
+  index, party_id_source = memx_options_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
+
+  -- Party Role Party Role Type: PartyRoleType
+  index, party_role_party_role_type = memx_options_memo_sbe_v1_3.party_role_party_role_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Parties Group
+memx_options_memo_sbe_v1_3.parties_group.dissect = function(buffer, offset, packet, parent, parties_group_index)
+  if show.parties_group then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.parties_group, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.parties_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.parties_group.fields(buffer, offset, packet, parent, parties_group_index)
+  end
+end
+
+-- Parties Groups
+memx_options_memo_sbe_v1_3.parties_groups = {}
+
+-- Calculate size of: Parties Groups
+memx_options_memo_sbe_v1_3.parties_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_3.repeating_group_dimensions.size
+
+  -- Calculate field size from count
+  local parties_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + parties_group_count * 18
+
+  return index
+end
+
+-- Display: Parties Groups
+memx_options_memo_sbe_v1_3.parties_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Parties Groups
+memx_options_memo_sbe_v1_3.parties_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Repeating Group Dimensions: Struct of 2 fields
+  index, repeating_group_dimensions = memx_options_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Parties Group
+  for parties_group_index = 1, num_in_group do
+    index, parties_group = memx_options_memo_sbe_v1_3.parties_group.dissect(buffer, index, packet, parent, parties_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Parties Groups
+memx_options_memo_sbe_v1_3.parties_groups.dissect = function(buffer, offset, packet, parent)
+  if show.parties_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.parties_groups, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.parties_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.parties_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.parties_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Execution Report Trade Message
+memx_options_memo_sbe_v1_3.execution_report_trade_message = {}
+
+-- Calculate size of: Execution Report Trade Message
+memx_options_memo_sbe_v1_3.execution_report_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_options_memo_sbe_v1_3.order_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.clordid.size
+
+  index = index + memx_options_memo_sbe_v1_3.list_seq_no.size
+
+  index = index + memx_options_memo_sbe_v1_3.trd_match_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.exec_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.ord_status.size
+
+  index = index + memx_options_memo_sbe_v1_3.security_id.size
+
+  index = index + memx_options_memo_sbe_v1_3.side.size
+
+  index = index + memx_options_memo_sbe_v1_3.last_qty.size
+
+  index = index + memx_options_memo_sbe_v1_3.last_px.size
+
+  index = index + memx_options_memo_sbe_v1_3.leaves_qty.size
+
+  index = index + memx_options_memo_sbe_v1_3.cum_qty.size
+
+  index = index + memx_options_memo_sbe_v1_3.sending_time.size
+
+  index = index + memx_options_memo_sbe_v1_3.transact_time.size
+
+  index = index + memx_options_memo_sbe_v1_3.last_liquidity_ind.size
+
+  index = index + memx_options_memo_sbe_v1_3.last_mkt.size
+
+  index = index + memx_options_memo_sbe_v1_3.open_or_close.size
+
+  index = index + memx_options_memo_sbe_v1_3.trading_capacity.size
+
+  index = index + memx_options_memo_sbe_v1_3.contra_trading_capacity.size
+
+  index = index + memx_options_memo_sbe_v1_3.parties_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Execution Report Trade Message
+memx_options_memo_sbe_v1_3.execution_report_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Trade Message
+memx_options_memo_sbe_v1_3.execution_report_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Id: uint64
+  index, order_id = memx_options_memo_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_options_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_options_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Trd Match Id: uint64
+  index, trd_match_id = memx_options_memo_sbe_v1_3.trd_match_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: uint64
+  index, exec_id = memx_options_memo_sbe_v1_3.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Ord Status: OrdStatusType
+  index, ord_status = memx_options_memo_sbe_v1_3.ord_status.dissect(buffer, index, packet, parent)
+
+  -- Security Id: AllocationInstructionOptionsSecurityID
+  index, security_id = memx_options_memo_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_options_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
+
+  -- Last Qty: uint32
+  index, last_qty = memx_options_memo_sbe_v1_3.last_qty.dissect(buffer, index, packet, parent)
+
+  -- Last Px: PriceType
+  index, last_px = memx_options_memo_sbe_v1_3.last_px.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: uint32
+  index, leaves_qty = memx_options_memo_sbe_v1_3.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cum Qty: uint32
+  index, cum_qty = memx_options_memo_sbe_v1_3.cum_qty.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_options_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: UTCTimestampNanos
+  index, transact_time = memx_options_memo_sbe_v1_3.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Last Liquidity Ind: LastLiquidityIndType
+  index, last_liquidity_ind = memx_options_memo_sbe_v1_3.last_liquidity_ind.dissect(buffer, index, packet, parent)
+
+  -- Last Mkt: ExecutionReport_TradeLastMkt
+  index, last_mkt = memx_options_memo_sbe_v1_3.last_mkt.dissect(buffer, index, packet, parent)
+
+  -- Open Or Close: OpenOrCloseType
+  index, open_or_close = memx_options_memo_sbe_v1_3.open_or_close.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: TradingCapacityType
+  index, trading_capacity = memx_options_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Contra Trading Capacity: TradingCapacityType
+  index, contra_trading_capacity = memx_options_memo_sbe_v1_3.contra_trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Parties Groups: Struct of 2 fields
+  index, parties_groups = memx_options_memo_sbe_v1_3.parties_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Trade Message
+memx_options_memo_sbe_v1_3.execution_report_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.execution_report_trade_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memo_sbe_v1_3.fields.execution_report_trade_message, buffer(offset, 0))
+    local index = memx_options_memo_sbe_v1_3.execution_report_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memo_sbe_v1_3.execution_report_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memo_sbe_v1_3.execution_report_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Execution Report Rejected Message
 memx_options_memo_sbe_v1_3.execution_report_rejected_message = {}
 
@@ -5156,124 +6359,6 @@ memx_options_memo_sbe_v1_3.execution_report_bulk_quote_component_new_message.dis
   end
 end
 
--- Number Of Orders
-memx_options_memo_sbe_v1_3.number_of_orders = {}
-
--- Size: Number Of Orders
-memx_options_memo_sbe_v1_3.number_of_orders.size = 1
-
--- Display: Number Of Orders
-memx_options_memo_sbe_v1_3.number_of_orders.display = function(value)
-  return "Number Of Orders: "..value
-end
-
--- Dissect: Number Of Orders
-memx_options_memo_sbe_v1_3.number_of_orders.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.number_of_orders.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.number_of_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.number_of_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Group Id
-memx_options_memo_sbe_v1_3.risk_group_id = {}
-
--- Size: Risk Group Id
-memx_options_memo_sbe_v1_3.risk_group_id.size = 2
-
--- Display: Risk Group Id
-memx_options_memo_sbe_v1_3.risk_group_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Risk Group Id: No Value"
-  end
-
-  return "Risk Group Id: "..value
-end
-
--- Dissect: Risk Group Id
-memx_options_memo_sbe_v1_3.risk_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.risk_group_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.risk_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.risk_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Trade Prevention
-memx_options_memo_sbe_v1_3.match_trade_prevention = {}
-
--- Size: Match Trade Prevention
-memx_options_memo_sbe_v1_3.match_trade_prevention.size = 1
-
--- Display: Match Trade Prevention
-memx_options_memo_sbe_v1_3.match_trade_prevention.display = function(value)
-  if value == 0 then
-    return "Match Trade Prevention: Cancel Newest (0)"
-  end
-  if value == 1 then
-    return "Match Trade Prevention: Cancel Oldest (1)"
-  end
-  if value == 3 then
-    return "Match Trade Prevention: Cancel Both (3)"
-  end
-  if value == 255 then
-    return "Match Trade Prevention: Null Value (255)"
-  end
-  if value == 255 then
-    return "Match Trade Prevention: No Value"
-  end
-
-  return "Match Trade Prevention: Unknown("..value..")"
-end
-
--- Dissect: Match Trade Prevention
-memx_options_memo_sbe_v1_3.match_trade_prevention.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.match_trade_prevention.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.match_trade_prevention.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.match_trade_prevention, range, value, display)
-
-  return offset + length, value
-end
-
--- Mtp Group Id
-memx_options_memo_sbe_v1_3.mtp_group_id = {}
-
--- Size: Mtp Group Id
-memx_options_memo_sbe_v1_3.mtp_group_id.size = 2
-
--- Display: Mtp Group Id
-memx_options_memo_sbe_v1_3.mtp_group_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Mtp Group Id: No Value"
-  end
-
-  return "Mtp Group Id: "..value
-end
-
--- Dissect: Mtp Group Id
-memx_options_memo_sbe_v1_3.mtp_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.mtp_group_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.mtp_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.mtp_group_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Exec Inst
 memx_options_memo_sbe_v1_3.exec_inst = {}
 
@@ -5329,88 +6414,6 @@ memx_options_memo_sbe_v1_3.exec_inst.dissect = function(buffer, offset, packet, 
   end
 
   return offset + size, value
-end
-
--- Time In Force
-memx_options_memo_sbe_v1_3.time_in_force = {}
-
--- Size: Time In Force
-memx_options_memo_sbe_v1_3.time_in_force.size = 1
-
--- Display: Time In Force
-memx_options_memo_sbe_v1_3.time_in_force.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Time In Force: No Value"
-  end
-
-  if value == "0" then
-    return "Time In Force: Day (0)"
-  end
-  if value == "3" then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-memx_options_memo_sbe_v1_3.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.time_in_force.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-memx_options_memo_sbe_v1_3.symbol = {}
-
--- Size: Symbol
-memx_options_memo_sbe_v1_3.symbol.size = 6
-
--- Display: Symbol
-memx_options_memo_sbe_v1_3.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-memx_options_memo_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Bulk Quote Pending New Message
@@ -5516,130 +6519,6 @@ memx_options_memo_sbe_v1_3.execution_report_bulk_quote_pending_new_message.disse
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.execution_report_bulk_quote_pending_new_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reprice Behavior
-memx_options_memo_sbe_v1_3.reprice_behavior = {}
-
--- Size: Reprice Behavior
-memx_options_memo_sbe_v1_3.reprice_behavior.size = 1
-
--- Display: Reprice Behavior
-memx_options_memo_sbe_v1_3.reprice_behavior.display = function(value)
-  if value == 1 then
-    return "Reprice Behavior: Reprice Lock Cancel Cross (1)"
-  end
-  if value == 2 then
-    return "Reprice Behavior: Reprice Lock Reprice Cross (2)"
-  end
-  if value == 255 then
-    return "Reprice Behavior: Null Value (255)"
-  end
-  if value == 255 then
-    return "Reprice Behavior: No Value"
-  end
-
-  return "Reprice Behavior: Unknown("..value..")"
-end
-
--- Dissect: Reprice Behavior
-memx_options_memo_sbe_v1_3.reprice_behavior.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.reprice_behavior.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.reprice_behavior.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.reprice_behavior, range, value, display)
-
-  return offset + length, value
-end
-
--- Reprice Frequency
-memx_options_memo_sbe_v1_3.reprice_frequency = {}
-
--- Size: Reprice Frequency
-memx_options_memo_sbe_v1_3.reprice_frequency.size = 1
-
--- Display: Reprice Frequency
-memx_options_memo_sbe_v1_3.reprice_frequency.display = function(value)
-  if value == 0 then
-    return "Reprice Frequency: Single Reprice (0)"
-  end
-  if value == 1 then
-    return "Reprice Frequency: Continuous Reprice (1)"
-  end
-  if value == 2 then
-    return "Reprice Frequency: None (2)"
-  end
-  if value == 255 then
-    return "Reprice Frequency: Null Value (255)"
-  end
-  if value == 255 then
-    return "Reprice Frequency: No Value"
-  end
-
-  return "Reprice Frequency: Unknown("..value..")"
-end
-
--- Dissect: Reprice Frequency
-memx_options_memo_sbe_v1_3.reprice_frequency.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.reprice_frequency.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.reprice_frequency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.reprice_frequency, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Or Close Optional
-memx_options_memo_sbe_v1_3.open_or_close_optional = {}
-
--- Size: Open Or Close Optional
-memx_options_memo_sbe_v1_3.open_or_close_optional.size = 1
-
--- Display: Open Or Close Optional
-memx_options_memo_sbe_v1_3.open_or_close_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Open Or Close Optional: No Value"
-  end
-
-  if value == "O" then
-    return "Open Or Close Optional: Open (O)"
-  end
-  if value == "C" then
-    return "Open Or Close Optional: Close (C)"
-  end
-  if value == "0" then
-    return "Open Or Close Optional: Null Value (0)"
-  end
-  if value == 0 then
-    return "Open Or Close Optional: No Value"
-  end
-
-  return "Open Or Close Optional: Unknown("..value..")"
-end
-
--- Dissect: Open Or Close Optional
-memx_options_memo_sbe_v1_3.open_or_close_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.open_or_close_optional.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3.open_or_close_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.open_or_close_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report New Message
@@ -6042,62 +6921,6 @@ memx_options_memo_sbe_v1_3.allocation_instruction_message_allocations_groups.dis
   end
 end
 
--- Exec Ref Id Optional
-memx_options_memo_sbe_v1_3.exec_ref_id_optional = {}
-
--- Size: Exec Ref Id Optional
-memx_options_memo_sbe_v1_3.exec_ref_id_optional.size = 8
-
--- Display: Exec Ref Id Optional
-memx_options_memo_sbe_v1_3.exec_ref_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Exec Ref Id Optional: No Value"
-  end
-
-  return "Exec Ref Id Optional: "..value
-end
-
--- Dissect: Exec Ref Id Optional
-memx_options_memo_sbe_v1_3.exec_ref_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.exec_ref_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.exec_ref_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.exec_ref_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Alloc Report Id
-memx_options_memo_sbe_v1_3.ref_alloc_report_id = {}
-
--- Size: Ref Alloc Report Id
-memx_options_memo_sbe_v1_3.ref_alloc_report_id.size = 8
-
--- Display: Ref Alloc Report Id
-memx_options_memo_sbe_v1_3.ref_alloc_report_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Ref Alloc Report Id: No Value"
-  end
-
-  return "Ref Alloc Report Id: "..value
-end
-
--- Dissect: Ref Alloc Report Id
-memx_options_memo_sbe_v1_3.ref_alloc_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.ref_alloc_report_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.ref_alloc_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.ref_alloc_report_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Allocation Instruction Message
 memx_options_memo_sbe_v1_3.allocation_instruction_message = {}
 
@@ -6314,34 +7137,6 @@ memx_options_memo_sbe_v1_3.mass_cancel_request_message.dissect = function(buffer
   end
 end
 
--- Order Id Optional
-memx_options_memo_sbe_v1_3.order_id_optional = {}
-
--- Size: Order Id Optional
-memx_options_memo_sbe_v1_3.order_id_optional.size = 8
-
--- Display: Order Id Optional
-memx_options_memo_sbe_v1_3.order_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Id Optional: No Value"
-  end
-
-  return "Order Id Optional: "..value
-end
-
--- Dissect: Order Id Optional
-memx_options_memo_sbe_v1_3.order_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.order_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.order_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.order_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Cancel Request Message
 memx_options_memo_sbe_v1_3.order_cancel_request_message = {}
 
@@ -6480,58 +7275,6 @@ memx_options_memo_sbe_v1_3.order_cancel_replace_request_message.dissect = functi
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.order_cancel_replace_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Price Short
-memx_options_memo_sbe_v1_3.price_short = {}
-
--- Size: Price Short
-memx_options_memo_sbe_v1_3.price_short.size = 2
-
--- Display: Price Short
-memx_options_memo_sbe_v1_3.price_short.display = function(value)
-  return "Price Short: "..value
-end
-
--- Translate: Price Short
-memx_options_memo_sbe_v1_3.price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Short
-memx_options_memo_sbe_v1_3.price_short.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = memx_options_memo_sbe_v1_3.price_short.translate(raw)
-  local display = memx_options_memo_sbe_v1_3.price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity
-memx_options_memo_sbe_v1_3.quantity = {}
-
--- Size: Quantity
-memx_options_memo_sbe_v1_3.quantity.size = 2
-
--- Display: Quantity
-memx_options_memo_sbe_v1_3.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-memx_options_memo_sbe_v1_3.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- One Sided Quotes Group
@@ -6841,110 +7584,6 @@ memx_options_memo_sbe_v1_3.short_one_sided_bulk_quote_message.dissect = function
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offer Px
-memx_options_memo_sbe_v1_3.offer_px = {}
-
--- Size: Offer Px
-memx_options_memo_sbe_v1_3.offer_px.size = 2
-
--- Display: Offer Px
-memx_options_memo_sbe_v1_3.offer_px.display = function(value)
-  return "Offer Px: "..value
-end
-
--- Translate: Offer Px
-memx_options_memo_sbe_v1_3.offer_px.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Px
-memx_options_memo_sbe_v1_3.offer_px.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.offer_px.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = memx_options_memo_sbe_v1_3.offer_px.translate(raw)
-  local display = memx_options_memo_sbe_v1_3.offer_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.offer_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size
-memx_options_memo_sbe_v1_3.offer_size = {}
-
--- Size: Offer Size
-memx_options_memo_sbe_v1_3.offer_size.size = 2
-
--- Display: Offer Size
-memx_options_memo_sbe_v1_3.offer_size.display = function(value)
-  return "Offer Size: "..value
-end
-
--- Dissect: Offer Size
-memx_options_memo_sbe_v1_3.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Px
-memx_options_memo_sbe_v1_3.bid_px = {}
-
--- Size: Bid Px
-memx_options_memo_sbe_v1_3.bid_px.size = 2
-
--- Display: Bid Px
-memx_options_memo_sbe_v1_3.bid_px.display = function(value)
-  return "Bid Px: "..value
-end
-
--- Translate: Bid Px
-memx_options_memo_sbe_v1_3.bid_px.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Px
-memx_options_memo_sbe_v1_3.bid_px.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.bid_px.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = memx_options_memo_sbe_v1_3.bid_px.translate(raw)
-  local display = memx_options_memo_sbe_v1_3.bid_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.bid_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-memx_options_memo_sbe_v1_3.bid_size = {}
-
--- Size: Bid Size
-memx_options_memo_sbe_v1_3.bid_size.size = 2
-
--- Display: Bid Size
-memx_options_memo_sbe_v1_3.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-memx_options_memo_sbe_v1_3.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.bid_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Two Sided Quotes Group
@@ -7523,200 +8162,6 @@ memx_options_memo_sbe_v1_3.payload.dissect = function(buffer, offset, packet, pa
   return offset
 end
 
--- Version
-memx_options_memo_sbe_v1_3.version = {}
-
--- Size: Version
-memx_options_memo_sbe_v1_3.version.size = 2
-
--- Display: Version
-memx_options_memo_sbe_v1_3.version.display = function(value)
-  if value == 259 then
-    return "Version: Version 1.3"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-memx_options_memo_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-memx_options_memo_sbe_v1_3.schema_id = {}
-
--- Size: Schema Id
-memx_options_memo_sbe_v1_3.schema_id.size = 1
-
--- Display: Schema Id
-memx_options_memo_sbe_v1_3.schema_id.display = function(value)
-  if value == 9 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-memx_options_memo_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-memx_options_memo_sbe_v1_3.template_id = {}
-
--- Size: Template Id
-memx_options_memo_sbe_v1_3.template_id.size = 1
-
--- Display: Template Id
-memx_options_memo_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: New Order Single Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Short Two Sided Bulk Quote Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Long Two Sided Bulk Quote Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Short One Sided Bulk Quote Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Long One Sided Bulk Quote Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Order Cancel Replace Request Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Order Cancel Request Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Mass Cancel Request Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Mass Cancel Clear Lockout Request Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Allocation Instruction Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Execution Report New Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Execution Report Bulk Quote Pending New Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Execution Report Bulk Quote Component New Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Execution Report Rejected Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Execution Report Trade Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Execution Report Pending Cancel Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Execution Report Canceled Message (17)"
-  end
-  if value == 18 then
-    return "Template Id: Execution Report Pending Replace Message (18)"
-  end
-  if value == 19 then
-    return "Template Id: Execution Report Replaced Message (19)"
-  end
-  if value == 20 then
-    return "Template Id: Execution Report Trade Correction Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Execution Report Trade Break Message (21)"
-  end
-  if value == 22 then
-    return "Template Id: Execution Report Restatement Message (22)"
-  end
-  if value == 23 then
-    return "Template Id: Pending Mass Cancel Message (23)"
-  end
-  if value == 24 then
-    return "Template Id: Mass Cancel Reject Message (24)"
-  end
-  if value == 25 then
-    return "Template Id: Mass Cancel Done Message (25)"
-  end
-  if value == 26 then
-    return "Template Id: Order Cancel Reject Message (26)"
-  end
-  if value == 27 then
-    return "Template Id: Allocation Instruction Ack Message (27)"
-  end
-  if value == 28 then
-    return "Template Id: Allocation Report Message (28)"
-  end
-  if value == 29 then
-    return "Template Id: User Notification Message (29)"
-  end
-  if value == 30 then
-    return "Template Id: Mass Cancel Clear Lockout Reject Message (30)"
-  end
-  if value == 31 then
-    return "Template Id: Mass Cancel Clear Lockout Done Message (31)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-memx_options_memo_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-memx_options_memo_sbe_v1_3.block_length = {}
-
--- Size: Block Length
-memx_options_memo_sbe_v1_3.block_length.size = 2
-
--- Display: Block Length
-memx_options_memo_sbe_v1_3.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-memx_options_memo_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 memx_options_memo_sbe_v1_3.sbe_header = {}
 
@@ -7870,29 +8315,6 @@ memx_options_memo_sbe_v1_3.sequenced_message.dissect = function(buffer, offset, 
   end
 end
 
--- Total Sequence Count
-memx_options_memo_sbe_v1_3.total_sequence_count = {}
-
--- Size: Total Sequence Count
-memx_options_memo_sbe_v1_3.total_sequence_count.size = 8
-
--- Display: Total Sequence Count
-memx_options_memo_sbe_v1_3.total_sequence_count.display = function(value)
-  return "Total Sequence Count: "..value
-end
-
--- Dissect: Total Sequence Count
-memx_options_memo_sbe_v1_3.total_sequence_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.total_sequence_count.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.total_sequence_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.total_sequence_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Complete Message
 memx_options_memo_sbe_v1_3.stream_complete_message = {}
 
@@ -7933,39 +8355,6 @@ memx_options_memo_sbe_v1_3.stream_complete_message.dissect = function(buffer, of
   end
 end
 
--- Stream Reject Code
-memx_options_memo_sbe_v1_3.stream_reject_code = {}
-
--- Size: Stream Reject Code
-memx_options_memo_sbe_v1_3.stream_reject_code.size = 1
-
--- Display: Stream Reject Code
-memx_options_memo_sbe_v1_3.stream_reject_code.display = function(value)
-  if value == "R" then
-    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
-  end
-  if value == "P" then
-    return "Stream Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Stream Reject Code: Sequence Number Out Of Range (S)"
-  end
-
-  return "Stream Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Stream Reject Code
-memx_options_memo_sbe_v1_3.stream_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.stream_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_memo_sbe_v1_3.stream_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.stream_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stream Rejected Message
 memx_options_memo_sbe_v1_3.stream_rejected_message = {}
 
@@ -8004,52 +8393,6 @@ memx_options_memo_sbe_v1_3.stream_rejected_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.stream_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Max Sequence Number
-memx_options_memo_sbe_v1_3.max_sequence_number = {}
-
--- Size: Max Sequence Number
-memx_options_memo_sbe_v1_3.max_sequence_number.size = 8
-
--- Display: Max Sequence Number
-memx_options_memo_sbe_v1_3.max_sequence_number.display = function(value)
-  return "Max Sequence Number: "..value
-end
-
--- Dissect: Max Sequence Number
-memx_options_memo_sbe_v1_3.max_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.max_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.max_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.max_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Sequence Number
-memx_options_memo_sbe_v1_3.next_sequence_number = {}
-
--- Size: Next Sequence Number
-memx_options_memo_sbe_v1_3.next_sequence_number.size = 8
-
--- Display: Next Sequence Number
-memx_options_memo_sbe_v1_3.next_sequence_number.display = function(value)
-  return "Next Sequence Number: "..value
-end
-
--- Dissect: Next Sequence Number
-memx_options_memo_sbe_v1_3.next_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.next_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.next_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.next_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Stream Begin Message
@@ -8096,29 +8439,6 @@ memx_options_memo_sbe_v1_3.stream_begin_message.dissect = function(buffer, offse
   end
 end
 
--- Message Count
-memx_options_memo_sbe_v1_3.message_count = {}
-
--- Size: Message Count
-memx_options_memo_sbe_v1_3.message_count.size = 8
-
--- Display: Message Count
-memx_options_memo_sbe_v1_3.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-memx_options_memo_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Complete Message
 memx_options_memo_sbe_v1_3.replay_complete_message = {}
 
@@ -8159,42 +8479,6 @@ memx_options_memo_sbe_v1_3.replay_complete_message.dissect = function(buffer, of
   end
 end
 
--- Replay Reject Code
-memx_options_memo_sbe_v1_3.replay_reject_code = {}
-
--- Size: Replay Reject Code
-memx_options_memo_sbe_v1_3.replay_reject_code.size = 1
-
--- Display: Replay Reject Code
-memx_options_memo_sbe_v1_3.replay_reject_code.display = function(value)
-  if value == "R" then
-    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
-  end
-  if value == "A" then
-    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
-  end
-  if value == "P" then
-    return "Replay Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Replay Reject Code: Sequence Number Out Of Range (S)"
-  end
-
-  return "Replay Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Replay Reject Code
-memx_options_memo_sbe_v1_3.replay_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.replay_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_memo_sbe_v1_3.replay_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.replay_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Rejected Message
 memx_options_memo_sbe_v1_3.replay_rejected_message = {}
 
@@ -8233,29 +8517,6 @@ memx_options_memo_sbe_v1_3.replay_rejected_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.replay_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Pending Message Count
-memx_options_memo_sbe_v1_3.pending_message_count = {}
-
--- Size: Pending Message Count
-memx_options_memo_sbe_v1_3.pending_message_count.size = 4
-
--- Display: Pending Message Count
-memx_options_memo_sbe_v1_3.pending_message_count.display = function(value)
-  return "Pending Message Count: "..value
-end
-
--- Dissect: Pending Message Count
-memx_options_memo_sbe_v1_3.pending_message_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.pending_message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.pending_message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.pending_message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replay Begin Message
@@ -8302,29 +8563,6 @@ memx_options_memo_sbe_v1_3.replay_begin_message.dissect = function(buffer, offse
   end
 end
 
--- Session Id
-memx_options_memo_sbe_v1_3.session_id = {}
-
--- Size: Session Id
-memx_options_memo_sbe_v1_3.session_id.size = 8
-
--- Display: Session Id
-memx_options_memo_sbe_v1_3.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-memx_options_memo_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memo_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Start Of Session Message
 memx_options_memo_sbe_v1_3.start_of_session_message = {}
 
@@ -8365,42 +8603,6 @@ memx_options_memo_sbe_v1_3.start_of_session_message.dissect = function(buffer, o
   end
 end
 
--- Login Reject Code
-memx_options_memo_sbe_v1_3.login_reject_code = {}
-
--- Size: Login Reject Code
-memx_options_memo_sbe_v1_3.login_reject_code.size = 1
-
--- Display: Login Reject Code
-memx_options_memo_sbe_v1_3.login_reject_code.display = function(value)
-  if value == "T" then
-    return "Login Reject Code: Malformed Token (T)"
-  end
-  if value == "U" then
-    return "Login Reject Code: Token Type Unsupported (U)"
-  end
-  if value == "V" then
-    return "Login Reject Code: Token Type Invalid (V)"
-  end
-  if value == "A" then
-    return "Login Reject Code: Authorization Failed (A)"
-  end
-
-  return "Login Reject Code: Unknown("..value..")"
-end
-
--- Dissect: Login Reject Code
-memx_options_memo_sbe_v1_3.login_reject_code.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.login_reject_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_memo_sbe_v1_3.login_reject_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.login_reject_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Rejected Message
 memx_options_memo_sbe_v1_3.login_rejected_message = {}
 
@@ -8439,39 +8641,6 @@ memx_options_memo_sbe_v1_3.login_rejected_message.dissect = function(buffer, off
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.login_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Supported Request Mode
-memx_options_memo_sbe_v1_3.supported_request_mode = {}
-
--- Size: Supported Request Mode
-memx_options_memo_sbe_v1_3.supported_request_mode.size = 1
-
--- Display: Supported Request Mode
-memx_options_memo_sbe_v1_3.supported_request_mode.display = function(value)
-  if value == "S" then
-    return "Supported Request Mode: Stream (S)"
-  end
-  if value == "R" then
-    return "Supported Request Mode: Replay (R)"
-  end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
-
-  return "Supported Request Mode: Unknown("..value..")"
-end
-
--- Dissect: Supported Request Mode
-memx_options_memo_sbe_v1_3.supported_request_mode.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.supported_request_mode.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_memo_sbe_v1_3.supported_request_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.supported_request_mode, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Message
@@ -8643,29 +8812,6 @@ memx_options_memo_sbe_v1_3.replay_all_request_message.dissect = function(buffer,
   end
 end
 
--- Count
-memx_options_memo_sbe_v1_3.count = {}
-
--- Size: Count
-memx_options_memo_sbe_v1_3.count.size = 4
-
--- Display: Count
-memx_options_memo_sbe_v1_3.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-memx_options_memo_sbe_v1_3.count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replay Request Message
 memx_options_memo_sbe_v1_3.replay_request_message = {}
 
@@ -8712,52 +8858,6 @@ memx_options_memo_sbe_v1_3.replay_request_message.dissect = function(buffer, off
     -- Skip element, add fields directly
     return memx_options_memo_sbe_v1_3.replay_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Token
-memx_options_memo_sbe_v1_3.token = {}
-
--- Size: Token
-memx_options_memo_sbe_v1_3.token.size = 1
-
--- Display: Token
-memx_options_memo_sbe_v1_3.token.display = function(value)
-  return "Token: "..value
-end
-
--- Dissect: Token
-memx_options_memo_sbe_v1_3.token.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_memo_sbe_v1_3.token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.token, range, value, display)
-
-  return offset + length, value
-end
-
--- Token Type
-memx_options_memo_sbe_v1_3.token_type = {}
-
--- Size: Token Type
-memx_options_memo_sbe_v1_3.token_type.size = 1
-
--- Display: Token Type
-memx_options_memo_sbe_v1_3.token_type.display = function(value)
-  return "Token Type: "..value
-end
-
--- Dissect: Token Type
-memx_options_memo_sbe_v1_3.token_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.token_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = memx_options_memo_sbe_v1_3.token_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.token_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Request Message
@@ -8871,101 +8971,6 @@ memx_options_memo_sbe_v1_3.data.dissect = function(buffer, offset, packet, paren
   end
 
   return offset
-end
-
--- Message Length
-memx_options_memo_sbe_v1_3.message_length = {}
-
--- Size: Message Length
-memx_options_memo_sbe_v1_3.message_length.size = 2
-
--- Display: Message Length
-memx_options_memo_sbe_v1_3.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-memx_options_memo_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-memx_options_memo_sbe_v1_3.message_type = {}
-
--- Size: Message Type
-memx_options_memo_sbe_v1_3.message_type.size = 1
-
--- Display: Message Type
-memx_options_memo_sbe_v1_3.message_type.display = function(value)
-  if value == 100 then
-    return "Message Type: Login Request (100)"
-  end
-  if value == 101 then
-    return "Message Type: Replay Request (101)"
-  end
-  if value == 102 then
-    return "Message Type: Replay All Request (102)"
-  end
-  if value == 103 then
-    return "Message Type: Stream Request (103)"
-  end
-  if value == 104 then
-    return "Message Type: Unsequenced Message (104)"
-  end
-  if value == 1 then
-    return "Message Type: Login Accepted (1)"
-  end
-  if value == 2 then
-    return "Message Type: Login Rejected (2)"
-  end
-  if value == 3 then
-    return "Message Type: Start Of Session (3)"
-  end
-  if value == 3 then
-    return "Message Type: End Of Session (3)"
-  end
-  if value == 5 then
-    return "Message Type: Replay Begin (5)"
-  end
-  if value == 6 then
-    return "Message Type: Replay Rejected (6)"
-  end
-  if value == 7 then
-    return "Message Type: Replay Complete (7)"
-  end
-  if value == 8 then
-    return "Message Type: Stream Begin (8)"
-  end
-  if value == 9 then
-    return "Message Type: Stream Rejected (9)"
-  end
-  if value == 10 then
-    return "Message Type: Stream Complete (10)"
-  end
-  if value == 11 then
-    return "Message Type: Sequenced Message (11)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-memx_options_memo_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memo_sbe_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

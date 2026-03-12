@@ -119,8 +119,288 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq Common SoupBin Tcp 3.0
+-- Nasdaq Common SoupBin Tcp 3.0 Fields
 -----------------------------------------------------------------------
+
+-- Packet Length
+nasdaq_common_soupbin_tcp_v3_0.packet_length = {}
+
+-- Size: Packet Length
+nasdaq_common_soupbin_tcp_v3_0.packet_length.size = 2
+
+-- Display: Packet Length
+nasdaq_common_soupbin_tcp_v3_0.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+nasdaq_common_soupbin_tcp_v3_0.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_common_soupbin_tcp_v3_0.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+nasdaq_common_soupbin_tcp_v3_0.packet_type = {}
+
+-- Size: Packet Type
+nasdaq_common_soupbin_tcp_v3_0.packet_type.size = 1
+
+-- Display: Packet Type
+nasdaq_common_soupbin_tcp_v3_0.packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+nasdaq_common_soupbin_tcp_v3_0.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nasdaq_common_soupbin_tcp_v3_0.password = {}
+
+-- Size: Password
+nasdaq_common_soupbin_tcp_v3_0.password.size = 10
+
+-- Display: Password
+nasdaq_common_soupbin_tcp_v3_0.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nasdaq_common_soupbin_tcp_v3_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+nasdaq_common_soupbin_tcp_v3_0.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+nasdaq_common_soupbin_tcp_v3_0.requested_session = {}
+
+-- Size: Requested Session
+nasdaq_common_soupbin_tcp_v3_0.requested_session.size = 10
+
+-- Display: Requested Session
+nasdaq_common_soupbin_tcp_v3_0.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+nasdaq_common_soupbin_tcp_v3_0.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.requested_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.sequence_number.size = 20
+
+-- Display: Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_common_soupbin_tcp_v3_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message = {}
+
+-- Display: Sequenced Message
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message.display = function(value)
+  return "Sequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Sequenced Message
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message, range, value, display)
+
+  return offset + size, value
+end
+
+-- Sequenced Message Type
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.display = function(value)
+  return "Sequenced Message Type: "..value
+end
+
+-- Dissect: Sequenced Message Type
+nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_common_soupbin_tcp_v3_0.session = {}
+
+-- Size: Session
+nasdaq_common_soupbin_tcp_v3_0.session.size = 10
+
+-- Display: Session
+nasdaq_common_soupbin_tcp_v3_0.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_common_soupbin_tcp_v3_0.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+nasdaq_common_soupbin_tcp_v3_0.text = {}
+
+-- Size: Text
+nasdaq_common_soupbin_tcp_v3_0.text.size = 1
+
+-- Display: Text
+nasdaq_common_soupbin_tcp_v3_0.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+nasdaq_common_soupbin_tcp_v3_0.text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.text, range, value, display)
+
+  return offset + length, value
+end
 
 -- Unsequenced Message
 nasdaq_common_soupbin_tcp_v3_0.unsequenced_message = {}
@@ -163,6 +443,34 @@ nasdaq_common_soupbin_tcp_v3_0.unsequenced_message_type.dissect = function(buffe
 
   return offset + length, value
 end
+
+-- Username
+nasdaq_common_soupbin_tcp_v3_0.username = {}
+
+-- Size: Username
+nasdaq_common_soupbin_tcp_v3_0.username.size = 6
+
+-- Display: Username
+nasdaq_common_soupbin_tcp_v3_0.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nasdaq_common_soupbin_tcp_v3_0.username.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbin_tcp_v3_0.username.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbin_tcp_v3_0.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq Common SoupBin Tcp 3.0
+-----------------------------------------------------------------------
 
 -- Unsequenced Data Packet
 nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet = {}
@@ -223,98 +531,6 @@ nasdaq_common_soupbin_tcp_v3_0.unsequenced_data_packet.dissect = function(buffer
   end
 end
 
--- Requested Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number = {}
-
--- Size: Requested Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size = 20
-
--- Display: Requested Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.display = function(value)
-  return "Requested Sequence Number: "..value
-end
-
--- Dissect: Requested Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Requested Session
-nasdaq_common_soupbin_tcp_v3_0.requested_session = {}
-
--- Size: Requested Session
-nasdaq_common_soupbin_tcp_v3_0.requested_session.size = 10
-
--- Display: Requested Session
-nasdaq_common_soupbin_tcp_v3_0.requested_session.display = function(value)
-  return "Requested Session: "..value
-end
-
--- Dissect: Requested Session
-nasdaq_common_soupbin_tcp_v3_0.requested_session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.requested_session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.requested_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.requested_session, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-nasdaq_common_soupbin_tcp_v3_0.password = {}
-
--- Size: Password
-nasdaq_common_soupbin_tcp_v3_0.password.size = 10
-
--- Display: Password
-nasdaq_common_soupbin_tcp_v3_0.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-nasdaq_common_soupbin_tcp_v3_0.password.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.password.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-nasdaq_common_soupbin_tcp_v3_0.username = {}
-
--- Size: Username
-nasdaq_common_soupbin_tcp_v3_0.username.size = 6
-
--- Display: Username
-nasdaq_common_soupbin_tcp_v3_0.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-nasdaq_common_soupbin_tcp_v3_0.username.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.username.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Request Packet
 nasdaq_common_soupbin_tcp_v3_0.login_request_packet = {}
 
@@ -365,48 +581,6 @@ nasdaq_common_soupbin_tcp_v3_0.login_request_packet.dissect = function(buffer, o
     -- Skip element, add fields directly
     return nasdaq_common_soupbin_tcp_v3_0.login_request_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequenced Message
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message = {}
-
--- Display: Sequenced Message
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message.display = function(value)
-  return "Sequenced Message: "..value
-end
-
--- Dissect runtime sized field: Sequenced Message
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_message.display(value, packet, parent, size)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message, range, value, display)
-
-  return offset + size, value
-end
-
--- Sequenced Message Type
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type = {}
-
--- Size: Sequenced Message Type
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.size = 1
-
--- Display: Sequenced Message Type
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.display = function(value)
-  return "Sequenced Message Type: "..value
-end
-
--- Dissect: Sequenced Message Type
-nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.sequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Data Packet
@@ -468,29 +642,6 @@ nasdaq_common_soupbin_tcp_v3_0.sequenced_data_packet.dissect = function(buffer, 
   end
 end
 
--- Reject Reason Code
-nasdaq_common_soupbin_tcp_v3_0.reject_reason_code = {}
-
--- Size: Reject Reason Code
-nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size = 1
-
--- Display: Reject Reason Code
-nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
-end
-
--- Dissect: Reject Reason Code
-nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.reject_reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.reject_reason_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Rejected Packet
 nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet = {}
 
@@ -529,52 +680,6 @@ nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nasdaq_common_soupbin_tcp_v3_0.login_rejected_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_common_soupbin_tcp_v3_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_common_soupbin_tcp_v3_0.session = {}
-
--- Size: Session
-nasdaq_common_soupbin_tcp_v3_0.session.size = 10
-
--- Display: Session
-nasdaq_common_soupbin_tcp_v3_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_common_soupbin_tcp_v3_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Packet
@@ -619,29 +724,6 @@ nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nasdaq_common_soupbin_tcp_v3_0.login_accepted_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Text
-nasdaq_common_soupbin_tcp_v3_0.text = {}
-
--- Size: Text
-nasdaq_common_soupbin_tcp_v3_0.text.size = 1
-
--- Display: Text
-nasdaq_common_soupbin_tcp_v3_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_common_soupbin_tcp_v3_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.text, range, value, display)
-
-  return offset + length, value
 end
 
 -- Debug Packet
@@ -715,83 +797,6 @@ nasdaq_common_soupbin_tcp_v3_0.payload.dissect = function(buffer, offset, packet
   end
 
   return offset
-end
-
--- Packet Type
-nasdaq_common_soupbin_tcp_v3_0.packet_type = {}
-
--- Size: Packet Type
-nasdaq_common_soupbin_tcp_v3_0.packet_type.size = 1
-
--- Display: Packet Type
-nasdaq_common_soupbin_tcp_v3_0.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nasdaq_common_soupbin_tcp_v3_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_common_soupbin_tcp_v3_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-nasdaq_common_soupbin_tcp_v3_0.packet_length = {}
-
--- Size: Packet Length
-nasdaq_common_soupbin_tcp_v3_0.packet_length.size = 2
-
--- Display: Packet Length
-nasdaq_common_soupbin_tcp_v3_0.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-nasdaq_common_soupbin_tcp_v3_0.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbin_tcp_v3_0.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_common_soupbin_tcp_v3_0.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.packet_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

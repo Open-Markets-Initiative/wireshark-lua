@@ -5,9 +5,9 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [BestBidAndOffer][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1255 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
-| Equities | [DepthOfBook][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1255 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
-| Equities | [LastSale][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1295 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
+| Equities | [BestBidAndOffer][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Dissector] | 3/1/2025 | 1260 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.BestBidAndOffer.Itch.v1.0.Pdf] |
+| Equities | [DepthOfBook][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.DepthOfBook.Itch.v1.0.Dissector] | 3/1/2025 | 1260 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.DepthOfBook.Itch.v1.0.Pdf] |
+| Equities | [LastSale][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | Itch | [1.0][BruceAts.Equities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1300 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.Equities.LastSale.Itch.v1.0.Pdf] |
 
 
 BruceAts: [website](https://www.brucemarkets.com "Go to Bruce Markets")

@@ -1589,277 +1589,3078 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Eurex Cash Eti T7 12.0
+-- Eurex Cash Eti T7 12.0 Fields
 -----------------------------------------------------------------------
 
--- Pad 1
-eurex_cash_eti_t7_v12_0.pad_1 = {}
+-- Account
+eurex_cash_eti_t7_v12_0.account = {}
 
--- Size: Pad 1
-eurex_cash_eti_t7_v12_0.pad_1.size = 1
+-- Size: Account
+eurex_cash_eti_t7_v12_0.account.size = 2
 
--- Display: Pad 1
-eurex_cash_eti_t7_v12_0.pad_1.display = function(value)
-  return "Pad 1: "..value
-end
-
--- Dissect: Pad 1
-eurex_cash_eti_t7_v12_0.pad_1.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Target Party Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_executing_trader = {}
-
--- Size: Target Party Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_executing_trader.size = 6
-
--- Display: Target Party Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_executing_trader.display = function(value)
+-- Display: Account
+eurex_cash_eti_t7_v12_0.account.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Target Party Executing Trader: No Value"
+    return "Account: No Value"
   end
 
-  return "Target Party Executing Trader: "..value
+  return "Account: "..value
 end
 
--- Dissect: Target Party Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_party_executing_trader.size
+-- Dissect: Account
+eurex_cash_eti_t7_v12_0.account.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.account.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.target_party_executing_trader.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.account.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_executing_trader, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.account, range, value, display)
 
   return offset + length, value
 end
 
--- Target Party Executing Firm
-eurex_cash_eti_t7_v12_0.target_party_executing_firm = {}
+-- Accrued Interes Amt
+eurex_cash_eti_t7_v12_0.accrued_interes_amt = {}
 
--- Size: Target Party Executing Firm
-eurex_cash_eti_t7_v12_0.target_party_executing_firm.size = 5
+-- Size: Accrued Interes Amt
+eurex_cash_eti_t7_v12_0.accrued_interes_amt.size = 8
 
--- Display: Target Party Executing Firm
-eurex_cash_eti_t7_v12_0.target_party_executing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Target Party Executing Firm: No Value"
+-- Display: Accrued Interes Amt
+eurex_cash_eti_t7_v12_0.accrued_interes_amt.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Accrued Interes Amt: No Value"
   end
 
-  return "Target Party Executing Firm: "..value
+  return "Accrued Interes Amt: "..value
 end
 
--- Dissect: Target Party Executing Firm
-eurex_cash_eti_t7_v12_0.target_party_executing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_party_executing_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.target_party_executing_firm.display(value, buffer, offset, packet, parent)
+-- Translate: Accrued Interes Amt
+eurex_cash_eti_t7_v12_0.accrued_interes_amt.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_executing_firm, range, value, display)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Accrued Interes Amt
+eurex_cash_eti_t7_v12_0.accrued_interes_amt.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.accrued_interes_amt.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.accrued_interes_amt.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.accrued_interes_amt.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.accrued_interes_amt, range, value, display)
 
   return offset + length, value
 end
 
--- Target Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_id_executing_trader = {}
+-- Activation Date
+eurex_cash_eti_t7_v12_0.activation_date = {}
 
--- Size: Target Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size = 4
+-- Size: Activation Date
+eurex_cash_eti_t7_v12_0.activation_date.size = 4
 
--- Display: Target Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.display = function(value)
+-- Display: Activation Date
+eurex_cash_eti_t7_v12_0.activation_date.display = function(value)
   -- Check if field has value
   if value == 0xFFFFFFFF then
-    return "Target Party Id Executing Trader: No Value"
+    return "Activation Date: No Value"
   end
 
-  return "Target Party Id Executing Trader: "..value
+  return "Activation Date: "..value
 end
 
--- Dissect: Target Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size
+-- Dissect: Activation Date
+eurex_cash_eti_t7_v12_0.activation_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.activation_date.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.activation_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_id_executing_trader, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.activation_date, range, value, display)
 
   return offset + length, value
 end
 
--- Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp = {}
+-- Affected Order Id
+eurex_cash_eti_t7_v12_0.affected_order_id = {}
 
--- Size: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.size =
-  eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size + 
-  eurex_cash_eti_t7_v12_0.target_party_executing_firm.size + 
-  eurex_cash_eti_t7_v12_0.target_party_executing_trader.size + 
-  eurex_cash_eti_t7_v12_0.pad_1.size
+-- Size: Affected Order Id
+eurex_cash_eti_t7_v12_0.affected_order_id.size = 8
 
--- Display: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.fields = function(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
-  local index = offset
-
-  -- Implicit Xetra En Light Target Parties Comp Index
-  if xetra_en_light_target_parties_comp_index ~= nil then
-    local iteration = parent:add(omi_eurex_cash_eti_t7_v12_0.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
-    iteration:set_generated()
+-- Display: Affected Order Id
+eurex_cash_eti_t7_v12_0.affected_order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Affected Order Id: No Value"
   end
 
-  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, target_party_id_executing_trader = eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
-  index, target_party_executing_firm = eurex_cash_eti_t7_v12_0.target_party_executing_firm.dissect(buffer, index, packet, parent)
-
-  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
-  index, target_party_executing_trader = eurex_cash_eti_t7_v12_0.target_party_executing_trader.dissect(buffer, index, packet, parent)
-
-  -- Pad 1: 1 Byte
-  index, pad_1 = eurex_cash_eti_t7_v12_0.pad_1.dissect(buffer, index, packet, parent)
-
-  return index
+  return "Affected Order Id: "..value
 end
 
--- Dissect: Xetra En Light Target Parties Comp
-eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.dissect = function(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
-  if show.xetra_en_light_target_parties_comp then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_eurex_cash_eti_t7_v12_0.fields.xetra_en_light_target_parties_comp, buffer(offset, 0))
-    local index = eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.fields(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.display(packet, parent, length)
-    parent:append_text(display)
+-- Dissect: Affected Order Id
+eurex_cash_eti_t7_v12_0.affected_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.affected_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.affected_order_id.display(value, buffer, offset, packet, parent)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.fields(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.affected_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Affected Order Request Id
+eurex_cash_eti_t7_v12_0.affected_order_request_id = {}
+
+-- Size: Affected Order Request Id
+eurex_cash_eti_t7_v12_0.affected_order_request_id.size = 4
+
+-- Display: Affected Order Request Id
+eurex_cash_eti_t7_v12_0.affected_order_request_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Affected Order Request Id: No Value"
   end
+
+  return "Affected Order Request Id: "..value
 end
 
--- Pad 3
-eurex_cash_eti_t7_v12_0.pad_3 = {}
+-- Dissect: Affected Order Request Id
+eurex_cash_eti_t7_v12_0.affected_order_request_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.affected_order_request_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.affected_order_request_id.display(value, buffer, offset, packet, parent)
 
--- Size: Pad 3
-eurex_cash_eti_t7_v12_0.pad_3.size = 3
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.affected_order_request_id, range, value, display)
 
--- Display: Pad 3
-eurex_cash_eti_t7_v12_0.pad_3.display = function(value)
-  return "Pad 3: "..value
+  return offset + length, value
 end
 
--- Dissect: Pad 3
-eurex_cash_eti_t7_v12_0.pad_3.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_3.size
+-- Affected Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id = {}
+
+-- Size: Affected Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size = 8
+
+-- Display: Affected Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Affected Orig Cl Ord Id: No Value"
+  end
+
+  return "Affected Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Affected Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.affected_orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alignment Padding
+eurex_cash_eti_t7_v12_0.alignment_padding = {}
+
+-- Display: Alignment Padding
+eurex_cash_eti_t7_v12_0.alignment_padding.display = function(value)
+  return "Alignment Padding: "..value
+end
+
+-- Dissect runtime sized field: Alignment Padding
+eurex_cash_eti_t7_v12_0.alignment_padding.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.alignment_padding.display(value, packet, parent, size)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alignment_padding, range, value, display)
+
+  return offset + size, value
+end
+
+-- Alloc Id
+eurex_cash_eti_t7_v12_0.alloc_id = {}
+
+-- Size: Alloc Id
+eurex_cash_eti_t7_v12_0.alloc_id.size = 4
+
+-- Display: Alloc Id
+eurex_cash_eti_t7_v12_0.alloc_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Alloc Id: No Value"
+  end
+
+  return "Alloc Id: "..value
+end
+
+-- Dissect: Alloc Id
+eurex_cash_eti_t7_v12_0.alloc_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.alloc_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.alloc_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alloc_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Method
+eurex_cash_eti_t7_v12_0.alloc_method = {}
+
+-- Size: Alloc Method
+eurex_cash_eti_t7_v12_0.alloc_method.size = 1
+
+-- Display: Alloc Method
+eurex_cash_eti_t7_v12_0.alloc_method.display = function(value)
+  if value == 1 then
+    return "Alloc Method: Automatic Random (1)"
+  end
+  if value == 3 then
+    return "Alloc Method: Manual (3)"
+  end
+  if value == 0xFF then
+    return "Alloc Method: No Value"
+  end
+
+  return "Alloc Method: Unknown("..value..")"
+end
+
+-- Dissect: Alloc Method
+eurex_cash_eti_t7_v12_0.alloc_method.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.alloc_method.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.alloc_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alloc_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alloc Qty
+eurex_cash_eti_t7_v12_0.alloc_qty = {}
+
+-- Size: Alloc Qty
+eurex_cash_eti_t7_v12_0.alloc_qty.size = 8
+
+-- Display: Alloc Qty
+eurex_cash_eti_t7_v12_0.alloc_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Alloc Qty: No Value"
+  end
+
+  return "Alloc Qty: "..value
+end
+
+-- Translate: Alloc Qty
+eurex_cash_eti_t7_v12_0.alloc_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Alloc Qty
+eurex_cash_eti_t7_v12_0.alloc_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.alloc_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.alloc_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.alloc_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alloc_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Beg Msg Id
+eurex_cash_eti_t7_v12_0.appl_beg_msg_id = {}
+
+-- Size: Appl Beg Msg Id
+eurex_cash_eti_t7_v12_0.appl_beg_msg_id.size = 16
+
+-- Display: Appl Beg Msg Id
+eurex_cash_eti_t7_v12_0.appl_beg_msg_id.display = function(value)
+  return "Appl Beg Msg Id: "..value
+end
+
+-- Dissect: Appl Beg Msg Id
+eurex_cash_eti_t7_v12_0.appl_beg_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_beg_msg_id.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_3.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.appl_beg_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Free Text 5
-eurex_cash_eti_t7_v12_0.free_text_5 = {}
-
--- Size: Free Text 5
-eurex_cash_eti_t7_v12_0.free_text_5.size = 132
-
--- Display: Free Text 5
-eurex_cash_eti_t7_v12_0.free_text_5.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Free Text 5: No Value"
-  end
-
-  return "Free Text 5: "..value
-end
-
--- Dissect: Free Text 5
-eurex_cash_eti_t7_v12_0.free_text_5.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.free_text_5.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.free_text_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.free_text_5, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_beg_msg_id, range, value, display)
 
   return offset + length, value
 end
 
--- Free Text 4
-eurex_cash_eti_t7_v12_0.free_text_4 = {}
+-- Appl Beg Seq Num
+eurex_cash_eti_t7_v12_0.appl_beg_seq_num = {}
 
--- Size: Free Text 4
-eurex_cash_eti_t7_v12_0.free_text_4.size = 16
+-- Size: Appl Beg Seq Num
+eurex_cash_eti_t7_v12_0.appl_beg_seq_num.size = 8
 
--- Display: Free Text 4
-eurex_cash_eti_t7_v12_0.free_text_4.display = function(value)
+-- Display: Appl Beg Seq Num
+eurex_cash_eti_t7_v12_0.appl_beg_seq_num.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
-    return "Free Text 4: No Value"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Appl Beg Seq Num: No Value"
   end
 
-  return "Free Text 4: "..value
+  return "Appl Beg Seq Num: "..value
 end
 
--- Dissect: Free Text 4
-eurex_cash_eti_t7_v12_0.free_text_4.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.free_text_4.size
+-- Dissect: Appl Beg Seq Num
+eurex_cash_eti_t7_v12_0.appl_beg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_beg_seq_num.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.free_text_4.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.appl_beg_seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.free_text_4, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_beg_seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Free Text 2
-eurex_cash_eti_t7_v12_0.free_text_2 = {}
+-- Appl End Msg Id
+eurex_cash_eti_t7_v12_0.appl_end_msg_id = {}
 
--- Size: Free Text 2
-eurex_cash_eti_t7_v12_0.free_text_2.size = 12
+-- Size: Appl End Msg Id
+eurex_cash_eti_t7_v12_0.appl_end_msg_id.size = 16
 
--- Display: Free Text 2
-eurex_cash_eti_t7_v12_0.free_text_2.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Free Text 2: No Value"
-  end
-
-  return "Free Text 2: "..value
+-- Display: Appl End Msg Id
+eurex_cash_eti_t7_v12_0.appl_end_msg_id.display = function(value)
+  return "Appl End Msg Id: "..value
 end
 
--- Dissect: Free Text 2
-eurex_cash_eti_t7_v12_0.free_text_2.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.free_text_2.size
+-- Dissect: Appl End Msg Id
+eurex_cash_eti_t7_v12_0.appl_end_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_end_msg_id.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.appl_end_msg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_end_msg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl End Seq Num
+eurex_cash_eti_t7_v12_0.appl_end_seq_num = {}
+
+-- Size: Appl End Seq Num
+eurex_cash_eti_t7_v12_0.appl_end_seq_num.size = 8
+
+-- Display: Appl End Seq Num
+eurex_cash_eti_t7_v12_0.appl_end_seq_num.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Appl End Seq Num: No Value"
+  end
+
+  return "Appl End Seq Num: "..value
+end
+
+-- Dissect: Appl End Seq Num
+eurex_cash_eti_t7_v12_0.appl_end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.appl_end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Id
+eurex_cash_eti_t7_v12_0.appl_id = {}
+
+-- Size: Appl Id
+eurex_cash_eti_t7_v12_0.appl_id.size = 1
+
+-- Display: Appl Id
+eurex_cash_eti_t7_v12_0.appl_id.display = function(value)
+  if value == 1 then
+    return "Appl Id: Trade (1)"
+  end
+  if value == 2 then
+    return "Appl Id: News (2)"
+  end
+  if value == 3 then
+    return "Appl Id: Serviceavailability (3)"
+  end
+  if value == 4 then
+    return "Appl Id: Sessiondata (4)"
+  end
+  if value == 5 then
+    return "Appl Id: Listenerdata (5)"
+  end
+  if value == 6 then
+    return "Appl Id: Risk Control (6)"
+  end
+  if value == 7 then
+    return "Appl Id: Tes Maintenance (7)"
+  end
+  if value == 8 then
+    return "Appl Id: Tes Trade (8)"
+  end
+  if value == 9 then
+    return "Appl Id: Srqs Maintenance (9)"
+  end
+  if value == 10 then
+    return "Appl Id: Service Availability Market (10)"
+  end
+  if value == 11 then
+    return "Appl Id: Specialist Data (11)"
+  end
+  if value == 0xFF then
+    return "Appl Id: No Value"
+  end
+
+  return "Appl Id: Unknown("..value..")"
+end
+
+-- Dissect: Appl Id
+eurex_cash_eti_t7_v12_0.appl_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Id Status
+eurex_cash_eti_t7_v12_0.appl_id_status = {}
+
+-- Size: Appl Id Status
+eurex_cash_eti_t7_v12_0.appl_id_status.size = 4
+
+-- Display: Appl Id Status
+eurex_cash_eti_t7_v12_0.appl_id_status.display = function(value)
+  if value == 105 then
+    return "Appl Id Status: Outboundconversionerror (105)"
+  end
+  if value == 0xFFFFFFFF then
+    return "Appl Id Status: No Value"
+  end
+
+  return "Appl Id Status: Unknown("..value..")"
+end
+
+-- Dissect: Appl Id Status
+eurex_cash_eti_t7_v12_0.appl_id_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_id_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_id_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_id_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Msg Id
+eurex_cash_eti_t7_v12_0.appl_msg_id = {}
+
+-- Size: Appl Msg Id
+eurex_cash_eti_t7_v12_0.appl_msg_id.size = 16
+
+-- Display: Appl Msg Id
+eurex_cash_eti_t7_v12_0.appl_msg_id.display = function(value)
+  return "Appl Msg Id: "..value
+end
+
+-- Dissect: Appl Msg Id
+eurex_cash_eti_t7_v12_0.appl_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_msg_id.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.appl_msg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_msg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Resend Flag
+eurex_cash_eti_t7_v12_0.appl_resend_flag = {}
+
+-- Size: Appl Resend Flag
+eurex_cash_eti_t7_v12_0.appl_resend_flag.size = 1
+
+-- Display: Appl Resend Flag
+eurex_cash_eti_t7_v12_0.appl_resend_flag.display = function(value)
+  if value == 0 then
+    return "Appl Resend Flag: False (0)"
+  end
+  if value == 1 then
+    return "Appl Resend Flag: True (1)"
+  end
+  if value == 0xFF then
+    return "Appl Resend Flag: No Value"
+  end
+
+  return "Appl Resend Flag: Unknown("..value..")"
+end
+
+-- Dissect: Appl Resend Flag
+eurex_cash_eti_t7_v12_0.appl_resend_flag.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_resend_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_resend_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_resend_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Seq Indicator
+eurex_cash_eti_t7_v12_0.appl_seq_indicator = {}
+
+-- Size: Appl Seq Indicator
+eurex_cash_eti_t7_v12_0.appl_seq_indicator.size = 1
+
+-- Display: Appl Seq Indicator
+eurex_cash_eti_t7_v12_0.appl_seq_indicator.display = function(value)
+  if value == 0 then
+    return "Appl Seq Indicator: No Recovery Required (0)"
+  end
+  if value == 1 then
+    return "Appl Seq Indicator: Recovery Required (1)"
+  end
+  if value == 0xFF then
+    return "Appl Seq Indicator: No Value"
+  end
+
+  return "Appl Seq Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Appl Seq Indicator
+eurex_cash_eti_t7_v12_0.appl_seq_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_seq_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_seq_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Seq Num
+eurex_cash_eti_t7_v12_0.appl_seq_num = {}
+
+-- Size: Appl Seq Num
+eurex_cash_eti_t7_v12_0.appl_seq_num.size = 8
+
+-- Display: Appl Seq Num
+eurex_cash_eti_t7_v12_0.appl_seq_num.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Appl Seq Num: No Value"
+  end
+
+  return "Appl Seq Num: "..value
+end
+
+-- Dissect: Appl Seq Num
+eurex_cash_eti_t7_v12_0.appl_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.appl_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Seq Status
+eurex_cash_eti_t7_v12_0.appl_seq_status = {}
+
+-- Size: Appl Seq Status
+eurex_cash_eti_t7_v12_0.appl_seq_status.size = 1
+
+-- Display: Appl Seq Status
+eurex_cash_eti_t7_v12_0.appl_seq_status.display = function(value)
+  if value == 0 then
+    return "Appl Seq Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "Appl Seq Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Appl Seq Status: No Value"
+  end
+
+  return "Appl Seq Status: Unknown("..value..")"
+end
+
+-- Dissect: Appl Seq Status
+eurex_cash_eti_t7_v12_0.appl_seq_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_seq_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_seq_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Seq Trade Date
+eurex_cash_eti_t7_v12_0.appl_seq_trade_date = {}
+
+-- Size: Appl Seq Trade Date
+eurex_cash_eti_t7_v12_0.appl_seq_trade_date.size = 4
+
+-- Display: Appl Seq Trade Date
+eurex_cash_eti_t7_v12_0.appl_seq_trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Seq Trade Date: No Value"
+  end
+
+  return "Appl Seq Trade Date: "..value
+end
+
+-- Dissect: Appl Seq Trade Date
+eurex_cash_eti_t7_v12_0.appl_seq_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_seq_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_seq_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Sub Id
+eurex_cash_eti_t7_v12_0.appl_sub_id = {}
+
+-- Size: Appl Sub Id
+eurex_cash_eti_t7_v12_0.appl_sub_id.size = 4
+
+-- Display: Appl Sub Id
+eurex_cash_eti_t7_v12_0.appl_sub_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Sub Id: No Value"
+  end
+
+  return "Appl Sub Id: "..value
+end
+
+-- Dissect: Appl Sub Id
+eurex_cash_eti_t7_v12_0.appl_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_sub_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Total Message Count
+eurex_cash_eti_t7_v12_0.appl_total_message_count = {}
+
+-- Size: Appl Total Message Count
+eurex_cash_eti_t7_v12_0.appl_total_message_count.size = 2
+
+-- Display: Appl Total Message Count
+eurex_cash_eti_t7_v12_0.appl_total_message_count.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Appl Total Message Count: No Value"
+  end
+
+  return "Appl Total Message Count: "..value
+end
+
+-- Dissect: Appl Total Message Count
+eurex_cash_eti_t7_v12_0.appl_total_message_count.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_total_message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.appl_total_message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_total_message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Usage Orders
+eurex_cash_eti_t7_v12_0.appl_usage_orders = {}
+
+-- Size: Appl Usage Orders
+eurex_cash_eti_t7_v12_0.appl_usage_orders.size = 1
+
+-- Display: Appl Usage Orders
+eurex_cash_eti_t7_v12_0.appl_usage_orders.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Appl Usage Orders: No Value"
+  end
+
+  if value == "A" then
+    return "Appl Usage Orders: Automated (A)"
+  end
+  if value == "M" then
+    return "Appl Usage Orders: Manual (M)"
+  end
+  if value == "B" then
+    return "Appl Usage Orders: Auto Select (B)"
+  end
+  if value == "N" then
+    return "Appl Usage Orders: None (N)"
+  end
+
+  return "Appl Usage Orders: Unknown("..value..")"
+end
+
+-- Dissect: Appl Usage Orders
+eurex_cash_eti_t7_v12_0.appl_usage_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_usage_orders.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.appl_usage_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_usage_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl Usage Quotes
+eurex_cash_eti_t7_v12_0.appl_usage_quotes = {}
+
+-- Size: Appl Usage Quotes
+eurex_cash_eti_t7_v12_0.appl_usage_quotes.size = 1
+
+-- Display: Appl Usage Quotes
+eurex_cash_eti_t7_v12_0.appl_usage_quotes.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Appl Usage Quotes: No Value"
+  end
+
+  if value == "A" then
+    return "Appl Usage Quotes: Automated (A)"
+  end
+  if value == "M" then
+    return "Appl Usage Quotes: Manual (M)"
+  end
+  if value == "B" then
+    return "Appl Usage Quotes: Auto Select (B)"
+  end
+  if value == "N" then
+    return "Appl Usage Quotes: None (N)"
+  end
+
+  return "Appl Usage Quotes: Unknown("..value..")"
+end
+
+-- Dissect: Appl Usage Quotes
+eurex_cash_eti_t7_v12_0.appl_usage_quotes.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.appl_usage_quotes.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.appl_usage_quotes.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_usage_quotes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Application System Name
+eurex_cash_eti_t7_v12_0.application_system_name = {}
+
+-- Size: Application System Name
+eurex_cash_eti_t7_v12_0.application_system_name.size = 30
+
+-- Display: Application System Name
+eurex_cash_eti_t7_v12_0.application_system_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Application System Name: No Value"
+  end
+
+  return "Application System Name: "..value
+end
+
+-- Dissect: Application System Name
+eurex_cash_eti_t7_v12_0.application_system_name.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.application_system_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.application_system_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.application_system_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Application System Vendor
+eurex_cash_eti_t7_v12_0.application_system_vendor = {}
+
+-- Size: Application System Vendor
+eurex_cash_eti_t7_v12_0.application_system_vendor.size = 30
+
+-- Display: Application System Vendor
+eurex_cash_eti_t7_v12_0.application_system_vendor.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Application System Vendor: No Value"
+  end
+
+  return "Application System Vendor: "..value
+end
+
+-- Dissect: Application System Vendor
+eurex_cash_eti_t7_v12_0.application_system_vendor.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.application_system_vendor.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.application_system_vendor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.application_system_vendor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Application System Version
+eurex_cash_eti_t7_v12_0.application_system_version = {}
+
+-- Size: Application System Version
+eurex_cash_eti_t7_v12_0.application_system_version.size = 30
+
+-- Display: Application System Version
+eurex_cash_eti_t7_v12_0.application_system_version.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Application System Version: No Value"
+  end
+
+  return "Application System Version: "..value
+end
+
+-- Dissect: Application System Version
+eurex_cash_eti_t7_v12_0.application_system_version.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.application_system_version.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.application_system_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.application_system_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Approval Rule Id
+eurex_cash_eti_t7_v12_0.auto_approval_rule_id = {}
+
+-- Size: Auto Approval Rule Id
+eurex_cash_eti_t7_v12_0.auto_approval_rule_id.size = 4
+
+-- Display: Auto Approval Rule Id
+eurex_cash_eti_t7_v12_0.auto_approval_rule_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Auto Approval Rule Id: No Value"
+  end
+
+  return "Auto Approval Rule Id: "..value
+end
+
+-- Dissect: Auto Approval Rule Id
+eurex_cash_eti_t7_v12_0.auto_approval_rule_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_approval_rule_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.auto_approval_rule_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_approval_rule_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Exec Expiry Time
+eurex_cash_eti_t7_v12_0.auto_exec_expiry_time = {}
+
+-- Size: Auto Exec Expiry Time
+eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.size = 8
+
+-- Display: Auto Exec Expiry Time
+eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Auto Exec Expiry Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Auto Exec Expiry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Auto Exec Expiry Time
+eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_expiry_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Exec Exposure Duration
+eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration = {}
+
+-- Size: Auto Exec Exposure Duration
+eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.size = 4
+
+-- Display: Auto Exec Exposure Duration
+eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Auto Exec Exposure Duration: No Value"
+  end
+
+  return "Auto Exec Exposure Duration: "..value
+end
+
+-- Dissect: Auto Exec Exposure Duration
+eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_exposure_duration, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Exec Limit Price
+eurex_cash_eti_t7_v12_0.auto_exec_limit_price = {}
+
+-- Size: Auto Exec Limit Price
+eurex_cash_eti_t7_v12_0.auto_exec_limit_price.size = 8
+
+-- Display: Auto Exec Limit Price
+eurex_cash_eti_t7_v12_0.auto_exec_limit_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Auto Exec Limit Price: No Value"
+  end
+
+  return "Auto Exec Limit Price: "..value
+end
+
+-- Translate: Auto Exec Limit Price
+eurex_cash_eti_t7_v12_0.auto_exec_limit_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Auto Exec Limit Price
+eurex_cash_eti_t7_v12_0.auto_exec_limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_exec_limit_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.auto_exec_limit_price.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.auto_exec_limit_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_limit_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Exec Min No Of Quotes
+eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes = {}
+
+-- Size: Auto Exec Min No Of Quotes
+eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.size = 4
+
+-- Display: Auto Exec Min No Of Quotes
+eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Auto Exec Min No Of Quotes: No Value"
+  end
+
+  return "Auto Exec Min No Of Quotes: "..value
+end
+
+-- Dissect: Auto Exec Min No Of Quotes
+eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_min_no_of_quotes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Exec Reference Price Offset
+eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset = {}
+
+-- Size: Auto Exec Reference Price Offset
+eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.size = 4
+
+-- Display: Auto Exec Reference Price Offset
+eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Auto Exec Reference Price Offset: No Value"
+  end
+
+  return "Auto Exec Reference Price Offset: "..value
+end
+
+-- Dissect: Auto Exec Reference Price Offset
+eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_reference_price_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Exec Type
+eurex_cash_eti_t7_v12_0.auto_exec_type = {}
+
+-- Size: Auto Exec Type
+eurex_cash_eti_t7_v12_0.auto_exec_type.size = 1
+
+-- Display: Auto Exec Type
+eurex_cash_eti_t7_v12_0.auto_exec_type.display = function(value)
+  if value == 1 then
+    return "Auto Exec Type: Mid Point Bbo (1)"
+  end
+  if value == 2 then
+    return "Auto Exec Type: Best Bid (2)"
+  end
+  if value == 3 then
+    return "Auto Exec Type: Best Ask (3)"
+  end
+  if value == 4 then
+    return "Auto Exec Type: Limit Price (4)"
+  end
+  if value == 0xFF then
+    return "Auto Exec Type: No Value"
+  end
+
+  return "Auto Exec Type: Unknown("..value..")"
+end
+
+-- Dissect: Auto Exec Type
+eurex_cash_eti_t7_v12_0.auto_exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.auto_exec_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.auto_exec_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bbo Setting
+eurex_cash_eti_t7_v12_0.bbo_setting = {}
+
+-- Size: Bbo Setting
+eurex_cash_eti_t7_v12_0.bbo_setting.size = 1
+
+-- Display: Bbo Setting
+eurex_cash_eti_t7_v12_0.bbo_setting.display = function(value)
+  if value == 1 then
+    return "Bbo Setting: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Bbo Setting: No Value"
+  end
+
+  return "Bbo Setting: Unknown("..value..")"
+end
+
+-- Dissect: Bbo Setting
+eurex_cash_eti_t7_v12_0.bbo_setting.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.bbo_setting.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.bbo_setting.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bbo_setting, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Px
+eurex_cash_eti_t7_v12_0.best_bid_px = {}
+
+-- Size: Best Bid Px
+eurex_cash_eti_t7_v12_0.best_bid_px.size = 8
+
+-- Display: Best Bid Px
+eurex_cash_eti_t7_v12_0.best_bid_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Bid Px: No Value"
+  end
+
+  return "Best Bid Px: "..value
+end
+
+-- Translate: Best Bid Px
+eurex_cash_eti_t7_v12_0.best_bid_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Best Bid Px
+eurex_cash_eti_t7_v12_0.best_bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.best_bid_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.best_bid_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.best_bid_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Bid Size
+eurex_cash_eti_t7_v12_0.best_bid_size = {}
+
+-- Size: Best Bid Size
+eurex_cash_eti_t7_v12_0.best_bid_size.size = 8
+
+-- Display: Best Bid Size
+eurex_cash_eti_t7_v12_0.best_bid_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Bid Size: No Value"
+  end
+
+  return "Best Bid Size: "..value
+end
+
+-- Translate: Best Bid Size
+eurex_cash_eti_t7_v12_0.best_bid_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Best Bid Size
+eurex_cash_eti_t7_v12_0.best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.best_bid_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.best_bid_size.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.best_bid_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Px
+eurex_cash_eti_t7_v12_0.best_offer_px = {}
+
+-- Size: Best Offer Px
+eurex_cash_eti_t7_v12_0.best_offer_px.size = 8
+
+-- Display: Best Offer Px
+eurex_cash_eti_t7_v12_0.best_offer_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Offer Px: No Value"
+  end
+
+  return "Best Offer Px: "..value
+end
+
+-- Translate: Best Offer Px
+eurex_cash_eti_t7_v12_0.best_offer_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Best Offer Px
+eurex_cash_eti_t7_v12_0.best_offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.best_offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.best_offer_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.best_offer_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Best Offer Size
+eurex_cash_eti_t7_v12_0.best_offer_size = {}
+
+-- Size: Best Offer Size
+eurex_cash_eti_t7_v12_0.best_offer_size.size = 8
+
+-- Display: Best Offer Size
+eurex_cash_eti_t7_v12_0.best_offer_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Best Offer Size: No Value"
+  end
+
+  return "Best Offer Size: "..value
+end
+
+-- Translate: Best Offer Size
+eurex_cash_eti_t7_v12_0.best_offer_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Best Offer Size
+eurex_cash_eti_t7_v12_0.best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.best_offer_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.best_offer_size.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.best_offer_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Px
+eurex_cash_eti_t7_v12_0.bid_px = {}
+
+-- Size: Bid Px
+eurex_cash_eti_t7_v12_0.bid_px.size = 8
+
+-- Display: Bid Px
+eurex_cash_eti_t7_v12_0.bid_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Px: No Value"
+  end
+
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+eurex_cash_eti_t7_v12_0.bid_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Bid Px
+eurex_cash_eti_t7_v12_0.bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.bid_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.bid_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.bid_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Px Is Locked
+eurex_cash_eti_t7_v12_0.bid_px_is_locked = {}
+
+-- Size: Bid Px Is Locked
+eurex_cash_eti_t7_v12_0.bid_px_is_locked.size = 1
+
+-- Display: Bid Px Is Locked
+eurex_cash_eti_t7_v12_0.bid_px_is_locked.display = function(value)
+  if value == 0 then
+    return "Bid Px Is Locked: No (0)"
+  end
+  if value == 1 then
+    return "Bid Px Is Locked: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Bid Px Is Locked: No Value"
+  end
+
+  return "Bid Px Is Locked: Unknown("..value..")"
+end
+
+-- Dissect: Bid Px Is Locked
+eurex_cash_eti_t7_v12_0.bid_px_is_locked.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.bid_px_is_locked.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.bid_px_is_locked.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bid_px_is_locked, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+eurex_cash_eti_t7_v12_0.bid_size = {}
+
+-- Size: Bid Size
+eurex_cash_eti_t7_v12_0.bid_size.size = 8
+
+-- Display: Bid Size
+eurex_cash_eti_t7_v12_0.bid_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Bid Size: No Value"
+  end
+
+  return "Bid Size: "..value
+end
+
+-- Translate: Bid Size
+eurex_cash_eti_t7_v12_0.bid_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Bid Size
+eurex_cash_eti_t7_v12_0.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.bid_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.bid_size.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.bid_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Body Len
+eurex_cash_eti_t7_v12_0.body_len = {}
+
+-- Size: Body Len
+eurex_cash_eti_t7_v12_0.body_len.size = 4
+
+-- Display: Body Len
+eurex_cash_eti_t7_v12_0.body_len.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Body Len: No Value"
+  end
+
+  return "Body Len: "..value
+end
+
+-- Dissect: Body Len
+eurex_cash_eti_t7_v12_0.body_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.body_len.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.body_len.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.body_len, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cl Ord Id
+eurex_cash_eti_t7_v12_0.cl_ord_id = {}
+
+-- Size: Cl Ord Id
+eurex_cash_eti_t7_v12_0.cl_ord_id.size = 8
+
+-- Display: Cl Ord Id
+eurex_cash_eti_t7_v12_0.cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Cl Ord Id: No Value"
+  end
+
+  return "Cl Ord Id: "..value
+end
+
+-- Dissect: Cl Ord Id
+eurex_cash_eti_t7_v12_0.cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Instruction
+eurex_cash_eti_t7_v12_0.clearing_instruction = {}
+
+-- Size: Clearing Instruction
+eurex_cash_eti_t7_v12_0.clearing_instruction.size = 1
+
+-- Display: Clearing Instruction
+eurex_cash_eti_t7_v12_0.clearing_instruction.display = function(value)
+  if value == 2 then
+    return "Clearing Instruction: Bilateralnettingonly (2)"
+  end
+  if value == 13 then
+    return "Clearing Instruction: Selfclearing (13)"
+  end
+  if value == 0xFF then
+    return "Clearing Instruction: No Value"
+  end
+
+  return "Clearing Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Clearing Instruction
+eurex_cash_eti_t7_v12_0.clearing_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.clearing_instruction.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.clearing_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.clearing_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closure Reason
+eurex_cash_eti_t7_v12_0.closure_reason = {}
+
+-- Size: Closure Reason
+eurex_cash_eti_t7_v12_0.closure_reason.size = 132
+
+-- Display: Closure Reason
+eurex_cash_eti_t7_v12_0.closure_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Closure Reason: No Value"
+  end
+
+  return "Closure Reason: "..value
+end
+
+-- Dissect: Closure Reason
+eurex_cash_eti_t7_v12_0.closure_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.closure_reason.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.free_text_2.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.closure_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.free_text_2, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.closure_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Coupon Rate
+eurex_cash_eti_t7_v12_0.coupon_rate = {}
+
+-- Size: Coupon Rate
+eurex_cash_eti_t7_v12_0.coupon_rate.size = 8
+
+-- Display: Coupon Rate
+eurex_cash_eti_t7_v12_0.coupon_rate.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Coupon Rate: No Value"
+  end
+
+  return "Coupon Rate: "..value
+end
+
+-- Translate: Coupon Rate
+eurex_cash_eti_t7_v12_0.coupon_rate.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Coupon Rate
+eurex_cash_eti_t7_v12_0.coupon_rate.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.coupon_rate.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.coupon_rate.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.coupon_rate.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.coupon_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Crossed Indicator
+eurex_cash_eti_t7_v12_0.crossed_indicator = {}
+
+-- Size: Crossed Indicator
+eurex_cash_eti_t7_v12_0.crossed_indicator.size = 1
+
+-- Display: Crossed Indicator
+eurex_cash_eti_t7_v12_0.crossed_indicator.display = function(value)
+  if value == 0 then
+    return "Crossed Indicator: Nocrossing (0)"
+  end
+  if value == 1 then
+    return "Crossed Indicator: Crossrejected (1)"
+  end
+  if value == 0xFF then
+    return "Crossed Indicator: No Value"
+  end
+
+  return "Crossed Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Crossed Indicator
+eurex_cash_eti_t7_v12_0.crossed_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.crossed_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.crossed_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.crossed_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cum Qty
+eurex_cash_eti_t7_v12_0.cum_qty = {}
+
+-- Size: Cum Qty
+eurex_cash_eti_t7_v12_0.cum_qty.size = 8
+
+-- Display: Cum Qty
+eurex_cash_eti_t7_v12_0.cum_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Cum Qty: No Value"
+  end
+
+  return "Cum Qty: "..value
+end
+
+-- Translate: Cum Qty
+eurex_cash_eti_t7_v12_0.cum_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Cum Qty
+eurex_cash_eti_t7_v12_0.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.cum_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.cum_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.cum_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cum_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+eurex_cash_eti_t7_v12_0.currency = {}
+
+-- Size: Currency
+eurex_cash_eti_t7_v12_0.currency.size = 3
+
+-- Display: Currency
+eurex_cash_eti_t7_v12_0.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+eurex_cash_eti_t7_v12_0.currency.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cxl Qty
+eurex_cash_eti_t7_v12_0.cxl_qty = {}
+
+-- Size: Cxl Qty
+eurex_cash_eti_t7_v12_0.cxl_qty.size = 8
+
+-- Display: Cxl Qty
+eurex_cash_eti_t7_v12_0.cxl_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Cxl Qty: No Value"
+  end
+
+  return "Cxl Qty: "..value
+end
+
+-- Translate: Cxl Qty
+eurex_cash_eti_t7_v12_0.cxl_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Cxl Qty
+eurex_cash_eti_t7_v12_0.cxl_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.cxl_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.cxl_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.cxl_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cxl_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cxl Size
+eurex_cash_eti_t7_v12_0.cxl_size = {}
+
+-- Size: Cxl Size
+eurex_cash_eti_t7_v12_0.cxl_size.size = 8
+
+-- Display: Cxl Size
+eurex_cash_eti_t7_v12_0.cxl_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Cxl Size: No Value"
+  end
+
+  return "Cxl Size: "..value
+end
+
+-- Translate: Cxl Size
+eurex_cash_eti_t7_v12_0.cxl_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Cxl Size
+eurex_cash_eti_t7_v12_0.cxl_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.cxl_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.cxl_size.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.cxl_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cxl_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Default Cstm Appl Ver Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id = {}
+
+-- Size: Default Cstm Appl Ver Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.size = 30
+
+-- Display: Default Cstm Appl Ver Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Default Cstm Appl Ver Id: No Value"
+  end
+
+  return "Default Cstm Appl Ver Id: "..value
+end
+
+-- Dissect: Default Cstm Appl Ver Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.default_cstm_appl_ver_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Default Cstm Appl Ver Sub Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id = {}
+
+-- Size: Default Cstm Appl Ver Sub Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.size = 5
+
+-- Display: Default Cstm Appl Ver Sub Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.display = function(value)
+  if value == "C0001" then
+    return "Default Cstm Appl Ver Sub Id: Cash (C0001)"
+  end
+
+  return "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
+end
+
+-- Dissect: Default Cstm Appl Ver Sub Id
+eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.default_cstm_appl_ver_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delete Reason
+eurex_cash_eti_t7_v12_0.delete_reason = {}
+
+-- Size: Delete Reason
+eurex_cash_eti_t7_v12_0.delete_reason.size = 1
+
+-- Display: Delete Reason
+eurex_cash_eti_t7_v12_0.delete_reason.display = function(value)
+  if value == 100 then
+    return "Delete Reason: Nospecialreason (100)"
+  end
+  if value == 101 then
+    return "Delete Reason: Tas Change (101)"
+  end
+  if value == 102 then
+    return "Delete Reason: Intraday Expiration (102)"
+  end
+  if value == 103 then
+    return "Delete Reason: Risk Event (103)"
+  end
+  if value == 104 then
+    return "Delete Reason: Stop Trading (104)"
+  end
+  if value == 0xFF then
+    return "Delete Reason: No Value"
+  end
+
+  return "Delete Reason: Unknown("..value..")"
+end
+
+-- Dissect: Delete Reason
+eurex_cash_eti_t7_v12_0.delete_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.delete_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.delete_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.delete_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Type
+eurex_cash_eti_t7_v12_0.delivery_type = {}
+
+-- Size: Delivery Type
+eurex_cash_eti_t7_v12_0.delivery_type.size = 1
+
+-- Display: Delivery Type
+eurex_cash_eti_t7_v12_0.delivery_type.display = function(value)
+  if value == 1 then
+    return "Delivery Type: Akv (1)"
+  end
+  if value == 2 then
+    return "Delivery Type: Gs (2)"
+  end
+  if value == 3 then
+    return "Delivery Type: Str (3)"
+  end
+  if value == 4 then
+    return "Delivery Type: Wpr (4)"
+  end
+  if value == 5 then
+    return "Delivery Type: Akt (5)"
+  end
+  if value == 0xFF then
+    return "Delivery Type: No Value"
+  end
+
+  return "Delivery Type: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Type
+eurex_cash_eti_t7_v12_0.delivery_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.delivery_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.delivery_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.delivery_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display High Qty
+eurex_cash_eti_t7_v12_0.display_high_qty = {}
+
+-- Size: Display High Qty
+eurex_cash_eti_t7_v12_0.display_high_qty.size = 8
+
+-- Display: Display High Qty
+eurex_cash_eti_t7_v12_0.display_high_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Display High Qty: No Value"
+  end
+
+  return "Display High Qty: "..value
+end
+
+-- Translate: Display High Qty
+eurex_cash_eti_t7_v12_0.display_high_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Display High Qty
+eurex_cash_eti_t7_v12_0.display_high_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.display_high_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.display_high_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.display_high_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.display_high_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Low Qty
+eurex_cash_eti_t7_v12_0.display_low_qty = {}
+
+-- Size: Display Low Qty
+eurex_cash_eti_t7_v12_0.display_low_qty.size = 8
+
+-- Display: Display Low Qty
+eurex_cash_eti_t7_v12_0.display_low_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Display Low Qty: No Value"
+  end
+
+  return "Display Low Qty: "..value
+end
+
+-- Translate: Display Low Qty
+eurex_cash_eti_t7_v12_0.display_low_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Display Low Qty
+eurex_cash_eti_t7_v12_0.display_low_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.display_low_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.display_low_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.display_low_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.display_low_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Qty
+eurex_cash_eti_t7_v12_0.display_qty = {}
+
+-- Size: Display Qty
+eurex_cash_eti_t7_v12_0.display_qty.size = 8
+
+-- Display: Display Qty
+eurex_cash_eti_t7_v12_0.display_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Display Qty: No Value"
+  end
+
+  return "Display Qty: "..value
+end
+
+-- Translate: Display Qty
+eurex_cash_eti_t7_v12_0.display_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Display Qty
+eurex_cash_eti_t7_v12_0.display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.display_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.display_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.display_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Encrypted Password
+eurex_cash_eti_t7_v12_0.encrypted_password = {}
+
+-- Size: Encrypted Password
+eurex_cash_eti_t7_v12_0.encrypted_password.size = 684
+
+-- Display: Encrypted Password
+eurex_cash_eti_t7_v12_0.encrypted_password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Encrypted Password: No Value"
+  end
+
+  return "Encrypted Password: "..value
+end
+
+-- Dissect: Encrypted Password
+eurex_cash_eti_t7_v12_0.encrypted_password.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.encrypted_password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.encrypted_password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.encrypted_password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.enrichment_rule_id = {}
+
+-- Size: Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.enrichment_rule_id.size = 2
+
+-- Display: Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.enrichment_rule_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Enrichment Rule Id: No Value"
+  end
+
+  return "Enrichment Rule Id: "..value
+end
+
+-- Dissect: Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.enrichment_rule_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.enrichment_rule_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.enrichment_rule_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.enrichment_rule_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Date
+eurex_cash_eti_t7_v12_0.event_date = {}
+
+-- Size: Event Date
+eurex_cash_eti_t7_v12_0.event_date.size = 4
+
+-- Display: Event Date
+eurex_cash_eti_t7_v12_0.event_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Event Date: No Value"
+  end
+
+  return "Event Date: "..value
+end
+
+-- Dissect: Event Date
+eurex_cash_eti_t7_v12_0.event_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.event_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.event_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.event_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Px
+eurex_cash_eti_t7_v12_0.event_px = {}
+
+-- Size: Event Px
+eurex_cash_eti_t7_v12_0.event_px.size = 8
+
+-- Display: Event Px
+eurex_cash_eti_t7_v12_0.event_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Event Px: No Value"
+  end
+
+  return "Event Px: "..value
+end
+
+-- Translate: Event Px
+eurex_cash_eti_t7_v12_0.event_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Event Px
+eurex_cash_eti_t7_v12_0.event_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.event_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.event_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.event_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.event_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Type
+eurex_cash_eti_t7_v12_0.event_type = {}
+
+-- Size: Event Type
+eurex_cash_eti_t7_v12_0.event_type.size = 1
+
+-- Display: Event Type
+eurex_cash_eti_t7_v12_0.event_type.display = function(value)
+  if value == 26 then
+    return "Event Type: Redemption (26)"
+  end
+  if value == 100 then
+    return "Event Type: Delisting (100)"
+  end
+  if value == 104 then
+    return "Event Type: Instrument Assignment Added (104)"
+  end
+  if value == 105 then
+    return "Event Type: Instrument Assignment Removed (105)"
+  end
+  if value == 106 then
+    return "Event Type: Closed (106)"
+  end
+  if value == 107 then
+    return "Event Type: Restricted (107)"
+  end
+  if value == 108 then
+    return "Event Type: Book (108)"
+  end
+  if value == 109 then
+    return "Event Type: Continuous (109)"
+  end
+  if value == 110 then
+    return "Event Type: Auction (110)"
+  end
+  if value == 111 then
+    return "Event Type: Freeze (111)"
+  end
+  if value == 112 then
+    return "Event Type: Cancel Freeze (112)"
+  end
+  if value == 113 then
+    return "Event Type: Pre Call (113)"
+  end
+  if value == 114 then
+    return "Event Type: Endof Restatement (114)"
+  end
+  if value == 0xFF then
+    return "Event Type: No Value"
+  end
+
+  return "Event Type: Unknown("..value..")"
+end
+
+-- Dissect: Event Type
+eurex_cash_eti_t7_v12_0.event_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.event_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.event_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.event_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+eurex_cash_eti_t7_v12_0.exec_id = {}
+
+-- Size: Exec Id
+eurex_cash_eti_t7_v12_0.exec_id.size = 8
+
+-- Display: Exec Id
+eurex_cash_eti_t7_v12_0.exec_id.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Exec Id: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Exec Id
+eurex_cash_eti_t7_v12_0.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Inst
+eurex_cash_eti_t7_v12_0.exec_inst = {}
+
+-- Size: Exec Inst
+eurex_cash_eti_t7_v12_0.exec_inst.size = 1
+
+-- Display: Exec Inst
+eurex_cash_eti_t7_v12_0.exec_inst.display = function(value)
+  if value == 1 then
+    return "Exec Inst: H (1)"
+  end
+  if value == 2 then
+    return "Exec Inst: Q (2)"
+  end
+  if value == 3 then
+    return "Exec Inst: Hq (3)"
+  end
+  if value == 5 then
+    return "Exec Inst: H 6 (5)"
+  end
+  if value == 6 then
+    return "Exec Inst: Q 6 (6)"
+  end
+  if value == 0xFF then
+    return "Exec Inst: No Value"
+  end
+
+  return "Exec Inst: Unknown("..value..")"
+end
+
+-- Dissect: Exec Inst
+eurex_cash_eti_t7_v12_0.exec_inst.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.exec_inst.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.exec_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Restatement Reason
+eurex_cash_eti_t7_v12_0.exec_restatement_reason = {}
+
+-- Size: Exec Restatement Reason
+eurex_cash_eti_t7_v12_0.exec_restatement_reason.size = 2
+
+-- Display: Exec Restatement Reason
+eurex_cash_eti_t7_v12_0.exec_restatement_reason.display = function(value)
+  if value == 0 then
+    return "Exec Restatement Reason: Corporate Action (0)"
+  end
+  if value == 1 then
+    return "Exec Restatement Reason: Order Book Restatement (1)"
+  end
+  if value == 8 then
+    return "Exec Restatement Reason: Exchange Option (8)"
+  end
+  if value == 101 then
+    return "Exec Restatement Reason: Order Added (101)"
+  end
+  if value == 102 then
+    return "Exec Restatement Reason: Order Modified (102)"
+  end
+  if value == 103 then
+    return "Exec Restatement Reason: Order Cancelled (103)"
+  end
+  if value == 105 then
+    return "Exec Restatement Reason: Ioc Order Cancelled (105)"
+  end
+  if value == 107 then
+    return "Exec Restatement Reason: Fok Order Cancelled (107)"
+  end
+  if value == 108 then
+    return "Exec Restatement Reason: Book Order Executed (108)"
+  end
+  if value == 114 then
+    return "Exec Restatement Reason: Changedto Ioc (114)"
+  end
+  if value == 119 then
+    return "Exec Restatement Reason: Changeof Specialist (119)"
+  end
+  if value == 122 then
+    return "Exec Restatement Reason: Instrument State Change (122)"
+  end
+  if value == 138 then
+    return "Exec Restatement Reason: Pending New (138)"
+  end
+  if value == 141 then
+    return "Exec Restatement Reason: Pending New Applied (141)"
+  end
+  if value == 139 then
+    return "Exec Restatement Reason: Pending Replace (139)"
+  end
+  if value == 142 then
+    return "Exec Restatement Reason: Pending Replace Applied (142)"
+  end
+  if value == 146 then
+    return "Exec Restatement Reason: End Of Day Processing (146)"
+  end
+  if value == 148 then
+    return "Exec Restatement Reason: Order Expiration (148)"
+  end
+  if value == 149 then
+    return "Exec Restatement Reason: Cao Order Activated (149)"
+  end
+  if value == 150 then
+    return "Exec Restatement Reason: Cao Order Inactivated (150)"
+  end
+  if value == 151 then
+    return "Exec Restatement Reason: Oao Order Activated (151)"
+  end
+  if value == 152 then
+    return "Exec Restatement Reason: Oao Order Inactivated (152)"
+  end
+  if value == 153 then
+    return "Exec Restatement Reason: Aao Order Activated (153)"
+  end
+  if value == 154 then
+    return "Exec Restatement Reason: Aao Order Inactivated (154)"
+  end
+  if value == 159 then
+    return "Exec Restatement Reason: Iao Order Activated (159)"
+  end
+  if value == 160 then
+    return "Exec Restatement Reason: Iao Order Inactivated (160)"
+  end
+  if value == 155 then
+    return "Exec Restatement Reason: Order Refreshed (155)"
+  end
+  if value == 164 then
+    return "Exec Restatement Reason: Oco Order Triggered (164)"
+  end
+  if value == 172 then
+    return "Exec Restatement Reason: Stop Order Triggered (172)"
+  end
+  if value == 181 then
+    return "Exec Restatement Reason: Ownership Changed (181)"
+  end
+  if value == 197 then
+    return "Exec Restatement Reason: Order Cancellation Pending (197)"
+  end
+  if value == 199 then
+    return "Exec Restatement Reason: Pending Cancellation Executed (199)"
+  end
+  if value == 212 then
+    return "Exec Restatement Reason: Boc Order Cancelled (212)"
+  end
+  if value == 213 then
+    return "Exec Restatement Reason: Trailing Stop Update (213)"
+  end
+  if value == 237 then
+    return "Exec Restatement Reason: Exceeds Maximum Quantity (237)"
+  end
+  if value == 238 then
+    return "Exec Restatement Reason: Invalid Limit Price (238)"
+  end
+  if value == 241 then
+    return "Exec Restatement Reason: User Does Not Exist (241)"
+  end
+  if value == 242 then
+    return "Exec Restatement Reason: Session Does Not Exist (242)"
+  end
+  if value == 243 then
+    return "Exec Restatement Reason: Invalid Stop Price (243)"
+  end
+  if value == 245 then
+    return "Exec Restatement Reason: Instrument Does Not Exist (245)"
+  end
+  if value == 246 then
+    return "Exec Restatement Reason: Business Unit Risk Event (246)"
+  end
+  if value == 261 then
+    return "Exec Restatement Reason: Panic Cancel (261)"
+  end
+  if value == 292 then
+    return "Exec Restatement Reason: Dividend Payment (292)"
+  end
+  if value == 294 then
+    return "Exec Restatement Reason: Last Trading Day (294)"
+  end
+  if value == 295 then
+    return "Exec Restatement Reason: Trading Parameter Change (295)"
+  end
+  if value == 296 then
+    return "Exec Restatement Reason: Currency Change (296)"
+  end
+  if value == 297 then
+    return "Exec Restatement Reason: Product Assignment Change (297)"
+  end
+  if value == 298 then
+    return "Exec Restatement Reason: Reference Price Change (298)"
+  end
+  if value == 300 then
+    return "Exec Restatement Reason: Tick Rule Change (300)"
+  end
+  if value == 316 then
+    return "Exec Restatement Reason: Qrs Expiry (316)"
+  end
+  if value == 320 then
+    return "Exec Restatement Reason: Rlp Order Quote Cleanup (320)"
+  end
+  if value == 0xFFFF then
+    return "Exec Restatement Reason: No Value"
+  end
+
+  return "Exec Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Exec Restatement Reason
+eurex_cash_eti_t7_v12_0.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.exec_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.exec_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Type
+eurex_cash_eti_t7_v12_0.exec_type = {}
+
+-- Size: Exec Type
+eurex_cash_eti_t7_v12_0.exec_type.size = 1
+
+-- Display: Exec Type
+eurex_cash_eti_t7_v12_0.exec_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Type: No Value"
+  end
+
+  if value == "0" then
+    return "Exec Type: New (0)"
+  end
+  if value == "4" then
+    return "Exec Type: Canceled (4)"
+  end
+  if value == "5" then
+    return "Exec Type: Replaced (5)"
+  end
+  if value == "6" then
+    return "Exec Type: Pending Cancele (6)"
+  end
+  if value == "9" then
+    return "Exec Type: Suspended (9)"
+  end
+  if value == "D" then
+    return "Exec Type: Restated (D)"
+  end
+  if value == "L" then
+    return "Exec Type: Triggered (L)"
+  end
+  if value == "F" then
+    return "Exec Type: Trade (F)"
+  end
+  if value == "A" then
+    return "Exec Type: Pending New (A)"
+  end
+  if value == "E" then
+    return "Exec Type: Pending Replace (E)"
+  end
+
+  return "Exec Type: Unknown("..value..")"
+end
+
+-- Dissect: Exec Type
+eurex_cash_eti_t7_v12_0.exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.exec_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.exec_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executing Trader
+eurex_cash_eti_t7_v12_0.executing_trader = {}
+
+-- Size: Executing Trader
+eurex_cash_eti_t7_v12_0.executing_trader.size = 8
+
+-- Display: Executing Trader
+eurex_cash_eti_t7_v12_0.executing_trader.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Executing Trader: No Value"
+  end
+
+  return "Executing Trader: "..value
+end
+
+-- Dissect: Executing Trader
+eurex_cash_eti_t7_v12_0.executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executing Trader Qualifier
+eurex_cash_eti_t7_v12_0.executing_trader_qualifier = {}
+
+-- Size: Executing Trader Qualifier
+eurex_cash_eti_t7_v12_0.executing_trader_qualifier.size = 1
+
+-- Display: Executing Trader Qualifier
+eurex_cash_eti_t7_v12_0.executing_trader_qualifier.display = function(value)
+  if value == 22 then
+    return "Executing Trader Qualifier: Algo (22)"
+  end
+  if value == 24 then
+    return "Executing Trader Qualifier: Human (24)"
+  end
+  if value == 0xFF then
+    return "Executing Trader Qualifier: No Value"
+  end
+
+  return "Executing Trader Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Executing Trader Qualifier
+eurex_cash_eti_t7_v12_0.executing_trader_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.executing_trader_qualifier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.executing_trader_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.executing_trader_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Date
+eurex_cash_eti_t7_v12_0.expire_date = {}
+
+-- Size: Expire Date
+eurex_cash_eti_t7_v12_0.expire_date.size = 4
+
+-- Display: Expire Date
+eurex_cash_eti_t7_v12_0.expire_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Expire Date: No Value"
+  end
+
+  return "Expire Date: "..value
+end
+
+-- Dissect: Expire Date
+eurex_cash_eti_t7_v12_0.expire_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.expire_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.expire_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.expire_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Time
+eurex_cash_eti_t7_v12_0.expire_time = {}
+
+-- Size: Expire Time
+eurex_cash_eti_t7_v12_0.expire_time.size = 8
+
+-- Display: Expire Time
+eurex_cash_eti_t7_v12_0.expire_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Expire Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Expire Time
+eurex_cash_eti_t7_v12_0.expire_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.expire_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.expire_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.expire_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Exec Id
+eurex_cash_eti_t7_v12_0.fill_exec_id = {}
+
+-- Size: Fill Exec Id
+eurex_cash_eti_t7_v12_0.fill_exec_id.size = 4
+
+-- Display: Fill Exec Id
+eurex_cash_eti_t7_v12_0.fill_exec_id.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Fill Exec Id: No Value"
+  end
+
+  return "Fill Exec Id: "..value
+end
+
+-- Dissect: Fill Exec Id
+eurex_cash_eti_t7_v12_0.fill_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fill_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_cash_eti_t7_v12_0.fill_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Liquidity Ind
+eurex_cash_eti_t7_v12_0.fill_liquidity_ind = {}
+
+-- Size: Fill Liquidity Ind
+eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size = 1
+
+-- Display: Fill Liquidity Ind
+eurex_cash_eti_t7_v12_0.fill_liquidity_ind.display = function(value)
+  if value == 1 then
+    return "Fill Liquidity Ind: Added Liquidity (1)"
+  end
+  if value == 2 then
+    return "Fill Liquidity Ind: Removed Liquidity (2)"
+  end
+  if value == 4 then
+    return "Fill Liquidity Ind: Auction (4)"
+  end
+  if value == 5 then
+    return "Fill Liquidity Ind: Triggered Stop Order (5)"
+  end
+  if value == 6 then
+    return "Fill Liquidity Ind: Triggered Oco Order (6)"
+  end
+  if value == 7 then
+    return "Fill Liquidity Ind: Triggered Market Order (7)"
+  end
+  if value == 0xFF then
+    return "Fill Liquidity Ind: No Value"
+  end
+
+  return "Fill Liquidity Ind: Unknown("..value..")"
+end
+
+-- Dissect: Fill Liquidity Ind
+eurex_cash_eti_t7_v12_0.fill_liquidity_ind.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.fill_liquidity_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_liquidity_ind, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Match Id
+eurex_cash_eti_t7_v12_0.fill_match_id = {}
+
+-- Size: Fill Match Id
+eurex_cash_eti_t7_v12_0.fill_match_id.size = 4
+
+-- Display: Fill Match Id
+eurex_cash_eti_t7_v12_0.fill_match_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Fill Match Id: No Value"
+  end
+
+  return "Fill Match Id: "..value
+end
+
+-- Dissect: Fill Match Id
+eurex_cash_eti_t7_v12_0.fill_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fill_match_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.fill_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Px
+eurex_cash_eti_t7_v12_0.fill_px = {}
+
+-- Size: Fill Px
+eurex_cash_eti_t7_v12_0.fill_px.size = 8
+
+-- Display: Fill Px
+eurex_cash_eti_t7_v12_0.fill_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Fill Px: No Value"
+  end
+
+  return "Fill Px: "..value
+end
+
+-- Translate: Fill Px
+eurex_cash_eti_t7_v12_0.fill_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Fill Px
+eurex_cash_eti_t7_v12_0.fill_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fill_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.fill_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.fill_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Qty
+eurex_cash_eti_t7_v12_0.fill_qty = {}
+
+-- Size: Fill Qty
+eurex_cash_eti_t7_v12_0.fill_qty.size = 8
+
+-- Display: Fill Qty
+eurex_cash_eti_t7_v12_0.fill_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Fill Qty: No Value"
+  end
+
+  return "Fill Qty: "..value
+end
+
+-- Translate: Fill Qty
+eurex_cash_eti_t7_v12_0.fill_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Fill Qty
+eurex_cash_eti_t7_v12_0.fill_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fill_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.fill_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.fill_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Negotiation Id
+eurex_cash_eti_t7_v12_0.firm_negotiation_id = {}
+
+-- Size: Firm Negotiation Id
+eurex_cash_eti_t7_v12_0.firm_negotiation_id.size = 20
+
+-- Display: Firm Negotiation Id
+eurex_cash_eti_t7_v12_0.firm_negotiation_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Firm Negotiation Id: No Value"
+  end
+
+  return "Firm Negotiation Id: "..value
+end
+
+-- Dissect: Firm Negotiation Id
+eurex_cash_eti_t7_v12_0.firm_negotiation_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.firm_negotiation_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.firm_negotiation_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.firm_negotiation_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Trade Id
+eurex_cash_eti_t7_v12_0.firm_trade_id = {}
+
+-- Size: Firm Trade Id
+eurex_cash_eti_t7_v12_0.firm_trade_id.size = 20
+
+-- Display: Firm Trade Id
+eurex_cash_eti_t7_v12_0.firm_trade_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Firm Trade Id: No Value"
+  end
+
+  return "Firm Trade Id: "..value
+end
+
+-- Dissect: Firm Trade Id
+eurex_cash_eti_t7_v12_0.firm_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.firm_trade_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.firm_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.firm_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fix Cl Ord Id
+eurex_cash_eti_t7_v12_0.fix_cl_ord_id = {}
+
+-- Size: Fix Cl Ord Id
+eurex_cash_eti_t7_v12_0.fix_cl_ord_id.size = 20
+
+-- Display: Fix Cl Ord Id
+eurex_cash_eti_t7_v12_0.fix_cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Cl Ord Id: No Value"
+  end
+
+  return "Fix Cl Ord Id: "..value
+end
+
+-- Dissect: Fix Cl Ord Id
+eurex_cash_eti_t7_v12_0.fix_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fix_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.fix_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fix Engine Name
+eurex_cash_eti_t7_v12_0.fix_engine_name = {}
+
+-- Size: Fix Engine Name
+eurex_cash_eti_t7_v12_0.fix_engine_name.size = 30
+
+-- Display: Fix Engine Name
+eurex_cash_eti_t7_v12_0.fix_engine_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Engine Name: No Value"
+  end
+
+  return "Fix Engine Name: "..value
+end
+
+-- Dissect: Fix Engine Name
+eurex_cash_eti_t7_v12_0.fix_engine_name.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fix_engine_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.fix_engine_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_engine_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fix Engine Vendor
+eurex_cash_eti_t7_v12_0.fix_engine_vendor = {}
+
+-- Size: Fix Engine Vendor
+eurex_cash_eti_t7_v12_0.fix_engine_vendor.size = 30
+
+-- Display: Fix Engine Vendor
+eurex_cash_eti_t7_v12_0.fix_engine_vendor.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Engine Vendor: No Value"
+  end
+
+  return "Fix Engine Vendor: "..value
+end
+
+-- Dissect: Fix Engine Vendor
+eurex_cash_eti_t7_v12_0.fix_engine_vendor.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fix_engine_vendor.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.fix_engine_vendor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_engine_vendor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fix Engine Version
+eurex_cash_eti_t7_v12_0.fix_engine_version = {}
+
+-- Size: Fix Engine Version
+eurex_cash_eti_t7_v12_0.fix_engine_version.size = 30
+
+-- Display: Fix Engine Version
+eurex_cash_eti_t7_v12_0.fix_engine_version.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fix Engine Version: No Value"
+  end
+
+  return "Fix Engine Version: "..value
+end
+
+-- Dissect: Fix Engine Version
+eurex_cash_eti_t7_v12_0.fix_engine_version.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.fix_engine_version.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.fix_engine_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_engine_version, range, value, display)
 
   return offset + length, value
 end
@@ -1892,30 +4693,3227 @@ eurex_cash_eti_t7_v12_0.free_text_1.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Party Executing Trader
-eurex_cash_eti_t7_v12_0.party_executing_trader = {}
+-- Free Text 2
+eurex_cash_eti_t7_v12_0.free_text_2 = {}
 
--- Size: Party Executing Trader
-eurex_cash_eti_t7_v12_0.party_executing_trader.size = 6
+-- Size: Free Text 2
+eurex_cash_eti_t7_v12_0.free_text_2.size = 12
 
--- Display: Party Executing Trader
-eurex_cash_eti_t7_v12_0.party_executing_trader.display = function(value)
+-- Display: Free Text 2
+eurex_cash_eti_t7_v12_0.free_text_2.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Party Executing Trader: No Value"
+    return "Free Text 2: No Value"
   end
 
-  return "Party Executing Trader: "..value
+  return "Free Text 2: "..value
 end
 
--- Dissect: Party Executing Trader
-eurex_cash_eti_t7_v12_0.party_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_executing_trader.size
+-- Dissect: Free Text 2
+eurex_cash_eti_t7_v12_0.free_text_2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.free_text_2.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_executing_trader.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.free_text_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_executing_trader, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.free_text_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Free Text 4
+eurex_cash_eti_t7_v12_0.free_text_4 = {}
+
+-- Size: Free Text 4
+eurex_cash_eti_t7_v12_0.free_text_4.size = 16
+
+-- Display: Free Text 4
+eurex_cash_eti_t7_v12_0.free_text_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Free Text 4: No Value"
+  end
+
+  return "Free Text 4: "..value
+end
+
+-- Dissect: Free Text 4
+eurex_cash_eti_t7_v12_0.free_text_4.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.free_text_4.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.free_text_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.free_text_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Free Text 5
+eurex_cash_eti_t7_v12_0.free_text_5 = {}
+
+-- Size: Free Text 5
+eurex_cash_eti_t7_v12_0.free_text_5.size = 132
+
+-- Display: Free Text 5
+eurex_cash_eti_t7_v12_0.free_text_5.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Free Text 5: No Value"
+  end
+
+  return "Free Text 5: "..value
+end
+
+-- Dissect: Free Text 5
+eurex_cash_eti_t7_v12_0.free_text_5.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.free_text_5.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.free_text_5.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.free_text_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Headline
+eurex_cash_eti_t7_v12_0.headline = {}
+
+-- Size: Headline
+eurex_cash_eti_t7_v12_0.headline.size = 256
+
+-- Display: Headline
+eurex_cash_eti_t7_v12_0.headline.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Headline: No Value"
+  end
+
+  return "Headline: "..value
+end
+
+-- Dissect: Headline
+eurex_cash_eti_t7_v12_0.headline.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.headline.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.headline.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.headline, range, value, display)
+
+  return offset + length, value
+end
+
+-- Heart Bt Int
+eurex_cash_eti_t7_v12_0.heart_bt_int = {}
+
+-- Size: Heart Bt Int
+eurex_cash_eti_t7_v12_0.heart_bt_int.size = 4
+
+-- Display: Heart Bt Int
+eurex_cash_eti_t7_v12_0.heart_bt_int.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Heart Bt Int: No Value"
+  end
+
+  return "Heart Bt Int: "..value
+end
+
+-- Dissect: Heart Bt Int
+eurex_cash_eti_t7_v12_0.heart_bt_int.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.heart_bt_int.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.heart_bt_int.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.heart_bt_int, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Qty
+eurex_cash_eti_t7_v12_0.imbalance_qty = {}
+
+-- Size: Imbalance Qty
+eurex_cash_eti_t7_v12_0.imbalance_qty.size = 8
+
+-- Display: Imbalance Qty
+eurex_cash_eti_t7_v12_0.imbalance_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Imbalance Qty: No Value"
+  end
+
+  return "Imbalance Qty: "..value
+end
+
+-- Translate: Imbalance Qty
+eurex_cash_eti_t7_v12_0.imbalance_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Imbalance Qty
+eurex_cash_eti_t7_v12_0.imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.imbalance_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.imbalance_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.imbalance_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.imbalance_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Individual Alloc Id
+eurex_cash_eti_t7_v12_0.individual_alloc_id = {}
+
+-- Size: Individual Alloc Id
+eurex_cash_eti_t7_v12_0.individual_alloc_id.size = 4
+
+-- Display: Individual Alloc Id
+eurex_cash_eti_t7_v12_0.individual_alloc_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Individual Alloc Id: No Value"
+  end
+
+  return "Individual Alloc Id: "..value
+end
+
+-- Dissect: Individual Alloc Id
+eurex_cash_eti_t7_v12_0.individual_alloc_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.individual_alloc_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.individual_alloc_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.individual_alloc_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Coupon Deviation Indicator
+eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator = {}
+
+-- Size: Last Coupon Deviation Indicator
+eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.size = 1
+
+-- Display: Last Coupon Deviation Indicator
+eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.display = function(value)
+  if value == 0 then
+    return "Last Coupon Deviation Indicator: None (0)"
+  end
+  if value == 1 then
+    return "Last Coupon Deviation Indicator: Shortperiod (1)"
+  end
+  if value == 2 then
+    return "Last Coupon Deviation Indicator: Longperiod (2)"
+  end
+  if value == 3 then
+    return "Last Coupon Deviation Indicator: Onlyonecoupon (3)"
+  end
+  if value == 4 then
+    return "Last Coupon Deviation Indicator: Shorttwointerestpaymentsdue (4)"
+  end
+  if value == 5 then
+    return "Last Coupon Deviation Indicator: Longtwointerestpaymentsdue (5)"
+  end
+  if value == 6 then
+    return "Last Coupon Deviation Indicator: Perpetual (6)"
+  end
+  if value == 0xFF then
+    return "Last Coupon Deviation Indicator: No Value"
+  end
+
+  return "Last Coupon Deviation Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Last Coupon Deviation Indicator
+eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_coupon_deviation_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Entity Processed
+eurex_cash_eti_t7_v12_0.last_entity_processed = {}
+
+-- Size: Last Entity Processed
+eurex_cash_eti_t7_v12_0.last_entity_processed.size = 16
+
+-- Display: Last Entity Processed
+eurex_cash_eti_t7_v12_0.last_entity_processed.display = function(value)
+  return "Last Entity Processed: "..value
+end
+
+-- Dissect: Last Entity Processed
+eurex_cash_eti_t7_v12_0.last_entity_processed.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.last_entity_processed.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.last_entity_processed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_entity_processed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Fragment
+eurex_cash_eti_t7_v12_0.last_fragment = {}
+
+-- Size: Last Fragment
+eurex_cash_eti_t7_v12_0.last_fragment.size = 1
+
+-- Display: Last Fragment
+eurex_cash_eti_t7_v12_0.last_fragment.display = function(value)
+  if value == 0 then
+    return "Last Fragment: Not Last Message (0)"
+  end
+  if value == 1 then
+    return "Last Fragment: Last Message (1)"
+  end
+  if value == 0xFF then
+    return "Last Fragment: No Value"
+  end
+
+  return "Last Fragment: Unknown("..value..")"
+end
+
+-- Dissect: Last Fragment
+eurex_cash_eti_t7_v12_0.last_fragment.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.last_fragment.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.last_fragment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_fragment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Mkt
+eurex_cash_eti_t7_v12_0.last_mkt = {}
+
+-- Size: Last Mkt
+eurex_cash_eti_t7_v12_0.last_mkt.size = 2
+
+-- Display: Last Mkt
+eurex_cash_eti_t7_v12_0.last_mkt.display = function(value)
+  if value == 3 then
+    return "Last Mkt: Xetr (3)"
+  end
+  if value == 4 then
+    return "Last Mkt: Xvie (4)"
+  end
+  if value == 6 then
+    return "Last Mkt: Xmal (6)"
+  end
+  if value == 7 then
+    return "Last Mkt: Xbul (7)"
+  end
+  if value == 8 then
+    return "Last Mkt: Xbud (8)"
+  end
+  if value == 9 then
+    return "Last Mkt: Xlju (9)"
+  end
+  if value == 10 then
+    return "Last Mkt: Xpra (10)"
+  end
+  if value == 11 then
+    return "Last Mkt: Xzag (11)"
+  end
+  if value == 13 then
+    return "Last Mkt: Xfra (13)"
+  end
+  if value == 0xFFFF then
+    return "Last Mkt: No Value"
+  end
+
+  return "Last Mkt: Unknown("..value..")"
+end
+
+-- Dissect: Last Mkt
+eurex_cash_eti_t7_v12_0.last_mkt.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.last_mkt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.last_mkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_mkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+eurex_cash_eti_t7_v12_0.last_px = {}
+
+-- Size: Last Px
+eurex_cash_eti_t7_v12_0.last_px.size = 8
+
+-- Display: Last Px
+eurex_cash_eti_t7_v12_0.last_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Last Px: No Value"
+  end
+
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+eurex_cash_eti_t7_v12_0.last_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Last Px
+eurex_cash_eti_t7_v12_0.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.last_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.last_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+eurex_cash_eti_t7_v12_0.last_qty = {}
+
+-- Size: Last Qty
+eurex_cash_eti_t7_v12_0.last_qty.size = 8
+
+-- Display: Last Qty
+eurex_cash_eti_t7_v12_0.last_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Last Qty: No Value"
+  end
+
+  return "Last Qty: "..value
+end
+
+-- Translate: Last Qty
+eurex_cash_eti_t7_v12_0.last_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Last Qty
+eurex_cash_eti_t7_v12_0.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.last_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.last_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.last_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Latest Public Key Seq No
+eurex_cash_eti_t7_v12_0.latest_public_key_seq_no = {}
+
+-- Size: Latest Public Key Seq No
+eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.size = 4
+
+-- Display: Latest Public Key Seq No
+eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Latest Public Key Seq No: No Value"
+  end
+
+  return "Latest Public Key Seq No: "..value
+end
+
+-- Dissect: Latest Public Key Seq No
+eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.latest_public_key_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+eurex_cash_eti_t7_v12_0.leaves_qty = {}
+
+-- Size: Leaves Qty
+eurex_cash_eti_t7_v12_0.leaves_qty.size = 8
+
+-- Display: Leaves Qty
+eurex_cash_eti_t7_v12_0.leaves_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Leaves Qty: No Value"
+  end
+
+  return "Leaves Qty: "..value
+end
+
+-- Translate: Leaves Qty
+eurex_cash_eti_t7_v12_0.leaves_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Leaves Qty
+eurex_cash_eti_t7_v12_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.leaves_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.leaves_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.leaves_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- List Update Action
+eurex_cash_eti_t7_v12_0.list_update_action = {}
+
+-- Size: List Update Action
+eurex_cash_eti_t7_v12_0.list_update_action.size = 1
+
+-- Display: List Update Action
+eurex_cash_eti_t7_v12_0.list_update_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "List Update Action: No Value"
+  end
+
+  if value == "A" then
+    return "List Update Action: Add (A)"
+  end
+  if value == "D" then
+    return "List Update Action: Delete (D)"
+  end
+
+  return "List Update Action: Unknown("..value..")"
+end
+
+-- Dissect: List Update Action
+eurex_cash_eti_t7_v12_0.list_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.list_update_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.list_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.list_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id
+eurex_cash_eti_t7_v12_0.market_id = {}
+
+-- Size: Market Id
+eurex_cash_eti_t7_v12_0.market_id.size = 2
+
+-- Display: Market Id
+eurex_cash_eti_t7_v12_0.market_id.display = function(value)
+  if value == 3 then
+    return "Market Id: Xetr (3)"
+  end
+  if value == 4 then
+    return "Market Id: Xvie (4)"
+  end
+  if value == 6 then
+    return "Market Id: Xmal (6)"
+  end
+  if value == 7 then
+    return "Market Id: Xbul (7)"
+  end
+  if value == 8 then
+    return "Market Id: Xbud (8)"
+  end
+  if value == 9 then
+    return "Market Id: Xlju (9)"
+  end
+  if value == 10 then
+    return "Market Id: Xpra (10)"
+  end
+  if value == 11 then
+    return "Market Id: Xzag (11)"
+  end
+  if value == 13 then
+    return "Market Id: Xfra (13)"
+  end
+  if value == 0xFFFF then
+    return "Market Id: No Value"
+  end
+
+  return "Market Id: Unknown("..value..")"
+end
+
+-- Dissect: Market Id
+eurex_cash_eti_t7_v12_0.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.market_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Segment Id
+eurex_cash_eti_t7_v12_0.market_segment_id = {}
+
+-- Size: Market Segment Id
+eurex_cash_eti_t7_v12_0.market_segment_id.size = 4
+
+-- Display: Market Segment Id
+eurex_cash_eti_t7_v12_0.market_segment_id.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Market Segment Id: No Value"
+  end
+
+  return "Market Segment Id: "..value
+end
+
+-- Dissect: Market Segment Id
+eurex_cash_eti_t7_v12_0.market_segment_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.market_segment_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_cash_eti_t7_v12_0.market_segment_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.market_segment_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Reason
+eurex_cash_eti_t7_v12_0.mass_action_reason = {}
+
+-- Size: Mass Action Reason
+eurex_cash_eti_t7_v12_0.mass_action_reason.size = 1
+
+-- Display: Mass Action Reason
+eurex_cash_eti_t7_v12_0.mass_action_reason.display = function(value)
+  if value == 0 then
+    return "Mass Action Reason: No Special Reason (0)"
+  end
+  if value == 1 then
+    return "Mass Action Reason: Stop Trading (1)"
+  end
+  if value == 2 then
+    return "Mass Action Reason: Emergency (2)"
+  end
+  if value == 6 then
+    return "Mass Action Reason: Session Loss (6)"
+  end
+  if value == 7 then
+    return "Mass Action Reason: Duplicate Session Login (7)"
+  end
+  if value == 8 then
+    return "Mass Action Reason: Clearing Risk Control (8)"
+  end
+  if value == 100 then
+    return "Mass Action Reason: Internal Connection Loss (100)"
+  end
+  if value == 105 then
+    return "Mass Action Reason: Product State Halt (105)"
+  end
+  if value == 106 then
+    return "Mass Action Reason: Product State Holiday (106)"
+  end
+  if value == 107 then
+    return "Mass Action Reason: Instrument Suspended (107)"
+  end
+  if value == 110 then
+    return "Mass Action Reason: Volatility Interruption (110)"
+  end
+  if value == 111 then
+    return "Mass Action Reason: Producttemporarilynottradeable (111)"
+  end
+  if value == 113 then
+    return "Mass Action Reason: Instrument Stopped (113)"
+  end
+  if value == 115 then
+    return "Mass Action Reason: Instrument Knock Out (115)"
+  end
+  if value == 116 then
+    return "Mass Action Reason: Instrument Sold Out (116)"
+  end
+  if value == 117 then
+    return "Mass Action Reason: Memberdisable (117)"
+  end
+  if value == 118 then
+    return "Mass Action Reason: Instrument Knock Out Reverted (118)"
+  end
+  if value == 119 then
+    return "Mass Action Reason: Automatic Quote Deletion (119)"
+  end
+  if value == 120 then
+    return "Mass Action Reason: Outside Quoting Period (120)"
+  end
+  if value == 0xFF then
+    return "Mass Action Reason: No Value"
+  end
+
+  return "Mass Action Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Action Reason
+eurex_cash_eti_t7_v12_0.mass_action_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.mass_action_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.mass_action_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.mass_action_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Report Id
+eurex_cash_eti_t7_v12_0.mass_action_report_id = {}
+
+-- Size: Mass Action Report Id
+eurex_cash_eti_t7_v12_0.mass_action_report_id.size = 8
+
+-- Display: Mass Action Report Id
+eurex_cash_eti_t7_v12_0.mass_action_report_id.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Mass Action Report Id: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Mass Action Report Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Mass Action Report Id
+eurex_cash_eti_t7_v12_0.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.mass_action_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.mass_action_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.mass_action_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Type
+eurex_cash_eti_t7_v12_0.mass_action_type = {}
+
+-- Size: Mass Action Type
+eurex_cash_eti_t7_v12_0.mass_action_type.size = 1
+
+-- Display: Mass Action Type
+eurex_cash_eti_t7_v12_0.mass_action_type.display = function(value)
+  if value == 1 then
+    return "Mass Action Type: Suspendquotes (1)"
+  end
+  if value == 2 then
+    return "Mass Action Type: Releasequotes (2)"
+  end
+  if value == 3 then
+    return "Mass Action Type: Suspenddeletequotes (3)"
+  end
+  if value == 0xFF then
+    return "Mass Action Type: No Value"
+  end
+
+  return "Mass Action Type: Unknown("..value..")"
+end
+
+-- Dissect: Mass Action Type
+eurex_cash_eti_t7_v12_0.mass_action_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.mass_action_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.mass_action_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.mass_action_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Date
+eurex_cash_eti_t7_v12_0.match_date = {}
+
+-- Size: Match Date
+eurex_cash_eti_t7_v12_0.match_date.size = 4
+
+-- Display: Match Date
+eurex_cash_eti_t7_v12_0.match_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Match Date: No Value"
+  end
+
+  return "Match Date: "..value
+end
+
+-- Dissect: Match Date
+eurex_cash_eti_t7_v12_0.match_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.match_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.match_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Inst Cross Id
+eurex_cash_eti_t7_v12_0.match_inst_cross_id = {}
+
+-- Size: Match Inst Cross Id
+eurex_cash_eti_t7_v12_0.match_inst_cross_id.size = 4
+
+-- Display: Match Inst Cross Id
+eurex_cash_eti_t7_v12_0.match_inst_cross_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Match Inst Cross Id: No Value"
+  end
+
+  return "Match Inst Cross Id: "..value
+end
+
+-- Dissect: Match Inst Cross Id
+eurex_cash_eti_t7_v12_0.match_inst_cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.match_inst_cross_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.match_inst_cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_inst_cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Sub Type
+eurex_cash_eti_t7_v12_0.match_sub_type = {}
+
+-- Size: Match Sub Type
+eurex_cash_eti_t7_v12_0.match_sub_type.size = 1
+
+-- Display: Match Sub Type
+eurex_cash_eti_t7_v12_0.match_sub_type.display = function(value)
+  if value == 1 then
+    return "Match Sub Type: Opening Auction (1)"
+  end
+  if value == 2 then
+    return "Match Sub Type: Closing Auction (2)"
+  end
+  if value == 3 then
+    return "Match Sub Type: Intraday Auction (3)"
+  end
+  if value == 4 then
+    return "Match Sub Type: Circuit Breaker Auction (4)"
+  end
+  if value == 5 then
+    return "Match Sub Type: Tradeatclose (5)"
+  end
+  if value == 0xFF then
+    return "Match Sub Type: No Value"
+  end
+
+  return "Match Sub Type: Unknown("..value..")"
+end
+
+-- Dissect: Match Sub Type
+eurex_cash_eti_t7_v12_0.match_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.match_sub_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.match_sub_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_sub_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Type
+eurex_cash_eti_t7_v12_0.match_type = {}
+
+-- Size: Match Type
+eurex_cash_eti_t7_v12_0.match_type.size = 1
+
+-- Display: Match Type
+eurex_cash_eti_t7_v12_0.match_type.display = function(value)
+  if value == 3 then
+    return "Match Type: Confirmed Trade Report (3)"
+  end
+  if value == 4 then
+    return "Match Type: Automatchincoming (4)"
+  end
+  if value == 5 then
+    return "Match Type: Cross Auction (5)"
+  end
+  if value == 7 then
+    return "Match Type: Call Auction (7)"
+  end
+  if value == 11 then
+    return "Match Type: Automatchresting (11)"
+  end
+  if value == 14 then
+    return "Match Type: Continuous Auction (14)"
+  end
+  if value == 15 then
+    return "Match Type: Retail (15)"
+  end
+  if value == 0xFF then
+    return "Match Type: No Value"
+  end
+
+  return "Match Type: Unknown("..value..")"
+end
+
+-- Dissect: Match Type
+eurex_cash_eti_t7_v12_0.match_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.match_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.match_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Engine Status
+eurex_cash_eti_t7_v12_0.matching_engine_status = {}
+
+-- Size: Matching Engine Status
+eurex_cash_eti_t7_v12_0.matching_engine_status.size = 1
+
+-- Display: Matching Engine Status
+eurex_cash_eti_t7_v12_0.matching_engine_status.display = function(value)
+  if value == 0 then
+    return "Matching Engine Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "Matching Engine Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Matching Engine Status: No Value"
+  end
+
+  return "Matching Engine Status: Unknown("..value..")"
+end
+
+-- Dissect: Matching Engine Status
+eurex_cash_eti_t7_v12_0.matching_engine_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.matching_engine_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.matching_engine_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.matching_engine_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Engine Trade Date
+eurex_cash_eti_t7_v12_0.matching_engine_trade_date = {}
+
+-- Size: Matching Engine Trade Date
+eurex_cash_eti_t7_v12_0.matching_engine_trade_date.size = 4
+
+-- Display: Matching Engine Trade Date
+eurex_cash_eti_t7_v12_0.matching_engine_trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Matching Engine Trade Date: No Value"
+  end
+
+  return "Matching Engine Trade Date: "..value
+end
+
+-- Dissect: Matching Engine Trade Date
+eurex_cash_eti_t7_v12_0.matching_engine_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.matching_engine_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.matching_engine_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.matching_engine_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Book Type
+eurex_cash_eti_t7_v12_0.md_book_type = {}
+
+-- Size: Md Book Type
+eurex_cash_eti_t7_v12_0.md_book_type.size = 1
+
+-- Display: Md Book Type
+eurex_cash_eti_t7_v12_0.md_book_type.display = function(value)
+  if value == 1 then
+    return "Md Book Type: Top Of Book (1)"
+  end
+  if value == 2 then
+    return "Md Book Type: Price Depth (2)"
+  end
+  if value == 0xFF then
+    return "Md Book Type: No Value"
+  end
+
+  return "Md Book Type: Unknown("..value..")"
+end
+
+-- Dissect: Md Book Type
+eurex_cash_eti_t7_v12_0.md_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.md_book_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.md_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.md_book_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Sub Book Type
+eurex_cash_eti_t7_v12_0.md_sub_book_type = {}
+
+-- Size: Md Sub Book Type
+eurex_cash_eti_t7_v12_0.md_sub_book_type.size = 1
+
+-- Display: Md Sub Book Type
+eurex_cash_eti_t7_v12_0.md_sub_book_type.display = function(value)
+  if value == 2 then
+    return "Md Sub Book Type: Volume Weighted Average (2)"
+  end
+  if value == 0xFF then
+    return "Md Sub Book Type: No Value"
+  end
+
+  return "Md Sub Book Type: Unknown("..value..")"
+end
+
+-- Dissect: Md Sub Book Type
+eurex_cash_eti_t7_v12_0.md_sub_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.md_sub_book_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.md_sub_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.md_sub_book_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Event Source
+eurex_cash_eti_t7_v12_0.message_event_source = {}
+
+-- Size: Message Event Source
+eurex_cash_eti_t7_v12_0.message_event_source.size = 1
+
+-- Display: Message Event Source
+eurex_cash_eti_t7_v12_0.message_event_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Message Event Source: No Value"
+  end
+
+  if value == "I" then
+    return "Message Event Source: Broadcastto Initiator (I)"
+  end
+  if value == "A" then
+    return "Message Event Source: Broadcastto Approver (A)"
+  end
+  if value == "R" then
+    return "Message Event Source: Broadcastto Requester (R)"
+  end
+  if value == "Q" then
+    return "Message Event Source: Broadcastto Quote Submitter (Q)"
+  end
+
+  return "Message Event Source: Unknown("..value..")"
+end
+
+-- Dissect: Message Event Source
+eurex_cash_eti_t7_v12_0.message_event_source.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.message_event_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.message_event_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.message_event_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Seq Num
+eurex_cash_eti_t7_v12_0.msg_seq_num = {}
+
+-- Size: Msg Seq Num
+eurex_cash_eti_t7_v12_0.msg_seq_num.size = 4
+
+-- Display: Msg Seq Num
+eurex_cash_eti_t7_v12_0.msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Msg Seq Num: No Value"
+  end
+
+  return "Msg Seq Num: "..value
+end
+
+-- Dissect: Msg Seq Num
+eurex_cash_eti_t7_v12_0.msg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.msg_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.msg_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.msg_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Negotiation Id
+eurex_cash_eti_t7_v12_0.negotiation_id = {}
+
+-- Size: Negotiation Id
+eurex_cash_eti_t7_v12_0.negotiation_id.size = 4
+
+-- Display: Negotiation Id
+eurex_cash_eti_t7_v12_0.negotiation_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Negotiation Id: No Value"
+  end
+
+  return "Negotiation Id: "..value
+end
+
+-- Dissect: Negotiation Id
+eurex_cash_eti_t7_v12_0.negotiation_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.negotiation_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.negotiation_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.negotiation_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Negotiation Start Time
+eurex_cash_eti_t7_v12_0.negotiation_start_time = {}
+
+-- Size: Negotiation Start Time
+eurex_cash_eti_t7_v12_0.negotiation_start_time.size = 8
+
+-- Display: Negotiation Start Time
+eurex_cash_eti_t7_v12_0.negotiation_start_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Negotiation Start Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Negotiation Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Negotiation Start Time
+eurex_cash_eti_t7_v12_0.negotiation_start_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.negotiation_start_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.negotiation_start_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.negotiation_start_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Network Msg Id
+eurex_cash_eti_t7_v12_0.network_msg_id = {}
+
+-- Size: Network Msg Id
+eurex_cash_eti_t7_v12_0.network_msg_id.size = 8
+
+-- Display: Network Msg Id
+eurex_cash_eti_t7_v12_0.network_msg_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Network Msg Id: No Value"
+  end
+
+  return "Network Msg Id: "..value
+end
+
+-- Dissect: Network Msg Id
+eurex_cash_eti_t7_v12_0.network_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.network_msg_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.network_msg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.network_msg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- News Rtm Service Status
+eurex_cash_eti_t7_v12_0.news_rtm_service_status = {}
+
+-- Size: News Rtm Service Status
+eurex_cash_eti_t7_v12_0.news_rtm_service_status.size = 1
+
+-- Display: News Rtm Service Status
+eurex_cash_eti_t7_v12_0.news_rtm_service_status.display = function(value)
+  if value == 0 then
+    return "News Rtm Service Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "News Rtm Service Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "News Rtm Service Status: No Value"
+  end
+
+  return "News Rtm Service Status: Unknown("..value..")"
+end
+
+-- Dissect: News Rtm Service Status
+eurex_cash_eti_t7_v12_0.news_rtm_service_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.news_rtm_service_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.news_rtm_service_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.news_rtm_service_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Affected Order Requests
+eurex_cash_eti_t7_v12_0.no_affected_order_requests = {}
+
+-- Size: No Affected Order Requests
+eurex_cash_eti_t7_v12_0.no_affected_order_requests.size = 2
+
+-- Display: No Affected Order Requests
+eurex_cash_eti_t7_v12_0.no_affected_order_requests.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Affected Order Requests: No Value"
+  end
+
+  return "No Affected Order Requests: "..value
+end
+
+-- Dissect: No Affected Order Requests
+eurex_cash_eti_t7_v12_0.no_affected_order_requests.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_affected_order_requests.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_affected_order_requests.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_affected_order_requests, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Affected Orders
+eurex_cash_eti_t7_v12_0.no_affected_orders = {}
+
+-- Size: No Affected Orders
+eurex_cash_eti_t7_v12_0.no_affected_orders.size = 2
+
+-- Display: No Affected Orders
+eurex_cash_eti_t7_v12_0.no_affected_orders.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Affected Orders: No Value"
+  end
+
+  return "No Affected Orders: "..value
+end
+
+-- Dissect: No Affected Orders
+eurex_cash_eti_t7_v12_0.no_affected_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_affected_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_affected_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_affected_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Enrichment Rules
+eurex_cash_eti_t7_v12_0.no_enrichment_rules = {}
+
+-- Size: No Enrichment Rules
+eurex_cash_eti_t7_v12_0.no_enrichment_rules.size = 2
+
+-- Display: No Enrichment Rules
+eurex_cash_eti_t7_v12_0.no_enrichment_rules.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Enrichment Rules: No Value"
+  end
+
+  return "No Enrichment Rules: "..value
+end
+
+-- Dissect: No Enrichment Rules
+eurex_cash_eti_t7_v12_0.no_enrichment_rules.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_enrichment_rules.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_enrichment_rules.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_enrichment_rules, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Events
+eurex_cash_eti_t7_v12_0.no_events = {}
+
+-- Size: No Events
+eurex_cash_eti_t7_v12_0.no_events.size = 1
+
+-- Display: No Events
+eurex_cash_eti_t7_v12_0.no_events.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Events: No Value"
+  end
+
+  return "No Events: "..value
+end
+
+-- Dissect: No Events
+eurex_cash_eti_t7_v12_0.no_events.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_events.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_events.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_events, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Fills
+eurex_cash_eti_t7_v12_0.no_fills = {}
+
+-- Size: No Fills
+eurex_cash_eti_t7_v12_0.no_fills.size = 1
+
+-- Display: No Fills
+eurex_cash_eti_t7_v12_0.no_fills.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Fills: No Value"
+  end
+
+  return "No Fills: "..value
+end
+
+-- Dissect: No Fills
+eurex_cash_eti_t7_v12_0.no_fills.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_fills.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_fills.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_fills, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Not Affected Orders
+eurex_cash_eti_t7_v12_0.no_not_affected_orders = {}
+
+-- Size: No Not Affected Orders
+eurex_cash_eti_t7_v12_0.no_not_affected_orders.size = 2
+
+-- Display: No Not Affected Orders
+eurex_cash_eti_t7_v12_0.no_not_affected_orders.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Not Affected Orders: No Value"
+  end
+
+  return "No Not Affected Orders: "..value
+end
+
+-- Dissect: No Not Affected Orders
+eurex_cash_eti_t7_v12_0.no_not_affected_orders.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_not_affected_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_not_affected_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_not_affected_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Not Affected Securities
+eurex_cash_eti_t7_v12_0.no_not_affected_securities = {}
+
+-- Size: No Not Affected Securities
+eurex_cash_eti_t7_v12_0.no_not_affected_securities.size = 2
+
+-- Display: No Not Affected Securities
+eurex_cash_eti_t7_v12_0.no_not_affected_securities.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Not Affected Securities: No Value"
+  end
+
+  return "No Not Affected Securities: "..value
+end
+
+-- Dissect: No Not Affected Securities
+eurex_cash_eti_t7_v12_0.no_not_affected_securities.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_not_affected_securities.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_not_affected_securities.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_not_affected_securities, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Order Book Items
+eurex_cash_eti_t7_v12_0.no_order_book_items = {}
+
+-- Size: No Order Book Items
+eurex_cash_eti_t7_v12_0.no_order_book_items.size = 1
+
+-- Display: No Order Book Items
+eurex_cash_eti_t7_v12_0.no_order_book_items.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Order Book Items: No Value"
+  end
+
+  return "No Order Book Items: "..value
+end
+
+-- Dissect: No Order Book Items
+eurex_cash_eti_t7_v12_0.no_order_book_items.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_order_book_items.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_order_book_items.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_order_book_items, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Order Events
+eurex_cash_eti_t7_v12_0.no_order_events = {}
+
+-- Size: No Order Events
+eurex_cash_eti_t7_v12_0.no_order_events.size = 1
+
+-- Display: No Order Events
+eurex_cash_eti_t7_v12_0.no_order_events.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Order Events: No Value"
+  end
+
+  return "No Order Events: "..value
+end
+
+-- Dissect: No Order Events
+eurex_cash_eti_t7_v12_0.no_order_events.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_order_events.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_order_events.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_order_events, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Party Details
+eurex_cash_eti_t7_v12_0.no_party_details = {}
+
+-- Size: No Party Details
+eurex_cash_eti_t7_v12_0.no_party_details.size = 2
+
+-- Display: No Party Details
+eurex_cash_eti_t7_v12_0.no_party_details.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Party Details: No Value"
+  end
+
+  return "No Party Details: "..value
+end
+
+-- Dissect: No Party Details
+eurex_cash_eti_t7_v12_0.no_party_details.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_party_details.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_party_details.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_party_details, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Quote Entries
+eurex_cash_eti_t7_v12_0.no_quote_entries = {}
+
+-- Size: No Quote Entries
+eurex_cash_eti_t7_v12_0.no_quote_entries.size = 1
+
+-- Display: No Quote Entries
+eurex_cash_eti_t7_v12_0.no_quote_entries.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Quote Entries: No Value"
+  end
+
+  return "No Quote Entries: "..value
+end
+
+-- Dissect: No Quote Entries
+eurex_cash_eti_t7_v12_0.no_quote_entries.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_quote_entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_quote_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_quote_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Quote Events
+eurex_cash_eti_t7_v12_0.no_quote_events = {}
+
+-- Size: No Quote Events
+eurex_cash_eti_t7_v12_0.no_quote_events.size = 1
+
+-- Display: No Quote Events
+eurex_cash_eti_t7_v12_0.no_quote_events.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Quote Events: No Value"
+  end
+
+  return "No Quote Events: "..value
+end
+
+-- Dissect: No Quote Events
+eurex_cash_eti_t7_v12_0.no_quote_events.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_quote_events.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_quote_events.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_quote_events, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Quote Side Entries
+eurex_cash_eti_t7_v12_0.no_quote_side_entries = {}
+
+-- Size: No Quote Side Entries
+eurex_cash_eti_t7_v12_0.no_quote_side_entries.size = 1
+
+-- Display: No Quote Side Entries
+eurex_cash_eti_t7_v12_0.no_quote_side_entries.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Quote Side Entries: No Value"
+  end
+
+  return "No Quote Side Entries: "..value
+end
+
+-- Dissect: No Quote Side Entries
+eurex_cash_eti_t7_v12_0.no_quote_side_entries.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_quote_side_entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_quote_side_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_quote_side_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Risk Limit Amount
+eurex_cash_eti_t7_v12_0.no_risk_limit_amount = {}
+
+-- Size: No Risk Limit Amount
+eurex_cash_eti_t7_v12_0.no_risk_limit_amount.size = 1
+
+-- Display: No Risk Limit Amount
+eurex_cash_eti_t7_v12_0.no_risk_limit_amount.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Risk Limit Amount: No Value"
+  end
+
+  return "No Risk Limit Amount: "..value
+end
+
+-- Dissect: No Risk Limit Amount
+eurex_cash_eti_t7_v12_0.no_risk_limit_amount.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_risk_limit_amount.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_risk_limit_amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_risk_limit_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Risk Limits
+eurex_cash_eti_t7_v12_0.no_risk_limits = {}
+
+-- Size: No Risk Limits
+eurex_cash_eti_t7_v12_0.no_risk_limits.size = 1
+
+-- Display: No Risk Limits
+eurex_cash_eti_t7_v12_0.no_risk_limits.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Risk Limits: No Value"
+  end
+
+  return "No Risk Limits: "..value
+end
+
+-- Dissect: No Risk Limits
+eurex_cash_eti_t7_v12_0.no_risk_limits.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_risk_limits.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_risk_limits.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_risk_limits, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Sessions
+eurex_cash_eti_t7_v12_0.no_sessions = {}
+
+-- Size: No Sessions
+eurex_cash_eti_t7_v12_0.no_sessions.size = 2
+
+-- Display: No Sessions
+eurex_cash_eti_t7_v12_0.no_sessions.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "No Sessions: No Value"
+  end
+
+  return "No Sessions: "..value
+end
+
+-- Dissect: No Sessions
+eurex_cash_eti_t7_v12_0.no_sessions.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_sessions.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_sessions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_sessions, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Side Allocs
+eurex_cash_eti_t7_v12_0.no_side_allocs = {}
+
+-- Size: No Side Allocs
+eurex_cash_eti_t7_v12_0.no_side_allocs.size = 1
+
+-- Display: No Side Allocs
+eurex_cash_eti_t7_v12_0.no_side_allocs.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Side Allocs: No Value"
+  end
+
+  return "No Side Allocs: "..value
+end
+
+-- Dissect: No Side Allocs
+eurex_cash_eti_t7_v12_0.no_side_allocs.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_side_allocs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_side_allocs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_side_allocs, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Target Party I Ds
+eurex_cash_eti_t7_v12_0.no_target_party_i_ds = {}
+
+-- Size: No Target Party I Ds
+eurex_cash_eti_t7_v12_0.no_target_party_i_ds.size = 1
+
+-- Display: No Target Party I Ds
+eurex_cash_eti_t7_v12_0.no_target_party_i_ds.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "No Target Party I Ds: No Value"
+  end
+
+  return "No Target Party I Ds: "..value
+end
+
+-- Dissect: No Target Party I Ds
+eurex_cash_eti_t7_v12_0.no_target_party_i_ds.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.no_target_party_i_ds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.no_target_party_i_ds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_target_party_i_ds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Not Aff Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id = {}
+
+-- Size: Not Aff Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size = 8
+
+-- Display: Not Aff Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Not Aff Orig Cl Ord Id: No Value"
+  end
+
+  return "Not Aff Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Not Aff Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.not_aff_orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Not Affected Order Id
+eurex_cash_eti_t7_v12_0.not_affected_order_id = {}
+
+-- Size: Not Affected Order Id
+eurex_cash_eti_t7_v12_0.not_affected_order_id.size = 8
+
+-- Display: Not Affected Order Id
+eurex_cash_eti_t7_v12_0.not_affected_order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Not Affected Order Id: No Value"
+  end
+
+  return "Not Affected Order Id: "..value
+end
+
+-- Dissect: Not Affected Order Id
+eurex_cash_eti_t7_v12_0.not_affected_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.not_affected_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.not_affected_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.not_affected_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Not Affected Security Id
+eurex_cash_eti_t7_v12_0.not_affected_security_id = {}
+
+-- Size: Not Affected Security Id
+eurex_cash_eti_t7_v12_0.not_affected_security_id.size = 8
+
+-- Display: Not Affected Security Id
+eurex_cash_eti_t7_v12_0.not_affected_security_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Not Affected Security Id: No Value"
+  end
+
+  return "Not Affected Security Id: "..value
+end
+
+-- Dissect: Not Affected Security Id
+eurex_cash_eti_t7_v12_0.not_affected_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.not_affected_security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.not_affected_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.not_affected_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notification In
+eurex_cash_eti_t7_v12_0.notification_in = {}
+
+-- Size: Notification In
+eurex_cash_eti_t7_v12_0.notification_in.size = 8
+
+-- Display: Notification In
+eurex_cash_eti_t7_v12_0.notification_in.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Notification In: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Notification In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Notification In
+eurex_cash_eti_t7_v12_0.notification_in.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.notification_in.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.notification_in.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.notification_in, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Days Interest
+eurex_cash_eti_t7_v12_0.num_days_interest = {}
+
+-- Size: Num Days Interest
+eurex_cash_eti_t7_v12_0.num_days_interest.size = 4
+
+-- Display: Num Days Interest
+eurex_cash_eti_t7_v12_0.num_days_interest.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Num Days Interest: No Value"
+  end
+
+  return "Num Days Interest: "..value
+end
+
+-- Dissect: Num Days Interest
+eurex_cash_eti_t7_v12_0.num_days_interest.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.num_days_interest.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.num_days_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.num_days_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Resp Disclosure Instruction
+eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction = {}
+
+-- Size: Number Of Resp Disclosure Instruction
+eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.size = 1
+
+-- Display: Number Of Resp Disclosure Instruction
+eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.display = function(value)
+  if value == 0 then
+    return "Number Of Resp Disclosure Instruction: No (0)"
+  end
+  if value == 1 then
+    return "Number Of Resp Disclosure Instruction: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Number Of Resp Disclosure Instruction: No Value"
+  end
+
+  return "Number Of Resp Disclosure Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Number Of Resp Disclosure Instruction
+eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.number_of_resp_disclosure_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Respondents
+eurex_cash_eti_t7_v12_0.number_of_respondents = {}
+
+-- Size: Number Of Respondents
+eurex_cash_eti_t7_v12_0.number_of_respondents.size = 4
+
+-- Display: Number Of Respondents
+eurex_cash_eti_t7_v12_0.number_of_respondents.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Number Of Respondents: No Value"
+  end
+
+  return "Number Of Respondents: "..value
+end
+
+-- Dissect: Number Of Respondents
+eurex_cash_eti_t7_v12_0.number_of_respondents.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.number_of_respondents.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.number_of_respondents.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.number_of_respondents, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Px
+eurex_cash_eti_t7_v12_0.offer_px = {}
+
+-- Size: Offer Px
+eurex_cash_eti_t7_v12_0.offer_px.size = 8
+
+-- Display: Offer Px
+eurex_cash_eti_t7_v12_0.offer_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Px: No Value"
+  end
+
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+eurex_cash_eti_t7_v12_0.offer_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Offer Px
+eurex_cash_eti_t7_v12_0.offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.offer_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.offer_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Px Is Locked
+eurex_cash_eti_t7_v12_0.offer_px_is_locked = {}
+
+-- Size: Offer Px Is Locked
+eurex_cash_eti_t7_v12_0.offer_px_is_locked.size = 1
+
+-- Display: Offer Px Is Locked
+eurex_cash_eti_t7_v12_0.offer_px_is_locked.display = function(value)
+  if value == 0 then
+    return "Offer Px Is Locked: No (0)"
+  end
+  if value == 1 then
+    return "Offer Px Is Locked: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Offer Px Is Locked: No Value"
+  end
+
+  return "Offer Px Is Locked: Unknown("..value..")"
+end
+
+-- Dissect: Offer Px Is Locked
+eurex_cash_eti_t7_v12_0.offer_px_is_locked.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.offer_px_is_locked.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.offer_px_is_locked.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.offer_px_is_locked, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size
+eurex_cash_eti_t7_v12_0.offer_size = {}
+
+-- Size: Offer Size
+eurex_cash_eti_t7_v12_0.offer_size.size = 8
+
+-- Display: Offer Size
+eurex_cash_eti_t7_v12_0.offer_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Offer Size: No Value"
+  end
+
+  return "Offer Size: "..value
+end
+
+-- Translate: Offer Size
+eurex_cash_eti_t7_v12_0.offer_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Offer Size
+eurex_cash_eti_t7_v12_0.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.offer_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.offer_size.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.offer_size.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status
+eurex_cash_eti_t7_v12_0.ord_status = {}
+
+-- Size: Ord Status
+eurex_cash_eti_t7_v12_0.ord_status.size = 1
+
+-- Display: Ord Status
+eurex_cash_eti_t7_v12_0.ord_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
+  if value == "0" then
+    return "Ord Status: New (0)"
+  end
+  if value == "1" then
+    return "Ord Status: Partiallyfilled (1)"
+  end
+  if value == "2" then
+    return "Ord Status: Filled (2)"
+  end
+  if value == "4" then
+    return "Ord Status: Canceled (4)"
+  end
+  if value == "6" then
+    return "Ord Status: Pending Cancel (6)"
+  end
+  if value == "9" then
+    return "Ord Status: Suspended (9)"
+  end
+  if value == "A" then
+    return "Ord Status: Pending New (A)"
+  end
+  if value == "E" then
+    return "Ord Status: Pending Replace (E)"
+  end
+
+  return "Ord Status: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status
+eurex_cash_eti_t7_v12_0.ord_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ord_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.ord_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ord_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Type
+eurex_cash_eti_t7_v12_0.ord_type = {}
+
+-- Size: Ord Type
+eurex_cash_eti_t7_v12_0.ord_type.size = 1
+
+-- Display: Ord Type
+eurex_cash_eti_t7_v12_0.ord_type.display = function(value)
+  if value == 1 then
+    return "Ord Type: Market (1)"
+  end
+  if value == 2 then
+    return "Ord Type: Limit (2)"
+  end
+  if value == 3 then
+    return "Ord Type: Stop (3)"
+  end
+  if value == 4 then
+    return "Ord Type: Stop Limit (4)"
+  end
+  if value == 0xFF then
+    return "Ord Type: No Value"
+  end
+
+  return "Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type
+eurex_cash_eti_t7_v12_0.ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ord_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Attribute Liquidity Provision
+eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision = {}
+
+-- Size: Order Attribute Liquidity Provision
+eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.size = 1
+
+-- Display: Order Attribute Liquidity Provision
+eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.display = function(value)
+  if value == 1 then
+    return "Order Attribute Liquidity Provision: Y (1)"
+  end
+  if value == 0 then
+    return "Order Attribute Liquidity Provision: N (0)"
+  end
+  if value == 0xFF then
+    return "Order Attribute Liquidity Provision: No Value"
+  end
+
+  return "Order Attribute Liquidity Provision: Unknown("..value..")"
+end
+
+-- Dissect: Order Attribute Liquidity Provision
+eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_attribute_liquidity_provision, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Category
+eurex_cash_eti_t7_v12_0.order_category = {}
+
+-- Size: Order Category
+eurex_cash_eti_t7_v12_0.order_category.size = 1
+
+-- Display: Order Category
+eurex_cash_eti_t7_v12_0.order_category.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Category: No Value"
+  end
+
+  if value == "1" then
+    return "Order Category: Order (1)"
+  end
+  if value == "2" then
+    return "Order Category: Quote (2)"
+  end
+
+  return "Order Category: Unknown("..value..")"
+end
+
+-- Dissect: Order Category
+eurex_cash_eti_t7_v12_0.order_category.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_category.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.order_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Match Id
+eurex_cash_eti_t7_v12_0.order_event_match_id = {}
+
+-- Size: Order Event Match Id
+eurex_cash_eti_t7_v12_0.order_event_match_id.size = 4
+
+-- Display: Order Event Match Id
+eurex_cash_eti_t7_v12_0.order_event_match_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Order Event Match Id: No Value"
+  end
+
+  return "Order Event Match Id: "..value
+end
+
+-- Dissect: Order Event Match Id
+eurex_cash_eti_t7_v12_0.order_event_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_event_match_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.order_event_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Px
+eurex_cash_eti_t7_v12_0.order_event_px = {}
+
+-- Size: Order Event Px
+eurex_cash_eti_t7_v12_0.order_event_px.size = 8
+
+-- Display: Order Event Px
+eurex_cash_eti_t7_v12_0.order_event_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Order Event Px: No Value"
+  end
+
+  return "Order Event Px: "..value
+end
+
+-- Translate: Order Event Px
+eurex_cash_eti_t7_v12_0.order_event_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Order Event Px
+eurex_cash_eti_t7_v12_0.order_event_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_event_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.order_event_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.order_event_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Qty
+eurex_cash_eti_t7_v12_0.order_event_qty = {}
+
+-- Size: Order Event Qty
+eurex_cash_eti_t7_v12_0.order_event_qty.size = 8
+
+-- Display: Order Event Qty
+eurex_cash_eti_t7_v12_0.order_event_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Order Event Qty: No Value"
+  end
+
+  return "Order Event Qty: "..value
+end
+
+-- Translate: Order Event Qty
+eurex_cash_eti_t7_v12_0.order_event_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Order Event Qty
+eurex_cash_eti_t7_v12_0.order_event_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_event_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.order_event_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.order_event_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Reason
+eurex_cash_eti_t7_v12_0.order_event_reason = {}
+
+-- Size: Order Event Reason
+eurex_cash_eti_t7_v12_0.order_event_reason.size = 1
+
+-- Display: Order Event Reason
+eurex_cash_eti_t7_v12_0.order_event_reason.display = function(value)
+  if value == 100 then
+    return "Order Event Reason: Smp (100)"
+  end
+  if value == 0xFF then
+    return "Order Event Reason: No Value"
+  end
+
+  return "Order Event Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Event Reason
+eurex_cash_eti_t7_v12_0.order_event_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_event_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.order_event_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Type
+eurex_cash_eti_t7_v12_0.order_event_type = {}
+
+-- Size: Order Event Type
+eurex_cash_eti_t7_v12_0.order_event_type.size = 1
+
+-- Display: Order Event Type
+eurex_cash_eti_t7_v12_0.order_event_type.display = function(value)
+  if value == 100 then
+    return "Order Event Type: Pendingrequestsdiscarded (100)"
+  end
+  if value == 0xFF then
+    return "Order Event Type: No Value"
+  end
+
+  return "Order Event Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Event Type
+eurex_cash_eti_t7_v12_0.order_event_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_event_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.order_event_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+eurex_cash_eti_t7_v12_0.order_id = {}
+
+-- Size: Order Id
+eurex_cash_eti_t7_v12_0.order_id.size = 8
+
+-- Display: Order Id
+eurex_cash_eti_t7_v12_0.order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id: No Value"
+  end
+
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+eurex_cash_eti_t7_v12_0.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id Sfx
+eurex_cash_eti_t7_v12_0.order_id_sfx = {}
+
+-- Size: Order Id Sfx
+eurex_cash_eti_t7_v12_0.order_id_sfx.size = 4
+
+-- Display: Order Id Sfx
+eurex_cash_eti_t7_v12_0.order_id_sfx.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Order Id Sfx: No Value"
+  end
+
+  return "Order Id Sfx: "..value
+end
+
+-- Dissect: Order Id Sfx
+eurex_cash_eti_t7_v12_0.order_id_sfx.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_id_sfx.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.order_id_sfx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_id_sfx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Origination
+eurex_cash_eti_t7_v12_0.order_origination = {}
+
+-- Size: Order Origination
+eurex_cash_eti_t7_v12_0.order_origination.size = 1
+
+-- Display: Order Origination
+eurex_cash_eti_t7_v12_0.order_origination.display = function(value)
+  if value == 5 then
+    return "Order Origination: Directaccessorsponsoredaccesscustomer (5)"
+  end
+  if value == 0xFF then
+    return "Order Origination: No Value"
+  end
+
+  return "Order Origination: Unknown("..value..")"
+end
+
+-- Dissect: Order Origination
+eurex_cash_eti_t7_v12_0.order_origination.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_origination.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.order_origination.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_origination, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+eurex_cash_eti_t7_v12_0.order_qty = {}
+
+-- Size: Order Qty
+eurex_cash_eti_t7_v12_0.order_qty.size = 8
+
+-- Display: Order Qty
+eurex_cash_eti_t7_v12_0.order_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Order Qty: No Value"
+  end
+
+  return "Order Qty: "..value
+end
+
+-- Translate: Order Qty
+eurex_cash_eti_t7_v12_0.order_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Order Qty
+eurex_cash_eti_t7_v12_0.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.order_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.order_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Routing Indicator
+eurex_cash_eti_t7_v12_0.order_routing_indicator = {}
+
+-- Size: Order Routing Indicator
+eurex_cash_eti_t7_v12_0.order_routing_indicator.size = 1
+
+-- Display: Order Routing Indicator
+eurex_cash_eti_t7_v12_0.order_routing_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Routing Indicator: No Value"
+  end
+
+  if value == "Y" then
+    return "Order Routing Indicator: Yes (Y)"
+  end
+  if value == "N" then
+    return "Order Routing Indicator: No (N)"
+  end
+
+  return "Order Routing Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Order Routing Indicator
+eurex_cash_eti_t7_v12_0.order_routing_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.order_routing_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.order_routing_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_routing_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.orig_cl_ord_id = {}
+
+-- Size: Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.orig_cl_ord_id.size = 8
+
+-- Display: Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.orig_cl_ord_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Orig Cl Ord Id: No Value"
+  end
+
+  return "Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Orig Cl Ord Id
+eurex_cash_eti_t7_v12_0.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Time
+eurex_cash_eti_t7_v12_0.orig_time = {}
+
+-- Size: Orig Time
+eurex_cash_eti_t7_v12_0.orig_time.size = 8
+
+-- Display: Orig Time
+eurex_cash_eti_t7_v12_0.orig_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Orig Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Orig Time
+eurex_cash_eti_t7_v12_0.orig_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.orig_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.orig_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.orig_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Trade Id
+eurex_cash_eti_t7_v12_0.orig_trade_id = {}
+
+-- Size: Orig Trade Id
+eurex_cash_eti_t7_v12_0.orig_trade_id.size = 4
+
+-- Display: Orig Trade Id
+eurex_cash_eti_t7_v12_0.orig_trade_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Orig Trade Id: No Value"
+  end
+
+  return "Orig Trade Id: "..value
+end
+
+-- Dissect: Orig Trade Id
+eurex_cash_eti_t7_v12_0.orig_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.orig_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.orig_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.orig_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ownership Indicator
+eurex_cash_eti_t7_v12_0.ownership_indicator = {}
+
+-- Size: Ownership Indicator
+eurex_cash_eti_t7_v12_0.ownership_indicator.size = 1
+
+-- Display: Ownership Indicator
+eurex_cash_eti_t7_v12_0.ownership_indicator.display = function(value)
+  if value == 0 then
+    return "Ownership Indicator: No Changeof Ownership (0)"
+  end
+  if value == 1 then
+    return "Ownership Indicator: Changeto Executing Trader (1)"
+  end
+  if value == 0xFF then
+    return "Ownership Indicator: No Value"
+  end
+
+  return "Ownership Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Ownership Indicator
+eurex_cash_eti_t7_v12_0.ownership_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ownership_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.ownership_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ownership_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Package Id
+eurex_cash_eti_t7_v12_0.package_id = {}
+
+-- Size: Package Id
+eurex_cash_eti_t7_v12_0.package_id.size = 4
+
+-- Display: Package Id
+eurex_cash_eti_t7_v12_0.package_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Package Id: No Value"
+  end
+
+  return "Package Id: "..value
+end
+
+-- Dissect: Package Id
+eurex_cash_eti_t7_v12_0.package_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.package_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.package_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.package_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 1
+eurex_cash_eti_t7_v12_0.pad_1 = {}
+
+-- Size: Pad 1
+eurex_cash_eti_t7_v12_0.pad_1.size = 1
+
+-- Display: Pad 1
+eurex_cash_eti_t7_v12_0.pad_1.display = function(value)
+  return "Pad 1: "..value
+end
+
+-- Dissect: Pad 1
+eurex_cash_eti_t7_v12_0.pad_1.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 2
+eurex_cash_eti_t7_v12_0.pad_2 = {}
+
+-- Size: Pad 2
+eurex_cash_eti_t7_v12_0.pad_2.size = 2
+
+-- Display: Pad 2
+eurex_cash_eti_t7_v12_0.pad_2.display = function(value)
+  return "Pad 2: "..value
+end
+
+-- Dissect: Pad 2
+eurex_cash_eti_t7_v12_0.pad_2.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 3
+eurex_cash_eti_t7_v12_0.pad_3 = {}
+
+-- Size: Pad 3
+eurex_cash_eti_t7_v12_0.pad_3.size = 3
+
+-- Display: Pad 3
+eurex_cash_eti_t7_v12_0.pad_3.display = function(value)
+  return "Pad 3: "..value
+end
+
+-- Dissect: Pad 3
+eurex_cash_eti_t7_v12_0.pad_3.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 4
+eurex_cash_eti_t7_v12_0.pad_4 = {}
+
+-- Size: Pad 4
+eurex_cash_eti_t7_v12_0.pad_4.size = 4
+
+-- Display: Pad 4
+eurex_cash_eti_t7_v12_0.pad_4.display = function(value)
+  return "Pad 4: "..value
+end
+
+-- Dissect: Pad 4
+eurex_cash_eti_t7_v12_0.pad_4.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 5
+eurex_cash_eti_t7_v12_0.pad_5 = {}
+
+-- Size: Pad 5
+eurex_cash_eti_t7_v12_0.pad_5.size = 5
+
+-- Display: Pad 5
+eurex_cash_eti_t7_v12_0.pad_5.display = function(value)
+  return "Pad 5: "..value
+end
+
+-- Dissect: Pad 5
+eurex_cash_eti_t7_v12_0.pad_5.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_5.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_5.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 6
+eurex_cash_eti_t7_v12_0.pad_6 = {}
+
+-- Size: Pad 6
+eurex_cash_eti_t7_v12_0.pad_6.size = 6
+
+-- Display: Pad 6
+eurex_cash_eti_t7_v12_0.pad_6.display = function(value)
+  return "Pad 6: "..value
+end
+
+-- Dissect: Pad 6
+eurex_cash_eti_t7_v12_0.pad_6.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_6.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pad 7
+eurex_cash_eti_t7_v12_0.pad_7 = {}
+
+-- Size: Pad 7
+eurex_cash_eti_t7_v12_0.pad_7.size = 7
+
+-- Display: Pad 7
+eurex_cash_eti_t7_v12_0.pad_7.display = function(value)
+  return "Pad 7: "..value
+end
+
+-- Dissect: Pad 7
+eurex_cash_eti_t7_v12_0.pad_7.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.pad_7.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.pad_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_7, range, value, display)
+
+  return offset + length, value
+end
+
+-- Partition Id
+eurex_cash_eti_t7_v12_0.partition_id = {}
+
+-- Size: Partition Id
+eurex_cash_eti_t7_v12_0.partition_id.size = 2
+
+-- Display: Partition Id
+eurex_cash_eti_t7_v12_0.partition_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+eurex_cash_eti_t7_v12_0.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.partition_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Action Type
+eurex_cash_eti_t7_v12_0.party_action_type = {}
+
+-- Size: Party Action Type
+eurex_cash_eti_t7_v12_0.party_action_type.size = 1
+
+-- Display: Party Action Type
+eurex_cash_eti_t7_v12_0.party_action_type.display = function(value)
+  if value == 1 then
+    return "Party Action Type: Halt Trading (1)"
+  end
+  if value == 2 then
+    return "Party Action Type: Reinstate (2)"
+  end
+  if value == 0xFF then
+    return "Party Action Type: No Value"
+  end
+
+  return "Party Action Type: Unknown("..value..")"
+end
+
+-- Dissect: Party Action Type
+eurex_cash_eti_t7_v12_0.party_action_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_action_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_action_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_action_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Desk Id
+eurex_cash_eti_t7_v12_0.party_detail_desk_id = {}
+
+-- Size: Party Detail Desk Id
+eurex_cash_eti_t7_v12_0.party_detail_desk_id.size = 3
+
+-- Display: Party Detail Desk Id
+eurex_cash_eti_t7_v12_0.party_detail_desk_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Desk Id: No Value"
+  end
+
+  return "Party Detail Desk Id: "..value
+end
+
+-- Dissect: Party Detail Desk Id
+eurex_cash_eti_t7_v12_0.party_detail_desk_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_desk_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_detail_desk_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_desk_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_executing_trader = {}
+
+-- Size: Party Detail Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size = 6
+
+-- Display: Party Detail Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Executing Trader: No Value"
+  end
+
+  return "Party Detail Executing Trader: "..value
+end
+
+-- Dissect: Party Detail Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_detail_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_executing_unit = {}
+
+-- Size: Party Detail Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_executing_unit.size = 5
+
+-- Display: Party Detail Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_executing_unit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Executing Unit: No Value"
+  end
+
+  return "Party Detail Executing Unit: "..value
+end
+
+-- Dissect: Party Detail Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_executing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_executing_unit.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_detail_executing_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_executing_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader = {}
+
+-- Size: Party Detail Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size = 4
+
+-- Display: Party Detail Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Detail Id Executing Trader: No Value"
+  end
+
+  return "Party Detail Id Executing Trader: "..value
+end
+
+-- Dissect: Party Detail Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_id_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit = {}
+
+-- Size: Party Detail Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.size = 4
+
+-- Display: Party Detail Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Detail Id Executing Unit: No Value"
+  end
+
+  return "Party Detail Id Executing Unit: "..value
+end
+
+-- Dissect: Party Detail Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_id_executing_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Role Qualifier
+eurex_cash_eti_t7_v12_0.party_detail_role_qualifier = {}
+
+-- Size: Party Detail Role Qualifier
+eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size = 1
+
+-- Display: Party Detail Role Qualifier
+eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.display = function(value)
+  if value == 10 then
+    return "Party Detail Role Qualifier: Trader (10)"
+  end
+  if value == 11 then
+    return "Party Detail Role Qualifier: Head Trader (11)"
+  end
+  if value == 12 then
+    return "Party Detail Role Qualifier: Supervisor (12)"
+  end
+  if value == 0xFF then
+    return "Party Detail Role Qualifier: No Value"
+  end
+
+  return "Party Detail Role Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Party Detail Role Qualifier
+eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_role_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Status
+eurex_cash_eti_t7_v12_0.party_detail_status = {}
+
+-- Size: Party Detail Status
+eurex_cash_eti_t7_v12_0.party_detail_status.size = 1
+
+-- Display: Party Detail Status
+eurex_cash_eti_t7_v12_0.party_detail_status.display = function(value)
+  if value == 0 then
+    return "Party Detail Status: Active (0)"
+  end
+  if value == 1 then
+    return "Party Detail Status: Suspend (1)"
+  end
+  if value == 0xFF then
+    return "Party Detail Status: No Value"
+  end
+
+  return "Party Detail Status: Unknown("..value..")"
+end
+
+-- Dissect: Party Detail Status
+eurex_cash_eti_t7_v12_0.party_detail_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_detail_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_detail_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Entering Firm
+eurex_cash_eti_t7_v12_0.party_entering_firm = {}
+
+-- Size: Party Entering Firm
+eurex_cash_eti_t7_v12_0.party_entering_firm.size = 5
+
+-- Display: Party Entering Firm
+eurex_cash_eti_t7_v12_0.party_entering_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Entering Firm: No Value"
+  end
+
+  return "Party Entering Firm: "..value
+end
+
+-- Dissect: Party Entering Firm
+eurex_cash_eti_t7_v12_0.party_entering_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_entering_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_entering_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_entering_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Entering Trader
+eurex_cash_eti_t7_v12_0.party_entering_trader = {}
+
+-- Size: Party Entering Trader
+eurex_cash_eti_t7_v12_0.party_entering_trader.size = 6
+
+-- Display: Party Entering Trader
+eurex_cash_eti_t7_v12_0.party_entering_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Entering Trader: No Value"
+  end
+
+  return "Party Entering Trader: "..value
+end
+
+-- Dissect: Party Entering Trader
+eurex_cash_eti_t7_v12_0.party_entering_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_entering_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_entering_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_entering_trader, range, value, display)
 
   return offset + length, value
 end
@@ -1944,6 +7942,685 @@ eurex_cash_eti_t7_v12_0.party_executing_firm.dissect = function(buffer, offset, 
   local display = eurex_cash_eti_t7_v12_0.party_executing_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_executing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Executing Trader
+eurex_cash_eti_t7_v12_0.party_executing_trader = {}
+
+-- Size: Party Executing Trader
+eurex_cash_eti_t7_v12_0.party_executing_trader.size = 6
+
+-- Display: Party Executing Trader
+eurex_cash_eti_t7_v12_0.party_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Executing Trader: No Value"
+  end
+
+  return "Party Executing Trader: "..value
+end
+
+-- Dissect: Party Executing Trader
+eurex_cash_eti_t7_v12_0.party_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_executing_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Executing Unit
+eurex_cash_eti_t7_v12_0.party_executing_unit = {}
+
+-- Size: Party Executing Unit
+eurex_cash_eti_t7_v12_0.party_executing_unit.size = 5
+
+-- Display: Party Executing Unit
+eurex_cash_eti_t7_v12_0.party_executing_unit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Executing Unit: No Value"
+  end
+
+  return "Party Executing Unit: "..value
+end
+
+-- Dissect: Party Executing Unit
+eurex_cash_eti_t7_v12_0.party_executing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_executing_unit.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_executing_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_executing_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Client Id
+eurex_cash_eti_t7_v12_0.party_id_client_id = {}
+
+-- Size: Party Id Client Id
+eurex_cash_eti_t7_v12_0.party_id_client_id.size = 8
+
+-- Display: Party Id Client Id
+eurex_cash_eti_t7_v12_0.party_id_client_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Party Id Client Id: No Value"
+  end
+
+  return "Party Id Client Id: "..value
+end
+
+-- Dissect: Party Id Client Id
+eurex_cash_eti_t7_v12_0.party_id_client_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_client_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.party_id_client_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_client_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.party_id_entering_firm = {}
+
+-- Size: Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.party_id_entering_firm.size = 1
+
+-- Display: Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.party_id_entering_firm.display = function(value)
+  if value == 1 then
+    return "Party Id Entering Firm: Participant (1)"
+  end
+  if value == 2 then
+    return "Party Id Entering Firm: Market Supervision (2)"
+  end
+  if value == 0xFF then
+    return "Party Id Entering Firm: No Value"
+  end
+
+  return "Party Id Entering Firm: Unknown("..value..")"
+end
+
+-- Dissect: Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_entering_firm.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_entering_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_entering_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Entering Trader
+eurex_cash_eti_t7_v12_0.party_id_entering_trader = {}
+
+-- Size: Party Id Entering Trader
+eurex_cash_eti_t7_v12_0.party_id_entering_trader.size = 4
+
+-- Display: Party Id Entering Trader
+eurex_cash_eti_t7_v12_0.party_id_entering_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Entering Trader: No Value"
+  end
+
+  return "Party Id Entering Trader: "..value
+end
+
+-- Dissect: Party Id Entering Trader
+eurex_cash_eti_t7_v12_0.party_id_entering_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_entering_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_entering_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_entering_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_id_executing_trader = {}
+
+-- Size: Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_id_executing_trader.size = 4
+
+-- Display: Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_id_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Executing Trader: No Value"
+  end
+
+  return "Party Id Executing Trader: "..value
+end
+
+-- Dissect: Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_id_executing_unit = {}
+
+-- Size: Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_id_executing_unit.size = 4
+
+-- Display: Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_id_executing_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Executing Unit: No Value"
+  end
+
+  return "Party Id Executing Unit: "..value
+end
+
+-- Dissect: Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.party_id_executing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_executing_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_executing_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_executing_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker = {}
+
+-- Size: Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.size = 8
+
+-- Display: Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Party Id Investment Decision Maker: No Value"
+  end
+
+  return "Party Id Investment Decision Maker: "..value
+end
+
+-- Dissect: Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_investment_decision_maker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier = {}
+
+-- Size: Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.size = 1
+
+-- Display: Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.display = function(value)
+  if value == 22 then
+    return "Party Id Investment Decision Maker Qualifier: Algo (22)"
+  end
+  if value == 24 then
+    return "Party Id Investment Decision Maker Qualifier: Human (24)"
+  end
+  if value == 0xFF then
+    return "Party Id Investment Decision Maker Qualifier: No Value"
+  end
+
+  return "Party Id Investment Decision Maker Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_investment_decision_maker_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Session Id
+eurex_cash_eti_t7_v12_0.party_id_session_id = {}
+
+-- Size: Party Id Session Id
+eurex_cash_eti_t7_v12_0.party_id_session_id.size = 4
+
+-- Display: Party Id Session Id
+eurex_cash_eti_t7_v12_0.party_id_session_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Session Id: No Value"
+  end
+
+  return "Party Id Session Id: "..value
+end
+
+-- Dissect: Party Id Session Id
+eurex_cash_eti_t7_v12_0.party_id_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Specialist Trader
+eurex_cash_eti_t7_v12_0.party_id_specialist_trader = {}
+
+-- Size: Party Id Specialist Trader
+eurex_cash_eti_t7_v12_0.party_id_specialist_trader.size = 4
+
+-- Display: Party Id Specialist Trader
+eurex_cash_eti_t7_v12_0.party_id_specialist_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Party Id Specialist Trader: No Value"
+  end
+
+  return "Party Id Specialist Trader: "..value
+end
+
+-- Dissect: Party Id Specialist Trader
+eurex_cash_eti_t7_v12_0.party_id_specialist_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_id_specialist_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.party_id_specialist_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_specialist_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Specialist Firm
+eurex_cash_eti_t7_v12_0.party_specialist_firm = {}
+
+-- Size: Party Specialist Firm
+eurex_cash_eti_t7_v12_0.party_specialist_firm.size = 5
+
+-- Display: Party Specialist Firm
+eurex_cash_eti_t7_v12_0.party_specialist_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Specialist Firm: No Value"
+  end
+
+  return "Party Specialist Firm: "..value
+end
+
+-- Dissect: Party Specialist Firm
+eurex_cash_eti_t7_v12_0.party_specialist_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_specialist_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_specialist_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_specialist_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Specialist Trader
+eurex_cash_eti_t7_v12_0.party_specialist_trader = {}
+
+-- Size: Party Specialist Trader
+eurex_cash_eti_t7_v12_0.party_specialist_trader.size = 6
+
+-- Display: Party Specialist Trader
+eurex_cash_eti_t7_v12_0.party_specialist_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Specialist Trader: No Value"
+  end
+
+  return "Party Specialist Trader: "..value
+end
+
+-- Dissect: Party Specialist Trader
+eurex_cash_eti_t7_v12_0.party_specialist_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.party_specialist_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.party_specialist_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_specialist_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+eurex_cash_eti_t7_v12_0.password = {}
+
+-- Size: Password
+eurex_cash_eti_t7_v12_0.password.size = 32
+
+-- Display: Password
+eurex_cash_eti_t7_v12_0.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+eurex_cash_eti_t7_v12_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = eurex_cash_eti_t7_v12_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Peg Offset Value Abs
+eurex_cash_eti_t7_v12_0.peg_offset_value_abs = {}
+
+-- Size: Peg Offset Value Abs
+eurex_cash_eti_t7_v12_0.peg_offset_value_abs.size = 8
+
+-- Display: Peg Offset Value Abs
+eurex_cash_eti_t7_v12_0.peg_offset_value_abs.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Peg Offset Value Abs: No Value"
+  end
+
+  return "Peg Offset Value Abs: "..value
+end
+
+-- Translate: Peg Offset Value Abs
+eurex_cash_eti_t7_v12_0.peg_offset_value_abs.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Peg Offset Value Abs
+eurex_cash_eti_t7_v12_0.peg_offset_value_abs.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.peg_offset_value_abs.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.peg_offset_value_abs.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.peg_offset_value_abs.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.peg_offset_value_abs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Peg Offset Value Pct
+eurex_cash_eti_t7_v12_0.peg_offset_value_pct = {}
+
+-- Size: Peg Offset Value Pct
+eurex_cash_eti_t7_v12_0.peg_offset_value_pct.size = 8
+
+-- Display: Peg Offset Value Pct
+eurex_cash_eti_t7_v12_0.peg_offset_value_pct.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Peg Offset Value Pct: No Value"
+  end
+
+  return "Peg Offset Value Pct: "..value
+end
+
+-- Translate: Peg Offset Value Pct
+eurex_cash_eti_t7_v12_0.peg_offset_value_pct.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Peg Offset Value Pct
+eurex_cash_eti_t7_v12_0.peg_offset_value_pct.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.peg_offset_value_pct.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.peg_offset_value_pct.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.peg_offset_value_pct.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.peg_offset_value_pct, range, value, display)
+
+  return offset + length, value
+end
+
+-- Potential Exec Volume
+eurex_cash_eti_t7_v12_0.potential_exec_volume = {}
+
+-- Size: Potential Exec Volume
+eurex_cash_eti_t7_v12_0.potential_exec_volume.size = 8
+
+-- Display: Potential Exec Volume
+eurex_cash_eti_t7_v12_0.potential_exec_volume.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Potential Exec Volume: No Value"
+  end
+
+  return "Potential Exec Volume: "..value
+end
+
+-- Translate: Potential Exec Volume
+eurex_cash_eti_t7_v12_0.potential_exec_volume.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Potential Exec Volume
+eurex_cash_eti_t7_v12_0.potential_exec_volume.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.potential_exec_volume.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.potential_exec_volume.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.potential_exec_volume.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.potential_exec_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+eurex_cash_eti_t7_v12_0.price = {}
+
+-- Size: Price
+eurex_cash_eti_t7_v12_0.price.size = 8
+
+-- Display: Price
+eurex_cash_eti_t7_v12_0.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
+  return "Price: "..value
+end
+
+-- Translate: Price
+eurex_cash_eti_t7_v12_0.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price
+eurex_cash_eti_t7_v12_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.price.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Validity Check Type
+eurex_cash_eti_t7_v12_0.price_validity_check_type = {}
+
+-- Size: Price Validity Check Type
+eurex_cash_eti_t7_v12_0.price_validity_check_type.size = 1
+
+-- Display: Price Validity Check Type
+eurex_cash_eti_t7_v12_0.price_validity_check_type.display = function(value)
+  if value == 0 then
+    return "Price Validity Check Type: None (0)"
+  end
+  if value == 2 then
+    return "Price Validity Check Type: Mandatory (2)"
+  end
+  if value == 0xFF then
+    return "Price Validity Check Type: No Value"
+  end
+
+  return "Price Validity Check Type: Unknown("..value..")"
+end
+
+-- Dissect: Price Validity Check Type
+eurex_cash_eti_t7_v12_0.price_validity_check_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.price_validity_check_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.price_validity_check_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.price_validity_check_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Public Key
+eurex_cash_eti_t7_v12_0.public_key = {}
+
+-- Display: Public Key
+eurex_cash_eti_t7_v12_0.public_key.display = function(value)
+  return "Public Key: "..value
+end
+
+-- Dissect runtime sized field: Public Key
+eurex_cash_eti_t7_v12_0.public_key.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = eurex_cash_eti_t7_v12_0.public_key.display(value, packet, parent, size)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.public_key, range, value, display)
+
+  return offset + size, value
+end
+
+-- Public Key Len
+eurex_cash_eti_t7_v12_0.public_key_len = {}
+
+-- Size: Public Key Len
+eurex_cash_eti_t7_v12_0.public_key_len.size = 2
+
+-- Display: Public Key Len
+eurex_cash_eti_t7_v12_0.public_key_len.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Public Key Len: No Value"
+  end
+
+  return "Public Key Len: "..value
+end
+
+-- Dissect: Public Key Len
+eurex_cash_eti_t7_v12_0.public_key_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.public_key_len.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.public_key_len.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.public_key_len, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Cancel Reason
+eurex_cash_eti_t7_v12_0.quote_cancel_reason = {}
+
+-- Size: Quote Cancel Reason
+eurex_cash_eti_t7_v12_0.quote_cancel_reason.size = 1
+
+-- Display: Quote Cancel Reason
+eurex_cash_eti_t7_v12_0.quote_cancel_reason.display = function(value)
+  if value == 5 then
+    return "Quote Cancel Reason: Expired (5)"
+  end
+  if value == 0xFF then
+    return "Quote Cancel Reason: No Value"
+  end
+
+  return "Quote Cancel Reason: Unknown("..value..")"
+end
+
+-- Dissect: Quote Cancel Reason
+eurex_cash_eti_t7_v12_0.quote_cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_cancel_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_cancel_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2000,131 +8677,3291 @@ eurex_cash_eti_t7_v12_0.quote_condition.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Order Origination
-eurex_cash_eti_t7_v12_0.order_origination = {}
+-- Quote Entry Reject Reason
+eurex_cash_eti_t7_v12_0.quote_entry_reject_reason = {}
 
--- Size: Order Origination
-eurex_cash_eti_t7_v12_0.order_origination.size = 1
+-- Size: Quote Entry Reject Reason
+eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size = 4
 
--- Display: Order Origination
-eurex_cash_eti_t7_v12_0.order_origination.display = function(value)
-  if value == 5 then
-    return "Order Origination: Directaccessorsponsoredaccesscustomer (5)"
-  end
-  if value == 0xFF then
-    return "Order Origination: No Value"
-  end
-
-  return "Order Origination: Unknown("..value..")"
-end
-
--- Dissect: Order Origination
-eurex_cash_eti_t7_v12_0.order_origination.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_origination.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.order_origination.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_origination, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier = {}
-
--- Size: Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.size = 1
-
--- Display: Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.display = function(value)
-  if value == 22 then
-    return "Party Id Investment Decision Maker Qualifier: Algo (22)"
-  end
-  if value == 24 then
-    return "Party Id Investment Decision Maker Qualifier: Human (24)"
-  end
-  if value == 0xFF then
-    return "Party Id Investment Decision Maker Qualifier: No Value"
-  end
-
-  return "Party Id Investment Decision Maker Qualifier: Unknown("..value..")"
-end
-
--- Dissect: Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_investment_decision_maker_qualifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Executing Trader Qualifier
-eurex_cash_eti_t7_v12_0.executing_trader_qualifier = {}
-
--- Size: Executing Trader Qualifier
-eurex_cash_eti_t7_v12_0.executing_trader_qualifier.size = 1
-
--- Display: Executing Trader Qualifier
-eurex_cash_eti_t7_v12_0.executing_trader_qualifier.display = function(value)
-  if value == 22 then
-    return "Executing Trader Qualifier: Algo (22)"
-  end
-  if value == 24 then
-    return "Executing Trader Qualifier: Human (24)"
-  end
-  if value == 0xFF then
-    return "Executing Trader Qualifier: No Value"
-  end
-
-  return "Executing Trader Qualifier: Unknown("..value..")"
-end
-
--- Dissect: Executing Trader Qualifier
-eurex_cash_eti_t7_v12_0.executing_trader_qualifier.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.executing_trader_qualifier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.executing_trader_qualifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.executing_trader_qualifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Attribute Liquidity Provision
-eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision = {}
-
--- Size: Order Attribute Liquidity Provision
-eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.size = 1
-
--- Display: Order Attribute Liquidity Provision
-eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.display = function(value)
+-- Display: Quote Entry Reject Reason
+eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.display = function(value)
   if value == 1 then
-    return "Order Attribute Liquidity Provision: Y (1)"
+    return "Quote Entry Reject Reason: Unknown Security (1)"
   end
-  if value == 0 then
-    return "Order Attribute Liquidity Provision: N (0)"
+  if value == 6 then
+    return "Quote Entry Reject Reason: Duplicate Quote (6)"
   end
-  if value == 0xFF then
-    return "Order Attribute Liquidity Provision: No Value"
+  if value == 8 then
+    return "Quote Entry Reject Reason: Invalid Price (8)"
+  end
+  if value == 16 then
+    return "Quote Entry Reject Reason: No Reference Price Available (16)"
+  end
+  if value == 100 then
+    return "Quote Entry Reject Reason: No Single Sided Quotes (100)"
+  end
+  if value == 103 then
+    return "Quote Entry Reject Reason: Invalid Quoting Model (103)"
+  end
+  if value == 106 then
+    return "Quote Entry Reject Reason: Invalid Size (106)"
+  end
+  if value == 108 then
+    return "Quote Entry Reject Reason: Bid Price Not Reasonable (108)"
+  end
+  if value == 109 then
+    return "Quote Entry Reject Reason: Ask Price Not Reasonable (109)"
+  end
+  if value == 110 then
+    return "Quote Entry Reject Reason: Bid Price Exceeds Range (110)"
+  end
+  if value == 111 then
+    return "Quote Entry Reject Reason: Ask Price Exceeds Range (111)"
+  end
+  if value == 115 then
+    return "Quote Entry Reject Reason: Instrument State Freeze (115)"
+  end
+  if value == 116 then
+    return "Quote Entry Reject Reason: Deletion Already Pending (116)"
+  end
+  if value == 120 then
+    return "Quote Entry Reject Reason: Bid Value Exceeds Limit (120)"
+  end
+  if value == 121 then
+    return "Quote Entry Reject Reason: Ask Value Exceeds Limit (121)"
+  end
+  if value == 122 then
+    return "Quote Entry Reject Reason: Not Tradeable For Business Unit (122)"
+  end
+  if value == 125 then
+    return "Quote Entry Reject Reason: Quantity Limit Exceeded (125)"
+  end
+  if value == 126 then
+    return "Quote Entry Reject Reason: Value Limit Exceeded (126)"
+  end
+  if value == 127 then
+    return "Quote Entry Reject Reason: Invalid Quote Spread (127)"
+  end
+  if value == 131 then
+    return "Quote Entry Reject Reason: Cant Proc In Curr Instr State (131)"
+  end
+  if value == 134 then
+    return "Quote Entry Reject Reason: Invalid Quote Type (134)"
+  end
+  if value == 135 then
+    return "Quote Entry Reject Reason: Pwt Quotenotallowedincurrentstate (135)"
+  end
+  if value == 136 then
+    return "Quote Entry Reject Reason: Standard Quotenotallowedincurrentstate (136)"
+  end
+  if value == 137 then
+    return "Quote Entry Reject Reason: Pwt Quotenotallowedwithcrossedbook (137)"
+  end
+  if value == 138 then
+    return "Quote Entry Reject Reason: Asksidequotenotallowed (138)"
+  end
+  if value == 139 then
+    return "Quote Entry Reject Reason: Asksidequotewithqtynotallowed (139)"
+  end
+  if value == 140 then
+    return "Quote Entry Reject Reason: Invalidchange L Psession (140)"
+  end
+  if value == 144 then
+    return "Quote Entry Reject Reason: On Book Tradingdisabledfor Instrument Type (144)"
+  end
+  if value == 145 then
+    return "Quote Entry Reject Reason: L Plicencenotassigned (145)"
+  end
+  if value == 146 then
+    return "Quote Entry Reject Reason: S Plicencenotassigned (146)"
+  end
+  if value == 147 then
+    return "Quote Entry Reject Reason: Liquidityproviderprotectionbidsidecancelled (147)"
+  end
+  if value == 148 then
+    return "Quote Entry Reject Reason: Liquidityproviderprotectionasksidecancelled (148)"
+  end
+  if value == 149 then
+    return "Quote Entry Reject Reason: Quantity Limit Exceeded Instrument (149)"
+  end
+  if value == 150 then
+    return "Quote Entry Reject Reason: Value Limit Exceeded Instrument (150)"
+  end
+  if value == 151 then
+    return "Quote Entry Reject Reason: Issuer Stopped (151)"
+  end
+  if value == 152 then
+    return "Quote Entry Reject Reason: Partial Exec Of Qrs Order (152)"
+  end
+  if value == 153 then
+    return "Quote Entry Reject Reason: Matching Quote Not Allowed In Current State (153)"
+  end
+  if value == 155 then
+    return "Quote Entry Reject Reason: Outside Quoting Period (155)"
+  end
+  if value == 156 then
+    return "Quote Entry Reject Reason: Match Price Not On Price Step (156)"
+  end
+  if value == 161 then
+    return "Quote Entry Reject Reason: Quantity Limit Exceeds Tsl (161)"
+  end
+  if value == 162 then
+    return "Quote Entry Reject Reason: Invalid Trading Session Sub I Dfor Instrument (162)"
+  end
+  if value == 163 then
+    return "Quote Entry Reject Reason: Too Many Ordersand Quotesin Order Book (163)"
+  end
+  if value == 164 then
+    return "Quote Entry Reject Reason: Inactive Cover (164)"
+  end
+  if value == 165 then
+    return "Quote Entry Reject Reason: Indicative Quotenotallowedincurrentstate (165)"
+  end
+  if value == 0xFFFFFFFF then
+    return "Quote Entry Reject Reason: No Value"
   end
 
-  return "Order Attribute Liquidity Provision: Unknown("..value..")"
+  return "Quote Entry Reject Reason: Unknown("..value..")"
 end
 
--- Dissect: Order Attribute Liquidity Provision
-eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.size
+-- Dissect: Quote Entry Reject Reason
+eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.order_attribute_liquidity_provision.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_attribute_liquidity_provision, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_entry_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Entry Status
+eurex_cash_eti_t7_v12_0.quote_entry_status = {}
+
+-- Size: Quote Entry Status
+eurex_cash_eti_t7_v12_0.quote_entry_status.size = 1
+
+-- Display: Quote Entry Status
+eurex_cash_eti_t7_v12_0.quote_entry_status.display = function(value)
+  if value == 0 then
+    return "Quote Entry Status: Accepted (0)"
+  end
+  if value == 5 then
+    return "Quote Entry Status: Rejected (5)"
+  end
+  if value == 6 then
+    return "Quote Entry Status: Removedand Rejected (6)"
+  end
+  if value == 10 then
+    return "Quote Entry Status: Pending (10)"
+  end
+  if value == 0xFF then
+    return "Quote Entry Status: No Value"
+  end
+
+  return "Quote Entry Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Entry Status
+eurex_cash_eti_t7_v12_0.quote_entry_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_entry_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_entry_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_entry_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Exec Id
+eurex_cash_eti_t7_v12_0.quote_event_exec_id = {}
+
+-- Size: Quote Event Exec Id
+eurex_cash_eti_t7_v12_0.quote_event_exec_id.size = 4
+
+-- Display: Quote Event Exec Id
+eurex_cash_eti_t7_v12_0.quote_event_exec_id.display = function(value)
+  -- Check if field has value
+  if value == 0x80000000 then
+    return "Quote Event Exec Id: No Value"
+  end
+
+  return "Quote Event Exec Id: "..value
+end
+
+-- Dissect: Quote Event Exec Id
+eurex_cash_eti_t7_v12_0.quote_event_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = eurex_cash_eti_t7_v12_0.quote_event_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Liquidity Ind
+eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind = {}
+
+-- Size: Quote Event Liquidity Ind
+eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size = 1
+
+-- Display: Quote Event Liquidity Ind
+eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.display = function(value)
+  if value == 1 then
+    return "Quote Event Liquidity Ind: Added Liquidity (1)"
+  end
+  if value == 2 then
+    return "Quote Event Liquidity Ind: Removed Liquidity (2)"
+  end
+  if value == 4 then
+    return "Quote Event Liquidity Ind: Auction (4)"
+  end
+  if value == 0xFF then
+    return "Quote Event Liquidity Ind: No Value"
+  end
+
+  return "Quote Event Liquidity Ind: Unknown("..value..")"
+end
+
+-- Dissect: Quote Event Liquidity Ind
+eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_liquidity_ind, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Match Id
+eurex_cash_eti_t7_v12_0.quote_event_match_id = {}
+
+-- Size: Quote Event Match Id
+eurex_cash_eti_t7_v12_0.quote_event_match_id.size = 4
+
+-- Display: Quote Event Match Id
+eurex_cash_eti_t7_v12_0.quote_event_match_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Quote Event Match Id: No Value"
+  end
+
+  return "Quote Event Match Id: "..value
+end
+
+-- Dissect: Quote Event Match Id
+eurex_cash_eti_t7_v12_0.quote_event_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_match_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_event_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Px
+eurex_cash_eti_t7_v12_0.quote_event_px = {}
+
+-- Size: Quote Event Px
+eurex_cash_eti_t7_v12_0.quote_event_px.size = 8
+
+-- Display: Quote Event Px
+eurex_cash_eti_t7_v12_0.quote_event_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Event Px: No Value"
+  end
+
+  return "Quote Event Px: "..value
+end
+
+-- Translate: Quote Event Px
+eurex_cash_eti_t7_v12_0.quote_event_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Quote Event Px
+eurex_cash_eti_t7_v12_0.quote_event_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.quote_event_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.quote_event_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Qty
+eurex_cash_eti_t7_v12_0.quote_event_qty = {}
+
+-- Size: Quote Event Qty
+eurex_cash_eti_t7_v12_0.quote_event_qty.size = 8
+
+-- Display: Quote Event Qty
+eurex_cash_eti_t7_v12_0.quote_event_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Quote Event Qty: No Value"
+  end
+
+  return "Quote Event Qty: "..value
+end
+
+-- Translate: Quote Event Qty
+eurex_cash_eti_t7_v12_0.quote_event_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Quote Event Qty
+eurex_cash_eti_t7_v12_0.quote_event_qty.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_qty.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.quote_event_qty.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.quote_event_qty.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Reason
+eurex_cash_eti_t7_v12_0.quote_event_reason = {}
+
+-- Size: Quote Event Reason
+eurex_cash_eti_t7_v12_0.quote_event_reason.size = 1
+
+-- Display: Quote Event Reason
+eurex_cash_eti_t7_v12_0.quote_event_reason.display = function(value)
+  if value == 14 then
+    return "Quote Event Reason: Pendingcancellationexecuted (14)"
+  end
+  if value == 15 then
+    return "Quote Event Reason: Invalidprice (15)"
+  end
+  if value == 16 then
+    return "Quote Event Reason: Crossrejected (16)"
+  end
+  if value == 18 then
+    return "Quote Event Reason: Plp (18)"
+  end
+  if value == 19 then
+    return "Quote Event Reason: Pricenot Topof Book (19)"
+  end
+  if value == 20 then
+    return "Quote Event Reason: Random Selection (20)"
+  end
+  if value == 21 then
+    return "Quote Event Reason: Manual Selection (21)"
+  end
+  if value == 0xFF then
+    return "Quote Event Reason: No Value"
+  end
+
+  return "Quote Event Reason: Unknown("..value..")"
+end
+
+-- Dissect: Quote Event Reason
+eurex_cash_eti_t7_v12_0.quote_event_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_event_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Side
+eurex_cash_eti_t7_v12_0.quote_event_side = {}
+
+-- Size: Quote Event Side
+eurex_cash_eti_t7_v12_0.quote_event_side.size = 1
+
+-- Display: Quote Event Side
+eurex_cash_eti_t7_v12_0.quote_event_side.display = function(value)
+  if value == 1 then
+    return "Quote Event Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Quote Event Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Quote Event Side: No Value"
+  end
+
+  return "Quote Event Side: Unknown("..value..")"
+end
+
+-- Dissect: Quote Event Side
+eurex_cash_eti_t7_v12_0.quote_event_side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_event_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Event Type
+eurex_cash_eti_t7_v12_0.quote_event_type = {}
+
+-- Size: Quote Event Type
+eurex_cash_eti_t7_v12_0.quote_event_type.size = 1
+
+-- Display: Quote Event Type
+eurex_cash_eti_t7_v12_0.quote_event_type.display = function(value)
+  if value == 2 then
+    return "Quote Event Type: Modifiedquoteside (2)"
+  end
+  if value == 3 then
+    return "Quote Event Type: Removedquoteside (3)"
+  end
+  if value == 4 then
+    return "Quote Event Type: Partiallyfilled (4)"
+  end
+  if value == 5 then
+    return "Quote Event Type: Filled (5)"
+  end
+  if value == 6 then
+    return "Quote Event Type: Removed Quantity (6)"
+  end
+  if value == 0xFF then
+    return "Quote Event Type: No Value"
+  end
+
+  return "Quote Event Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Event Type
+eurex_cash_eti_t7_v12_0.quote_event_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_event_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_event_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Id
+eurex_cash_eti_t7_v12_0.quote_id = {}
+
+-- Size: Quote Id
+eurex_cash_eti_t7_v12_0.quote_id.size = 8
+
+-- Display: Quote Id
+eurex_cash_eti_t7_v12_0.quote_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Id: No Value"
+  end
+
+  return "Quote Id: "..value
+end
+
+-- Dissect: Quote Id
+eurex_cash_eti_t7_v12_0.quote_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.quote_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Msg Id
+eurex_cash_eti_t7_v12_0.quote_msg_id = {}
+
+-- Size: Quote Msg Id
+eurex_cash_eti_t7_v12_0.quote_msg_id.size = 8
+
+-- Display: Quote Msg Id
+eurex_cash_eti_t7_v12_0.quote_msg_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Msg Id: No Value"
+  end
+
+  return "Quote Msg Id: "..value
+end
+
+-- Dissect: Quote Msg Id
+eurex_cash_eti_t7_v12_0.quote_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_msg_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.quote_msg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_msg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id
+eurex_cash_eti_t7_v12_0.quote_req_id = {}
+
+-- Size: Quote Req Id
+eurex_cash_eti_t7_v12_0.quote_req_id.size = 20
+
+-- Display: Quote Req Id
+eurex_cash_eti_t7_v12_0.quote_req_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
+  return "Quote Req Id: "..value
+end
+
+-- Dissect: Quote Req Id
+eurex_cash_eti_t7_v12_0.quote_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_req_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.quote_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Request Reject Reason
+eurex_cash_eti_t7_v12_0.quote_request_reject_reason = {}
+
+-- Size: Quote Request Reject Reason
+eurex_cash_eti_t7_v12_0.quote_request_reject_reason.size = 1
+
+-- Display: Quote Request Reject Reason
+eurex_cash_eti_t7_v12_0.quote_request_reject_reason.display = function(value)
+  if value == 2 then
+    return "Quote Request Reject Reason: Exchangeclosed (2)"
+  end
+  if value == 99 then
+    return "Quote Request Reject Reason: Other (99)"
+  end
+  if value == 100 then
+    return "Quote Request Reject Reason: Requestedsizetoosmall (100)"
+  end
+  if value == 101 then
+    return "Quote Request Reject Reason: Requestedsizetoobig (101)"
+  end
+  if value == 102 then
+    return "Quote Request Reject Reason: Novalidquotefromissuer (102)"
+  end
+  if value == 103 then
+    return "Quote Request Reject Reason: Soldout (103)"
+  end
+  if value == 104 then
+    return "Quote Request Reject Reason: Tradingrestriction (104)"
+  end
+  if value == 105 then
+    return "Quote Request Reject Reason: Pendingrequesttimedout (105)"
+  end
+  if value == 0xFF then
+    return "Quote Request Reject Reason: No Value"
+  end
+
+  return "Quote Request Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Quote Request Reject Reason
+eurex_cash_eti_t7_v12_0.quote_request_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_request_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_request_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_request_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Response Id
+eurex_cash_eti_t7_v12_0.quote_response_id = {}
+
+-- Size: Quote Response Id
+eurex_cash_eti_t7_v12_0.quote_response_id.size = 8
+
+-- Display: Quote Response Id
+eurex_cash_eti_t7_v12_0.quote_response_id.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Response Id: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Quote Response Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Quote Response Id
+eurex_cash_eti_t7_v12_0.quote_response_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_response_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.quote_response_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_response_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Size Type
+eurex_cash_eti_t7_v12_0.quote_size_type = {}
+
+-- Size: Quote Size Type
+eurex_cash_eti_t7_v12_0.quote_size_type.size = 1
+
+-- Display: Quote Size Type
+eurex_cash_eti_t7_v12_0.quote_size_type.display = function(value)
+  if value == 1 then
+    return "Quote Size Type: Total Size (1)"
+  end
+  if value == 2 then
+    return "Quote Size Type: Open Size (2)"
+  end
+  if value == 0xFF then
+    return "Quote Size Type: No Value"
+  end
+
+  return "Quote Size Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Size Type
+eurex_cash_eti_t7_v12_0.quote_size_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_size_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_size_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_size_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Type
+eurex_cash_eti_t7_v12_0.quote_type = {}
+
+-- Size: Quote Type
+eurex_cash_eti_t7_v12_0.quote_type.size = 1
+
+-- Display: Quote Type
+eurex_cash_eti_t7_v12_0.quote_type.display = function(value)
+  if value == 0 then
+    return "Quote Type: Indicative (0)"
+  end
+  if value == 1 then
+    return "Quote Type: Tradeable (1)"
+  end
+  if value == 101 then
+    return "Quote Type: Tradeable Matching (101)"
+  end
+  if value == 102 then
+    return "Quote Type: Tradeable Pwt (102)"
+  end
+  if value == 103 then
+    return "Quote Type: Special Auction (103)"
+  end
+  if value == 104 then
+    return "Quote Type: Pw Twithin Special Auction (104)"
+  end
+  if value == 0xFF then
+    return "Quote Type: No Value"
+  end
+
+  return "Quote Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Type
+eurex_cash_eti_t7_v12_0.quote_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quote_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quote_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quoting Frequency
+eurex_cash_eti_t7_v12_0.quoting_frequency = {}
+
+-- Size: Quoting Frequency
+eurex_cash_eti_t7_v12_0.quoting_frequency.size = 1
+
+-- Display: Quoting Frequency
+eurex_cash_eti_t7_v12_0.quoting_frequency.display = function(value)
+  if value == 0 then
+    return "Quoting Frequency: Hf (0)"
+  end
+  if value == 1 then
+    return "Quoting Frequency: Lf (1)"
+  end
+  if value == 0xFF then
+    return "Quoting Frequency: No Value"
+  end
+
+  return "Quoting Frequency: Unknown("..value..")"
+end
+
+-- Dissect: Quoting Frequency
+eurex_cash_eti_t7_v12_0.quoting_frequency.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quoting_frequency.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quoting_frequency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quoting_frequency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quoting Status
+eurex_cash_eti_t7_v12_0.quoting_status = {}
+
+-- Size: Quoting Status
+eurex_cash_eti_t7_v12_0.quoting_status.size = 1
+
+-- Display: Quoting Status
+eurex_cash_eti_t7_v12_0.quoting_status.display = function(value)
+  if value == 1 then
+    return "Quoting Status: Open Active (1)"
+  end
+  if value == 2 then
+    return "Quoting Status: Open Idle (2)"
+  end
+  if value == 3 then
+    return "Quoting Status: Closed Inactive (3)"
+  end
+  if value == 4 then
+    return "Quoting Status: Open Not Responded (4)"
+  end
+  if value == 5 then
+    return "Quoting Status: Pre Fundingnotsufficient (5)"
+  end
+  if value == 0xFF then
+    return "Quoting Status: No Value"
+  end
+
+  return "Quoting Status: Unknown("..value..")"
+end
+
+-- Dissect: Quoting Status
+eurex_cash_eti_t7_v12_0.quoting_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.quoting_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.quoting_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quoting_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Appl Id
+eurex_cash_eti_t7_v12_0.ref_appl_id = {}
+
+-- Size: Ref Appl Id
+eurex_cash_eti_t7_v12_0.ref_appl_id.size = 1
+
+-- Display: Ref Appl Id
+eurex_cash_eti_t7_v12_0.ref_appl_id.display = function(value)
+  if value == 1 then
+    return "Ref Appl Id: Trade (1)"
+  end
+  if value == 2 then
+    return "Ref Appl Id: News (2)"
+  end
+  if value == 3 then
+    return "Ref Appl Id: Serviceavailability (3)"
+  end
+  if value == 4 then
+    return "Ref Appl Id: Sessiondata (4)"
+  end
+  if value == 5 then
+    return "Ref Appl Id: Listenerdata (5)"
+  end
+  if value == 6 then
+    return "Ref Appl Id: Risk Control (6)"
+  end
+  if value == 7 then
+    return "Ref Appl Id: Tes Maintenance (7)"
+  end
+  if value == 8 then
+    return "Ref Appl Id: Tes Trade (8)"
+  end
+  if value == 9 then
+    return "Ref Appl Id: Srqs Maintenance (9)"
+  end
+  if value == 10 then
+    return "Ref Appl Id: Service Availability Market (10)"
+  end
+  if value == 11 then
+    return "Ref Appl Id: Specialist Data (11)"
+  end
+  if value == 0xFF then
+    return "Ref Appl Id: No Value"
+  end
+
+  return "Ref Appl Id: Unknown("..value..")"
+end
+
+-- Dissect: Ref Appl Id
+eurex_cash_eti_t7_v12_0.ref_appl_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ref_appl_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.ref_appl_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Appl Last Msg Id
+eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id = {}
+
+-- Size: Ref Appl Last Msg Id
+eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.size = 16
+
+-- Display: Ref Appl Last Msg Id
+eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.display = function(value)
+  return "Ref Appl Last Msg Id: "..value
+end
+
+-- Dissect: Ref Appl Last Msg Id
+eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_last_msg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Appl Last Seq Num
+eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num = {}
+
+-- Size: Ref Appl Last Seq Num
+eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.size = 8
+
+-- Display: Ref Appl Last Seq Num
+eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Ref Appl Last Seq Num: No Value"
+  end
+
+  return "Ref Appl Last Seq Num: "..value
+end
+
+-- Dissect: Ref Appl Last Seq Num
+eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Appl Sub Id
+eurex_cash_eti_t7_v12_0.ref_appl_sub_id = {}
+
+-- Size: Ref Appl Sub Id
+eurex_cash_eti_t7_v12_0.ref_appl_sub_id.size = 4
+
+-- Display: Ref Appl Sub Id
+eurex_cash_eti_t7_v12_0.ref_appl_sub_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Ref Appl Sub Id: No Value"
+  end
+
+  return "Ref Appl Sub Id: "..value
+end
+
+-- Dissect: Ref Appl Sub Id
+eurex_cash_eti_t7_v12_0.ref_appl_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.ref_appl_sub_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.ref_appl_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Refinancing Eligibility Indicator
+eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator = {}
+
+-- Size: Refinancing Eligibility Indicator
+eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.size = 1
+
+-- Display: Refinancing Eligibility Indicator
+eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.display = function(value)
+  if value == 0 then
+    return "Refinancing Eligibility Indicator: No (0)"
+  end
+  if value == 1 then
+    return "Refinancing Eligibility Indicator: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Refinancing Eligibility Indicator: No Value"
+  end
+
+  return "Refinancing Eligibility Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Refinancing Eligibility Indicator
+eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.refinancing_eligibility_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Regulatory Trade Id
+eurex_cash_eti_t7_v12_0.regulatory_trade_id = {}
+
+-- Size: Regulatory Trade Id
+eurex_cash_eti_t7_v12_0.regulatory_trade_id.size = 52
+
+-- Display: Regulatory Trade Id
+eurex_cash_eti_t7_v12_0.regulatory_trade_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Regulatory Trade Id: No Value"
+  end
+
+  return "Regulatory Trade Id: "..value
+end
+
+-- Dissect: Regulatory Trade Id
+eurex_cash_eti_t7_v12_0.regulatory_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.regulatory_trade_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.regulatory_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.regulatory_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Time
+eurex_cash_eti_t7_v12_0.request_time = {}
+
+-- Size: Request Time
+eurex_cash_eti_t7_v12_0.request_time.size = 8
+
+-- Display: Request Time
+eurex_cash_eti_t7_v12_0.request_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Request Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Request Time
+eurex_cash_eti_t7_v12_0.request_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.request_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.request_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.request_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Clearing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm = {}
+
+-- Size: Requesting Party Clearing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.size = 9
+
+-- Display: Requesting Party Clearing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Clearing Firm: No Value"
+  end
+
+  return "Requesting Party Clearing Firm: "..value
+end
+
+-- Dissect: Requesting Party Clearing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_clearing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_entering_firm = {}
+
+-- Size: Requesting Party Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.size = 9
+
+-- Display: Requesting Party Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Entering Firm: No Value"
+  end
+
+  return "Requesting Party Entering Firm: "..value
+end
+
+-- Dissect: Requesting Party Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_entering_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Executing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_executing_firm = {}
+
+-- Size: Requesting Party Executing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.size = 5
+
+-- Display: Requesting Party Executing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Executing Firm: No Value"
+  end
+
+  return "Requesting Party Executing Firm: "..value
+end
+
+-- Dissect: Requesting Party Executing Firm
+eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_executing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_executing_trader = {}
+
+-- Size: Requesting Party Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.size = 6
+
+-- Display: Requesting Party Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Executing Trader: No Value"
+  end
+
+  return "Requesting Party Executing Trader: "..value
+end
+
+-- Dissect: Requesting Party Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm = {}
+
+-- Size: Requesting Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.size = 1
+
+-- Display: Requesting Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.display = function(value)
+  if value == 1 then
+    return "Requesting Party Id Entering Firm: Participant (1)"
+  end
+  if value == 2 then
+    return "Requesting Party Id Entering Firm: Market Supervision (2)"
+  end
+  if value == 0xFF then
+    return "Requesting Party Id Entering Firm: No Value"
+  end
+
+  return "Requesting Party Id Entering Firm: Unknown("..value..")"
+end
+
+-- Dissect: Requesting Party Id Entering Firm
+eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_id_entering_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Id Executing System
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system = {}
+
+-- Size: Requesting Party Id Executing System
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.size = 4
+
+-- Display: Requesting Party Id Executing System
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.display = function(value)
+  if value == 2 then
+    return "Requesting Party Id Executing System: T 7 (2)"
+  end
+  if value == 0xFFFFFFFF then
+    return "Requesting Party Id Executing System: No Value"
+  end
+
+  return "Requesting Party Id Executing System: Unknown("..value..")"
+end
+
+-- Dissect: Requesting Party Id Executing System
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_id_executing_system, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader = {}
+
+-- Size: Requesting Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.size = 4
+
+-- Display: Requesting Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Requesting Party Id Executing Trader: No Value"
+  end
+
+  return "Requesting Party Id Executing Trader: "..value
+end
+
+-- Dissect: Requesting Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_id_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Side
+eurex_cash_eti_t7_v12_0.requesting_side = {}
+
+-- Size: Requesting Side
+eurex_cash_eti_t7_v12_0.requesting_side.size = 1
+
+-- Display: Requesting Side
+eurex_cash_eti_t7_v12_0.requesting_side.display = function(value)
+  if value == 1 then
+    return "Requesting Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Requesting Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Requesting Side: No Value"
+  end
+
+  return "Requesting Side: Unknown("..value..")"
+end
+
+-- Dissect: Requesting Side
+eurex_cash_eti_t7_v12_0.requesting_side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.requesting_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.requesting_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Respondent Type
+eurex_cash_eti_t7_v12_0.respondent_type = {}
+
+-- Size: Respondent Type
+eurex_cash_eti_t7_v12_0.respondent_type.size = 1
+
+-- Display: Respondent Type
+eurex_cash_eti_t7_v12_0.respondent_type.display = function(value)
+  if value == 2 then
+    return "Respondent Type: Specifiedmarketparticipants (2)"
+  end
+  if value == 100 then
+    return "Respondent Type: Specifiedand Smart Rf Qselectedparticipants (100)"
+  end
+  if value == 101 then
+    return "Respondent Type: Smart Rf Qselectedparticipants (101)"
+  end
+  if value == 0xFF then
+    return "Respondent Type: No Value"
+  end
+
+  return "Respondent Type: Unknown("..value..")"
+end
+
+-- Dissect: Respondent Type
+eurex_cash_eti_t7_v12_0.respondent_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.respondent_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.respondent_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.respondent_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Response In
+eurex_cash_eti_t7_v12_0.response_in = {}
+
+-- Size: Response In
+eurex_cash_eti_t7_v12_0.response_in.size = 8
+
+-- Display: Response In
+eurex_cash_eti_t7_v12_0.response_in.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Response In: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Response In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Response In
+eurex_cash_eti_t7_v12_0.response_in.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.response_in.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.response_in.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.response_in, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Publish Indicator
+eurex_cash_eti_t7_v12_0.rfq_publish_indicator = {}
+
+-- Size: Rfq Publish Indicator
+eurex_cash_eti_t7_v12_0.rfq_publish_indicator.size = 1
+
+-- Display: Rfq Publish Indicator
+eurex_cash_eti_t7_v12_0.rfq_publish_indicator.display = function(value)
+  if value == 1 then
+    return "Rfq Publish Indicator: Market Data (1)"
+  end
+  if value == 2 then
+    return "Rfq Publish Indicator: Designated Sponsor (2)"
+  end
+  if value == 3 then
+    return "Rfq Publish Indicator: Market Dataand Designated Sponsor (3)"
+  end
+  if value == 4 then
+    return "Rfq Publish Indicator: Market Makerand Designated Sponsor (4)"
+  end
+  if value == 5 then
+    return "Rfq Publish Indicator: Market Dataand Market Makerand Designated Sponsor (5)"
+  end
+  if value == 6 then
+    return "Rfq Publish Indicator: Specialist (6)"
+  end
+  if value == 0xFF then
+    return "Rfq Publish Indicator: No Value"
+  end
+
+  return "Rfq Publish Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Publish Indicator
+eurex_cash_eti_t7_v12_0.rfq_publish_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.rfq_publish_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.rfq_publish_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.rfq_publish_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Requester Disclosure Instruction
+eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction = {}
+
+-- Size: Rfq Requester Disclosure Instruction
+eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.size = 1
+
+-- Display: Rfq Requester Disclosure Instruction
+eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.display = function(value)
+  if value == 0 then
+    return "Rfq Requester Disclosure Instruction: No (0)"
+  end
+  if value == 1 then
+    return "Rfq Requester Disclosure Instruction: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Rfq Requester Disclosure Instruction: No Value"
+  end
+
+  return "Rfq Requester Disclosure Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Requester Disclosure Instruction
+eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.rfq_requester_disclosure_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Control Rtm Service Status
+eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status = {}
+
+-- Size: Risk Control Rtm Service Status
+eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.size = 1
+
+-- Display: Risk Control Rtm Service Status
+eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.display = function(value)
+  if value == 0 then
+    return "Risk Control Rtm Service Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "Risk Control Rtm Service Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Risk Control Rtm Service Status: No Value"
+  end
+
+  return "Risk Control Rtm Service Status: Unknown("..value..")"
+end
+
+-- Dissect: Risk Control Rtm Service Status
+eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_control_rtm_service_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Amount
+eurex_cash_eti_t7_v12_0.risk_limit_amount = {}
+
+-- Size: Risk Limit Amount
+eurex_cash_eti_t7_v12_0.risk_limit_amount.size = 8
+
+-- Display: Risk Limit Amount
+eurex_cash_eti_t7_v12_0.risk_limit_amount.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Risk Limit Amount: No Value"
+  end
+
+  return "Risk Limit Amount: "..value
+end
+
+-- Translate: Risk Limit Amount
+eurex_cash_eti_t7_v12_0.risk_limit_amount.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Risk Limit Amount
+eurex_cash_eti_t7_v12_0.risk_limit_amount.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_amount.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.risk_limit_amount.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_amount.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Group
+eurex_cash_eti_t7_v12_0.risk_limit_group = {}
+
+-- Size: Risk Limit Group
+eurex_cash_eti_t7_v12_0.risk_limit_group.size = 3
+
+-- Display: Risk Limit Group
+eurex_cash_eti_t7_v12_0.risk_limit_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Risk Limit Group: No Value"
+  end
+
+  return "Risk Limit Group: "..value
+end
+
+-- Dissect: Risk Limit Group
+eurex_cash_eti_t7_v12_0.risk_limit_group.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_group.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Net Position Amount
+eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount = {}
+
+-- Size: Risk Limit Net Position Amount
+eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size = 8
+
+-- Display: Risk Limit Net Position Amount
+eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Risk Limit Net Position Amount: No Value"
+  end
+
+  return "Risk Limit Net Position Amount: "..value
+end
+
+-- Translate: Risk Limit Net Position Amount
+eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Risk Limit Net Position Amount
+eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_net_position_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Open Amount
+eurex_cash_eti_t7_v12_0.risk_limit_open_amount = {}
+
+-- Size: Risk Limit Open Amount
+eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size = 8
+
+-- Display: Risk Limit Open Amount
+eurex_cash_eti_t7_v12_0.risk_limit_open_amount.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Risk Limit Open Amount: No Value"
+  end
+
+  return "Risk Limit Open Amount: "..value
+end
+
+-- Translate: Risk Limit Open Amount
+eurex_cash_eti_t7_v12_0.risk_limit_open_amount.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Risk Limit Open Amount
+eurex_cash_eti_t7_v12_0.risk_limit_open_amount.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.risk_limit_open_amount.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_open_amount.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_open_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Report Id
+eurex_cash_eti_t7_v12_0.risk_limit_report_id = {}
+
+-- Size: Risk Limit Report Id
+eurex_cash_eti_t7_v12_0.risk_limit_report_id.size = 8
+
+-- Display: Risk Limit Report Id
+eurex_cash_eti_t7_v12_0.risk_limit_report_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Risk Limit Report Id: No Value"
+  end
+
+  return "Risk Limit Report Id: "..value
+end
+
+-- Dissect: Risk Limit Report Id
+eurex_cash_eti_t7_v12_0.risk_limit_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Requesting Party Role
+eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role = {}
+
+-- Size: Risk Limit Requesting Party Role
+eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size = 1
+
+-- Display: Risk Limit Requesting Party Role
+eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.display = function(value)
+  if value == 4 then
+    return "Risk Limit Requesting Party Role: Clearingfirm (4)"
+  end
+  if value == 22 then
+    return "Risk Limit Requesting Party Role: Exchange (22)"
+  end
+  if value == 59 then
+    return "Risk Limit Requesting Party Role: Executingunit (59)"
+  end
+  if value == 0xFF then
+    return "Risk Limit Requesting Party Role: No Value"
+  end
+
+  return "Risk Limit Requesting Party Role: Unknown("..value..")"
+end
+
+-- Dissect: Risk Limit Requesting Party Role
+eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_requesting_party_role, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Type
+eurex_cash_eti_t7_v12_0.risk_limit_type = {}
+
+-- Size: Risk Limit Type
+eurex_cash_eti_t7_v12_0.risk_limit_type.size = 1
+
+-- Display: Risk Limit Type
+eurex_cash_eti_t7_v12_0.risk_limit_type.display = function(value)
+  if value == 4 then
+    return "Risk Limit Type: Longlimit (4)"
+  end
+  if value == 5 then
+    return "Risk Limit Type: Shortlimit (5)"
+  end
+  if value == 0xFF then
+    return "Risk Limit Type: No Value"
+  end
+
+  return "Risk Limit Type: Unknown("..value..")"
+end
+
+-- Dissect: Risk Limit Type
+eurex_cash_eti_t7_v12_0.risk_limit_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Risk Limit Violation Indicator
+eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator = {}
+
+-- Size: Risk Limit Violation Indicator
+eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size = 1
+
+-- Display: Risk Limit Violation Indicator
+eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.display = function(value)
+  if value == 0 then
+    return "Risk Limit Violation Indicator: No (0)"
+  end
+  if value == 1 then
+    return "Risk Limit Violation Indicator: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Risk Limit Violation Indicator: No Value"
+  end
+
+  return "Risk Limit Violation Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Risk Limit Violation Indicator
+eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_violation_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Clearing Firm
+eurex_cash_eti_t7_v12_0.root_party_clearing_firm = {}
+
+-- Size: Root Party Clearing Firm
+eurex_cash_eti_t7_v12_0.root_party_clearing_firm.size = 5
+
+-- Display: Root Party Clearing Firm
+eurex_cash_eti_t7_v12_0.root_party_clearing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Clearing Firm: No Value"
+  end
+
+  return "Root Party Clearing Firm: "..value
+end
+
+-- Dissect: Root Party Clearing Firm
+eurex_cash_eti_t7_v12_0.root_party_clearing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_clearing_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_clearing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_clearing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Contra Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_firm = {}
+
+-- Size: Root Party Contra Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_firm.size = 5
+
+-- Display: Root Party Contra Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Contra Firm: No Value"
+  end
+
+  return "Root Party Contra Firm: "..value
+end
+
+-- Dissect: Root Party Contra Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_contra_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_contra_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Contra Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number = {}
+
+-- Size: Root Party Contra Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.size = 4
+
+-- Display: Root Party Contra Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Contra Firm Kv Number: No Value"
+  end
+
+  return "Root Party Contra Firm Kv Number: "..value
+end
+
+-- Dissect: Root Party Contra Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_firm_kv_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Contra Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account = {}
+
+-- Size: Root Party Contra Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.size = 35
+
+-- Display: Root Party Contra Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Contra Settlement Account: No Value"
+  end
+
+  return "Root Party Contra Settlement Account: "..value
+end
+
+-- Dissect: Root Party Contra Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_settlement_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Contra Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm = {}
+
+-- Size: Root Party Contra Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.size = 5
+
+-- Display: Root Party Contra Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Contra Settlement Firm: No Value"
+  end
+
+  return "Root Party Contra Settlement Firm: "..value
+end
+
+-- Dissect: Root Party Contra Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_settlement_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Contra Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location = {}
+
+-- Size: Root Party Contra Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.size = 3
+
+-- Display: Root Party Contra Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.display = function(value)
+  if value == "APK" then
+    return "Root Party Contra Settlement Location: Apk (APK)"
+  end
+  if value == "CBF" then
+    return "Root Party Contra Settlement Location: Cbf (CBF)"
+  end
+  if value == "CBL" then
+    return "Root Party Contra Settlement Location: Cbl (CBL)"
+  end
+  if value == "CCO" then
+    return "Root Party Contra Settlement Location: Cco (CCO)"
+  end
+  if value == "CIK" then
+    return "Root Party Contra Settlement Location: Cik (CIK)"
+  end
+  if value == "EOC" then
+    return "Root Party Contra Settlement Location: Eoc (EOC)"
+  end
+  if value == "HEL" then
+    return "Root Party Contra Settlement Location: Hel (HEL)"
+  end
+  if value == "IBC" then
+    return "Root Party Contra Settlement Location: Ibc (IBC)"
+  end
+  if value == "INT" then
+    return "Root Party Contra Settlement Location: Int (INT)"
+  end
+  if value == "KDP" then
+    return "Root Party Contra Settlement Location: Kdp (KDP)"
+  end
+  if value == "MOT" then
+    return "Root Party Contra Settlement Location: Mot (MOT)"
+  end
+  if value == "NEC" then
+    return "Root Party Contra Settlement Location: Nec (NEC)"
+  end
+  if value == "OEB" then
+    return "Root Party Contra Settlement Location: Oeb (OEB)"
+  end
+  if value == "SIC" then
+    return "Root Party Contra Settlement Location: Sic (SIC)"
+  end
+  if value == "SIS" then
+    return "Root Party Contra Settlement Location: Sis (SIS)"
+  end
+  if value == "VPC" then
+    return "Root Party Contra Settlement Location: Vpc (VPC)"
+  end
+  if value == "VPD" then
+    return "Root Party Contra Settlement Location: Vpd (VPD)"
+  end
+  if value == "VPS" then
+    return "Root Party Contra Settlement Location: Vps (VPS)"
+  end
+  if value == "CFG" then
+    return "Root Party Contra Settlement Location: Cfg (CFG)"
+  end
+
+  return "Root Party Contra Settlement Location: Unknown("..value..")"
+end
+
+-- Dissect: Root Party Contra Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_settlement_location, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Entering Trader
+eurex_cash_eti_t7_v12_0.root_party_entering_trader = {}
+
+-- Size: Root Party Entering Trader
+eurex_cash_eti_t7_v12_0.root_party_entering_trader.size = 6
+
+-- Display: Root Party Entering Trader
+eurex_cash_eti_t7_v12_0.root_party_entering_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Entering Trader: No Value"
+  end
+
+  return "Root Party Entering Trader: "..value
+end
+
+-- Dissect: Root Party Entering Trader
+eurex_cash_eti_t7_v12_0.root_party_entering_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_entering_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_entering_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_entering_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Executing Firm
+eurex_cash_eti_t7_v12_0.root_party_executing_firm = {}
+
+-- Size: Root Party Executing Firm
+eurex_cash_eti_t7_v12_0.root_party_executing_firm.size = 5
+
+-- Display: Root Party Executing Firm
+eurex_cash_eti_t7_v12_0.root_party_executing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Executing Firm: No Value"
+  end
+
+  return "Root Party Executing Firm: "..value
+end
+
+-- Dissect: Root Party Executing Firm
+eurex_cash_eti_t7_v12_0.root_party_executing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_executing_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_executing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_executing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Executing Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number = {}
+
+-- Size: Root Party Executing Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.size = 4
+
+-- Display: Root Party Executing Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Executing Firm Kv Number: No Value"
+  end
+
+  return "Root Party Executing Firm Kv Number: "..value
+end
+
+-- Dissect: Root Party Executing Firm Kv Number
+eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_executing_firm_kv_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_executing_trader = {}
+
+-- Size: Root Party Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_executing_trader.size = 6
+
+-- Display: Root Party Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Executing Trader: No Value"
+  end
+
+  return "Root Party Executing Trader: "..value
+end
+
+-- Dissect: Root Party Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_executing_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Clearing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit = {}
+
+-- Size: Root Party Id Clearing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.size = 4
+
+-- Display: Root Party Id Clearing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Clearing Unit: No Value"
+  end
+
+  return "Root Party Id Clearing Unit: "..value
+end
+
+-- Dissect: Root Party Id Clearing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_clearing_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Client Id
+eurex_cash_eti_t7_v12_0.root_party_id_client_id = {}
+
+-- Size: Root Party Id Client Id
+eurex_cash_eti_t7_v12_0.root_party_id_client_id.size = 8
+
+-- Display: Root Party Id Client Id
+eurex_cash_eti_t7_v12_0.root_party_id_client_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Root Party Id Client Id: No Value"
+  end
+
+  return "Root Party Id Client Id: "..value
+end
+
+-- Dissect: Root Party Id Client Id
+eurex_cash_eti_t7_v12_0.root_party_id_client_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_client_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_client_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_client_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Contra Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit = {}
+
+-- Size: Root Party Id Contra Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.size = 4
+
+-- Display: Root Party Id Contra Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Contra Settlement Unit: No Value"
+  end
+
+  return "Root Party Id Contra Settlement Unit: "..value
+end
+
+-- Dissect: Root Party Id Contra Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_contra_settlement_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Contra Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_unit = {}
+
+-- Size: Root Party Id Contra Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.size = 4
+
+-- Display: Root Party Id Contra Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Contra Unit: No Value"
+  end
+
+  return "Root Party Id Contra Unit: "..value
+end
+
+-- Dissect: Root Party Id Contra Unit
+eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_contra_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_id_executing_trader = {}
+
+-- Size: Root Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.size = 4
+
+-- Display: Root Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Executing Trader: No Value"
+  end
+
+  return "Root Party Id Executing Trader: "..value
+end
+
+-- Dissect: Root Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_executing_unit = {}
+
+-- Size: Root Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.size = 4
+
+-- Display: Root Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Executing Unit: No Value"
+  end
+
+  return "Root Party Id Executing Unit: "..value
+end
+
+-- Dissect: Root Party Id Executing Unit
+eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_executing_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Execution Venue
+eurex_cash_eti_t7_v12_0.root_party_id_execution_venue = {}
+
+-- Size: Root Party Id Execution Venue
+eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.size = 4
+
+-- Display: Root Party Id Execution Venue
+eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Id Execution Venue: No Value"
+  end
+
+  return "Root Party Id Execution Venue: "..value
+end
+
+-- Dissect: Root Party Id Execution Venue
+eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_execution_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker = {}
+
+-- Size: Root Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.size = 8
+
+-- Display: Root Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Root Party Id Investment Decision Maker: No Value"
+  end
+
+  return "Root Party Id Investment Decision Maker: "..value
+end
+
+-- Dissect: Root Party Id Investment Decision Maker
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_investment_decision_maker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier = {}
+
+-- Size: Root Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.size = 1
+
+-- Display: Root Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.display = function(value)
+  if value == 22 then
+    return "Root Party Id Investment Decision Maker Qualifier: Algo (22)"
+  end
+  if value == 24 then
+    return "Root Party Id Investment Decision Maker Qualifier: Human (24)"
+  end
+  if value == 0xFF then
+    return "Root Party Id Investment Decision Maker Qualifier: No Value"
+  end
+
+  return "Root Party Id Investment Decision Maker Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Root Party Id Investment Decision Maker Qualifier
+eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_investment_decision_maker_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Session Id
+eurex_cash_eti_t7_v12_0.root_party_id_session_id = {}
+
+-- Size: Root Party Id Session Id
+eurex_cash_eti_t7_v12_0.root_party_id_session_id.size = 4
+
+-- Display: Root Party Id Session Id
+eurex_cash_eti_t7_v12_0.root_party_id_session_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Session Id: No Value"
+  end
+
+  return "Root Party Id Session Id: "..value
+end
+
+-- Dissect: Root Party Id Session Id
+eurex_cash_eti_t7_v12_0.root_party_id_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Id Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit = {}
+
+-- Size: Root Party Id Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.size = 4
+
+-- Display: Root Party Id Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Root Party Id Settlement Unit: No Value"
+  end
+
+  return "Root Party Id Settlement Unit: "..value
+end
+
+-- Dissect: Root Party Id Settlement Unit
+eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_settlement_unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_settlement_account = {}
+
+-- Size: Root Party Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_settlement_account.size = 35
+
+-- Display: Root Party Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_settlement_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Settlement Account: No Value"
+  end
+
+  return "Root Party Settlement Account: "..value
+end
+
+-- Dissect: Root Party Settlement Account
+eurex_cash_eti_t7_v12_0.root_party_settlement_account.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_settlement_account.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_settlement_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_settlement_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_settlement_firm = {}
+
+-- Size: Root Party Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_settlement_firm.size = 5
+
+-- Display: Root Party Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_settlement_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Root Party Settlement Firm: No Value"
+  end
+
+  return "Root Party Settlement Firm: "..value
+end
+
+-- Dissect: Root Party Settlement Firm
+eurex_cash_eti_t7_v12_0.root_party_settlement_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_settlement_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_settlement_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_settlement_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Party Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_settlement_location = {}
+
+-- Size: Root Party Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_settlement_location.size = 3
+
+-- Display: Root Party Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_settlement_location.display = function(value)
+  if value == "APK" then
+    return "Root Party Settlement Location: Apk (APK)"
+  end
+  if value == "CBF" then
+    return "Root Party Settlement Location: Cbf (CBF)"
+  end
+  if value == "CBL" then
+    return "Root Party Settlement Location: Cbl (CBL)"
+  end
+  if value == "CCO" then
+    return "Root Party Settlement Location: Cco (CCO)"
+  end
+  if value == "CIK" then
+    return "Root Party Settlement Location: Cik (CIK)"
+  end
+  if value == "EOC" then
+    return "Root Party Settlement Location: Eoc (EOC)"
+  end
+  if value == "HEL" then
+    return "Root Party Settlement Location: Hel (HEL)"
+  end
+  if value == "IBC" then
+    return "Root Party Settlement Location: Ibc (IBC)"
+  end
+  if value == "INT" then
+    return "Root Party Settlement Location: Int (INT)"
+  end
+  if value == "KDP" then
+    return "Root Party Settlement Location: Kdp (KDP)"
+  end
+  if value == "MOT" then
+    return "Root Party Settlement Location: Mot (MOT)"
+  end
+  if value == "NEC" then
+    return "Root Party Settlement Location: Nec (NEC)"
+  end
+  if value == "OEB" then
+    return "Root Party Settlement Location: Oeb (OEB)"
+  end
+  if value == "SIC" then
+    return "Root Party Settlement Location: Sic (SIC)"
+  end
+  if value == "SIS" then
+    return "Root Party Settlement Location: Sis (SIS)"
+  end
+  if value == "VPC" then
+    return "Root Party Settlement Location: Vpc (VPC)"
+  end
+  if value == "VPD" then
+    return "Root Party Settlement Location: Vpd (VPD)"
+  end
+  if value == "VPS" then
+    return "Root Party Settlement Location: Vps (VPS)"
+  end
+  if value == "CFG" then
+    return "Root Party Settlement Location: Cfg (CFG)"
+  end
+
+  return "Root Party Settlement Location: Unknown("..value..")"
+end
+
+-- Dissect: Root Party Settlement Location
+eurex_cash_eti_t7_v12_0.root_party_settlement_location.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.root_party_settlement_location.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.root_party_settlement_location.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_settlement_location, range, value, display)
+
+  return offset + length, value
+end
+
+-- Secondary Quote Id
+eurex_cash_eti_t7_v12_0.secondary_quote_id = {}
+
+-- Size: Secondary Quote Id
+eurex_cash_eti_t7_v12_0.secondary_quote_id.size = 8
+
+-- Display: Secondary Quote Id
+eurex_cash_eti_t7_v12_0.secondary_quote_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Secondary Quote Id: No Value"
+  end
+
+  return "Secondary Quote Id: "..value
+end
+
+-- Dissect: Secondary Quote Id
+eurex_cash_eti_t7_v12_0.secondary_quote_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.secondary_quote_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.secondary_quote_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.secondary_quote_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Secondary Trade Id
+eurex_cash_eti_t7_v12_0.secondary_trade_id = {}
+
+-- Size: Secondary Trade Id
+eurex_cash_eti_t7_v12_0.secondary_trade_id.size = 4
+
+-- Display: Secondary Trade Id
+eurex_cash_eti_t7_v12_0.secondary_trade_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Secondary Trade Id: No Value"
+  end
+
+  return "Secondary Trade Id: "..value
+end
+
+-- Dissect: Secondary Trade Id
+eurex_cash_eti_t7_v12_0.secondary_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.secondary_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.secondary_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.secondary_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+eurex_cash_eti_t7_v12_0.security_id = {}
+
+-- Size: Security Id
+eurex_cash_eti_t7_v12_0.security_id.size = 8
+
+-- Display: Security Id
+eurex_cash_eti_t7_v12_0.security_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Security Id: No Value"
+  end
+
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+eurex_cash_eti_t7_v12_0.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = eurex_cash_eti_t7_v12_0.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+eurex_cash_eti_t7_v12_0.security_status = {}
+
+-- Size: Security Status
+eurex_cash_eti_t7_v12_0.security_status.size = 1
+
+-- Display: Security Status
+eurex_cash_eti_t7_v12_0.security_status.display = function(value)
+  if value == 6 then
+    return "Security Status: Knockedout (6)"
+  end
+  if value == 7 then
+    return "Security Status: Knockoutrevoked (7)"
+  end
+  if value == 12 then
+    return "Security Status: Knockedoutandsuspend (12)"
+  end
+  if value == 0xFF then
+    return "Security Status: No Value"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+eurex_cash_eti_t7_v12_0.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.security_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status Report Id
+eurex_cash_eti_t7_v12_0.security_status_report_id = {}
+
+-- Size: Security Status Report Id
+eurex_cash_eti_t7_v12_0.security_status_report_id.size = 8
+
+-- Display: Security Status Report Id
+eurex_cash_eti_t7_v12_0.security_status_report_id.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Security Status Report Id: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Security Status Report Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Security Status Report Id
+eurex_cash_eti_t7_v12_0.security_status_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.security_status_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.security_status_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_status_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status
+eurex_cash_eti_t7_v12_0.security_trading_status = {}
+
+-- Size: Security Trading Status
+eurex_cash_eti_t7_v12_0.security_trading_status.size = 1
+
+-- Display: Security Trading Status
+eurex_cash_eti_t7_v12_0.security_trading_status.display = function(value)
+  if value == 7 then
+    return "Security Trading Status: Market Imbalance Buy (7)"
+  end
+  if value == 8 then
+    return "Security Trading Status: Market Imbalance Sell (8)"
+  end
+  if value == 0xFF then
+    return "Security Trading Status: No Value"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+eurex_cash_eti_t7_v12_0.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.security_trading_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.security_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Selective Request For Quote Rtm Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status = {}
+
+-- Size: Selective Request For Quote Rtm Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.size = 1
+
+-- Display: Selective Request For Quote Rtm Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.display = function(value)
+  if value == 0 then
+    return "Selective Request For Quote Rtm Service Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "Selective Request For Quote Rtm Service Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Selective Request For Quote Rtm Service Status: No Value"
+  end
+
+  return "Selective Request For Quote Rtm Service Status: Unknown("..value..")"
+end
+
+-- Dissect: Selective Request For Quote Rtm Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.selective_request_for_quote_rtm_service_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Selective Request For Quote Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status = {}
+
+-- Size: Selective Request For Quote Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.size = 1
+
+-- Display: Selective Request For Quote Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.display = function(value)
+  if value == 0 then
+    return "Selective Request For Quote Service Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "Selective Request For Quote Service Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Selective Request For Quote Service Status: No Value"
+  end
+
+  return "Selective Request For Quote Service Status: Unknown("..value..")"
+end
+
+-- Dissect: Selective Request For Quote Service Status
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.selective_request_for_quote_service_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Selective Request For Quote Service Trade Date
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date = {}
+
+-- Size: Selective Request For Quote Service Trade Date
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.size = 4
+
+-- Display: Selective Request For Quote Service Trade Date
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Selective Request For Quote Service Trade Date: No Value"
+  end
+
+  return "Selective Request For Quote Service Trade Date: "..value
+end
+
+-- Dissect: Selective Request For Quote Service Trade Date
+eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.selective_request_for_quote_service_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Sub Id
+eurex_cash_eti_t7_v12_0.sender_sub_id = {}
+
+-- Size: Sender Sub Id
+eurex_cash_eti_t7_v12_0.sender_sub_id.size = 4
+
+-- Display: Sender Sub Id
+eurex_cash_eti_t7_v12_0.sender_sub_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Sender Sub Id: No Value"
+  end
+
+  return "Sender Sub Id: "..value
+end
+
+-- Dissect: Sender Sub Id
+eurex_cash_eti_t7_v12_0.sender_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.sender_sub_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.sender_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.sender_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+eurex_cash_eti_t7_v12_0.sending_time = {}
+
+-- Size: Sending Time
+eurex_cash_eti_t7_v12_0.sending_time.size = 8
+
+-- Display: Sending Time
+eurex_cash_eti_t7_v12_0.sending_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Sending Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+eurex_cash_eti_t7_v12_0.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Instance Id
+eurex_cash_eti_t7_v12_0.session_instance_id = {}
+
+-- Size: Session Instance Id
+eurex_cash_eti_t7_v12_0.session_instance_id.size = 4
+
+-- Display: Session Instance Id
+eurex_cash_eti_t7_v12_0.session_instance_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Session Instance Id: No Value"
+  end
+
+  return "Session Instance Id: "..value
+end
+
+-- Dissect: Session Instance Id
+eurex_cash_eti_t7_v12_0.session_instance_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.session_instance_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.session_instance_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_instance_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Mode
+eurex_cash_eti_t7_v12_0.session_mode = {}
+
+-- Size: Session Mode
+eurex_cash_eti_t7_v12_0.session_mode.size = 1
+
+-- Display: Session Mode
+eurex_cash_eti_t7_v12_0.session_mode.display = function(value)
+  if value == 1 then
+    return "Session Mode: Etihf (1)"
+  end
+  if value == 2 then
+    return "Session Mode: Etilf (2)"
+  end
+  if value == 3 then
+    return "Session Mode: Gui (3)"
+  end
+  if value == 4 then
+    return "Session Mode: Fixlf (4)"
+  end
+  if value == 0xFF then
+    return "Session Mode: No Value"
+  end
+
+  return "Session Mode: Unknown("..value..")"
+end
+
+-- Dissect: Session Mode
+eurex_cash_eti_t7_v12_0.session_mode.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.session_mode.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.session_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Reject Reason
+eurex_cash_eti_t7_v12_0.session_reject_reason = {}
+
+-- Size: Session Reject Reason
+eurex_cash_eti_t7_v12_0.session_reject_reason.size = 4
+
+-- Display: Session Reject Reason
+eurex_cash_eti_t7_v12_0.session_reject_reason.display = function(value)
+  if value == 1 then
+    return "Session Reject Reason: Required Tag Missing (1)"
+  end
+  if value == 5 then
+    return "Session Reject Reason: Valueisincorrect (5)"
+  end
+  if value == 7 then
+    return "Session Reject Reason: Decryptionproblem (7)"
+  end
+  if value == 11 then
+    return "Session Reject Reason: Invalid Msg Id (11)"
+  end
+  if value == 16 then
+    return "Session Reject Reason: Incorrect Num In Groupcount (16)"
+  end
+  if value == 99 then
+    return "Session Reject Reason: Other (99)"
+  end
+  if value == 100 then
+    return "Session Reject Reason: Throttle Limit Exceeded (100)"
+  end
+  if value == 101 then
+    return "Session Reject Reason: Exposure Limit Exceeded (101)"
+  end
+  if value == 102 then
+    return "Session Reject Reason: Service Temporarily Not Available (102)"
+  end
+  if value == 103 then
+    return "Session Reject Reason: Service Not Available (103)"
+  end
+  if value == 105 then
+    return "Session Reject Reason: Outboundconversionerror (105)"
+  end
+  if value == 152 then
+    return "Session Reject Reason: Heartbeat Violation (152)"
+  end
+  if value == 200 then
+    return "Session Reject Reason: Internaltechnicalerror (200)"
+  end
+  if value == 210 then
+    return "Session Reject Reason: Validation Error (210)"
+  end
+  if value == 211 then
+    return "Session Reject Reason: User Already Logged In (211)"
+  end
+  if value == 216 then
+    return "Session Reject Reason: Gateway Is Standby (216)"
+  end
+  if value == 217 then
+    return "Session Reject Reason: Session Login Limit Reached (217)"
+  end
+  if value == 223 then
+    return "Session Reject Reason: User Entitlement Data Timeout (223)"
+  end
+  if value == 224 then
+    return "Session Reject Reason: Ps Gateway Session Limit Reached (224)"
+  end
+  if value == 225 then
+    return "Session Reject Reason: User Login Limit Reached (225)"
+  end
+  if value == 226 then
+    return "Session Reject Reason: Outstanding Logins Bu Limit Reached (226)"
+  end
+  if value == 227 then
+    return "Session Reject Reason: Outstanding Logins Session Limit Reached (227)"
+  end
+  if value == 228 then
+    return "Session Reject Reason: Password Timestamp Not In Grace Period (228)"
+  end
+  if value == 10000 then
+    return "Session Reject Reason: Order Not Found (10000)"
+  end
+  if value == 10001 then
+    return "Session Reject Reason: Price Not Reasonable (10001)"
+  end
+  if value == 10002 then
+    return "Session Reject Reason: Client Order Id Not Unique (10002)"
+  end
+  if value == 10003 then
+    return "Session Reject Reason: Quote Activation In Progress (10003)"
+  end
+  if value == 10006 then
+    return "Session Reject Reason: Stop Bid Price Not Reasonable (10006)"
+  end
+  if value == 10007 then
+    return "Session Reject Reason: Stop Ask Price Not Reasonable (10007)"
+  end
+  if value == 10008 then
+    return "Session Reject Reason: Order Not Executable Within Validity (10008)"
+  end
+  if value == 10009 then
+    return "Session Reject Reason: Invalid Trading Restriction For Instrument State (10009)"
+  end
+  if value == 10011 then
+    return "Session Reject Reason: Transaction Not Allowed In Current State (10011)"
+  end
+  if value == 10012 then
+    return "Session Reject Reason: Ordernotacceptedin Volatility Freeze (10012)"
+  end
+  if value == 10016 then
+    return "Session Reject Reason: Pretrade Risk Limit Exceeded (10016)"
+  end
+  if value == 0xFFFFFFFF then
+    return "Session Reject Reason: No Value"
+  end
+
+  return "Session Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Session Reject Reason
+eurex_cash_eti_t7_v12_0.session_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.session_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.session_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Status
+eurex_cash_eti_t7_v12_0.session_status = {}
+
+-- Size: Session Status
+eurex_cash_eti_t7_v12_0.session_status.size = 1
+
+-- Display: Session Status
+eurex_cash_eti_t7_v12_0.session_status.display = function(value)
+  if value == 0 then
+    return "Session Status: Active (0)"
+  end
+  if value == 4 then
+    return "Session Status: Logout (4)"
+  end
+  if value == 0xFF then
+    return "Session Status: No Value"
+  end
+
+  return "Session Status: Unknown("..value..")"
+end
+
+-- Dissect: Session Status
+eurex_cash_eti_t7_v12_0.session_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.session_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.session_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Sub Mode
+eurex_cash_eti_t7_v12_0.session_sub_mode = {}
+
+-- Size: Session Sub Mode
+eurex_cash_eti_t7_v12_0.session_sub_mode.size = 1
+
+-- Display: Session Sub Mode
+eurex_cash_eti_t7_v12_0.session_sub_mode.display = function(value)
+  if value == 0 then
+    return "Session Sub Mode: Regulartradingsession (0)"
+  end
+  if value == 2 then
+    return "Session Sub Mode: Regular Back Officesession (2)"
+  end
+  if value == 0xFF then
+    return "Session Sub Mode: No Value"
+  end
+
+  return "Session Sub Mode: Unknown("..value..")"
+end
+
+-- Dissect: Session Sub Mode
+eurex_cash_eti_t7_v12_0.session_sub_mode.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.session_sub_mode.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.session_sub_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_sub_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settl Curr Amt
+eurex_cash_eti_t7_v12_0.settl_curr_amt = {}
+
+-- Size: Settl Curr Amt
+eurex_cash_eti_t7_v12_0.settl_curr_amt.size = 8
+
+-- Display: Settl Curr Amt
+eurex_cash_eti_t7_v12_0.settl_curr_amt.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Settl Curr Amt: No Value"
+  end
+
+  return "Settl Curr Amt: "..value
+end
+
+-- Translate: Settl Curr Amt
+eurex_cash_eti_t7_v12_0.settl_curr_amt.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Settl Curr Amt
+eurex_cash_eti_t7_v12_0.settl_curr_amt.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.settl_curr_amt.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.settl_curr_amt.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.settl_curr_amt.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_curr_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settl Curr Fx Rate
+eurex_cash_eti_t7_v12_0.settl_curr_fx_rate = {}
+
+-- Size: Settl Curr Fx Rate
+eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.size = 8
+
+-- Display: Settl Curr Fx Rate
+eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Settl Curr Fx Rate: No Value"
+  end
+
+  return "Settl Curr Fx Rate: "..value
+end
+
+-- Translate: Settl Curr Fx Rate
+eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Settl Curr Fx Rate
+eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_curr_fx_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settl Currency
+eurex_cash_eti_t7_v12_0.settl_currency = {}
+
+-- Size: Settl Currency
+eurex_cash_eti_t7_v12_0.settl_currency.size = 3
+
+-- Display: Settl Currency
+eurex_cash_eti_t7_v12_0.settl_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Settl Currency: No Value"
+  end
+
+  return "Settl Currency: "..value
+end
+
+-- Dissect: Settl Currency
+eurex_cash_eti_t7_v12_0.settl_currency.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.settl_currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.settl_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settl Date
+eurex_cash_eti_t7_v12_0.settl_date = {}
+
+-- Size: Settl Date
+eurex_cash_eti_t7_v12_0.settl_date.size = 4
+
+-- Display: Settl Date
+eurex_cash_eti_t7_v12_0.settl_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Settl Date: No Value"
+  end
+
+  return "Settl Date: "..value
+end
+
+-- Dissect: Settl Date
+eurex_cash_eti_t7_v12_0.settl_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.settl_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.settl_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+eurex_cash_eti_t7_v12_0.side = {}
+
+-- Size: Side
+eurex_cash_eti_t7_v12_0.side.size = 1
+
+-- Display: Side
+eurex_cash_eti_t7_v12_0.side.display = function(value)
+  if value == 1 then
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Side: No Value"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+eurex_cash_eti_t7_v12_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -2162,41 +11999,1705 @@ eurex_cash_eti_t7_v12_0.side_disclosure_instruction.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Auto Exec Type
-eurex_cash_eti_t7_v12_0.auto_exec_type = {}
+-- Side Gross Trade Amt
+eurex_cash_eti_t7_v12_0.side_gross_trade_amt = {}
 
--- Size: Auto Exec Type
-eurex_cash_eti_t7_v12_0.auto_exec_type.size = 1
+-- Size: Side Gross Trade Amt
+eurex_cash_eti_t7_v12_0.side_gross_trade_amt.size = 8
 
--- Display: Auto Exec Type
-eurex_cash_eti_t7_v12_0.auto_exec_type.display = function(value)
-  if value == 1 then
-    return "Auto Exec Type: Mid Point Bbo (1)"
-  end
-  if value == 2 then
-    return "Auto Exec Type: Best Bid (2)"
-  end
-  if value == 3 then
-    return "Auto Exec Type: Best Ask (3)"
-  end
-  if value == 4 then
-    return "Auto Exec Type: Limit Price (4)"
-  end
-  if value == 0xFF then
-    return "Auto Exec Type: No Value"
+-- Display: Side Gross Trade Amt
+eurex_cash_eti_t7_v12_0.side_gross_trade_amt.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Side Gross Trade Amt: No Value"
   end
 
-  return "Auto Exec Type: Unknown("..value..")"
+  return "Side Gross Trade Amt: "..value
 end
 
--- Dissect: Auto Exec Type
-eurex_cash_eti_t7_v12_0.auto_exec_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_exec_type.size
+-- Translate: Side Gross Trade Amt
+eurex_cash_eti_t7_v12_0.side_gross_trade_amt.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Side Gross Trade Amt
+eurex_cash_eti_t7_v12_0.side_gross_trade_amt.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.side_gross_trade_amt.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.side_gross_trade_amt.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.side_gross_trade_amt.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_gross_trade_amt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Is Locked
+eurex_cash_eti_t7_v12_0.side_is_locked = {}
+
+-- Size: Side Is Locked
+eurex_cash_eti_t7_v12_0.side_is_locked.size = 1
+
+-- Display: Side Is Locked
+eurex_cash_eti_t7_v12_0.side_is_locked.display = function(value)
+  if value == 0 then
+    return "Side Is Locked: No (0)"
+  end
+  if value == 1 then
+    return "Side Is Locked: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Side Is Locked: No Value"
+  end
+
+  return "Side Is Locked: Unknown("..value..")"
+end
+
+-- Dissect: Side Is Locked
+eurex_cash_eti_t7_v12_0.side_is_locked.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.side_is_locked.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.auto_exec_type.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.side_is_locked.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_type, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_is_locked, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Liquidity Ind
+eurex_cash_eti_t7_v12_0.side_liquidity_ind = {}
+
+-- Size: Side Liquidity Ind
+eurex_cash_eti_t7_v12_0.side_liquidity_ind.size = 1
+
+-- Display: Side Liquidity Ind
+eurex_cash_eti_t7_v12_0.side_liquidity_ind.display = function(value)
+  if value == 1 then
+    return "Side Liquidity Ind: Added Liquidity (1)"
+  end
+  if value == 2 then
+    return "Side Liquidity Ind: Removed Liquidity (2)"
+  end
+  if value == 4 then
+    return "Side Liquidity Ind: Auction (4)"
+  end
+  if value == 0xFF then
+    return "Side Liquidity Ind: No Value"
+  end
+
+  return "Side Liquidity Ind: Unknown("..value..")"
+end
+
+-- Dissect: Side Liquidity Ind
+eurex_cash_eti_t7_v12_0.side_liquidity_ind.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.side_liquidity_ind.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.side_liquidity_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_liquidity_ind, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Trade Id
+eurex_cash_eti_t7_v12_0.side_trade_id = {}
+
+-- Size: Side Trade Id
+eurex_cash_eti_t7_v12_0.side_trade_id.size = 4
+
+-- Display: Side Trade Id
+eurex_cash_eti_t7_v12_0.side_trade_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Side Trade Id: No Value"
+  end
+
+  return "Side Trade Id: "..value
+end
+
+-- Dissect: Side Trade Id
+eurex_cash_eti_t7_v12_0.side_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.side_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.side_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Trade Report Id
+eurex_cash_eti_t7_v12_0.side_trade_report_id = {}
+
+-- Size: Side Trade Report Id
+eurex_cash_eti_t7_v12_0.side_trade_report_id.size = 4
+
+-- Display: Side Trade Report Id
+eurex_cash_eti_t7_v12_0.side_trade_report_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Side Trade Report Id: No Value"
+  end
+
+  return "Side Trade Report Id: "..value
+end
+
+-- Dissect: Side Trade Report Id
+eurex_cash_eti_t7_v12_0.side_trade_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.side_trade_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.side_trade_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_trade_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sold Out Indicator
+eurex_cash_eti_t7_v12_0.sold_out_indicator = {}
+
+-- Size: Sold Out Indicator
+eurex_cash_eti_t7_v12_0.sold_out_indicator.size = 1
+
+-- Display: Sold Out Indicator
+eurex_cash_eti_t7_v12_0.sold_out_indicator.display = function(value)
+  if value == 0 then
+    return "Sold Out Indicator: Revertsoldout (0)"
+  end
+  if value == 1 then
+    return "Sold Out Indicator: Soldout (1)"
+  end
+  if value == 0xFF then
+    return "Sold Out Indicator: No Value"
+  end
+
+  return "Sold Out Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Sold Out Indicator
+eurex_cash_eti_t7_v12_0.sold_out_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.sold_out_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.sold_out_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.sold_out_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Srqs Related Trade Id
+eurex_cash_eti_t7_v12_0.srqs_related_trade_id = {}
+
+-- Size: Srqs Related Trade Id
+eurex_cash_eti_t7_v12_0.srqs_related_trade_id.size = 4
+
+-- Display: Srqs Related Trade Id
+eurex_cash_eti_t7_v12_0.srqs_related_trade_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Srqs Related Trade Id: No Value"
+  end
+
+  return "Srqs Related Trade Id: "..value
+end
+
+-- Dissect: Srqs Related Trade Id
+eurex_cash_eti_t7_v12_0.srqs_related_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.srqs_related_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.srqs_related_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.srqs_related_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Px
+eurex_cash_eti_t7_v12_0.stop_px = {}
+
+-- Size: Stop Px
+eurex_cash_eti_t7_v12_0.stop_px.size = 8
+
+-- Display: Stop Px
+eurex_cash_eti_t7_v12_0.stop_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return "Stop Px: No Value"
+  end
+
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+eurex_cash_eti_t7_v12_0.stop_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Stop Px
+eurex_cash_eti_t7_v12_0.stop_px.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.stop_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = eurex_cash_eti_t7_v12_0.stop_px.translate(raw)
+  local display = eurex_cash_eti_t7_v12_0.stop_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.stop_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Px Indicator
+eurex_cash_eti_t7_v12_0.stop_px_indicator = {}
+
+-- Size: Stop Px Indicator
+eurex_cash_eti_t7_v12_0.stop_px_indicator.size = 1
+
+-- Display: Stop Px Indicator
+eurex_cash_eti_t7_v12_0.stop_px_indicator.display = function(value)
+  if value == 0 then
+    return "Stop Px Indicator: Donotoverwrite (0)"
+  end
+  if value == 1 then
+    return "Stop Px Indicator: Overwrite (1)"
+  end
+  if value == 0xFF then
+    return "Stop Px Indicator: No Value"
+  end
+
+  return "Stop Px Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Stop Px Indicator
+eurex_cash_eti_t7_v12_0.stop_px_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.stop_px_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.stop_px_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.stop_px_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Subscription Scope
+eurex_cash_eti_t7_v12_0.subscription_scope = {}
+
+-- Size: Subscription Scope
+eurex_cash_eti_t7_v12_0.subscription_scope.size = 4
+
+-- Display: Subscription Scope
+eurex_cash_eti_t7_v12_0.subscription_scope.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Subscription Scope: No Value"
+  end
+
+  return "Subscription Scope: "..value
+end
+
+-- Dissect: Subscription Scope
+eurex_cash_eti_t7_v12_0.subscription_scope.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.subscription_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.subscription_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.subscription_scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- T 7 Entry Service Rtm Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status = {}
+
+-- Size: T 7 Entry Service Rtm Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.size = 1
+
+-- Display: T 7 Entry Service Rtm Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.display = function(value)
+  if value == 0 then
+    return "T 7 Entry Service Rtm Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "T 7 Entry Service Rtm Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "T 7 Entry Service Rtm Status: No Value"
+  end
+
+  return "T 7 Entry Service Rtm Status: Unknown("..value..")"
+end
+
+-- Dissect: T 7 Entry Service Rtm Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_rtm_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- T 7 Entry Service Rtm Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date = {}
+
+-- Size: T 7 Entry Service Rtm Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.size = 4
+
+-- Display: T 7 Entry Service Rtm Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "T 7 Entry Service Rtm Trade Date: No Value"
+  end
+
+  return "T 7 Entry Service Rtm Trade Date: "..value
+end
+
+-- Dissect: T 7 Entry Service Rtm Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_rtm_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- T 7 Entry Service Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_status = {}
+
+-- Size: T 7 Entry Service Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_status.size = 1
+
+-- Display: T 7 Entry Service Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_status.display = function(value)
+  if value == 0 then
+    return "T 7 Entry Service Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "T 7 Entry Service Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "T 7 Entry Service Status: No Value"
+  end
+
+  return "T 7 Entry Service Status: Unknown("..value..")"
+end
+
+-- Dissect: T 7 Entry Service Status
+eurex_cash_eti_t7_v12_0.t_7_entry_service_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- T 7 Entry Service Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date = {}
+
+-- Size: T 7 Entry Service Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.size = 4
+
+-- Display: T 7 Entry Service Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "T 7 Entry Service Trade Date: No Value"
+  end
+
+  return "T 7 Entry Service Trade Date: "..value
+end
+
+-- Dissect: T 7 Entry Service Trade Date
+eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Entering Trader
+eurex_cash_eti_t7_v12_0.target_party_entering_trader = {}
+
+-- Size: Target Party Entering Trader
+eurex_cash_eti_t7_v12_0.target_party_entering_trader.size = 6
+
+-- Display: Target Party Entering Trader
+eurex_cash_eti_t7_v12_0.target_party_entering_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Entering Trader: No Value"
+  end
+
+  return "Target Party Entering Trader: "..value
+end
+
+-- Dissect: Target Party Entering Trader
+eurex_cash_eti_t7_v12_0.target_party_entering_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_party_entering_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.target_party_entering_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_entering_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Executing Firm
+eurex_cash_eti_t7_v12_0.target_party_executing_firm = {}
+
+-- Size: Target Party Executing Firm
+eurex_cash_eti_t7_v12_0.target_party_executing_firm.size = 5
+
+-- Display: Target Party Executing Firm
+eurex_cash_eti_t7_v12_0.target_party_executing_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Executing Firm: No Value"
+  end
+
+  return "Target Party Executing Firm: "..value
+end
+
+-- Dissect: Target Party Executing Firm
+eurex_cash_eti_t7_v12_0.target_party_executing_firm.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_party_executing_firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.target_party_executing_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_executing_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_executing_trader = {}
+
+-- Size: Target Party Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_executing_trader.size = 6
+
+-- Display: Target Party Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Executing Trader: No Value"
+  end
+
+  return "Target Party Executing Trader: "..value
+end
+
+-- Dissect: Target Party Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_party_executing_trader.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.target_party_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Id Desk Id
+eurex_cash_eti_t7_v12_0.target_party_id_desk_id = {}
+
+-- Size: Target Party Id Desk Id
+eurex_cash_eti_t7_v12_0.target_party_id_desk_id.size = 3
+
+-- Display: Target Party Id Desk Id
+eurex_cash_eti_t7_v12_0.target_party_id_desk_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Id Desk Id: No Value"
+  end
+
+  return "Target Party Id Desk Id: "..value
+end
+
+-- Dissect: Target Party Id Desk Id
+eurex_cash_eti_t7_v12_0.target_party_id_desk_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_party_id_desk_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.target_party_id_desk_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_id_desk_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_id_executing_trader = {}
+
+-- Size: Target Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size = 4
+
+-- Display: Target Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Target Party Id Executing Trader: No Value"
+  end
+
+  return "Target Party Id Executing Trader: "..value
+end
+
+-- Dissect: Target Party Id Executing Trader
+eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_id_executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Id Session Id
+eurex_cash_eti_t7_v12_0.target_party_id_session_id = {}
+
+-- Size: Target Party Id Session Id
+eurex_cash_eti_t7_v12_0.target_party_id_session_id.size = 4
+
+-- Display: Target Party Id Session Id
+eurex_cash_eti_t7_v12_0.target_party_id_session_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Target Party Id Session Id: No Value"
+  end
+
+  return "Target Party Id Session Id: "..value
+end
+
+-- Dissect: Target Party Id Session Id
+eurex_cash_eti_t7_v12_0.target_party_id_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_party_id_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.target_party_id_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_id_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Side
+eurex_cash_eti_t7_v12_0.target_side = {}
+
+-- Size: Target Side
+eurex_cash_eti_t7_v12_0.target_side.size = 1
+
+-- Display: Target Side
+eurex_cash_eti_t7_v12_0.target_side.display = function(value)
+  if value == 1 then
+    return "Target Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Target Side: Sell (2)"
+  end
+  if value == 0xFF then
+    return "Target Side: No Value"
+  end
+
+  return "Target Side: Unknown("..value..")"
+end
+
+-- Dissect: Target Side
+eurex_cash_eti_t7_v12_0.target_side.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.target_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.target_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+eurex_cash_eti_t7_v12_0.template_id = {}
+
+-- Size: Template Id
+eurex_cash_eti_t7_v12_0.template_id.size = 2
+
+-- Display: Template Id
+eurex_cash_eti_t7_v12_0.template_id.display = function(value)
+  if value == 0xFFFF then
+    return "Template Id: No Value"
+  end
+  if value == 10603 then
+    return "Template Id: Approve Tes Trade Request (10603)"
+  end
+  if value == 10032 then
+    return "Template Id: Broadcast Error Notification (10032)"
+  end
+  if value == 10118 then
+    return "Template Id: Cross Request (10118)"
+  end
+  if value == 10119 then
+    return "Template Id: Cross Request Response (10119)"
+  end
+  if value == 10122 then
+    return "Template Id: Delete All Order Broadcast (10122)"
+  end
+  if value == 10124 then
+    return "Template Id: Delete All Order Nr Response (10124)"
+  end
+  if value == 10308 then
+    return "Template Id: Delete All Order Quote Event Broadcast (10308)"
+  end
+  if value == 10120 then
+    return "Template Id: Delete All Order Request (10120)"
+  end
+  if value == 10121 then
+    return "Template Id: Delete All Order Response (10121)"
+  end
+  if value == 10410 then
+    return "Template Id: Delete All Quote Broadcast (10410)"
+  end
+  if value == 10408 then
+    return "Template Id: Delete All Quote Request (10408)"
+  end
+  if value == 10409 then
+    return "Template Id: Delete All Quote Response (10409)"
+  end
+  if value == 10112 then
+    return "Template Id: Delete Order Broadcast (10112)"
+  end
+  if value == 10111 then
+    return "Template Id: Delete Order Nr Response (10111)"
+  end
+  if value == 10110 then
+    return "Template Id: Delete Order Response (10110)"
+  end
+  if value == 10109 then
+    return "Template Id: Delete Order Single Request (10109)"
+  end
+  if value == 10602 then
+    return "Template Id: Delete Tes Trade Request (10602)"
+  end
+  if value == 10600 then
+    return "Template Id: Enter Tes Trade Request (10600)"
+  end
+  if value == 10128 then
+    return "Template Id: Extended Deletion Report (10128)"
+  end
+  if value == 10012 then
+    return "Template Id: Forced Logout Notification (10012)"
+  end
+  if value == 10043 then
+    return "Template Id: Forced User Logout Notification (10043)"
+  end
+  if value == 10011 then
+    return "Template Id: Heartbeat (10011)"
+  end
+  if value == 10023 then
+    return "Template Id: Heartbeat Notification (10023)"
+  end
+  if value == 10040 then
+    return "Template Id: Inquire Enrichment Rule Id List Request (10040)"
+  end
+  if value == 10041 then
+    return "Template Id: Inquire Enrichment Rule Id List Response (10041)"
+  end
+  if value == 10311 then
+    return "Template Id: Inquire Pre Trade Risk Limits Request (10311)"
+  end
+  if value == 10035 then
+    return "Template Id: Inquire Session List Request (10035)"
+  end
+  if value == 10036 then
+    return "Template Id: Inquire Session List Response (10036)"
+  end
+  if value == 10038 then
+    return "Template Id: Inquire User Request (10038)"
+  end
+  if value == 10039 then
+    return "Template Id: Inquire User Response (10039)"
+  end
+  if value == 10316 then
+    return "Template Id: Issuer Notification (10316)"
+  end
+  if value == 10314 then
+    return "Template Id: Issuer Security State Change Request (10314)"
+  end
+  if value == 10315 then
+    return "Template Id: Issuer Security State Change Response (10315)"
+  end
+  if value == 10037 then
+    return "Template Id: Legal Notification Broadcast (10037)"
+  end
+  if value == 10000 then
+    return "Template Id: Logon Request (10000)"
+  end
+  if value == 19000 then
+    return "Template Id: Logon Request Encrypted (19000)"
+  end
+  if value == 10001 then
+    return "Template Id: Logon Response (10001)"
+  end
+  if value == 10002 then
+    return "Template Id: Logout Request (10002)"
+  end
+  if value == 10003 then
+    return "Template Id: Logout Response (10003)"
+  end
+  if value == 10405 then
+    return "Template Id: Mass Quote Request (10405)"
+  end
+  if value == 10406 then
+    return "Template Id: Mass Quote Response (10406)"
+  end
+  if value == 10108 then
+    return "Template Id: Modify Order Nr Response (10108)"
+  end
+  if value == 10107 then
+    return "Template Id: Modify Order Response (10107)"
+  end
+  if value == 10106 then
+    return "Template Id: Modify Order Single Request (10106)"
+  end
+  if value == 10126 then
+    return "Template Id: Modify Order Single Short Request (10126)"
+  end
+  if value == 10601 then
+    return "Template Id: Modify Tes Trade Request (10601)"
+  end
+  if value == 10102 then
+    return "Template Id: New Order Nr Response (10102)"
+  end
+  if value == 10101 then
+    return "Template Id: New Order Response (10101)"
+  end
+  if value == 10100 then
+    return "Template Id: New Order Single Request (10100)"
+  end
+  if value == 10125 then
+    return "Template Id: New Order Single Short Request (10125)"
+  end
+  if value == 10031 then
+    return "Template Id: News Broadcast (10031)"
+  end
+  if value == 10104 then
+    return "Template Id: Order Exec Notification (10104)"
+  end
+  if value == 10117 then
+    return "Template Id: Order Exec Report Broadcast (10117)"
+  end
+  if value == 10103 then
+    return "Template Id: Order Exec Response (10103)"
+  end
+  if value == 10042 then
+    return "Template Id: Party Action Report (10042)"
+  end
+  if value == 10034 then
+    return "Template Id: Party Entitlements Update Report (10034)"
+  end
+  if value == 10320 then
+    return "Template Id: Ping Request (10320)"
+  end
+  if value == 10321 then
+    return "Template Id: Ping Response (10321)"
+  end
+  if value == 10313 then
+    return "Template Id: Pre Trade Risk Limit Response (10313)"
+  end
+  if value == 10312 then
+    return "Template Id: Pre Trade Risk Limits Definition Request (10312)"
+  end
+  if value == 10411 then
+    return "Template Id: Quote Activation Notification (10411)"
+  end
+  if value == 10403 then
+    return "Template Id: Quote Activation Request (10403)"
+  end
+  if value == 10404 then
+    return "Template Id: Quote Activation Response (10404)"
+  end
+  if value == 10407 then
+    return "Template Id: Quote Execution Report (10407)"
+  end
+  if value == 10415 then
+    return "Template Id: Rfq Broadcast (10415)"
+  end
+  if value == 10420 then
+    return "Template Id: Rfq Reject Notification (10420)"
+  end
+  if value == 10401 then
+    return "Template Id: Rfq Request (10401)"
+  end
+  if value == 10402 then
+    return "Template Id: Rfq Response (10402)"
+  end
+  if value == 10419 then
+    return "Template Id: Rfq Specialist Broadcast (10419)"
+  end
+  if value == 10010 then
+    return "Template Id: Reject (10010)"
+  end
+  if value == 10026 then
+    return "Template Id: Retransmit Me Message Request (10026)"
+  end
+  if value == 10027 then
+    return "Template Id: Retransmit Me Message Response (10027)"
+  end
+  if value == 10008 then
+    return "Template Id: Retransmit Request (10008)"
+  end
+  if value == 10009 then
+    return "Template Id: Retransmit Response (10009)"
+  end
+  if value == 10030 then
+    return "Template Id: Service Availability Broadcast (10030)"
+  end
+  if value == 10044 then
+    return "Template Id: Service Availability Market Broadcast (10044)"
+  end
+  if value == 10418 then
+    return "Template Id: Single Quote Request (10418)"
+  end
+  if value == 10137 then
+    return "Template Id: Specialist Delete All Order Broadcast (10137)"
+  end
+  if value == 10319 then
+    return "Template Id: Specialist Instrument Event Notification (10319)"
+  end
+  if value == 10136 then
+    return "Template Id: Specialist Order Book Notification (10136)"
+  end
+  if value == 10421 then
+    return "Template Id: Specialist Rfq Reject Request (10421)"
+  end
+  if value == 10424 then
+    return "Template Id: Specialist Rfq Reply Notification (10424)"
+  end
+  if value == 10422 then
+    return "Template Id: Specialist Rfq Reply Request (10422)"
+  end
+  if value == 10423 then
+    return "Template Id: Specialist Rfq Reply Response (10423)"
+  end
+  if value == 10317 then
+    return "Template Id: Specialist Security State Change Request (10317)"
+  end
+  if value == 10318 then
+    return "Template Id: Specialist Security State Change Response (10318)"
+  end
+  if value == 10045 then
+    return "Template Id: Status Broadcast (10045)"
+  end
+  if value == 10025 then
+    return "Template Id: Subscribe Request (10025)"
+  end
+  if value == 10005 then
+    return "Template Id: Subscribe Response (10005)"
+  end
+  if value == 10607 then
+    return "Template Id: Tes Approve Broadcast (10607)"
+  end
+  if value == 10604 then
+    return "Template Id: Tes Broadcast (10604)"
+  end
+  if value == 10606 then
+    return "Template Id: Tes Delete Broadcast (10606)"
+  end
+  if value == 10610 then
+    return "Template Id: Tes Execution Broadcast (10610)"
+  end
+  if value == 10611 then
+    return "Template Id: Tes Response (10611)"
+  end
+  if value == 10614 then
+    return "Template Id: Tes Trade Broadcast (10614)"
+  end
+  if value == 10615 then
+    return "Template Id: Tes Trading Session Status Broadcast (10615)"
+  end
+  if value == 10501 then
+    return "Template Id: Tm Trading Session Status Broadcast (10501)"
+  end
+  if value == 10028 then
+    return "Template Id: Throttle Update Notification (10028)"
+  end
+  if value == 10500 then
+    return "Template Id: Trade Broadcast (10500)"
+  end
+  if value == 10307 then
+    return "Template Id: Trading Session Status Broadcast (10307)"
+  end
+  if value == 10127 then
+    return "Template Id: Trailing Stop Update Notification (10127)"
+  end
+  if value == 10006 then
+    return "Template Id: Unsubscribe Request (10006)"
+  end
+  if value == 10007 then
+    return "Template Id: Unsubscribe Response (10007)"
+  end
+  if value == 10018 then
+    return "Template Id: User Login Request (10018)"
+  end
+  if value == 19018 then
+    return "Template Id: User Login Request Encrypted (19018)"
+  end
+  if value == 10019 then
+    return "Template Id: User Login Response (10019)"
+  end
+  if value == 10029 then
+    return "Template Id: User Logout Request (10029)"
+  end
+  if value == 10024 then
+    return "Template Id: User Logout Response (10024)"
+  end
+  if value == 10818 then
+    return "Template Id: Xetra En Light Approve Deal Notification (10818)"
+  end
+  if value == 10819 then
+    return "Template Id: Xetra En Light Approve Deal Request (10819)"
+  end
+  if value == 10808 then
+    return "Template Id: Xetra En Light Create Deal Notification (10808)"
+  end
+  if value == 10805 then
+    return "Template Id: Xetra En Light Deal Response (10805)"
+  end
+  if value == 10825 then
+    return "Template Id: Xetra En Light Deal Status Notification (10825)"
+  end
+  if value == 10824 then
+    return "Template Id: Xetra En Light Delete All Quote Notification (10824)"
+  end
+  if value == 10821 then
+    return "Template Id: Xetra En Light Delete All Quote Request (10821)"
+  end
+  if value == 10802 then
+    return "Template Id: Xetra En Light Enter Quote Request (10802)"
+  end
+  if value == 10804 then
+    return "Template Id: Xetra En Light Hit Quote Request (10804)"
+  end
+  if value == 10813 then
+    return "Template Id: Xetra En Light Negotiation Notification (10813)"
+  end
+  if value == 10812 then
+    return "Template Id: Xetra En Light Negotiation Requester Notification (10812)"
+  end
+  if value == 10815 then
+    return "Template Id: Xetra En Light Negotiation Status Notification (10815)"
+  end
+  if value == 10811 then
+    return "Template Id: Xetra En Light Open Negotiation Notification (10811)"
+  end
+  if value == 10800 then
+    return "Template Id: Xetra En Light Open Negotiation Request (10800)"
+  end
+  if value == 10810 then
+    return "Template Id: Xetra En Light Open Negotiation Requester Notification (10810)"
+  end
+  if value == 10807 then
+    return "Template Id: Xetra En Light Quote Notification (10807)"
+  end
+  if value == 10816 then
+    return "Template Id: Xetra En Light Quote Requester Notification (10816)"
+  end
+  if value == 10803 then
+    return "Template Id: Xetra En Light Quote Response (10803)"
+  end
+  if value == 10823 then
+    return "Template Id: Xetra En Light Quote Snapshot Notification (10823)"
+  end
+  if value == 10820 then
+    return "Template Id: Xetra En Light Quote Snapshot Request (10820)"
+  end
+  if value == 10817 then
+    return "Template Id: Xetra En Light Quoting Status Request (10817)"
+  end
+  if value == 10822 then
+    return "Template Id: Xetra En Light Response (10822)"
+  end
+  if value == 10814 then
+    return "Template Id: Xetra En Light Status Broadcast (10814)"
+  end
+  if value == 10801 then
+    return "Template Id: Xetra En Light Update Negotiation Request (10801)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+eurex_cash_eti_t7_v12_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tes Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id = {}
+
+-- Size: Tes Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size = 4
+
+-- Display: Tes Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Tes Enrichment Rule Id: No Value"
+  end
+
+  return "Tes Enrichment Rule Id: "..value
+end
+
+-- Dissect: Tes Enrichment Rule Id
+eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.tes_enrichment_rule_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tes Exec Id
+eurex_cash_eti_t7_v12_0.tes_exec_id = {}
+
+-- Size: Tes Exec Id
+eurex_cash_eti_t7_v12_0.tes_exec_id.size = 4
+
+-- Display: Tes Exec Id
+eurex_cash_eti_t7_v12_0.tes_exec_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Tes Exec Id: No Value"
+  end
+
+  return "Tes Exec Id: "..value
+end
+
+-- Dissect: Tes Exec Id
+eurex_cash_eti_t7_v12_0.tes_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.tes_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.tes_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.tes_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Throttle Disconnect Limit
+eurex_cash_eti_t7_v12_0.throttle_disconnect_limit = {}
+
+-- Size: Throttle Disconnect Limit
+eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.size = 4
+
+-- Display: Throttle Disconnect Limit
+eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Throttle Disconnect Limit: No Value"
+  end
+
+  return "Throttle Disconnect Limit: "..value
+end
+
+-- Dissect: Throttle Disconnect Limit
+eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.throttle_disconnect_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Throttle No Msgs
+eurex_cash_eti_t7_v12_0.throttle_no_msgs = {}
+
+-- Size: Throttle No Msgs
+eurex_cash_eti_t7_v12_0.throttle_no_msgs.size = 4
+
+-- Display: Throttle No Msgs
+eurex_cash_eti_t7_v12_0.throttle_no_msgs.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Throttle No Msgs: No Value"
+  end
+
+  return "Throttle No Msgs: "..value
+end
+
+-- Dissect: Throttle No Msgs
+eurex_cash_eti_t7_v12_0.throttle_no_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.throttle_no_msgs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.throttle_no_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.throttle_no_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Throttle Time Interval
+eurex_cash_eti_t7_v12_0.throttle_time_interval = {}
+
+-- Size: Throttle Time Interval
+eurex_cash_eti_t7_v12_0.throttle_time_interval.size = 8
+
+-- Display: Throttle Time Interval
+eurex_cash_eti_t7_v12_0.throttle_time_interval.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Throttle Time Interval: No Value"
+  end
+
+  return "Throttle Time Interval: "..value
+end
+
+-- Dissect: Throttle Time Interval
+eurex_cash_eti_t7_v12_0.throttle_time_interval.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.throttle_time_interval.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = eurex_cash_eti_t7_v12_0.throttle_time_interval.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.throttle_time_interval, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+eurex_cash_eti_t7_v12_0.time_in_force = {}
+
+-- Size: Time In Force
+eurex_cash_eti_t7_v12_0.time_in_force.size = 1
+
+-- Display: Time In Force
+eurex_cash_eti_t7_v12_0.time_in_force.display = function(value)
+  if value == 0 then
+    return "Time In Force: Day (0)"
+  end
+  if value == 1 then
+    return "Time In Force: Gtc (1)"
+  end
+  if value == 3 then
+    return "Time In Force: Ioc (3)"
+  end
+  if value == 4 then
+    return "Time In Force: Fok (4)"
+  end
+  if value == 6 then
+    return "Time In Force: Gtd (6)"
+  end
+  if value == 0xFF then
+    return "Time In Force: No Value"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+eurex_cash_eti_t7_v12_0.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trad Ses Event
+eurex_cash_eti_t7_v12_0.trad_ses_event = {}
+
+-- Size: Trad Ses Event
+eurex_cash_eti_t7_v12_0.trad_ses_event.size = 1
+
+-- Display: Trad Ses Event
+eurex_cash_eti_t7_v12_0.trad_ses_event.display = function(value)
+  if value == 101 then
+    return "Trad Ses Event: Startof Service (101)"
+  end
+  if value == 102 then
+    return "Trad Ses Event: Market Reset (102)"
+  end
+  if value == 103 then
+    return "Trad Ses Event: Endof Restatement (103)"
+  end
+  if value == 104 then
+    return "Trad Ses Event: Endof Day Service (104)"
+  end
+  if value == 105 then
+    return "Trad Ses Event: Service Resumed (105)"
+  end
+  if value == 0xFF then
+    return "Trad Ses Event: No Value"
+  end
+
+  return "Trad Ses Event: Unknown("..value..")"
+end
+
+-- Dissect: Trad Ses Event
+eurex_cash_eti_t7_v12_0.trad_ses_event.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trad_ses_event.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trad_ses_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trad_ses_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trad Ses Mode
+eurex_cash_eti_t7_v12_0.trad_ses_mode = {}
+
+-- Size: Trad Ses Mode
+eurex_cash_eti_t7_v12_0.trad_ses_mode.size = 1
+
+-- Display: Trad Ses Mode
+eurex_cash_eti_t7_v12_0.trad_ses_mode.display = function(value)
+  if value == 1 then
+    return "Trad Ses Mode: Testing (1)"
+  end
+  if value == 2 then
+    return "Trad Ses Mode: Simulated (2)"
+  end
+  if value == 3 then
+    return "Trad Ses Mode: Production (3)"
+  end
+  if value == 4 then
+    return "Trad Ses Mode: Acceptance (4)"
+  end
+  if value == 5 then
+    return "Trad Ses Mode: Disaster Recovery (5)"
+  end
+  if value == 0xFF then
+    return "Trad Ses Mode: No Value"
+  end
+
+  return "Trad Ses Mode: Unknown("..value..")"
+end
+
+-- Dissect: Trad Ses Mode
+eurex_cash_eti_t7_v12_0.trad_ses_mode.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trad_ses_mode.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trad_ses_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trad_ses_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Alloc Status
+eurex_cash_eti_t7_v12_0.trade_alloc_status = {}
+
+-- Size: Trade Alloc Status
+eurex_cash_eti_t7_v12_0.trade_alloc_status.size = 1
+
+-- Display: Trade Alloc Status
+eurex_cash_eti_t7_v12_0.trade_alloc_status.display = function(value)
+  if value == 1 then
+    return "Trade Alloc Status: Pending (1)"
+  end
+  if value == 2 then
+    return "Trade Alloc Status: Approved (2)"
+  end
+  if value == 3 then
+    return "Trade Alloc Status: Auto Approved (3)"
+  end
+  if value == 4 then
+    return "Trade Alloc Status: Uploaded (4)"
+  end
+  if value == 5 then
+    return "Trade Alloc Status: Canceled (5)"
+  end
+  if value == 0xFF then
+    return "Trade Alloc Status: No Value"
+  end
+
+  return "Trade Alloc Status: Unknown("..value..")"
+end
+
+-- Dissect: Trade Alloc Status
+eurex_cash_eti_t7_v12_0.trade_alloc_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_alloc_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_alloc_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_alloc_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade At Close Opt In
+eurex_cash_eti_t7_v12_0.trade_at_close_opt_in = {}
+
+-- Size: Trade At Close Opt In
+eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.size = 1
+
+-- Display: Trade At Close Opt In
+eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.display = function(value)
+  if value == 0 then
+    return "Trade At Close Opt In: No (0)"
+  end
+  if value == 1 then
+    return "Trade At Close Opt In: Yes (1)"
+  end
+  if value == 0xFF then
+    return "Trade At Close Opt In: No Value"
+  end
+
+  return "Trade At Close Opt In: Unknown("..value..")"
+end
+
+-- Dissect: Trade At Close Opt In
+eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_at_close_opt_in, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+eurex_cash_eti_t7_v12_0.trade_date = {}
+
+-- Size: Trade Date
+eurex_cash_eti_t7_v12_0.trade_date.size = 4
+
+-- Display: Trade Date
+eurex_cash_eti_t7_v12_0.trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+eurex_cash_eti_t7_v12_0.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+eurex_cash_eti_t7_v12_0.trade_id = {}
+
+-- Size: Trade Id
+eurex_cash_eti_t7_v12_0.trade_id.size = 4
+
+-- Display: Trade Id
+eurex_cash_eti_t7_v12_0.trade_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Id: No Value"
+  end
+
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+eurex_cash_eti_t7_v12_0.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Manager Status
+eurex_cash_eti_t7_v12_0.trade_manager_status = {}
+
+-- Size: Trade Manager Status
+eurex_cash_eti_t7_v12_0.trade_manager_status.size = 1
+
+-- Display: Trade Manager Status
+eurex_cash_eti_t7_v12_0.trade_manager_status.display = function(value)
+  if value == 0 then
+    return "Trade Manager Status: Unavailable (0)"
+  end
+  if value == 1 then
+    return "Trade Manager Status: Available (1)"
+  end
+  if value == 0xFF then
+    return "Trade Manager Status: No Value"
+  end
+
+  return "Trade Manager Status: Unknown("..value..")"
+end
+
+-- Dissect: Trade Manager Status
+eurex_cash_eti_t7_v12_0.trade_manager_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_manager_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_manager_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_manager_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Manager Trade Date
+eurex_cash_eti_t7_v12_0.trade_manager_trade_date = {}
+
+-- Size: Trade Manager Trade Date
+eurex_cash_eti_t7_v12_0.trade_manager_trade_date.size = 4
+
+-- Display: Trade Manager Trade Date
+eurex_cash_eti_t7_v12_0.trade_manager_trade_date.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Manager Trade Date: No Value"
+  end
+
+  return "Trade Manager Trade Date: "..value
+end
+
+-- Dissect: Trade Manager Trade Date
+eurex_cash_eti_t7_v12_0.trade_manager_trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_manager_trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_manager_trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_manager_trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Number
+eurex_cash_eti_t7_v12_0.trade_number = {}
+
+-- Size: Trade Number
+eurex_cash_eti_t7_v12_0.trade_number.size = 4
+
+-- Display: Trade Number
+eurex_cash_eti_t7_v12_0.trade_number.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trade Number: No Value"
+  end
+
+  return "Trade Number: "..value
+end
+
+-- Dissect: Trade Number
+eurex_cash_eti_t7_v12_0.trade_number.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Publish Indicator
+eurex_cash_eti_t7_v12_0.trade_publish_indicator = {}
+
+-- Size: Trade Publish Indicator
+eurex_cash_eti_t7_v12_0.trade_publish_indicator.size = 1
+
+-- Display: Trade Publish Indicator
+eurex_cash_eti_t7_v12_0.trade_publish_indicator.display = function(value)
+  if value == 0 then
+    return "Trade Publish Indicator: Do Not Publish Trade (0)"
+  end
+  if value == 1 then
+    return "Trade Publish Indicator: Publish Trade (1)"
+  end
+  if value == 2 then
+    return "Trade Publish Indicator: Deferred Publication (2)"
+  end
+  if value == 3 then
+    return "Trade Publish Indicator: Published (3)"
+  end
+  if value == 0xFF then
+    return "Trade Publish Indicator: No Value"
+  end
+
+  return "Trade Publish Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Trade Publish Indicator
+eurex_cash_eti_t7_v12_0.trade_publish_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_publish_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_publish_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_publish_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Report Id
+eurex_cash_eti_t7_v12_0.trade_report_id = {}
+
+-- Size: Trade Report Id
+eurex_cash_eti_t7_v12_0.trade_report_id.size = 20
+
+-- Display: Trade Report Id
+eurex_cash_eti_t7_v12_0.trade_report_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Report Id: No Value"
+  end
+
+  return "Trade Report Id: "..value
+end
+
+-- Dissect: Trade Report Id
+eurex_cash_eti_t7_v12_0.trade_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_report_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.trade_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Report Text
+eurex_cash_eti_t7_v12_0.trade_report_text = {}
+
+-- Size: Trade Report Text
+eurex_cash_eti_t7_v12_0.trade_report_text.size = 20
+
+-- Display: Trade Report Text
+eurex_cash_eti_t7_v12_0.trade_report_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Report Text: No Value"
+  end
+
+  return "Trade Report Text: "..value
+end
+
+-- Dissect: Trade Report Text
+eurex_cash_eti_t7_v12_0.trade_report_text.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_report_text.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = eurex_cash_eti_t7_v12_0.trade_report_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_report_text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Report Type
+eurex_cash_eti_t7_v12_0.trade_report_type = {}
+
+-- Size: Trade Report Type
+eurex_cash_eti_t7_v12_0.trade_report_type.size = 1
+
+-- Display: Trade Report Type
+eurex_cash_eti_t7_v12_0.trade_report_type.display = function(value)
+  if value == 0 then
+    return "Trade Report Type: Submit (0)"
+  end
+  if value == 2 then
+    return "Trade Report Type: Accept (2)"
+  end
+  if value == 3 then
+    return "Trade Report Type: Decline (3)"
+  end
+  if value == 5 then
+    return "Trade Report Type: No Was Replaced (5)"
+  end
+  if value == 6 then
+    return "Trade Report Type: Trade Report Cancel (6)"
+  end
+  if value == 7 then
+    return "Trade Report Type: Trade Break (7)"
+  end
+  if value == 11 then
+    return "Trade Report Type: Alleged New (11)"
+  end
+  if value == 13 then
+    return "Trade Report Type: Alleged No Was (13)"
+  end
+  if value == 0xFF then
+    return "Trade Report Type: No Value"
+  end
+
+  return "Trade Report Type: Unknown("..value..")"
+end
+
+-- Dissect: Trade Report Type
+eurex_cash_eti_t7_v12_0.trade_report_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trade_report_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trade_report_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_report_type, range, value, display)
 
   return offset + length, value
 end
@@ -2249,38 +13750,583 @@ eurex_cash_eti_t7_v12_0.trading_capacity.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Respondent Type
-eurex_cash_eti_t7_v12_0.respondent_type = {}
+-- Trading Session Sub Id
+eurex_cash_eti_t7_v12_0.trading_session_sub_id = {}
 
--- Size: Respondent Type
-eurex_cash_eti_t7_v12_0.respondent_type.size = 1
+-- Size: Trading Session Sub Id
+eurex_cash_eti_t7_v12_0.trading_session_sub_id.size = 1
 
--- Display: Respondent Type
-eurex_cash_eti_t7_v12_0.respondent_type.display = function(value)
+-- Display: Trading Session Sub Id
+eurex_cash_eti_t7_v12_0.trading_session_sub_id.display = function(value)
   if value == 2 then
-    return "Respondent Type: Specifiedmarketparticipants (2)"
+    return "Trading Session Sub Id: Openingauction (2)"
   end
-  if value == 100 then
-    return "Respondent Type: Specifiedand Smart Rf Qselectedparticipants (100)"
+  if value == 4 then
+    return "Trading Session Sub Id: Closingauction (4)"
   end
-  if value == 101 then
-    return "Respondent Type: Smart Rf Qselectedparticipants (101)"
+  if value == 6 then
+    return "Trading Session Sub Id: Intraday Auction (6)"
+  end
+  if value == 8 then
+    return "Trading Session Sub Id: Any Auction (8)"
+  end
+  if value == 105 then
+    return "Trading Session Sub Id: Special Auction (105)"
   end
   if value == 0xFF then
-    return "Respondent Type: No Value"
+    return "Trading Session Sub Id: No Value"
   end
 
-  return "Respondent Type: Unknown("..value..")"
+  return "Trading Session Sub Id: Unknown("..value..")"
 end
 
--- Dissect: Respondent Type
-eurex_cash_eti_t7_v12_0.respondent_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.respondent_type.size
+-- Dissect: Trading Session Sub Id
+eurex_cash_eti_t7_v12_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trading_session_sub_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.respondent_type.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.respondent_type, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trading_session_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trans Bkd Time
+eurex_cash_eti_t7_v12_0.trans_bkd_time = {}
+
+-- Size: Trans Bkd Time
+eurex_cash_eti_t7_v12_0.trans_bkd_time.size = 8
+
+-- Display: Trans Bkd Time
+eurex_cash_eti_t7_v12_0.trans_bkd_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trans Bkd Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trans Bkd Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trans Bkd Time
+eurex_cash_eti_t7_v12_0.trans_bkd_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trans_bkd_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.trans_bkd_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trans_bkd_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+eurex_cash_eti_t7_v12_0.transact_time = {}
+
+-- Size: Transact Time
+eurex_cash_eti_t7_v12_0.transact_time.size = 8
+
+-- Display: Transact Time
+eurex_cash_eti_t7_v12_0.transact_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Transact Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+eurex_cash_eti_t7_v12_0.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Delay Indicator
+eurex_cash_eti_t7_v12_0.transaction_delay_indicator = {}
+
+-- Size: Transaction Delay Indicator
+eurex_cash_eti_t7_v12_0.transaction_delay_indicator.size = 1
+
+-- Display: Transaction Delay Indicator
+eurex_cash_eti_t7_v12_0.transaction_delay_indicator.display = function(value)
+  if value == 0 then
+    return "Transaction Delay Indicator: Notdelayed (0)"
+  end
+  if value == 1 then
+    return "Transaction Delay Indicator: Delayed (1)"
+  end
+  if value == 0xFF then
+    return "Transaction Delay Indicator: No Value"
+  end
+
+  return "Transaction Delay Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Transaction Delay Indicator
+eurex_cash_eti_t7_v12_0.transaction_delay_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.transaction_delay_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.transaction_delay_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.transaction_delay_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transfer Reason
+eurex_cash_eti_t7_v12_0.transfer_reason = {}
+
+-- Size: Transfer Reason
+eurex_cash_eti_t7_v12_0.transfer_reason.size = 1
+
+-- Display: Transfer Reason
+eurex_cash_eti_t7_v12_0.transfer_reason.display = function(value)
+  if value == 1 then
+    return "Transfer Reason: Owner (1)"
+  end
+  if value == 2 then
+    return "Transfer Reason: Clearer (2)"
+  end
+  if value == 0xFF then
+    return "Transfer Reason: No Value"
+  end
+
+  return "Transfer Reason: Unknown("..value..")"
+end
+
+-- Dissect: Transfer Reason
+eurex_cash_eti_t7_v12_0.transfer_reason.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.transfer_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.transfer_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.transfer_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Match Id
+eurex_cash_eti_t7_v12_0.trd_match_id = {}
+
+-- Size: Trd Match Id
+eurex_cash_eti_t7_v12_0.trd_match_id.size = 4
+
+-- Display: Trd Match Id
+eurex_cash_eti_t7_v12_0.trd_match_id.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Trd Match Id: No Value"
+  end
+
+  return "Trd Match Id: "..value
+end
+
+-- Dissect: Trd Match Id
+eurex_cash_eti_t7_v12_0.trd_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_match_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trd_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Entry Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time = {}
+
+-- Size: Trd Reg Ts Entry Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.size = 8
+
+-- Display: Trd Reg Ts Entry Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Entry Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Entry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Entry Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_entry_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Execution Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time = {}
+
+-- Size: Trd Reg Ts Execution Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.size = 8
+
+-- Display: Trd Reg Ts Execution Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Execution Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Execution Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Execution Time
+eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_execution_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Time In
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in = {}
+
+-- Size: Trd Reg Ts Time In
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size = 8
+
+-- Display: Trd Reg Ts Time In
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time In: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Time In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Time In
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_time_in, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Time Out
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out = {}
+
+-- Size: Trd Reg Ts Time Out
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size = 8
+
+-- Display: Trd Reg Ts Time Out
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time Out: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Time Out: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Time Out
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_time_out, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Ts Time Priority
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority = {}
+
+-- Size: Trd Reg Ts Time Priority
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.size = 8
+
+-- Display: Trd Reg Ts Time Priority
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trd Reg Ts Time Priority: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trd Reg Ts Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trd Reg Ts Time Priority
+eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_time_priority, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Rpt Status
+eurex_cash_eti_t7_v12_0.trd_rpt_status = {}
+
+-- Size: Trd Rpt Status
+eurex_cash_eti_t7_v12_0.trd_rpt_status.size = 1
+
+-- Display: Trd Rpt Status
+eurex_cash_eti_t7_v12_0.trd_rpt_status.display = function(value)
+  if value == 0 then
+    return "Trd Rpt Status: Accepted (0)"
+  end
+  if value == 1 then
+    return "Trd Rpt Status: Rejected (1)"
+  end
+  if value == 2 then
+    return "Trd Rpt Status: Cancelled (2)"
+  end
+  if value == 4 then
+    return "Trd Rpt Status: Pending New (4)"
+  end
+  if value == 7 then
+    return "Trd Rpt Status: Terminated (7)"
+  end
+  if value == 9 then
+    return "Trd Rpt Status: Deemed Verified (9)"
+  end
+  if value == 0xFF then
+    return "Trd Rpt Status: No Value"
+  end
+
+  return "Trd Rpt Status: Unknown("..value..")"
+end
+
+-- Dissect: Trd Rpt Status
+eurex_cash_eti_t7_v12_0.trd_rpt_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_rpt_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trd_rpt_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_rpt_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Type
+eurex_cash_eti_t7_v12_0.trd_type = {}
+
+-- Size: Trd Type
+eurex_cash_eti_t7_v12_0.trd_type.size = 2
+
+-- Display: Trd Type
+eurex_cash_eti_t7_v12_0.trd_type.display = function(value)
+  if value == 54 then
+    return "Trd Type: Otc (54)"
+  end
+  if value == 1005 then
+    return "Trd Type: Lis (1005)"
+  end
+  if value == 1006 then
+    return "Trd Type: Enlight (1006)"
+  end
+  if value == 0xFFFF then
+    return "Trd Type: No Value"
+  end
+
+  return "Trd Type: Unknown("..value..")"
+end
+
+-- Dissect: Trd Type
+eurex_cash_eti_t7_v12_0.trd_type.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.trd_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.trd_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Triggered
+eurex_cash_eti_t7_v12_0.triggered = {}
+
+-- Size: Triggered
+eurex_cash_eti_t7_v12_0.triggered.size = 1
+
+-- Display: Triggered
+eurex_cash_eti_t7_v12_0.triggered.display = function(value)
+  if value == 0 then
+    return "Triggered: Nottriggered (0)"
+  end
+  if value == 1 then
+    return "Triggered: Triggered Stop (1)"
+  end
+  if value == 2 then
+    return "Triggered: Triggered Oco (2)"
+  end
+  if value == 0xFF then
+    return "Triggered: No Value"
+  end
+
+  return "Triggered: Unknown("..value..")"
+end
+
+-- Dissect: Triggered
+eurex_cash_eti_t7_v12_0.triggered.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.triggered.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.triggered.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.triggered, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Status
+eurex_cash_eti_t7_v12_0.user_status = {}
+
+-- Size: User Status
+eurex_cash_eti_t7_v12_0.user_status.size = 1
+
+-- Display: User Status
+eurex_cash_eti_t7_v12_0.user_status.display = function(value)
+  if value == 7 then
+    return "User Status: Userforcedlogout (7)"
+  end
+  if value == 10 then
+    return "User Status: Userstopped (10)"
+  end
+  if value == 11 then
+    return "User Status: Userreleased (11)"
+  end
+  if value == 0xFF then
+    return "User Status: No Value"
+  end
+
+  return "User Status: Unknown("..value..")"
+end
+
+-- Dissect: User Status
+eurex_cash_eti_t7_v12_0.user_status.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.user_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.user_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.user_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+eurex_cash_eti_t7_v12_0.username = {}
+
+-- Size: Username
+eurex_cash_eti_t7_v12_0.username.size = 4
+
+-- Display: Username
+eurex_cash_eti_t7_v12_0.username.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Username: No Value"
+  end
+
+  return "Username: "..value
+end
+
+-- Dissect: Username
+eurex_cash_eti_t7_v12_0.username.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.username.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v12_0.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Valid Until Time
+eurex_cash_eti_t7_v12_0.valid_until_time = {}
+
+-- Size: Valid Until Time
+eurex_cash_eti_t7_v12_0.valid_until_time.size = 8
+
+-- Display: Valid Until Time
+eurex_cash_eti_t7_v12_0.valid_until_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Valid Until Time: No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Valid Until Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Valid Until Time
+eurex_cash_eti_t7_v12_0.valid_until_time.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.valid_until_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = eurex_cash_eti_t7_v12_0.valid_until_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.valid_until_time, range, value, display)
 
   return offset + length, value
 end
@@ -2351,562 +14397,114 @@ eurex_cash_eti_t7_v12_0.value_check_type_value.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Side
-eurex_cash_eti_t7_v12_0.side = {}
+-- Var Text
+eurex_cash_eti_t7_v12_0.var_text = {}
 
--- Size: Side
-eurex_cash_eti_t7_v12_0.side.size = 1
-
--- Display: Side
-eurex_cash_eti_t7_v12_0.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Side: No Value"
-  end
-
-  return "Side: Unknown("..value..")"
+-- Display: Var Text
+eurex_cash_eti_t7_v12_0.var_text.display = function(value)
+  return "Var Text: "..value
 end
 
--- Dissect: Side
-eurex_cash_eti_t7_v12_0.side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.side.size
+-- Dissect runtime sized field: Var Text
+eurex_cash_eti_t7_v12_0.var_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = eurex_cash_eti_t7_v12_0.var_text.display(value, packet, parent, size)
+
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.var_text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Var Text Len
+eurex_cash_eti_t7_v12_0.var_text_len = {}
+
+-- Size: Var Text Len
+eurex_cash_eti_t7_v12_0.var_text_len.size = 2
+
+-- Display: Var Text Len
+eurex_cash_eti_t7_v12_0.var_text_len.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Var Text Len: No Value"
+  end
+
+  return "Var Text Len: "..value
+end
+
+-- Dissect: Var Text Len
+eurex_cash_eti_t7_v12_0.var_text_len.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v12_0.var_text_len.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.side.display(value, buffer, offset, packet, parent)
+  local display = eurex_cash_eti_t7_v12_0.var_text_len.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Resp Disclosure Instruction
-eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction = {}
-
--- Size: Number Of Resp Disclosure Instruction
-eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.size = 1
-
--- Display: Number Of Resp Disclosure Instruction
-eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.display = function(value)
-  if value == 0 then
-    return "Number Of Resp Disclosure Instruction: No (0)"
-  end
-  if value == 1 then
-    return "Number Of Resp Disclosure Instruction: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Number Of Resp Disclosure Instruction: No Value"
-  end
-
-  return "Number Of Resp Disclosure Instruction: Unknown("..value..")"
-end
-
--- Dissect: Number Of Resp Disclosure Instruction
-eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.number_of_resp_disclosure_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.number_of_resp_disclosure_instruction, range, value, display)
+  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.var_text_len, range, value, display)
 
   return offset + length, value
 end
 
--- No Target Party I Ds
-eurex_cash_eti_t7_v12_0.no_target_party_i_ds = {}
 
--- Size: No Target Party I Ds
-eurex_cash_eti_t7_v12_0.no_target_party_i_ds.size = 1
+-----------------------------------------------------------------------
+-- Dissect Eurex Cash Eti T7 12.0
+-----------------------------------------------------------------------
 
--- Display: No Target Party I Ds
-eurex_cash_eti_t7_v12_0.no_target_party_i_ds.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Target Party I Ds: No Value"
+-- Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp = {}
+
+-- Size: Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.size =
+  eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.target_party_executing_firm.size + 
+  eurex_cash_eti_t7_v12_0.target_party_executing_trader.size + 
+  eurex_cash_eti_t7_v12_0.pad_1.size
+
+-- Display: Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.fields = function(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
+  local index = offset
+
+  -- Implicit Xetra En Light Target Parties Comp Index
+  if xetra_en_light_target_parties_comp_index ~= nil then
+    local iteration = parent:add(omi_eurex_cash_eti_t7_v12_0.fields.xetra_en_light_target_parties_comp_index, xetra_en_light_target_parties_comp_index)
+    iteration:set_generated()
   end
 
-  return "No Target Party I Ds: "..value
+  -- Target Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, target_party_id_executing_trader = eurex_cash_eti_t7_v12_0.target_party_id_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Target Party Executing Firm: 5 Byte Ascii String Nullable
+  index, target_party_executing_firm = eurex_cash_eti_t7_v12_0.target_party_executing_firm.dissect(buffer, index, packet, parent)
+
+  -- Target Party Executing Trader: 6 Byte Ascii String Nullable
+  index, target_party_executing_trader = eurex_cash_eti_t7_v12_0.target_party_executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Pad 1: 1 Byte
+  index, pad_1 = eurex_cash_eti_t7_v12_0.pad_1.dissect(buffer, index, packet, parent)
+
+  return index
 end
 
--- Dissect: No Target Party I Ds
-eurex_cash_eti_t7_v12_0.no_target_party_i_ds.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_target_party_i_ds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_target_party_i_ds.display(value, buffer, offset, packet, parent)
+-- Dissect: Xetra En Light Target Parties Comp
+eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.dissect = function(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
+  if show.xetra_en_light_target_parties_comp then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_eurex_cash_eti_t7_v12_0.fields.xetra_en_light_target_parties_comp, buffer(offset, 0))
+    local index = eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.fields(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.display(packet, parent, length)
+    parent:append_text(display)
 
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_target_party_i_ds, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Exec Min No Of Quotes
-eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes = {}
-
--- Size: Auto Exec Min No Of Quotes
-eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.size = 4
-
--- Display: Auto Exec Min No Of Quotes
-eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Auto Exec Min No Of Quotes: No Value"
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return eurex_cash_eti_t7_v12_0.xetra_en_light_target_parties_comp.fields(buffer, offset, packet, parent, xetra_en_light_target_parties_comp_index)
   end
-
-  return "Auto Exec Min No Of Quotes: "..value
-end
-
--- Dissect: Auto Exec Min No Of Quotes
-eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.auto_exec_min_no_of_quotes.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_min_no_of_quotes, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Exec Exposure Duration
-eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration = {}
-
--- Size: Auto Exec Exposure Duration
-eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.size = 4
-
--- Display: Auto Exec Exposure Duration
-eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Auto Exec Exposure Duration: No Value"
-  end
-
-  return "Auto Exec Exposure Duration: "..value
-end
-
--- Dissect: Auto Exec Exposure Duration
-eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.auto_exec_exposure_duration.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_exposure_duration, range, value, display)
-
-  return offset + length, value
-end
-
--- Settl Date
-eurex_cash_eti_t7_v12_0.settl_date = {}
-
--- Size: Settl Date
-eurex_cash_eti_t7_v12_0.settl_date.size = 4
-
--- Display: Settl Date
-eurex_cash_eti_t7_v12_0.settl_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Settl Date: No Value"
-  end
-
-  return "Settl Date: "..value
-end
-
--- Dissect: Settl Date
-eurex_cash_eti_t7_v12_0.settl_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.settl_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.settl_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Negotiation Id
-eurex_cash_eti_t7_v12_0.negotiation_id = {}
-
--- Size: Negotiation Id
-eurex_cash_eti_t7_v12_0.negotiation_id.size = 4
-
--- Display: Negotiation Id
-eurex_cash_eti_t7_v12_0.negotiation_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Negotiation Id: No Value"
-  end
-
-  return "Negotiation Id: "..value
-end
-
--- Dissect: Negotiation Id
-eurex_cash_eti_t7_v12_0.negotiation_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.negotiation_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.negotiation_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.negotiation_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Segment Id
-eurex_cash_eti_t7_v12_0.market_segment_id = {}
-
--- Size: Market Segment Id
-eurex_cash_eti_t7_v12_0.market_segment_id.size = 4
-
--- Display: Market Segment Id
-eurex_cash_eti_t7_v12_0.market_segment_id.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Market Segment Id: No Value"
-  end
-
-  return "Market Segment Id: "..value
-end
-
--- Dissect: Market Segment Id
-eurex_cash_eti_t7_v12_0.market_segment_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.market_segment_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_cash_eti_t7_v12_0.market_segment_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.market_segment_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Exec Reference Price Offset
-eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset = {}
-
--- Size: Auto Exec Reference Price Offset
-eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.size = 4
-
--- Display: Auto Exec Reference Price Offset
-eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Auto Exec Reference Price Offset: No Value"
-  end
-
-  return "Auto Exec Reference Price Offset: "..value
-end
-
--- Dissect: Auto Exec Reference Price Offset
-eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_cash_eti_t7_v12_0.auto_exec_reference_price_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_reference_price_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Exec Limit Price
-eurex_cash_eti_t7_v12_0.auto_exec_limit_price = {}
-
--- Size: Auto Exec Limit Price
-eurex_cash_eti_t7_v12_0.auto_exec_limit_price.size = 8
-
--- Display: Auto Exec Limit Price
-eurex_cash_eti_t7_v12_0.auto_exec_limit_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Auto Exec Limit Price: No Value"
-  end
-
-  return "Auto Exec Limit Price: "..value
-end
-
--- Translate: Auto Exec Limit Price
-eurex_cash_eti_t7_v12_0.auto_exec_limit_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Auto Exec Limit Price
-eurex_cash_eti_t7_v12_0.auto_exec_limit_price.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_exec_limit_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.auto_exec_limit_price.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.auto_exec_limit_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_limit_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Executing Trader
-eurex_cash_eti_t7_v12_0.executing_trader = {}
-
--- Size: Executing Trader
-eurex_cash_eti_t7_v12_0.executing_trader.size = 8
-
--- Display: Executing Trader
-eurex_cash_eti_t7_v12_0.executing_trader.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Executing Trader: No Value"
-  end
-
-  return "Executing Trader: "..value
-end
-
--- Dissect: Executing Trader
-eurex_cash_eti_t7_v12_0.executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.executing_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker = {}
-
--- Size: Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.size = 8
-
--- Display: Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Party Id Investment Decision Maker: No Value"
-  end
-
-  return "Party Id Investment Decision Maker: "..value
-end
-
--- Dissect: Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.party_id_investment_decision_maker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_investment_decision_maker, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Client Id
-eurex_cash_eti_t7_v12_0.party_id_client_id = {}
-
--- Size: Party Id Client Id
-eurex_cash_eti_t7_v12_0.party_id_client_id.size = 8
-
--- Display: Party Id Client Id
-eurex_cash_eti_t7_v12_0.party_id_client_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Party Id Client Id: No Value"
-  end
-
-  return "Party Id Client Id: "..value
-end
-
--- Dissect: Party Id Client Id
-eurex_cash_eti_t7_v12_0.party_id_client_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_client_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.party_id_client_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_client_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-eurex_cash_eti_t7_v12_0.order_qty = {}
-
--- Size: Order Qty
-eurex_cash_eti_t7_v12_0.order_qty.size = 8
-
--- Display: Order Qty
-eurex_cash_eti_t7_v12_0.order_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Order Qty: No Value"
-  end
-
-  return "Order Qty: "..value
-end
-
--- Translate: Order Qty
-eurex_cash_eti_t7_v12_0.order_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Order Qty
-eurex_cash_eti_t7_v12_0.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.order_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.order_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Px
-eurex_cash_eti_t7_v12_0.offer_px = {}
-
--- Size: Offer Px
-eurex_cash_eti_t7_v12_0.offer_px.size = 8
-
--- Display: Offer Px
-eurex_cash_eti_t7_v12_0.offer_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Offer Px: No Value"
-  end
-
-  return "Offer Px: "..value
-end
-
--- Translate: Offer Px
-eurex_cash_eti_t7_v12_0.offer_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Offer Px
-eurex_cash_eti_t7_v12_0.offer_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.offer_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.offer_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.offer_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.offer_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Px
-eurex_cash_eti_t7_v12_0.bid_px = {}
-
--- Size: Bid Px
-eurex_cash_eti_t7_v12_0.bid_px.size = 8
-
--- Display: Bid Px
-eurex_cash_eti_t7_v12_0.bid_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Bid Px: No Value"
-  end
-
-  return "Bid Px: "..value
-end
-
--- Translate: Bid Px
-eurex_cash_eti_t7_v12_0.bid_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Bid Px
-eurex_cash_eti_t7_v12_0.bid_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.bid_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.bid_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.bid_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bid_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Sender Sub Id
-eurex_cash_eti_t7_v12_0.sender_sub_id = {}
-
--- Size: Sender Sub Id
-eurex_cash_eti_t7_v12_0.sender_sub_id.size = 4
-
--- Display: Sender Sub Id
-eurex_cash_eti_t7_v12_0.sender_sub_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Sender Sub Id: No Value"
-  end
-
-  return "Sender Sub Id: "..value
-end
-
--- Dissect: Sender Sub Id
-eurex_cash_eti_t7_v12_0.sender_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.sender_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.sender_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.sender_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Seq Num
-eurex_cash_eti_t7_v12_0.msg_seq_num = {}
-
--- Size: Msg Seq Num
-eurex_cash_eti_t7_v12_0.msg_seq_num.size = 4
-
--- Display: Msg Seq Num
-eurex_cash_eti_t7_v12_0.msg_seq_num.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Msg Seq Num: No Value"
-  end
-
-  return "Msg Seq Num: "..value
-end
-
--- Dissect: Msg Seq Num
-eurex_cash_eti_t7_v12_0.msg_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.msg_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.msg_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.msg_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Request Header Comp
@@ -2951,57 +14549,6 @@ eurex_cash_eti_t7_v12_0.request_header_comp.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.request_header_comp.fields(buffer, offset, packet, parent)
   end
-end
-
--- Pad 2
-eurex_cash_eti_t7_v12_0.pad_2 = {}
-
--- Size: Pad 2
-eurex_cash_eti_t7_v12_0.pad_2.size = 2
-
--- Display: Pad 2
-eurex_cash_eti_t7_v12_0.pad_2.display = function(value)
-  return "Pad 2: "..value
-end
-
--- Dissect: Pad 2
-eurex_cash_eti_t7_v12_0.pad_2.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Network Msg Id
-eurex_cash_eti_t7_v12_0.network_msg_id = {}
-
--- Size: Network Msg Id
-eurex_cash_eti_t7_v12_0.network_msg_id.size = 8
-
--- Display: Network Msg Id
-eurex_cash_eti_t7_v12_0.network_msg_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Network Msg Id: No Value"
-  end
-
-  return "Network Msg Id: "..value
-end
-
--- Dissect: Network Msg Id
-eurex_cash_eti_t7_v12_0.network_msg_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.network_msg_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.network_msg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.network_msg_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Update Negotiation Request
@@ -3167,342 +14714,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_update_negotiation_request.dissect = func
   end
 end
 
--- Trad Ses Event
-eurex_cash_eti_t7_v12_0.trad_ses_event = {}
-
--- Size: Trad Ses Event
-eurex_cash_eti_t7_v12_0.trad_ses_event.size = 1
-
--- Display: Trad Ses Event
-eurex_cash_eti_t7_v12_0.trad_ses_event.display = function(value)
-  if value == 101 then
-    return "Trad Ses Event: Startof Service (101)"
-  end
-  if value == 102 then
-    return "Trad Ses Event: Market Reset (102)"
-  end
-  if value == 103 then
-    return "Trad Ses Event: Endof Restatement (103)"
-  end
-  if value == 104 then
-    return "Trad Ses Event: Endof Day Service (104)"
-  end
-  if value == 105 then
-    return "Trad Ses Event: Service Resumed (105)"
-  end
-  if value == 0xFF then
-    return "Trad Ses Event: No Value"
-  end
-
-  return "Trad Ses Event: Unknown("..value..")"
-end
-
--- Dissect: Trad Ses Event
-eurex_cash_eti_t7_v12_0.trad_ses_event.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trad_ses_event.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trad_ses_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trad_ses_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-eurex_cash_eti_t7_v12_0.trade_date = {}
-
--- Size: Trade Date
-eurex_cash_eti_t7_v12_0.trade_date.size = 4
-
--- Display: Trade Date
-eurex_cash_eti_t7_v12_0.trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Trade Date: No Value"
-  end
-
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-eurex_cash_eti_t7_v12_0.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Pad 7
-eurex_cash_eti_t7_v12_0.pad_7 = {}
-
--- Size: Pad 7
-eurex_cash_eti_t7_v12_0.pad_7.size = 7
-
--- Display: Pad 7
-eurex_cash_eti_t7_v12_0.pad_7.display = function(value)
-  return "Pad 7: "..value
-end
-
--- Dissect: Pad 7
-eurex_cash_eti_t7_v12_0.pad_7.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_7.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_7.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Fragment
-eurex_cash_eti_t7_v12_0.last_fragment = {}
-
--- Size: Last Fragment
-eurex_cash_eti_t7_v12_0.last_fragment.size = 1
-
--- Display: Last Fragment
-eurex_cash_eti_t7_v12_0.last_fragment.display = function(value)
-  if value == 0 then
-    return "Last Fragment: Not Last Message (0)"
-  end
-  if value == 1 then
-    return "Last Fragment: Last Message (1)"
-  end
-  if value == 0xFF then
-    return "Last Fragment: No Value"
-  end
-
-  return "Last Fragment: Unknown("..value..")"
-end
-
--- Dissect: Last Fragment
-eurex_cash_eti_t7_v12_0.last_fragment.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.last_fragment.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.last_fragment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_fragment, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Id
-eurex_cash_eti_t7_v12_0.appl_id = {}
-
--- Size: Appl Id
-eurex_cash_eti_t7_v12_0.appl_id.size = 1
-
--- Display: Appl Id
-eurex_cash_eti_t7_v12_0.appl_id.display = function(value)
-  if value == 1 then
-    return "Appl Id: Trade (1)"
-  end
-  if value == 2 then
-    return "Appl Id: News (2)"
-  end
-  if value == 3 then
-    return "Appl Id: Serviceavailability (3)"
-  end
-  if value == 4 then
-    return "Appl Id: Sessiondata (4)"
-  end
-  if value == 5 then
-    return "Appl Id: Listenerdata (5)"
-  end
-  if value == 6 then
-    return "Appl Id: Risk Control (6)"
-  end
-  if value == 7 then
-    return "Appl Id: Tes Maintenance (7)"
-  end
-  if value == 8 then
-    return "Appl Id: Tes Trade (8)"
-  end
-  if value == 9 then
-    return "Appl Id: Srqs Maintenance (9)"
-  end
-  if value == 10 then
-    return "Appl Id: Service Availability Market (10)"
-  end
-  if value == 11 then
-    return "Appl Id: Specialist Data (11)"
-  end
-  if value == 0xFF then
-    return "Appl Id: No Value"
-  end
-
-  return "Appl Id: Unknown("..value..")"
-end
-
--- Dissect: Appl Id
-eurex_cash_eti_t7_v12_0.appl_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Resend Flag
-eurex_cash_eti_t7_v12_0.appl_resend_flag = {}
-
--- Size: Appl Resend Flag
-eurex_cash_eti_t7_v12_0.appl_resend_flag.size = 1
-
--- Display: Appl Resend Flag
-eurex_cash_eti_t7_v12_0.appl_resend_flag.display = function(value)
-  if value == 0 then
-    return "Appl Resend Flag: False (0)"
-  end
-  if value == 1 then
-    return "Appl Resend Flag: True (1)"
-  end
-  if value == 0xFF then
-    return "Appl Resend Flag: No Value"
-  end
-
-  return "Appl Resend Flag: Unknown("..value..")"
-end
-
--- Dissect: Appl Resend Flag
-eurex_cash_eti_t7_v12_0.appl_resend_flag.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_resend_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_resend_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_resend_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Partition Id
-eurex_cash_eti_t7_v12_0.partition_id = {}
-
--- Size: Partition Id
-eurex_cash_eti_t7_v12_0.partition_id.size = 2
-
--- Display: Partition Id
-eurex_cash_eti_t7_v12_0.partition_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Partition Id: No Value"
-  end
-
-  return "Partition Id: "..value
-end
-
--- Dissect: Partition Id
-eurex_cash_eti_t7_v12_0.partition_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.partition_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.partition_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.partition_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Sub Id
-eurex_cash_eti_t7_v12_0.appl_sub_id = {}
-
--- Size: Appl Sub Id
-eurex_cash_eti_t7_v12_0.appl_sub_id.size = 4
-
--- Display: Appl Sub Id
-eurex_cash_eti_t7_v12_0.appl_sub_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Appl Sub Id: No Value"
-  end
-
-  return "Appl Sub Id: "..value
-end
-
--- Dissect: Appl Sub Id
-eurex_cash_eti_t7_v12_0.appl_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Seq Num
-eurex_cash_eti_t7_v12_0.appl_seq_num = {}
-
--- Size: Appl Seq Num
-eurex_cash_eti_t7_v12_0.appl_seq_num.size = 8
-
--- Display: Appl Seq Num
-eurex_cash_eti_t7_v12_0.appl_seq_num.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Appl Seq Num: No Value"
-  end
-
-  return "Appl Seq Num: "..value
-end
-
--- Dissect: Appl Seq Num
-eurex_cash_eti_t7_v12_0.appl_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.appl_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Sending Time
-eurex_cash_eti_t7_v12_0.sending_time = {}
-
--- Size: Sending Time
-eurex_cash_eti_t7_v12_0.sending_time.size = 8
-
--- Display: Sending Time
-eurex_cash_eti_t7_v12_0.sending_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Sending Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-eurex_cash_eti_t7_v12_0.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Rbc Header Comp
 eurex_cash_eti_t7_v12_0.rbc_header_comp = {}
 
@@ -3633,62 +14844,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_status_broadcast.dissect = function(buffe
   end
 end
 
--- Pad 4
-eurex_cash_eti_t7_v12_0.pad_4 = {}
-
--- Size: Pad 4
-eurex_cash_eti_t7_v12_0.pad_4.size = 4
-
--- Display: Pad 4
-eurex_cash_eti_t7_v12_0.pad_4.display = function(value)
-  return "Pad 4: "..value
-end
-
--- Dissect: Pad 4
-eurex_cash_eti_t7_v12_0.pad_4.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Time
-eurex_cash_eti_t7_v12_0.request_time = {}
-
--- Size: Request Time
-eurex_cash_eti_t7_v12_0.request_time.size = 8
-
--- Display: Request Time
-eurex_cash_eti_t7_v12_0.request_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Request Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Request Time
-eurex_cash_eti_t7_v12_0.request_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.request_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.request_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.request_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Response Header Comp
 eurex_cash_eti_t7_v12_0.response_header_comp = {}
 
@@ -3792,48 +14947,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_response.dissect = function(buffer, offse
 
     return index
   end
-end
-
--- Quoting Status
-eurex_cash_eti_t7_v12_0.quoting_status = {}
-
--- Size: Quoting Status
-eurex_cash_eti_t7_v12_0.quoting_status.size = 1
-
--- Display: Quoting Status
-eurex_cash_eti_t7_v12_0.quoting_status.display = function(value)
-  if value == 1 then
-    return "Quoting Status: Open Active (1)"
-  end
-  if value == 2 then
-    return "Quoting Status: Open Idle (2)"
-  end
-  if value == 3 then
-    return "Quoting Status: Closed Inactive (3)"
-  end
-  if value == 4 then
-    return "Quoting Status: Open Not Responded (4)"
-  end
-  if value == 5 then
-    return "Quoting Status: Pre Fundingnotsufficient (5)"
-  end
-  if value == 0xFF then
-    return "Quoting Status: No Value"
-  end
-
-  return "Quoting Status: Unknown("..value..")"
-end
-
--- Dissect: Quoting Status
-eurex_cash_eti_t7_v12_0.quoting_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quoting_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quoting_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quoting_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Quoting Status Request
@@ -3966,323 +15079,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_quote_snapshot_request.dissect = function
   end
 end
 
--- Party Entering Trader
-eurex_cash_eti_t7_v12_0.party_entering_trader = {}
-
--- Size: Party Entering Trader
-eurex_cash_eti_t7_v12_0.party_entering_trader.size = 6
-
--- Display: Party Entering Trader
-eurex_cash_eti_t7_v12_0.party_entering_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Entering Trader: No Value"
-  end
-
-  return "Party Entering Trader: "..value
-end
-
--- Dissect: Party Entering Trader
-eurex_cash_eti_t7_v12_0.party_entering_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_entering_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_entering_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_entering_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Firm Negotiation Id
-eurex_cash_eti_t7_v12_0.firm_negotiation_id = {}
-
--- Size: Firm Negotiation Id
-eurex_cash_eti_t7_v12_0.firm_negotiation_id.size = 20
-
--- Display: Firm Negotiation Id
-eurex_cash_eti_t7_v12_0.firm_negotiation_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Firm Negotiation Id: No Value"
-  end
-
-  return "Firm Negotiation Id: "..value
-end
-
--- Dissect: Firm Negotiation Id
-eurex_cash_eti_t7_v12_0.firm_negotiation_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.firm_negotiation_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.firm_negotiation_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.firm_negotiation_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quoting Frequency
-eurex_cash_eti_t7_v12_0.quoting_frequency = {}
-
--- Size: Quoting Frequency
-eurex_cash_eti_t7_v12_0.quoting_frequency.size = 1
-
--- Display: Quoting Frequency
-eurex_cash_eti_t7_v12_0.quoting_frequency.display = function(value)
-  if value == 0 then
-    return "Quoting Frequency: Hf (0)"
-  end
-  if value == 1 then
-    return "Quoting Frequency: Lf (1)"
-  end
-  if value == 0xFF then
-    return "Quoting Frequency: No Value"
-  end
-
-  return "Quoting Frequency: Unknown("..value..")"
-end
-
--- Dissect: Quoting Frequency
-eurex_cash_eti_t7_v12_0.quoting_frequency.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quoting_frequency.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quoting_frequency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quoting_frequency, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_id_executing_trader = {}
-
--- Size: Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_id_executing_trader.size = 4
-
--- Display: Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_id_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Id Executing Trader: No Value"
-  end
-
-  return "Party Id Executing Trader: "..value
-end
-
--- Dissect: Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_executing_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size
-eurex_cash_eti_t7_v12_0.offer_size = {}
-
--- Size: Offer Size
-eurex_cash_eti_t7_v12_0.offer_size.size = 8
-
--- Display: Offer Size
-eurex_cash_eti_t7_v12_0.offer_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Offer Size: No Value"
-  end
-
-  return "Offer Size: "..value
-end
-
--- Translate: Offer Size
-eurex_cash_eti_t7_v12_0.offer_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Offer Size
-eurex_cash_eti_t7_v12_0.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.offer_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.offer_size.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.offer_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-eurex_cash_eti_t7_v12_0.bid_size = {}
-
--- Size: Bid Size
-eurex_cash_eti_t7_v12_0.bid_size.size = 8
-
--- Display: Bid Size
-eurex_cash_eti_t7_v12_0.bid_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Bid Size: No Value"
-  end
-
-  return "Bid Size: "..value
-end
-
--- Translate: Bid Size
-eurex_cash_eti_t7_v12_0.bid_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Bid Size
-eurex_cash_eti_t7_v12_0.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.bid_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.bid_size.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.bid_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Secondary Quote Id
-eurex_cash_eti_t7_v12_0.secondary_quote_id = {}
-
--- Size: Secondary Quote Id
-eurex_cash_eti_t7_v12_0.secondary_quote_id.size = 8
-
--- Display: Secondary Quote Id
-eurex_cash_eti_t7_v12_0.secondary_quote_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Secondary Quote Id: No Value"
-  end
-
-  return "Secondary Quote Id: "..value
-end
-
--- Dissect: Secondary Quote Id
-eurex_cash_eti_t7_v12_0.secondary_quote_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.secondary_quote_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.secondary_quote_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.secondary_quote_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Id
-eurex_cash_eti_t7_v12_0.quote_id = {}
-
--- Size: Quote Id
-eurex_cash_eti_t7_v12_0.quote_id.size = 8
-
--- Display: Quote Id
-eurex_cash_eti_t7_v12_0.quote_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Id: No Value"
-  end
-
-  return "Quote Id: "..value
-end
-
--- Dissect: Quote Id
-eurex_cash_eti_t7_v12_0.quote_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.quote_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Expire Time
-eurex_cash_eti_t7_v12_0.expire_time = {}
-
--- Size: Expire Time
-eurex_cash_eti_t7_v12_0.expire_time.size = 8
-
--- Display: Expire Time
-eurex_cash_eti_t7_v12_0.expire_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Expire Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Expire Time
-eurex_cash_eti_t7_v12_0.expire_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.expire_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.expire_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.expire_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-eurex_cash_eti_t7_v12_0.transact_time = {}
-
--- Size: Transact Time
-eurex_cash_eti_t7_v12_0.transact_time.size = 8
-
--- Display: Transact Time
-eurex_cash_eti_t7_v12_0.transact_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Transact Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-eurex_cash_eti_t7_v12_0.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Srqs Quote Entry Grp Comp
 eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp = {}
 
@@ -4393,106 +15189,6 @@ eurex_cash_eti_t7_v12_0.srqs_quote_entry_grp_comp.dissect = function(buffer, off
   end
 end
 
--- Pad 6
-eurex_cash_eti_t7_v12_0.pad_6 = {}
-
--- Size: Pad 6
-eurex_cash_eti_t7_v12_0.pad_6.size = 6
-
--- Display: Pad 6
-eurex_cash_eti_t7_v12_0.pad_6.display = function(value)
-  return "Pad 6: "..value
-end
-
--- Dissect: Pad 6
-eurex_cash_eti_t7_v12_0.pad_6.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_6.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Event Source
-eurex_cash_eti_t7_v12_0.message_event_source = {}
-
--- Size: Message Event Source
-eurex_cash_eti_t7_v12_0.message_event_source.size = 1
-
--- Display: Message Event Source
-eurex_cash_eti_t7_v12_0.message_event_source.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Message Event Source: No Value"
-  end
-
-  if value == "I" then
-    return "Message Event Source: Broadcastto Initiator (I)"
-  end
-  if value == "A" then
-    return "Message Event Source: Broadcastto Approver (A)"
-  end
-  if value == "R" then
-    return "Message Event Source: Broadcastto Requester (R)"
-  end
-  if value == "Q" then
-    return "Message Event Source: Broadcastto Quote Submitter (Q)"
-  end
-
-  return "Message Event Source: Unknown("..value..")"
-end
-
--- Dissect: Message Event Source
-eurex_cash_eti_t7_v12_0.message_event_source.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.message_event_source.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.message_event_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.message_event_source, range, value, display)
-
-  return offset + length, value
-end
-
--- No Quote Entries
-eurex_cash_eti_t7_v12_0.no_quote_entries = {}
-
--- Size: No Quote Entries
-eurex_cash_eti_t7_v12_0.no_quote_entries.size = 1
-
--- Display: No Quote Entries
-eurex_cash_eti_t7_v12_0.no_quote_entries.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Quote Entries: No Value"
-  end
-
-  return "No Quote Entries: "..value
-end
-
--- Dissect: No Quote Entries
-eurex_cash_eti_t7_v12_0.no_quote_entries.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_quote_entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_quote_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_quote_entries, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Quote Snapshot Notification
 eurex_cash_eti_t7_v12_0.xetra_en_light_quote_snapshot_notification = {}
 
@@ -4560,34 +15256,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_quote_snapshot_notification.dissect = fun
   end
 end
 
--- Quote Req Id
-eurex_cash_eti_t7_v12_0.quote_req_id = {}
-
--- Size: Quote Req Id
-eurex_cash_eti_t7_v12_0.quote_req_id.size = 20
-
--- Display: Quote Req Id
-eurex_cash_eti_t7_v12_0.quote_req_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Quote Req Id: No Value"
-  end
-
-  return "Quote Req Id: "..value
-end
-
--- Dissect: Quote Req Id
-eurex_cash_eti_t7_v12_0.quote_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_req_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.quote_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_req_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Quote Response
 eurex_cash_eti_t7_v12_0.xetra_en_light_quote_response = {}
 
@@ -4648,34 +15316,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_quote_response.dissect = function(buffer,
 
     return index
   end
-end
-
--- Trade Id
-eurex_cash_eti_t7_v12_0.trade_id = {}
-
--- Size: Trade Id
-eurex_cash_eti_t7_v12_0.trade_id.size = 4
-
--- Display: Trade Id
-eurex_cash_eti_t7_v12_0.trade_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Trade Id: No Value"
-  end
-
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-eurex_cash_eti_t7_v12_0.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Quote Requester Notification
@@ -4752,84 +15392,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_quote_requester_notification.dissect = fu
 
     return index
   end
-end
-
--- Quote Cancel Reason
-eurex_cash_eti_t7_v12_0.quote_cancel_reason = {}
-
--- Size: Quote Cancel Reason
-eurex_cash_eti_t7_v12_0.quote_cancel_reason.size = 1
-
--- Display: Quote Cancel Reason
-eurex_cash_eti_t7_v12_0.quote_cancel_reason.display = function(value)
-  if value == 5 then
-    return "Quote Cancel Reason: Expired (5)"
-  end
-  if value == 0xFF then
-    return "Quote Cancel Reason: No Value"
-  end
-
-  return "Quote Cancel Reason: Unknown("..value..")"
-end
-
--- Dissect: Quote Cancel Reason
-eurex_cash_eti_t7_v12_0.quote_cancel_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_cancel_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_cancel_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_cancel_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Reason
-eurex_cash_eti_t7_v12_0.quote_event_reason = {}
-
--- Size: Quote Event Reason
-eurex_cash_eti_t7_v12_0.quote_event_reason.size = 1
-
--- Display: Quote Event Reason
-eurex_cash_eti_t7_v12_0.quote_event_reason.display = function(value)
-  if value == 14 then
-    return "Quote Event Reason: Pendingcancellationexecuted (14)"
-  end
-  if value == 15 then
-    return "Quote Event Reason: Invalidprice (15)"
-  end
-  if value == 16 then
-    return "Quote Event Reason: Crossrejected (16)"
-  end
-  if value == 18 then
-    return "Quote Event Reason: Plp (18)"
-  end
-  if value == 19 then
-    return "Quote Event Reason: Pricenot Topof Book (19)"
-  end
-  if value == 20 then
-    return "Quote Event Reason: Random Selection (20)"
-  end
-  if value == 21 then
-    return "Quote Event Reason: Manual Selection (21)"
-  end
-  if value == 0xFF then
-    return "Quote Event Reason: No Value"
-  end
-
-  return "Quote Event Reason: Unknown("..value..")"
-end
-
--- Dissect: Quote Event Reason
-eurex_cash_eti_t7_v12_0.quote_event_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_event_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Quote Notification
@@ -4949,340 +15511,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_quote_notification.dissect = function(buf
 
     return index
   end
-end
-
--- Pad 5
-eurex_cash_eti_t7_v12_0.pad_5 = {}
-
--- Size: Pad 5
-eurex_cash_eti_t7_v12_0.pad_5.size = 5
-
--- Display: Pad 5
-eurex_cash_eti_t7_v12_0.pad_5.display = function(value)
-  return "Pad 5: "..value
-end
-
--- Dissect: Pad 5
-eurex_cash_eti_t7_v12_0.pad_5.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.pad_5.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.pad_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.pad_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Is Locked
-eurex_cash_eti_t7_v12_0.side_is_locked = {}
-
--- Size: Side Is Locked
-eurex_cash_eti_t7_v12_0.side_is_locked.size = 1
-
--- Display: Side Is Locked
-eurex_cash_eti_t7_v12_0.side_is_locked.display = function(value)
-  if value == 0 then
-    return "Side Is Locked: No (0)"
-  end
-  if value == 1 then
-    return "Side Is Locked: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Side Is Locked: No Value"
-  end
-
-  return "Side Is Locked: Unknown("..value..")"
-end
-
--- Dissect: Side Is Locked
-eurex_cash_eti_t7_v12_0.side_is_locked.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.side_is_locked.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.side_is_locked.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_is_locked, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Px Is Locked
-eurex_cash_eti_t7_v12_0.offer_px_is_locked = {}
-
--- Size: Offer Px Is Locked
-eurex_cash_eti_t7_v12_0.offer_px_is_locked.size = 1
-
--- Display: Offer Px Is Locked
-eurex_cash_eti_t7_v12_0.offer_px_is_locked.display = function(value)
-  if value == 0 then
-    return "Offer Px Is Locked: No (0)"
-  end
-  if value == 1 then
-    return "Offer Px Is Locked: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Offer Px Is Locked: No Value"
-  end
-
-  return "Offer Px Is Locked: Unknown("..value..")"
-end
-
--- Dissect: Offer Px Is Locked
-eurex_cash_eti_t7_v12_0.offer_px_is_locked.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.offer_px_is_locked.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.offer_px_is_locked.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.offer_px_is_locked, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Px Is Locked
-eurex_cash_eti_t7_v12_0.bid_px_is_locked = {}
-
--- Size: Bid Px Is Locked
-eurex_cash_eti_t7_v12_0.bid_px_is_locked.size = 1
-
--- Display: Bid Px Is Locked
-eurex_cash_eti_t7_v12_0.bid_px_is_locked.display = function(value)
-  if value == 0 then
-    return "Bid Px Is Locked: No (0)"
-  end
-  if value == 1 then
-    return "Bid Px Is Locked: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Bid Px Is Locked: No Value"
-  end
-
-  return "Bid Px Is Locked: Unknown("..value..")"
-end
-
--- Dissect: Bid Px Is Locked
-eurex_cash_eti_t7_v12_0.bid_px_is_locked.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.bid_px_is_locked.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.bid_px_is_locked.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bid_px_is_locked, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Type
-eurex_cash_eti_t7_v12_0.quote_type = {}
-
--- Size: Quote Type
-eurex_cash_eti_t7_v12_0.quote_type.size = 1
-
--- Display: Quote Type
-eurex_cash_eti_t7_v12_0.quote_type.display = function(value)
-  if value == 0 then
-    return "Quote Type: Indicative (0)"
-  end
-  if value == 1 then
-    return "Quote Type: Tradeable (1)"
-  end
-  if value == 101 then
-    return "Quote Type: Tradeable Matching (101)"
-  end
-  if value == 102 then
-    return "Quote Type: Tradeable Pwt (102)"
-  end
-  if value == 103 then
-    return "Quote Type: Special Auction (103)"
-  end
-  if value == 104 then
-    return "Quote Type: Pw Twithin Special Auction (104)"
-  end
-  if value == 0xFF then
-    return "Quote Type: No Value"
-  end
-
-  return "Quote Type: Unknown("..value..")"
-end
-
--- Dissect: Quote Type
-eurex_cash_eti_t7_v12_0.quote_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Respondents
-eurex_cash_eti_t7_v12_0.number_of_respondents = {}
-
--- Size: Number Of Respondents
-eurex_cash_eti_t7_v12_0.number_of_respondents.size = 4
-
--- Display: Number Of Respondents
-eurex_cash_eti_t7_v12_0.number_of_respondents.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Number Of Respondents: No Value"
-  end
-
-  return "Number Of Respondents: "..value
-end
-
--- Dissect: Number Of Respondents
-eurex_cash_eti_t7_v12_0.number_of_respondents.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.number_of_respondents.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.number_of_respondents.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.number_of_respondents, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Exec Expiry Time
-eurex_cash_eti_t7_v12_0.auto_exec_expiry_time = {}
-
--- Size: Auto Exec Expiry Time
-eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.size = 8
-
--- Display: Auto Exec Expiry Time
-eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Auto Exec Expiry Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Auto Exec Expiry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Auto Exec Expiry Time
-eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.auto_exec_expiry_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_exec_expiry_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty
-eurex_cash_eti_t7_v12_0.last_qty = {}
-
--- Size: Last Qty
-eurex_cash_eti_t7_v12_0.last_qty.size = 8
-
--- Display: Last Qty
-eurex_cash_eti_t7_v12_0.last_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Last Qty: No Value"
-  end
-
-  return "Last Qty: "..value
-end
-
--- Translate: Last Qty
-eurex_cash_eti_t7_v12_0.last_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Last Qty
-eurex_cash_eti_t7_v12_0.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.last_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.last_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.last_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-eurex_cash_eti_t7_v12_0.last_px = {}
-
--- Size: Last Px
-eurex_cash_eti_t7_v12_0.last_px.size = 8
-
--- Display: Last Px
-eurex_cash_eti_t7_v12_0.last_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Last Px: No Value"
-  end
-
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-eurex_cash_eti_t7_v12_0.last_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Last Px
-eurex_cash_eti_t7_v12_0.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.last_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.last_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id
-eurex_cash_eti_t7_v12_0.security_id = {}
-
--- Size: Security Id
-eurex_cash_eti_t7_v12_0.security_id.size = 8
-
--- Display: Security Id
-eurex_cash_eti_t7_v12_0.security_id.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Security Id: No Value"
-  end
-
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-eurex_cash_eti_t7_v12_0.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = eurex_cash_eti_t7_v12_0.security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Open Negotiation Requester Notification
@@ -5481,39 +15709,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_open_negotiation_requester_notification.d
   end
 end
 
--- Valid Until Time
-eurex_cash_eti_t7_v12_0.valid_until_time = {}
-
--- Size: Valid Until Time
-eurex_cash_eti_t7_v12_0.valid_until_time.size = 8
-
--- Display: Valid Until Time
-eurex_cash_eti_t7_v12_0.valid_until_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Valid Until Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Valid Until Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Valid Until Time
-eurex_cash_eti_t7_v12_0.valid_until_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.valid_until_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.valid_until_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.valid_until_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Open Negotiation Request
 eurex_cash_eti_t7_v12_0.xetra_en_light_open_negotiation_request = {}
 
@@ -5687,78 +15882,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_open_negotiation_request.dissect = functi
 
     return index
   end
-end
-
--- Leaves Qty
-eurex_cash_eti_t7_v12_0.leaves_qty = {}
-
--- Size: Leaves Qty
-eurex_cash_eti_t7_v12_0.leaves_qty.size = 8
-
--- Display: Leaves Qty
-eurex_cash_eti_t7_v12_0.leaves_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Leaves Qty: No Value"
-  end
-
-  return "Leaves Qty: "..value
-end
-
--- Translate: Leaves Qty
-eurex_cash_eti_t7_v12_0.leaves_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Leaves Qty
-eurex_cash_eti_t7_v12_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.leaves_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.leaves_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.leaves_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Negotiation Start Time
-eurex_cash_eti_t7_v12_0.negotiation_start_time = {}
-
--- Size: Negotiation Start Time
-eurex_cash_eti_t7_v12_0.negotiation_start_time.size = 8
-
--- Display: Negotiation Start Time
-eurex_cash_eti_t7_v12_0.negotiation_start_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Negotiation Start Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Negotiation Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Negotiation Start Time
-eurex_cash_eti_t7_v12_0.negotiation_start_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.negotiation_start_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.negotiation_start_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.negotiation_start_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Open Negotiation Notification
@@ -5946,67 +16069,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_negotiation_status_notification.dissect =
 
     return index
   end
-end
-
--- Closure Reason
-eurex_cash_eti_t7_v12_0.closure_reason = {}
-
--- Size: Closure Reason
-eurex_cash_eti_t7_v12_0.closure_reason.size = 132
-
--- Display: Closure Reason
-eurex_cash_eti_t7_v12_0.closure_reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Closure Reason: No Value"
-  end
-
-  return "Closure Reason: "..value
-end
-
--- Dissect: Closure Reason
-eurex_cash_eti_t7_v12_0.closure_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.closure_reason.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.closure_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.closure_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Execution Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time = {}
-
--- Size: Trd Reg Ts Execution Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.size = 8
-
--- Display: Trd Reg Ts Execution Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Execution Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Execution Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Execution Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_execution_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_execution_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Negotiation Requester Notification
@@ -6303,106 +16365,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_negotiation_notification.dissect = functi
   end
 end
 
--- Firm Trade Id
-eurex_cash_eti_t7_v12_0.firm_trade_id = {}
-
--- Size: Firm Trade Id
-eurex_cash_eti_t7_v12_0.firm_trade_id.size = 20
-
--- Display: Firm Trade Id
-eurex_cash_eti_t7_v12_0.firm_trade_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Firm Trade Id: No Value"
-  end
-
-  return "Firm Trade Id: "..value
-end
-
--- Dissect: Firm Trade Id
-eurex_cash_eti_t7_v12_0.firm_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.firm_trade_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.firm_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.firm_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Method
-eurex_cash_eti_t7_v12_0.alloc_method = {}
-
--- Size: Alloc Method
-eurex_cash_eti_t7_v12_0.alloc_method.size = 1
-
--- Display: Alloc Method
-eurex_cash_eti_t7_v12_0.alloc_method.display = function(value)
-  if value == 1 then
-    return "Alloc Method: Automatic Random (1)"
-  end
-  if value == 3 then
-    return "Alloc Method: Manual (3)"
-  end
-  if value == 0xFF then
-    return "Alloc Method: No Value"
-  end
-
-  return "Alloc Method: Unknown("..value..")"
-end
-
--- Dissect: Alloc Method
-eurex_cash_eti_t7_v12_0.alloc_method.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.alloc_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.alloc_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alloc_method, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-eurex_cash_eti_t7_v12_0.price = {}
-
--- Size: Price
-eurex_cash_eti_t7_v12_0.price.size = 8
-
--- Display: Price
-eurex_cash_eti_t7_v12_0.price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Price: No Value"
-  end
-
-  return "Price: "..value
-end
-
--- Translate: Price
-eurex_cash_eti_t7_v12_0.price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price
-eurex_cash_eti_t7_v12_0.price.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.price.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Hit Quote Request
 eurex_cash_eti_t7_v12_0.xetra_en_light_hit_quote_request = {}
 
@@ -6653,34 +16615,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_enter_quote_request.dissect = function(bu
   end
 end
 
--- Target Party Id Session Id
-eurex_cash_eti_t7_v12_0.target_party_id_session_id = {}
-
--- Size: Target Party Id Session Id
-eurex_cash_eti_t7_v12_0.target_party_id_session_id.size = 4
-
--- Display: Target Party Id Session Id
-eurex_cash_eti_t7_v12_0.target_party_id_session_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Target Party Id Session Id: No Value"
-  end
-
-  return "Target Party Id Session Id: "..value
-end
-
--- Dissect: Target Party Id Session Id
-eurex_cash_eti_t7_v12_0.target_party_id_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_party_id_session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.target_party_id_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_id_session_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Delete All Quote Request
 eurex_cash_eti_t7_v12_0.xetra_en_light_delete_all_quote_request = {}
 
@@ -6802,51 +16736,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_delete_all_quote_notification.dissect = f
   end
 end
 
--- Trd Rpt Status
-eurex_cash_eti_t7_v12_0.trd_rpt_status = {}
-
--- Size: Trd Rpt Status
-eurex_cash_eti_t7_v12_0.trd_rpt_status.size = 1
-
--- Display: Trd Rpt Status
-eurex_cash_eti_t7_v12_0.trd_rpt_status.display = function(value)
-  if value == 0 then
-    return "Trd Rpt Status: Accepted (0)"
-  end
-  if value == 1 then
-    return "Trd Rpt Status: Rejected (1)"
-  end
-  if value == 2 then
-    return "Trd Rpt Status: Cancelled (2)"
-  end
-  if value == 4 then
-    return "Trd Rpt Status: Pending New (4)"
-  end
-  if value == 7 then
-    return "Trd Rpt Status: Terminated (7)"
-  end
-  if value == 9 then
-    return "Trd Rpt Status: Deemed Verified (9)"
-  end
-  if value == 0xFF then
-    return "Trd Rpt Status: No Value"
-  end
-
-  return "Trd Rpt Status: Unknown("..value..")"
-end
-
--- Dissect: Trd Rpt Status
-eurex_cash_eti_t7_v12_0.trd_rpt_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_rpt_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trd_rpt_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_rpt_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Deal Status Notification
 eurex_cash_eti_t7_v12_0.xetra_en_light_deal_status_notification = {}
 
@@ -6919,34 +16808,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_deal_status_notification.dissect = functi
 
     return index
   end
-end
-
--- Secondary Trade Id
-eurex_cash_eti_t7_v12_0.secondary_trade_id = {}
-
--- Size: Secondary Trade Id
-eurex_cash_eti_t7_v12_0.secondary_trade_id.size = 4
-
--- Display: Secondary Trade Id
-eurex_cash_eti_t7_v12_0.secondary_trade_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Secondary Trade Id: No Value"
-  end
-
-  return "Secondary Trade Id: "..value
-end
-
--- Dissect: Secondary Trade Id
-eurex_cash_eti_t7_v12_0.secondary_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.secondary_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.secondary_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.secondary_trade_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Deal Response
@@ -7026,225 +16887,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_deal_response.dissect = function(buffer, 
   end
 end
 
--- Md Sub Book Type
-eurex_cash_eti_t7_v12_0.md_sub_book_type = {}
-
--- Size: Md Sub Book Type
-eurex_cash_eti_t7_v12_0.md_sub_book_type.size = 1
-
--- Display: Md Sub Book Type
-eurex_cash_eti_t7_v12_0.md_sub_book_type.display = function(value)
-  if value == 2 then
-    return "Md Sub Book Type: Volume Weighted Average (2)"
-  end
-  if value == 0xFF then
-    return "Md Sub Book Type: No Value"
-  end
-
-  return "Md Sub Book Type: Unknown("..value..")"
-end
-
--- Dissect: Md Sub Book Type
-eurex_cash_eti_t7_v12_0.md_sub_book_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.md_sub_book_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.md_sub_book_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.md_sub_book_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Book Type
-eurex_cash_eti_t7_v12_0.md_book_type = {}
-
--- Size: Md Book Type
-eurex_cash_eti_t7_v12_0.md_book_type.size = 1
-
--- Display: Md Book Type
-eurex_cash_eti_t7_v12_0.md_book_type.display = function(value)
-  if value == 1 then
-    return "Md Book Type: Top Of Book (1)"
-  end
-  if value == 2 then
-    return "Md Book Type: Price Depth (2)"
-  end
-  if value == 0xFF then
-    return "Md Book Type: No Value"
-  end
-
-  return "Md Book Type: Unknown("..value..")"
-end
-
--- Dissect: Md Book Type
-eurex_cash_eti_t7_v12_0.md_book_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.md_book_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.md_book_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.md_book_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Size
-eurex_cash_eti_t7_v12_0.best_offer_size = {}
-
--- Size: Best Offer Size
-eurex_cash_eti_t7_v12_0.best_offer_size.size = 8
-
--- Display: Best Offer Size
-eurex_cash_eti_t7_v12_0.best_offer_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Best Offer Size: No Value"
-  end
-
-  return "Best Offer Size: "..value
-end
-
--- Translate: Best Offer Size
-eurex_cash_eti_t7_v12_0.best_offer_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Best Offer Size
-eurex_cash_eti_t7_v12_0.best_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.best_offer_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.best_offer_size.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.best_offer_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Offer Px
-eurex_cash_eti_t7_v12_0.best_offer_px = {}
-
--- Size: Best Offer Px
-eurex_cash_eti_t7_v12_0.best_offer_px.size = 8
-
--- Display: Best Offer Px
-eurex_cash_eti_t7_v12_0.best_offer_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Best Offer Px: No Value"
-  end
-
-  return "Best Offer Px: "..value
-end
-
--- Translate: Best Offer Px
-eurex_cash_eti_t7_v12_0.best_offer_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Best Offer Px
-eurex_cash_eti_t7_v12_0.best_offer_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.best_offer_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.best_offer_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.best_offer_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_offer_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Size
-eurex_cash_eti_t7_v12_0.best_bid_size = {}
-
--- Size: Best Bid Size
-eurex_cash_eti_t7_v12_0.best_bid_size.size = 8
-
--- Display: Best Bid Size
-eurex_cash_eti_t7_v12_0.best_bid_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Best Bid Size: No Value"
-  end
-
-  return "Best Bid Size: "..value
-end
-
--- Translate: Best Bid Size
-eurex_cash_eti_t7_v12_0.best_bid_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Best Bid Size
-eurex_cash_eti_t7_v12_0.best_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.best_bid_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.best_bid_size.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.best_bid_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Best Bid Px
-eurex_cash_eti_t7_v12_0.best_bid_px = {}
-
--- Size: Best Bid Px
-eurex_cash_eti_t7_v12_0.best_bid_px.size = 8
-
--- Display: Best Bid Px
-eurex_cash_eti_t7_v12_0.best_bid_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Best Bid Px: No Value"
-  end
-
-  return "Best Bid Px: "..value
-end
-
--- Translate: Best Bid Px
-eurex_cash_eti_t7_v12_0.best_bid_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Best Bid Px
-eurex_cash_eti_t7_v12_0.best_bid_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.best_bid_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.best_bid_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.best_bid_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.best_bid_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Book Item Grp Comp
 eurex_cash_eti_t7_v12_0.order_book_item_grp_comp = {}
 
@@ -7313,146 +16955,6 @@ eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.order_book_item_grp_comp.fields(buffer, offset, packet, parent, order_book_item_grp_comp_index)
   end
-end
-
--- Target Party Entering Trader
-eurex_cash_eti_t7_v12_0.target_party_entering_trader = {}
-
--- Size: Target Party Entering Trader
-eurex_cash_eti_t7_v12_0.target_party_entering_trader.size = 6
-
--- Display: Target Party Entering Trader
-eurex_cash_eti_t7_v12_0.target_party_entering_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Target Party Entering Trader: No Value"
-  end
-
-  return "Target Party Entering Trader: "..value
-end
-
--- Dissect: Target Party Entering Trader
-eurex_cash_eti_t7_v12_0.target_party_entering_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_party_entering_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.target_party_entering_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_entering_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Entering Trader
-eurex_cash_eti_t7_v12_0.root_party_entering_trader = {}
-
--- Size: Root Party Entering Trader
-eurex_cash_eti_t7_v12_0.root_party_entering_trader.size = 6
-
--- Display: Root Party Entering Trader
-eurex_cash_eti_t7_v12_0.root_party_entering_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Entering Trader: No Value"
-  end
-
-  return "Root Party Entering Trader: "..value
-end
-
--- Dissect: Root Party Entering Trader
-eurex_cash_eti_t7_v12_0.root_party_entering_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_entering_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_entering_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_entering_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_executing_trader = {}
-
--- Size: Root Party Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_executing_trader.size = 6
-
--- Display: Root Party Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Executing Trader: No Value"
-  end
-
-  return "Root Party Executing Trader: "..value
-end
-
--- Dissect: Root Party Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_executing_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Executing Firm
-eurex_cash_eti_t7_v12_0.root_party_executing_firm = {}
-
--- Size: Root Party Executing Firm
-eurex_cash_eti_t7_v12_0.root_party_executing_firm.size = 5
-
--- Display: Root Party Executing Firm
-eurex_cash_eti_t7_v12_0.root_party_executing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Executing Firm: No Value"
-  end
-
-  return "Root Party Executing Firm: "..value
-end
-
--- Dissect: Root Party Executing Firm
-eurex_cash_eti_t7_v12_0.root_party_executing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_executing_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_executing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_executing_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- No Order Book Items
-eurex_cash_eti_t7_v12_0.no_order_book_items = {}
-
--- Size: No Order Book Items
-eurex_cash_eti_t7_v12_0.no_order_book_items.size = 1
-
--- Display: No Order Book Items
-eurex_cash_eti_t7_v12_0.no_order_book_items.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Order Book Items: No Value"
-  end
-
-  return "No Order Book Items: "..value
-end
-
--- Dissect: No Order Book Items
-eurex_cash_eti_t7_v12_0.no_order_book_items.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_order_book_items.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_order_book_items.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_order_book_items, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Create Deal Notification
@@ -7609,57 +17111,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_create_deal_notification.dissect = functi
   end
 end
 
--- Trade Report Type
-eurex_cash_eti_t7_v12_0.trade_report_type = {}
-
--- Size: Trade Report Type
-eurex_cash_eti_t7_v12_0.trade_report_type.size = 1
-
--- Display: Trade Report Type
-eurex_cash_eti_t7_v12_0.trade_report_type.display = function(value)
-  if value == 0 then
-    return "Trade Report Type: Submit (0)"
-  end
-  if value == 2 then
-    return "Trade Report Type: Accept (2)"
-  end
-  if value == 3 then
-    return "Trade Report Type: Decline (3)"
-  end
-  if value == 5 then
-    return "Trade Report Type: No Was Replaced (5)"
-  end
-  if value == 6 then
-    return "Trade Report Type: Trade Report Cancel (6)"
-  end
-  if value == 7 then
-    return "Trade Report Type: Trade Break (7)"
-  end
-  if value == 11 then
-    return "Trade Report Type: Alleged New (11)"
-  end
-  if value == 13 then
-    return "Trade Report Type: Alleged No Was (13)"
-  end
-  if value == 0xFF then
-    return "Trade Report Type: No Value"
-  end
-
-  return "Trade Report Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Report Type
-eurex_cash_eti_t7_v12_0.trade_report_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_report_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_report_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_report_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Xetra En Light Approve Deal Request
 eurex_cash_eti_t7_v12_0.xetra_en_light_approve_deal_request = {}
 
@@ -7732,128 +17183,6 @@ eurex_cash_eti_t7_v12_0.xetra_en_light_approve_deal_request.dissect = function(b
 
     return index
   end
-end
-
--- Requesting Party Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_executing_trader = {}
-
--- Size: Requesting Party Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.size = 6
-
--- Display: Requesting Party Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Executing Trader: No Value"
-  end
-
-  return "Requesting Party Executing Trader: "..value
-end
-
--- Dissect: Requesting Party Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Party Executing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_executing_firm = {}
-
--- Size: Requesting Party Executing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.size = 5
-
--- Display: Requesting Party Executing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Executing Firm: No Value"
-  end
-
-  return "Requesting Party Executing Firm: "..value
-end
-
--- Dissect: Requesting Party Executing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_executing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_executing_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Target Side
-eurex_cash_eti_t7_v12_0.target_side = {}
-
--- Size: Target Side
-eurex_cash_eti_t7_v12_0.target_side.size = 1
-
--- Display: Target Side
-eurex_cash_eti_t7_v12_0.target_side.display = function(value)
-  if value == 1 then
-    return "Target Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Target Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Target Side: No Value"
-  end
-
-  return "Target Side: Unknown("..value..")"
-end
-
--- Dissect: Target Side
-eurex_cash_eti_t7_v12_0.target_side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.target_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Side
-eurex_cash_eti_t7_v12_0.requesting_side = {}
-
--- Size: Requesting Side
-eurex_cash_eti_t7_v12_0.requesting_side.size = 1
-
--- Display: Requesting Side
-eurex_cash_eti_t7_v12_0.requesting_side.display = function(value)
-  if value == 1 then
-    return "Requesting Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Requesting Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Requesting Side: No Value"
-  end
-
-  return "Requesting Side: Unknown("..value..")"
-end
-
--- Dissect: Requesting Side
-eurex_cash_eti_t7_v12_0.requesting_side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.requesting_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_side, range, value, display)
-
-  return offset + length, value
 end
 
 -- Xetra En Light Approve Deal Notification
@@ -8016,34 +17345,6 @@ eurex_cash_eti_t7_v12_0.user_logout_response.dissect = function(buffer, offset, 
   end
 end
 
--- Username
-eurex_cash_eti_t7_v12_0.username = {}
-
--- Size: Username
-eurex_cash_eti_t7_v12_0.username.size = 4
-
--- Display: Username
-eurex_cash_eti_t7_v12_0.username.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Username: No Value"
-  end
-
-  return "Username: "..value
-end
-
--- Dissect: Username
-eurex_cash_eti_t7_v12_0.username.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.username.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.username, range, value, display)
-
-  return offset + length, value
-end
-
 -- User Logout Request
 eurex_cash_eti_t7_v12_0.user_logout_request = {}
 
@@ -8159,34 +17460,6 @@ eurex_cash_eti_t7_v12_0.user_login_response.dissect = function(buffer, offset, p
   end
 end
 
--- Encrypted Password
-eurex_cash_eti_t7_v12_0.encrypted_password = {}
-
--- Size: Encrypted Password
-eurex_cash_eti_t7_v12_0.encrypted_password.size = 684
-
--- Display: Encrypted Password
-eurex_cash_eti_t7_v12_0.encrypted_password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Encrypted Password: No Value"
-  end
-
-  return "Encrypted Password: "..value
-end
-
--- Dissect: Encrypted Password
-eurex_cash_eti_t7_v12_0.encrypted_password.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.encrypted_password.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.encrypted_password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.encrypted_password, range, value, display)
-
-  return offset + length, value
-end
-
 -- User Login Request Encrypted
 eurex_cash_eti_t7_v12_0.user_login_request_encrypted = {}
 
@@ -8247,45 +17520,6 @@ eurex_cash_eti_t7_v12_0.user_login_request_encrypted.dissect = function(buffer, 
 
     return index
   end
-end
-
--- Password
-eurex_cash_eti_t7_v12_0.password = {}
-
--- Size: Password
-eurex_cash_eti_t7_v12_0.password.size = 32
-
--- Display: Password
-eurex_cash_eti_t7_v12_0.password.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Password: No Value"
-  end
-
-  return "Password: "..value
-end
-
--- Dissect: Password
-eurex_cash_eti_t7_v12_0.password.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.password.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.password, range, value, display)
-
-  return offset + length, value
 end
 
 -- User Login Request
@@ -8406,34 +17640,6 @@ eurex_cash_eti_t7_v12_0.unsubscribe_response.dissect = function(buffer, offset, 
   end
 end
 
--- Ref Appl Sub Id
-eurex_cash_eti_t7_v12_0.ref_appl_sub_id = {}
-
--- Size: Ref Appl Sub Id
-eurex_cash_eti_t7_v12_0.ref_appl_sub_id.size = 4
-
--- Display: Ref Appl Sub Id
-eurex_cash_eti_t7_v12_0.ref_appl_sub_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Ref Appl Sub Id: No Value"
-  end
-
-  return "Ref Appl Sub Id: "..value
-end
-
--- Dissect: Ref Appl Sub Id
-eurex_cash_eti_t7_v12_0.ref_appl_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ref_appl_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.ref_appl_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Unsubscribe Request
 eurex_cash_eti_t7_v12_0.unsubscribe_request = {}
 
@@ -8494,615 +17700,6 @@ eurex_cash_eti_t7_v12_0.unsubscribe_request.dissect = function(buffer, offset, p
 
     return index
   end
-end
-
--- Fix Cl Ord Id
-eurex_cash_eti_t7_v12_0.fix_cl_ord_id = {}
-
--- Size: Fix Cl Ord Id
-eurex_cash_eti_t7_v12_0.fix_cl_ord_id.size = 20
-
--- Display: Fix Cl Ord Id
-eurex_cash_eti_t7_v12_0.fix_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Fix Cl Ord Id: No Value"
-  end
-
-  return "Fix Cl Ord Id: "..value
-end
-
--- Dissect: Fix Cl Ord Id
-eurex_cash_eti_t7_v12_0.fix_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fix_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.fix_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Type
-eurex_cash_eti_t7_v12_0.exec_type = {}
-
--- Size: Exec Type
-eurex_cash_eti_t7_v12_0.exec_type.size = 1
-
--- Display: Exec Type
-eurex_cash_eti_t7_v12_0.exec_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Exec Type: No Value"
-  end
-
-  if value == "0" then
-    return "Exec Type: New (0)"
-  end
-  if value == "4" then
-    return "Exec Type: Canceled (4)"
-  end
-  if value == "5" then
-    return "Exec Type: Replaced (5)"
-  end
-  if value == "6" then
-    return "Exec Type: Pending Cancele (6)"
-  end
-  if value == "9" then
-    return "Exec Type: Suspended (9)"
-  end
-  if value == "D" then
-    return "Exec Type: Restated (D)"
-  end
-  if value == "L" then
-    return "Exec Type: Triggered (L)"
-  end
-  if value == "F" then
-    return "Exec Type: Trade (F)"
-  end
-  if value == "A" then
-    return "Exec Type: Pending New (A)"
-  end
-  if value == "E" then
-    return "Exec Type: Pending Replace (E)"
-  end
-
-  return "Exec Type: Unknown("..value..")"
-end
-
--- Dissect: Exec Type
-eurex_cash_eti_t7_v12_0.exec_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.exec_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.exec_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status
-eurex_cash_eti_t7_v12_0.ord_status = {}
-
--- Size: Ord Status
-eurex_cash_eti_t7_v12_0.ord_status.size = 1
-
--- Display: Ord Status
-eurex_cash_eti_t7_v12_0.ord_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Status: No Value"
-  end
-
-  if value == "0" then
-    return "Ord Status: New (0)"
-  end
-  if value == "1" then
-    return "Ord Status: Partiallyfilled (1)"
-  end
-  if value == "2" then
-    return "Ord Status: Filled (2)"
-  end
-  if value == "4" then
-    return "Ord Status: Canceled (4)"
-  end
-  if value == "6" then
-    return "Ord Status: Pending Cancel (6)"
-  end
-  if value == "9" then
-    return "Ord Status: Suspended (9)"
-  end
-  if value == "A" then
-    return "Ord Status: Pending New (A)"
-  end
-  if value == "E" then
-    return "Ord Status: Pending Replace (E)"
-  end
-
-  return "Ord Status: Unknown("..value..")"
-end
-
--- Dissect: Ord Status
-eurex_cash_eti_t7_v12_0.ord_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ord_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.ord_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ord_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Restatement Reason
-eurex_cash_eti_t7_v12_0.exec_restatement_reason = {}
-
--- Size: Exec Restatement Reason
-eurex_cash_eti_t7_v12_0.exec_restatement_reason.size = 2
-
--- Display: Exec Restatement Reason
-eurex_cash_eti_t7_v12_0.exec_restatement_reason.display = function(value)
-  if value == 0 then
-    return "Exec Restatement Reason: Corporate Action (0)"
-  end
-  if value == 1 then
-    return "Exec Restatement Reason: Order Book Restatement (1)"
-  end
-  if value == 8 then
-    return "Exec Restatement Reason: Exchange Option (8)"
-  end
-  if value == 101 then
-    return "Exec Restatement Reason: Order Added (101)"
-  end
-  if value == 102 then
-    return "Exec Restatement Reason: Order Modified (102)"
-  end
-  if value == 103 then
-    return "Exec Restatement Reason: Order Cancelled (103)"
-  end
-  if value == 105 then
-    return "Exec Restatement Reason: Ioc Order Cancelled (105)"
-  end
-  if value == 107 then
-    return "Exec Restatement Reason: Fok Order Cancelled (107)"
-  end
-  if value == 108 then
-    return "Exec Restatement Reason: Book Order Executed (108)"
-  end
-  if value == 114 then
-    return "Exec Restatement Reason: Changedto Ioc (114)"
-  end
-  if value == 119 then
-    return "Exec Restatement Reason: Changeof Specialist (119)"
-  end
-  if value == 122 then
-    return "Exec Restatement Reason: Instrument State Change (122)"
-  end
-  if value == 138 then
-    return "Exec Restatement Reason: Pending New (138)"
-  end
-  if value == 141 then
-    return "Exec Restatement Reason: Pending New Applied (141)"
-  end
-  if value == 139 then
-    return "Exec Restatement Reason: Pending Replace (139)"
-  end
-  if value == 142 then
-    return "Exec Restatement Reason: Pending Replace Applied (142)"
-  end
-  if value == 146 then
-    return "Exec Restatement Reason: End Of Day Processing (146)"
-  end
-  if value == 148 then
-    return "Exec Restatement Reason: Order Expiration (148)"
-  end
-  if value == 149 then
-    return "Exec Restatement Reason: Cao Order Activated (149)"
-  end
-  if value == 150 then
-    return "Exec Restatement Reason: Cao Order Inactivated (150)"
-  end
-  if value == 151 then
-    return "Exec Restatement Reason: Oao Order Activated (151)"
-  end
-  if value == 152 then
-    return "Exec Restatement Reason: Oao Order Inactivated (152)"
-  end
-  if value == 153 then
-    return "Exec Restatement Reason: Aao Order Activated (153)"
-  end
-  if value == 154 then
-    return "Exec Restatement Reason: Aao Order Inactivated (154)"
-  end
-  if value == 159 then
-    return "Exec Restatement Reason: Iao Order Activated (159)"
-  end
-  if value == 160 then
-    return "Exec Restatement Reason: Iao Order Inactivated (160)"
-  end
-  if value == 155 then
-    return "Exec Restatement Reason: Order Refreshed (155)"
-  end
-  if value == 164 then
-    return "Exec Restatement Reason: Oco Order Triggered (164)"
-  end
-  if value == 172 then
-    return "Exec Restatement Reason: Stop Order Triggered (172)"
-  end
-  if value == 181 then
-    return "Exec Restatement Reason: Ownership Changed (181)"
-  end
-  if value == 197 then
-    return "Exec Restatement Reason: Order Cancellation Pending (197)"
-  end
-  if value == 199 then
-    return "Exec Restatement Reason: Pending Cancellation Executed (199)"
-  end
-  if value == 212 then
-    return "Exec Restatement Reason: Boc Order Cancelled (212)"
-  end
-  if value == 213 then
-    return "Exec Restatement Reason: Trailing Stop Update (213)"
-  end
-  if value == 237 then
-    return "Exec Restatement Reason: Exceeds Maximum Quantity (237)"
-  end
-  if value == 238 then
-    return "Exec Restatement Reason: Invalid Limit Price (238)"
-  end
-  if value == 241 then
-    return "Exec Restatement Reason: User Does Not Exist (241)"
-  end
-  if value == 242 then
-    return "Exec Restatement Reason: Session Does Not Exist (242)"
-  end
-  if value == 243 then
-    return "Exec Restatement Reason: Invalid Stop Price (243)"
-  end
-  if value == 245 then
-    return "Exec Restatement Reason: Instrument Does Not Exist (245)"
-  end
-  if value == 246 then
-    return "Exec Restatement Reason: Business Unit Risk Event (246)"
-  end
-  if value == 261 then
-    return "Exec Restatement Reason: Panic Cancel (261)"
-  end
-  if value == 292 then
-    return "Exec Restatement Reason: Dividend Payment (292)"
-  end
-  if value == 294 then
-    return "Exec Restatement Reason: Last Trading Day (294)"
-  end
-  if value == 295 then
-    return "Exec Restatement Reason: Trading Parameter Change (295)"
-  end
-  if value == 296 then
-    return "Exec Restatement Reason: Currency Change (296)"
-  end
-  if value == 297 then
-    return "Exec Restatement Reason: Product Assignment Change (297)"
-  end
-  if value == 298 then
-    return "Exec Restatement Reason: Reference Price Change (298)"
-  end
-  if value == 300 then
-    return "Exec Restatement Reason: Tick Rule Change (300)"
-  end
-  if value == 316 then
-    return "Exec Restatement Reason: Qrs Expiry (316)"
-  end
-  if value == 320 then
-    return "Exec Restatement Reason: Rlp Order Quote Cleanup (320)"
-  end
-  if value == 0xFFFF then
-    return "Exec Restatement Reason: No Value"
-  end
-
-  return "Exec Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Exec Restatement Reason
-eurex_cash_eti_t7_v12_0.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.exec_restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.exec_restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id Sfx
-eurex_cash_eti_t7_v12_0.order_id_sfx = {}
-
--- Size: Order Id Sfx
-eurex_cash_eti_t7_v12_0.order_id_sfx.size = 4
-
--- Display: Order Id Sfx
-eurex_cash_eti_t7_v12_0.order_id_sfx.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Order Id Sfx: No Value"
-  end
-
-  return "Order Id Sfx: "..value
-end
-
--- Dissect: Order Id Sfx
-eurex_cash_eti_t7_v12_0.order_id_sfx.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_id_sfx.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.order_id_sfx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_id_sfx, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Px
-eurex_cash_eti_t7_v12_0.stop_px = {}
-
--- Size: Stop Px
-eurex_cash_eti_t7_v12_0.stop_px.size = 8
-
--- Display: Stop Px
-eurex_cash_eti_t7_v12_0.stop_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Stop Px: No Value"
-  end
-
-  return "Stop Px: "..value
-end
-
--- Translate: Stop Px
-eurex_cash_eti_t7_v12_0.stop_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Stop Px
-eurex_cash_eti_t7_v12_0.stop_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.stop_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.stop_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.stop_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-eurex_cash_eti_t7_v12_0.exec_id = {}
-
--- Size: Exec Id
-eurex_cash_eti_t7_v12_0.exec_id.size = 8
-
--- Display: Exec Id
-eurex_cash_eti_t7_v12_0.exec_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Exec Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Exec Id
-eurex_cash_eti_t7_v12_0.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.orig_cl_ord_id = {}
-
--- Size: Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.orig_cl_ord_id.size = 8
-
--- Display: Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.orig_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Orig Cl Ord Id: No Value"
-  end
-
-  return "Orig Cl Ord Id: "..value
-end
-
--- Dissect: Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.orig_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.orig_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Cl Ord Id
-eurex_cash_eti_t7_v12_0.cl_ord_id = {}
-
--- Size: Cl Ord Id
-eurex_cash_eti_t7_v12_0.cl_ord_id.size = 8
-
--- Display: Cl Ord Id
-eurex_cash_eti_t7_v12_0.cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord Id
-eurex_cash_eti_t7_v12_0.cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-eurex_cash_eti_t7_v12_0.order_id = {}
-
--- Size: Order Id
-eurex_cash_eti_t7_v12_0.order_id.size = 8
-
--- Display: Order Id
-eurex_cash_eti_t7_v12_0.order_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Id: No Value"
-  end
-
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-eurex_cash_eti_t7_v12_0.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Msg Id
-eurex_cash_eti_t7_v12_0.appl_msg_id = {}
-
--- Size: Appl Msg Id
-eurex_cash_eti_t7_v12_0.appl_msg_id.size = 16
-
--- Display: Appl Msg Id
-eurex_cash_eti_t7_v12_0.appl_msg_id.display = function(value)
-  return "Appl Msg Id: "..value
-end
-
--- Dissect: Appl Msg Id
-eurex_cash_eti_t7_v12_0.appl_msg_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_msg_id.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.appl_msg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_msg_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Notification In
-eurex_cash_eti_t7_v12_0.notification_in = {}
-
--- Size: Notification In
-eurex_cash_eti_t7_v12_0.notification_in.size = 8
-
--- Display: Notification In
-eurex_cash_eti_t7_v12_0.notification_in.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Notification In: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Notification In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Notification In
-eurex_cash_eti_t7_v12_0.notification_in.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.notification_in.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.notification_in.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.notification_in, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Time Out
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out = {}
-
--- Size: Trd Reg Ts Time Out
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size = 8
-
--- Display: Trd Reg Ts Time Out
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time Out: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time Out: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Time Out
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_out.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_time_out, range, value, display)
-
-  return offset + length, value
 end
 
 -- Rbc Header Me Comp
@@ -9279,29 +17876,6 @@ eurex_cash_eti_t7_v12_0.trailing_stop_update_notification.dissect = function(buf
   end
 end
 
--- Ref Appl Last Msg Id
-eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id = {}
-
--- Size: Ref Appl Last Msg Id
-eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.size = 16
-
--- Display: Ref Appl Last Msg Id
-eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.display = function(value)
-  return "Ref Appl Last Msg Id: "..value
-end
-
--- Dissect: Ref Appl Last Msg Id
-eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.ref_appl_last_msg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_last_msg_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Session Status Broadcast
 eurex_cash_eti_t7_v12_0.trading_session_status_broadcast = {}
 
@@ -9368,1782 +17942,6 @@ eurex_cash_eti_t7_v12_0.trading_session_status_broadcast.dissect = function(buff
 
     return index
   end
-end
-
--- Root Party Id Execution Venue
-eurex_cash_eti_t7_v12_0.root_party_id_execution_venue = {}
-
--- Size: Root Party Id Execution Venue
-eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.size = 4
-
--- Display: Root Party Id Execution Venue
-eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Id Execution Venue: No Value"
-  end
-
-  return "Root Party Id Execution Venue: "..value
-end
-
--- Dissect: Root Party Id Execution Venue
-eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_execution_venue.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_execution_venue, range, value, display)
-
-  return offset + length, value
-end
-
--- Regulatory Trade Id
-eurex_cash_eti_t7_v12_0.regulatory_trade_id = {}
-
--- Size: Regulatory Trade Id
-eurex_cash_eti_t7_v12_0.regulatory_trade_id.size = 52
-
--- Display: Regulatory Trade Id
-eurex_cash_eti_t7_v12_0.regulatory_trade_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Regulatory Trade Id: No Value"
-  end
-
-  return "Regulatory Trade Id: "..value
-end
-
--- Dissect: Regulatory Trade Id
-eurex_cash_eti_t7_v12_0.regulatory_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.regulatory_trade_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.regulatory_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.regulatory_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Specialist Trader
-eurex_cash_eti_t7_v12_0.party_specialist_trader = {}
-
--- Size: Party Specialist Trader
-eurex_cash_eti_t7_v12_0.party_specialist_trader.size = 6
-
--- Display: Party Specialist Trader
-eurex_cash_eti_t7_v12_0.party_specialist_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Specialist Trader: No Value"
-  end
-
-  return "Party Specialist Trader: "..value
-end
-
--- Dissect: Party Specialist Trader
-eurex_cash_eti_t7_v12_0.party_specialist_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_specialist_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_specialist_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_specialist_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Specialist Firm
-eurex_cash_eti_t7_v12_0.party_specialist_firm = {}
-
--- Size: Party Specialist Firm
-eurex_cash_eti_t7_v12_0.party_specialist_firm.size = 5
-
--- Display: Party Specialist Firm
-eurex_cash_eti_t7_v12_0.party_specialist_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Specialist Firm: No Value"
-  end
-
-  return "Party Specialist Firm: "..value
-end
-
--- Dissect: Party Specialist Firm
-eurex_cash_eti_t7_v12_0.party_specialist_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_specialist_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_specialist_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_specialist_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Contra Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location = {}
-
--- Size: Root Party Contra Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.size = 3
-
--- Display: Root Party Contra Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.display = function(value)
-  if value == "APK" then
-    return "Root Party Contra Settlement Location: Apk (APK)"
-  end
-  if value == "CBF" then
-    return "Root Party Contra Settlement Location: Cbf (CBF)"
-  end
-  if value == "CBL" then
-    return "Root Party Contra Settlement Location: Cbl (CBL)"
-  end
-  if value == "CCO" then
-    return "Root Party Contra Settlement Location: Cco (CCO)"
-  end
-  if value == "CIK" then
-    return "Root Party Contra Settlement Location: Cik (CIK)"
-  end
-  if value == "EOC" then
-    return "Root Party Contra Settlement Location: Eoc (EOC)"
-  end
-  if value == "HEL" then
-    return "Root Party Contra Settlement Location: Hel (HEL)"
-  end
-  if value == "IBC" then
-    return "Root Party Contra Settlement Location: Ibc (IBC)"
-  end
-  if value == "INT" then
-    return "Root Party Contra Settlement Location: Int (INT)"
-  end
-  if value == "KDP" then
-    return "Root Party Contra Settlement Location: Kdp (KDP)"
-  end
-  if value == "MOT" then
-    return "Root Party Contra Settlement Location: Mot (MOT)"
-  end
-  if value == "NEC" then
-    return "Root Party Contra Settlement Location: Nec (NEC)"
-  end
-  if value == "OEB" then
-    return "Root Party Contra Settlement Location: Oeb (OEB)"
-  end
-  if value == "SIC" then
-    return "Root Party Contra Settlement Location: Sic (SIC)"
-  end
-  if value == "SIS" then
-    return "Root Party Contra Settlement Location: Sis (SIS)"
-  end
-  if value == "VPC" then
-    return "Root Party Contra Settlement Location: Vpc (VPC)"
-  end
-  if value == "VPD" then
-    return "Root Party Contra Settlement Location: Vpd (VPD)"
-  end
-  if value == "VPS" then
-    return "Root Party Contra Settlement Location: Vps (VPS)"
-  end
-  if value == "CFG" then
-    return "Root Party Contra Settlement Location: Cfg (CFG)"
-  end
-
-  return "Root Party Contra Settlement Location: Unknown("..value..")"
-end
-
--- Dissect: Root Party Contra Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_location.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_settlement_location, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Contra Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account = {}
-
--- Size: Root Party Contra Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.size = 35
-
--- Display: Root Party Contra Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Contra Settlement Account: No Value"
-  end
-
-  return "Root Party Contra Settlement Account: "..value
-end
-
--- Dissect: Root Party Contra Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_settlement_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Contra Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number = {}
-
--- Size: Root Party Contra Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.size = 4
-
--- Display: Root Party Contra Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Contra Firm Kv Number: No Value"
-  end
-
-  return "Root Party Contra Firm Kv Number: "..value
-end
-
--- Dissect: Root Party Contra Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_contra_firm_kv_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_firm_kv_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Contra Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm = {}
-
--- Size: Root Party Contra Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.size = 5
-
--- Display: Root Party Contra Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Contra Settlement Firm: No Value"
-  end
-
-  return "Root Party Contra Settlement Firm: "..value
-end
-
--- Dissect: Root Party Contra Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_contra_settlement_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_settlement_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Contra Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_firm = {}
-
--- Size: Root Party Contra Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_firm.size = 5
-
--- Display: Root Party Contra Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Contra Firm: No Value"
-  end
-
-  return "Root Party Contra Firm: "..value
-end
-
--- Dissect: Root Party Contra Firm
-eurex_cash_eti_t7_v12_0.root_party_contra_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_contra_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_contra_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_contra_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_settlement_firm = {}
-
--- Size: Root Party Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_settlement_firm.size = 5
-
--- Display: Root Party Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_settlement_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Settlement Firm: No Value"
-  end
-
-  return "Root Party Settlement Firm: "..value
-end
-
--- Dissect: Root Party Settlement Firm
-eurex_cash_eti_t7_v12_0.root_party_settlement_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_settlement_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_settlement_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_settlement_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_settlement_location = {}
-
--- Size: Root Party Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_settlement_location.size = 3
-
--- Display: Root Party Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_settlement_location.display = function(value)
-  if value == "APK" then
-    return "Root Party Settlement Location: Apk (APK)"
-  end
-  if value == "CBF" then
-    return "Root Party Settlement Location: Cbf (CBF)"
-  end
-  if value == "CBL" then
-    return "Root Party Settlement Location: Cbl (CBL)"
-  end
-  if value == "CCO" then
-    return "Root Party Settlement Location: Cco (CCO)"
-  end
-  if value == "CIK" then
-    return "Root Party Settlement Location: Cik (CIK)"
-  end
-  if value == "EOC" then
-    return "Root Party Settlement Location: Eoc (EOC)"
-  end
-  if value == "HEL" then
-    return "Root Party Settlement Location: Hel (HEL)"
-  end
-  if value == "IBC" then
-    return "Root Party Settlement Location: Ibc (IBC)"
-  end
-  if value == "INT" then
-    return "Root Party Settlement Location: Int (INT)"
-  end
-  if value == "KDP" then
-    return "Root Party Settlement Location: Kdp (KDP)"
-  end
-  if value == "MOT" then
-    return "Root Party Settlement Location: Mot (MOT)"
-  end
-  if value == "NEC" then
-    return "Root Party Settlement Location: Nec (NEC)"
-  end
-  if value == "OEB" then
-    return "Root Party Settlement Location: Oeb (OEB)"
-  end
-  if value == "SIC" then
-    return "Root Party Settlement Location: Sic (SIC)"
-  end
-  if value == "SIS" then
-    return "Root Party Settlement Location: Sis (SIS)"
-  end
-  if value == "VPC" then
-    return "Root Party Settlement Location: Vpc (VPC)"
-  end
-  if value == "VPD" then
-    return "Root Party Settlement Location: Vpd (VPD)"
-  end
-  if value == "VPS" then
-    return "Root Party Settlement Location: Vps (VPS)"
-  end
-  if value == "CFG" then
-    return "Root Party Settlement Location: Cfg (CFG)"
-  end
-
-  return "Root Party Settlement Location: Unknown("..value..")"
-end
-
--- Dissect: Root Party Settlement Location
-eurex_cash_eti_t7_v12_0.root_party_settlement_location.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_settlement_location.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_settlement_location.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_settlement_location, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_settlement_account = {}
-
--- Size: Root Party Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_settlement_account.size = 35
-
--- Display: Root Party Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_settlement_account.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Settlement Account: No Value"
-  end
-
-  return "Root Party Settlement Account: "..value
-end
-
--- Dissect: Root Party Settlement Account
-eurex_cash_eti_t7_v12_0.root_party_settlement_account.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_settlement_account.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_settlement_account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_settlement_account, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Executing Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number = {}
-
--- Size: Root Party Executing Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.size = 4
-
--- Display: Root Party Executing Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Executing Firm Kv Number: No Value"
-  end
-
-  return "Root Party Executing Firm Kv Number: "..value
-end
-
--- Dissect: Root Party Executing Firm Kv Number
-eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_executing_firm_kv_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_executing_firm_kv_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Clearing Firm
-eurex_cash_eti_t7_v12_0.root_party_clearing_firm = {}
-
--- Size: Root Party Clearing Firm
-eurex_cash_eti_t7_v12_0.root_party_clearing_firm.size = 5
-
--- Display: Root Party Clearing Firm
-eurex_cash_eti_t7_v12_0.root_party_clearing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Root Party Clearing Firm: No Value"
-  end
-
-  return "Root Party Clearing Firm: "..value
-end
-
--- Dissect: Root Party Clearing Firm
-eurex_cash_eti_t7_v12_0.root_party_clearing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_clearing_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.root_party_clearing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_clearing_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Type
-eurex_cash_eti_t7_v12_0.ord_type = {}
-
--- Size: Ord Type
-eurex_cash_eti_t7_v12_0.ord_type.size = 1
-
--- Display: Ord Type
-eurex_cash_eti_t7_v12_0.ord_type.display = function(value)
-  if value == 1 then
-    return "Ord Type: Market (1)"
-  end
-  if value == 2 then
-    return "Ord Type: Limit (2)"
-  end
-  if value == 3 then
-    return "Ord Type: Stop (3)"
-  end
-  if value == 4 then
-    return "Ord Type: Stop Limit (4)"
-  end
-  if value == 0xFF then
-    return "Ord Type: No Value"
-  end
-
-  return "Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Ord Type
-eurex_cash_eti_t7_v12_0.ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ord_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ord_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Category
-eurex_cash_eti_t7_v12_0.order_category = {}
-
--- Size: Order Category
-eurex_cash_eti_t7_v12_0.order_category.size = 1
-
--- Display: Order Category
-eurex_cash_eti_t7_v12_0.order_category.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Order Category: No Value"
-  end
-
-  if value == "1" then
-    return "Order Category: Order (1)"
-  end
-  if value == "2" then
-    return "Order Category: Quote (2)"
-  end
-
-  return "Order Category: Unknown("..value..")"
-end
-
--- Dissect: Order Category
-eurex_cash_eti_t7_v12_0.order_category.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_category.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.order_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_category, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-eurex_cash_eti_t7_v12_0.currency = {}
-
--- Size: Currency
-eurex_cash_eti_t7_v12_0.currency.size = 3
-
--- Display: Currency
-eurex_cash_eti_t7_v12_0.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-eurex_cash_eti_t7_v12_0.currency.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Settl Currency
-eurex_cash_eti_t7_v12_0.settl_currency = {}
-
--- Size: Settl Currency
-eurex_cash_eti_t7_v12_0.settl_currency.size = 3
-
--- Display: Settl Currency
-eurex_cash_eti_t7_v12_0.settl_currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Settl Currency: No Value"
-  end
-
-  return "Settl Currency: "..value
-end
-
--- Dissect: Settl Currency
-eurex_cash_eti_t7_v12_0.settl_currency.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.settl_currency.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.settl_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Account
-eurex_cash_eti_t7_v12_0.account = {}
-
--- Size: Account
-eurex_cash_eti_t7_v12_0.account.size = 2
-
--- Display: Account
-eurex_cash_eti_t7_v12_0.account.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Account: No Value"
-  end
-
-  return "Account: "..value
-end
-
--- Dissect: Account
-eurex_cash_eti_t7_v12_0.account.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.account.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.account.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.account, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier = {}
-
--- Size: Root Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.size = 1
-
--- Display: Root Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.display = function(value)
-  if value == 22 then
-    return "Root Party Id Investment Decision Maker Qualifier: Algo (22)"
-  end
-  if value == 24 then
-    return "Root Party Id Investment Decision Maker Qualifier: Human (24)"
-  end
-  if value == 0xFF then
-    return "Root Party Id Investment Decision Maker Qualifier: No Value"
-  end
-
-  return "Root Party Id Investment Decision Maker Qualifier: Unknown("..value..")"
-end
-
--- Dissect: Root Party Id Investment Decision Maker Qualifier
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_investment_decision_maker_qualifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Instruction
-eurex_cash_eti_t7_v12_0.clearing_instruction = {}
-
--- Size: Clearing Instruction
-eurex_cash_eti_t7_v12_0.clearing_instruction.size = 1
-
--- Display: Clearing Instruction
-eurex_cash_eti_t7_v12_0.clearing_instruction.display = function(value)
-  if value == 2 then
-    return "Clearing Instruction: Bilateralnettingonly (2)"
-  end
-  if value == 13 then
-    return "Clearing Instruction: Selfclearing (13)"
-  end
-  if value == 0xFF then
-    return "Clearing Instruction: No Value"
-  end
-
-  return "Clearing Instruction: Unknown("..value..")"
-end
-
--- Dissect: Clearing Instruction
-eurex_cash_eti_t7_v12_0.clearing_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.clearing_instruction.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.clearing_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.clearing_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Refinancing Eligibility Indicator
-eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator = {}
-
--- Size: Refinancing Eligibility Indicator
-eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.size = 1
-
--- Display: Refinancing Eligibility Indicator
-eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.display = function(value)
-  if value == 0 then
-    return "Refinancing Eligibility Indicator: No (0)"
-  end
-  if value == 1 then
-    return "Refinancing Eligibility Indicator: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Refinancing Eligibility Indicator: No Value"
-  end
-
-  return "Refinancing Eligibility Indicator: Unknown("..value..")"
-end
-
--- Dissect: Refinancing Eligibility Indicator
-eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.refinancing_eligibility_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.refinancing_eligibility_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Coupon Deviation Indicator
-eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator = {}
-
--- Size: Last Coupon Deviation Indicator
-eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.size = 1
-
--- Display: Last Coupon Deviation Indicator
-eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.display = function(value)
-  if value == 0 then
-    return "Last Coupon Deviation Indicator: None (0)"
-  end
-  if value == 1 then
-    return "Last Coupon Deviation Indicator: Shortperiod (1)"
-  end
-  if value == 2 then
-    return "Last Coupon Deviation Indicator: Longperiod (2)"
-  end
-  if value == 3 then
-    return "Last Coupon Deviation Indicator: Onlyonecoupon (3)"
-  end
-  if value == 4 then
-    return "Last Coupon Deviation Indicator: Shorttwointerestpaymentsdue (4)"
-  end
-  if value == 5 then
-    return "Last Coupon Deviation Indicator: Longtwointerestpaymentsdue (5)"
-  end
-  if value == 6 then
-    return "Last Coupon Deviation Indicator: Perpetual (6)"
-  end
-  if value == 0xFF then
-    return "Last Coupon Deviation Indicator: No Value"
-  end
-
-  return "Last Coupon Deviation Indicator: Unknown("..value..")"
-end
-
--- Dissect: Last Coupon Deviation Indicator
-eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.last_coupon_deviation_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_coupon_deviation_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Type
-eurex_cash_eti_t7_v12_0.delivery_type = {}
-
--- Size: Delivery Type
-eurex_cash_eti_t7_v12_0.delivery_type.size = 1
-
--- Display: Delivery Type
-eurex_cash_eti_t7_v12_0.delivery_type.display = function(value)
-  if value == 1 then
-    return "Delivery Type: Akv (1)"
-  end
-  if value == 2 then
-    return "Delivery Type: Gs (2)"
-  end
-  if value == 3 then
-    return "Delivery Type: Str (3)"
-  end
-  if value == 4 then
-    return "Delivery Type: Wpr (4)"
-  end
-  if value == 5 then
-    return "Delivery Type: Akt (5)"
-  end
-  if value == 0xFF then
-    return "Delivery Type: No Value"
-  end
-
-  return "Delivery Type: Unknown("..value..")"
-end
-
--- Dissect: Delivery Type
-eurex_cash_eti_t7_v12_0.delivery_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.delivery_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.delivery_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.delivery_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Liquidity Ind
-eurex_cash_eti_t7_v12_0.side_liquidity_ind = {}
-
--- Size: Side Liquidity Ind
-eurex_cash_eti_t7_v12_0.side_liquidity_ind.size = 1
-
--- Display: Side Liquidity Ind
-eurex_cash_eti_t7_v12_0.side_liquidity_ind.display = function(value)
-  if value == 1 then
-    return "Side Liquidity Ind: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Side Liquidity Ind: Removed Liquidity (2)"
-  end
-  if value == 4 then
-    return "Side Liquidity Ind: Auction (4)"
-  end
-  if value == 0xFF then
-    return "Side Liquidity Ind: No Value"
-  end
-
-  return "Side Liquidity Ind: Unknown("..value..")"
-end
-
--- Dissect: Side Liquidity Ind
-eurex_cash_eti_t7_v12_0.side_liquidity_ind.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.side_liquidity_ind.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.side_liquidity_ind.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_liquidity_ind, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Sub Type
-eurex_cash_eti_t7_v12_0.match_sub_type = {}
-
--- Size: Match Sub Type
-eurex_cash_eti_t7_v12_0.match_sub_type.size = 1
-
--- Display: Match Sub Type
-eurex_cash_eti_t7_v12_0.match_sub_type.display = function(value)
-  if value == 1 then
-    return "Match Sub Type: Opening Auction (1)"
-  end
-  if value == 2 then
-    return "Match Sub Type: Closing Auction (2)"
-  end
-  if value == 3 then
-    return "Match Sub Type: Intraday Auction (3)"
-  end
-  if value == 4 then
-    return "Match Sub Type: Circuit Breaker Auction (4)"
-  end
-  if value == 5 then
-    return "Match Sub Type: Tradeatclose (5)"
-  end
-  if value == 0xFF then
-    return "Match Sub Type: No Value"
-  end
-
-  return "Match Sub Type: Unknown("..value..")"
-end
-
--- Dissect: Match Sub Type
-eurex_cash_eti_t7_v12_0.match_sub_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.match_sub_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.match_sub_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_sub_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Type
-eurex_cash_eti_t7_v12_0.match_type = {}
-
--- Size: Match Type
-eurex_cash_eti_t7_v12_0.match_type.size = 1
-
--- Display: Match Type
-eurex_cash_eti_t7_v12_0.match_type.display = function(value)
-  if value == 3 then
-    return "Match Type: Confirmed Trade Report (3)"
-  end
-  if value == 4 then
-    return "Match Type: Automatchincoming (4)"
-  end
-  if value == 5 then
-    return "Match Type: Cross Auction (5)"
-  end
-  if value == 7 then
-    return "Match Type: Call Auction (7)"
-  end
-  if value == 11 then
-    return "Match Type: Automatchresting (11)"
-  end
-  if value == 14 then
-    return "Match Type: Continuous Auction (14)"
-  end
-  if value == 15 then
-    return "Match Type: Retail (15)"
-  end
-  if value == 0xFF then
-    return "Match Type: No Value"
-  end
-
-  return "Match Type: Unknown("..value..")"
-end
-
--- Dissect: Match Type
-eurex_cash_eti_t7_v12_0.match_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.match_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.match_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Transfer Reason
-eurex_cash_eti_t7_v12_0.transfer_reason = {}
-
--- Size: Transfer Reason
-eurex_cash_eti_t7_v12_0.transfer_reason.size = 1
-
--- Display: Transfer Reason
-eurex_cash_eti_t7_v12_0.transfer_reason.display = function(value)
-  if value == 1 then
-    return "Transfer Reason: Owner (1)"
-  end
-  if value == 2 then
-    return "Transfer Reason: Clearer (2)"
-  end
-  if value == 0xFF then
-    return "Transfer Reason: No Value"
-  end
-
-  return "Transfer Reason: Unknown("..value..")"
-end
-
--- Dissect: Transfer Reason
-eurex_cash_eti_t7_v12_0.transfer_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.transfer_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.transfer_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.transfer_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Mkt
-eurex_cash_eti_t7_v12_0.last_mkt = {}
-
--- Size: Last Mkt
-eurex_cash_eti_t7_v12_0.last_mkt.size = 2
-
--- Display: Last Mkt
-eurex_cash_eti_t7_v12_0.last_mkt.display = function(value)
-  if value == 3 then
-    return "Last Mkt: Xetr (3)"
-  end
-  if value == 4 then
-    return "Last Mkt: Xvie (4)"
-  end
-  if value == 6 then
-    return "Last Mkt: Xmal (6)"
-  end
-  if value == 7 then
-    return "Last Mkt: Xbul (7)"
-  end
-  if value == 8 then
-    return "Last Mkt: Xbud (8)"
-  end
-  if value == 9 then
-    return "Last Mkt: Xlju (9)"
-  end
-  if value == 10 then
-    return "Last Mkt: Xpra (10)"
-  end
-  if value == 11 then
-    return "Last Mkt: Xzag (11)"
-  end
-  if value == 13 then
-    return "Last Mkt: Xfra (13)"
-  end
-  if value == 0xFFFF then
-    return "Last Mkt: No Value"
-  end
-
-  return "Last Mkt: Unknown("..value..")"
-end
-
--- Dissect: Last Mkt
-eurex_cash_eti_t7_v12_0.last_mkt.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.last_mkt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.last_mkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_mkt, range, value, display)
-
-  return offset + length, value
-end
-
--- Num Days Interest
-eurex_cash_eti_t7_v12_0.num_days_interest = {}
-
--- Size: Num Days Interest
-eurex_cash_eti_t7_v12_0.num_days_interest.size = 4
-
--- Display: Num Days Interest
-eurex_cash_eti_t7_v12_0.num_days_interest.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Num Days Interest: No Value"
-  end
-
-  return "Num Days Interest: "..value
-end
-
--- Dissect: Num Days Interest
-eurex_cash_eti_t7_v12_0.num_days_interest.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.num_days_interest.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.num_days_interest.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.num_days_interest, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Match Id
-eurex_cash_eti_t7_v12_0.trd_match_id = {}
-
--- Size: Trd Match Id
-eurex_cash_eti_t7_v12_0.trd_match_id.size = 4
-
--- Display: Trd Match Id
-eurex_cash_eti_t7_v12_0.trd_match_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Trd Match Id: No Value"
-  end
-
-  return "Trd Match Id: "..value
-end
-
--- Dissect: Trd Match Id
-eurex_cash_eti_t7_v12_0.trd_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_match_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trd_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Date
-eurex_cash_eti_t7_v12_0.match_date = {}
-
--- Size: Match Date
-eurex_cash_eti_t7_v12_0.match_date.size = 4
-
--- Display: Match Date
-eurex_cash_eti_t7_v12_0.match_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Match Date: No Value"
-  end
-
-  return "Match Date: "..value
-end
-
--- Dissect: Match Date
-eurex_cash_eti_t7_v12_0.match_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.match_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.match_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Number
-eurex_cash_eti_t7_v12_0.trade_number = {}
-
--- Size: Trade Number
-eurex_cash_eti_t7_v12_0.trade_number.size = 4
-
--- Display: Trade Number
-eurex_cash_eti_t7_v12_0.trade_number.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Trade Number: No Value"
-  end
-
-  return "Trade Number: "..value
-end
-
--- Dissect: Trade Number
-eurex_cash_eti_t7_v12_0.trade_number.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Trade Report Id
-eurex_cash_eti_t7_v12_0.side_trade_report_id = {}
-
--- Size: Side Trade Report Id
-eurex_cash_eti_t7_v12_0.side_trade_report_id.size = 4
-
--- Display: Side Trade Report Id
-eurex_cash_eti_t7_v12_0.side_trade_report_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Side Trade Report Id: No Value"
-  end
-
-  return "Side Trade Report Id: "..value
-end
-
--- Dissect: Side Trade Report Id
-eurex_cash_eti_t7_v12_0.side_trade_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.side_trade_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.side_trade_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_trade_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Trade Id
-eurex_cash_eti_t7_v12_0.side_trade_id = {}
-
--- Size: Side Trade Id
-eurex_cash_eti_t7_v12_0.side_trade_id.size = 4
-
--- Display: Side Trade Id
-eurex_cash_eti_t7_v12_0.side_trade_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Side Trade Id: No Value"
-  end
-
-  return "Side Trade Id: "..value
-end
-
--- Dissect: Side Trade Id
-eurex_cash_eti_t7_v12_0.side_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.side_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.side_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Specialist Trader
-eurex_cash_eti_t7_v12_0.party_id_specialist_trader = {}
-
--- Size: Party Id Specialist Trader
-eurex_cash_eti_t7_v12_0.party_id_specialist_trader.size = 4
-
--- Display: Party Id Specialist Trader
-eurex_cash_eti_t7_v12_0.party_id_specialist_trader.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Id Specialist Trader: No Value"
-  end
-
-  return "Party Id Specialist Trader: "..value
-end
-
--- Dissect: Party Id Specialist Trader
-eurex_cash_eti_t7_v12_0.party_id_specialist_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_specialist_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_specialist_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_specialist_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Contra Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit = {}
-
--- Size: Root Party Id Contra Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.size = 4
-
--- Display: Root Party Id Contra Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Contra Settlement Unit: No Value"
-  end
-
-  return "Root Party Id Contra Settlement Unit: "..value
-end
-
--- Dissect: Root Party Id Contra Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_contra_settlement_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_contra_settlement_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Contra Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_unit = {}
-
--- Size: Root Party Id Contra Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.size = 4
-
--- Display: Root Party Id Contra Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Contra Unit: No Value"
-  end
-
-  return "Root Party Id Contra Unit: "..value
-end
-
--- Dissect: Root Party Id Contra Unit
-eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_contra_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_contra_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Clearing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit = {}
-
--- Size: Root Party Id Clearing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.size = 4
-
--- Display: Root Party Id Clearing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Clearing Unit: No Value"
-  end
-
-  return "Root Party Id Clearing Unit: "..value
-end
-
--- Dissect: Root Party Id Clearing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_clearing_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_clearing_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit = {}
-
--- Size: Root Party Id Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.size = 4
-
--- Display: Root Party Id Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Settlement Unit: No Value"
-  end
-
-  return "Root Party Id Settlement Unit: "..value
-end
-
--- Dissect: Root Party Id Settlement Unit
-eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_settlement_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_settlement_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_id_executing_trader = {}
-
--- Size: Root Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.size = 4
-
--- Display: Root Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Executing Trader: No Value"
-  end
-
-  return "Root Party Id Executing Trader: "..value
-end
-
--- Dissect: Root Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Session Id
-eurex_cash_eti_t7_v12_0.root_party_id_session_id = {}
-
--- Size: Root Party Id Session Id
-eurex_cash_eti_t7_v12_0.root_party_id_session_id.size = 4
-
--- Display: Root Party Id Session Id
-eurex_cash_eti_t7_v12_0.root_party_id_session_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Session Id: No Value"
-  end
-
-  return "Root Party Id Session Id: "..value
-end
-
--- Dissect: Root Party Id Session Id
-eurex_cash_eti_t7_v12_0.root_party_id_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_executing_unit = {}
-
--- Size: Root Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.size = 4
-
--- Display: Root Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Root Party Id Executing Unit: No Value"
-  end
-
-  return "Root Party Id Executing Unit: "..value
-end
-
--- Dissect: Root Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_executing_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_executing_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Trade Id
-eurex_cash_eti_t7_v12_0.orig_trade_id = {}
-
--- Size: Orig Trade Id
-eurex_cash_eti_t7_v12_0.orig_trade_id.size = 4
-
--- Display: Orig Trade Id
-eurex_cash_eti_t7_v12_0.orig_trade_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Orig Trade Id: No Value"
-  end
-
-  return "Orig Trade Id: "..value
-end
-
--- Dissect: Orig Trade Id
-eurex_cash_eti_t7_v12_0.orig_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.orig_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.orig_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.orig_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker = {}
-
--- Size: Root Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.size = 8
-
--- Display: Root Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Root Party Id Investment Decision Maker: No Value"
-  end
-
-  return "Root Party Id Investment Decision Maker: "..value
-end
-
--- Dissect: Root Party Id Investment Decision Maker
-eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_investment_decision_maker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_investment_decision_maker, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Party Id Client Id
-eurex_cash_eti_t7_v12_0.root_party_id_client_id = {}
-
--- Size: Root Party Id Client Id
-eurex_cash_eti_t7_v12_0.root_party_id_client_id.size = 8
-
--- Display: Root Party Id Client Id
-eurex_cash_eti_t7_v12_0.root_party_id_client_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Root Party Id Client Id: No Value"
-  end
-
-  return "Root Party Id Client Id: "..value
-end
-
--- Dissect: Root Party Id Client Id
-eurex_cash_eti_t7_v12_0.root_party_id_client_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.root_party_id_client_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.root_party_id_client_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.root_party_id_client_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Coupon Rate
-eurex_cash_eti_t7_v12_0.coupon_rate = {}
-
--- Size: Coupon Rate
-eurex_cash_eti_t7_v12_0.coupon_rate.size = 8
-
--- Display: Coupon Rate
-eurex_cash_eti_t7_v12_0.coupon_rate.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Coupon Rate: No Value"
-  end
-
-  return "Coupon Rate: "..value
-end
-
--- Translate: Coupon Rate
-eurex_cash_eti_t7_v12_0.coupon_rate.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Coupon Rate
-eurex_cash_eti_t7_v12_0.coupon_rate.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.coupon_rate.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.coupon_rate.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.coupon_rate.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.coupon_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- Accrued Interes Amt
-eurex_cash_eti_t7_v12_0.accrued_interes_amt = {}
-
--- Size: Accrued Interes Amt
-eurex_cash_eti_t7_v12_0.accrued_interes_amt.size = 8
-
--- Display: Accrued Interes Amt
-eurex_cash_eti_t7_v12_0.accrued_interes_amt.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Accrued Interes Amt: No Value"
-  end
-
-  return "Accrued Interes Amt: "..value
-end
-
--- Translate: Accrued Interes Amt
-eurex_cash_eti_t7_v12_0.accrued_interes_amt.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Accrued Interes Amt
-eurex_cash_eti_t7_v12_0.accrued_interes_amt.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.accrued_interes_amt.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.accrued_interes_amt.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.accrued_interes_amt.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.accrued_interes_amt, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Gross Trade Amt
-eurex_cash_eti_t7_v12_0.side_gross_trade_amt = {}
-
--- Size: Side Gross Trade Amt
-eurex_cash_eti_t7_v12_0.side_gross_trade_amt.size = 8
-
--- Display: Side Gross Trade Amt
-eurex_cash_eti_t7_v12_0.side_gross_trade_amt.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Side Gross Trade Amt: No Value"
-  end
-
-  return "Side Gross Trade Amt: "..value
-end
-
--- Translate: Side Gross Trade Amt
-eurex_cash_eti_t7_v12_0.side_gross_trade_amt.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Side Gross Trade Amt
-eurex_cash_eti_t7_v12_0.side_gross_trade_amt.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.side_gross_trade_amt.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.side_gross_trade_amt.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.side_gross_trade_amt.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.side_gross_trade_amt, range, value, display)
-
-  return offset + length, value
-end
-
--- Cum Qty
-eurex_cash_eti_t7_v12_0.cum_qty = {}
-
--- Size: Cum Qty
-eurex_cash_eti_t7_v12_0.cum_qty.size = 8
-
--- Display: Cum Qty
-eurex_cash_eti_t7_v12_0.cum_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Cum Qty: No Value"
-  end
-
-  return "Cum Qty: "..value
-end
-
--- Translate: Cum Qty
-eurex_cash_eti_t7_v12_0.cum_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Cum Qty
-eurex_cash_eti_t7_v12_0.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.cum_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.cum_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.cum_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Settl Curr Fx Rate
-eurex_cash_eti_t7_v12_0.settl_curr_fx_rate = {}
-
--- Size: Settl Curr Fx Rate
-eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.size = 8
-
--- Display: Settl Curr Fx Rate
-eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Settl Curr Fx Rate: No Value"
-  end
-
-  return "Settl Curr Fx Rate: "..value
-end
-
--- Translate: Settl Curr Fx Rate
-eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Settl Curr Fx Rate
-eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.settl_curr_fx_rate.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_curr_fx_rate, range, value, display)
-
-  return offset + length, value
-end
-
--- Settl Curr Amt
-eurex_cash_eti_t7_v12_0.settl_curr_amt = {}
-
--- Size: Settl Curr Amt
-eurex_cash_eti_t7_v12_0.settl_curr_amt.size = 8
-
--- Display: Settl Curr Amt
-eurex_cash_eti_t7_v12_0.settl_curr_amt.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Settl Curr Amt: No Value"
-  end
-
-  return "Settl Curr Amt: "..value
-end
-
--- Translate: Settl Curr Amt
-eurex_cash_eti_t7_v12_0.settl_curr_amt.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Settl Curr Amt
-eurex_cash_eti_t7_v12_0.settl_curr_amt.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.settl_curr_amt.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.settl_curr_amt.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.settl_curr_amt.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.settl_curr_amt, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Broadcast
@@ -11430,90 +18228,6 @@ eurex_cash_eti_t7_v12_0.trade_broadcast.dissect = function(buffer, offset, packe
   end
 end
 
--- Throttle Disconnect Limit
-eurex_cash_eti_t7_v12_0.throttle_disconnect_limit = {}
-
--- Size: Throttle Disconnect Limit
-eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.size = 4
-
--- Display: Throttle Disconnect Limit
-eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Throttle Disconnect Limit: No Value"
-  end
-
-  return "Throttle Disconnect Limit: "..value
-end
-
--- Dissect: Throttle Disconnect Limit
-eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.throttle_disconnect_limit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.throttle_disconnect_limit, range, value, display)
-
-  return offset + length, value
-end
-
--- Throttle No Msgs
-eurex_cash_eti_t7_v12_0.throttle_no_msgs = {}
-
--- Size: Throttle No Msgs
-eurex_cash_eti_t7_v12_0.throttle_no_msgs.size = 4
-
--- Display: Throttle No Msgs
-eurex_cash_eti_t7_v12_0.throttle_no_msgs.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Throttle No Msgs: No Value"
-  end
-
-  return "Throttle No Msgs: "..value
-end
-
--- Dissect: Throttle No Msgs
-eurex_cash_eti_t7_v12_0.throttle_no_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.throttle_no_msgs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.throttle_no_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.throttle_no_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Throttle Time Interval
-eurex_cash_eti_t7_v12_0.throttle_time_interval = {}
-
--- Size: Throttle Time Interval
-eurex_cash_eti_t7_v12_0.throttle_time_interval.size = 8
-
--- Display: Throttle Time Interval
-eurex_cash_eti_t7_v12_0.throttle_time_interval.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Throttle Time Interval: No Value"
-  end
-
-  return "Throttle Time Interval: "..value
-end
-
--- Dissect: Throttle Time Interval
-eurex_cash_eti_t7_v12_0.throttle_time_interval.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.throttle_time_interval.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = eurex_cash_eti_t7_v12_0.throttle_time_interval.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.throttle_time_interval, range, value, display)
-
-  return offset + length, value
-end
-
 -- Notif Header Comp
 eurex_cash_eti_t7_v12_0.notif_header_comp = {}
 
@@ -11735,137 +18449,6 @@ eurex_cash_eti_t7_v12_0.tes_trading_session_status_broadcast.dissect = function(
 
     return index
   end
-end
-
--- Trade Publish Indicator
-eurex_cash_eti_t7_v12_0.trade_publish_indicator = {}
-
--- Size: Trade Publish Indicator
-eurex_cash_eti_t7_v12_0.trade_publish_indicator.size = 1
-
--- Display: Trade Publish Indicator
-eurex_cash_eti_t7_v12_0.trade_publish_indicator.display = function(value)
-  if value == 0 then
-    return "Trade Publish Indicator: Do Not Publish Trade (0)"
-  end
-  if value == 1 then
-    return "Trade Publish Indicator: Publish Trade (1)"
-  end
-  if value == 2 then
-    return "Trade Publish Indicator: Deferred Publication (2)"
-  end
-  if value == 3 then
-    return "Trade Publish Indicator: Published (3)"
-  end
-  if value == 0xFF then
-    return "Trade Publish Indicator: No Value"
-  end
-
-  return "Trade Publish Indicator: Unknown("..value..")"
-end
-
--- Dissect: Trade Publish Indicator
-eurex_cash_eti_t7_v12_0.trade_publish_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_publish_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_publish_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_publish_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Type
-eurex_cash_eti_t7_v12_0.trd_type = {}
-
--- Size: Trd Type
-eurex_cash_eti_t7_v12_0.trd_type.size = 2
-
--- Display: Trd Type
-eurex_cash_eti_t7_v12_0.trd_type.display = function(value)
-  if value == 54 then
-    return "Trd Type: Otc (54)"
-  end
-  if value == 1005 then
-    return "Trd Type: Lis (1005)"
-  end
-  if value == 1006 then
-    return "Trd Type: Enlight (1006)"
-  end
-  if value == 0xFFFF then
-    return "Trd Type: No Value"
-  end
-
-  return "Trd Type: Unknown("..value..")"
-end
-
--- Dissect: Trd Type
-eurex_cash_eti_t7_v12_0.trd_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trd_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Srqs Related Trade Id
-eurex_cash_eti_t7_v12_0.srqs_related_trade_id = {}
-
--- Size: Srqs Related Trade Id
-eurex_cash_eti_t7_v12_0.srqs_related_trade_id.size = 4
-
--- Display: Srqs Related Trade Id
-eurex_cash_eti_t7_v12_0.srqs_related_trade_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Srqs Related Trade Id: No Value"
-  end
-
-  return "Srqs Related Trade Id: "..value
-end
-
--- Dissect: Srqs Related Trade Id
-eurex_cash_eti_t7_v12_0.srqs_related_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.srqs_related_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.srqs_related_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.srqs_related_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Package Id
-eurex_cash_eti_t7_v12_0.package_id = {}
-
--- Size: Package Id
-eurex_cash_eti_t7_v12_0.package_id.size = 4
-
--- Display: Package Id
-eurex_cash_eti_t7_v12_0.package_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Package Id: No Value"
-  end
-
-  return "Package Id: "..value
-end
-
--- Dissect: Package Id
-eurex_cash_eti_t7_v12_0.package_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.package_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.package_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.package_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tes Trade Broadcast
@@ -12113,62 +18696,6 @@ eurex_cash_eti_t7_v12_0.tes_trade_broadcast.dissect = function(buffer, offset, p
   end
 end
 
--- Trade Report Id
-eurex_cash_eti_t7_v12_0.trade_report_id = {}
-
--- Size: Trade Report Id
-eurex_cash_eti_t7_v12_0.trade_report_id.size = 20
-
--- Display: Trade Report Id
-eurex_cash_eti_t7_v12_0.trade_report_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trade Report Id: No Value"
-  end
-
-  return "Trade Report Id: "..value
-end
-
--- Dissect: Trade Report Id
-eurex_cash_eti_t7_v12_0.trade_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_report_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.trade_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Tes Exec Id
-eurex_cash_eti_t7_v12_0.tes_exec_id = {}
-
--- Size: Tes Exec Id
-eurex_cash_eti_t7_v12_0.tes_exec_id.size = 4
-
--- Display: Tes Exec Id
-eurex_cash_eti_t7_v12_0.tes_exec_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Tes Exec Id: No Value"
-  end
-
-  return "Tes Exec Id: "..value
-end
-
--- Dissect: Tes Exec Id
-eurex_cash_eti_t7_v12_0.tes_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.tes_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.tes_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.tes_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tes Response
 eurex_cash_eti_t7_v12_0.tes_response = {}
 
@@ -12226,34 +18753,6 @@ eurex_cash_eti_t7_v12_0.tes_response.dissect = function(buffer, offset, packet, 
 
     return index
   end
-end
-
--- Alloc Id
-eurex_cash_eti_t7_v12_0.alloc_id = {}
-
--- Size: Alloc Id
-eurex_cash_eti_t7_v12_0.alloc_id.size = 4
-
--- Display: Alloc Id
-eurex_cash_eti_t7_v12_0.alloc_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Alloc Id: No Value"
-  end
-
-  return "Alloc Id: "..value
-end
-
--- Dissect: Alloc Id
-eurex_cash_eti_t7_v12_0.alloc_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.alloc_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.alloc_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alloc_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tes Execution Broadcast
@@ -12342,48 +18841,6 @@ eurex_cash_eti_t7_v12_0.tes_execution_broadcast.dissect = function(buffer, offse
   end
 end
 
--- Delete Reason
-eurex_cash_eti_t7_v12_0.delete_reason = {}
-
--- Size: Delete Reason
-eurex_cash_eti_t7_v12_0.delete_reason.size = 1
-
--- Display: Delete Reason
-eurex_cash_eti_t7_v12_0.delete_reason.display = function(value)
-  if value == 100 then
-    return "Delete Reason: Nospecialreason (100)"
-  end
-  if value == 101 then
-    return "Delete Reason: Tas Change (101)"
-  end
-  if value == 102 then
-    return "Delete Reason: Intraday Expiration (102)"
-  end
-  if value == 103 then
-    return "Delete Reason: Risk Event (103)"
-  end
-  if value == 104 then
-    return "Delete Reason: Stop Trading (104)"
-  end
-  if value == 0xFF then
-    return "Delete Reason: No Value"
-  end
-
-  return "Delete Reason: Unknown("..value..")"
-end
-
--- Dissect: Delete Reason
-eurex_cash_eti_t7_v12_0.delete_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.delete_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.delete_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.delete_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tes Delete Broadcast
 eurex_cash_eti_t7_v12_0.tes_delete_broadcast = {}
 
@@ -12470,181 +18927,6 @@ eurex_cash_eti_t7_v12_0.tes_delete_broadcast.dissect = function(buffer, offset, 
   end
 end
 
--- Alignment Padding
-eurex_cash_eti_t7_v12_0.alignment_padding = {}
-
--- Display: Alignment Padding
-eurex_cash_eti_t7_v12_0.alignment_padding.display = function(value)
-  return "Alignment Padding: "..value
-end
-
--- Dissect runtime sized field: Alignment Padding
-eurex_cash_eti_t7_v12_0.alignment_padding.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.alignment_padding.display(value, packet, parent, size)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alignment_padding, range, value, display)
-
-  return offset + size, value
-end
-
--- Var Text
-eurex_cash_eti_t7_v12_0.var_text = {}
-
--- Display: Var Text
-eurex_cash_eti_t7_v12_0.var_text.display = function(value)
-  return "Var Text: "..value
-end
-
--- Dissect runtime sized field: Var Text
-eurex_cash_eti_t7_v12_0.var_text.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = eurex_cash_eti_t7_v12_0.var_text.display(value, packet, parent, size)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.var_text, range, value, display)
-
-  return offset + size, value
-end
-
--- Trade Alloc Status
-eurex_cash_eti_t7_v12_0.trade_alloc_status = {}
-
--- Size: Trade Alloc Status
-eurex_cash_eti_t7_v12_0.trade_alloc_status.size = 1
-
--- Display: Trade Alloc Status
-eurex_cash_eti_t7_v12_0.trade_alloc_status.display = function(value)
-  if value == 1 then
-    return "Trade Alloc Status: Pending (1)"
-  end
-  if value == 2 then
-    return "Trade Alloc Status: Approved (2)"
-  end
-  if value == 3 then
-    return "Trade Alloc Status: Auto Approved (3)"
-  end
-  if value == 4 then
-    return "Trade Alloc Status: Uploaded (4)"
-  end
-  if value == 5 then
-    return "Trade Alloc Status: Canceled (5)"
-  end
-  if value == 0xFF then
-    return "Trade Alloc Status: No Value"
-  end
-
-  return "Trade Alloc Status: Unknown("..value..")"
-end
-
--- Dissect: Trade Alloc Status
-eurex_cash_eti_t7_v12_0.trade_alloc_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_alloc_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_alloc_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_alloc_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Tes Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id = {}
-
--- Size: Tes Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size = 4
-
--- Display: Tes Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Tes Enrichment Rule Id: No Value"
-  end
-
-  return "Tes Enrichment Rule Id: "..value
-end
-
--- Dissect: Tes Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.tes_enrichment_rule_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.tes_enrichment_rule_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Individual Alloc Id
-eurex_cash_eti_t7_v12_0.individual_alloc_id = {}
-
--- Size: Individual Alloc Id
-eurex_cash_eti_t7_v12_0.individual_alloc_id.size = 4
-
--- Display: Individual Alloc Id
-eurex_cash_eti_t7_v12_0.individual_alloc_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Individual Alloc Id: No Value"
-  end
-
-  return "Individual Alloc Id: "..value
-end
-
--- Dissect: Individual Alloc Id
-eurex_cash_eti_t7_v12_0.individual_alloc_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.individual_alloc_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.individual_alloc_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.individual_alloc_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Alloc Qty
-eurex_cash_eti_t7_v12_0.alloc_qty = {}
-
--- Size: Alloc Qty
-eurex_cash_eti_t7_v12_0.alloc_qty.size = 8
-
--- Display: Alloc Qty
-eurex_cash_eti_t7_v12_0.alloc_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Alloc Qty: No Value"
-  end
-
-  return "Alloc Qty: "..value
-end
-
--- Translate: Alloc Qty
-eurex_cash_eti_t7_v12_0.alloc_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Alloc Qty
-eurex_cash_eti_t7_v12_0.alloc_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.alloc_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.alloc_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.alloc_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.alloc_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Side Alloc Grp Bc Comp
 eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp = {}
 
@@ -12717,151 +18999,6 @@ eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.side_alloc_grp_bc_comp.fields(buffer, offset, packet, parent, side_alloc_grp_bc_comp_index)
   end
-end
-
--- Trade Report Text
-eurex_cash_eti_t7_v12_0.trade_report_text = {}
-
--- Size: Trade Report Text
-eurex_cash_eti_t7_v12_0.trade_report_text.size = 20
-
--- Display: Trade Report Text
-eurex_cash_eti_t7_v12_0.trade_report_text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trade Report Text: No Value"
-  end
-
-  return "Trade Report Text: "..value
-end
-
--- Dissect: Trade Report Text
-eurex_cash_eti_t7_v12_0.trade_report_text.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_report_text.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.trade_report_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_report_text, range, value, display)
-
-  return offset + length, value
-end
-
--- No Side Allocs
-eurex_cash_eti_t7_v12_0.no_side_allocs = {}
-
--- Size: No Side Allocs
-eurex_cash_eti_t7_v12_0.no_side_allocs.size = 1
-
--- Display: No Side Allocs
-eurex_cash_eti_t7_v12_0.no_side_allocs.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Side Allocs: No Value"
-  end
-
-  return "No Side Allocs: "..value
-end
-
--- Dissect: No Side Allocs
-eurex_cash_eti_t7_v12_0.no_side_allocs.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_side_allocs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_side_allocs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_side_allocs, range, value, display)
-
-  return offset + length, value
-end
-
--- Var Text Len
-eurex_cash_eti_t7_v12_0.var_text_len = {}
-
--- Size: Var Text Len
-eurex_cash_eti_t7_v12_0.var_text_len.size = 2
-
--- Display: Var Text Len
-eurex_cash_eti_t7_v12_0.var_text_len.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Var Text Len: No Value"
-  end
-
-  return "Var Text Len: "..value
-end
-
--- Dissect: Var Text Len
-eurex_cash_eti_t7_v12_0.var_text_len.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.var_text_len.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.var_text_len.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.var_text_len, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Approval Rule Id
-eurex_cash_eti_t7_v12_0.auto_approval_rule_id = {}
-
--- Size: Auto Approval Rule Id
-eurex_cash_eti_t7_v12_0.auto_approval_rule_id.size = 4
-
--- Display: Auto Approval Rule Id
-eurex_cash_eti_t7_v12_0.auto_approval_rule_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Auto Approval Rule Id: No Value"
-  end
-
-  return "Auto Approval Rule Id: "..value
-end
-
--- Dissect: Auto Approval Rule Id
-eurex_cash_eti_t7_v12_0.auto_approval_rule_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.auto_approval_rule_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.auto_approval_rule_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.auto_approval_rule_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trans Bkd Time
-eurex_cash_eti_t7_v12_0.trans_bkd_time = {}
-
--- Size: Trans Bkd Time
-eurex_cash_eti_t7_v12_0.trans_bkd_time.size = 8
-
--- Display: Trans Bkd Time
-eurex_cash_eti_t7_v12_0.trans_bkd_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trans Bkd Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trans Bkd Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trans Bkd Time
-eurex_cash_eti_t7_v12_0.trans_bkd_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trans_bkd_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.trans_bkd_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trans_bkd_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tes Broadcast
@@ -13003,39 +19140,6 @@ eurex_cash_eti_t7_v12_0.tes_broadcast.dissect = function(buffer, offset, packet,
 
     return index
   end
-end
-
--- Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.party_id_entering_firm = {}
-
--- Size: Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.party_id_entering_firm.size = 1
-
--- Display: Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.party_id_entering_firm.display = function(value)
-  if value == 1 then
-    return "Party Id Entering Firm: Participant (1)"
-  end
-  if value == 2 then
-    return "Party Id Entering Firm: Market Supervision (2)"
-  end
-  if value == 0xFF then
-    return "Party Id Entering Firm: No Value"
-  end
-
-  return "Party Id Entering Firm: Unknown("..value..")"
-end
-
--- Dissect: Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_entering_firm.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_entering_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_entering_firm, range, value, display)
-
-  return offset + length, value
 end
 
 -- Tes Approve Broadcast
@@ -13272,94 +19376,6 @@ eurex_cash_eti_t7_v12_0.subscribe_response.dissect = function(buffer, offset, pa
   end
 end
 
--- Ref Appl Id
-eurex_cash_eti_t7_v12_0.ref_appl_id = {}
-
--- Size: Ref Appl Id
-eurex_cash_eti_t7_v12_0.ref_appl_id.size = 1
-
--- Display: Ref Appl Id
-eurex_cash_eti_t7_v12_0.ref_appl_id.display = function(value)
-  if value == 1 then
-    return "Ref Appl Id: Trade (1)"
-  end
-  if value == 2 then
-    return "Ref Appl Id: News (2)"
-  end
-  if value == 3 then
-    return "Ref Appl Id: Serviceavailability (3)"
-  end
-  if value == 4 then
-    return "Ref Appl Id: Sessiondata (4)"
-  end
-  if value == 5 then
-    return "Ref Appl Id: Listenerdata (5)"
-  end
-  if value == 6 then
-    return "Ref Appl Id: Risk Control (6)"
-  end
-  if value == 7 then
-    return "Ref Appl Id: Tes Maintenance (7)"
-  end
-  if value == 8 then
-    return "Ref Appl Id: Tes Trade (8)"
-  end
-  if value == 9 then
-    return "Ref Appl Id: Srqs Maintenance (9)"
-  end
-  if value == 10 then
-    return "Ref Appl Id: Service Availability Market (10)"
-  end
-  if value == 11 then
-    return "Ref Appl Id: Specialist Data (11)"
-  end
-  if value == 0xFF then
-    return "Ref Appl Id: No Value"
-  end
-
-  return "Ref Appl Id: Unknown("..value..")"
-end
-
--- Dissect: Ref Appl Id
-eurex_cash_eti_t7_v12_0.ref_appl_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ref_appl_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.ref_appl_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Subscription Scope
-eurex_cash_eti_t7_v12_0.subscription_scope = {}
-
--- Size: Subscription Scope
-eurex_cash_eti_t7_v12_0.subscription_scope.size = 4
-
--- Display: Subscription Scope
-eurex_cash_eti_t7_v12_0.subscription_scope.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Subscription Scope: No Value"
-  end
-
-  return "Subscription Scope: "..value
-end
-
--- Dissect: Subscription Scope
-eurex_cash_eti_t7_v12_0.subscription_scope.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.subscription_scope.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.subscription_scope.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.subscription_scope, range, value, display)
-
-  return offset + length, value
-end
-
 -- Subscribe Request
 eurex_cash_eti_t7_v12_0.subscribe_request = {}
 
@@ -13487,105 +19503,6 @@ eurex_cash_eti_t7_v12_0.status_broadcast.dissect = function(buffer, offset, pack
   end
 end
 
--- Security Status Report Id
-eurex_cash_eti_t7_v12_0.security_status_report_id = {}
-
--- Size: Security Status Report Id
-eurex_cash_eti_t7_v12_0.security_status_report_id.size = 8
-
--- Display: Security Status Report Id
-eurex_cash_eti_t7_v12_0.security_status_report_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Security Status Report Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Security Status Report Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Security Status Report Id
-eurex_cash_eti_t7_v12_0.security_status_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.security_status_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.security_status_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_status_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Response In
-eurex_cash_eti_t7_v12_0.response_in = {}
-
--- Size: Response In
-eurex_cash_eti_t7_v12_0.response_in.size = 8
-
--- Display: Response In
-eurex_cash_eti_t7_v12_0.response_in.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Response In: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Response In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Response In
-eurex_cash_eti_t7_v12_0.response_in.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.response_in.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.response_in.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.response_in, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Time In
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in = {}
-
--- Size: Trd Reg Ts Time In
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size = 8
-
--- Display: Trd Reg Ts Time In
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time In: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Time In
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_in.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_time_in, range, value, display)
-
-  return offset + length, value
-end
-
 -- Nr Response Header Me Comp
 eurex_cash_eti_t7_v12_0.nr_response_header_me_comp = {}
 
@@ -13708,72 +19625,6 @@ eurex_cash_eti_t7_v12_0.specialist_security_state_change_response.dissect = func
 
     return index
   end
-end
-
--- Event Type
-eurex_cash_eti_t7_v12_0.event_type = {}
-
--- Size: Event Type
-eurex_cash_eti_t7_v12_0.event_type.size = 1
-
--- Display: Event Type
-eurex_cash_eti_t7_v12_0.event_type.display = function(value)
-  if value == 26 then
-    return "Event Type: Redemption (26)"
-  end
-  if value == 100 then
-    return "Event Type: Delisting (100)"
-  end
-  if value == 104 then
-    return "Event Type: Instrument Assignment Added (104)"
-  end
-  if value == 105 then
-    return "Event Type: Instrument Assignment Removed (105)"
-  end
-  if value == 106 then
-    return "Event Type: Closed (106)"
-  end
-  if value == 107 then
-    return "Event Type: Restricted (107)"
-  end
-  if value == 108 then
-    return "Event Type: Book (108)"
-  end
-  if value == 109 then
-    return "Event Type: Continuous (109)"
-  end
-  if value == 110 then
-    return "Event Type: Auction (110)"
-  end
-  if value == 111 then
-    return "Event Type: Freeze (111)"
-  end
-  if value == 112 then
-    return "Event Type: Cancel Freeze (112)"
-  end
-  if value == 113 then
-    return "Event Type: Pre Call (113)"
-  end
-  if value == 114 then
-    return "Event Type: Endof Restatement (114)"
-  end
-  if value == 0xFF then
-    return "Event Type: No Value"
-  end
-
-  return "Event Type: Unknown("..value..")"
-end
-
--- Dissect: Event Type
-eurex_cash_eti_t7_v12_0.event_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.event_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.event_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.event_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Specialist Security State Change Request
@@ -14066,57 +19917,6 @@ eurex_cash_eti_t7_v12_0.specialist_rfq_reply_notification.dissect = function(buf
   end
 end
 
--- Quote Request Reject Reason
-eurex_cash_eti_t7_v12_0.quote_request_reject_reason = {}
-
--- Size: Quote Request Reject Reason
-eurex_cash_eti_t7_v12_0.quote_request_reject_reason.size = 1
-
--- Display: Quote Request Reject Reason
-eurex_cash_eti_t7_v12_0.quote_request_reject_reason.display = function(value)
-  if value == 2 then
-    return "Quote Request Reject Reason: Exchangeclosed (2)"
-  end
-  if value == 99 then
-    return "Quote Request Reject Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Quote Request Reject Reason: Requestedsizetoosmall (100)"
-  end
-  if value == 101 then
-    return "Quote Request Reject Reason: Requestedsizetoobig (101)"
-  end
-  if value == 102 then
-    return "Quote Request Reject Reason: Novalidquotefromissuer (102)"
-  end
-  if value == 103 then
-    return "Quote Request Reject Reason: Soldout (103)"
-  end
-  if value == 104 then
-    return "Quote Request Reject Reason: Tradingrestriction (104)"
-  end
-  if value == 105 then
-    return "Quote Request Reject Reason: Pendingrequesttimedout (105)"
-  end
-  if value == 0xFF then
-    return "Quote Request Reject Reason: No Value"
-  end
-
-  return "Quote Request Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Quote Request Reject Reason
-eurex_cash_eti_t7_v12_0.quote_request_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_request_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_request_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_request_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Specialist Rfq Reject Request
 eurex_cash_eti_t7_v12_0.specialist_rfq_reject_request = {}
 
@@ -14191,185 +19991,6 @@ eurex_cash_eti_t7_v12_0.specialist_rfq_reject_request.dissect = function(buffer,
   end
 end
 
--- Fill Liquidity Ind
-eurex_cash_eti_t7_v12_0.fill_liquidity_ind = {}
-
--- Size: Fill Liquidity Ind
-eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size = 1
-
--- Display: Fill Liquidity Ind
-eurex_cash_eti_t7_v12_0.fill_liquidity_ind.display = function(value)
-  if value == 1 then
-    return "Fill Liquidity Ind: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Fill Liquidity Ind: Removed Liquidity (2)"
-  end
-  if value == 4 then
-    return "Fill Liquidity Ind: Auction (4)"
-  end
-  if value == 5 then
-    return "Fill Liquidity Ind: Triggered Stop Order (5)"
-  end
-  if value == 6 then
-    return "Fill Liquidity Ind: Triggered Oco Order (6)"
-  end
-  if value == 7 then
-    return "Fill Liquidity Ind: Triggered Market Order (7)"
-  end
-  if value == 0xFF then
-    return "Fill Liquidity Ind: No Value"
-  end
-
-  return "Fill Liquidity Ind: Unknown("..value..")"
-end
-
--- Dissect: Fill Liquidity Ind
-eurex_cash_eti_t7_v12_0.fill_liquidity_ind.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fill_liquidity_ind.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.fill_liquidity_ind.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_liquidity_ind, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Exec Id
-eurex_cash_eti_t7_v12_0.fill_exec_id = {}
-
--- Size: Fill Exec Id
-eurex_cash_eti_t7_v12_0.fill_exec_id.size = 4
-
--- Display: Fill Exec Id
-eurex_cash_eti_t7_v12_0.fill_exec_id.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Fill Exec Id: No Value"
-  end
-
-  return "Fill Exec Id: "..value
-end
-
--- Dissect: Fill Exec Id
-eurex_cash_eti_t7_v12_0.fill_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fill_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_cash_eti_t7_v12_0.fill_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Match Id
-eurex_cash_eti_t7_v12_0.fill_match_id = {}
-
--- Size: Fill Match Id
-eurex_cash_eti_t7_v12_0.fill_match_id.size = 4
-
--- Display: Fill Match Id
-eurex_cash_eti_t7_v12_0.fill_match_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Fill Match Id: No Value"
-  end
-
-  return "Fill Match Id: "..value
-end
-
--- Dissect: Fill Match Id
-eurex_cash_eti_t7_v12_0.fill_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fill_match_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.fill_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Qty
-eurex_cash_eti_t7_v12_0.fill_qty = {}
-
--- Size: Fill Qty
-eurex_cash_eti_t7_v12_0.fill_qty.size = 8
-
--- Display: Fill Qty
-eurex_cash_eti_t7_v12_0.fill_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Fill Qty: No Value"
-  end
-
-  return "Fill Qty: "..value
-end
-
--- Translate: Fill Qty
-eurex_cash_eti_t7_v12_0.fill_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Fill Qty
-eurex_cash_eti_t7_v12_0.fill_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fill_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.fill_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.fill_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Px
-eurex_cash_eti_t7_v12_0.fill_px = {}
-
--- Size: Fill Px
-eurex_cash_eti_t7_v12_0.fill_px.size = 8
-
--- Display: Fill Px
-eurex_cash_eti_t7_v12_0.fill_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Fill Px: No Value"
-  end
-
-  return "Fill Px: "..value
-end
-
--- Translate: Fill Px
-eurex_cash_eti_t7_v12_0.fill_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Fill Px
-eurex_cash_eti_t7_v12_0.fill_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fill_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.fill_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.fill_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fill_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fills Grp Comp
 eurex_cash_eti_t7_v12_0.fills_grp_comp = {}
 
@@ -14434,504 +20055,6 @@ eurex_cash_eti_t7_v12_0.fills_grp_comp.dissect = function(buffer, offset, packet
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.fills_grp_comp.fields(buffer, offset, packet, parent, fills_grp_comp_index)
   end
-end
-
--- Party Entering Firm
-eurex_cash_eti_t7_v12_0.party_entering_firm = {}
-
--- Size: Party Entering Firm
-eurex_cash_eti_t7_v12_0.party_entering_firm.size = 5
-
--- Display: Party Entering Firm
-eurex_cash_eti_t7_v12_0.party_entering_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Entering Firm: No Value"
-  end
-
-  return "Party Entering Firm: "..value
-end
-
--- Dissect: Party Entering Firm
-eurex_cash_eti_t7_v12_0.party_entering_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_entering_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_entering_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_entering_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Triggered
-eurex_cash_eti_t7_v12_0.triggered = {}
-
--- Size: Triggered
-eurex_cash_eti_t7_v12_0.triggered.size = 1
-
--- Display: Triggered
-eurex_cash_eti_t7_v12_0.triggered.display = function(value)
-  if value == 0 then
-    return "Triggered: Nottriggered (0)"
-  end
-  if value == 1 then
-    return "Triggered: Triggered Stop (1)"
-  end
-  if value == 2 then
-    return "Triggered: Triggered Oco (2)"
-  end
-  if value == 0xFF then
-    return "Triggered: No Value"
-  end
-
-  return "Triggered: Unknown("..value..")"
-end
-
--- Dissect: Triggered
-eurex_cash_eti_t7_v12_0.triggered.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.triggered.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.triggered.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.triggered, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Seq Indicator
-eurex_cash_eti_t7_v12_0.appl_seq_indicator = {}
-
--- Size: Appl Seq Indicator
-eurex_cash_eti_t7_v12_0.appl_seq_indicator.size = 1
-
--- Display: Appl Seq Indicator
-eurex_cash_eti_t7_v12_0.appl_seq_indicator.display = function(value)
-  if value == 0 then
-    return "Appl Seq Indicator: No Recovery Required (0)"
-  end
-  if value == 1 then
-    return "Appl Seq Indicator: Recovery Required (1)"
-  end
-  if value == 0xFF then
-    return "Appl Seq Indicator: No Value"
-  end
-
-  return "Appl Seq Indicator: Unknown("..value..")"
-end
-
--- Dissect: Appl Seq Indicator
-eurex_cash_eti_t7_v12_0.appl_seq_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_seq_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_seq_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Session Sub Id
-eurex_cash_eti_t7_v12_0.trading_session_sub_id = {}
-
--- Size: Trading Session Sub Id
-eurex_cash_eti_t7_v12_0.trading_session_sub_id.size = 1
-
--- Display: Trading Session Sub Id
-eurex_cash_eti_t7_v12_0.trading_session_sub_id.display = function(value)
-  if value == 2 then
-    return "Trading Session Sub Id: Openingauction (2)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Closingauction (4)"
-  end
-  if value == 6 then
-    return "Trading Session Sub Id: Intraday Auction (6)"
-  end
-  if value == 8 then
-    return "Trading Session Sub Id: Any Auction (8)"
-  end
-  if value == 105 then
-    return "Trading Session Sub Id: Special Auction (105)"
-  end
-  if value == 0xFF then
-    return "Trading Session Sub Id: No Value"
-  end
-
-  return "Trading Session Sub Id: Unknown("..value..")"
-end
-
--- Dissect: Trading Session Sub Id
-eurex_cash_eti_t7_v12_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trading_session_sub_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trading_session_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trading_session_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Inst
-eurex_cash_eti_t7_v12_0.exec_inst = {}
-
--- Size: Exec Inst
-eurex_cash_eti_t7_v12_0.exec_inst.size = 1
-
--- Display: Exec Inst
-eurex_cash_eti_t7_v12_0.exec_inst.display = function(value)
-  if value == 1 then
-    return "Exec Inst: H (1)"
-  end
-  if value == 2 then
-    return "Exec Inst: Q (2)"
-  end
-  if value == 3 then
-    return "Exec Inst: Hq (3)"
-  end
-  if value == 5 then
-    return "Exec Inst: H 6 (5)"
-  end
-  if value == 6 then
-    return "Exec Inst: Q 6 (6)"
-  end
-  if value == 0xFF then
-    return "Exec Inst: No Value"
-  end
-
-  return "Exec Inst: Unknown("..value..")"
-end
-
--- Dissect: Exec Inst
-eurex_cash_eti_t7_v12_0.exec_inst.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.exec_inst.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.exec_inst.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.exec_inst, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-eurex_cash_eti_t7_v12_0.time_in_force = {}
-
--- Size: Time In Force
-eurex_cash_eti_t7_v12_0.time_in_force.size = 1
-
--- Display: Time In Force
-eurex_cash_eti_t7_v12_0.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force: Gtc (1)"
-  end
-  if value == 3 then
-    return "Time In Force: Ioc (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fok (4)"
-  end
-  if value == 6 then
-    return "Time In Force: Gtd (6)"
-  end
-  if value == 0xFF then
-    return "Time In Force: No Value"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-eurex_cash_eti_t7_v12_0.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Type
-eurex_cash_eti_t7_v12_0.order_event_type = {}
-
--- Size: Order Event Type
-eurex_cash_eti_t7_v12_0.order_event_type.size = 1
-
--- Display: Order Event Type
-eurex_cash_eti_t7_v12_0.order_event_type.display = function(value)
-  if value == 100 then
-    return "Order Event Type: Pendingrequestsdiscarded (100)"
-  end
-  if value == 0xFF then
-    return "Order Event Type: No Value"
-  end
-
-  return "Order Event Type: Unknown("..value..")"
-end
-
--- Dissect: Order Event Type
-eurex_cash_eti_t7_v12_0.order_event_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_event_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.order_event_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_type, range, value, display)
-
-  return offset + length, value
-end
-
--- No Fills
-eurex_cash_eti_t7_v12_0.no_fills = {}
-
--- Size: No Fills
-eurex_cash_eti_t7_v12_0.no_fills.size = 1
-
--- Display: No Fills
-eurex_cash_eti_t7_v12_0.no_fills.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Fills: No Value"
-  end
-
-  return "No Fills: "..value
-end
-
--- Dissect: No Fills
-eurex_cash_eti_t7_v12_0.no_fills.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_fills.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_fills.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_fills, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Entering Trader
-eurex_cash_eti_t7_v12_0.party_id_entering_trader = {}
-
--- Size: Party Id Entering Trader
-eurex_cash_eti_t7_v12_0.party_id_entering_trader.size = 4
-
--- Display: Party Id Entering Trader
-eurex_cash_eti_t7_v12_0.party_id_entering_trader.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Id Entering Trader: No Value"
-  end
-
-  return "Party Id Entering Trader: "..value
-end
-
--- Dissect: Party Id Entering Trader
-eurex_cash_eti_t7_v12_0.party_id_entering_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_entering_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_entering_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_entering_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Session Id
-eurex_cash_eti_t7_v12_0.party_id_session_id = {}
-
--- Size: Party Id Session Id
-eurex_cash_eti_t7_v12_0.party_id_session_id.size = 4
-
--- Display: Party Id Session Id
-eurex_cash_eti_t7_v12_0.party_id_session_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Id Session Id: No Value"
-  end
-
-  return "Party Id Session Id: "..value
-end
-
--- Dissect: Party Id Session Id
-eurex_cash_eti_t7_v12_0.party_id_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_id_executing_unit = {}
-
--- Size: Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_id_executing_unit.size = 4
-
--- Display: Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_id_executing_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Id Executing Unit: No Value"
-  end
-
-  return "Party Id Executing Unit: "..value
-end
-
--- Dissect: Party Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_id_executing_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_id_executing_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_id_executing_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_id_executing_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Expire Date
-eurex_cash_eti_t7_v12_0.expire_date = {}
-
--- Size: Expire Date
-eurex_cash_eti_t7_v12_0.expire_date.size = 4
-
--- Display: Expire Date
-eurex_cash_eti_t7_v12_0.expire_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Expire Date: No Value"
-  end
-
-  return "Expire Date: "..value
-end
-
--- Dissect: Expire Date
-eurex_cash_eti_t7_v12_0.expire_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.expire_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.expire_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.expire_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Cxl Qty
-eurex_cash_eti_t7_v12_0.cxl_qty = {}
-
--- Size: Cxl Qty
-eurex_cash_eti_t7_v12_0.cxl_qty.size = 8
-
--- Display: Cxl Qty
-eurex_cash_eti_t7_v12_0.cxl_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Cxl Qty: No Value"
-  end
-
-  return "Cxl Qty: "..value
-end
-
--- Translate: Cxl Qty
-eurex_cash_eti_t7_v12_0.cxl_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Cxl Qty
-eurex_cash_eti_t7_v12_0.cxl_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.cxl_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.cxl_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.cxl_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cxl_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Time Priority
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority = {}
-
--- Size: Trd Reg Ts Time Priority
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.size = 8
-
--- Display: Trd Reg Ts Time Priority
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time Priority: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Time Priority
-eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_time_priority.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_time_priority, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Ts Entry Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time = {}
-
--- Size: Trd Reg Ts Entry Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.size = 8
-
--- Display: Trd Reg Ts Entry Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Entry Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Entry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Trd Reg Ts Entry Time
-eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.trd_reg_ts_entry_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trd_reg_ts_entry_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Specialist Order Book Notification
@@ -15189,62 +20312,6 @@ eurex_cash_eti_t7_v12_0.specialist_instrument_event_notification.dissect = funct
   end
 end
 
--- Not Aff Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id = {}
-
--- Size: Not Aff Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size = 8
-
--- Display: Not Aff Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Not Aff Orig Cl Ord Id: No Value"
-  end
-
-  return "Not Aff Orig Cl Ord Id: "..value
-end
-
--- Dissect: Not Aff Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.not_aff_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.not_aff_orig_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Not Affected Order Id
-eurex_cash_eti_t7_v12_0.not_affected_order_id = {}
-
--- Size: Not Affected Order Id
-eurex_cash_eti_t7_v12_0.not_affected_order_id.size = 8
-
--- Display: Not Affected Order Id
-eurex_cash_eti_t7_v12_0.not_affected_order_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Not Affected Order Id: No Value"
-  end
-
-  return "Not Affected Order Id: "..value
-end
-
--- Dissect: Not Affected Order Id
-eurex_cash_eti_t7_v12_0.not_affected_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.not_affected_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.not_affected_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.not_affected_order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Not Affected Orders Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp = {}
 
@@ -15295,62 +20362,6 @@ eurex_cash_eti_t7_v12_0.not_affected_orders_grp_comp.dissect = function(buffer, 
   end
 end
 
--- Affected Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id = {}
-
--- Size: Affected Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size = 8
-
--- Display: Affected Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Affected Orig Cl Ord Id: No Value"
-  end
-
-  return "Affected Orig Cl Ord Id: "..value
-end
-
--- Dissect: Affected Orig Cl Ord Id
-eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.affected_orig_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.affected_orig_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Affected Order Id
-eurex_cash_eti_t7_v12_0.affected_order_id = {}
-
--- Size: Affected Order Id
-eurex_cash_eti_t7_v12_0.affected_order_id.size = 8
-
--- Display: Affected Order Id
-eurex_cash_eti_t7_v12_0.affected_order_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Affected Order Id: No Value"
-  end
-
-  return "Affected Order Id: "..value
-end
-
--- Dissect: Affected Order Id
-eurex_cash_eti_t7_v12_0.affected_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.affected_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.affected_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.affected_order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Affected Ord Grp Comp
 eurex_cash_eti_t7_v12_0.affected_ord_grp_comp = {}
 
@@ -15399,179 +20410,6 @@ eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.affected_ord_grp_comp.fields(buffer, offset, packet, parent, affected_ord_grp_comp_index)
   end
-end
-
--- Mass Action Reason
-eurex_cash_eti_t7_v12_0.mass_action_reason = {}
-
--- Size: Mass Action Reason
-eurex_cash_eti_t7_v12_0.mass_action_reason.size = 1
-
--- Display: Mass Action Reason
-eurex_cash_eti_t7_v12_0.mass_action_reason.display = function(value)
-  if value == 0 then
-    return "Mass Action Reason: No Special Reason (0)"
-  end
-  if value == 1 then
-    return "Mass Action Reason: Stop Trading (1)"
-  end
-  if value == 2 then
-    return "Mass Action Reason: Emergency (2)"
-  end
-  if value == 6 then
-    return "Mass Action Reason: Session Loss (6)"
-  end
-  if value == 7 then
-    return "Mass Action Reason: Duplicate Session Login (7)"
-  end
-  if value == 8 then
-    return "Mass Action Reason: Clearing Risk Control (8)"
-  end
-  if value == 100 then
-    return "Mass Action Reason: Internal Connection Loss (100)"
-  end
-  if value == 105 then
-    return "Mass Action Reason: Product State Halt (105)"
-  end
-  if value == 106 then
-    return "Mass Action Reason: Product State Holiday (106)"
-  end
-  if value == 107 then
-    return "Mass Action Reason: Instrument Suspended (107)"
-  end
-  if value == 110 then
-    return "Mass Action Reason: Volatility Interruption (110)"
-  end
-  if value == 111 then
-    return "Mass Action Reason: Producttemporarilynottradeable (111)"
-  end
-  if value == 113 then
-    return "Mass Action Reason: Instrument Stopped (113)"
-  end
-  if value == 115 then
-    return "Mass Action Reason: Instrument Knock Out (115)"
-  end
-  if value == 116 then
-    return "Mass Action Reason: Instrument Sold Out (116)"
-  end
-  if value == 117 then
-    return "Mass Action Reason: Memberdisable (117)"
-  end
-  if value == 118 then
-    return "Mass Action Reason: Instrument Knock Out Reverted (118)"
-  end
-  if value == 119 then
-    return "Mass Action Reason: Automatic Quote Deletion (119)"
-  end
-  if value == 120 then
-    return "Mass Action Reason: Outside Quoting Period (120)"
-  end
-  if value == 0xFF then
-    return "Mass Action Reason: No Value"
-  end
-
-  return "Mass Action Reason: Unknown("..value..")"
-end
-
--- Dissect: Mass Action Reason
-eurex_cash_eti_t7_v12_0.mass_action_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.mass_action_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.mass_action_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.mass_action_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- No Not Affected Orders
-eurex_cash_eti_t7_v12_0.no_not_affected_orders = {}
-
--- Size: No Not Affected Orders
-eurex_cash_eti_t7_v12_0.no_not_affected_orders.size = 2
-
--- Display: No Not Affected Orders
-eurex_cash_eti_t7_v12_0.no_not_affected_orders.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Not Affected Orders: No Value"
-  end
-
-  return "No Not Affected Orders: "..value
-end
-
--- Dissect: No Not Affected Orders
-eurex_cash_eti_t7_v12_0.no_not_affected_orders.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_not_affected_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_not_affected_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_not_affected_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- No Affected Orders
-eurex_cash_eti_t7_v12_0.no_affected_orders = {}
-
--- Size: No Affected Orders
-eurex_cash_eti_t7_v12_0.no_affected_orders.size = 2
-
--- Display: No Affected Orders
-eurex_cash_eti_t7_v12_0.no_affected_orders.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Affected Orders: No Value"
-  end
-
-  return "No Affected Orders: "..value
-end
-
--- Dissect: No Affected Orders
-eurex_cash_eti_t7_v12_0.no_affected_orders.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_affected_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_affected_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_affected_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Report Id
-eurex_cash_eti_t7_v12_0.mass_action_report_id = {}
-
--- Size: Mass Action Report Id
-eurex_cash_eti_t7_v12_0.mass_action_report_id.size = 8
-
--- Display: Mass Action Report Id
-eurex_cash_eti_t7_v12_0.mass_action_report_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Mass Action Report Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Mass Action Report Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Mass Action Report Id
-eurex_cash_eti_t7_v12_0.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.mass_action_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.mass_action_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.mass_action_report_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Specialist Delete All Order Broadcast
@@ -15659,100 +20497,6 @@ eurex_cash_eti_t7_v12_0.specialist_delete_all_order_broadcast.dissect = function
 
     return index
   end
-end
-
--- Quote Size Type
-eurex_cash_eti_t7_v12_0.quote_size_type = {}
-
--- Size: Quote Size Type
-eurex_cash_eti_t7_v12_0.quote_size_type.size = 1
-
--- Display: Quote Size Type
-eurex_cash_eti_t7_v12_0.quote_size_type.display = function(value)
-  if value == 1 then
-    return "Quote Size Type: Total Size (1)"
-  end
-  if value == 2 then
-    return "Quote Size Type: Open Size (2)"
-  end
-  if value == 0xFF then
-    return "Quote Size Type: No Value"
-  end
-
-  return "Quote Size Type: Unknown("..value..")"
-end
-
--- Dissect: Quote Size Type
-eurex_cash_eti_t7_v12_0.quote_size_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_size_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_size_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_size_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Validity Check Type
-eurex_cash_eti_t7_v12_0.price_validity_check_type = {}
-
--- Size: Price Validity Check Type
-eurex_cash_eti_t7_v12_0.price_validity_check_type.size = 1
-
--- Display: Price Validity Check Type
-eurex_cash_eti_t7_v12_0.price_validity_check_type.display = function(value)
-  if value == 0 then
-    return "Price Validity Check Type: None (0)"
-  end
-  if value == 2 then
-    return "Price Validity Check Type: Mandatory (2)"
-  end
-  if value == 0xFF then
-    return "Price Validity Check Type: No Value"
-  end
-
-  return "Price Validity Check Type: Unknown("..value..")"
-end
-
--- Dissect: Price Validity Check Type
-eurex_cash_eti_t7_v12_0.price_validity_check_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.price_validity_check_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.price_validity_check_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.price_validity_check_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Inst Cross Id
-eurex_cash_eti_t7_v12_0.match_inst_cross_id = {}
-
--- Size: Match Inst Cross Id
-eurex_cash_eti_t7_v12_0.match_inst_cross_id.size = 4
-
--- Display: Match Inst Cross Id
-eurex_cash_eti_t7_v12_0.match_inst_cross_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Match Inst Cross Id: No Value"
-  end
-
-  return "Match Inst Cross Id: "..value
-end
-
--- Dissect: Match Inst Cross Id
-eurex_cash_eti_t7_v12_0.match_inst_cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.match_inst_cross_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.match_inst_cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.match_inst_cross_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Single Quote Request
@@ -15883,166 +20627,6 @@ eurex_cash_eti_t7_v12_0.single_quote_request.dissect = function(buffer, offset, 
   end
 end
 
--- Risk Control Rtm Service Status
-eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status = {}
-
--- Size: Risk Control Rtm Service Status
-eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.size = 1
-
--- Display: Risk Control Rtm Service Status
-eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.display = function(value)
-  if value == 0 then
-    return "Risk Control Rtm Service Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "Risk Control Rtm Service Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "Risk Control Rtm Service Status: No Value"
-  end
-
-  return "Risk Control Rtm Service Status: Unknown("..value..")"
-end
-
--- Dissect: Risk Control Rtm Service Status
-eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.risk_control_rtm_service_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_control_rtm_service_status, range, value, display)
-
-  return offset + length, value
-end
-
--- News Rtm Service Status
-eurex_cash_eti_t7_v12_0.news_rtm_service_status = {}
-
--- Size: News Rtm Service Status
-eurex_cash_eti_t7_v12_0.news_rtm_service_status.size = 1
-
--- Display: News Rtm Service Status
-eurex_cash_eti_t7_v12_0.news_rtm_service_status.display = function(value)
-  if value == 0 then
-    return "News Rtm Service Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "News Rtm Service Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "News Rtm Service Status: No Value"
-  end
-
-  return "News Rtm Service Status: Unknown("..value..")"
-end
-
--- Dissect: News Rtm Service Status
-eurex_cash_eti_t7_v12_0.news_rtm_service_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.news_rtm_service_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.news_rtm_service_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.news_rtm_service_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Selective Request For Quote Rtm Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status = {}
-
--- Size: Selective Request For Quote Rtm Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.size = 1
-
--- Display: Selective Request For Quote Rtm Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.display = function(value)
-  if value == 0 then
-    return "Selective Request For Quote Rtm Service Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "Selective Request For Quote Rtm Service Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "Selective Request For Quote Rtm Service Status: No Value"
-  end
-
-  return "Selective Request For Quote Rtm Service Status: Unknown("..value..")"
-end
-
--- Dissect: Selective Request For Quote Rtm Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.selective_request_for_quote_rtm_service_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.selective_request_for_quote_rtm_service_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Selective Request For Quote Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status = {}
-
--- Size: Selective Request For Quote Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.size = 1
-
--- Display: Selective Request For Quote Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.display = function(value)
-  if value == 0 then
-    return "Selective Request For Quote Service Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "Selective Request For Quote Service Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "Selective Request For Quote Service Status: No Value"
-  end
-
-  return "Selective Request For Quote Service Status: Unknown("..value..")"
-end
-
--- Dissect: Selective Request For Quote Service Status
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.selective_request_for_quote_service_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Selective Request For Quote Service Trade Date
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date = {}
-
--- Size: Selective Request For Quote Service Trade Date
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.size = 4
-
--- Display: Selective Request For Quote Service Trade Date
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Selective Request For Quote Service Trade Date: No Value"
-  end
-
-  return "Selective Request For Quote Service Trade Date: "..value
-end
-
--- Dissect: Selective Request For Quote Service Trade Date
-eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.selective_request_for_quote_service_trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.selective_request_for_quote_service_trade_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Nrbc Header Comp
 eurex_cash_eti_t7_v12_0.nrbc_header_comp = {}
 
@@ -16167,311 +20751,6 @@ eurex_cash_eti_t7_v12_0.service_availability_market_broadcast.dissect = function
   end
 end
 
--- T 7 Entry Service Rtm Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status = {}
-
--- Size: T 7 Entry Service Rtm Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.size = 1
-
--- Display: T 7 Entry Service Rtm Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.display = function(value)
-  if value == 0 then
-    return "T 7 Entry Service Rtm Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "T 7 Entry Service Rtm Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "T 7 Entry Service Rtm Status: No Value"
-  end
-
-  return "T 7 Entry Service Rtm Status: Unknown("..value..")"
-end
-
--- Dissect: T 7 Entry Service Rtm Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_rtm_status, range, value, display)
-
-  return offset + length, value
-end
-
--- T 7 Entry Service Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_status = {}
-
--- Size: T 7 Entry Service Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_status.size = 1
-
--- Display: T 7 Entry Service Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_status.display = function(value)
-  if value == 0 then
-    return "T 7 Entry Service Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "T 7 Entry Service Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "T 7 Entry Service Status: No Value"
-  end
-
-  return "T 7 Entry Service Status: Unknown("..value..")"
-end
-
--- Dissect: T 7 Entry Service Status
-eurex_cash_eti_t7_v12_0.t_7_entry_service_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Seq Status
-eurex_cash_eti_t7_v12_0.appl_seq_status = {}
-
--- Size: Appl Seq Status
-eurex_cash_eti_t7_v12_0.appl_seq_status.size = 1
-
--- Display: Appl Seq Status
-eurex_cash_eti_t7_v12_0.appl_seq_status.display = function(value)
-  if value == 0 then
-    return "Appl Seq Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "Appl Seq Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "Appl Seq Status: No Value"
-  end
-
-  return "Appl Seq Status: Unknown("..value..")"
-end
-
--- Dissect: Appl Seq Status
-eurex_cash_eti_t7_v12_0.appl_seq_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_seq_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_seq_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Manager Status
-eurex_cash_eti_t7_v12_0.trade_manager_status = {}
-
--- Size: Trade Manager Status
-eurex_cash_eti_t7_v12_0.trade_manager_status.size = 1
-
--- Display: Trade Manager Status
-eurex_cash_eti_t7_v12_0.trade_manager_status.display = function(value)
-  if value == 0 then
-    return "Trade Manager Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "Trade Manager Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "Trade Manager Status: No Value"
-  end
-
-  return "Trade Manager Status: Unknown("..value..")"
-end
-
--- Dissect: Trade Manager Status
-eurex_cash_eti_t7_v12_0.trade_manager_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_manager_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_manager_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_manager_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Matching Engine Status
-eurex_cash_eti_t7_v12_0.matching_engine_status = {}
-
--- Size: Matching Engine Status
-eurex_cash_eti_t7_v12_0.matching_engine_status.size = 1
-
--- Display: Matching Engine Status
-eurex_cash_eti_t7_v12_0.matching_engine_status.display = function(value)
-  if value == 0 then
-    return "Matching Engine Status: Unavailable (0)"
-  end
-  if value == 1 then
-    return "Matching Engine Status: Available (1)"
-  end
-  if value == 0xFF then
-    return "Matching Engine Status: No Value"
-  end
-
-  return "Matching Engine Status: Unknown("..value..")"
-end
-
--- Dissect: Matching Engine Status
-eurex_cash_eti_t7_v12_0.matching_engine_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.matching_engine_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.matching_engine_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.matching_engine_status, range, value, display)
-
-  return offset + length, value
-end
-
--- T 7 Entry Service Rtm Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date = {}
-
--- Size: T 7 Entry Service Rtm Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.size = 4
-
--- Display: T 7 Entry Service Rtm Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "T 7 Entry Service Rtm Trade Date: No Value"
-  end
-
-  return "T 7 Entry Service Rtm Trade Date: "..value
-end
-
--- Dissect: T 7 Entry Service Rtm Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_rtm_trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_rtm_trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- T 7 Entry Service Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date = {}
-
--- Size: T 7 Entry Service Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.size = 4
-
--- Display: T 7 Entry Service Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "T 7 Entry Service Trade Date: No Value"
-  end
-
-  return "T 7 Entry Service Trade Date: "..value
-end
-
--- Dissect: T 7 Entry Service Trade Date
-eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.t_7_entry_service_trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.t_7_entry_service_trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Seq Trade Date
-eurex_cash_eti_t7_v12_0.appl_seq_trade_date = {}
-
--- Size: Appl Seq Trade Date
-eurex_cash_eti_t7_v12_0.appl_seq_trade_date.size = 4
-
--- Display: Appl Seq Trade Date
-eurex_cash_eti_t7_v12_0.appl_seq_trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Appl Seq Trade Date: No Value"
-  end
-
-  return "Appl Seq Trade Date: "..value
-end
-
--- Dissect: Appl Seq Trade Date
-eurex_cash_eti_t7_v12_0.appl_seq_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_seq_trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_seq_trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_seq_trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Manager Trade Date
-eurex_cash_eti_t7_v12_0.trade_manager_trade_date = {}
-
--- Size: Trade Manager Trade Date
-eurex_cash_eti_t7_v12_0.trade_manager_trade_date.size = 4
-
--- Display: Trade Manager Trade Date
-eurex_cash_eti_t7_v12_0.trade_manager_trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Trade Manager Trade Date: No Value"
-  end
-
-  return "Trade Manager Trade Date: "..value
-end
-
--- Dissect: Trade Manager Trade Date
-eurex_cash_eti_t7_v12_0.trade_manager_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_manager_trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_manager_trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_manager_trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Matching Engine Trade Date
-eurex_cash_eti_t7_v12_0.matching_engine_trade_date = {}
-
--- Size: Matching Engine Trade Date
-eurex_cash_eti_t7_v12_0.matching_engine_trade_date.size = 4
-
--- Display: Matching Engine Trade Date
-eurex_cash_eti_t7_v12_0.matching_engine_trade_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Matching Engine Trade Date: No Value"
-  end
-
-  return "Matching Engine Trade Date: "..value
-end
-
--- Dissect: Matching Engine Trade Date
-eurex_cash_eti_t7_v12_0.matching_engine_trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.matching_engine_trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.matching_engine_trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.matching_engine_trade_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Service Availability Broadcast
 eurex_cash_eti_t7_v12_0.service_availability_broadcast = {}
 
@@ -16561,90 +20840,6 @@ eurex_cash_eti_t7_v12_0.service_availability_broadcast.dissect = function(buffer
   end
 end
 
--- Appl Total Message Count
-eurex_cash_eti_t7_v12_0.appl_total_message_count = {}
-
--- Size: Appl Total Message Count
-eurex_cash_eti_t7_v12_0.appl_total_message_count.size = 2
-
--- Display: Appl Total Message Count
-eurex_cash_eti_t7_v12_0.appl_total_message_count.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Appl Total Message Count: No Value"
-  end
-
-  return "Appl Total Message Count: "..value
-end
-
--- Dissect: Appl Total Message Count
-eurex_cash_eti_t7_v12_0.appl_total_message_count.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_total_message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_total_message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_total_message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Appl Last Seq Num
-eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num = {}
-
--- Size: Ref Appl Last Seq Num
-eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.size = 8
-
--- Display: Ref Appl Last Seq Num
-eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Ref Appl Last Seq Num: No Value"
-  end
-
-  return "Ref Appl Last Seq Num: "..value
-end
-
--- Dissect: Ref Appl Last Seq Num
-eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.ref_appl_last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ref_appl_last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl End Seq Num
-eurex_cash_eti_t7_v12_0.appl_end_seq_num = {}
-
--- Size: Appl End Seq Num
-eurex_cash_eti_t7_v12_0.appl_end_seq_num.size = 8
-
--- Display: Appl End Seq Num
-eurex_cash_eti_t7_v12_0.appl_end_seq_num.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Appl End Seq Num: No Value"
-  end
-
-  return "Appl End Seq Num: "..value
-end
-
--- Dissect: Appl End Seq Num
-eurex_cash_eti_t7_v12_0.appl_end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.appl_end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_end_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Retransmit Response
 eurex_cash_eti_t7_v12_0.retransmit_response = {}
 
@@ -16708,34 +20903,6 @@ eurex_cash_eti_t7_v12_0.retransmit_response.dissect = function(buffer, offset, p
 
     return index
   end
-end
-
--- Appl Beg Seq Num
-eurex_cash_eti_t7_v12_0.appl_beg_seq_num = {}
-
--- Size: Appl Beg Seq Num
-eurex_cash_eti_t7_v12_0.appl_beg_seq_num.size = 8
-
--- Display: Appl Beg Seq Num
-eurex_cash_eti_t7_v12_0.appl_beg_seq_num.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Appl Beg Seq Num: No Value"
-  end
-
-  return "Appl Beg Seq Num: "..value
-end
-
--- Dissect: Appl Beg Seq Num
-eurex_cash_eti_t7_v12_0.appl_beg_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_beg_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.appl_beg_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_beg_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmit Request
@@ -16809,29 +20976,6 @@ eurex_cash_eti_t7_v12_0.retransmit_request.dissect = function(buffer, offset, pa
   end
 end
 
--- Appl End Msg Id
-eurex_cash_eti_t7_v12_0.appl_end_msg_id = {}
-
--- Size: Appl End Msg Id
-eurex_cash_eti_t7_v12_0.appl_end_msg_id.size = 16
-
--- Display: Appl End Msg Id
-eurex_cash_eti_t7_v12_0.appl_end_msg_id.display = function(value)
-  return "Appl End Msg Id: "..value
-end
-
--- Dissect: Appl End Msg Id
-eurex_cash_eti_t7_v12_0.appl_end_msg_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_end_msg_id.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.appl_end_msg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_end_msg_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Retransmit Me Message Response
 eurex_cash_eti_t7_v12_0.retransmit_me_message_response = {}
 
@@ -16895,29 +21039,6 @@ eurex_cash_eti_t7_v12_0.retransmit_me_message_response.dissect = function(buffer
 
     return index
   end
-end
-
--- Appl Beg Msg Id
-eurex_cash_eti_t7_v12_0.appl_beg_msg_id = {}
-
--- Size: Appl Beg Msg Id
-eurex_cash_eti_t7_v12_0.appl_beg_msg_id.size = 16
-
--- Display: Appl Beg Msg Id
-eurex_cash_eti_t7_v12_0.appl_beg_msg_id.display = function(value)
-  return "Appl Beg Msg Id: "..value
-end
-
--- Dissect: Appl Beg Msg Id
-eurex_cash_eti_t7_v12_0.appl_beg_msg_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_beg_msg_id.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.appl_beg_msg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_beg_msg_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmit Me Message Request
@@ -16992,168 +21113,6 @@ eurex_cash_eti_t7_v12_0.retransmit_me_message_request.dissect = function(buffer,
 
     return index
   end
-end
-
--- Session Status
-eurex_cash_eti_t7_v12_0.session_status = {}
-
--- Size: Session Status
-eurex_cash_eti_t7_v12_0.session_status.size = 1
-
--- Display: Session Status
-eurex_cash_eti_t7_v12_0.session_status.display = function(value)
-  if value == 0 then
-    return "Session Status: Active (0)"
-  end
-  if value == 4 then
-    return "Session Status: Logout (4)"
-  end
-  if value == 0xFF then
-    return "Session Status: No Value"
-  end
-
-  return "Session Status: Unknown("..value..")"
-end
-
--- Dissect: Session Status
-eurex_cash_eti_t7_v12_0.session_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.session_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.session_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Reject Reason
-eurex_cash_eti_t7_v12_0.session_reject_reason = {}
-
--- Size: Session Reject Reason
-eurex_cash_eti_t7_v12_0.session_reject_reason.size = 4
-
--- Display: Session Reject Reason
-eurex_cash_eti_t7_v12_0.session_reject_reason.display = function(value)
-  if value == 1 then
-    return "Session Reject Reason: Required Tag Missing (1)"
-  end
-  if value == 5 then
-    return "Session Reject Reason: Valueisincorrect (5)"
-  end
-  if value == 7 then
-    return "Session Reject Reason: Decryptionproblem (7)"
-  end
-  if value == 11 then
-    return "Session Reject Reason: Invalid Msg Id (11)"
-  end
-  if value == 16 then
-    return "Session Reject Reason: Incorrect Num In Groupcount (16)"
-  end
-  if value == 99 then
-    return "Session Reject Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Session Reject Reason: Throttle Limit Exceeded (100)"
-  end
-  if value == 101 then
-    return "Session Reject Reason: Exposure Limit Exceeded (101)"
-  end
-  if value == 102 then
-    return "Session Reject Reason: Service Temporarily Not Available (102)"
-  end
-  if value == 103 then
-    return "Session Reject Reason: Service Not Available (103)"
-  end
-  if value == 105 then
-    return "Session Reject Reason: Outboundconversionerror (105)"
-  end
-  if value == 152 then
-    return "Session Reject Reason: Heartbeat Violation (152)"
-  end
-  if value == 200 then
-    return "Session Reject Reason: Internaltechnicalerror (200)"
-  end
-  if value == 210 then
-    return "Session Reject Reason: Validation Error (210)"
-  end
-  if value == 211 then
-    return "Session Reject Reason: User Already Logged In (211)"
-  end
-  if value == 216 then
-    return "Session Reject Reason: Gateway Is Standby (216)"
-  end
-  if value == 217 then
-    return "Session Reject Reason: Session Login Limit Reached (217)"
-  end
-  if value == 223 then
-    return "Session Reject Reason: User Entitlement Data Timeout (223)"
-  end
-  if value == 224 then
-    return "Session Reject Reason: Ps Gateway Session Limit Reached (224)"
-  end
-  if value == 225 then
-    return "Session Reject Reason: User Login Limit Reached (225)"
-  end
-  if value == 226 then
-    return "Session Reject Reason: Outstanding Logins Bu Limit Reached (226)"
-  end
-  if value == 227 then
-    return "Session Reject Reason: Outstanding Logins Session Limit Reached (227)"
-  end
-  if value == 228 then
-    return "Session Reject Reason: Password Timestamp Not In Grace Period (228)"
-  end
-  if value == 10000 then
-    return "Session Reject Reason: Order Not Found (10000)"
-  end
-  if value == 10001 then
-    return "Session Reject Reason: Price Not Reasonable (10001)"
-  end
-  if value == 10002 then
-    return "Session Reject Reason: Client Order Id Not Unique (10002)"
-  end
-  if value == 10003 then
-    return "Session Reject Reason: Quote Activation In Progress (10003)"
-  end
-  if value == 10006 then
-    return "Session Reject Reason: Stop Bid Price Not Reasonable (10006)"
-  end
-  if value == 10007 then
-    return "Session Reject Reason: Stop Ask Price Not Reasonable (10007)"
-  end
-  if value == 10008 then
-    return "Session Reject Reason: Order Not Executable Within Validity (10008)"
-  end
-  if value == 10009 then
-    return "Session Reject Reason: Invalid Trading Restriction For Instrument State (10009)"
-  end
-  if value == 10011 then
-    return "Session Reject Reason: Transaction Not Allowed In Current State (10011)"
-  end
-  if value == 10012 then
-    return "Session Reject Reason: Ordernotacceptedin Volatility Freeze (10012)"
-  end
-  if value == 10016 then
-    return "Session Reject Reason: Pretrade Risk Limit Exceeded (10016)"
-  end
-  if value == 0xFFFFFFFF then
-    return "Session Reject Reason: No Value"
-  end
-
-  return "Session Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Session Reject Reason
-eurex_cash_eti_t7_v12_0.session_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.session_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.session_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_reject_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Reject
@@ -17369,84 +21328,6 @@ eurex_cash_eti_t7_v12_0.rfq_response.dissect = function(buffer, offset, packet, 
 
     return index
   end
-end
-
--- Rfq Requester Disclosure Instruction
-eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction = {}
-
--- Size: Rfq Requester Disclosure Instruction
-eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.size = 1
-
--- Display: Rfq Requester Disclosure Instruction
-eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.display = function(value)
-  if value == 0 then
-    return "Rfq Requester Disclosure Instruction: No (0)"
-  end
-  if value == 1 then
-    return "Rfq Requester Disclosure Instruction: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Rfq Requester Disclosure Instruction: No Value"
-  end
-
-  return "Rfq Requester Disclosure Instruction: Unknown("..value..")"
-end
-
--- Dissect: Rfq Requester Disclosure Instruction
-eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.rfq_requester_disclosure_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.rfq_requester_disclosure_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Rfq Publish Indicator
-eurex_cash_eti_t7_v12_0.rfq_publish_indicator = {}
-
--- Size: Rfq Publish Indicator
-eurex_cash_eti_t7_v12_0.rfq_publish_indicator.size = 1
-
--- Display: Rfq Publish Indicator
-eurex_cash_eti_t7_v12_0.rfq_publish_indicator.display = function(value)
-  if value == 1 then
-    return "Rfq Publish Indicator: Market Data (1)"
-  end
-  if value == 2 then
-    return "Rfq Publish Indicator: Designated Sponsor (2)"
-  end
-  if value == 3 then
-    return "Rfq Publish Indicator: Market Dataand Designated Sponsor (3)"
-  end
-  if value == 4 then
-    return "Rfq Publish Indicator: Market Makerand Designated Sponsor (4)"
-  end
-  if value == 5 then
-    return "Rfq Publish Indicator: Market Dataand Market Makerand Designated Sponsor (5)"
-  end
-  if value == 6 then
-    return "Rfq Publish Indicator: Specialist (6)"
-  end
-  if value == 0xFF then
-    return "Rfq Publish Indicator: No Value"
-  end
-
-  return "Rfq Publish Indicator: Unknown("..value..")"
-end
-
--- Dissect: Rfq Publish Indicator
-eurex_cash_eti_t7_v12_0.rfq_publish_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.rfq_publish_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.rfq_publish_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.rfq_publish_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Rfq Request
@@ -17677,309 +21558,6 @@ eurex_cash_eti_t7_v12_0.rfq_broadcast.dissect = function(buffer, offset, packet,
   end
 end
 
--- Bbo Setting
-eurex_cash_eti_t7_v12_0.bbo_setting = {}
-
--- Size: Bbo Setting
-eurex_cash_eti_t7_v12_0.bbo_setting.size = 1
-
--- Display: Bbo Setting
-eurex_cash_eti_t7_v12_0.bbo_setting.display = function(value)
-  if value == 1 then
-    return "Bbo Setting: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Bbo Setting: No Value"
-  end
-
-  return "Bbo Setting: Unknown("..value..")"
-end
-
--- Dissect: Bbo Setting
-eurex_cash_eti_t7_v12_0.bbo_setting.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.bbo_setting.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.bbo_setting.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.bbo_setting, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Liquidity Ind
-eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind = {}
-
--- Size: Quote Event Liquidity Ind
-eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size = 1
-
--- Display: Quote Event Liquidity Ind
-eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.display = function(value)
-  if value == 1 then
-    return "Quote Event Liquidity Ind: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Quote Event Liquidity Ind: Removed Liquidity (2)"
-  end
-  if value == 4 then
-    return "Quote Event Liquidity Ind: Auction (4)"
-  end
-  if value == 0xFF then
-    return "Quote Event Liquidity Ind: No Value"
-  end
-
-  return "Quote Event Liquidity Ind: Unknown("..value..")"
-end
-
--- Dissect: Quote Event Liquidity Ind
-eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_event_liquidity_ind.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_liquidity_ind, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Side
-eurex_cash_eti_t7_v12_0.quote_event_side = {}
-
--- Size: Quote Event Side
-eurex_cash_eti_t7_v12_0.quote_event_side.size = 1
-
--- Display: Quote Event Side
-eurex_cash_eti_t7_v12_0.quote_event_side.display = function(value)
-  if value == 1 then
-    return "Quote Event Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Quote Event Side: Sell (2)"
-  end
-  if value == 0xFF then
-    return "Quote Event Side: No Value"
-  end
-
-  return "Quote Event Side: Unknown("..value..")"
-end
-
--- Dissect: Quote Event Side
-eurex_cash_eti_t7_v12_0.quote_event_side.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_event_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Type
-eurex_cash_eti_t7_v12_0.quote_event_type = {}
-
--- Size: Quote Event Type
-eurex_cash_eti_t7_v12_0.quote_event_type.size = 1
-
--- Display: Quote Event Type
-eurex_cash_eti_t7_v12_0.quote_event_type.display = function(value)
-  if value == 2 then
-    return "Quote Event Type: Modifiedquoteside (2)"
-  end
-  if value == 3 then
-    return "Quote Event Type: Removedquoteside (3)"
-  end
-  if value == 4 then
-    return "Quote Event Type: Partiallyfilled (4)"
-  end
-  if value == 5 then
-    return "Quote Event Type: Filled (5)"
-  end
-  if value == 6 then
-    return "Quote Event Type: Removed Quantity (6)"
-  end
-  if value == 0xFF then
-    return "Quote Event Type: No Value"
-  end
-
-  return "Quote Event Type: Unknown("..value..")"
-end
-
--- Dissect: Quote Event Type
-eurex_cash_eti_t7_v12_0.quote_event_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_event_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Exec Id
-eurex_cash_eti_t7_v12_0.quote_event_exec_id = {}
-
--- Size: Quote Event Exec Id
-eurex_cash_eti_t7_v12_0.quote_event_exec_id.size = 4
-
--- Display: Quote Event Exec Id
-eurex_cash_eti_t7_v12_0.quote_event_exec_id.display = function(value)
-  -- Check if field has value
-  if value == 0x80000000 then
-    return "Quote Event Exec Id: No Value"
-  end
-
-  return "Quote Event Exec Id: "..value
-end
-
--- Dissect: Quote Event Exec Id
-eurex_cash_eti_t7_v12_0.quote_event_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = eurex_cash_eti_t7_v12_0.quote_event_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Match Id
-eurex_cash_eti_t7_v12_0.quote_event_match_id = {}
-
--- Size: Quote Event Match Id
-eurex_cash_eti_t7_v12_0.quote_event_match_id.size = 4
-
--- Display: Quote Event Match Id
-eurex_cash_eti_t7_v12_0.quote_event_match_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Quote Event Match Id: No Value"
-  end
-
-  return "Quote Event Match Id: "..value
-end
-
--- Dissect: Quote Event Match Id
-eurex_cash_eti_t7_v12_0.quote_event_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_match_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_event_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Msg Id
-eurex_cash_eti_t7_v12_0.quote_msg_id = {}
-
--- Size: Quote Msg Id
-eurex_cash_eti_t7_v12_0.quote_msg_id.size = 8
-
--- Display: Quote Msg Id
-eurex_cash_eti_t7_v12_0.quote_msg_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Msg Id: No Value"
-  end
-
-  return "Quote Msg Id: "..value
-end
-
--- Dissect: Quote Msg Id
-eurex_cash_eti_t7_v12_0.quote_msg_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_msg_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.quote_msg_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_msg_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Qty
-eurex_cash_eti_t7_v12_0.quote_event_qty = {}
-
--- Size: Quote Event Qty
-eurex_cash_eti_t7_v12_0.quote_event_qty.size = 8
-
--- Display: Quote Event Qty
-eurex_cash_eti_t7_v12_0.quote_event_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Quote Event Qty: No Value"
-  end
-
-  return "Quote Event Qty: "..value
-end
-
--- Translate: Quote Event Qty
-eurex_cash_eti_t7_v12_0.quote_event_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Quote Event Qty
-eurex_cash_eti_t7_v12_0.quote_event_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.quote_event_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.quote_event_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Event Px
-eurex_cash_eti_t7_v12_0.quote_event_px = {}
-
--- Size: Quote Event Px
-eurex_cash_eti_t7_v12_0.quote_event_px.size = 8
-
--- Display: Quote Event Px
-eurex_cash_eti_t7_v12_0.quote_event_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Quote Event Px: No Value"
-  end
-
-  return "Quote Event Px: "..value
-end
-
--- Translate: Quote Event Px
-eurex_cash_eti_t7_v12_0.quote_event_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Quote Event Px
-eurex_cash_eti_t7_v12_0.quote_event_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_event_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.quote_event_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.quote_event_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_event_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Event Grp Comp
 eurex_cash_eti_t7_v12_0.quote_event_grp_comp = {}
 
@@ -18070,34 +21648,6 @@ eurex_cash_eti_t7_v12_0.quote_event_grp_comp.dissect = function(buffer, offset, 
   end
 end
 
--- No Quote Events
-eurex_cash_eti_t7_v12_0.no_quote_events = {}
-
--- Size: No Quote Events
-eurex_cash_eti_t7_v12_0.no_quote_events.size = 1
-
--- Display: No Quote Events
-eurex_cash_eti_t7_v12_0.no_quote_events.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Quote Events: No Value"
-  end
-
-  return "No Quote Events: "..value
-end
-
--- Dissect: No Quote Events
-eurex_cash_eti_t7_v12_0.no_quote_events.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_quote_events.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_quote_events.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_quote_events, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Execution Report
 eurex_cash_eti_t7_v12_0.quote_execution_report = {}
 
@@ -18168,34 +21718,6 @@ eurex_cash_eti_t7_v12_0.quote_execution_report.dissect = function(buffer, offset
   end
 end
 
--- Not Affected Security Id
-eurex_cash_eti_t7_v12_0.not_affected_security_id = {}
-
--- Size: Not Affected Security Id
-eurex_cash_eti_t7_v12_0.not_affected_security_id.size = 8
-
--- Display: Not Affected Security Id
-eurex_cash_eti_t7_v12_0.not_affected_security_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Not Affected Security Id: No Value"
-  end
-
-  return "Not Affected Security Id: "..value
-end
-
--- Dissect: Not Affected Security Id
-eurex_cash_eti_t7_v12_0.not_affected_security_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.not_affected_security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.not_affected_security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.not_affected_security_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Not Affected Securities Grp Comp
 eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp = {}
 
@@ -18240,34 +21762,6 @@ eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.dissect = function(buff
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.not_affected_securities_grp_comp.fields(buffer, offset, packet, parent, not_affected_securities_grp_comp_index)
   end
-end
-
--- No Not Affected Securities
-eurex_cash_eti_t7_v12_0.no_not_affected_securities = {}
-
--- Size: No Not Affected Securities
-eurex_cash_eti_t7_v12_0.no_not_affected_securities.size = 2
-
--- Display: No Not Affected Securities
-eurex_cash_eti_t7_v12_0.no_not_affected_securities.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Not Affected Securities: No Value"
-  end
-
-  return "No Not Affected Securities: "..value
-end
-
--- Dissect: No Not Affected Securities
-eurex_cash_eti_t7_v12_0.no_not_affected_securities.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_not_affected_securities.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_not_affected_securities.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_not_affected_securities, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Activation Response
@@ -18335,42 +21829,6 @@ eurex_cash_eti_t7_v12_0.quote_activation_response.dissect = function(buffer, off
 
     return index
   end
-end
-
--- Mass Action Type
-eurex_cash_eti_t7_v12_0.mass_action_type = {}
-
--- Size: Mass Action Type
-eurex_cash_eti_t7_v12_0.mass_action_type.size = 1
-
--- Display: Mass Action Type
-eurex_cash_eti_t7_v12_0.mass_action_type.display = function(value)
-  if value == 1 then
-    return "Mass Action Type: Suspendquotes (1)"
-  end
-  if value == 2 then
-    return "Mass Action Type: Releasequotes (2)"
-  end
-  if value == 3 then
-    return "Mass Action Type: Suspenddeletequotes (3)"
-  end
-  if value == 0xFF then
-    return "Mass Action Type: No Value"
-  end
-
-  return "Mass Action Type: Unknown("..value..")"
-end
-
--- Dissect: Mass Action Type
-eurex_cash_eti_t7_v12_0.mass_action_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.mass_action_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.mass_action_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.mass_action_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Activation Request
@@ -18535,78 +21993,6 @@ eurex_cash_eti_t7_v12_0.quote_activation_notification.dissect = function(buffer,
   end
 end
 
--- Risk Limit Type
-eurex_cash_eti_t7_v12_0.risk_limit_type = {}
-
--- Size: Risk Limit Type
-eurex_cash_eti_t7_v12_0.risk_limit_type.size = 1
-
--- Display: Risk Limit Type
-eurex_cash_eti_t7_v12_0.risk_limit_type.display = function(value)
-  if value == 4 then
-    return "Risk Limit Type: Longlimit (4)"
-  end
-  if value == 5 then
-    return "Risk Limit Type: Shortlimit (5)"
-  end
-  if value == 0xFF then
-    return "Risk Limit Type: No Value"
-  end
-
-  return "Risk Limit Type: Unknown("..value..")"
-end
-
--- Dissect: Risk Limit Type
-eurex_cash_eti_t7_v12_0.risk_limit_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Limit Amount
-eurex_cash_eti_t7_v12_0.risk_limit_amount = {}
-
--- Size: Risk Limit Amount
-eurex_cash_eti_t7_v12_0.risk_limit_amount.size = 8
-
--- Display: Risk Limit Amount
-eurex_cash_eti_t7_v12_0.risk_limit_amount.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Risk Limit Amount: No Value"
-  end
-
-  return "Risk Limit Amount: "..value
-end
-
--- Translate: Risk Limit Amount
-eurex_cash_eti_t7_v12_0.risk_limit_amount.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Risk Limit Amount
-eurex_cash_eti_t7_v12_0.risk_limit_amount.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_amount.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.risk_limit_amount.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_amount.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_amount, range, value, display)
-
-  return offset + length, value
-end
-
 -- Risk Limit Amount Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp = {}
 
@@ -18659,123 +22045,6 @@ eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.dissect = function(buffer, of
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.risk_limit_amount_grp_comp.fields(buffer, offset, packet, parent, risk_limit_amount_grp_comp_index)
   end
-end
-
--- Party Detail Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_executing_unit = {}
-
--- Size: Party Detail Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_executing_unit.size = 5
-
--- Display: Party Detail Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_executing_unit.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Detail Executing Unit: No Value"
-  end
-
-  return "Party Detail Executing Unit: "..value
-end
-
--- Dissect: Party Detail Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_executing_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_executing_unit.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_detail_executing_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_executing_unit, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Limit Group
-eurex_cash_eti_t7_v12_0.risk_limit_group = {}
-
--- Size: Risk Limit Group
-eurex_cash_eti_t7_v12_0.risk_limit_group.size = 3
-
--- Display: Risk Limit Group
-eurex_cash_eti_t7_v12_0.risk_limit_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Risk Limit Group: No Value"
-  end
-
-  return "Risk Limit Group: "..value
-end
-
--- Dissect: Risk Limit Group
-eurex_cash_eti_t7_v12_0.risk_limit_group.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_group.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Status
-eurex_cash_eti_t7_v12_0.party_detail_status = {}
-
--- Size: Party Detail Status
-eurex_cash_eti_t7_v12_0.party_detail_status.size = 1
-
--- Display: Party Detail Status
-eurex_cash_eti_t7_v12_0.party_detail_status.display = function(value)
-  if value == 0 then
-    return "Party Detail Status: Active (0)"
-  end
-  if value == 1 then
-    return "Party Detail Status: Suspend (1)"
-  end
-  if value == 0xFF then
-    return "Party Detail Status: No Value"
-  end
-
-  return "Party Detail Status: Unknown("..value..")"
-end
-
--- Dissect: Party Detail Status
-eurex_cash_eti_t7_v12_0.party_detail_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_detail_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_status, range, value, display)
-
-  return offset + length, value
-end
-
--- No Risk Limit Amount
-eurex_cash_eti_t7_v12_0.no_risk_limit_amount = {}
-
--- Size: No Risk Limit Amount
-eurex_cash_eti_t7_v12_0.no_risk_limit_amount.size = 1
-
--- Display: No Risk Limit Amount
-eurex_cash_eti_t7_v12_0.no_risk_limit_amount.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Risk Limit Amount: No Value"
-  end
-
-  return "No Risk Limit Amount: "..value
-end
-
--- Dissect: No Risk Limit Amount
-eurex_cash_eti_t7_v12_0.no_risk_limit_amount.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_risk_limit_amount.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_risk_limit_amount.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_risk_limit_amount, range, value, display)
-
-  return offset + length, value
 end
 
 -- Pre Trade Risk Limits Definition Request
@@ -18857,181 +22126,6 @@ eurex_cash_eti_t7_v12_0.pre_trade_risk_limits_definition_request.dissect = funct
   end
 end
 
--- Risk Limit Violation Indicator
-eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator = {}
-
--- Size: Risk Limit Violation Indicator
-eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size = 1
-
--- Display: Risk Limit Violation Indicator
-eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.display = function(value)
-  if value == 0 then
-    return "Risk Limit Violation Indicator: No (0)"
-  end
-  if value == 1 then
-    return "Risk Limit Violation Indicator: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Risk Limit Violation Indicator: No Value"
-  end
-
-  return "Risk Limit Violation Indicator: Unknown("..value..")"
-end
-
--- Dissect: Risk Limit Violation Indicator
-eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_violation_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_violation_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Limit Requesting Party Role
-eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role = {}
-
--- Size: Risk Limit Requesting Party Role
-eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size = 1
-
--- Display: Risk Limit Requesting Party Role
-eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.display = function(value)
-  if value == 4 then
-    return "Risk Limit Requesting Party Role: Clearingfirm (4)"
-  end
-  if value == 22 then
-    return "Risk Limit Requesting Party Role: Exchange (22)"
-  end
-  if value == 59 then
-    return "Risk Limit Requesting Party Role: Executingunit (59)"
-  end
-  if value == 0xFF then
-    return "Risk Limit Requesting Party Role: No Value"
-  end
-
-  return "Risk Limit Requesting Party Role: Unknown("..value..")"
-end
-
--- Dissect: Risk Limit Requesting Party Role
-eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_requesting_party_role.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_requesting_party_role, range, value, display)
-
-  return offset + length, value
-end
-
--- Activation Date
-eurex_cash_eti_t7_v12_0.activation_date = {}
-
--- Size: Activation Date
-eurex_cash_eti_t7_v12_0.activation_date.size = 4
-
--- Display: Activation Date
-eurex_cash_eti_t7_v12_0.activation_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Activation Date: No Value"
-  end
-
-  return "Activation Date: "..value
-end
-
--- Dissect: Activation Date
-eurex_cash_eti_t7_v12_0.activation_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.activation_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.activation_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.activation_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Limit Net Position Amount
-eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount = {}
-
--- Size: Risk Limit Net Position Amount
-eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size = 8
-
--- Display: Risk Limit Net Position Amount
-eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Risk Limit Net Position Amount: No Value"
-  end
-
-  return "Risk Limit Net Position Amount: "..value
-end
-
--- Translate: Risk Limit Net Position Amount
-eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Risk Limit Net Position Amount
-eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_net_position_amount.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_net_position_amount, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Limit Open Amount
-eurex_cash_eti_t7_v12_0.risk_limit_open_amount = {}
-
--- Size: Risk Limit Open Amount
-eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size = 8
-
--- Display: Risk Limit Open Amount
-eurex_cash_eti_t7_v12_0.risk_limit_open_amount.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Risk Limit Open Amount: No Value"
-  end
-
-  return "Risk Limit Open Amount: "..value
-end
-
--- Translate: Risk Limit Open Amount
-eurex_cash_eti_t7_v12_0.risk_limit_open_amount.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Risk Limit Open Amount
-eurex_cash_eti_t7_v12_0.risk_limit_open_amount.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_open_amount.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.risk_limit_open_amount.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_open_amount.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_open_amount, range, value, display)
-
-  return offset + length, value
-end
-
 -- Risk Limits Rpt Grp Comp
 eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp = {}
 
@@ -19108,62 +22202,6 @@ eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.risk_limits_rpt_grp_comp.fields(buffer, offset, packet, parent, risk_limits_rpt_grp_comp_index)
   end
-end
-
--- No Risk Limits
-eurex_cash_eti_t7_v12_0.no_risk_limits = {}
-
--- Size: No Risk Limits
-eurex_cash_eti_t7_v12_0.no_risk_limits.size = 1
-
--- Display: No Risk Limits
-eurex_cash_eti_t7_v12_0.no_risk_limits.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Risk Limits: No Value"
-  end
-
-  return "No Risk Limits: "..value
-end
-
--- Dissect: No Risk Limits
-eurex_cash_eti_t7_v12_0.no_risk_limits.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_risk_limits.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_risk_limits.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_risk_limits, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Limit Report Id
-eurex_cash_eti_t7_v12_0.risk_limit_report_id = {}
-
--- Size: Risk Limit Report Id
-eurex_cash_eti_t7_v12_0.risk_limit_report_id.size = 8
-
--- Display: Risk Limit Report Id
-eurex_cash_eti_t7_v12_0.risk_limit_report_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Risk Limit Report Id: No Value"
-  end
-
-  return "Risk Limit Report Id: "..value
-end
-
--- Dissect: Risk Limit Report Id
-eurex_cash_eti_t7_v12_0.risk_limit_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.risk_limit_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.risk_limit_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.risk_limit_report_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Pre Trade Risk Limit Response
@@ -19360,217 +22398,6 @@ eurex_cash_eti_t7_v12_0.ping_request.dissect = function(buffer, offset, packet, 
   end
 end
 
--- Requesting Party Clearing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm = {}
-
--- Size: Requesting Party Clearing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.size = 9
-
--- Display: Requesting Party Clearing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Clearing Firm: No Value"
-  end
-
-  return "Requesting Party Clearing Firm: "..value
-end
-
--- Dissect: Requesting Party Clearing Firm
-eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_clearing_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_clearing_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Party Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_entering_firm = {}
-
--- Size: Requesting Party Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.size = 9
-
--- Display: Requesting Party Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Entering Firm: No Value"
-  end
-
-  return "Requesting Party Entering Firm: "..value
-end
-
--- Dissect: Requesting Party Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_entering_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_entering_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- List Update Action
-eurex_cash_eti_t7_v12_0.list_update_action = {}
-
--- Size: List Update Action
-eurex_cash_eti_t7_v12_0.list_update_action.size = 1
-
--- Display: List Update Action
-eurex_cash_eti_t7_v12_0.list_update_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "List Update Action: No Value"
-  end
-
-  if value == "A" then
-    return "List Update Action: Add (A)"
-  end
-  if value == "D" then
-    return "List Update Action: Delete (D)"
-  end
-
-  return "List Update Action: Unknown("..value..")"
-end
-
--- Dissect: List Update Action
-eurex_cash_eti_t7_v12_0.list_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.list_update_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.list_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.list_update_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Id
-eurex_cash_eti_t7_v12_0.market_id = {}
-
--- Size: Market Id
-eurex_cash_eti_t7_v12_0.market_id.size = 2
-
--- Display: Market Id
-eurex_cash_eti_t7_v12_0.market_id.display = function(value)
-  if value == 3 then
-    return "Market Id: Xetr (3)"
-  end
-  if value == 4 then
-    return "Market Id: Xvie (4)"
-  end
-  if value == 6 then
-    return "Market Id: Xmal (6)"
-  end
-  if value == 7 then
-    return "Market Id: Xbul (7)"
-  end
-  if value == 8 then
-    return "Market Id: Xbud (8)"
-  end
-  if value == 9 then
-    return "Market Id: Xlju (9)"
-  end
-  if value == 10 then
-    return "Market Id: Xpra (10)"
-  end
-  if value == 11 then
-    return "Market Id: Xzag (11)"
-  end
-  if value == 13 then
-    return "Market Id: Xfra (13)"
-  end
-  if value == 0xFFFF then
-    return "Market Id: No Value"
-  end
-
-  return "Market Id: Unknown("..value..")"
-end
-
--- Dissect: Market Id
-eurex_cash_eti_t7_v12_0.market_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.market_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Party Id Executing System
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system = {}
-
--- Size: Requesting Party Id Executing System
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.size = 4
-
--- Display: Requesting Party Id Executing System
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.display = function(value)
-  if value == 2 then
-    return "Requesting Party Id Executing System: T 7 (2)"
-  end
-  if value == 0xFFFFFFFF then
-    return "Requesting Party Id Executing System: No Value"
-  end
-
-  return "Requesting Party Id Executing System: Unknown("..value..")"
-end
-
--- Dissect: Requesting Party Id Executing System
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_system.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_id_executing_system, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit = {}
-
--- Size: Party Detail Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.size = 4
-
--- Display: Party Detail Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Detail Id Executing Unit: No Value"
-  end
-
-  return "Party Detail Id Executing Unit: "..value
-end
-
--- Dissect: Party Detail Id Executing Unit
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_detail_id_executing_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_id_executing_unit, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Entitlements Update Report
 eurex_cash_eti_t7_v12_0.party_entitlements_update_report = {}
 
@@ -19654,100 +22481,6 @@ eurex_cash_eti_t7_v12_0.party_entitlements_update_report.dissect = function(buff
   end
 end
 
--- Requesting Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm = {}
-
--- Size: Requesting Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.size = 1
-
--- Display: Requesting Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.display = function(value)
-  if value == 1 then
-    return "Requesting Party Id Entering Firm: Participant (1)"
-  end
-  if value == 2 then
-    return "Requesting Party Id Entering Firm: Market Supervision (2)"
-  end
-  if value == 0xFF then
-    return "Requesting Party Id Entering Firm: No Value"
-  end
-
-  return "Requesting Party Id Entering Firm: Unknown("..value..")"
-end
-
--- Dissect: Requesting Party Id Entering Firm
-eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_id_entering_firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_id_entering_firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Action Type
-eurex_cash_eti_t7_v12_0.party_action_type = {}
-
--- Size: Party Action Type
-eurex_cash_eti_t7_v12_0.party_action_type.size = 1
-
--- Display: Party Action Type
-eurex_cash_eti_t7_v12_0.party_action_type.display = function(value)
-  if value == 1 then
-    return "Party Action Type: Halt Trading (1)"
-  end
-  if value == 2 then
-    return "Party Action Type: Reinstate (2)"
-  end
-  if value == 0xFF then
-    return "Party Action Type: No Value"
-  end
-
-  return "Party Action Type: Unknown("..value..")"
-end
-
--- Dissect: Party Action Type
-eurex_cash_eti_t7_v12_0.party_action_type.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_action_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_action_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_action_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader = {}
-
--- Size: Requesting Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.size = 4
-
--- Display: Requesting Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Requesting Party Id Executing Trader: No Value"
-  end
-
-  return "Requesting Party Id Executing Trader: "..value
-end
-
--- Dissect: Requesting Party Id Executing Trader
-eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.requesting_party_id_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.requesting_party_id_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Action Report
 eurex_cash_eti_t7_v12_0.party_action_report = {}
 
@@ -19828,142 +22561,6 @@ eurex_cash_eti_t7_v12_0.party_action_report.dissect = function(buffer, offset, p
   end
 end
 
--- Order Event Reason
-eurex_cash_eti_t7_v12_0.order_event_reason = {}
-
--- Size: Order Event Reason
-eurex_cash_eti_t7_v12_0.order_event_reason.size = 1
-
--- Display: Order Event Reason
-eurex_cash_eti_t7_v12_0.order_event_reason.display = function(value)
-  if value == 100 then
-    return "Order Event Reason: Smp (100)"
-  end
-  if value == 0xFF then
-    return "Order Event Reason: No Value"
-  end
-
-  return "Order Event Reason: Unknown("..value..")"
-end
-
--- Dissect: Order Event Reason
-eurex_cash_eti_t7_v12_0.order_event_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_event_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.order_event_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Match Id
-eurex_cash_eti_t7_v12_0.order_event_match_id = {}
-
--- Size: Order Event Match Id
-eurex_cash_eti_t7_v12_0.order_event_match_id.size = 4
-
--- Display: Order Event Match Id
-eurex_cash_eti_t7_v12_0.order_event_match_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Order Event Match Id: No Value"
-  end
-
-  return "Order Event Match Id: "..value
-end
-
--- Dissect: Order Event Match Id
-eurex_cash_eti_t7_v12_0.order_event_match_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_event_match_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.order_event_match_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_match_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Qty
-eurex_cash_eti_t7_v12_0.order_event_qty = {}
-
--- Size: Order Event Qty
-eurex_cash_eti_t7_v12_0.order_event_qty.size = 8
-
--- Display: Order Event Qty
-eurex_cash_eti_t7_v12_0.order_event_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Order Event Qty: No Value"
-  end
-
-  return "Order Event Qty: "..value
-end
-
--- Translate: Order Event Qty
-eurex_cash_eti_t7_v12_0.order_event_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Order Event Qty
-eurex_cash_eti_t7_v12_0.order_event_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_event_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.order_event_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.order_event_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Px
-eurex_cash_eti_t7_v12_0.order_event_px = {}
-
--- Size: Order Event Px
-eurex_cash_eti_t7_v12_0.order_event_px.size = 8
-
--- Display: Order Event Px
-eurex_cash_eti_t7_v12_0.order_event_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Order Event Px: No Value"
-  end
-
-  return "Order Event Px: "..value
-end
-
--- Translate: Order Event Px
-eurex_cash_eti_t7_v12_0.order_event_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Order Event Px
-eurex_cash_eti_t7_v12_0.order_event_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_event_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.order_event_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.order_event_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_event_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Event Grp Comp
 eurex_cash_eti_t7_v12_0.order_event_grp_comp = {}
 
@@ -20024,139 +22621,6 @@ eurex_cash_eti_t7_v12_0.order_event_grp_comp.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.order_event_grp_comp.fields(buffer, offset, packet, parent, order_event_grp_comp_index)
   end
-end
-
--- No Order Events
-eurex_cash_eti_t7_v12_0.no_order_events = {}
-
--- Size: No Order Events
-eurex_cash_eti_t7_v12_0.no_order_events.size = 1
-
--- Display: No Order Events
-eurex_cash_eti_t7_v12_0.no_order_events.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Order Events: No Value"
-  end
-
-  return "No Order Events: "..value
-end
-
--- Dissect: No Order Events
-eurex_cash_eti_t7_v12_0.no_order_events.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_order_events.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_order_events.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_order_events, range, value, display)
-
-  return offset + length, value
-end
-
--- Transaction Delay Indicator
-eurex_cash_eti_t7_v12_0.transaction_delay_indicator = {}
-
--- Size: Transaction Delay Indicator
-eurex_cash_eti_t7_v12_0.transaction_delay_indicator.size = 1
-
--- Display: Transaction Delay Indicator
-eurex_cash_eti_t7_v12_0.transaction_delay_indicator.display = function(value)
-  if value == 0 then
-    return "Transaction Delay Indicator: Notdelayed (0)"
-  end
-  if value == 1 then
-    return "Transaction Delay Indicator: Delayed (1)"
-  end
-  if value == 0xFF then
-    return "Transaction Delay Indicator: No Value"
-  end
-
-  return "Transaction Delay Indicator: Unknown("..value..")"
-end
-
--- Dissect: Transaction Delay Indicator
-eurex_cash_eti_t7_v12_0.transaction_delay_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.transaction_delay_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.transaction_delay_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.transaction_delay_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Crossed Indicator
-eurex_cash_eti_t7_v12_0.crossed_indicator = {}
-
--- Size: Crossed Indicator
-eurex_cash_eti_t7_v12_0.crossed_indicator.size = 1
-
--- Display: Crossed Indicator
-eurex_cash_eti_t7_v12_0.crossed_indicator.display = function(value)
-  if value == 0 then
-    return "Crossed Indicator: Nocrossing (0)"
-  end
-  if value == 1 then
-    return "Crossed Indicator: Crossrejected (1)"
-  end
-  if value == 0xFF then
-    return "Crossed Indicator: No Value"
-  end
-
-  return "Crossed Indicator: Unknown("..value..")"
-end
-
--- Dissect: Crossed Indicator
-eurex_cash_eti_t7_v12_0.crossed_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.crossed_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.crossed_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.crossed_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Qty
-eurex_cash_eti_t7_v12_0.display_qty = {}
-
--- Size: Display Qty
-eurex_cash_eti_t7_v12_0.display_qty.size = 8
-
--- Display: Display Qty
-eurex_cash_eti_t7_v12_0.display_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Display Qty: No Value"
-  end
-
-  return "Display Qty: "..value
-end
-
--- Translate: Display Qty
-eurex_cash_eti_t7_v12_0.display_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Display Qty
-eurex_cash_eti_t7_v12_0.display_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.display_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.display_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.display_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.display_qty, range, value, display)
-
-  return offset + length, value
 end
 
 -- Response Header Me Comp
@@ -20371,195 +22835,6 @@ eurex_cash_eti_t7_v12_0.order_exec_response.dissect = function(buffer, offset, p
 
     return index
   end
-end
-
--- Trade At Close Opt In
-eurex_cash_eti_t7_v12_0.trade_at_close_opt_in = {}
-
--- Size: Trade At Close Opt In
-eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.size = 1
-
--- Display: Trade At Close Opt In
-eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.display = function(value)
-  if value == 0 then
-    return "Trade At Close Opt In: No (0)"
-  end
-  if value == 1 then
-    return "Trade At Close Opt In: Yes (1)"
-  end
-  if value == 0xFF then
-    return "Trade At Close Opt In: No Value"
-  end
-
-  return "Trade At Close Opt In: Unknown("..value..")"
-end
-
--- Dissect: Trade At Close Opt In
-eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trade_at_close_opt_in.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trade_at_close_opt_in, range, value, display)
-
-  return offset + length, value
-end
-
--- Peg Offset Value Pct
-eurex_cash_eti_t7_v12_0.peg_offset_value_pct = {}
-
--- Size: Peg Offset Value Pct
-eurex_cash_eti_t7_v12_0.peg_offset_value_pct.size = 8
-
--- Display: Peg Offset Value Pct
-eurex_cash_eti_t7_v12_0.peg_offset_value_pct.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Peg Offset Value Pct: No Value"
-  end
-
-  return "Peg Offset Value Pct: "..value
-end
-
--- Translate: Peg Offset Value Pct
-eurex_cash_eti_t7_v12_0.peg_offset_value_pct.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Peg Offset Value Pct
-eurex_cash_eti_t7_v12_0.peg_offset_value_pct.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.peg_offset_value_pct.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.peg_offset_value_pct.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.peg_offset_value_pct.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.peg_offset_value_pct, range, value, display)
-
-  return offset + length, value
-end
-
--- Peg Offset Value Abs
-eurex_cash_eti_t7_v12_0.peg_offset_value_abs = {}
-
--- Size: Peg Offset Value Abs
-eurex_cash_eti_t7_v12_0.peg_offset_value_abs.size = 8
-
--- Display: Peg Offset Value Abs
-eurex_cash_eti_t7_v12_0.peg_offset_value_abs.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Peg Offset Value Abs: No Value"
-  end
-
-  return "Peg Offset Value Abs: "..value
-end
-
--- Translate: Peg Offset Value Abs
-eurex_cash_eti_t7_v12_0.peg_offset_value_abs.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Peg Offset Value Abs
-eurex_cash_eti_t7_v12_0.peg_offset_value_abs.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.peg_offset_value_abs.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.peg_offset_value_abs.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.peg_offset_value_abs.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.peg_offset_value_abs, range, value, display)
-
-  return offset + length, value
-end
-
--- Display High Qty
-eurex_cash_eti_t7_v12_0.display_high_qty = {}
-
--- Size: Display High Qty
-eurex_cash_eti_t7_v12_0.display_high_qty.size = 8
-
--- Display: Display High Qty
-eurex_cash_eti_t7_v12_0.display_high_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Display High Qty: No Value"
-  end
-
-  return "Display High Qty: "..value
-end
-
--- Translate: Display High Qty
-eurex_cash_eti_t7_v12_0.display_high_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Display High Qty
-eurex_cash_eti_t7_v12_0.display_high_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.display_high_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.display_high_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.display_high_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.display_high_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Low Qty
-eurex_cash_eti_t7_v12_0.display_low_qty = {}
-
--- Size: Display Low Qty
-eurex_cash_eti_t7_v12_0.display_low_qty.size = 8
-
--- Display: Display Low Qty
-eurex_cash_eti_t7_v12_0.display_low_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Display Low Qty: No Value"
-  end
-
-  return "Display Low Qty: "..value
-end
-
--- Translate: Display Low Qty
-eurex_cash_eti_t7_v12_0.display_low_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Display Low Qty
-eurex_cash_eti_t7_v12_0.display_low_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.display_low_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.display_low_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.display_low_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.display_low_qty, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Exec Report Broadcast
@@ -20922,67 +23197,6 @@ eurex_cash_eti_t7_v12_0.order_exec_notification.dissect = function(buffer, offse
   end
 end
 
--- Headline
-eurex_cash_eti_t7_v12_0.headline = {}
-
--- Size: Headline
-eurex_cash_eti_t7_v12_0.headline.size = 256
-
--- Display: Headline
-eurex_cash_eti_t7_v12_0.headline.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Headline: No Value"
-  end
-
-  return "Headline: "..value
-end
-
--- Dissect: Headline
-eurex_cash_eti_t7_v12_0.headline.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.headline.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.headline.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.headline, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Time
-eurex_cash_eti_t7_v12_0.orig_time = {}
-
--- Size: Orig Time
-eurex_cash_eti_t7_v12_0.orig_time.size = 8
-
--- Display: Orig Time
-eurex_cash_eti_t7_v12_0.orig_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Orig Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Orig Time
-eurex_cash_eti_t7_v12_0.orig_time.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.orig_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.orig_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.orig_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- News Broadcast
 eurex_cash_eti_t7_v12_0.news_broadcast = {}
 
@@ -21063,34 +23277,6 @@ eurex_cash_eti_t7_v12_0.news_broadcast.dissect = function(buffer, offset, packet
 
     return index
   end
-end
-
--- Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.enrichment_rule_id = {}
-
--- Size: Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.enrichment_rule_id.size = 2
-
--- Display: Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.enrichment_rule_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Enrichment Rule Id: No Value"
-  end
-
-  return "Enrichment Rule Id: "..value
-end
-
--- Dissect: Enrichment Rule Id
-eurex_cash_eti_t7_v12_0.enrichment_rule_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.enrichment_rule_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.enrichment_rule_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.enrichment_rule_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- New Order Single Short Request
@@ -21904,72 +24090,6 @@ eurex_cash_eti_t7_v12_0.modify_order_single_short_request.dissect = function(buf
   end
 end
 
--- Ownership Indicator
-eurex_cash_eti_t7_v12_0.ownership_indicator = {}
-
--- Size: Ownership Indicator
-eurex_cash_eti_t7_v12_0.ownership_indicator.size = 1
-
--- Display: Ownership Indicator
-eurex_cash_eti_t7_v12_0.ownership_indicator.display = function(value)
-  if value == 0 then
-    return "Ownership Indicator: No Changeof Ownership (0)"
-  end
-  if value == 1 then
-    return "Ownership Indicator: Changeto Executing Trader (1)"
-  end
-  if value == 0xFF then
-    return "Ownership Indicator: No Value"
-  end
-
-  return "Ownership Indicator: Unknown("..value..")"
-end
-
--- Dissect: Ownership Indicator
-eurex_cash_eti_t7_v12_0.ownership_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.ownership_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.ownership_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.ownership_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Px Indicator
-eurex_cash_eti_t7_v12_0.stop_px_indicator = {}
-
--- Size: Stop Px Indicator
-eurex_cash_eti_t7_v12_0.stop_px_indicator.size = 1
-
--- Display: Stop Px Indicator
-eurex_cash_eti_t7_v12_0.stop_px_indicator.display = function(value)
-  if value == 0 then
-    return "Stop Px Indicator: Donotoverwrite (0)"
-  end
-  if value == 1 then
-    return "Stop Px Indicator: Overwrite (1)"
-  end
-  if value == 0xFF then
-    return "Stop Px Indicator: No Value"
-  end
-
-  return "Stop Px Indicator: Unknown("..value..")"
-end
-
--- Dissect: Stop Px Indicator
-eurex_cash_eti_t7_v12_0.stop_px_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.stop_px_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.stop_px_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.stop_px_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Modify Order Single Request
 eurex_cash_eti_t7_v12_0.modify_order_single_request = {}
 
@@ -22391,243 +24511,6 @@ eurex_cash_eti_t7_v12_0.modify_order_nr_response.dissect = function(buffer, offs
   end
 end
 
--- Quote Entry Status
-eurex_cash_eti_t7_v12_0.quote_entry_status = {}
-
--- Size: Quote Entry Status
-eurex_cash_eti_t7_v12_0.quote_entry_status.size = 1
-
--- Display: Quote Entry Status
-eurex_cash_eti_t7_v12_0.quote_entry_status.display = function(value)
-  if value == 0 then
-    return "Quote Entry Status: Accepted (0)"
-  end
-  if value == 5 then
-    return "Quote Entry Status: Rejected (5)"
-  end
-  if value == 6 then
-    return "Quote Entry Status: Removedand Rejected (6)"
-  end
-  if value == 10 then
-    return "Quote Entry Status: Pending (10)"
-  end
-  if value == 0xFF then
-    return "Quote Entry Status: No Value"
-  end
-
-  return "Quote Entry Status: Unknown("..value..")"
-end
-
--- Dissect: Quote Entry Status
-eurex_cash_eti_t7_v12_0.quote_entry_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_entry_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_entry_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_entry_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Entry Reject Reason
-eurex_cash_eti_t7_v12_0.quote_entry_reject_reason = {}
-
--- Size: Quote Entry Reject Reason
-eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size = 4
-
--- Display: Quote Entry Reject Reason
-eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.display = function(value)
-  if value == 1 then
-    return "Quote Entry Reject Reason: Unknown Security (1)"
-  end
-  if value == 6 then
-    return "Quote Entry Reject Reason: Duplicate Quote (6)"
-  end
-  if value == 8 then
-    return "Quote Entry Reject Reason: Invalid Price (8)"
-  end
-  if value == 16 then
-    return "Quote Entry Reject Reason: No Reference Price Available (16)"
-  end
-  if value == 100 then
-    return "Quote Entry Reject Reason: No Single Sided Quotes (100)"
-  end
-  if value == 103 then
-    return "Quote Entry Reject Reason: Invalid Quoting Model (103)"
-  end
-  if value == 106 then
-    return "Quote Entry Reject Reason: Invalid Size (106)"
-  end
-  if value == 108 then
-    return "Quote Entry Reject Reason: Bid Price Not Reasonable (108)"
-  end
-  if value == 109 then
-    return "Quote Entry Reject Reason: Ask Price Not Reasonable (109)"
-  end
-  if value == 110 then
-    return "Quote Entry Reject Reason: Bid Price Exceeds Range (110)"
-  end
-  if value == 111 then
-    return "Quote Entry Reject Reason: Ask Price Exceeds Range (111)"
-  end
-  if value == 115 then
-    return "Quote Entry Reject Reason: Instrument State Freeze (115)"
-  end
-  if value == 116 then
-    return "Quote Entry Reject Reason: Deletion Already Pending (116)"
-  end
-  if value == 120 then
-    return "Quote Entry Reject Reason: Bid Value Exceeds Limit (120)"
-  end
-  if value == 121 then
-    return "Quote Entry Reject Reason: Ask Value Exceeds Limit (121)"
-  end
-  if value == 122 then
-    return "Quote Entry Reject Reason: Not Tradeable For Business Unit (122)"
-  end
-  if value == 125 then
-    return "Quote Entry Reject Reason: Quantity Limit Exceeded (125)"
-  end
-  if value == 126 then
-    return "Quote Entry Reject Reason: Value Limit Exceeded (126)"
-  end
-  if value == 127 then
-    return "Quote Entry Reject Reason: Invalid Quote Spread (127)"
-  end
-  if value == 131 then
-    return "Quote Entry Reject Reason: Cant Proc In Curr Instr State (131)"
-  end
-  if value == 134 then
-    return "Quote Entry Reject Reason: Invalid Quote Type (134)"
-  end
-  if value == 135 then
-    return "Quote Entry Reject Reason: Pwt Quotenotallowedincurrentstate (135)"
-  end
-  if value == 136 then
-    return "Quote Entry Reject Reason: Standard Quotenotallowedincurrentstate (136)"
-  end
-  if value == 137 then
-    return "Quote Entry Reject Reason: Pwt Quotenotallowedwithcrossedbook (137)"
-  end
-  if value == 138 then
-    return "Quote Entry Reject Reason: Asksidequotenotallowed (138)"
-  end
-  if value == 139 then
-    return "Quote Entry Reject Reason: Asksidequotewithqtynotallowed (139)"
-  end
-  if value == 140 then
-    return "Quote Entry Reject Reason: Invalidchange L Psession (140)"
-  end
-  if value == 144 then
-    return "Quote Entry Reject Reason: On Book Tradingdisabledfor Instrument Type (144)"
-  end
-  if value == 145 then
-    return "Quote Entry Reject Reason: L Plicencenotassigned (145)"
-  end
-  if value == 146 then
-    return "Quote Entry Reject Reason: S Plicencenotassigned (146)"
-  end
-  if value == 147 then
-    return "Quote Entry Reject Reason: Liquidityproviderprotectionbidsidecancelled (147)"
-  end
-  if value == 148 then
-    return "Quote Entry Reject Reason: Liquidityproviderprotectionasksidecancelled (148)"
-  end
-  if value == 149 then
-    return "Quote Entry Reject Reason: Quantity Limit Exceeded Instrument (149)"
-  end
-  if value == 150 then
-    return "Quote Entry Reject Reason: Value Limit Exceeded Instrument (150)"
-  end
-  if value == 151 then
-    return "Quote Entry Reject Reason: Issuer Stopped (151)"
-  end
-  if value == 152 then
-    return "Quote Entry Reject Reason: Partial Exec Of Qrs Order (152)"
-  end
-  if value == 153 then
-    return "Quote Entry Reject Reason: Matching Quote Not Allowed In Current State (153)"
-  end
-  if value == 155 then
-    return "Quote Entry Reject Reason: Outside Quoting Period (155)"
-  end
-  if value == 156 then
-    return "Quote Entry Reject Reason: Match Price Not On Price Step (156)"
-  end
-  if value == 161 then
-    return "Quote Entry Reject Reason: Quantity Limit Exceeds Tsl (161)"
-  end
-  if value == 162 then
-    return "Quote Entry Reject Reason: Invalid Trading Session Sub I Dfor Instrument (162)"
-  end
-  if value == 163 then
-    return "Quote Entry Reject Reason: Too Many Ordersand Quotesin Order Book (163)"
-  end
-  if value == 164 then
-    return "Quote Entry Reject Reason: Inactive Cover (164)"
-  end
-  if value == 165 then
-    return "Quote Entry Reject Reason: Indicative Quotenotallowedincurrentstate (165)"
-  end
-  if value == 0xFFFFFFFF then
-    return "Quote Entry Reject Reason: No Value"
-  end
-
-  return "Quote Entry Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Quote Entry Reject Reason
-eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.quote_entry_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_entry_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Cxl Size
-eurex_cash_eti_t7_v12_0.cxl_size = {}
-
--- Size: Cxl Size
-eurex_cash_eti_t7_v12_0.cxl_size.size = 8
-
--- Display: Cxl Size
-eurex_cash_eti_t7_v12_0.cxl_size.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Cxl Size: No Value"
-  end
-
-  return "Cxl Size: "..value
-end
-
--- Translate: Cxl Size
-eurex_cash_eti_t7_v12_0.cxl_size.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Cxl Size
-eurex_cash_eti_t7_v12_0.cxl_size.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.cxl_size.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.cxl_size.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.cxl_size.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.cxl_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Entry Ack Grp Comp
 eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp = {}
 
@@ -22692,67 +24575,6 @@ eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.quote_entry_ack_grp_comp.fields(buffer, offset, packet, parent, quote_entry_ack_grp_comp_index)
   end
-end
-
--- No Quote Side Entries
-eurex_cash_eti_t7_v12_0.no_quote_side_entries = {}
-
--- Size: No Quote Side Entries
-eurex_cash_eti_t7_v12_0.no_quote_side_entries.size = 1
-
--- Display: No Quote Side Entries
-eurex_cash_eti_t7_v12_0.no_quote_side_entries.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Quote Side Entries: No Value"
-  end
-
-  return "No Quote Side Entries: "..value
-end
-
--- Dissect: No Quote Side Entries
-eurex_cash_eti_t7_v12_0.no_quote_side_entries.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_quote_side_entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_quote_side_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_quote_side_entries, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Response Id
-eurex_cash_eti_t7_v12_0.quote_response_id = {}
-
--- Size: Quote Response Id
-eurex_cash_eti_t7_v12_0.quote_response_id.size = 8
-
--- Display: Quote Response Id
-eurex_cash_eti_t7_v12_0.quote_response_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Response Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Quote Response Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Quote Response Id
-eurex_cash_eti_t7_v12_0.quote_response_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.quote_response_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = eurex_cash_eti_t7_v12_0.quote_response_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.quote_response_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mass Quote Response
@@ -23111,245 +24933,6 @@ eurex_cash_eti_t7_v12_0.logout_request.dissect = function(buffer, offset, packet
   end
 end
 
--- Public Key
-eurex_cash_eti_t7_v12_0.public_key = {}
-
--- Display: Public Key
-eurex_cash_eti_t7_v12_0.public_key.display = function(value)
-  return "Public Key: "..value
-end
-
--- Dissect runtime sized field: Public Key
-eurex_cash_eti_t7_v12_0.public_key.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = eurex_cash_eti_t7_v12_0.public_key.display(value, packet, parent, size)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.public_key, range, value, display)
-
-  return offset + size, value
-end
-
--- Default Cstm Appl Ver Sub Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id = {}
-
--- Size: Default Cstm Appl Ver Sub Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.size = 5
-
--- Display: Default Cstm Appl Ver Sub Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.display = function(value)
-  if value == "C0001" then
-    return "Default Cstm Appl Ver Sub Id: Cash (C0001)"
-  end
-
-  return "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
-end
-
--- Dissect: Default Cstm Appl Ver Sub Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_sub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.default_cstm_appl_ver_sub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Default Cstm Appl Ver Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id = {}
-
--- Size: Default Cstm Appl Ver Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.size = 30
-
--- Display: Default Cstm Appl Ver Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Default Cstm Appl Ver Id: No Value"
-  end
-
-  return "Default Cstm Appl Ver Id: "..value
-end
-
--- Dissect: Default Cstm Appl Ver Id
-eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.default_cstm_appl_ver_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.default_cstm_appl_ver_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Trad Ses Mode
-eurex_cash_eti_t7_v12_0.trad_ses_mode = {}
-
--- Size: Trad Ses Mode
-eurex_cash_eti_t7_v12_0.trad_ses_mode.size = 1
-
--- Display: Trad Ses Mode
-eurex_cash_eti_t7_v12_0.trad_ses_mode.display = function(value)
-  if value == 1 then
-    return "Trad Ses Mode: Testing (1)"
-  end
-  if value == 2 then
-    return "Trad Ses Mode: Simulated (2)"
-  end
-  if value == 3 then
-    return "Trad Ses Mode: Production (3)"
-  end
-  if value == 4 then
-    return "Trad Ses Mode: Acceptance (4)"
-  end
-  if value == 5 then
-    return "Trad Ses Mode: Disaster Recovery (5)"
-  end
-  if value == 0xFF then
-    return "Trad Ses Mode: No Value"
-  end
-
-  return "Trad Ses Mode: Unknown("..value..")"
-end
-
--- Dissect: Trad Ses Mode
-eurex_cash_eti_t7_v12_0.trad_ses_mode.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.trad_ses_mode.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.trad_ses_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.trad_ses_mode, range, value, display)
-
-  return offset + length, value
-end
-
--- Public Key Len
-eurex_cash_eti_t7_v12_0.public_key_len = {}
-
--- Size: Public Key Len
-eurex_cash_eti_t7_v12_0.public_key_len.size = 2
-
--- Display: Public Key Len
-eurex_cash_eti_t7_v12_0.public_key_len.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Public Key Len: No Value"
-  end
-
-  return "Public Key Len: "..value
-end
-
--- Dissect: Public Key Len
-eurex_cash_eti_t7_v12_0.public_key_len.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.public_key_len.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.public_key_len.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.public_key_len, range, value, display)
-
-  return offset + length, value
-end
-
--- Latest Public Key Seq No
-eurex_cash_eti_t7_v12_0.latest_public_key_seq_no = {}
-
--- Size: Latest Public Key Seq No
-eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.size = 4
-
--- Display: Latest Public Key Seq No
-eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Latest Public Key Seq No: No Value"
-  end
-
-  return "Latest Public Key Seq No: "..value
-end
-
--- Dissect: Latest Public Key Seq No
-eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.latest_public_key_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.latest_public_key_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Instance Id
-eurex_cash_eti_t7_v12_0.session_instance_id = {}
-
--- Size: Session Instance Id
-eurex_cash_eti_t7_v12_0.session_instance_id.size = 4
-
--- Display: Session Instance Id
-eurex_cash_eti_t7_v12_0.session_instance_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Session Instance Id: No Value"
-  end
-
-  return "Session Instance Id: "..value
-end
-
--- Dissect: Session Instance Id
-eurex_cash_eti_t7_v12_0.session_instance_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.session_instance_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.session_instance_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_instance_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Heart Bt Int
-eurex_cash_eti_t7_v12_0.heart_bt_int = {}
-
--- Size: Heart Bt Int
-eurex_cash_eti_t7_v12_0.heart_bt_int.size = 4
-
--- Display: Heart Bt Int
-eurex_cash_eti_t7_v12_0.heart_bt_int.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Heart Bt Int: No Value"
-  end
-
-  return "Heart Bt Int: "..value
-end
-
--- Dissect: Heart Bt Int
-eurex_cash_eti_t7_v12_0.heart_bt_int.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.heart_bt_int.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.heart_bt_int.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.heart_bt_int, range, value, display)
-
-  return offset + length, value
-end
-
 -- Logon Response
 eurex_cash_eti_t7_v12_0.logon_response = {}
 
@@ -23454,381 +25037,6 @@ eurex_cash_eti_t7_v12_0.logon_response.dissect = function(buffer, offset, packet
 
     return index
   end
-end
-
--- Application System Vendor
-eurex_cash_eti_t7_v12_0.application_system_vendor = {}
-
--- Size: Application System Vendor
-eurex_cash_eti_t7_v12_0.application_system_vendor.size = 30
-
--- Display: Application System Vendor
-eurex_cash_eti_t7_v12_0.application_system_vendor.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Application System Vendor: No Value"
-  end
-
-  return "Application System Vendor: "..value
-end
-
--- Dissect: Application System Vendor
-eurex_cash_eti_t7_v12_0.application_system_vendor.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.application_system_vendor.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.application_system_vendor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.application_system_vendor, range, value, display)
-
-  return offset + length, value
-end
-
--- Application System Version
-eurex_cash_eti_t7_v12_0.application_system_version = {}
-
--- Size: Application System Version
-eurex_cash_eti_t7_v12_0.application_system_version.size = 30
-
--- Display: Application System Version
-eurex_cash_eti_t7_v12_0.application_system_version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Application System Version: No Value"
-  end
-
-  return "Application System Version: "..value
-end
-
--- Dissect: Application System Version
-eurex_cash_eti_t7_v12_0.application_system_version.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.application_system_version.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.application_system_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.application_system_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Application System Name
-eurex_cash_eti_t7_v12_0.application_system_name = {}
-
--- Size: Application System Name
-eurex_cash_eti_t7_v12_0.application_system_name.size = 30
-
--- Display: Application System Name
-eurex_cash_eti_t7_v12_0.application_system_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Application System Name: No Value"
-  end
-
-  return "Application System Name: "..value
-end
-
--- Dissect: Application System Name
-eurex_cash_eti_t7_v12_0.application_system_name.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.application_system_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.application_system_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.application_system_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Fix Engine Vendor
-eurex_cash_eti_t7_v12_0.fix_engine_vendor = {}
-
--- Size: Fix Engine Vendor
-eurex_cash_eti_t7_v12_0.fix_engine_vendor.size = 30
-
--- Display: Fix Engine Vendor
-eurex_cash_eti_t7_v12_0.fix_engine_vendor.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Fix Engine Vendor: No Value"
-  end
-
-  return "Fix Engine Vendor: "..value
-end
-
--- Dissect: Fix Engine Vendor
-eurex_cash_eti_t7_v12_0.fix_engine_vendor.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fix_engine_vendor.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.fix_engine_vendor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_engine_vendor, range, value, display)
-
-  return offset + length, value
-end
-
--- Fix Engine Version
-eurex_cash_eti_t7_v12_0.fix_engine_version = {}
-
--- Size: Fix Engine Version
-eurex_cash_eti_t7_v12_0.fix_engine_version.size = 30
-
--- Display: Fix Engine Version
-eurex_cash_eti_t7_v12_0.fix_engine_version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Fix Engine Version: No Value"
-  end
-
-  return "Fix Engine Version: "..value
-end
-
--- Dissect: Fix Engine Version
-eurex_cash_eti_t7_v12_0.fix_engine_version.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fix_engine_version.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.fix_engine_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_engine_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Fix Engine Name
-eurex_cash_eti_t7_v12_0.fix_engine_name = {}
-
--- Size: Fix Engine Name
-eurex_cash_eti_t7_v12_0.fix_engine_name.size = 30
-
--- Display: Fix Engine Name
-eurex_cash_eti_t7_v12_0.fix_engine_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Fix Engine Name: No Value"
-  end
-
-  return "Fix Engine Name: "..value
-end
-
--- Dissect: Fix Engine Name
-eurex_cash_eti_t7_v12_0.fix_engine_name.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.fix_engine_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.fix_engine_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.fix_engine_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Routing Indicator
-eurex_cash_eti_t7_v12_0.order_routing_indicator = {}
-
--- Size: Order Routing Indicator
-eurex_cash_eti_t7_v12_0.order_routing_indicator.size = 1
-
--- Display: Order Routing Indicator
-eurex_cash_eti_t7_v12_0.order_routing_indicator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Order Routing Indicator: No Value"
-  end
-
-  if value == "Y" then
-    return "Order Routing Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Order Routing Indicator: No (N)"
-  end
-
-  return "Order Routing Indicator: Unknown("..value..")"
-end
-
--- Dissect: Order Routing Indicator
-eurex_cash_eti_t7_v12_0.order_routing_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.order_routing_indicator.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.order_routing_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.order_routing_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Usage Quotes
-eurex_cash_eti_t7_v12_0.appl_usage_quotes = {}
-
--- Size: Appl Usage Quotes
-eurex_cash_eti_t7_v12_0.appl_usage_quotes.size = 1
-
--- Display: Appl Usage Quotes
-eurex_cash_eti_t7_v12_0.appl_usage_quotes.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Appl Usage Quotes: No Value"
-  end
-
-  if value == "A" then
-    return "Appl Usage Quotes: Automated (A)"
-  end
-  if value == "M" then
-    return "Appl Usage Quotes: Manual (M)"
-  end
-  if value == "B" then
-    return "Appl Usage Quotes: Auto Select (B)"
-  end
-  if value == "N" then
-    return "Appl Usage Quotes: None (N)"
-  end
-
-  return "Appl Usage Quotes: Unknown("..value..")"
-end
-
--- Dissect: Appl Usage Quotes
-eurex_cash_eti_t7_v12_0.appl_usage_quotes.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_usage_quotes.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.appl_usage_quotes.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_usage_quotes, range, value, display)
-
-  return offset + length, value
-end
-
--- Appl Usage Orders
-eurex_cash_eti_t7_v12_0.appl_usage_orders = {}
-
--- Size: Appl Usage Orders
-eurex_cash_eti_t7_v12_0.appl_usage_orders.size = 1
-
--- Display: Appl Usage Orders
-eurex_cash_eti_t7_v12_0.appl_usage_orders.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Appl Usage Orders: No Value"
-  end
-
-  if value == "A" then
-    return "Appl Usage Orders: Automated (A)"
-  end
-  if value == "M" then
-    return "Appl Usage Orders: Manual (M)"
-  end
-  if value == "B" then
-    return "Appl Usage Orders: Auto Select (B)"
-  end
-  if value == "N" then
-    return "Appl Usage Orders: None (N)"
-  end
-
-  return "Appl Usage Orders: Unknown("..value..")"
-end
-
--- Dissect: Appl Usage Orders
-eurex_cash_eti_t7_v12_0.appl_usage_orders.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_usage_orders.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = eurex_cash_eti_t7_v12_0.appl_usage_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_usage_orders, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon Request Encrypted
@@ -24027,42 +25235,6 @@ eurex_cash_eti_t7_v12_0.logon_request.dissect = function(buffer, offset, packet,
   end
 end
 
--- User Status
-eurex_cash_eti_t7_v12_0.user_status = {}
-
--- Size: User Status
-eurex_cash_eti_t7_v12_0.user_status.size = 1
-
--- Display: User Status
-eurex_cash_eti_t7_v12_0.user_status.display = function(value)
-  if value == 7 then
-    return "User Status: Userforcedlogout (7)"
-  end
-  if value == 10 then
-    return "User Status: Userstopped (10)"
-  end
-  if value == 11 then
-    return "User Status: Userreleased (11)"
-  end
-  if value == 0xFF then
-    return "User Status: No Value"
-  end
-
-  return "User Status: Unknown("..value..")"
-end
-
--- Dissect: User Status
-eurex_cash_eti_t7_v12_0.user_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.user_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.user_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.user_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Legal Notification Broadcast
 eurex_cash_eti_t7_v12_0.legal_notification_broadcast = {}
 
@@ -24201,73 +25373,6 @@ eurex_cash_eti_t7_v12_0.issuer_security_state_change_response.dissect = function
   end
 end
 
--- Event Date
-eurex_cash_eti_t7_v12_0.event_date = {}
-
--- Size: Event Date
-eurex_cash_eti_t7_v12_0.event_date.size = 4
-
--- Display: Event Date
-eurex_cash_eti_t7_v12_0.event_date.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Event Date: No Value"
-  end
-
-  return "Event Date: "..value
-end
-
--- Dissect: Event Date
-eurex_cash_eti_t7_v12_0.event_date.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.event_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.event_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.event_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Px
-eurex_cash_eti_t7_v12_0.event_px = {}
-
--- Size: Event Px
-eurex_cash_eti_t7_v12_0.event_px.size = 8
-
--- Display: Event Px
-eurex_cash_eti_t7_v12_0.event_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Event Px: No Value"
-  end
-
-  return "Event Px: "..value
-end
-
--- Translate: Event Px
-eurex_cash_eti_t7_v12_0.event_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Event Px
-eurex_cash_eti_t7_v12_0.event_px.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.event_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.event_px.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.event_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.event_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Status Event Grp Comp
 eurex_cash_eti_t7_v12_0.security_status_event_grp_comp = {}
 
@@ -24324,103 +25429,6 @@ eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.dissect = function(buffer
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.security_status_event_grp_comp.fields(buffer, offset, packet, parent, security_status_event_grp_comp_index)
   end
-end
-
--- Sold Out Indicator
-eurex_cash_eti_t7_v12_0.sold_out_indicator = {}
-
--- Size: Sold Out Indicator
-eurex_cash_eti_t7_v12_0.sold_out_indicator.size = 1
-
--- Display: Sold Out Indicator
-eurex_cash_eti_t7_v12_0.sold_out_indicator.display = function(value)
-  if value == 0 then
-    return "Sold Out Indicator: Revertsoldout (0)"
-  end
-  if value == 1 then
-    return "Sold Out Indicator: Soldout (1)"
-  end
-  if value == 0xFF then
-    return "Sold Out Indicator: No Value"
-  end
-
-  return "Sold Out Indicator: Unknown("..value..")"
-end
-
--- Dissect: Sold Out Indicator
-eurex_cash_eti_t7_v12_0.sold_out_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.sold_out_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.sold_out_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.sold_out_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Status
-eurex_cash_eti_t7_v12_0.security_status = {}
-
--- Size: Security Status
-eurex_cash_eti_t7_v12_0.security_status.size = 1
-
--- Display: Security Status
-eurex_cash_eti_t7_v12_0.security_status.display = function(value)
-  if value == 6 then
-    return "Security Status: Knockedout (6)"
-  end
-  if value == 7 then
-    return "Security Status: Knockoutrevoked (7)"
-  end
-  if value == 12 then
-    return "Security Status: Knockedoutandsuspend (12)"
-  end
-  if value == 0xFF then
-    return "Security Status: No Value"
-  end
-
-  return "Security Status: Unknown("..value..")"
-end
-
--- Dissect: Security Status
-eurex_cash_eti_t7_v12_0.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.security_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.security_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_status, range, value, display)
-
-  return offset + length, value
-end
-
--- No Events
-eurex_cash_eti_t7_v12_0.no_events = {}
-
--- Size: No Events
-eurex_cash_eti_t7_v12_0.no_events.size = 1
-
--- Display: No Events
-eurex_cash_eti_t7_v12_0.no_events.display = function(value)
-  -- Check if field has value
-  if value == 0xFF then
-    return "No Events: No Value"
-  end
-
-  return "No Events: "..value
-end
-
--- Dissect: No Events
-eurex_cash_eti_t7_v12_0.no_events.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_events.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_events.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_events, range, value, display)
-
-  return offset + length, value
 end
 
 -- Issuer Security State Change Request
@@ -24503,117 +25511,6 @@ eurex_cash_eti_t7_v12_0.issuer_security_state_change_request.dissect = function(
 
     return index
   end
-end
-
--- Security Trading Status
-eurex_cash_eti_t7_v12_0.security_trading_status = {}
-
--- Size: Security Trading Status
-eurex_cash_eti_t7_v12_0.security_trading_status.size = 1
-
--- Display: Security Trading Status
-eurex_cash_eti_t7_v12_0.security_trading_status.display = function(value)
-  if value == 7 then
-    return "Security Trading Status: Market Imbalance Buy (7)"
-  end
-  if value == 8 then
-    return "Security Trading Status: Market Imbalance Sell (8)"
-  end
-  if value == 0xFF then
-    return "Security Trading Status: No Value"
-  end
-
-  return "Security Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status
-eurex_cash_eti_t7_v12_0.security_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.security_trading_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.security_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.security_trading_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Qty
-eurex_cash_eti_t7_v12_0.imbalance_qty = {}
-
--- Size: Imbalance Qty
-eurex_cash_eti_t7_v12_0.imbalance_qty.size = 8
-
--- Display: Imbalance Qty
-eurex_cash_eti_t7_v12_0.imbalance_qty.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Imbalance Qty: No Value"
-  end
-
-  return "Imbalance Qty: "..value
-end
-
--- Translate: Imbalance Qty
-eurex_cash_eti_t7_v12_0.imbalance_qty.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Imbalance Qty
-eurex_cash_eti_t7_v12_0.imbalance_qty.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.imbalance_qty.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.imbalance_qty.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.imbalance_qty.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Potential Exec Volume
-eurex_cash_eti_t7_v12_0.potential_exec_volume = {}
-
--- Size: Potential Exec Volume
-eurex_cash_eti_t7_v12_0.potential_exec_volume.size = 8
-
--- Display: Potential Exec Volume
-eurex_cash_eti_t7_v12_0.potential_exec_volume.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return "Potential Exec Volume: No Value"
-  end
-
-  return "Potential Exec Volume: "..value
-end
-
--- Translate: Potential Exec Volume
-eurex_cash_eti_t7_v12_0.potential_exec_volume.translate = function(raw)
-  -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
-  return raw:tonumber()/10000
-end
-
--- Dissect: Potential Exec Volume
-eurex_cash_eti_t7_v12_0.potential_exec_volume.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.potential_exec_volume.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = eurex_cash_eti_t7_v12_0.potential_exec_volume.translate(raw)
-  local display = eurex_cash_eti_t7_v12_0.potential_exec_volume.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.potential_exec_volume, range, value, display)
-
-  return offset + length, value
 end
 
 -- Issuer Notification
@@ -24699,126 +25596,6 @@ eurex_cash_eti_t7_v12_0.issuer_notification.dissect = function(buffer, offset, p
   end
 end
 
--- Party Detail Desk Id
-eurex_cash_eti_t7_v12_0.party_detail_desk_id = {}
-
--- Size: Party Detail Desk Id
-eurex_cash_eti_t7_v12_0.party_detail_desk_id.size = 3
-
--- Display: Party Detail Desk Id
-eurex_cash_eti_t7_v12_0.party_detail_desk_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Detail Desk Id: No Value"
-  end
-
-  return "Party Detail Desk Id: "..value
-end
-
--- Dissect: Party Detail Desk Id
-eurex_cash_eti_t7_v12_0.party_detail_desk_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_desk_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_detail_desk_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_desk_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Role Qualifier
-eurex_cash_eti_t7_v12_0.party_detail_role_qualifier = {}
-
--- Size: Party Detail Role Qualifier
-eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size = 1
-
--- Display: Party Detail Role Qualifier
-eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.display = function(value)
-  if value == 10 then
-    return "Party Detail Role Qualifier: Trader (10)"
-  end
-  if value == 11 then
-    return "Party Detail Role Qualifier: Head Trader (11)"
-  end
-  if value == 12 then
-    return "Party Detail Role Qualifier: Supervisor (12)"
-  end
-  if value == 0xFF then
-    return "Party Detail Role Qualifier: No Value"
-  end
-
-  return "Party Detail Role Qualifier: Unknown("..value..")"
-end
-
--- Dissect: Party Detail Role Qualifier
-eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_detail_role_qualifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_role_qualifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_executing_trader = {}
-
--- Size: Party Detail Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size = 6
-
--- Display: Party Detail Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Detail Executing Trader: No Value"
-  end
-
-  return "Party Detail Executing Trader: "..value
-end
-
--- Dissect: Party Detail Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_executing_trader.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_detail_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader = {}
-
--- Size: Party Detail Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size = 4
-
--- Display: Party Detail Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Party Detail Id Executing Trader: No Value"
-  end
-
-  return "Party Detail Id Executing Trader: "..value
-end
-
--- Dissect: Party Detail Id Executing Trader
-eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.party_detail_id_executing_trader.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_detail_id_executing_trader, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Details Grp Comp
 eurex_cash_eti_t7_v12_0.party_details_grp_comp = {}
 
@@ -24883,57 +25660,6 @@ eurex_cash_eti_t7_v12_0.party_details_grp_comp.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.party_details_grp_comp.fields(buffer, offset, packet, parent, party_details_grp_comp_index)
   end
-end
-
--- No Party Details
-eurex_cash_eti_t7_v12_0.no_party_details = {}
-
--- Size: No Party Details
-eurex_cash_eti_t7_v12_0.no_party_details.size = 2
-
--- Display: No Party Details
-eurex_cash_eti_t7_v12_0.no_party_details.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Party Details: No Value"
-  end
-
-  return "No Party Details: "..value
-end
-
--- Dissect: No Party Details
-eurex_cash_eti_t7_v12_0.no_party_details.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_party_details.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_party_details.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_party_details, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Entity Processed
-eurex_cash_eti_t7_v12_0.last_entity_processed = {}
-
--- Size: Last Entity Processed
-eurex_cash_eti_t7_v12_0.last_entity_processed.size = 16
-
--- Display: Last Entity Processed
-eurex_cash_eti_t7_v12_0.last_entity_processed.display = function(value)
-  return "Last Entity Processed: "..value
-end
-
--- Dissect: Last Entity Processed
-eurex_cash_eti_t7_v12_0.last_entity_processed.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.last_entity_processed.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_cash_eti_t7_v12_0.last_entity_processed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.last_entity_processed, range, value, display)
-
-  return offset + length, value
 end
 
 -- Inquire User Response
@@ -25062,78 +25788,6 @@ eurex_cash_eti_t7_v12_0.inquire_user_request.dissect = function(buffer, offset, 
   end
 end
 
--- Session Sub Mode
-eurex_cash_eti_t7_v12_0.session_sub_mode = {}
-
--- Size: Session Sub Mode
-eurex_cash_eti_t7_v12_0.session_sub_mode.size = 1
-
--- Display: Session Sub Mode
-eurex_cash_eti_t7_v12_0.session_sub_mode.display = function(value)
-  if value == 0 then
-    return "Session Sub Mode: Regulartradingsession (0)"
-  end
-  if value == 2 then
-    return "Session Sub Mode: Regular Back Officesession (2)"
-  end
-  if value == 0xFF then
-    return "Session Sub Mode: No Value"
-  end
-
-  return "Session Sub Mode: Unknown("..value..")"
-end
-
--- Dissect: Session Sub Mode
-eurex_cash_eti_t7_v12_0.session_sub_mode.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.session_sub_mode.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.session_sub_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_sub_mode, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Mode
-eurex_cash_eti_t7_v12_0.session_mode = {}
-
--- Size: Session Mode
-eurex_cash_eti_t7_v12_0.session_mode.size = 1
-
--- Display: Session Mode
-eurex_cash_eti_t7_v12_0.session_mode.display = function(value)
-  if value == 1 then
-    return "Session Mode: Etihf (1)"
-  end
-  if value == 2 then
-    return "Session Mode: Etilf (2)"
-  end
-  if value == 3 then
-    return "Session Mode: Gui (3)"
-  end
-  if value == 4 then
-    return "Session Mode: Fixlf (4)"
-  end
-  if value == 0xFF then
-    return "Session Mode: No Value"
-  end
-
-  return "Session Mode: Unknown("..value..")"
-end
-
--- Dissect: Session Mode
-eurex_cash_eti_t7_v12_0.session_mode.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.session_mode.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.session_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.session_mode, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sessions Grp Comp
 eurex_cash_eti_t7_v12_0.sessions_grp_comp = {}
 
@@ -25190,34 +25844,6 @@ eurex_cash_eti_t7_v12_0.sessions_grp_comp.dissect = function(buffer, offset, pac
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.sessions_grp_comp.fields(buffer, offset, packet, parent, sessions_grp_comp_index)
   end
-end
-
--- No Sessions
-eurex_cash_eti_t7_v12_0.no_sessions = {}
-
--- Size: No Sessions
-eurex_cash_eti_t7_v12_0.no_sessions.size = 2
-
--- Display: No Sessions
-eurex_cash_eti_t7_v12_0.no_sessions.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Sessions: No Value"
-  end
-
-  return "No Sessions: "..value
-end
-
--- Dissect: No Sessions
-eurex_cash_eti_t7_v12_0.no_sessions.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_sessions.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_sessions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_sessions, range, value, display)
-
-  return offset + length, value
 end
 
 -- Inquire Session List Response
@@ -25338,34 +25964,6 @@ eurex_cash_eti_t7_v12_0.inquire_session_list_request.dissect = function(buffer, 
 
     return index
   end
-end
-
--- Party Executing Unit
-eurex_cash_eti_t7_v12_0.party_executing_unit = {}
-
--- Size: Party Executing Unit
-eurex_cash_eti_t7_v12_0.party_executing_unit.size = 5
-
--- Display: Party Executing Unit
-eurex_cash_eti_t7_v12_0.party_executing_unit.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Executing Unit: No Value"
-  end
-
-  return "Party Executing Unit: "..value
-end
-
--- Dissect: Party Executing Unit
-eurex_cash_eti_t7_v12_0.party_executing_unit.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.party_executing_unit.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.party_executing_unit.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.party_executing_unit, range, value, display)
-
-  return offset + length, value
 end
 
 -- Inquire Pre Trade Risk Limits Request
@@ -25496,34 +26094,6 @@ eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.dissect = function(buffer, off
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.enrichment_rules_grp_comp.fields(buffer, offset, packet, parent, enrichment_rules_grp_comp_index)
   end
-end
-
--- No Enrichment Rules
-eurex_cash_eti_t7_v12_0.no_enrichment_rules = {}
-
--- Size: No Enrichment Rules
-eurex_cash_eti_t7_v12_0.no_enrichment_rules.size = 2
-
--- Display: No Enrichment Rules
-eurex_cash_eti_t7_v12_0.no_enrichment_rules.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Enrichment Rules: No Value"
-  end
-
-  return "No Enrichment Rules: "..value
-end
-
--- Dissect: No Enrichment Rules
-eurex_cash_eti_t7_v12_0.no_enrichment_rules.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_enrichment_rules.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_enrichment_rules.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_enrichment_rules, range, value, display)
-
-  return offset + length, value
 end
 
 -- Inquire Enrichment Rule Id List Response
@@ -26832,34 +27402,6 @@ eurex_cash_eti_t7_v12_0.delete_all_quote_request.dissect = function(buffer, offs
   end
 end
 
--- Target Party Id Desk Id
-eurex_cash_eti_t7_v12_0.target_party_id_desk_id = {}
-
--- Size: Target Party Id Desk Id
-eurex_cash_eti_t7_v12_0.target_party_id_desk_id.size = 3
-
--- Display: Target Party Id Desk Id
-eurex_cash_eti_t7_v12_0.target_party_id_desk_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Target Party Id Desk Id: No Value"
-  end
-
-  return "Target Party Id Desk Id: "..value
-end
-
--- Dissect: Target Party Id Desk Id
-eurex_cash_eti_t7_v12_0.target_party_id_desk_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.target_party_id_desk_id.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = eurex_cash_eti_t7_v12_0.target_party_id_desk_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.target_party_id_desk_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Delete All Quote Broadcast
 eurex_cash_eti_t7_v12_0.delete_all_quote_broadcast = {}
 
@@ -26951,34 +27493,6 @@ eurex_cash_eti_t7_v12_0.delete_all_quote_broadcast.dissect = function(buffer, of
   end
 end
 
--- Affected Order Request Id
-eurex_cash_eti_t7_v12_0.affected_order_request_id = {}
-
--- Size: Affected Order Request Id
-eurex_cash_eti_t7_v12_0.affected_order_request_id.size = 4
-
--- Display: Affected Order Request Id
-eurex_cash_eti_t7_v12_0.affected_order_request_id.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Affected Order Request Id: No Value"
-  end
-
-  return "Affected Order Request Id: "..value
-end
-
--- Dissect: Affected Order Request Id
-eurex_cash_eti_t7_v12_0.affected_order_request_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.affected_order_request_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.affected_order_request_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.affected_order_request_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Affected Order Requests Grp Comp
 eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp = {}
 
@@ -27027,34 +27541,6 @@ eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.dissect = function(buff
     -- Skip element, add fields directly
     return eurex_cash_eti_t7_v12_0.affected_order_requests_grp_comp.fields(buffer, offset, packet, parent, affected_order_requests_grp_comp_index)
   end
-end
-
--- No Affected Order Requests
-eurex_cash_eti_t7_v12_0.no_affected_order_requests = {}
-
--- Size: No Affected Order Requests
-eurex_cash_eti_t7_v12_0.no_affected_order_requests.size = 2
-
--- Display: No Affected Order Requests
-eurex_cash_eti_t7_v12_0.no_affected_order_requests.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "No Affected Order Requests: No Value"
-  end
-
-  return "No Affected Order Requests: "..value
-end
-
--- Dissect: No Affected Order Requests
-eurex_cash_eti_t7_v12_0.no_affected_order_requests.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.no_affected_order_requests.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.no_affected_order_requests.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.no_affected_order_requests, range, value, display)
-
-  return offset + length, value
 end
 
 -- Delete All Order Response
@@ -27591,36 +28077,6 @@ eurex_cash_eti_t7_v12_0.cross_request.dissect = function(buffer, offset, packet,
 
     return index
   end
-end
-
--- Appl Id Status
-eurex_cash_eti_t7_v12_0.appl_id_status = {}
-
--- Size: Appl Id Status
-eurex_cash_eti_t7_v12_0.appl_id_status.size = 4
-
--- Display: Appl Id Status
-eurex_cash_eti_t7_v12_0.appl_id_status.display = function(value)
-  if value == 105 then
-    return "Appl Id Status: Outboundconversionerror (105)"
-  end
-  if value == 0xFFFFFFFF then
-    return "Appl Id Status: No Value"
-  end
-
-  return "Appl Id Status: Unknown("..value..")"
-end
-
--- Dissect: Appl Id Status
-eurex_cash_eti_t7_v12_0.appl_id_status.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.appl_id_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.appl_id_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.appl_id_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Broadcast Error Notification
@@ -28377,457 +28833,6 @@ eurex_cash_eti_t7_v12_0.payload.dissect = function(buffer, offset, packet, paren
   end
 
   return offset
-end
-
--- Template Id
-eurex_cash_eti_t7_v12_0.template_id = {}
-
--- Size: Template Id
-eurex_cash_eti_t7_v12_0.template_id.size = 2
-
--- Display: Template Id
-eurex_cash_eti_t7_v12_0.template_id.display = function(value)
-  if value == 0xFFFF then
-    return "Template Id: No Value"
-  end
-  if value == 10603 then
-    return "Template Id: Approve Tes Trade Request (10603)"
-  end
-  if value == 10032 then
-    return "Template Id: Broadcast Error Notification (10032)"
-  end
-  if value == 10118 then
-    return "Template Id: Cross Request (10118)"
-  end
-  if value == 10119 then
-    return "Template Id: Cross Request Response (10119)"
-  end
-  if value == 10122 then
-    return "Template Id: Delete All Order Broadcast (10122)"
-  end
-  if value == 10124 then
-    return "Template Id: Delete All Order Nr Response (10124)"
-  end
-  if value == 10308 then
-    return "Template Id: Delete All Order Quote Event Broadcast (10308)"
-  end
-  if value == 10120 then
-    return "Template Id: Delete All Order Request (10120)"
-  end
-  if value == 10121 then
-    return "Template Id: Delete All Order Response (10121)"
-  end
-  if value == 10410 then
-    return "Template Id: Delete All Quote Broadcast (10410)"
-  end
-  if value == 10408 then
-    return "Template Id: Delete All Quote Request (10408)"
-  end
-  if value == 10409 then
-    return "Template Id: Delete All Quote Response (10409)"
-  end
-  if value == 10112 then
-    return "Template Id: Delete Order Broadcast (10112)"
-  end
-  if value == 10111 then
-    return "Template Id: Delete Order Nr Response (10111)"
-  end
-  if value == 10110 then
-    return "Template Id: Delete Order Response (10110)"
-  end
-  if value == 10109 then
-    return "Template Id: Delete Order Single Request (10109)"
-  end
-  if value == 10602 then
-    return "Template Id: Delete Tes Trade Request (10602)"
-  end
-  if value == 10600 then
-    return "Template Id: Enter Tes Trade Request (10600)"
-  end
-  if value == 10128 then
-    return "Template Id: Extended Deletion Report (10128)"
-  end
-  if value == 10012 then
-    return "Template Id: Forced Logout Notification (10012)"
-  end
-  if value == 10043 then
-    return "Template Id: Forced User Logout Notification (10043)"
-  end
-  if value == 10011 then
-    return "Template Id: Heartbeat (10011)"
-  end
-  if value == 10023 then
-    return "Template Id: Heartbeat Notification (10023)"
-  end
-  if value == 10040 then
-    return "Template Id: Inquire Enrichment Rule Id List Request (10040)"
-  end
-  if value == 10041 then
-    return "Template Id: Inquire Enrichment Rule Id List Response (10041)"
-  end
-  if value == 10311 then
-    return "Template Id: Inquire Pre Trade Risk Limits Request (10311)"
-  end
-  if value == 10035 then
-    return "Template Id: Inquire Session List Request (10035)"
-  end
-  if value == 10036 then
-    return "Template Id: Inquire Session List Response (10036)"
-  end
-  if value == 10038 then
-    return "Template Id: Inquire User Request (10038)"
-  end
-  if value == 10039 then
-    return "Template Id: Inquire User Response (10039)"
-  end
-  if value == 10316 then
-    return "Template Id: Issuer Notification (10316)"
-  end
-  if value == 10314 then
-    return "Template Id: Issuer Security State Change Request (10314)"
-  end
-  if value == 10315 then
-    return "Template Id: Issuer Security State Change Response (10315)"
-  end
-  if value == 10037 then
-    return "Template Id: Legal Notification Broadcast (10037)"
-  end
-  if value == 10000 then
-    return "Template Id: Logon Request (10000)"
-  end
-  if value == 19000 then
-    return "Template Id: Logon Request Encrypted (19000)"
-  end
-  if value == 10001 then
-    return "Template Id: Logon Response (10001)"
-  end
-  if value == 10002 then
-    return "Template Id: Logout Request (10002)"
-  end
-  if value == 10003 then
-    return "Template Id: Logout Response (10003)"
-  end
-  if value == 10405 then
-    return "Template Id: Mass Quote Request (10405)"
-  end
-  if value == 10406 then
-    return "Template Id: Mass Quote Response (10406)"
-  end
-  if value == 10108 then
-    return "Template Id: Modify Order Nr Response (10108)"
-  end
-  if value == 10107 then
-    return "Template Id: Modify Order Response (10107)"
-  end
-  if value == 10106 then
-    return "Template Id: Modify Order Single Request (10106)"
-  end
-  if value == 10126 then
-    return "Template Id: Modify Order Single Short Request (10126)"
-  end
-  if value == 10601 then
-    return "Template Id: Modify Tes Trade Request (10601)"
-  end
-  if value == 10102 then
-    return "Template Id: New Order Nr Response (10102)"
-  end
-  if value == 10101 then
-    return "Template Id: New Order Response (10101)"
-  end
-  if value == 10100 then
-    return "Template Id: New Order Single Request (10100)"
-  end
-  if value == 10125 then
-    return "Template Id: New Order Single Short Request (10125)"
-  end
-  if value == 10031 then
-    return "Template Id: News Broadcast (10031)"
-  end
-  if value == 10104 then
-    return "Template Id: Order Exec Notification (10104)"
-  end
-  if value == 10117 then
-    return "Template Id: Order Exec Report Broadcast (10117)"
-  end
-  if value == 10103 then
-    return "Template Id: Order Exec Response (10103)"
-  end
-  if value == 10042 then
-    return "Template Id: Party Action Report (10042)"
-  end
-  if value == 10034 then
-    return "Template Id: Party Entitlements Update Report (10034)"
-  end
-  if value == 10320 then
-    return "Template Id: Ping Request (10320)"
-  end
-  if value == 10321 then
-    return "Template Id: Ping Response (10321)"
-  end
-  if value == 10313 then
-    return "Template Id: Pre Trade Risk Limit Response (10313)"
-  end
-  if value == 10312 then
-    return "Template Id: Pre Trade Risk Limits Definition Request (10312)"
-  end
-  if value == 10411 then
-    return "Template Id: Quote Activation Notification (10411)"
-  end
-  if value == 10403 then
-    return "Template Id: Quote Activation Request (10403)"
-  end
-  if value == 10404 then
-    return "Template Id: Quote Activation Response (10404)"
-  end
-  if value == 10407 then
-    return "Template Id: Quote Execution Report (10407)"
-  end
-  if value == 10415 then
-    return "Template Id: Rfq Broadcast (10415)"
-  end
-  if value == 10420 then
-    return "Template Id: Rfq Reject Notification (10420)"
-  end
-  if value == 10401 then
-    return "Template Id: Rfq Request (10401)"
-  end
-  if value == 10402 then
-    return "Template Id: Rfq Response (10402)"
-  end
-  if value == 10419 then
-    return "Template Id: Rfq Specialist Broadcast (10419)"
-  end
-  if value == 10010 then
-    return "Template Id: Reject (10010)"
-  end
-  if value == 10026 then
-    return "Template Id: Retransmit Me Message Request (10026)"
-  end
-  if value == 10027 then
-    return "Template Id: Retransmit Me Message Response (10027)"
-  end
-  if value == 10008 then
-    return "Template Id: Retransmit Request (10008)"
-  end
-  if value == 10009 then
-    return "Template Id: Retransmit Response (10009)"
-  end
-  if value == 10030 then
-    return "Template Id: Service Availability Broadcast (10030)"
-  end
-  if value == 10044 then
-    return "Template Id: Service Availability Market Broadcast (10044)"
-  end
-  if value == 10418 then
-    return "Template Id: Single Quote Request (10418)"
-  end
-  if value == 10137 then
-    return "Template Id: Specialist Delete All Order Broadcast (10137)"
-  end
-  if value == 10319 then
-    return "Template Id: Specialist Instrument Event Notification (10319)"
-  end
-  if value == 10136 then
-    return "Template Id: Specialist Order Book Notification (10136)"
-  end
-  if value == 10421 then
-    return "Template Id: Specialist Rfq Reject Request (10421)"
-  end
-  if value == 10424 then
-    return "Template Id: Specialist Rfq Reply Notification (10424)"
-  end
-  if value == 10422 then
-    return "Template Id: Specialist Rfq Reply Request (10422)"
-  end
-  if value == 10423 then
-    return "Template Id: Specialist Rfq Reply Response (10423)"
-  end
-  if value == 10317 then
-    return "Template Id: Specialist Security State Change Request (10317)"
-  end
-  if value == 10318 then
-    return "Template Id: Specialist Security State Change Response (10318)"
-  end
-  if value == 10045 then
-    return "Template Id: Status Broadcast (10045)"
-  end
-  if value == 10025 then
-    return "Template Id: Subscribe Request (10025)"
-  end
-  if value == 10005 then
-    return "Template Id: Subscribe Response (10005)"
-  end
-  if value == 10607 then
-    return "Template Id: Tes Approve Broadcast (10607)"
-  end
-  if value == 10604 then
-    return "Template Id: Tes Broadcast (10604)"
-  end
-  if value == 10606 then
-    return "Template Id: Tes Delete Broadcast (10606)"
-  end
-  if value == 10610 then
-    return "Template Id: Tes Execution Broadcast (10610)"
-  end
-  if value == 10611 then
-    return "Template Id: Tes Response (10611)"
-  end
-  if value == 10614 then
-    return "Template Id: Tes Trade Broadcast (10614)"
-  end
-  if value == 10615 then
-    return "Template Id: Tes Trading Session Status Broadcast (10615)"
-  end
-  if value == 10501 then
-    return "Template Id: Tm Trading Session Status Broadcast (10501)"
-  end
-  if value == 10028 then
-    return "Template Id: Throttle Update Notification (10028)"
-  end
-  if value == 10500 then
-    return "Template Id: Trade Broadcast (10500)"
-  end
-  if value == 10307 then
-    return "Template Id: Trading Session Status Broadcast (10307)"
-  end
-  if value == 10127 then
-    return "Template Id: Trailing Stop Update Notification (10127)"
-  end
-  if value == 10006 then
-    return "Template Id: Unsubscribe Request (10006)"
-  end
-  if value == 10007 then
-    return "Template Id: Unsubscribe Response (10007)"
-  end
-  if value == 10018 then
-    return "Template Id: User Login Request (10018)"
-  end
-  if value == 19018 then
-    return "Template Id: User Login Request Encrypted (19018)"
-  end
-  if value == 10019 then
-    return "Template Id: User Login Response (10019)"
-  end
-  if value == 10029 then
-    return "Template Id: User Logout Request (10029)"
-  end
-  if value == 10024 then
-    return "Template Id: User Logout Response (10024)"
-  end
-  if value == 10818 then
-    return "Template Id: Xetra En Light Approve Deal Notification (10818)"
-  end
-  if value == 10819 then
-    return "Template Id: Xetra En Light Approve Deal Request (10819)"
-  end
-  if value == 10808 then
-    return "Template Id: Xetra En Light Create Deal Notification (10808)"
-  end
-  if value == 10805 then
-    return "Template Id: Xetra En Light Deal Response (10805)"
-  end
-  if value == 10825 then
-    return "Template Id: Xetra En Light Deal Status Notification (10825)"
-  end
-  if value == 10824 then
-    return "Template Id: Xetra En Light Delete All Quote Notification (10824)"
-  end
-  if value == 10821 then
-    return "Template Id: Xetra En Light Delete All Quote Request (10821)"
-  end
-  if value == 10802 then
-    return "Template Id: Xetra En Light Enter Quote Request (10802)"
-  end
-  if value == 10804 then
-    return "Template Id: Xetra En Light Hit Quote Request (10804)"
-  end
-  if value == 10813 then
-    return "Template Id: Xetra En Light Negotiation Notification (10813)"
-  end
-  if value == 10812 then
-    return "Template Id: Xetra En Light Negotiation Requester Notification (10812)"
-  end
-  if value == 10815 then
-    return "Template Id: Xetra En Light Negotiation Status Notification (10815)"
-  end
-  if value == 10811 then
-    return "Template Id: Xetra En Light Open Negotiation Notification (10811)"
-  end
-  if value == 10800 then
-    return "Template Id: Xetra En Light Open Negotiation Request (10800)"
-  end
-  if value == 10810 then
-    return "Template Id: Xetra En Light Open Negotiation Requester Notification (10810)"
-  end
-  if value == 10807 then
-    return "Template Id: Xetra En Light Quote Notification (10807)"
-  end
-  if value == 10816 then
-    return "Template Id: Xetra En Light Quote Requester Notification (10816)"
-  end
-  if value == 10803 then
-    return "Template Id: Xetra En Light Quote Response (10803)"
-  end
-  if value == 10823 then
-    return "Template Id: Xetra En Light Quote Snapshot Notification (10823)"
-  end
-  if value == 10820 then
-    return "Template Id: Xetra En Light Quote Snapshot Request (10820)"
-  end
-  if value == 10817 then
-    return "Template Id: Xetra En Light Quoting Status Request (10817)"
-  end
-  if value == 10822 then
-    return "Template Id: Xetra En Light Response (10822)"
-  end
-  if value == 10814 then
-    return "Template Id: Xetra En Light Status Broadcast (10814)"
-  end
-  if value == 10801 then
-    return "Template Id: Xetra En Light Update Negotiation Request (10801)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-eurex_cash_eti_t7_v12_0.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Body Len
-eurex_cash_eti_t7_v12_0.body_len = {}
-
--- Size: Body Len
-eurex_cash_eti_t7_v12_0.body_len.size = 4
-
--- Display: Body Len
-eurex_cash_eti_t7_v12_0.body_len.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Body Len: No Value"
-  end
-
-  return "Body Len: "..value
-end
-
--- Dissect: Body Len
-eurex_cash_eti_t7_v12_0.body_len.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v12_0.body_len.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v12_0.body_len.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_cash_eti_t7_v12_0.fields.body_len, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header

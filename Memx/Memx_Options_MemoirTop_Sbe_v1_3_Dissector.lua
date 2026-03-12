@@ -229,117 +229,111 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Memx Options MemoirTop Sbe 1.3
+-- Memx Options MemoirTop Sbe 1.3 Fields
 -----------------------------------------------------------------------
 
--- Symbol
-memx_options_memoirtop_sbe_v1_3.symbol = {}
+-- As Of Sequence Number
+memx_options_memoirtop_sbe_v1_3.as_of_sequence_number = {}
 
--- Size: Symbol
-memx_options_memoirtop_sbe_v1_3.symbol.size = 8
+-- Size: As Of Sequence Number
+memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.size = 8
 
--- Display: Symbol
-memx_options_memoirtop_sbe_v1_3.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
+-- Display: As Of Sequence Number
+memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.display = function(value)
+  return "As Of Sequence Number: "..value
 end
 
--- Dissect: Symbol
-memx_options_memoirtop_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-memx_options_memoirtop_sbe_v1_3.timestamp = {}
-
--- Size: Timestamp
-memx_options_memoirtop_sbe_v1_3.timestamp.size = 8
-
--- Display: Timestamp
-memx_options_memoirtop_sbe_v1_3.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Timestamp
-memx_options_memoirtop_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.timestamp.size
+-- Dissect: As Of Sequence Number
+memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_options_memoirtop_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
+  local display = memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.timestamp, range, value, display)
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
 
   return offset + length, value
 end
 
--- Clear Book Message
-memx_options_memoirtop_sbe_v1_3.clear_book_message = {}
+-- Bid Price
+memx_options_memoirtop_sbe_v1_3.bid_price = {}
 
--- Size: Clear Book Message
-memx_options_memoirtop_sbe_v1_3.clear_book_message.size =
-  memx_options_memoirtop_sbe_v1_3.timestamp.size + 
-  memx_options_memoirtop_sbe_v1_3.symbol.size
+-- Size: Bid Price
+memx_options_memoirtop_sbe_v1_3.bid_price.size = 8
 
--- Display: Clear Book Message
-memx_options_memoirtop_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
-  return ""
+-- Display: Bid Price
+memx_options_memoirtop_sbe_v1_3.bid_price.display = function(value)
+  return "Bid Price: "..value
 end
 
--- Dissect Fields: Clear Book Message
-memx_options_memoirtop_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: UTCTimestampNanos
-  index, timestamp = memx_options_memoirtop_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Symbol: BestBidSymbol
-  index, symbol = memx_options_memoirtop_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
-
-  return index
+-- Translate: Bid Price
+memx_options_memoirtop_sbe_v1_3.bid_price.translate = function(raw)
+  return raw:tonumber()/100000000
 end
 
--- Dissect: Clear Book Message
-memx_options_memoirtop_sbe_v1_3.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
-    local index = memx_options_memoirtop_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_options_memoirtop_sbe_v1_3.clear_book_message.display(packet, parent, length)
-    parent:append_text(display)
+-- Dissect: Bid Price
+memx_options_memoirtop_sbe_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memoirtop_sbe_v1_3.bid_price.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.bid_price.display(value, buffer, offset, packet, parent)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_options_memoirtop_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
-  end
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Short
+memx_options_memoirtop_sbe_v1_3.bid_price_short = {}
+
+-- Size: Bid Price Short
+memx_options_memoirtop_sbe_v1_3.bid_price_short.size = 2
+
+-- Display: Bid Price Short
+memx_options_memoirtop_sbe_v1_3.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
+end
+
+-- Translate: Bid Price Short
+memx_options_memoirtop_sbe_v1_3.bid_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price Short
+memx_options_memoirtop_sbe_v1_3.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = memx_options_memoirtop_sbe_v1_3.bid_price_short.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+memx_options_memoirtop_sbe_v1_3.block_length = {}
+
+-- Size: Block Length
+memx_options_memoirtop_sbe_v1_3.block_length.size = 2
+
+-- Display: Block Length
+memx_options_memoirtop_sbe_v1_3.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+memx_options_memoirtop_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.block_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.block_length, range, value, display)
+
+  return offset + length, value
 end
 
 -- Capacity
@@ -385,6 +379,180 @@ memx_options_memoirtop_sbe_v1_3.capacity.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Closing Only
+memx_options_memoirtop_sbe_v1_3.closing_only = {}
+
+-- Size: Closing Only
+memx_options_memoirtop_sbe_v1_3.closing_only.size = 1
+
+-- Display: Closing Only
+memx_options_memoirtop_sbe_v1_3.closing_only.display = function(value)
+  if value == 0 then
+    return "Closing Only: False (0)"
+  end
+  if value == 1 then
+    return "Closing Only: True (1)"
+  end
+
+  return "Closing Only: Unknown("..value..")"
+end
+
+-- Dissect: Closing Only
+memx_options_memoirtop_sbe_v1_3.closing_only.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.closing_only.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.closing_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.closing_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Time
+memx_options_memoirtop_sbe_v1_3.closing_time = {}
+
+-- Size: Closing Time
+memx_options_memoirtop_sbe_v1_3.closing_time.size = 8
+
+-- Display: Closing Time
+memx_options_memoirtop_sbe_v1_3.closing_time.display = function(value)
+  return "Closing Time: "..value
+end
+
+-- Dissect: Closing Time
+memx_options_memoirtop_sbe_v1_3.closing_time.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.closing_time.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memoirtop_sbe_v1_3.closing_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.closing_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Price
+memx_options_memoirtop_sbe_v1_3.corrected_price = {}
+
+-- Size: Corrected Price
+memx_options_memoirtop_sbe_v1_3.corrected_price.size = 8
+
+-- Display: Corrected Price
+memx_options_memoirtop_sbe_v1_3.corrected_price.display = function(value)
+  return "Corrected Price: "..value
+end
+
+-- Translate: Corrected Price
+memx_options_memoirtop_sbe_v1_3.corrected_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Corrected Price
+memx_options_memoirtop_sbe_v1_3.corrected_price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.corrected_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memoirtop_sbe_v1_3.corrected_price.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.corrected_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.corrected_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Corrected Quantity
+memx_options_memoirtop_sbe_v1_3.corrected_quantity = {}
+
+-- Size: Corrected Quantity
+memx_options_memoirtop_sbe_v1_3.corrected_quantity.size = 4
+
+-- Display: Corrected Quantity
+memx_options_memoirtop_sbe_v1_3.corrected_quantity.display = function(value)
+  return "Corrected Quantity: "..value
+end
+
+-- Dissect: Corrected Quantity
+memx_options_memoirtop_sbe_v1_3.corrected_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.corrected_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.corrected_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.corrected_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Bid Size
+memx_options_memoirtop_sbe_v1_3.cust_bid_size = {}
+
+-- Size: Cust Bid Size
+memx_options_memoirtop_sbe_v1_3.cust_bid_size.size = 4
+
+-- Display: Cust Bid Size
+memx_options_memoirtop_sbe_v1_3.cust_bid_size.display = function(value)
+  return "Cust Bid Size: "..value
+end
+
+-- Dissect: Cust Bid Size
+memx_options_memoirtop_sbe_v1_3.cust_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.cust_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.cust_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Bid Size Short
+memx_options_memoirtop_sbe_v1_3.cust_bid_size_short = {}
+
+-- Size: Cust Bid Size Short
+memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.size = 2
+
+-- Display: Cust Bid Size Short
+memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.display = function(value)
+  return "Cust Bid Size Short: "..value
+end
+
+-- Dissect: Cust Bid Size Short
+memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_bid_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Offer Size
+memx_options_memoirtop_sbe_v1_3.cust_offer_size = {}
+
+-- Size: Cust Offer Size
+memx_options_memoirtop_sbe_v1_3.cust_offer_size.size = 4
+
+-- Display: Cust Offer Size
+memx_options_memoirtop_sbe_v1_3.cust_offer_size.display = function(value)
+  return "Cust Offer Size: "..value
+end
+
+-- Dissect: Cust Offer Size
+memx_options_memoirtop_sbe_v1_3.cust_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.cust_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.cust_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Cust Quantity
 memx_options_memoirtop_sbe_v1_3.cust_quantity = {}
 
@@ -404,6 +572,442 @@ memx_options_memoirtop_sbe_v1_3.cust_quantity.dissect = function(buffer, offset,
   local display = memx_options_memoirtop_sbe_v1_3.cust_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Header Length
+memx_options_memoirtop_sbe_v1_3.header_length = {}
+
+-- Size: Header Length
+memx_options_memoirtop_sbe_v1_3.header_length.size = 1
+
+-- Display: Header Length
+memx_options_memoirtop_sbe_v1_3.header_length.display = function(value)
+  return "Header Length: "..value
+end
+
+-- Dissect: Header Length
+memx_options_memoirtop_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.header_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.header_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Trading Status
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status = {}
+
+-- Size: Instrument Trading Status
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status.size = 1
+
+-- Display: Instrument Trading Status
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Trading Status: No Value"
+  end
+
+  if value == "H" then
+    return "Instrument Trading Status: Halted (H)"
+  end
+  if value == "T" then
+    return "Instrument Trading Status: Trading (T)"
+  end
+
+  return "Instrument Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Trading Status
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.instrument_trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.instrument_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Trading Status Reason
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason = {}
+
+-- Size: Instrument Trading Status Reason
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.size = 1
+
+-- Display: Instrument Trading Status Reason
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Trading Status Reason: No Value"
+  end
+
+  if value == "X" then
+    return "Instrument Trading Status Reason: None (X)"
+  end
+  if value == "A" then
+    return "Instrument Trading Status Reason: Administrative (A)"
+  end
+
+  return "Instrument Trading Status Reason: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Trading Status Reason
+memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Test Symbol
+memx_options_memoirtop_sbe_v1_3.is_test_symbol = {}
+
+-- Size: Is Test Symbol
+memx_options_memoirtop_sbe_v1_3.is_test_symbol.size = 1
+
+-- Display: Is Test Symbol
+memx_options_memoirtop_sbe_v1_3.is_test_symbol.display = function(value)
+  if value == 0 then
+    return "Is Test Symbol: False (0)"
+  end
+  if value == 1 then
+    return "Is Test Symbol: True (1)"
+  end
+
+  return "Is Test Symbol: Unknown("..value..")"
+end
+
+-- Dissect: Is Test Symbol
+memx_options_memoirtop_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.is_test_symbol.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.is_test_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Date
+memx_options_memoirtop_sbe_v1_3.maturity_date = {}
+
+-- Size: Maturity Date
+memx_options_memoirtop_sbe_v1_3.maturity_date.size = 8
+
+-- Display: Maturity Date
+memx_options_memoirtop_sbe_v1_3.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Maturity Date: No Value"
+  end
+
+  return "Maturity Date: "..value
+end
+
+-- Dissect: Maturity Date
+memx_options_memoirtop_sbe_v1_3.maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.maturity_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+memx_options_memoirtop_sbe_v1_3.message_count = {}
+
+-- Size: Message Count
+memx_options_memoirtop_sbe_v1_3.message_count.size = 2
+
+-- Display: Message Count
+memx_options_memoirtop_sbe_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+memx_options_memoirtop_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+memx_options_memoirtop_sbe_v1_3.message_length = {}
+
+-- Size: Message Length
+memx_options_memoirtop_sbe_v1_3.message_length.size = 2
+
+-- Display: Message Length
+memx_options_memoirtop_sbe_v1_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+memx_options_memoirtop_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+memx_options_memoirtop_sbe_v1_3.message_type = {}
+
+-- Size: Message Type
+memx_options_memoirtop_sbe_v1_3.message_type.size = 1
+
+-- Display: Message Type
+memx_options_memoirtop_sbe_v1_3.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat Message (0)"
+  end
+  if value == 1 then
+    return "Message Type: Session Shutdown Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Sequenced Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+memx_options_memoirtop_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price
+memx_options_memoirtop_sbe_v1_3.offer_price = {}
+
+-- Size: Offer Price
+memx_options_memoirtop_sbe_v1_3.offer_price.size = 8
+
+-- Display: Offer Price
+memx_options_memoirtop_sbe_v1_3.offer_price.display = function(value)
+  return "Offer Price: "..value
+end
+
+-- Translate: Offer Price
+memx_options_memoirtop_sbe_v1_3.offer_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Offer Price
+memx_options_memoirtop_sbe_v1_3.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memoirtop_sbe_v1_3.offer_price.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price Short
+memx_options_memoirtop_sbe_v1_3.offer_price_short = {}
+
+-- Size: Offer Price Short
+memx_options_memoirtop_sbe_v1_3.offer_price_short.size = 2
+
+-- Display: Offer Price Short
+memx_options_memoirtop_sbe_v1_3.offer_price_short.display = function(value)
+  return "Offer Price Short: "..value
+end
+
+-- Translate: Offer Price Short
+memx_options_memoirtop_sbe_v1_3.offer_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Offer Price Short
+memx_options_memoirtop_sbe_v1_3.offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = memx_options_memoirtop_sbe_v1_3.offer_price_short.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.offer_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Product Type
+memx_options_memoirtop_sbe_v1_3.options_product_type = {}
+
+-- Size: Options Product Type
+memx_options_memoirtop_sbe_v1_3.options_product_type.size = 1
+
+-- Display: Options Product Type
+memx_options_memoirtop_sbe_v1_3.options_product_type.display = function(value)
+  if value == 0 then
+    return "Options Product Type: Equity Underlying (0)"
+  end
+  if value == 1 then
+    return "Options Product Type: Index Underlying (1)"
+  end
+
+  return "Options Product Type: Unknown("..value..")"
+end
+
+-- Dissect: Options Product Type
+memx_options_memoirtop_sbe_v1_3.options_product_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.options_product_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.options_product_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.options_product_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Price
+memx_options_memoirtop_sbe_v1_3.original_price = {}
+
+-- Size: Original Price
+memx_options_memoirtop_sbe_v1_3.original_price.size = 8
+
+-- Display: Original Price
+memx_options_memoirtop_sbe_v1_3.original_price.display = function(value)
+  return "Original Price: "..value
+end
+
+-- Translate: Original Price
+memx_options_memoirtop_sbe_v1_3.original_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Original Price
+memx_options_memoirtop_sbe_v1_3.original_price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.original_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memoirtop_sbe_v1_3.original_price.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.original_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.original_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Quantity
+memx_options_memoirtop_sbe_v1_3.original_quantity = {}
+
+-- Size: Original Quantity
+memx_options_memoirtop_sbe_v1_3.original_quantity.size = 4
+
+-- Display: Original Quantity
+memx_options_memoirtop_sbe_v1_3.original_quantity.display = function(value)
+  return "Original Quantity: "..value
+end
+
+-- Dissect: Original Quantity
+memx_options_memoirtop_sbe_v1_3.original_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.original_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.original_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.original_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Osi Root
+memx_options_memoirtop_sbe_v1_3.osi_root = {}
+
+-- Size: Osi Root
+memx_options_memoirtop_sbe_v1_3.osi_root.size = 6
+
+-- Display: Osi Root
+memx_options_memoirtop_sbe_v1_3.osi_root.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Osi Root: No Value"
+  end
+
+  return "Osi Root: "..value
+end
+
+-- Dissect: Osi Root
+memx_options_memoirtop_sbe_v1_3.osi_root.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.osi_root.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.osi_root.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.osi_root, range, value, display)
 
   return offset + length, value
 end
@@ -460,6 +1064,79 @@ memx_options_memoirtop_sbe_v1_3.quantity.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Schema Id
+memx_options_memoirtop_sbe_v1_3.schema_id = {}
+
+-- Size: Schema Id
+memx_options_memoirtop_sbe_v1_3.schema_id.size = 1
+
+-- Display: Schema Id
+memx_options_memoirtop_sbe_v1_3.schema_id.display = function(value)
+  if value == 11 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+memx_options_memoirtop_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+memx_options_memoirtop_sbe_v1_3.sequence_number = {}
+
+-- Size: Sequence Number
+memx_options_memoirtop_sbe_v1_3.sequence_number.size = 8
+
+-- Display: Sequence Number
+memx_options_memoirtop_sbe_v1_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+memx_options_memoirtop_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memoirtop_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+memx_options_memoirtop_sbe_v1_3.session_id = {}
+
+-- Size: Session Id
+memx_options_memoirtop_sbe_v1_3.session_id.size = 8
+
+-- Display: Session Id
+memx_options_memoirtop_sbe_v1_3.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+memx_options_memoirtop_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memoirtop_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Side
 memx_options_memoirtop_sbe_v1_3.side = {}
 
@@ -503,6 +1180,444 @@ memx_options_memoirtop_sbe_v1_3.side.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Strike Price
+memx_options_memoirtop_sbe_v1_3.strike_price = {}
+
+-- Size: Strike Price
+memx_options_memoirtop_sbe_v1_3.strike_price.size = 8
+
+-- Display: Strike Price
+memx_options_memoirtop_sbe_v1_3.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+memx_options_memoirtop_sbe_v1_3.strike_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Strike Price
+memx_options_memoirtop_sbe_v1_3.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_options_memoirtop_sbe_v1_3.strike_price.translate(raw)
+  local display = memx_options_memoirtop_sbe_v1_3.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Put Or Call
+memx_options_memoirtop_sbe_v1_3.strike_put_or_call = {}
+
+-- Size: Strike Put Or Call
+memx_options_memoirtop_sbe_v1_3.strike_put_or_call.size = 1
+
+-- Display: Strike Put Or Call
+memx_options_memoirtop_sbe_v1_3.strike_put_or_call.display = function(value)
+  if value == 0 then
+    return "Strike Put Or Call: Put (0)"
+  end
+  if value == 1 then
+    return "Strike Put Or Call: Call (1)"
+  end
+
+  return "Strike Put Or Call: Unknown("..value..")"
+end
+
+-- Dissect: Strike Put Or Call
+memx_options_memoirtop_sbe_v1_3.strike_put_or_call.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.strike_put_or_call.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.strike_put_or_call.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.strike_put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+memx_options_memoirtop_sbe_v1_3.symbol = {}
+
+-- Size: Symbol
+memx_options_memoirtop_sbe_v1_3.symbol.size = 8
+
+-- Display: Symbol
+memx_options_memoirtop_sbe_v1_3.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+memx_options_memoirtop_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+memx_options_memoirtop_sbe_v1_3.template_id = {}
+
+-- Size: Template Id
+memx_options_memoirtop_sbe_v1_3.template_id.size = 1
+
+-- Display: Template Id
+memx_options_memoirtop_sbe_v1_3.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: Instrument Directory Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Instrument Trading Status Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Trading Session Status Message (3)"
+  end
+  if value == 5 then
+    return "Template Id: Broken Trade Message (5)"
+  end
+  if value == 6 then
+    return "Template Id: Corrected Trade Message (6)"
+  end
+  if value == 7 then
+    return "Template Id: Snapshot Complete Message (7)"
+  end
+  if value == 10 then
+    return "Template Id: Best Bid Offer Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Best Bid Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Best Offer Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Best Bid Short Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Best Offer Short Message (14)"
+  end
+  if value == 15 then
+    return "Template Id: Trade Message (15)"
+  end
+  if value == 16 then
+    return "Template Id: Clear Book Message (16)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+memx_options_memoirtop_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+memx_options_memoirtop_sbe_v1_3.timestamp = {}
+
+-- Size: Timestamp
+memx_options_memoirtop_sbe_v1_3.timestamp.size = 8
+
+-- Display: Timestamp
+memx_options_memoirtop_sbe_v1_3.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+memx_options_memoirtop_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memoirtop_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Bid Size
+memx_options_memoirtop_sbe_v1_3.total_bid_size = {}
+
+-- Size: Total Bid Size
+memx_options_memoirtop_sbe_v1_3.total_bid_size.size = 4
+
+-- Display: Total Bid Size
+memx_options_memoirtop_sbe_v1_3.total_bid_size.display = function(value)
+  return "Total Bid Size: "..value
+end
+
+-- Dissect: Total Bid Size
+memx_options_memoirtop_sbe_v1_3.total_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.total_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.total_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.total_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Bid Size Short
+memx_options_memoirtop_sbe_v1_3.total_bid_size_short = {}
+
+-- Size: Total Bid Size Short
+memx_options_memoirtop_sbe_v1_3.total_bid_size_short.size = 2
+
+-- Display: Total Bid Size Short
+memx_options_memoirtop_sbe_v1_3.total_bid_size_short.display = function(value)
+  return "Total Bid Size Short: "..value
+end
+
+-- Dissect: Total Bid Size Short
+memx_options_memoirtop_sbe_v1_3.total_bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.total_bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.total_bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.total_bid_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Offer Size
+memx_options_memoirtop_sbe_v1_3.total_offer_size = {}
+
+-- Size: Total Offer Size
+memx_options_memoirtop_sbe_v1_3.total_offer_size.size = 4
+
+-- Display: Total Offer Size
+memx_options_memoirtop_sbe_v1_3.total_offer_size.display = function(value)
+  return "Total Offer Size: "..value
+end
+
+-- Dissect: Total Offer Size
+memx_options_memoirtop_sbe_v1_3.total_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.total_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.total_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.total_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+memx_options_memoirtop_sbe_v1_3.trade_id = {}
+
+-- Size: Trade Id
+memx_options_memoirtop_sbe_v1_3.trade_id.size = 8
+
+-- Display: Trade Id
+memx_options_memoirtop_sbe_v1_3.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+memx_options_memoirtop_sbe_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_options_memoirtop_sbe_v1_3.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session
+memx_options_memoirtop_sbe_v1_3.trading_session = {}
+
+-- Size: Trading Session
+memx_options_memoirtop_sbe_v1_3.trading_session.size = 1
+
+-- Display: Trading Session
+memx_options_memoirtop_sbe_v1_3.trading_session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
+  if value == "1" then
+    return "Trading Session: Trading (1)"
+  end
+  if value == "2" then
+    return "Trading Session: Closed (2)"
+  end
+
+  return "Trading Session: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session
+memx_options_memoirtop_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.trading_session.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.trading_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlier
+memx_options_memoirtop_sbe_v1_3.underlier = {}
+
+-- Size: Underlier
+memx_options_memoirtop_sbe_v1_3.underlier.size = 6
+
+-- Display: Underlier
+memx_options_memoirtop_sbe_v1_3.underlier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlier: No Value"
+  end
+
+  return "Underlier: "..value
+end
+
+-- Dissect: Underlier
+memx_options_memoirtop_sbe_v1_3.underlier.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.underlier.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_options_memoirtop_sbe_v1_3.underlier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.underlier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+memx_options_memoirtop_sbe_v1_3.version = {}
+
+-- Size: Version
+memx_options_memoirtop_sbe_v1_3.version.size = 2
+
+-- Display: Version
+memx_options_memoirtop_sbe_v1_3.version.display = function(value)
+  if value == 259 then
+    return "Version: Version 1.3"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+memx_options_memoirtop_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memoirtop_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Memx Options MemoirTop Sbe 1.3
+-----------------------------------------------------------------------
+
+-- Clear Book Message
+memx_options_memoirtop_sbe_v1_3.clear_book_message = {}
+
+-- Size: Clear Book Message
+memx_options_memoirtop_sbe_v1_3.clear_book_message.size =
+  memx_options_memoirtop_sbe_v1_3.timestamp.size + 
+  memx_options_memoirtop_sbe_v1_3.symbol.size
+
+-- Display: Clear Book Message
+memx_options_memoirtop_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Clear Book Message
+memx_options_memoirtop_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UTCTimestampNanos
+  index, timestamp = memx_options_memoirtop_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: BestBidSymbol
+  index, symbol = memx_options_memoirtop_sbe_v1_3.symbol.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Clear Book Message
+memx_options_memoirtop_sbe_v1_3.clear_book_message.dissect = function(buffer, offset, packet, parent)
+  if show.clear_book_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
+    local index = memx_options_memoirtop_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_options_memoirtop_sbe_v1_3.clear_book_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_options_memoirtop_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Trade Conditions
 memx_options_memoirtop_sbe_v1_3.trade_conditions = {}
 
@@ -544,29 +1659,6 @@ memx_options_memoirtop_sbe_v1_3.trade_conditions.dissect = function(buffer, offs
   end
 
   return offset + size, value
-end
-
--- Trade Id
-memx_options_memoirtop_sbe_v1_3.trade_id = {}
-
--- Size: Trade Id
-memx_options_memoirtop_sbe_v1_3.trade_id.size = 8
-
--- Display: Trade Id
-memx_options_memoirtop_sbe_v1_3.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-memx_options_memoirtop_sbe_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memoirtop_sbe_v1_3.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.trade_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Message
@@ -641,58 +1733,6 @@ memx_options_memoirtop_sbe_v1_3.trade_message.dissect = function(buffer, offset,
   end
 end
 
--- Offer Price Short
-memx_options_memoirtop_sbe_v1_3.offer_price_short = {}
-
--- Size: Offer Price Short
-memx_options_memoirtop_sbe_v1_3.offer_price_short.size = 2
-
--- Display: Offer Price Short
-memx_options_memoirtop_sbe_v1_3.offer_price_short.display = function(value)
-  return "Offer Price Short: "..value
-end
-
--- Translate: Offer Price Short
-memx_options_memoirtop_sbe_v1_3.offer_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price Short
-memx_options_memoirtop_sbe_v1_3.offer_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.offer_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = memx_options_memoirtop_sbe_v1_3.offer_price_short.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.offer_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Cust Bid Size Short
-memx_options_memoirtop_sbe_v1_3.cust_bid_size_short = {}
-
--- Size: Cust Bid Size Short
-memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.size = 2
-
--- Display: Cust Bid Size Short
-memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.display = function(value)
-  return "Cust Bid Size Short: "..value
-end
-
--- Dissect: Cust Bid Size Short
-memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.cust_bid_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_bid_size_short, range, value, display)
-
-  return offset + length, value
-end
-
 -- Best Offer Short Message
 memx_options_memoirtop_sbe_v1_3.best_offer_short_message = {}
 
@@ -747,58 +1787,6 @@ memx_options_memoirtop_sbe_v1_3.best_offer_short_message.dissect = function(buff
     -- Skip element, add fields directly
     return memx_options_memoirtop_sbe_v1_3.best_offer_short_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Bid Price Short
-memx_options_memoirtop_sbe_v1_3.bid_price_short = {}
-
--- Size: Bid Price Short
-memx_options_memoirtop_sbe_v1_3.bid_price_short.size = 2
-
--- Display: Bid Price Short
-memx_options_memoirtop_sbe_v1_3.bid_price_short.display = function(value)
-  return "Bid Price Short: "..value
-end
-
--- Translate: Bid Price Short
-memx_options_memoirtop_sbe_v1_3.bid_price_short.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price Short
-memx_options_memoirtop_sbe_v1_3.bid_price_short.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.bid_price_short.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = memx_options_memoirtop_sbe_v1_3.bid_price_short.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.bid_price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Bid Size Short
-memx_options_memoirtop_sbe_v1_3.total_bid_size_short = {}
-
--- Size: Total Bid Size Short
-memx_options_memoirtop_sbe_v1_3.total_bid_size_short.size = 2
-
--- Display: Total Bid Size Short
-memx_options_memoirtop_sbe_v1_3.total_bid_size_short.display = function(value)
-  return "Total Bid Size Short: "..value
-end
-
--- Dissect: Total Bid Size Short
-memx_options_memoirtop_sbe_v1_3.total_bid_size_short.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.total_bid_size_short.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.total_bid_size_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.total_bid_size_short, range, value, display)
-
-  return offset + length, value
 end
 
 -- Best Bid Short Message
@@ -857,81 +1845,6 @@ memx_options_memoirtop_sbe_v1_3.best_bid_short_message.dissect = function(buffer
   end
 end
 
--- Offer Price
-memx_options_memoirtop_sbe_v1_3.offer_price = {}
-
--- Size: Offer Price
-memx_options_memoirtop_sbe_v1_3.offer_price.size = 8
-
--- Display: Offer Price
-memx_options_memoirtop_sbe_v1_3.offer_price.display = function(value)
-  return "Offer Price: "..value
-end
-
--- Translate: Offer Price
-memx_options_memoirtop_sbe_v1_3.offer_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Offer Price
-memx_options_memoirtop_sbe_v1_3.offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.offer_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memoirtop_sbe_v1_3.offer_price.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.offer_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Cust Offer Size
-memx_options_memoirtop_sbe_v1_3.cust_offer_size = {}
-
--- Size: Cust Offer Size
-memx_options_memoirtop_sbe_v1_3.cust_offer_size.size = 4
-
--- Display: Cust Offer Size
-memx_options_memoirtop_sbe_v1_3.cust_offer_size.display = function(value)
-  return "Cust Offer Size: "..value
-end
-
--- Dissect: Cust Offer Size
-memx_options_memoirtop_sbe_v1_3.cust_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.cust_offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.cust_offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Offer Size
-memx_options_memoirtop_sbe_v1_3.total_offer_size = {}
-
--- Size: Total Offer Size
-memx_options_memoirtop_sbe_v1_3.total_offer_size.size = 4
-
--- Display: Total Offer Size
-memx_options_memoirtop_sbe_v1_3.total_offer_size.display = function(value)
-  return "Total Offer Size: "..value
-end
-
--- Dissect: Total Offer Size
-memx_options_memoirtop_sbe_v1_3.total_offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.total_offer_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.total_offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.total_offer_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Best Offer Message
 memx_options_memoirtop_sbe_v1_3.best_offer_message = {}
 
@@ -986,81 +1899,6 @@ memx_options_memoirtop_sbe_v1_3.best_offer_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return memx_options_memoirtop_sbe_v1_3.best_offer_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Bid Price
-memx_options_memoirtop_sbe_v1_3.bid_price = {}
-
--- Size: Bid Price
-memx_options_memoirtop_sbe_v1_3.bid_price.size = 8
-
--- Display: Bid Price
-memx_options_memoirtop_sbe_v1_3.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-memx_options_memoirtop_sbe_v1_3.bid_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Bid Price
-memx_options_memoirtop_sbe_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memoirtop_sbe_v1_3.bid_price.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Cust Bid Size
-memx_options_memoirtop_sbe_v1_3.cust_bid_size = {}
-
--- Size: Cust Bid Size
-memx_options_memoirtop_sbe_v1_3.cust_bid_size.size = 4
-
--- Display: Cust Bid Size
-memx_options_memoirtop_sbe_v1_3.cust_bid_size.display = function(value)
-  return "Cust Bid Size: "..value
-end
-
--- Dissect: Cust Bid Size
-memx_options_memoirtop_sbe_v1_3.cust_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.cust_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.cust_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.cust_bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Bid Size
-memx_options_memoirtop_sbe_v1_3.total_bid_size = {}
-
--- Size: Total Bid Size
-memx_options_memoirtop_sbe_v1_3.total_bid_size.size = 4
-
--- Display: Total Bid Size
-memx_options_memoirtop_sbe_v1_3.total_bid_size.display = function(value)
-  return "Total Bid Size: "..value
-end
-
--- Dissect: Total Bid Size
-memx_options_memoirtop_sbe_v1_3.total_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.total_bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.total_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.total_bid_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Best Bid Message
@@ -1187,29 +2025,6 @@ memx_options_memoirtop_sbe_v1_3.best_bid_offer_message.dissect = function(buffer
   end
 end
 
--- As Of Sequence Number
-memx_options_memoirtop_sbe_v1_3.as_of_sequence_number = {}
-
--- Size: As Of Sequence Number
-memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.size = 8
-
--- Display: As Of Sequence Number
-memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.display = function(value)
-  return "As Of Sequence Number: "..value
-end
-
--- Dissect: As Of Sequence Number
-memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memoirtop_sbe_v1_3.as_of_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.as_of_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Snapshot Complete Message
 memx_options_memoirtop_sbe_v1_3.snapshot_complete_message = {}
 
@@ -1252,110 +2067,6 @@ memx_options_memoirtop_sbe_v1_3.snapshot_complete_message.dissect = function(buf
     -- Skip element, add fields directly
     return memx_options_memoirtop_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Corrected Price
-memx_options_memoirtop_sbe_v1_3.corrected_price = {}
-
--- Size: Corrected Price
-memx_options_memoirtop_sbe_v1_3.corrected_price.size = 8
-
--- Display: Corrected Price
-memx_options_memoirtop_sbe_v1_3.corrected_price.display = function(value)
-  return "Corrected Price: "..value
-end
-
--- Translate: Corrected Price
-memx_options_memoirtop_sbe_v1_3.corrected_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Corrected Price
-memx_options_memoirtop_sbe_v1_3.corrected_price.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.corrected_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memoirtop_sbe_v1_3.corrected_price.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.corrected_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.corrected_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Corrected Quantity
-memx_options_memoirtop_sbe_v1_3.corrected_quantity = {}
-
--- Size: Corrected Quantity
-memx_options_memoirtop_sbe_v1_3.corrected_quantity.size = 4
-
--- Display: Corrected Quantity
-memx_options_memoirtop_sbe_v1_3.corrected_quantity.display = function(value)
-  return "Corrected Quantity: "..value
-end
-
--- Dissect: Corrected Quantity
-memx_options_memoirtop_sbe_v1_3.corrected_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.corrected_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.corrected_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.corrected_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Price
-memx_options_memoirtop_sbe_v1_3.original_price = {}
-
--- Size: Original Price
-memx_options_memoirtop_sbe_v1_3.original_price.size = 8
-
--- Display: Original Price
-memx_options_memoirtop_sbe_v1_3.original_price.display = function(value)
-  return "Original Price: "..value
-end
-
--- Translate: Original Price
-memx_options_memoirtop_sbe_v1_3.original_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Original Price
-memx_options_memoirtop_sbe_v1_3.original_price.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.original_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memoirtop_sbe_v1_3.original_price.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.original_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.original_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Quantity
-memx_options_memoirtop_sbe_v1_3.original_quantity = {}
-
--- Size: Original Quantity
-memx_options_memoirtop_sbe_v1_3.original_quantity.size = 4
-
--- Display: Original Quantity
-memx_options_memoirtop_sbe_v1_3.original_quantity.display = function(value)
-  return "Original Quantity: "..value
-end
-
--- Dissect: Original Quantity
-memx_options_memoirtop_sbe_v1_3.original_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.original_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.original_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.original_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Corrected Trade Message
@@ -1478,49 +2189,6 @@ memx_options_memoirtop_sbe_v1_3.broken_trade_message.dissect = function(buffer, 
   end
 end
 
--- Trading Session
-memx_options_memoirtop_sbe_v1_3.trading_session = {}
-
--- Size: Trading Session
-memx_options_memoirtop_sbe_v1_3.trading_session.size = 1
-
--- Display: Trading Session
-memx_options_memoirtop_sbe_v1_3.trading_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trading Session: No Value"
-  end
-
-  if value == "1" then
-    return "Trading Session: Trading (1)"
-  end
-  if value == "2" then
-    return "Trading Session: Closed (2)"
-  end
-
-  return "Trading Session: Unknown("..value..")"
-end
-
--- Dissect: Trading Session
-memx_options_memoirtop_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.trading_session.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.trading_session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Session Status Message
 memx_options_memoirtop_sbe_v1_3.trading_session_status_message = {}
 
@@ -1563,92 +2231,6 @@ memx_options_memoirtop_sbe_v1_3.trading_session_status_message.dissect = functio
     -- Skip element, add fields directly
     return memx_options_memoirtop_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Instrument Trading Status Reason
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason = {}
-
--- Size: Instrument Trading Status Reason
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.size = 1
-
--- Display: Instrument Trading Status Reason
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Trading Status Reason: No Value"
-  end
-
-  if value == "X" then
-    return "Instrument Trading Status Reason: None (X)"
-  end
-  if value == "A" then
-    return "Instrument Trading Status Reason: Administrative (A)"
-  end
-
-  return "Instrument Trading Status Reason: Unknown("..value..")"
-end
-
--- Dissect: Instrument Trading Status Reason
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.instrument_trading_status_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Trading Status
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status = {}
-
--- Size: Instrument Trading Status
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status.size = 1
-
--- Display: Instrument Trading Status
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Instrument Trading Status: No Value"
-  end
-
-  if value == "H" then
-    return "Instrument Trading Status: Halted (H)"
-  end
-  if value == "T" then
-    return "Instrument Trading Status: Trading (T)"
-  end
-
-  return "Instrument Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Instrument Trading Status
-memx_options_memoirtop_sbe_v1_3.instrument_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.instrument_trading_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.instrument_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.instrument_trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Trading Status Message
@@ -1701,295 +2283,6 @@ memx_options_memoirtop_sbe_v1_3.instrument_trading_status_message.dissect = func
     -- Skip element, add fields directly
     return memx_options_memoirtop_sbe_v1_3.instrument_trading_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Is Test Symbol
-memx_options_memoirtop_sbe_v1_3.is_test_symbol = {}
-
--- Size: Is Test Symbol
-memx_options_memoirtop_sbe_v1_3.is_test_symbol.size = 1
-
--- Display: Is Test Symbol
-memx_options_memoirtop_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
-
-  return "Is Test Symbol: Unknown("..value..")"
-end
-
--- Dissect: Is Test Symbol
-memx_options_memoirtop_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.is_test_symbol.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.is_test_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Time
-memx_options_memoirtop_sbe_v1_3.closing_time = {}
-
--- Size: Closing Time
-memx_options_memoirtop_sbe_v1_3.closing_time.size = 8
-
--- Display: Closing Time
-memx_options_memoirtop_sbe_v1_3.closing_time.display = function(value)
-  return "Closing Time: "..value
-end
-
--- Dissect: Closing Time
-memx_options_memoirtop_sbe_v1_3.closing_time.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.closing_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memoirtop_sbe_v1_3.closing_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.closing_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Only
-memx_options_memoirtop_sbe_v1_3.closing_only = {}
-
--- Size: Closing Only
-memx_options_memoirtop_sbe_v1_3.closing_only.size = 1
-
--- Display: Closing Only
-memx_options_memoirtop_sbe_v1_3.closing_only.display = function(value)
-  if value == 0 then
-    return "Closing Only: False (0)"
-  end
-  if value == 1 then
-    return "Closing Only: True (1)"
-  end
-
-  return "Closing Only: Unknown("..value..")"
-end
-
--- Dissect: Closing Only
-memx_options_memoirtop_sbe_v1_3.closing_only.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.closing_only.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.closing_only.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.closing_only, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-memx_options_memoirtop_sbe_v1_3.strike_price = {}
-
--- Size: Strike Price
-memx_options_memoirtop_sbe_v1_3.strike_price.size = 8
-
--- Display: Strike Price
-memx_options_memoirtop_sbe_v1_3.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-memx_options_memoirtop_sbe_v1_3.strike_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Strike Price
-memx_options_memoirtop_sbe_v1_3.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = memx_options_memoirtop_sbe_v1_3.strike_price.translate(raw)
-  local display = memx_options_memoirtop_sbe_v1_3.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Put Or Call
-memx_options_memoirtop_sbe_v1_3.strike_put_or_call = {}
-
--- Size: Strike Put Or Call
-memx_options_memoirtop_sbe_v1_3.strike_put_or_call.size = 1
-
--- Display: Strike Put Or Call
-memx_options_memoirtop_sbe_v1_3.strike_put_or_call.display = function(value)
-  if value == 0 then
-    return "Strike Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Strike Put Or Call: Call (1)"
-  end
-
-  return "Strike Put Or Call: Unknown("..value..")"
-end
-
--- Dissect: Strike Put Or Call
-memx_options_memoirtop_sbe_v1_3.strike_put_or_call.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.strike_put_or_call.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.strike_put_or_call.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.strike_put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-memx_options_memoirtop_sbe_v1_3.maturity_date = {}
-
--- Size: Maturity Date
-memx_options_memoirtop_sbe_v1_3.maturity_date.size = 8
-
--- Display: Maturity Date
-memx_options_memoirtop_sbe_v1_3.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Maturity Date: No Value"
-  end
-
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-memx_options_memoirtop_sbe_v1_3.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.maturity_date.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Osi Root
-memx_options_memoirtop_sbe_v1_3.osi_root = {}
-
--- Size: Osi Root
-memx_options_memoirtop_sbe_v1_3.osi_root.size = 6
-
--- Display: Osi Root
-memx_options_memoirtop_sbe_v1_3.osi_root.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Osi Root: No Value"
-  end
-
-  return "Osi Root: "..value
-end
-
--- Dissect: Osi Root
-memx_options_memoirtop_sbe_v1_3.osi_root.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.osi_root.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.osi_root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.osi_root, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlier
-memx_options_memoirtop_sbe_v1_3.underlier = {}
-
--- Size: Underlier
-memx_options_memoirtop_sbe_v1_3.underlier.size = 6
-
--- Display: Underlier
-memx_options_memoirtop_sbe_v1_3.underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier: No Value"
-  end
-
-  return "Underlier: "..value
-end
-
--- Dissect: Underlier
-memx_options_memoirtop_sbe_v1_3.underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3.underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Options Product Type
-memx_options_memoirtop_sbe_v1_3.options_product_type = {}
-
--- Size: Options Product Type
-memx_options_memoirtop_sbe_v1_3.options_product_type.size = 1
-
--- Display: Options Product Type
-memx_options_memoirtop_sbe_v1_3.options_product_type.display = function(value)
-  if value == 0 then
-    return "Options Product Type: Equity Underlying (0)"
-  end
-  if value == 1 then
-    return "Options Product Type: Index Underlying (1)"
-  end
-
-  return "Options Product Type: Unknown("..value..")"
-end
-
--- Dissect: Options Product Type
-memx_options_memoirtop_sbe_v1_3.options_product_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.options_product_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.options_product_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.options_product_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Directory Message
@@ -2133,146 +2426,6 @@ memx_options_memoirtop_sbe_v1_3.payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Version
-memx_options_memoirtop_sbe_v1_3.version = {}
-
--- Size: Version
-memx_options_memoirtop_sbe_v1_3.version.size = 2
-
--- Display: Version
-memx_options_memoirtop_sbe_v1_3.version.display = function(value)
-  if value == 259 then
-    return "Version: Version 1.3"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-memx_options_memoirtop_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-memx_options_memoirtop_sbe_v1_3.schema_id = {}
-
--- Size: Schema Id
-memx_options_memoirtop_sbe_v1_3.schema_id.size = 1
-
--- Display: Schema Id
-memx_options_memoirtop_sbe_v1_3.schema_id.display = function(value)
-  if value == 11 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-memx_options_memoirtop_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-memx_options_memoirtop_sbe_v1_3.template_id = {}
-
--- Size: Template Id
-memx_options_memoirtop_sbe_v1_3.template_id.size = 1
-
--- Display: Template Id
-memx_options_memoirtop_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Instrument Trading Status Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Trading Session Status Message (3)"
-  end
-  if value == 5 then
-    return "Template Id: Broken Trade Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Corrected Trade Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Snapshot Complete Message (7)"
-  end
-  if value == 10 then
-    return "Template Id: Best Bid Offer Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Best Bid Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Best Offer Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Best Bid Short Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Best Offer Short Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Trade Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Clear Book Message (16)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-memx_options_memoirtop_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-memx_options_memoirtop_sbe_v1_3.block_length = {}
-
--- Size: Block Length
-memx_options_memoirtop_sbe_v1_3.block_length.size = 2
-
--- Display: Block Length
-memx_options_memoirtop_sbe_v1_3.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-memx_options_memoirtop_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 memx_options_memoirtop_sbe_v1_3.sbe_header = {}
 
@@ -2381,29 +2534,6 @@ memx_options_memoirtop_sbe_v1_3.sbe_message.dissect = function(buffer, offset, p
   end
 end
 
--- Message Length
-memx_options_memoirtop_sbe_v1_3.message_length = {}
-
--- Size: Message Length
-memx_options_memoirtop_sbe_v1_3.message_length.size = 2
-
--- Display: Message Length
-memx_options_memoirtop_sbe_v1_3.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-memx_options_memoirtop_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 memx_options_memoirtop_sbe_v1_3.message = {}
 
@@ -2452,29 +2582,6 @@ memx_options_memoirtop_sbe_v1_3.message.dissect = function(buffer, offset, packe
     -- Skip element, add fields directly
     return memx_options_memoirtop_sbe_v1_3.message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Message Count
-memx_options_memoirtop_sbe_v1_3.message_count = {}
-
--- Size: Message Count
-memx_options_memoirtop_sbe_v1_3.message_count.size = 2
-
--- Display: Message Count
-memx_options_memoirtop_sbe_v1_3.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-memx_options_memoirtop_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Message
@@ -2539,108 +2646,6 @@ memx_options_memoirtop_sbe_v1_3.sequenced_messages.dissect = function(buffer, of
   end
 
   return offset
-end
-
--- Sequence Number
-memx_options_memoirtop_sbe_v1_3.sequence_number = {}
-
--- Size: Sequence Number
-memx_options_memoirtop_sbe_v1_3.sequence_number.size = 8
-
--- Display: Sequence Number
-memx_options_memoirtop_sbe_v1_3.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-memx_options_memoirtop_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memoirtop_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-memx_options_memoirtop_sbe_v1_3.session_id = {}
-
--- Size: Session Id
-memx_options_memoirtop_sbe_v1_3.session_id.size = 8
-
--- Display: Session Id
-memx_options_memoirtop_sbe_v1_3.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-memx_options_memoirtop_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_options_memoirtop_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Header Length
-memx_options_memoirtop_sbe_v1_3.header_length = {}
-
--- Size: Header Length
-memx_options_memoirtop_sbe_v1_3.header_length.size = 1
-
--- Display: Header Length
-memx_options_memoirtop_sbe_v1_3.header_length.display = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-memx_options_memoirtop_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.header_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.header_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-memx_options_memoirtop_sbe_v1_3.message_type = {}
-
--- Size: Message Type
-memx_options_memoirtop_sbe_v1_3.message_type.size = 1
-
--- Display: Message Type
-memx_options_memoirtop_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-memx_options_memoirtop_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_options_memoirtop_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_options_memoirtop_sbe_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

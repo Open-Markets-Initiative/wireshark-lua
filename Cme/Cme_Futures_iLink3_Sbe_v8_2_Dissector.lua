@@ -1066,8 +1066,2128 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Futures iLink3 Sbe 8.2
+-- Cme Futures iLink3 Sbe 8.2 Fields
 -----------------------------------------------------------------------
+
+-- Access Key Id
+cme_futures_ilink3_sbe_v8_2.access_key_id = {}
+
+-- Size: Access Key Id
+cme_futures_ilink3_sbe_v8_2.access_key_id.size = 20
+
+-- Display: Access Key Id
+cme_futures_ilink3_sbe_v8_2.access_key_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Access Key Id: No Value"
+  end
+
+  return "Access Key Id: "..value
+end
+
+-- Dissect: Access Key Id
+cme_futures_ilink3_sbe_v8_2.access_key_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.access_key_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.access_key_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.access_key_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Affected Order Id
+cme_futures_ilink3_sbe_v8_2.affected_order_id = {}
+
+-- Size: Affected Order Id
+cme_futures_ilink3_sbe_v8_2.affected_order_id.size = 8
+
+-- Display: Affected Order Id
+cme_futures_ilink3_sbe_v8_2.affected_order_id.display = function(value)
+  return "Affected Order Id: "..value
+end
+
+-- Dissect: Affected Order Id
+cme_futures_ilink3_sbe_v8_2.affected_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.affected_order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.affected_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.affected_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aggressor Indicator
+cme_futures_ilink3_sbe_v8_2.aggressor_indicator = {}
+
+-- Size: Aggressor Indicator
+cme_futures_ilink3_sbe_v8_2.aggressor_indicator.size = 1
+
+-- Display: Aggressor Indicator
+cme_futures_ilink3_sbe_v8_2.aggressor_indicator.display = function(value)
+  if value == 0 then
+    return "Aggressor Indicator: False (0)"
+  end
+  if value == 1 then
+    return "Aggressor Indicator: True (1)"
+  end
+
+  return "Aggressor Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Aggressor Indicator
+cme_futures_ilink3_sbe_v8_2.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.aggressor_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.aggressor_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.aggressor_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Quote Request
+cme_futures_ilink3_sbe_v8_2.auto_quote_request = {}
+
+-- Size: Auto Quote Request
+cme_futures_ilink3_sbe_v8_2.auto_quote_request.size = 1
+
+-- Display: Auto Quote Request
+cme_futures_ilink3_sbe_v8_2.auto_quote_request.display = function(value)
+  if value == 0 then
+    return "Auto Quote Request: False (0)"
+  end
+  if value == 1 then
+    return "Auto Quote Request: True (1)"
+  end
+
+  return "Auto Quote Request: Unknown("..value..")"
+end
+
+-- Dissect: Auto Quote Request
+cme_futures_ilink3_sbe_v8_2.auto_quote_request.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.auto_quote_request.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.auto_quote_request.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.auto_quote_request, range, value, display)
+
+  return offset + length, value
+end
+
+-- Avg Px Group Id
+cme_futures_ilink3_sbe_v8_2.avg_px_group_id = {}
+
+-- Size: Avg Px Group Id
+cme_futures_ilink3_sbe_v8_2.avg_px_group_id.size = 20
+
+-- Display: Avg Px Group Id
+cme_futures_ilink3_sbe_v8_2.avg_px_group_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Avg Px Group Id: No Value"
+  end
+
+  return "Avg Px Group Id: "..value
+end
+
+-- Dissect: Avg Px Group Id
+cme_futures_ilink3_sbe_v8_2.avg_px_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.avg_px_group_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.avg_px_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.avg_px_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Avg Px Indicator
+cme_futures_ilink3_sbe_v8_2.avg_px_indicator = {}
+
+-- Size: Avg Px Indicator
+cme_futures_ilink3_sbe_v8_2.avg_px_indicator.size = 1
+
+-- Display: Avg Px Indicator
+cme_futures_ilink3_sbe_v8_2.avg_px_indicator.display = function(value)
+  if value == 255 then
+    return "Avg Px Indicator: No Value"
+  end
+  if value == 0 then
+    return "Avg Px Indicator: No Average Pricing (0)"
+  end
+  if value == 1 then
+    return "Avg Px Indicator: Tradeispartofan Average Price Group Identifiedbythe Avg Px Grp Id (1)"
+  end
+  if value == 3 then
+    return "Avg Px Indicator: Tradeispartofa Notional Value Average Price Group (3)"
+  end
+
+  return "Avg Px Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Avg Px Indicator
+cme_futures_ilink3_sbe_v8_2.avg_px_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.avg_px_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.avg_px_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.avg_px_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Px
+cme_futures_ilink3_sbe_v8_2.bid_px = {}
+
+-- Size: Bid Px
+cme_futures_ilink3_sbe_v8_2.bid_px.size = 8
+
+-- Display: Bid Px
+cme_futures_ilink3_sbe_v8_2.bid_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Bid Px: No Value"
+  end
+
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+cme_futures_ilink3_sbe_v8_2.bid_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Bid Px
+cme_futures_ilink3_sbe_v8_2.bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.bid_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.bid_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.bid_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+cme_futures_ilink3_sbe_v8_2.bid_size = {}
+
+-- Size: Bid Size
+cme_futures_ilink3_sbe_v8_2.bid_size.size = 4
+
+-- Display: Bid Size
+cme_futures_ilink3_sbe_v8_2.bid_size.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Bid Size: No Value"
+  end
+
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+cme_futures_ilink3_sbe_v8_2.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+cme_futures_ilink3_sbe_v8_2.block_length = {}
+
+-- Size: Block Length
+cme_futures_ilink3_sbe_v8_2.block_length.size = 2
+
+-- Display: Block Length
+cme_futures_ilink3_sbe_v8_2.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+cme_futures_ilink3_sbe_v8_2.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Business Reject Reason
+cme_futures_ilink3_sbe_v8_2.business_reject_reason = {}
+
+-- Size: Business Reject Reason
+cme_futures_ilink3_sbe_v8_2.business_reject_reason.size = 2
+
+-- Display: Business Reject Reason
+cme_futures_ilink3_sbe_v8_2.business_reject_reason.display = function(value)
+  return "Business Reject Reason: "..value
+end
+
+-- Dissect: Business Reject Reason
+cme_futures_ilink3_sbe_v8_2.business_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.business_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.business_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.business_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Business Reject Ref Id
+cme_futures_ilink3_sbe_v8_2.business_reject_ref_id = {}
+
+-- Size: Business Reject Ref Id
+cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.size = 8
+
+-- Display: Business Reject Ref Id
+cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Business Reject Ref Id: No Value"
+  end
+
+  return "Business Reject Ref Id: "..value
+end
+
+-- Dissect: Business Reject Ref Id
+cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.business_reject_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancelled Symbol
+cme_futures_ilink3_sbe_v8_2.cancelled_symbol = {}
+
+-- Size: Cancelled Symbol
+cme_futures_ilink3_sbe_v8_2.cancelled_symbol.size = 6
+
+-- Display: Cancelled Symbol
+cme_futures_ilink3_sbe_v8_2.cancelled_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cancelled Symbol: No Value"
+  end
+
+  return "Cancelled Symbol: "..value
+end
+
+-- Dissect: Cancelled Symbol
+cme_futures_ilink3_sbe_v8_2.cancelled_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cancelled_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.cancelled_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cancelled_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account Type
+cme_futures_ilink3_sbe_v8_2.clearing_account_type = {}
+
+-- Size: Clearing Account Type
+cme_futures_ilink3_sbe_v8_2.clearing_account_type.size = 1
+
+-- Display: Clearing Account Type
+cme_futures_ilink3_sbe_v8_2.clearing_account_type.display = function(value)
+  if value == 255 then
+    return "Clearing Account Type: No Value"
+  end
+  if value == 0 then
+    return "Clearing Account Type: Customer (0)"
+  end
+  if value == 1 then
+    return "Clearing Account Type: Firm (1)"
+  end
+
+  return "Clearing Account Type: Unknown("..value..")"
+end
+
+-- Dissect: Clearing Account Type
+cme_futures_ilink3_sbe_v8_2.clearing_account_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.clearing_account_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.clearing_account_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.clearing_account_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Trade Price Type
+cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type = {}
+
+-- Size: Clearing Trade Price Type
+cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.size = 1
+
+-- Display: Clearing Trade Price Type
+cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.display = function(value)
+  if value == 255 then
+    return "Clearing Trade Price Type: No Value"
+  end
+  if value == 0 then
+    return "Clearing Trade Price Type: Trade Clearingat Execution Price (0)"
+  end
+  if value == 1 then
+    return "Clearing Trade Price Type: Trade Clearingat Alternate Clearing Price (1)"
+  end
+
+  return "Clearing Trade Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Clearing Trade Price Type
+cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.clearing_trade_price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- ClOrdId
+cme_futures_ilink3_sbe_v8_2.clordid = {}
+
+-- Size: ClOrdId
+cme_futures_ilink3_sbe_v8_2.clordid.size = 20
+
+-- Display: ClOrdId
+cme_futures_ilink3_sbe_v8_2.clordid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "ClOrdId: No Value"
+  end
+
+  return "ClOrdId: "..value
+end
+
+-- Dissect: ClOrdId
+cme_futures_ilink3_sbe_v8_2.clordid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.clordid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.clordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.clordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cmta Giveup Cd
+cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd = {}
+
+-- Size: Cmta Giveup Cd
+cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.size = 1
+
+-- Display: Cmta Giveup Cd
+cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cmta Giveup Cd: No Value"
+  end
+
+  if value == "G" then
+    return "Cmta Giveup Cd: Give Up (G)"
+  end
+  if value == "S" then
+    return "Cmta Giveup Cd: Sg Xoffset (S)"
+  end
+
+  return "Cmta Giveup Cd: Unknown("..value..")"
+end
+
+-- Dissect: Cmta Giveup Cd
+cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd, range, value, display)
+
+  return offset + length, value
+end
+
+-- Credentials Data
+cme_futures_ilink3_sbe_v8_2.credentials_data = {}
+
+-- Display: Credentials Data
+cme_futures_ilink3_sbe_v8_2.credentials_data.display = function(value)
+  return "Credentials Data: "..value
+end
+
+-- Dissect runtime sized field: Credentials Data
+cme_futures_ilink3_sbe_v8_2.credentials_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = cme_futures_ilink3_sbe_v8_2.credentials_data.display(value, packet, parent, size)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.credentials_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Credentials Length
+cme_futures_ilink3_sbe_v8_2.credentials_length = {}
+
+-- Size: Credentials Length
+cme_futures_ilink3_sbe_v8_2.credentials_length.size = 2
+
+-- Display: Credentials Length
+cme_futures_ilink3_sbe_v8_2.credentials_length.display = function(value)
+  return "Credentials Length: "..value
+end
+
+-- Dissect: Credentials Length
+cme_futures_ilink3_sbe_v8_2.credentials_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.credentials_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.credentials_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.credentials_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id
+cme_futures_ilink3_sbe_v8_2.cross_id = {}
+
+-- Size: Cross Id
+cme_futures_ilink3_sbe_v8_2.cross_id.size = 8
+
+-- Display: Cross Id
+cme_futures_ilink3_sbe_v8_2.cross_id.display = function(value)
+  return "Cross Id: "..value
+end
+
+-- Dissect: Cross Id
+cme_futures_ilink3_sbe_v8_2.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id Optional
+cme_futures_ilink3_sbe_v8_2.cross_id_optional = {}
+
+-- Size: Cross Id Optional
+cme_futures_ilink3_sbe_v8_2.cross_id_optional.size = 8
+
+-- Display: Cross Id Optional
+cme_futures_ilink3_sbe_v8_2.cross_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Cross Id Optional: No Value"
+  end
+
+  return "Cross Id Optional: "..value
+end
+
+-- Dissect: Cross Id Optional
+cme_futures_ilink3_sbe_v8_2.cross_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cross_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.cross_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cross_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+cme_futures_ilink3_sbe_v8_2.cross_type = {}
+
+-- Size: Cross Type
+cme_futures_ilink3_sbe_v8_2.cross_type.size = 1
+
+-- Display: Cross Type
+cme_futures_ilink3_sbe_v8_2.cross_type.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Cross Type: No Value"
+  end
+
+  return "Cross Type: "..value
+end
+
+-- Dissect: Cross Type
+cme_futures_ilink3_sbe_v8_2.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cum Qty
+cme_futures_ilink3_sbe_v8_2.cum_qty = {}
+
+-- Size: Cum Qty
+cme_futures_ilink3_sbe_v8_2.cum_qty.size = 4
+
+-- Display: Cum Qty
+cme_futures_ilink3_sbe_v8_2.cum_qty.display = function(value)
+  return "Cum Qty: "..value
+end
+
+-- Dissect: Cum Qty
+cme_futures_ilink3_sbe_v8_2.cum_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cum_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.cum_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cum_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+cme_futures_ilink3_sbe_v8_2.currency = {}
+
+-- Size: Currency
+cme_futures_ilink3_sbe_v8_2.currency.size = 3
+
+-- Display: Currency
+cme_futures_ilink3_sbe_v8_2.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+cme_futures_ilink3_sbe_v8_2.currency.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Order Capacity
+cme_futures_ilink3_sbe_v8_2.cust_order_capacity = {}
+
+-- Size: Cust Order Capacity
+cme_futures_ilink3_sbe_v8_2.cust_order_capacity.size = 1
+
+-- Display: Cust Order Capacity
+cme_futures_ilink3_sbe_v8_2.cust_order_capacity.display = function(value)
+  if value == 255 then
+    return "Cust Order Capacity: No Value"
+  end
+  if value == 1 then
+    return "Cust Order Capacity: Membertradingfortheirownaccount (1)"
+  end
+  if value == 2 then
+    return "Cust Order Capacity: Clearingfirmtradingforitsproprietaryaccount (2)"
+  end
+  if value == 3 then
+    return "Cust Order Capacity: Membertradingforanothermember (3)"
+  end
+  if value == 4 then
+    return "Cust Order Capacity: Allother (4)"
+  end
+
+  return "Cust Order Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Cust Order Capacity
+cme_futures_ilink3_sbe_v8_2.cust_order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cust_order_capacity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.cust_order_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cust_order_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cust Order Handling Inst
+cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst = {}
+
+-- Size: Cust Order Handling Inst
+cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.size = 1
+
+-- Display: Cust Order Handling Inst
+cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cust Order Handling Inst: No Value"
+  end
+
+  if value == "C" then
+    return "Cust Order Handling Inst: Fc Mprovidedscreen (C)"
+  end
+  if value == "D" then
+    return "Cust Order Handling Inst: Otherprovidedscreen (D)"
+  end
+  if value == "G" then
+    return "Cust Order Handling Inst: Fcmapi Cta Ix (G)"
+  end
+  if value == "H" then
+    return "Cust Order Handling Inst: Algo Engine (H)"
+  end
+  if value == "W" then
+    return "Cust Order Handling Inst: Desk Electronic (W)"
+  end
+  if value == "Y" then
+    return "Cust Order Handling Inst: Client Electronic (Y)"
+  end
+
+  return "Cust Order Handling Inst: Unknown("..value..")"
+end
+
+-- Dissect: Cust Order Handling Inst
+cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cust_order_handling_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cxl Quantity
+cme_futures_ilink3_sbe_v8_2.cxl_quantity = {}
+
+-- Size: Cxl Quantity
+cme_futures_ilink3_sbe_v8_2.cxl_quantity.size = 4
+
+-- Display: Cxl Quantity
+cme_futures_ilink3_sbe_v8_2.cxl_quantity.display = function(value)
+  return "Cxl Quantity: "..value
+end
+
+-- Dissect: Cxl Quantity
+cme_futures_ilink3_sbe_v8_2.cxl_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cxl_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.cxl_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cxl_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cxl Rej Reason
+cme_futures_ilink3_sbe_v8_2.cxl_rej_reason = {}
+
+-- Size: Cxl Rej Reason
+cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.size = 2
+
+-- Display: Cxl Rej Reason
+cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.display = function(value)
+  return "Cxl Rej Reason: "..value
+end
+
+-- Dissect: Cxl Rej Reason
+cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cxl_rej_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Day
+cme_futures_ilink3_sbe_v8_2.day = {}
+
+-- Size: Day
+cme_futures_ilink3_sbe_v8_2.day.size = 1
+
+-- Display: Day
+cme_futures_ilink3_sbe_v8_2.day.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Day: No Value"
+  end
+
+  return "Day: "..value
+end
+
+-- Dissect: Day
+cme_futures_ilink3_sbe_v8_2.day.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.day.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delay Duration
+cme_futures_ilink3_sbe_v8_2.delay_duration = {}
+
+-- Size: Delay Duration
+cme_futures_ilink3_sbe_v8_2.delay_duration.size = 2
+
+-- Display: Delay Duration
+cme_futures_ilink3_sbe_v8_2.delay_duration.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Delay Duration: No Value"
+  end
+
+  return "Delay Duration: "..value
+end
+
+-- Dissect: Delay Duration
+cme_futures_ilink3_sbe_v8_2.delay_duration.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.delay_duration.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.delay_duration.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.delay_duration, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Qty
+cme_futures_ilink3_sbe_v8_2.display_qty = {}
+
+-- Size: Display Qty
+cme_futures_ilink3_sbe_v8_2.display_qty.size = 4
+
+-- Display: Display Qty
+cme_futures_ilink3_sbe_v8_2.display_qty.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Display Qty: No Value"
+  end
+
+  return "Display Qty: "..value
+end
+
+-- Dissect: Display Qty
+cme_futures_ilink3_sbe_v8_2.display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.display_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.display_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Dk Reason
+cme_futures_ilink3_sbe_v8_2.dk_reason = {}
+
+-- Size: Dk Reason
+cme_futures_ilink3_sbe_v8_2.dk_reason.size = 1
+
+-- Display: Dk Reason
+cme_futures_ilink3_sbe_v8_2.dk_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Dk Reason: No Value"
+  end
+
+  if value == "A" then
+    return "Dk Reason: Unknown Security (A)"
+  end
+  if value == "B" then
+    return "Dk Reason: Wrong Side (B)"
+  end
+  if value == "C" then
+    return "Dk Reason: Quantity Exceeds Order (C)"
+  end
+  if value == "D" then
+    return "Dk Reason: No Matching Order (D)"
+  end
+  if value == "E" then
+    return "Dk Reason: Price Exceeds Limit (E)"
+  end
+  if value == "F" then
+    return "Dk Reason: Calculation Difference (F)"
+  end
+  if value == "G" then
+    return "Dk Reason: No Matching Execution Report (G)"
+  end
+  if value == "Z" then
+    return "Dk Reason: Other (Z)"
+  end
+
+  return "Dk Reason: Unknown("..value..")"
+end
+
+-- Dissect: Dk Reason
+cme_futures_ilink3_sbe_v8_2.dk_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.dk_reason.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.dk_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.dk_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Encoding Type
+cme_futures_ilink3_sbe_v8_2.encoding_type = {}
+
+-- Size: Encoding Type
+cme_futures_ilink3_sbe_v8_2.encoding_type.size = 2
+
+-- Display: Encoding Type
+cme_futures_ilink3_sbe_v8_2.encoding_type.display = function(value)
+  return "Encoding Type: "..value
+end
+
+-- Dissect: Encoding Type
+cme_futures_ilink3_sbe_v8_2.encoding_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.encoding_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.encoding_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.encoding_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Date
+cme_futures_ilink3_sbe_v8_2.end_date = {}
+
+-- Size: End Date
+cme_futures_ilink3_sbe_v8_2.end_date.size = 2
+
+-- Display: End Date
+cme_futures_ilink3_sbe_v8_2.end_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "End Date: No Value"
+  end
+
+  return "End Date: "..value
+end
+
+-- Dissect: End Date
+cme_futures_ilink3_sbe_v8_2.end_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.end_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.end_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.end_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Error Codes
+cme_futures_ilink3_sbe_v8_2.error_codes = {}
+
+-- Size: Error Codes
+cme_futures_ilink3_sbe_v8_2.error_codes.size = 2
+
+-- Display: Error Codes
+cme_futures_ilink3_sbe_v8_2.error_codes.display = function(value)
+  return "Error Codes: "..value
+end
+
+-- Dissect: Error Codes
+cme_futures_ilink3_sbe_v8_2.error_codes.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.error_codes.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.error_codes.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.error_codes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Quote Req Id
+cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id = {}
+
+-- Size: Exchange Quote Req Id
+cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.size = 17
+
+-- Display: Exchange Quote Req Id
+cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Exchange Quote Req Id: No Value"
+  end
+
+  return "Exchange Quote Req Id: "..value
+end
+
+-- Dissect: Exchange Quote Req Id
+cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exchange_quote_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Ack Status
+cme_futures_ilink3_sbe_v8_2.exec_ack_status = {}
+
+-- Size: Exec Ack Status
+cme_futures_ilink3_sbe_v8_2.exec_ack_status.size = 1
+
+-- Display: Exec Ack Status
+cme_futures_ilink3_sbe_v8_2.exec_ack_status.display = function(value)
+  if value == 1 then
+    return "Exec Ack Status: Accepted (1)"
+  end
+  if value == 2 then
+    return "Exec Ack Status: Rejected (2)"
+  end
+
+  return "Exec Ack Status: Unknown("..value..")"
+end
+
+-- Dissect: Exec Ack Status
+cme_futures_ilink3_sbe_v8_2.exec_ack_status.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.exec_ack_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.exec_ack_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_ack_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Id
+cme_futures_ilink3_sbe_v8_2.exec_id = {}
+
+-- Size: Exec Id
+cme_futures_ilink3_sbe_v8_2.exec_id.size = 40
+
+-- Display: Exec Id
+cme_futures_ilink3_sbe_v8_2.exec_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Exec Id: No Value"
+  end
+
+  return "Exec Id: "..value
+end
+
+-- Dissect: Exec Id
+cme_futures_ilink3_sbe_v8_2.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.exec_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Restatement Reason
+cme_futures_ilink3_sbe_v8_2.exec_restatement_reason = {}
+
+-- Size: Exec Restatement Reason
+cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.size = 1
+
+-- Display: Exec Restatement Reason
+cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.display = function(value)
+  if value == 255 then
+    return "Exec Restatement Reason: No Value"
+  end
+  if value == 8 then
+    return "Exec Restatement Reason: Market Exchange Option (8)"
+  end
+  if value == 9 then
+    return "Exec Restatement Reason: Cancelled Not Best (9)"
+  end
+  if value == 100 then
+    return "Exec Restatement Reason: Cancel On Disconnect (100)"
+  end
+  if value == 103 then
+    return "Exec Restatement Reason: Self Match Prevention Oldest Order Cancelled (103)"
+  end
+  if value == 104 then
+    return "Exec Restatement Reason: Cancel On Globex Credit Controls Violation (104)"
+  end
+  if value == 105 then
+    return "Exec Restatement Reason: Cancel From Firmsoft (105)"
+  end
+  if value == 106 then
+    return "Exec Restatement Reason: Cancel From Risk Management Api (106)"
+  end
+  if value == 107 then
+    return "Exec Restatement Reason: Self Match Prevention Newest Order Cancelled (107)"
+  end
+  if value == 108 then
+    return "Exec Restatement Reason: Cancelduetovolquotedoptionorderrestedqtylessthanminordersize (108)"
+  end
+
+  return "Exec Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Exec Restatement Reason
+cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Type
+cme_futures_ilink3_sbe_v8_2.exec_type = {}
+
+-- Size: Exec Type
+cme_futures_ilink3_sbe_v8_2.exec_type.size = 1
+
+-- Display: Exec Type
+cme_futures_ilink3_sbe_v8_2.exec_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Type: No Value"
+  end
+
+  if value == "G" then
+    return "Exec Type: Trade Correction (G)"
+  end
+  if value == "H" then
+    return "Exec Type: Trade Cancel (H)"
+  end
+
+  return "Exec Type: Unknown("..value..")"
+end
+
+-- Dissect: Exec Type
+cme_futures_ilink3_sbe_v8_2.exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.exec_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.exec_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Mode
+cme_futures_ilink3_sbe_v8_2.execution_mode = {}
+
+-- Size: Execution Mode
+cme_futures_ilink3_sbe_v8_2.execution_mode.size = 1
+
+-- Display: Execution Mode
+cme_futures_ilink3_sbe_v8_2.execution_mode.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Execution Mode: No Value"
+  end
+
+  if value == "A" then
+    return "Execution Mode: Aggressive (A)"
+  end
+  if value == "P" then
+    return "Execution Mode: Passive (P)"
+  end
+
+  return "Execution Mode: Unknown("..value..")"
+end
+
+-- Dissect: Execution Mode
+cme_futures_ilink3_sbe_v8_2.execution_mode.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.execution_mode.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.execution_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.execution_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executor
+cme_futures_ilink3_sbe_v8_2.executor = {}
+
+-- Size: Executor
+cme_futures_ilink3_sbe_v8_2.executor.size = 8
+
+-- Display: Executor
+cme_futures_ilink3_sbe_v8_2.executor.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Executor: No Value"
+  end
+
+  return "Executor: "..value
+end
+
+-- Dissect: Executor
+cme_futures_ilink3_sbe_v8_2.executor.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.executor.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.executor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.executor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Cycle
+cme_futures_ilink3_sbe_v8_2.expiration_cycle = {}
+
+-- Size: Expiration Cycle
+cme_futures_ilink3_sbe_v8_2.expiration_cycle.size = 1
+
+-- Display: Expiration Cycle
+cme_futures_ilink3_sbe_v8_2.expiration_cycle.display = function(value)
+  if value == 255 then
+    return "Expiration Cycle: No Value"
+  end
+  if value == 0 then
+    return "Expiration Cycle: Expire On Trading Session Close (0)"
+  end
+  if value == 2 then
+    return "Expiration Cycle: Expirationatgivendate (2)"
+  end
+
+  return "Expiration Cycle: Unknown("..value..")"
+end
+
+-- Dissect: Expiration Cycle
+cme_futures_ilink3_sbe_v8_2.expiration_cycle.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.expiration_cycle.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.expiration_cycle.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.expiration_cycle, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Date
+cme_futures_ilink3_sbe_v8_2.expire_date = {}
+
+-- Size: Expire Date
+cme_futures_ilink3_sbe_v8_2.expire_date.size = 2
+
+-- Display: Expire Date
+cme_futures_ilink3_sbe_v8_2.expire_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Expire Date: No Value"
+  end
+
+  return "Expire Date: "..value
+end
+
+-- Dissect: Expire Date
+cme_futures_ilink3_sbe_v8_2.expire_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.expire_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.expire_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.expire_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exponent
+cme_futures_ilink3_sbe_v8_2.exponent = {}
+
+-- Size: Exponent
+cme_futures_ilink3_sbe_v8_2.exponent.size = 1
+
+-- Display: Exponent
+cme_futures_ilink3_sbe_v8_2.exponent.display = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Exponent: No Value"
+  end
+
+  return "Exponent: "..value
+end
+
+-- Dissect: Exponent
+cme_futures_ilink3_sbe_v8_2.exponent.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.exponent.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_ilink3_sbe_v8_2.exponent.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fault Tolerance Indicator
+cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator = {}
+
+-- Size: Fault Tolerance Indicator
+cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.size = 1
+
+-- Display: Fault Tolerance Indicator
+cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.display = function(value)
+  if value == 255 then
+    return "Fault Tolerance Indicator: No Value"
+  end
+  if value == 0 then
+    return "Fault Tolerance Indicator: Backup (0)"
+  end
+  if value == 1 then
+    return "Fault Tolerance Indicator: Primary (1)"
+  end
+
+  return "Fault Tolerance Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Fault Tolerance Indicator
+cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fault_tolerance_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Exec Id
+cme_futures_ilink3_sbe_v8_2.fill_exec_id = {}
+
+-- Size: Fill Exec Id
+cme_futures_ilink3_sbe_v8_2.fill_exec_id.size = 2
+
+-- Display: Fill Exec Id
+cme_futures_ilink3_sbe_v8_2.fill_exec_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Fill Exec Id: No Value"
+  end
+
+  return "Fill Exec Id: "..value
+end
+
+-- Dissect: Fill Exec Id
+cme_futures_ilink3_sbe_v8_2.fill_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.fill_exec_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.fill_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Px
+cme_futures_ilink3_sbe_v8_2.fill_px = {}
+
+-- Size: Fill Px
+cme_futures_ilink3_sbe_v8_2.fill_px.size = 8
+
+-- Display: Fill Px
+cme_futures_ilink3_sbe_v8_2.fill_px.display = function(value)
+  return "Fill Px: "..value
+end
+
+-- Translate: Fill Px
+cme_futures_ilink3_sbe_v8_2.fill_px.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Fill Px
+cme_futures_ilink3_sbe_v8_2.fill_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.fill_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.fill_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.fill_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Qty
+cme_futures_ilink3_sbe_v8_2.fill_qty = {}
+
+-- Size: Fill Qty
+cme_futures_ilink3_sbe_v8_2.fill_qty.size = 4
+
+-- Display: Fill Qty
+cme_futures_ilink3_sbe_v8_2.fill_qty.display = function(value)
+  return "Fill Qty: "..value
+end
+
+-- Dissect: Fill Qty
+cme_futures_ilink3_sbe_v8_2.fill_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.fill_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.fill_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fill Yield Type
+cme_futures_ilink3_sbe_v8_2.fill_yield_type = {}
+
+-- Size: Fill Yield Type
+cme_futures_ilink3_sbe_v8_2.fill_yield_type.size = 1
+
+-- Display: Fill Yield Type
+cme_futures_ilink3_sbe_v8_2.fill_yield_type.display = function(value)
+  return "Fill Yield Type: "..value
+end
+
+-- Dissect: Fill Yield Type
+cme_futures_ilink3_sbe_v8_2.fill_yield_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.fill_yield_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.fill_yield_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_yield_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Financial Instrument Full Name
+cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name = {}
+
+-- Size: Financial Instrument Full Name
+cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.size = 35
+
+-- Display: Financial Instrument Full Name
+cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Financial Instrument Full Name: No Value"
+  end
+
+  return "Financial Instrument Full Name: "..value
+end
+
+-- Dissect: Financial Instrument Full Name
+cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.financial_instrument_full_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm
+cme_futures_ilink3_sbe_v8_2.firm = {}
+
+-- Size: Firm
+cme_futures_ilink3_sbe_v8_2.firm.size = 5
+
+-- Display: Firm
+cme_futures_ilink3_sbe_v8_2.firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Firm: No Value"
+  end
+
+  return "Firm: "..value
+end
+
+-- Dissect: Firm
+cme_futures_ilink3_sbe_v8_2.firm.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.firm.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- From Seq No
+cme_futures_ilink3_sbe_v8_2.from_seq_no = {}
+
+-- Size: From Seq No
+cme_futures_ilink3_sbe_v8_2.from_seq_no.size = 4
+
+-- Display: From Seq No
+cme_futures_ilink3_sbe_v8_2.from_seq_no.display = function(value)
+  return "From Seq No: "..value
+end
+
+-- Dissect: From Seq No
+cme_futures_ilink3_sbe_v8_2.from_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.from_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.from_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.from_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hmac Signature
+cme_futures_ilink3_sbe_v8_2.hmac_signature = {}
+
+-- Size: Hmac Signature
+cme_futures_ilink3_sbe_v8_2.hmac_signature.size = 32
+
+-- Display: Hmac Signature
+cme_futures_ilink3_sbe_v8_2.hmac_signature.display = function(value)
+  return "Hmac Signature: "..value
+end
+
+-- Dissect: Hmac Signature
+cme_futures_ilink3_sbe_v8_2.hmac_signature.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.hmac_signature.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cme_futures_ilink3_sbe_v8_2.hmac_signature.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.hmac_signature, range, value, display)
+
+  return offset + length, value
+end
+
+-- Host Cross Id
+cme_futures_ilink3_sbe_v8_2.host_cross_id = {}
+
+-- Size: Host Cross Id
+cme_futures_ilink3_sbe_v8_2.host_cross_id.size = 8
+
+-- Display: Host Cross Id
+cme_futures_ilink3_sbe_v8_2.host_cross_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Host Cross Id: No Value"
+  end
+
+  return "Host Cross Id: "..value
+end
+
+-- Dissect: Host Cross Id
+cme_futures_ilink3_sbe_v8_2.host_cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.host_cross_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.host_cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.host_cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Idm Short Code
+cme_futures_ilink3_sbe_v8_2.idm_short_code = {}
+
+-- Size: Idm Short Code
+cme_futures_ilink3_sbe_v8_2.idm_short_code.size = 8
+
+-- Display: Idm Short Code
+cme_futures_ilink3_sbe_v8_2.idm_short_code.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Idm Short Code: No Value"
+  end
+
+  return "Idm Short Code: "..value
+end
+
+-- Dissect: Idm Short Code
+cme_futures_ilink3_sbe_v8_2.idm_short_code.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.idm_short_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.idm_short_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.idm_short_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Keep Alive Interval
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval = {}
+
+-- Size: Keep Alive Interval
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval.size = 2
+
+-- Display: Keep Alive Interval
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval.display = function(value)
+  return "Keep Alive Interval: "..value
+end
+
+-- Dissect: Keep Alive Interval
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.keep_alive_interval.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.keep_alive_interval.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval, range, value, display)
+
+  return offset + length, value
+end
+
+-- Keep Alive Interval Lapsed
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed = {}
+
+-- Size: Keep Alive Interval Lapsed
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.size = 1
+
+-- Display: Keep Alive Interval Lapsed
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.display = function(value)
+  if value == 0 then
+    return "Keep Alive Interval Lapsed: Not Lapsed (0)"
+  end
+  if value == 1 then
+    return "Keep Alive Interval Lapsed: Lapsed (1)"
+  end
+
+  return "Keep Alive Interval Lapsed: Unknown("..value..")"
+end
+
+-- Dissect: Keep Alive Interval Lapsed
+cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval_lapsed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Fragment
+cme_futures_ilink3_sbe_v8_2.last_fragment = {}
+
+-- Size: Last Fragment
+cme_futures_ilink3_sbe_v8_2.last_fragment.size = 1
+
+-- Display: Last Fragment
+cme_futures_ilink3_sbe_v8_2.last_fragment.display = function(value)
+  if value == 0 then
+    return "Last Fragment: False (0)"
+  end
+  if value == 1 then
+    return "Last Fragment: True (1)"
+  end
+
+  return "Last Fragment: Unknown("..value..")"
+end
+
+-- Dissect: Last Fragment
+cme_futures_ilink3_sbe_v8_2.last_fragment.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.last_fragment.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.last_fragment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_fragment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+cme_futures_ilink3_sbe_v8_2.last_px = {}
+
+-- Size: Last Px
+cme_futures_ilink3_sbe_v8_2.last_px.size = 8
+
+-- Display: Last Px
+cme_futures_ilink3_sbe_v8_2.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+cme_futures_ilink3_sbe_v8_2.last_px.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Last Px
+cme_futures_ilink3_sbe_v8_2.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.last_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+cme_futures_ilink3_sbe_v8_2.last_qty = {}
+
+-- Size: Last Qty
+cme_futures_ilink3_sbe_v8_2.last_qty.size = 4
+
+-- Display: Last Qty
+cme_futures_ilink3_sbe_v8_2.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+cme_futures_ilink3_sbe_v8_2.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Rpt Requested
+cme_futures_ilink3_sbe_v8_2.last_rpt_requested = {}
+
+-- Size: Last Rpt Requested
+cme_futures_ilink3_sbe_v8_2.last_rpt_requested.size = 1
+
+-- Display: Last Rpt Requested
+cme_futures_ilink3_sbe_v8_2.last_rpt_requested.display = function(value)
+  if value == 255 then
+    return "Last Rpt Requested: No Value"
+  end
+  if value == 0 then
+    return "Last Rpt Requested: False (0)"
+  end
+  if value == 1 then
+    return "Last Rpt Requested: True (1)"
+  end
+
+  return "Last Rpt Requested: Unknown("..value..")"
+end
+
+-- Dissect: Last Rpt Requested
+cme_futures_ilink3_sbe_v8_2.last_rpt_requested.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.last_rpt_requested.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.last_rpt_requested.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_rpt_requested, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Uuid
+cme_futures_ilink3_sbe_v8_2.last_uuid = {}
+
+-- Size: Last Uuid
+cme_futures_ilink3_sbe_v8_2.last_uuid.size = 8
+
+-- Display: Last Uuid
+cme_futures_ilink3_sbe_v8_2.last_uuid.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Last Uuid: No Value"
+  end
+
+  return "Last Uuid: "..value
+end
+
+-- Dissect: Last Uuid
+cme_futures_ilink3_sbe_v8_2.last_uuid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.last_uuid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.last_uuid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_uuid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+cme_futures_ilink3_sbe_v8_2.leaves_qty = {}
+
+-- Size: Leaves Qty
+cme_futures_ilink3_sbe_v8_2.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+cme_futures_ilink3_sbe_v8_2.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+cme_futures_ilink3_sbe_v8_2.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Exec Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_id = {}
+
+-- Size: Leg Exec Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_id.size = 8
+
+-- Display: Leg Exec Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_id.display = function(value)
+  return "Leg Exec Id: "..value
+end
+
+-- Dissect: Leg Exec Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.leg_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Exec Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id = {}
+
+-- Size: Leg Exec Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.size = 8
+
+-- Display: Leg Exec Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Leg Exec Ref Id: No Value"
+  end
+
+  return "Leg Exec Ref Id: "..value
+end
+
+-- Dissect: Leg Exec Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_exec_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Last Px
+cme_futures_ilink3_sbe_v8_2.leg_last_px = {}
+
+-- Size: Leg Last Px
+cme_futures_ilink3_sbe_v8_2.leg_last_px.size = 8
+
+-- Display: Leg Last Px
+cme_futures_ilink3_sbe_v8_2.leg_last_px.display = function(value)
+  return "Leg Last Px: "..value
+end
+
+-- Translate: Leg Last Px
+cme_futures_ilink3_sbe_v8_2.leg_last_px.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Leg Last Px
+cme_futures_ilink3_sbe_v8_2.leg_last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.leg_last_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.leg_last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Last Qty
+cme_futures_ilink3_sbe_v8_2.leg_last_qty = {}
+
+-- Size: Leg Last Qty
+cme_futures_ilink3_sbe_v8_2.leg_last_qty.size = 4
+
+-- Display: Leg Last Qty
+cme_futures_ilink3_sbe_v8_2.leg_last_qty.display = function(value)
+  return "Leg Last Qty: "..value
+end
+
+-- Dissect: Leg Last Qty
+cme_futures_ilink3_sbe_v8_2.leg_last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_last_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.leg_last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Price
+cme_futures_ilink3_sbe_v8_2.leg_price = {}
+
+-- Size: Leg Price
+cme_futures_ilink3_sbe_v8_2.leg_price.size = 8
+
+-- Display: Leg Price
+cme_futures_ilink3_sbe_v8_2.leg_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Leg Price: No Value"
+  end
+
+  return "Leg Price: "..value
+end
+
+-- Translate: Leg Price
+cme_futures_ilink3_sbe_v8_2.leg_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Leg Price
+cme_futures_ilink3_sbe_v8_2.leg_price.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.leg_price.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.leg_price.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_price, range, value, display)
+
+  return offset + length, value
+end
 
 -- Leg Ratio Qty
 cme_futures_ilink3_sbe_v8_2.leg_ratio_qty = {}
@@ -1093,6 +3213,29 @@ cme_futures_ilink3_sbe_v8_2.leg_ratio_qty.dissect = function(buffer, offset, pac
   local display = cme_futures_ilink3_sbe_v8_2.leg_ratio_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Id
+cme_futures_ilink3_sbe_v8_2.leg_security_id = {}
+
+-- Size: Leg Security Id
+cme_futures_ilink3_sbe_v8_2.leg_security_id.size = 4
+
+-- Display: Leg Security Id
+cme_futures_ilink3_sbe_v8_2.leg_security_id.display = function(value)
+  return "Leg Security Id: "..value
+end
+
+-- Dissect: Leg Security Id
+cme_futures_ilink3_sbe_v8_2.leg_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_ilink3_sbe_v8_2.leg_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -1127,53 +3270,268 @@ cme_futures_ilink3_sbe_v8_2.leg_side.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Leg Security Id
-cme_futures_ilink3_sbe_v8_2.leg_security_id = {}
+-- Leg Trade Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_id = {}
 
--- Size: Leg Security Id
-cme_futures_ilink3_sbe_v8_2.leg_security_id.size = 4
+-- Size: Leg Trade Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_id.size = 4
 
--- Display: Leg Security Id
-cme_futures_ilink3_sbe_v8_2.leg_security_id.display = function(value)
-  return "Leg Security Id: "..value
+-- Display: Leg Trade Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_id.display = function(value)
+  return "Leg Trade Id: "..value
 end
 
--- Dissect: Leg Security Id
-cme_futures_ilink3_sbe_v8_2.leg_security_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_security_id.size
+-- Dissect: Leg Trade Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_trade_id.size
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_ilink3_sbe_v8_2.leg_security_id.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.leg_trade_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_security_id, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_trade_id, range, value, display)
 
   return offset + length, value
 end
 
--- Exponent
-cme_futures_ilink3_sbe_v8_2.exponent = {}
+-- Leg Trade Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id = {}
 
--- Size: Exponent
-cme_futures_ilink3_sbe_v8_2.exponent.size = 1
+-- Size: Leg Trade Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.size = 4
 
--- Display: Exponent
-cme_futures_ilink3_sbe_v8_2.exponent.display = function(value)
+-- Display: Leg Trade Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.display = function(value)
   -- Check if field has value
-  if value == 127 then
-    return "Exponent: No Value"
+  if value == 4294967295 then
+    return "Leg Trade Ref Id: No Value"
   end
 
-  return "Exponent: "..value
+  return "Leg Trade Ref Id: "..value
 end
 
--- Dissect: Exponent
-cme_futures_ilink3_sbe_v8_2.exponent.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.exponent.size
+-- Dissect: Leg Trade Ref Id
+cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.size
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_ilink3_sbe_v8_2.exponent.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exponent, range, value, display)
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_trade_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Flag
+cme_futures_ilink3_sbe_v8_2.liquidity_flag = {}
+
+-- Size: Liquidity Flag
+cme_futures_ilink3_sbe_v8_2.liquidity_flag.size = 1
+
+-- Display: Liquidity Flag
+cme_futures_ilink3_sbe_v8_2.liquidity_flag.display = function(value)
+  if value == 255 then
+    return "Liquidity Flag: No Value"
+  end
+  if value == 0 then
+    return "Liquidity Flag: False (0)"
+  end
+  if value == 1 then
+    return "Liquidity Flag: True (1)"
+  end
+
+  return "Liquidity Flag: Unknown("..value..")"
+end
+
+-- Dissect: Liquidity Flag
+cme_futures_ilink3_sbe_v8_2.liquidity_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.liquidity_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.liquidity_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- List Update Action
+cme_futures_ilink3_sbe_v8_2.list_update_action = {}
+
+-- Size: List Update Action
+cme_futures_ilink3_sbe_v8_2.list_update_action.size = 1
+
+-- Display: List Update Action
+cme_futures_ilink3_sbe_v8_2.list_update_action.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "List Update Action: No Value"
+  end
+
+  if value == "A" then
+    return "List Update Action: Add (A)"
+  end
+  if value == "D" then
+    return "List Update Action: Delete (D)"
+  end
+
+  return "List Update Action: Unknown("..value..")"
+end
+
+-- Dissect: List Update Action
+cme_futures_ilink3_sbe_v8_2.list_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.list_update_action.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.list_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.list_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Location
+cme_futures_ilink3_sbe_v8_2.location = {}
+
+-- Size: Location
+cme_futures_ilink3_sbe_v8_2.location.size = 5
+
+-- Display: Location
+cme_futures_ilink3_sbe_v8_2.location.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Location: No Value"
+  end
+
+  return "Location: "..value
+end
+
+-- Dissect: Location
+cme_futures_ilink3_sbe_v8_2.location.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.location.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.location.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.location, range, value, display)
+
+  return offset + length, value
+end
+
+-- Location Optional
+cme_futures_ilink3_sbe_v8_2.location_optional = {}
+
+-- Size: Location Optional
+cme_futures_ilink3_sbe_v8_2.location_optional.size = 5
+
+-- Display: Location Optional
+cme_futures_ilink3_sbe_v8_2.location_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Location Optional: No Value"
+  end
+
+  return "Location Optional: "..value
+end
+
+-- Dissect: Location Optional
+cme_futures_ilink3_sbe_v8_2.location_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.location_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.location_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.location_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Managed Order
+cme_futures_ilink3_sbe_v8_2.managed_order = {}
+
+-- Size: Managed Order
+cme_futures_ilink3_sbe_v8_2.managed_order.size = 1
+
+-- Display: Managed Order
+cme_futures_ilink3_sbe_v8_2.managed_order.display = function(value)
+  if value == 255 then
+    return "Managed Order: No Value"
+  end
+  if value == 0 then
+    return "Managed Order: False (0)"
+  end
+  if value == 1 then
+    return "Managed Order: True (1)"
+  end
+
+  return "Managed Order: Unknown("..value..")"
+end
+
+-- Dissect: Managed Order
+cme_futures_ilink3_sbe_v8_2.managed_order.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.managed_order.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.managed_order.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.managed_order, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mantissa
+cme_futures_ilink3_sbe_v8_2.mantissa = {}
+
+-- Size: Mantissa
+cme_futures_ilink3_sbe_v8_2.mantissa.size = 8
+
+-- Display: Mantissa
+cme_futures_ilink3_sbe_v8_2.mantissa.display = function(value)
+  -- Check if field has value
+  if value == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Mantissa: No Value"
+  end
+
+  return "Mantissa: "..value
+end
+
+-- Dissect: Mantissa
+cme_futures_ilink3_sbe_v8_2.mantissa.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mantissa.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = cme_futures_ilink3_sbe_v8_2.mantissa.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mantissa, range, value, display)
 
   return offset + length, value
 end
@@ -1205,6 +3563,4539 @@ cme_futures_ilink3_sbe_v8_2.mantissa_32.dissect = function(buffer, offset, packe
 
   return offset + length, value
 end
+
+-- Manual Order Indicator
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator = {}
+
+-- Size: Manual Order Indicator
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator.size = 1
+
+-- Display: Manual Order Indicator
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator.display = function(value)
+  if value == 0 then
+    return "Manual Order Indicator: Automated (0)"
+  end
+  if value == 1 then
+    return "Manual Order Indicator: Manual (1)"
+  end
+
+  return "Manual Order Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Manual Order Indicator
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.manual_order_indicator.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.manual_order_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Manual Order Indicator Optional
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional = {}
+
+-- Size: Manual Order Indicator Optional
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.size = 1
+
+-- Display: Manual Order Indicator Optional
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.display = function(value)
+  if value == 255 then
+    return "Manual Order Indicator Optional: No Value"
+  end
+  if value == 0 then
+    return "Manual Order Indicator Optional: Automated (0)"
+  end
+  if value == 1 then
+    return "Manual Order Indicator Optional: Manual (1)"
+  end
+
+  return "Manual Order Indicator Optional: Unknown("..value..")"
+end
+
+-- Dissect: Manual Order Indicator Optional
+cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Segment Id
+cme_futures_ilink3_sbe_v8_2.market_segment_id = {}
+
+-- Size: Market Segment Id
+cme_futures_ilink3_sbe_v8_2.market_segment_id.size = 1
+
+-- Display: Market Segment Id
+cme_futures_ilink3_sbe_v8_2.market_segment_id.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Market Segment Id: No Value"
+  end
+
+  return "Market Segment Id: "..value
+end
+
+-- Dissect: Market Segment Id
+cme_futures_ilink3_sbe_v8_2.market_segment_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.market_segment_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.market_segment_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.market_segment_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Ord Typ
+cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ = {}
+
+-- Size: Mass Action Ord Typ
+cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.size = 1
+
+-- Display: Mass Action Ord Typ
+cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mass Action Ord Typ: No Value"
+  end
+
+  if value == "2" then
+    return "Mass Action Ord Typ: Limit (2)"
+  end
+  if value == "4" then
+    return "Mass Action Ord Typ: Stop Limit (4)"
+  end
+
+  return "Mass Action Ord Typ: Unknown("..value..")"
+end
+
+-- Dissect: Mass Action Ord Typ
+cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_ord_typ, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Reject Reason
+cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason = {}
+
+-- Size: Mass Action Reject Reason
+cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.size = 1
+
+-- Display: Mass Action Reject Reason
+cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Mass Action Reject Reason: No Value"
+  end
+
+  return "Mass Action Reject Reason: "..value
+end
+
+-- Dissect: Mass Action Reject Reason
+cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Report Id
+cme_futures_ilink3_sbe_v8_2.mass_action_report_id = {}
+
+-- Size: Mass Action Report Id
+cme_futures_ilink3_sbe_v8_2.mass_action_report_id.size = 8
+
+-- Display: Mass Action Report Id
+cme_futures_ilink3_sbe_v8_2.mass_action_report_id.display = function(value)
+  return "Mass Action Report Id: "..value
+end
+
+-- Dissect: Mass Action Report Id
+cme_futures_ilink3_sbe_v8_2.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_action_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_action_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Response
+cme_futures_ilink3_sbe_v8_2.mass_action_response = {}
+
+-- Size: Mass Action Response
+cme_futures_ilink3_sbe_v8_2.mass_action_response.size = 1
+
+-- Display: Mass Action Response
+cme_futures_ilink3_sbe_v8_2.mass_action_response.display = function(value)
+  if value == 0 then
+    return "Mass Action Response: Rejected (0)"
+  end
+  if value == 1 then
+    return "Mass Action Response: Accepted (1)"
+  end
+
+  return "Mass Action Response: Unknown("..value..")"
+end
+
+-- Dissect: Mass Action Response
+cme_futures_ilink3_sbe_v8_2.mass_action_response.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_action_response.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_action_response.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_response, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Action Scope
+cme_futures_ilink3_sbe_v8_2.mass_action_scope = {}
+
+-- Size: Mass Action Scope
+cme_futures_ilink3_sbe_v8_2.mass_action_scope.size = 1
+
+-- Display: Mass Action Scope
+cme_futures_ilink3_sbe_v8_2.mass_action_scope.display = function(value)
+  if value == 1 then
+    return "Mass Action Scope: Instrument (1)"
+  end
+  if value == 7 then
+    return "Mass Action Scope: All (7)"
+  end
+  if value == 9 then
+    return "Mass Action Scope: Market Segment Id (9)"
+  end
+  if value == 10 then
+    return "Mass Action Scope: Instrument Group (10)"
+  end
+  if value == 100 then
+    return "Mass Action Scope: Quote Set Id (100)"
+  end
+
+  return "Mass Action Scope: Unknown("..value..")"
+end
+
+-- Dissect: Mass Action Scope
+cme_futures_ilink3_sbe_v8_2.mass_action_scope.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_action_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_action_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Request Type
+cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type = {}
+
+-- Size: Mass Cancel Request Type
+cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.size = 1
+
+-- Display: Mass Cancel Request Type
+cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.display = function(value)
+  if value == 255 then
+    return "Mass Cancel Request Type: No Value"
+  end
+  if value == 100 then
+    return "Mass Cancel Request Type: Sender Sub Id (100)"
+  end
+  if value == 101 then
+    return "Mass Cancel Request Type: Account (101)"
+  end
+
+  return "Mass Cancel Request Type: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Request Type
+cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_cancel_request_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Tif
+cme_futures_ilink3_sbe_v8_2.mass_cancel_tif = {}
+
+-- Size: Mass Cancel Tif
+cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.size = 1
+
+-- Display: Mass Cancel Tif
+cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.display = function(value)
+  if value == 255 then
+    return "Mass Cancel Tif: No Value"
+  end
+  if value == 0 then
+    return "Mass Cancel Tif: Day (0)"
+  end
+  if value == 1 then
+    return "Mass Cancel Tif: Good Till Cancel (1)"
+  end
+  if value == 6 then
+    return "Mass Cancel Tif: Good Till Date (6)"
+  end
+
+  return "Mass Cancel Tif: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Tif
+cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_cancel_tif, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Status Req Id
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id = {}
+
+-- Size: Mass Status Req Id
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id.size = 8
+
+-- Display: Mass Status Req Id
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id.display = function(value)
+  return "Mass Status Req Id: "..value
+end
+
+-- Dissect: Mass Status Req Id
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_status_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_status_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional = {}
+
+-- Size: Mass Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.size = 8
+
+-- Display: Mass Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Mass Status Req Id Optional: No Value"
+  end
+
+  return "Mass Status Req Id Optional: "..value
+end
+
+-- Dissect: Mass Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Status Req Type
+cme_futures_ilink3_sbe_v8_2.mass_status_req_type = {}
+
+-- Size: Mass Status Req Type
+cme_futures_ilink3_sbe_v8_2.mass_status_req_type.size = 1
+
+-- Display: Mass Status Req Type
+cme_futures_ilink3_sbe_v8_2.mass_status_req_type.display = function(value)
+  if value == 1 then
+    return "Mass Status Req Type: Instrument (1)"
+  end
+  if value == 3 then
+    return "Mass Status Req Type: Instrument Group (3)"
+  end
+  if value == 100 then
+    return "Mass Status Req Type: Market Segment (100)"
+  end
+
+  return "Mass Status Req Type: Unknown("..value..")"
+end
+
+-- Dissect: Mass Status Req Type
+cme_futures_ilink3_sbe_v8_2.mass_status_req_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_status_req_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_status_req_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Status Tif
+cme_futures_ilink3_sbe_v8_2.mass_status_tif = {}
+
+-- Size: Mass Status Tif
+cme_futures_ilink3_sbe_v8_2.mass_status_tif.size = 1
+
+-- Display: Mass Status Tif
+cme_futures_ilink3_sbe_v8_2.mass_status_tif.display = function(value)
+  if value == 255 then
+    return "Mass Status Tif: No Value"
+  end
+  if value == 0 then
+    return "Mass Status Tif: Day (0)"
+  end
+  if value == 1 then
+    return "Mass Status Tif: Gtc (1)"
+  end
+  if value == 6 then
+    return "Mass Status Tif: Gtd (6)"
+  end
+
+  return "Mass Status Tif: Unknown("..value..")"
+end
+
+-- Dissect: Mass Status Tif
+cme_futures_ilink3_sbe_v8_2.mass_status_tif.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mass_status_tif.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mass_status_tif.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_tif, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max No Of Substitutions
+cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions = {}
+
+-- Size: Max No Of Substitutions
+cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.size = 1
+
+-- Display: Max No Of Substitutions
+cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Max No Of Substitutions: No Value"
+  end
+
+  return "Max No Of Substitutions: "..value
+end
+
+-- Dissect: Max No Of Substitutions
+cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.max_no_of_substitutions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Trade Entry Id
+cme_futures_ilink3_sbe_v8_2.md_trade_entry_id = {}
+
+-- Size: Md Trade Entry Id
+cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.size = 4
+
+-- Display: Md Trade Entry Id
+cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.display = function(value)
+  return "Md Trade Entry Id: "..value
+end
+
+-- Dissect: Md Trade Entry Id
+cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.md_trade_entry_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Memo
+cme_futures_ilink3_sbe_v8_2.memo = {}
+
+-- Size: Memo
+cme_futures_ilink3_sbe_v8_2.memo.size = 75
+
+-- Display: Memo
+cme_futures_ilink3_sbe_v8_2.memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Memo: No Value"
+  end
+
+  return "Memo: "..value
+end
+
+-- Dissect: Memo
+cme_futures_ilink3_sbe_v8_2.memo.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.memo.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.memo.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.memo, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cme_futures_ilink3_sbe_v8_2.message_length = {}
+
+-- Size: Message Length
+cme_futures_ilink3_sbe_v8_2.message_length.size = 2
+
+-- Display: Message Length
+cme_futures_ilink3_sbe_v8_2.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cme_futures_ilink3_sbe_v8_2.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+cme_futures_ilink3_sbe_v8_2.min_qty = {}
+
+-- Size: Min Qty
+cme_futures_ilink3_sbe_v8_2.min_qty.size = 4
+
+-- Display: Min Qty
+cme_futures_ilink3_sbe_v8_2.min_qty.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Min Qty: No Value"
+  end
+
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+cme_futures_ilink3_sbe_v8_2.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mm Protection Reset
+cme_futures_ilink3_sbe_v8_2.mm_protection_reset = {}
+
+-- Size: Mm Protection Reset
+cme_futures_ilink3_sbe_v8_2.mm_protection_reset.size = 1
+
+-- Display: Mm Protection Reset
+cme_futures_ilink3_sbe_v8_2.mm_protection_reset.display = function(value)
+  if value == 0 then
+    return "Mm Protection Reset: False (0)"
+  end
+  if value == 1 then
+    return "Mm Protection Reset: True (1)"
+  end
+
+  return "Mm Protection Reset: Unknown("..value..")"
+end
+
+-- Dissect: Mm Protection Reset
+cme_futures_ilink3_sbe_v8_2.mm_protection_reset.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.mm_protection_reset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.mm_protection_reset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mm_protection_reset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Month
+cme_futures_ilink3_sbe_v8_2.month = {}
+
+-- Size: Month
+cme_futures_ilink3_sbe_v8_2.month.size = 1
+
+-- Display: Month
+cme_futures_ilink3_sbe_v8_2.month.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Month: No Value"
+  end
+
+  return "Month: "..value
+end
+
+-- Dissect: Month
+cme_futures_ilink3_sbe_v8_2.month.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.month.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Count
+cme_futures_ilink3_sbe_v8_2.msg_count = {}
+
+-- Size: Msg Count
+cme_futures_ilink3_sbe_v8_2.msg_count.size = 4
+
+-- Display: Msg Count
+cme_futures_ilink3_sbe_v8_2.msg_count.display = function(value)
+  return "Msg Count: "..value
+end
+
+-- Dissect: Msg Count
+cme_futures_ilink3_sbe_v8_2.msg_count.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.msg_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.msg_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.msg_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Count 16
+cme_futures_ilink3_sbe_v8_2.msg_count_16 = {}
+
+-- Size: Msg Count 16
+cme_futures_ilink3_sbe_v8_2.msg_count_16.size = 2
+
+-- Display: Msg Count 16
+cme_futures_ilink3_sbe_v8_2.msg_count_16.display = function(value)
+  return "Msg Count 16: "..value
+end
+
+-- Dissect: Msg Count 16
+cme_futures_ilink3_sbe_v8_2.msg_count_16.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.msg_count_16.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.msg_count_16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.msg_count_16, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Seq No
+cme_futures_ilink3_sbe_v8_2.next_seq_no = {}
+
+-- Size: Next Seq No
+cme_futures_ilink3_sbe_v8_2.next_seq_no.size = 4
+
+-- Display: Next Seq No
+cme_futures_ilink3_sbe_v8_2.next_seq_no.display = function(value)
+  return "Next Seq No: "..value
+end
+
+-- Dissect: Next Seq No
+cme_futures_ilink3_sbe_v8_2.next_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.next_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.next_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.next_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- No Processed Entries
+cme_futures_ilink3_sbe_v8_2.no_processed_entries = {}
+
+-- Size: No Processed Entries
+cme_futures_ilink3_sbe_v8_2.no_processed_entries.size = 1
+
+-- Display: No Processed Entries
+cme_futures_ilink3_sbe_v8_2.no_processed_entries.display = function(value)
+  return "No Processed Entries: "..value
+end
+
+-- Dissect: No Processed Entries
+cme_futures_ilink3_sbe_v8_2.no_processed_entries.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.no_processed_entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.no_processed_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.no_processed_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+cme_futures_ilink3_sbe_v8_2.num_in_group = {}
+
+-- Size: Num In Group
+cme_futures_ilink3_sbe_v8_2.num_in_group.size = 1
+
+-- Display: Num In Group
+cme_futures_ilink3_sbe_v8_2.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+cme_futures_ilink3_sbe_v8_2.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Px
+cme_futures_ilink3_sbe_v8_2.offer_px = {}
+
+-- Size: Offer Px
+cme_futures_ilink3_sbe_v8_2.offer_px.size = 8
+
+-- Display: Offer Px
+cme_futures_ilink3_sbe_v8_2.offer_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Offer Px: No Value"
+  end
+
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+cme_futures_ilink3_sbe_v8_2.offer_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Offer Px
+cme_futures_ilink3_sbe_v8_2.offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.offer_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.offer_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size
+cme_futures_ilink3_sbe_v8_2.offer_size = {}
+
+-- Size: Offer Size
+cme_futures_ilink3_sbe_v8_2.offer_size.size = 4
+
+-- Display: Offer Size
+cme_futures_ilink3_sbe_v8_2.offer_size.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Offer Size: No Value"
+  end
+
+  return "Offer Size: "..value
+end
+
+-- Dissect: Offer Size
+cme_futures_ilink3_sbe_v8_2.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.offer_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ofm Override
+cme_futures_ilink3_sbe_v8_2.ofm_override = {}
+
+-- Size: Ofm Override
+cme_futures_ilink3_sbe_v8_2.ofm_override.size = 1
+
+-- Display: Ofm Override
+cme_futures_ilink3_sbe_v8_2.ofm_override.display = function(value)
+  if value == 0 then
+    return "Ofm Override: Disabled (0)"
+  end
+  if value == 1 then
+    return "Ofm Override: Enabled (1)"
+  end
+
+  return "Ofm Override: Unknown("..value..")"
+end
+
+-- Dissect: Ofm Override
+cme_futures_ilink3_sbe_v8_2.ofm_override.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ofm_override.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ofm_override.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ofm_override, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Rej Reason
+cme_futures_ilink3_sbe_v8_2.ord_rej_reason = {}
+
+-- Size: Ord Rej Reason
+cme_futures_ilink3_sbe_v8_2.ord_rej_reason.size = 2
+
+-- Display: Ord Rej Reason
+cme_futures_ilink3_sbe_v8_2.ord_rej_reason.display = function(value)
+  return "Ord Rej Reason: "..value
+end
+
+-- Dissect: Ord Rej Reason
+cme_futures_ilink3_sbe_v8_2.ord_rej_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_rej_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ord_rej_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status
+cme_futures_ilink3_sbe_v8_2.ord_status = {}
+
+-- Size: Ord Status
+cme_futures_ilink3_sbe_v8_2.ord_status.size = 1
+
+-- Display: Ord Status
+cme_futures_ilink3_sbe_v8_2.ord_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status: No Value"
+  end
+
+  if value == "0" then
+    return "Ord Status: New (0)"
+  end
+  if value == "1" then
+    return "Ord Status: Partially Filled (1)"
+  end
+  if value == "2" then
+    return "Ord Status: Filled (2)"
+  end
+  if value == "4" then
+    return "Ord Status: Cancelled (4)"
+  end
+  if value == "5" then
+    return "Ord Status: Replaced (5)"
+  end
+  if value == "8" then
+    return "Ord Status: Rejected (8)"
+  end
+  if value == "C" then
+    return "Ord Status: Expired (C)"
+  end
+  if value == "U" then
+    return "Ord Status: Undefined (U)"
+  end
+
+  return "Ord Status: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status
+cme_futures_ilink3_sbe_v8_2.ord_status.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.ord_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status Req Id
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id = {}
+
+-- Size: Ord Status Req Id
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id.size = 8
+
+-- Display: Ord Status Req Id
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id.display = function(value)
+  return "Ord Status Req Id: "..value
+end
+
+-- Dissect: Ord Status Req Id
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_status_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.ord_status_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional = {}
+
+-- Size: Ord Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.size = 8
+
+-- Display: Ord Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Ord Status Req Id Optional: No Value"
+  end
+
+  return "Ord Status Req Id Optional: "..value
+end
+
+-- Dissect: Ord Status Req Id Optional
+cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status Req Type
+cme_futures_ilink3_sbe_v8_2.ord_status_req_type = {}
+
+-- Size: Ord Status Req Type
+cme_futures_ilink3_sbe_v8_2.ord_status_req_type.size = 1
+
+-- Display: Ord Status Req Type
+cme_futures_ilink3_sbe_v8_2.ord_status_req_type.display = function(value)
+  if value == 255 then
+    return "Ord Status Req Type: No Value"
+  end
+  if value == 100 then
+    return "Ord Status Req Type: Sender Sub Id (100)"
+  end
+  if value == 101 then
+    return "Ord Status Req Type: Account (101)"
+  end
+
+  return "Ord Status Req Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status Req Type
+cme_futures_ilink3_sbe_v8_2.ord_status_req_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_status_req_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ord_status_req_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status Trd
+cme_futures_ilink3_sbe_v8_2.ord_status_trd = {}
+
+-- Size: Ord Status Trd
+cme_futures_ilink3_sbe_v8_2.ord_status_trd.size = 1
+
+-- Display: Ord Status Trd
+cme_futures_ilink3_sbe_v8_2.ord_status_trd.display = function(value)
+  if value == 1 then
+    return "Ord Status Trd: Partially Filled (1)"
+  end
+  if value == 2 then
+    return "Ord Status Trd: Filled (2)"
+  end
+
+  return "Ord Status Trd: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status Trd
+cme_futures_ilink3_sbe_v8_2.ord_status_trd.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_status_trd.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ord_status_trd.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Status Trd Cxl
+cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl = {}
+
+-- Size: Ord Status Trd Cxl
+cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.size = 1
+
+-- Display: Ord Status Trd Cxl
+cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Status Trd Cxl: No Value"
+  end
+
+  if value == "G" then
+    return "Ord Status Trd Cxl: Trade Correction (G)"
+  end
+  if value == "H" then
+    return "Ord Status Trd Cxl: Trade Cancel (H)"
+  end
+
+  return "Ord Status Trd Cxl: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status Trd Cxl
+cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd_cxl, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Type
+cme_futures_ilink3_sbe_v8_2.ord_type = {}
+
+-- Size: Ord Type
+cme_futures_ilink3_sbe_v8_2.ord_type.size = 1
+
+-- Display: Ord Type
+cme_futures_ilink3_sbe_v8_2.ord_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
+  if value == "1" then
+    return "Ord Type: Marketwith Protection (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "3" then
+    return "Ord Type: Stopwith Protection (3)"
+  end
+  if value == "4" then
+    return "Ord Type: Stop Limit (4)"
+  end
+  if value == "K" then
+    return "Ord Type: Market With Leftover As Limit (K)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type
+cme_futures_ilink3_sbe_v8_2.ord_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.ord_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ord Type Optional
+cme_futures_ilink3_sbe_v8_2.ord_type_optional = {}
+
+-- Size: Ord Type Optional
+cme_futures_ilink3_sbe_v8_2.ord_type_optional.size = 1
+
+-- Display: Ord Type Optional
+cme_futures_ilink3_sbe_v8_2.ord_type_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type Optional: No Value"
+  end
+
+  if value == "1" then
+    return "Ord Type Optional: Market With Protection (1)"
+  end
+  if value == "2" then
+    return "Ord Type Optional: Limit (2)"
+  end
+  if value == "4" then
+    return "Ord Type Optional: Stop Limit (4)"
+  end
+  if value == "K" then
+    return "Ord Type Optional: Market With Leftover As Limit (K)"
+  end
+
+  return "Ord Type Optional: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type Optional
+cme_futures_ilink3_sbe_v8_2.ord_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ord_type_optional.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.ord_type_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_type_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Exec Id
+cme_futures_ilink3_sbe_v8_2.order_event_exec_id = {}
+
+-- Size: Order Event Exec Id
+cme_futures_ilink3_sbe_v8_2.order_event_exec_id.size = 4
+
+-- Display: Order Event Exec Id
+cme_futures_ilink3_sbe_v8_2.order_event_exec_id.display = function(value)
+  return "Order Event Exec Id: "..value
+end
+
+-- Dissect: Order Event Exec Id
+cme_futures_ilink3_sbe_v8_2.order_event_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_event_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.order_event_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Px
+cme_futures_ilink3_sbe_v8_2.order_event_px = {}
+
+-- Size: Order Event Px
+cme_futures_ilink3_sbe_v8_2.order_event_px.size = 8
+
+-- Display: Order Event Px
+cme_futures_ilink3_sbe_v8_2.order_event_px.display = function(value)
+  return "Order Event Px: "..value
+end
+
+-- Translate: Order Event Px
+cme_futures_ilink3_sbe_v8_2.order_event_px.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Order Event Px
+cme_futures_ilink3_sbe_v8_2.order_event_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_event_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.order_event_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.order_event_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Qty
+cme_futures_ilink3_sbe_v8_2.order_event_qty = {}
+
+-- Size: Order Event Qty
+cme_futures_ilink3_sbe_v8_2.order_event_qty.size = 4
+
+-- Display: Order Event Qty
+cme_futures_ilink3_sbe_v8_2.order_event_qty.display = function(value)
+  return "Order Event Qty: "..value
+end
+
+-- Dissect: Order Event Qty
+cme_futures_ilink3_sbe_v8_2.order_event_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_event_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.order_event_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Reason
+cme_futures_ilink3_sbe_v8_2.order_event_reason = {}
+
+-- Size: Order Event Reason
+cme_futures_ilink3_sbe_v8_2.order_event_reason.size = 1
+
+-- Display: Order Event Reason
+cme_futures_ilink3_sbe_v8_2.order_event_reason.display = function(value)
+  return "Order Event Reason: "..value
+end
+
+-- Dissect: Order Event Reason
+cme_futures_ilink3_sbe_v8_2.order_event_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_event_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.order_event_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Text
+cme_futures_ilink3_sbe_v8_2.order_event_text = {}
+
+-- Size: Order Event Text
+cme_futures_ilink3_sbe_v8_2.order_event_text.size = 5
+
+-- Display: Order Event Text
+cme_futures_ilink3_sbe_v8_2.order_event_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Order Event Text: No Value"
+  end
+
+  return "Order Event Text: "..value
+end
+
+-- Dissect: Order Event Text
+cme_futures_ilink3_sbe_v8_2.order_event_text.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_event_text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.order_event_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Event Type
+cme_futures_ilink3_sbe_v8_2.order_event_type = {}
+
+-- Size: Order Event Type
+cme_futures_ilink3_sbe_v8_2.order_event_type.size = 1
+
+-- Display: Order Event Type
+cme_futures_ilink3_sbe_v8_2.order_event_type.display = function(value)
+  if value == 255 then
+    return "Order Event Type: No Value"
+  end
+  if value == 4 then
+    return "Order Event Type: Partially Filled (4)"
+  end
+  if value == 5 then
+    return "Order Event Type: Filled (5)"
+  end
+
+  return "Order Event Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Event Type
+cme_futures_ilink3_sbe_v8_2.order_event_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_event_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.order_event_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+cme_futures_ilink3_sbe_v8_2.order_id = {}
+
+-- Size: Order Id
+cme_futures_ilink3_sbe_v8_2.order_id.size = 8
+
+-- Display: Order Id
+cme_futures_ilink3_sbe_v8_2.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+cme_futures_ilink3_sbe_v8_2.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+cme_futures_ilink3_sbe_v8_2.order_qty = {}
+
+-- Size: Order Qty
+cme_futures_ilink3_sbe_v8_2.order_qty.size = 4
+
+-- Display: Order Qty
+cme_futures_ilink3_sbe_v8_2.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+cme_futures_ilink3_sbe_v8_2.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty Optional
+cme_futures_ilink3_sbe_v8_2.order_qty_optional = {}
+
+-- Size: Order Qty Optional
+cme_futures_ilink3_sbe_v8_2.order_qty_optional.size = 4
+
+-- Display: Order Qty Optional
+cme_futures_ilink3_sbe_v8_2.order_qty_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Order Qty Optional: No Value"
+  end
+
+  return "Order Qty Optional: "..value
+end
+
+-- Dissect: Order Qty Optional
+cme_futures_ilink3_sbe_v8_2.order_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_qty_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.order_qty_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Request Id
+cme_futures_ilink3_sbe_v8_2.order_request_id = {}
+
+-- Size: Order Request Id
+cme_futures_ilink3_sbe_v8_2.order_request_id.size = 8
+
+-- Display: Order Request Id
+cme_futures_ilink3_sbe_v8_2.order_request_id.display = function(value)
+  return "Order Request Id: "..value
+end
+
+-- Dissect: Order Request Id
+cme_futures_ilink3_sbe_v8_2.order_request_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.order_request_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.order_request_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_request_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Secondary Execution Id
+cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id = {}
+
+-- Size: Orig Secondary Execution Id
+cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.size = 8
+
+-- Display: Orig Secondary Execution Id
+cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Orig Secondary Execution Id: No Value"
+  end
+
+  return "Orig Secondary Execution Id: "..value
+end
+
+-- Dissect: Orig Secondary Execution Id
+cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.orig_secondary_execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Side Trade Id
+cme_futures_ilink3_sbe_v8_2.orig_side_trade_id = {}
+
+-- Size: Orig Side Trade Id
+cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.size = 4
+
+-- Display: Orig Side Trade Id
+cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Orig Side Trade Id: No Value"
+  end
+
+  return "Orig Side Trade Id: "..value
+end
+
+-- Dissect: Orig Side Trade Id
+cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.orig_side_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- OrigClOrdId
+cme_futures_ilink3_sbe_v8_2.origclordid = {}
+
+-- Size: OrigClOrdId
+cme_futures_ilink3_sbe_v8_2.origclordid.size = 20
+
+-- Display: OrigClOrdId
+cme_futures_ilink3_sbe_v8_2.origclordid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "OrigClOrdId: No Value"
+  end
+
+  return "OrigClOrdId: "..value
+end
+
+-- Dissect: OrigClOrdId
+cme_futures_ilink3_sbe_v8_2.origclordid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.origclordid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.origclordid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.origclordid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ownership
+cme_futures_ilink3_sbe_v8_2.ownership = {}
+
+-- Size: Ownership
+cme_futures_ilink3_sbe_v8_2.ownership.size = 1
+
+-- Display: Ownership
+cme_futures_ilink3_sbe_v8_2.ownership.display = function(value)
+  return "Ownership: "..value
+end
+
+-- Dissect: Ownership
+cme_futures_ilink3_sbe_v8_2.ownership.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ownership.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ownership.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ownership, range, value, display)
+
+  return offset + length, value
+end
+
+-- Padding 272
+cme_futures_ilink3_sbe_v8_2.padding_272 = {}
+
+-- Size: Padding 272
+cme_futures_ilink3_sbe_v8_2.padding_272.size = 272
+
+-- Display: Padding 272
+cme_futures_ilink3_sbe_v8_2.padding_272.display = function(value)
+  return "Padding 272: "..value
+end
+
+-- Dissect: Padding 272
+cme_futures_ilink3_sbe_v8_2.padding_272.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.padding_272.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = cme_futures_ilink3_sbe_v8_2.padding_272.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.padding_272, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Definition Status
+cme_futures_ilink3_sbe_v8_2.party_detail_definition_status = {}
+
+-- Size: Party Detail Definition Status
+cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.size = 1
+
+-- Display: Party Detail Definition Status
+cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.display = function(value)
+  return "Party Detail Definition Status: "..value
+end
+
+-- Dissect: Party Detail Definition Status
+cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_definition_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Id
+cme_futures_ilink3_sbe_v8_2.party_detail_id = {}
+
+-- Size: Party Detail Id
+cme_futures_ilink3_sbe_v8_2.party_detail_id.size = 20
+
+-- Display: Party Detail Id
+cme_futures_ilink3_sbe_v8_2.party_detail_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Detail Id: No Value"
+  end
+
+  return "Party Detail Id: "..value
+end
+
+-- Dissect: Party Detail Id
+cme_futures_ilink3_sbe_v8_2.party_detail_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_detail_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.party_detail_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Request Status
+cme_futures_ilink3_sbe_v8_2.party_detail_request_status = {}
+
+-- Size: Party Detail Request Status
+cme_futures_ilink3_sbe_v8_2.party_detail_request_status.size = 1
+
+-- Display: Party Detail Request Status
+cme_futures_ilink3_sbe_v8_2.party_detail_request_status.display = function(value)
+  return "Party Detail Request Status: "..value
+end
+
+-- Dissect: Party Detail Request Status
+cme_futures_ilink3_sbe_v8_2.party_detail_request_status.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_detail_request_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.party_detail_request_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_request_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Detail Role
+cme_futures_ilink3_sbe_v8_2.party_detail_role = {}
+
+-- Size: Party Detail Role
+cme_futures_ilink3_sbe_v8_2.party_detail_role.size = 2
+
+-- Display: Party Detail Role
+cme_futures_ilink3_sbe_v8_2.party_detail_role.display = function(value)
+  if value == 1 then
+    return "Party Detail Role: Executing Firm (1)"
+  end
+  if value == 24 then
+    return "Party Detail Role: Customer Account (24)"
+  end
+  if value == 96 then
+    return "Party Detail Role: Take Up Firm (96)"
+  end
+  if value == 118 then
+    return "Party Detail Role: Operator (118)"
+  end
+  if value == 1000 then
+    return "Party Detail Role: Take Up Account (1000)"
+  end
+
+  return "Party Detail Role: Unknown("..value..")"
+end
+
+-- Dissect: Party Detail Role
+cme_futures_ilink3_sbe_v8_2.party_detail_role.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_detail_role.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.party_detail_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_role, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Details List Report Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_report_id = {}
+
+-- Size: Party Details List Report Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.size = 8
+
+-- Display: Party Details List Report Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.display = function(value)
+  return "Party Details List Report Id: "..value
+end
+
+-- Dissect: Party Details List Report Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Details List Req Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id = {}
+
+-- Size: Party Details List Req Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.size = 8
+
+-- Display: Party Details List Req Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.display = function(value)
+  return "Party Details List Req Id: "..value
+end
+
+-- Dissect: Party Details List Req Id
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Details List Req Id Optional
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional = {}
+
+-- Size: Party Details List Req Id Optional
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.size = 8
+
+-- Display: Party Details List Req Id Optional
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Party Details List Req Id Optional: No Value"
+  end
+
+  return "Party Details List Req Id Optional: "..value
+end
+
+-- Dissect: Party Details List Req Id Optional
+cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id
+cme_futures_ilink3_sbe_v8_2.party_id = {}
+
+-- Size: Party Id
+cme_futures_ilink3_sbe_v8_2.party_id.size = 8
+
+-- Display: Party Id
+cme_futures_ilink3_sbe_v8_2.party_id.display = function(value)
+  return "Party Id: "..value
+end
+
+-- Dissect: Party Id
+cme_futures_ilink3_sbe_v8_2.party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id Source
+cme_futures_ilink3_sbe_v8_2.party_id_source = {}
+
+-- Size: Party Id Source
+cme_futures_ilink3_sbe_v8_2.party_id_source.size = 1
+
+-- Display: Party Id Source
+cme_futures_ilink3_sbe_v8_2.party_id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Source: No Value"
+  end
+
+  return "Party Id Source: "..value
+end
+
+-- Dissect: Party Id Source
+cme_futures_ilink3_sbe_v8_2.party_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_id_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.party_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_id_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Role
+cme_futures_ilink3_sbe_v8_2.party_role = {}
+
+-- Size: Party Role
+cme_futures_ilink3_sbe_v8_2.party_role.size = 2
+
+-- Display: Party Role
+cme_futures_ilink3_sbe_v8_2.party_role.display = function(value)
+  return "Party Role: "..value
+end
+
+-- Dissect: Party Role
+cme_futures_ilink3_sbe_v8_2.party_role.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.party_role.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.party_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_role, range, value, display)
+
+  return offset + length, value
+end
+
+-- Poss Retrans Flag
+cme_futures_ilink3_sbe_v8_2.poss_retrans_flag = {}
+
+-- Size: Poss Retrans Flag
+cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.size = 1
+
+-- Display: Poss Retrans Flag
+cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.display = function(value)
+  if value == 0 then
+    return "Poss Retrans Flag: False (0)"
+  end
+  if value == 1 then
+    return "Poss Retrans Flag: True (1)"
+  end
+
+  return "Poss Retrans Flag: Unknown("..value..")"
+end
+
+-- Dissect: Poss Retrans Flag
+cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.poss_retrans_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Seq No
+cme_futures_ilink3_sbe_v8_2.previous_seq_no = {}
+
+-- Size: Previous Seq No
+cme_futures_ilink3_sbe_v8_2.previous_seq_no.size = 4
+
+-- Display: Previous Seq No
+cme_futures_ilink3_sbe_v8_2.previous_seq_no.display = function(value)
+  return "Previous Seq No: "..value
+end
+
+-- Dissect: Previous Seq No
+cme_futures_ilink3_sbe_v8_2.previous_seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.previous_seq_no.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.previous_seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.previous_seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Uuid
+cme_futures_ilink3_sbe_v8_2.previous_uuid = {}
+
+-- Size: Previous Uuid
+cme_futures_ilink3_sbe_v8_2.previous_uuid.size = 8
+
+-- Display: Previous Uuid
+cme_futures_ilink3_sbe_v8_2.previous_uuid.display = function(value)
+  return "Previous Uuid: "..value
+end
+
+-- Dissect: Previous Uuid
+cme_futures_ilink3_sbe_v8_2.previous_uuid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.previous_uuid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.previous_uuid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.previous_uuid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+cme_futures_ilink3_sbe_v8_2.price = {}
+
+-- Size: Price
+cme_futures_ilink3_sbe_v8_2.price.size = 8
+
+-- Display: Price
+cme_futures_ilink3_sbe_v8_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+cme_futures_ilink3_sbe_v8_2.price.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Price
+cme_futures_ilink3_sbe_v8_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.price.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Optional
+cme_futures_ilink3_sbe_v8_2.price_optional = {}
+
+-- Size: Price Optional
+cme_futures_ilink3_sbe_v8_2.price_optional.size = 8
+
+-- Display: Price Optional
+cme_futures_ilink3_sbe_v8_2.price_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Price Optional: No Value"
+  end
+
+  return "Price Optional: "..value
+end
+
+-- Translate: Price Optional
+cme_futures_ilink3_sbe_v8_2.price_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Price Optional
+cme_futures_ilink3_sbe_v8_2.price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.price_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.price_optional.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.price_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.price_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Ack Status
+cme_futures_ilink3_sbe_v8_2.quote_ack_status = {}
+
+-- Size: Quote Ack Status
+cme_futures_ilink3_sbe_v8_2.quote_ack_status.size = 1
+
+-- Display: Quote Ack Status
+cme_futures_ilink3_sbe_v8_2.quote_ack_status.display = function(value)
+  if value == 0 then
+    return "Quote Ack Status: Accepted (0)"
+  end
+  if value == 5 then
+    return "Quote Ack Status: Rejected (5)"
+  end
+
+  return "Quote Ack Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Ack Status
+cme_futures_ilink3_sbe_v8_2.quote_ack_status.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_ack_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_ack_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_ack_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Cancel Type
+cme_futures_ilink3_sbe_v8_2.quote_cancel_type = {}
+
+-- Size: Quote Cancel Type
+cme_futures_ilink3_sbe_v8_2.quote_cancel_type.size = 1
+
+-- Display: Quote Cancel Type
+cme_futures_ilink3_sbe_v8_2.quote_cancel_type.display = function(value)
+  if value == 1 then
+    return "Quote Cancel Type: Cancelper Instrument (1)"
+  end
+  if value == 3 then
+    return "Quote Cancel Type: Cancelper Instrumentgroup (3)"
+  end
+  if value == 4 then
+    return "Quote Cancel Type: Cancelallquotes (4)"
+  end
+  if value == 100 then
+    return "Quote Cancel Type: Cancelper Quote Set (100)"
+  end
+
+  return "Quote Cancel Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Cancel Type
+cme_futures_ilink3_sbe_v8_2.quote_cancel_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_cancel_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_cancel_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Cxl Status
+cme_futures_ilink3_sbe_v8_2.quote_cxl_status = {}
+
+-- Size: Quote Cxl Status
+cme_futures_ilink3_sbe_v8_2.quote_cxl_status.size = 1
+
+-- Display: Quote Cxl Status
+cme_futures_ilink3_sbe_v8_2.quote_cxl_status.display = function(value)
+  if value == 1 then
+    return "Quote Cxl Status: Cancelper Instrument (1)"
+  end
+  if value == 3 then
+    return "Quote Cxl Status: Cancelper Instrumentgroup (3)"
+  end
+  if value == 4 then
+    return "Quote Cxl Status: Cancelallquotes (4)"
+  end
+  if value == 5 then
+    return "Quote Cxl Status: Rejected (5)"
+  end
+  if value == 100 then
+    return "Quote Cxl Status: Cancelper Quote Set (100)"
+  end
+
+  return "Quote Cxl Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Cxl Status
+cme_futures_ilink3_sbe_v8_2.quote_cxl_status.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_cxl_status.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_cxl_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_cxl_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Entry Id
+cme_futures_ilink3_sbe_v8_2.quote_entry_id = {}
+
+-- Size: Quote Entry Id
+cme_futures_ilink3_sbe_v8_2.quote_entry_id.size = 4
+
+-- Display: Quote Entry Id
+cme_futures_ilink3_sbe_v8_2.quote_entry_id.display = function(value)
+  return "Quote Entry Id: "..value
+end
+
+-- Dissect: Quote Entry Id
+cme_futures_ilink3_sbe_v8_2.quote_entry_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_entry_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_entry_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_entry_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Entry Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason = {}
+
+-- Size: Quote Entry Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.size = 1
+
+-- Display: Quote Entry Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.display = function(value)
+  return "Quote Entry Reject Reason: "..value
+end
+
+-- Dissect: Quote Entry Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_entry_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Error Code
+cme_futures_ilink3_sbe_v8_2.quote_error_code = {}
+
+-- Size: Quote Error Code
+cme_futures_ilink3_sbe_v8_2.quote_error_code.size = 2
+
+-- Display: Quote Error Code
+cme_futures_ilink3_sbe_v8_2.quote_error_code.display = function(value)
+  return "Quote Error Code: "..value
+end
+
+-- Dissect: Quote Error Code
+cme_futures_ilink3_sbe_v8_2.quote_error_code.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_error_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_error_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_error_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Id
+cme_futures_ilink3_sbe_v8_2.quote_id = {}
+
+-- Size: Quote Id
+cme_futures_ilink3_sbe_v8_2.quote_id.size = 4
+
+-- Display: Quote Id
+cme_futures_ilink3_sbe_v8_2.quote_id.display = function(value)
+  return "Quote Id: "..value
+end
+
+-- Dissect: Quote Id
+cme_futures_ilink3_sbe_v8_2.quote_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_reject_reason = {}
+
+-- Size: Quote Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_reject_reason.size = 2
+
+-- Display: Quote Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Quote Reject Reason: No Value"
+  end
+
+  return "Quote Reject Reason: "..value
+end
+
+-- Dissect: Quote Reject Reason
+cme_futures_ilink3_sbe_v8_2.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id
+cme_futures_ilink3_sbe_v8_2.quote_req_id = {}
+
+-- Size: Quote Req Id
+cme_futures_ilink3_sbe_v8_2.quote_req_id.size = 8
+
+-- Display: Quote Req Id
+cme_futures_ilink3_sbe_v8_2.quote_req_id.display = function(value)
+  return "Quote Req Id: "..value
+end
+
+-- Dissect: Quote Req Id
+cme_futures_ilink3_sbe_v8_2.quote_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id Optional
+cme_futures_ilink3_sbe_v8_2.quote_req_id_optional = {}
+
+-- Size: Quote Req Id Optional
+cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.size = 8
+
+-- Display: Quote Req Id Optional
+cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Req Id Optional: No Value"
+  end
+
+  return "Quote Req Id Optional: "..value
+end
+
+-- Dissect: Quote Req Id Optional
+cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Set Id
+cme_futures_ilink3_sbe_v8_2.quote_set_id = {}
+
+-- Size: Quote Set Id
+cme_futures_ilink3_sbe_v8_2.quote_set_id.size = 2
+
+-- Display: Quote Set Id
+cme_futures_ilink3_sbe_v8_2.quote_set_id.display = function(value)
+  return "Quote Set Id: "..value
+end
+
+-- Dissect: Quote Set Id
+cme_futures_ilink3_sbe_v8_2.quote_set_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_set_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_set_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_set_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Type
+cme_futures_ilink3_sbe_v8_2.quote_type = {}
+
+-- Size: Quote Type
+cme_futures_ilink3_sbe_v8_2.quote_type.size = 1
+
+-- Display: Quote Type
+cme_futures_ilink3_sbe_v8_2.quote_type.display = function(value)
+  if value == 255 then
+    return "Quote Type: No Value"
+  end
+  if value == 1 then
+    return "Quote Type: Tradeable (1)"
+  end
+
+  return "Quote Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Type
+cme_futures_ilink3_sbe_v8_2.quote_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.quote_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.quote_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+cme_futures_ilink3_sbe_v8_2.reason = {}
+
+-- Size: Reason
+cme_futures_ilink3_sbe_v8_2.reason.size = 48
+
+-- Display: Reason
+cme_futures_ilink3_sbe_v8_2.reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reason: No Value"
+  end
+
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+cme_futures_ilink3_sbe_v8_2.reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.reason.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Msg Type
+cme_futures_ilink3_sbe_v8_2.ref_msg_type = {}
+
+-- Size: Ref Msg Type
+cme_futures_ilink3_sbe_v8_2.ref_msg_type.size = 2
+
+-- Display: Ref Msg Type
+cme_futures_ilink3_sbe_v8_2.ref_msg_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Ref Msg Type: No Value"
+  end
+
+  return "Ref Msg Type: "..value
+end
+
+-- Dissect: Ref Msg Type
+cme_futures_ilink3_sbe_v8_2.ref_msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ref_msg_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.ref_msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ref_msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Seq Num
+cme_futures_ilink3_sbe_v8_2.ref_seq_num = {}
+
+-- Size: Ref Seq Num
+cme_futures_ilink3_sbe_v8_2.ref_seq_num.size = 4
+
+-- Display: Ref Seq Num
+cme_futures_ilink3_sbe_v8_2.ref_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Ref Seq Num: No Value"
+  end
+
+  return "Ref Seq Num: "..value
+end
+
+-- Dissect: Ref Seq Num
+cme_futures_ilink3_sbe_v8_2.ref_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ref_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ref_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ref_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ref Tag Id
+cme_futures_ilink3_sbe_v8_2.ref_tag_id = {}
+
+-- Size: Ref Tag Id
+cme_futures_ilink3_sbe_v8_2.ref_tag_id.size = 2
+
+-- Display: Ref Tag Id
+cme_futures_ilink3_sbe_v8_2.ref_tag_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Ref Tag Id: No Value"
+  end
+
+  return "Ref Tag Id: "..value
+end
+
+-- Dissect: Ref Tag Id
+cme_futures_ilink3_sbe_v8_2.ref_tag_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.ref_tag_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.ref_tag_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ref_tag_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Result
+cme_futures_ilink3_sbe_v8_2.request_result = {}
+
+-- Size: Request Result
+cme_futures_ilink3_sbe_v8_2.request_result.size = 1
+
+-- Display: Request Result
+cme_futures_ilink3_sbe_v8_2.request_result.display = function(value)
+  if value == 0 then
+    return "Request Result: Valid Request (0)"
+  end
+  if value == 2 then
+    return "Request Result: No Data Found That Matched Selection Criteria (2)"
+  end
+  if value == 3 then
+    return "Request Result: Not Authorizedto Retrieve Data (3)"
+  end
+  if value == 4 then
+    return "Request Result: Data Temporarily Unavailable (4)"
+  end
+
+  return "Request Result: Unknown("..value..")"
+end
+
+-- Dissect: Request Result
+cme_futures_ilink3_sbe_v8_2.request_result.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.request_result.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.request_result.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.request_result, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Time
+cme_futures_ilink3_sbe_v8_2.request_time = {}
+
+-- Size: Request Time
+cme_futures_ilink3_sbe_v8_2.request_time.size = 8
+
+-- Display: Request Time
+cme_futures_ilink3_sbe_v8_2.request_time.display = function(value)
+  return "Request Time: "..value
+end
+
+-- Dissect: Request Time
+cme_futures_ilink3_sbe_v8_2.request_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.request_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.request_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.request_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Timestamp
+cme_futures_ilink3_sbe_v8_2.request_timestamp = {}
+
+-- Size: Request Timestamp
+cme_futures_ilink3_sbe_v8_2.request_timestamp.size = 8
+
+-- Display: Request Timestamp
+cme_futures_ilink3_sbe_v8_2.request_timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Request Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Request Timestamp
+cme_futures_ilink3_sbe_v8_2.request_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.request_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.request_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.request_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Id
+cme_futures_ilink3_sbe_v8_2.requesting_party_id = {}
+
+-- Size: Requesting Party Id
+cme_futures_ilink3_sbe_v8_2.requesting_party_id.size = 5
+
+-- Display: Requesting Party Id
+cme_futures_ilink3_sbe_v8_2.requesting_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Id: No Value"
+  end
+
+  return "Requesting Party Id: "..value
+end
+
+-- Dissect: Requesting Party Id
+cme_futures_ilink3_sbe_v8_2.requesting_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.requesting_party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.requesting_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Id Source
+cme_futures_ilink3_sbe_v8_2.requesting_party_id_source = {}
+
+-- Size: Requesting Party Id Source
+cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.size = 1
+
+-- Display: Requesting Party Id Source
+cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Id Source: No Value"
+  end
+
+  return "Requesting Party Id Source: "..value
+end
+
+-- Dissect: Requesting Party Id Source
+cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requesting Party Role
+cme_futures_ilink3_sbe_v8_2.requesting_party_role = {}
+
+-- Size: Requesting Party Role
+cme_futures_ilink3_sbe_v8_2.requesting_party_role.size = 1
+
+-- Display: Requesting Party Role
+cme_futures_ilink3_sbe_v8_2.requesting_party_role.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Role: No Value"
+  end
+
+  return "Requesting Party Role: "..value
+end
+
+-- Dissect: Requesting Party Role
+cme_futures_ilink3_sbe_v8_2.requesting_party_role.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.requesting_party_role.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.requesting_party_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.requesting_party_role, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Side
+cme_futures_ilink3_sbe_v8_2.rfq_side = {}
+
+-- Size: Rfq Side
+cme_futures_ilink3_sbe_v8_2.rfq_side.size = 1
+
+-- Display: Rfq Side
+cme_futures_ilink3_sbe_v8_2.rfq_side.display = function(value)
+  if value == 1 then
+    return "Rfq Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Rfq Side: Sell (2)"
+  end
+  if value == 8 then
+    return "Rfq Side: Cross (8)"
+  end
+
+  return "Rfq Side: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Side
+cme_futures_ilink3_sbe_v8_2.rfq_side.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.rfq_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.rfq_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.rfq_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+cme_futures_ilink3_sbe_v8_2.schema_id = {}
+
+-- Size: Schema Id
+cme_futures_ilink3_sbe_v8_2.schema_id.size = 2
+
+-- Display: Schema Id
+cme_futures_ilink3_sbe_v8_2.schema_id.display = function(value)
+  if value == 8 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+cme_futures_ilink3_sbe_v8_2.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sec Exec Id
+cme_futures_ilink3_sbe_v8_2.sec_exec_id = {}
+
+-- Size: Sec Exec Id
+cme_futures_ilink3_sbe_v8_2.sec_exec_id.size = 8
+
+-- Display: Sec Exec Id
+cme_futures_ilink3_sbe_v8_2.sec_exec_id.display = function(value)
+  return "Sec Exec Id: "..value
+end
+
+-- Dissect: Sec Exec Id
+cme_futures_ilink3_sbe_v8_2.sec_exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.sec_exec_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.sec_exec_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sec_exec_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Secret Key Secure Id Expiration
+cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration = {}
+
+-- Size: Secret Key Secure Id Expiration
+cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.size = 2
+
+-- Display: Secret Key Secure Id Expiration
+cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Secret Key Secure Id Expiration: No Value"
+  end
+
+  return "Secret Key Secure Id Expiration: "..value
+end
+
+-- Dissect: Secret Key Secure Id Expiration
+cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.secret_key_secure_id_expiration, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Group
+cme_futures_ilink3_sbe_v8_2.security_group = {}
+
+-- Size: Security Group
+cme_futures_ilink3_sbe_v8_2.security_group.size = 6
+
+-- Display: Security Group
+cme_futures_ilink3_sbe_v8_2.security_group.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group: No Value"
+  end
+
+  return "Security Group: "..value
+end
+
+-- Dissect: Security Group
+cme_futures_ilink3_sbe_v8_2.security_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_group.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.security_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+cme_futures_ilink3_sbe_v8_2.security_id = {}
+
+-- Size: Security Id
+cme_futures_ilink3_sbe_v8_2.security_id.size = 4
+
+-- Display: Security Id
+cme_futures_ilink3_sbe_v8_2.security_id.display = function(value)
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+cme_futures_ilink3_sbe_v8_2.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_ilink3_sbe_v8_2.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id Optional
+cme_futures_ilink3_sbe_v8_2.security_id_optional = {}
+
+-- Size: Security Id Optional
+cme_futures_ilink3_sbe_v8_2.security_id_optional.size = 4
+
+-- Display: Security Id Optional
+cme_futures_ilink3_sbe_v8_2.security_id_optional.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Security Id Optional: No Value"
+  end
+
+  return "Security Id Optional: "..value
+end
+
+-- Dissect: Security Id Optional
+cme_futures_ilink3_sbe_v8_2.security_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_ilink3_sbe_v8_2.security_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Req Id
+cme_futures_ilink3_sbe_v8_2.security_req_id = {}
+
+-- Size: Security Req Id
+cme_futures_ilink3_sbe_v8_2.security_req_id.size = 8
+
+-- Display: Security Req Id
+cme_futures_ilink3_sbe_v8_2.security_req_id.display = function(value)
+  return "Security Req Id: "..value
+end
+
+-- Dissect: Security Req Id
+cme_futures_ilink3_sbe_v8_2.security_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_req_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.security_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Response Id
+cme_futures_ilink3_sbe_v8_2.security_response_id = {}
+
+-- Size: Security Response Id
+cme_futures_ilink3_sbe_v8_2.security_response_id.size = 8
+
+-- Display: Security Response Id
+cme_futures_ilink3_sbe_v8_2.security_response_id.display = function(value)
+  return "Security Response Id: "..value
+end
+
+-- Dissect: Security Response Id
+cme_futures_ilink3_sbe_v8_2.security_response_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_response_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.security_response_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_response_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Response Type
+cme_futures_ilink3_sbe_v8_2.security_response_type = {}
+
+-- Size: Security Response Type
+cme_futures_ilink3_sbe_v8_2.security_response_type.size = 1
+
+-- Display: Security Response Type
+cme_futures_ilink3_sbe_v8_2.security_response_type.display = function(value)
+  if value == 1 then
+    return "Security Response Type: Accept Security Proposalasis (1)"
+  end
+  if value == 2 then
+    return "Security Response Type: Accept Securityproposalwithrevisionsasindicatedinthemessage (2)"
+  end
+  if value == 5 then
+    return "Security Response Type: Reject Security Proposal (5)"
+  end
+
+  return "Security Response Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Response Type
+cme_futures_ilink3_sbe_v8_2.security_response_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_response_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.security_response_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_response_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Sub Type
+cme_futures_ilink3_sbe_v8_2.security_sub_type = {}
+
+-- Size: Security Sub Type
+cme_futures_ilink3_sbe_v8_2.security_sub_type.size = 8
+
+-- Display: Security Sub Type
+cme_futures_ilink3_sbe_v8_2.security_sub_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Sub Type: No Value"
+  end
+
+  return "Security Sub Type: "..value
+end
+
+-- Dissect: Security Sub Type
+cme_futures_ilink3_sbe_v8_2.security_sub_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_sub_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.security_sub_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_sub_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+cme_futures_ilink3_sbe_v8_2.security_type = {}
+
+-- Size: Security Type
+cme_futures_ilink3_sbe_v8_2.security_type.size = 6
+
+-- Display: Security Type
+cme_futures_ilink3_sbe_v8_2.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type: No Value"
+  end
+
+  return "Security Type: "..value
+end
+
+-- Dissect: Security Type
+cme_futures_ilink3_sbe_v8_2.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.security_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Match Prevention Id
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_id = {}
+
+-- Size: Self Match Prevention Id
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.size = 8
+
+-- Display: Self Match Prevention Id
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Self Match Prevention Id: No Value"
+  end
+
+  return "Self Match Prevention Id: "..value
+end
+
+-- Dissect: Self Match Prevention Id
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Match Prevention Instruction
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction = {}
+
+-- Size: Self Match Prevention Instruction
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.size = 1
+
+-- Display: Self Match Prevention Instruction
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Self Match Prevention Instruction: No Value"
+  end
+
+  if value == "N" then
+    return "Self Match Prevention Instruction: Cancel Newest (N)"
+  end
+  if value == "O" then
+    return "Self Match Prevention Instruction: Cancel Oldest (O)"
+  end
+
+  return "Self Match Prevention Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Self Match Prevention Instruction
+cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Id
+cme_futures_ilink3_sbe_v8_2.sender_id = {}
+
+-- Size: Sender Id
+cme_futures_ilink3_sbe_v8_2.sender_id.size = 20
+
+-- Display: Sender Id
+cme_futures_ilink3_sbe_v8_2.sender_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sender Id: No Value"
+  end
+
+  return "Sender Id: "..value
+end
+
+-- Dissect: Sender Id
+cme_futures_ilink3_sbe_v8_2.sender_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.sender_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.sender_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sender_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Id Optional
+cme_futures_ilink3_sbe_v8_2.sender_id_optional = {}
+
+-- Size: Sender Id Optional
+cme_futures_ilink3_sbe_v8_2.sender_id_optional.size = 20
+
+-- Display: Sender Id Optional
+cme_futures_ilink3_sbe_v8_2.sender_id_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sender Id Optional: No Value"
+  end
+
+  return "Sender Id Optional: "..value
+end
+
+-- Dissect: Sender Id Optional
+cme_futures_ilink3_sbe_v8_2.sender_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.sender_id_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.sender_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sender_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time Epoch
+cme_futures_ilink3_sbe_v8_2.sending_time_epoch = {}
+
+-- Size: Sending Time Epoch
+cme_futures_ilink3_sbe_v8_2.sending_time_epoch.size = 8
+
+-- Display: Sending Time Epoch
+cme_futures_ilink3_sbe_v8_2.sending_time_epoch.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time Epoch: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time Epoch
+cme_futures_ilink3_sbe_v8_2.sending_time_epoch.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.sending_time_epoch.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.sending_time_epoch.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sending_time_epoch, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+cme_futures_ilink3_sbe_v8_2.seq_num = {}
+
+-- Size: Seq Num
+cme_futures_ilink3_sbe_v8_2.seq_num.size = 4
+
+-- Display: Seq Num
+cme_futures_ilink3_sbe_v8_2.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+cme_futures_ilink3_sbe_v8_2.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+cme_futures_ilink3_sbe_v8_2.session = {}
+
+-- Size: Session
+cme_futures_ilink3_sbe_v8_2.session.size = 3
+
+-- Display: Session
+cme_futures_ilink3_sbe_v8_2.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+cme_futures_ilink3_sbe_v8_2.session.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Type
+cme_futures_ilink3_sbe_v8_2.short_sale_type = {}
+
+-- Size: Short Sale Type
+cme_futures_ilink3_sbe_v8_2.short_sale_type.size = 1
+
+-- Display: Short Sale Type
+cme_futures_ilink3_sbe_v8_2.short_sale_type.display = function(value)
+  if value == 255 then
+    return "Short Sale Type: No Value"
+  end
+  if value == 0 then
+    return "Short Sale Type: Long Sell (0)"
+  end
+  if value == 1 then
+    return "Short Sale Type: Short Sale With No Exemption Sesh (1)"
+  end
+  if value == 2 then
+    return "Short Sale Type: Short Sale With Exemption Ssex (2)"
+  end
+  if value == 3 then
+    return "Short Sale Type: Undisclosed Sell Information Not Available Undi (3)"
+  end
+
+  return "Short Sale Type: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Type
+cme_futures_ilink3_sbe_v8_2.short_sale_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.short_sale_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.short_sale_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.short_sale_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+cme_futures_ilink3_sbe_v8_2.side = {}
+
+-- Size: Side
+cme_futures_ilink3_sbe_v8_2.side.size = 1
+
+-- Display: Side
+cme_futures_ilink3_sbe_v8_2.side.display = function(value)
+  if value == 1 then
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+cme_futures_ilink3_sbe_v8_2.side.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Optional
+cme_futures_ilink3_sbe_v8_2.side_optional = {}
+
+-- Size: Side Optional
+cme_futures_ilink3_sbe_v8_2.side_optional.size = 1
+
+-- Display: Side Optional
+cme_futures_ilink3_sbe_v8_2.side_optional.display = function(value)
+  if value == 255 then
+    return "Side Optional: No Value"
+  end
+  if value == 1 then
+    return "Side Optional: Buy (1)"
+  end
+  if value == 2 then
+    return "Side Optional: Sell (2)"
+  end
+
+  return "Side Optional: Unknown("..value..")"
+end
+
+-- Dissect: Side Optional
+cme_futures_ilink3_sbe_v8_2.side_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.side_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.side_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Time In Force
+cme_futures_ilink3_sbe_v8_2.side_time_in_force = {}
+
+-- Size: Side Time In Force
+cme_futures_ilink3_sbe_v8_2.side_time_in_force.size = 1
+
+-- Display: Side Time In Force
+cme_futures_ilink3_sbe_v8_2.side_time_in_force.display = function(value)
+  if value == 0 then
+    return "Side Time In Force: Day (0)"
+  end
+  if value == 3 then
+    return "Side Time In Force: Fak (3)"
+  end
+
+  return "Side Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Side Time In Force
+cme_futures_ilink3_sbe_v8_2.side_time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.side_time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.side_time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side_time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Trade Id
+cme_futures_ilink3_sbe_v8_2.side_trade_id = {}
+
+-- Size: Side Trade Id
+cme_futures_ilink3_sbe_v8_2.side_trade_id.size = 4
+
+-- Display: Side Trade Id
+cme_futures_ilink3_sbe_v8_2.side_trade_id.display = function(value)
+  return "Side Trade Id: "..value
+end
+
+-- Dissect: Side Trade Id
+cme_futures_ilink3_sbe_v8_2.side_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.side_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.side_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Repo Id
+cme_futures_ilink3_sbe_v8_2.source_repo_id = {}
+
+-- Size: Source Repo Id
+cme_futures_ilink3_sbe_v8_2.source_repo_id.size = 4
+
+-- Display: Source Repo Id
+cme_futures_ilink3_sbe_v8_2.source_repo_id.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Source Repo Id: No Value"
+  end
+
+  return "Source Repo Id: "..value
+end
+
+-- Dissect: Source Repo Id
+cme_futures_ilink3_sbe_v8_2.source_repo_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.source_repo_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_ilink3_sbe_v8_2.source_repo_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.source_repo_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Split Msg
+cme_futures_ilink3_sbe_v8_2.split_msg = {}
+
+-- Size: Split Msg
+cme_futures_ilink3_sbe_v8_2.split_msg.size = 1
+
+-- Display: Split Msg
+cme_futures_ilink3_sbe_v8_2.split_msg.display = function(value)
+  if value == 255 then
+    return "Split Msg: No Value"
+  end
+  if value == 0 then
+    return "Split Msg: Split Message Delayed (0)"
+  end
+  if value == 1 then
+    return "Split Msg: Outof Order Message Delayed (1)"
+  end
+  if value == 2 then
+    return "Split Msg: Complete Message Delayed (2)"
+  end
+
+  return "Split Msg: Unknown("..value..")"
+end
+
+-- Dissect: Split Msg
+cme_futures_ilink3_sbe_v8_2.split_msg.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.split_msg.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.split_msg.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.split_msg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Date
+cme_futures_ilink3_sbe_v8_2.start_date = {}
+
+-- Size: Start Date
+cme_futures_ilink3_sbe_v8_2.start_date.size = 2
+
+-- Display: Start Date
+cme_futures_ilink3_sbe_v8_2.start_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Start Date: No Value"
+  end
+
+  return "Start Date: "..value
+end
+
+-- Dissect: Start Date
+cme_futures_ilink3_sbe_v8_2.start_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.start_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.start_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.start_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stop Px
+cme_futures_ilink3_sbe_v8_2.stop_px = {}
+
+-- Size: Stop Px
+cme_futures_ilink3_sbe_v8_2.stop_px.size = 8
+
+-- Display: Stop Px
+cme_futures_ilink3_sbe_v8_2.stop_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Stop Px: No Value"
+  end
+
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+cme_futures_ilink3_sbe_v8_2.stop_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Stop Px
+cme_futures_ilink3_sbe_v8_2.stop_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.stop_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.stop_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.stop_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.stop_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cme_futures_ilink3_sbe_v8_2.symbol = {}
+
+-- Size: Symbol
+cme_futures_ilink3_sbe_v8_2.symbol.size = 20
+
+-- Display: Symbol
+cme_futures_ilink3_sbe_v8_2.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cme_futures_ilink3_sbe_v8_2.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+cme_futures_ilink3_sbe_v8_2.template_id = {}
+
+-- Size: Template Id
+cme_futures_ilink3_sbe_v8_2.template_id.size = 2
+
+-- Display: Template Id
+cme_futures_ilink3_sbe_v8_2.template_id.display = function(value)
+  if value == 500 then
+    return "Template Id: Negotiate (500)"
+  end
+  if value == 501 then
+    return "Template Id: Negotiation Response (501)"
+  end
+  if value == 502 then
+    return "Template Id: Negotiation Reject (502)"
+  end
+  if value == 503 then
+    return "Template Id: Establish (503)"
+  end
+  if value == 504 then
+    return "Template Id: Establishment Ack (504)"
+  end
+  if value == 505 then
+    return "Template Id: Establishment Reject (505)"
+  end
+  if value == 506 then
+    return "Template Id: Sequence (506)"
+  end
+  if value == 507 then
+    return "Template Id: Terminate (507)"
+  end
+  if value == 508 then
+    return "Template Id: Retransmit Request (508)"
+  end
+  if value == 509 then
+    return "Template Id: Retransmission (509)"
+  end
+  if value == 510 then
+    return "Template Id: Retransmit Reject (510)"
+  end
+  if value == 513 then
+    return "Template Id: Not Applied (513)"
+  end
+  if value == 514 then
+    return "Template Id: New Order Single (514)"
+  end
+  if value == 515 then
+    return "Template Id: Order Cancel Replace Request (515)"
+  end
+  if value == 516 then
+    return "Template Id: Order Cancel Request (516)"
+  end
+  if value == 517 then
+    return "Template Id: Mass Quote (517)"
+  end
+  if value == 518 then
+    return "Template Id: Party Details Definition Request (518)"
+  end
+  if value == 519 then
+    return "Template Id: Party Details Definition Request Ack (519)"
+  end
+  if value == 521 then
+    return "Template Id: Business Reject (521)"
+  end
+  if value == 522 then
+    return "Template Id: Execution Report New (522)"
+  end
+  if value == 523 then
+    return "Template Id: Execution Report Reject (523)"
+  end
+  if value == 524 then
+    return "Template Id: Execution Report Elimination (524)"
+  end
+  if value == 525 then
+    return "Template Id: Execution Report Trade Outright (525)"
+  end
+  if value == 526 then
+    return "Template Id: Execution Report Trade Spread (526)"
+  end
+  if value == 527 then
+    return "Template Id: Execution Report Trade Spread Leg (527)"
+  end
+  if value == 528 then
+    return "Template Id: Quote Cancel (528)"
+  end
+  if value == 529 then
+    return "Template Id: Order Mass Action Request (529)"
+  end
+  if value == 530 then
+    return "Template Id: Order Mass Status Request (530)"
+  end
+  if value == 531 then
+    return "Template Id: Execution Report Modify (531)"
+  end
+  if value == 532 then
+    return "Template Id: Execution Report Status (532)"
+  end
+  if value == 533 then
+    return "Template Id: Order Status Request (533)"
+  end
+  if value == 534 then
+    return "Template Id: Execution Report Cancel (534)"
+  end
+  if value == 535 then
+    return "Template Id: Order Cancel Reject (535)"
+  end
+  if value == 536 then
+    return "Template Id: Order Cancel Replace Reject (536)"
+  end
+  if value == 537 then
+    return "Template Id: Party Details List Request (537)"
+  end
+  if value == 538 then
+    return "Template Id: Party Details List Report (538)"
+  end
+  if value == 539 then
+    return "Template Id: Execution Ack (539)"
+  end
+  if value == 543 then
+    return "Template Id: Request For Quote (543)"
+  end
+  if value == 544 then
+    return "Template Id: New Order Cross (544)"
+  end
+  if value == 545 then
+    return "Template Id: Mass Quote Ack (545)"
+  end
+  if value == 546 then
+    return "Template Id: Request For Quote Ack (546)"
+  end
+  if value == 547 then
+    return "Template Id: Quote Cancel Ack (547)"
+  end
+  if value == 548 then
+    return "Template Id: Execution Report Trade Addendum Outright (548)"
+  end
+  if value == 549 then
+    return "Template Id: Execution Report Trade Addendum Spread (549)"
+  end
+  if value == 550 then
+    return "Template Id: Execution Report Trade Addendum Spread Leg (550)"
+  end
+  if value == 558 then
+    return "Template Id: Order Mass Action Report (558)"
+  end
+  if value == 560 then
+    return "Template Id: Security Definition Request (560)"
+  end
+  if value == 561 then
+    return "Template Id: Security Definition Response (561)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+cme_futures_ilink3_sbe_v8_2.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Termination Type
+cme_futures_ilink3_sbe_v8_2.termination_type = {}
+
+-- Size: Termination Type
+cme_futures_ilink3_sbe_v8_2.termination_type.size = 8
+
+-- Display: Termination Type
+cme_futures_ilink3_sbe_v8_2.termination_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Termination Type: No Value"
+  end
+
+  return "Termination Type: "..value
+end
+
+-- Dissect: Termination Type
+cme_futures_ilink3_sbe_v8_2.termination_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.termination_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.termination_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.termination_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+cme_futures_ilink3_sbe_v8_2.text = {}
+
+-- Size: Text
+cme_futures_ilink3_sbe_v8_2.text.size = 256
+
+-- Display: Text
+cme_futures_ilink3_sbe_v8_2.text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
+  return "Text: "..value
+end
+
+-- Dissect: Text
+cme_futures_ilink3_sbe_v8_2.text.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+cme_futures_ilink3_sbe_v8_2.time_in_force = {}
+
+-- Size: Time In Force
+cme_futures_ilink3_sbe_v8_2.time_in_force.size = 1
+
+-- Display: Time In Force
+cme_futures_ilink3_sbe_v8_2.time_in_force.display = function(value)
+  if value == 0 then
+    return "Time In Force: Day (0)"
+  end
+  if value == 1 then
+    return "Time In Force: Good Till Cancel (1)"
+  end
+  if value == 3 then
+    return "Time In Force: Fill And Kill (3)"
+  end
+  if value == 4 then
+    return "Time In Force: Fill Or Kill (4)"
+  end
+  if value == 6 then
+    return "Time In Force: Good Till Date (6)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+cme_futures_ilink3_sbe_v8_2.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tot No Quote Entries
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries = {}
+
+-- Size: Tot No Quote Entries
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.size = 1
+
+-- Display: Tot No Quote Entries
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.display = function(value)
+  return "Tot No Quote Entries: "..value
+end
+
+-- Dissect: Tot No Quote Entries
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tot No Quote Entries Optional
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional = {}
+
+-- Size: Tot No Quote Entries Optional
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.size = 1
+
+-- Display: Tot No Quote Entries Optional
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Tot No Quote Entries Optional: No Value"
+  end
+
+  return "Tot No Quote Entries Optional: "..value
+end
+
+-- Dissect: Tot No Quote Entries Optional
+cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tot Num Parties
+cme_futures_ilink3_sbe_v8_2.tot_num_parties = {}
+
+-- Size: Tot Num Parties
+cme_futures_ilink3_sbe_v8_2.tot_num_parties.size = 2
+
+-- Display: Tot Num Parties
+cme_futures_ilink3_sbe_v8_2.tot_num_parties.display = function(value)
+  return "Tot Num Parties: "..value
+end
+
+-- Dissect: Tot Num Parties
+cme_futures_ilink3_sbe_v8_2.tot_num_parties.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.tot_num_parties.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.tot_num_parties.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.tot_num_parties, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Affected Orders
+cme_futures_ilink3_sbe_v8_2.total_affected_orders = {}
+
+-- Size: Total Affected Orders
+cme_futures_ilink3_sbe_v8_2.total_affected_orders.size = 1
+
+-- Display: Total Affected Orders
+cme_futures_ilink3_sbe_v8_2.total_affected_orders.display = function(value)
+  return "Total Affected Orders: "..value
+end
+
+-- Dissect: Total Affected Orders
+cme_futures_ilink3_sbe_v8_2.total_affected_orders.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.total_affected_orders.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.total_affected_orders.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.total_affected_orders, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Num Securities
+cme_futures_ilink3_sbe_v8_2.total_num_securities = {}
+
+-- Size: Total Num Securities
+cme_futures_ilink3_sbe_v8_2.total_num_securities.size = 1
+
+-- Display: Total Num Securities
+cme_futures_ilink3_sbe_v8_2.total_num_securities.display = function(value)
+  return "Total Num Securities: "..value
+end
+
+-- Dissect: Total Num Securities
+cme_futures_ilink3_sbe_v8_2.total_num_securities.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.total_num_securities.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.total_num_securities.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.total_num_securities, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Addendum
+cme_futures_ilink3_sbe_v8_2.trade_addendum = {}
+
+-- Size: Trade Addendum
+cme_futures_ilink3_sbe_v8_2.trade_addendum.size = 1
+
+-- Display: Trade Addendum
+cme_futures_ilink3_sbe_v8_2.trade_addendum.display = function(value)
+  if value == 4 then
+    return "Trade Addendum: Partially Filled (4)"
+  end
+  if value == 5 then
+    return "Trade Addendum: Filled (5)"
+  end
+  if value == 100 then
+    return "Trade Addendum: Trade Cancel (100)"
+  end
+  if value == 101 then
+    return "Trade Addendum: Trade Correction (101)"
+  end
+
+  return "Trade Addendum: Unknown("..value..")"
+end
+
+-- Dissect: Trade Addendum
+cme_futures_ilink3_sbe_v8_2.trade_addendum.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trade_addendum.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.trade_addendum.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trade_addendum, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+cme_futures_ilink3_sbe_v8_2.trade_date = {}
+
+-- Size: Trade Date
+cme_futures_ilink3_sbe_v8_2.trade_date.size = 2
+
+-- Display: Trade Date
+cme_futures_ilink3_sbe_v8_2.trade_date.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+cme_futures_ilink3_sbe_v8_2.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Link Id
+cme_futures_ilink3_sbe_v8_2.trade_link_id = {}
+
+-- Size: Trade Link Id
+cme_futures_ilink3_sbe_v8_2.trade_link_id.size = 4
+
+-- Display: Trade Link Id
+cme_futures_ilink3_sbe_v8_2.trade_link_id.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Trade Link Id: No Value"
+  end
+
+  return "Trade Link Id: "..value
+end
+
+-- Dissect: Trade Link Id
+cme_futures_ilink3_sbe_v8_2.trade_link_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trade_link_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.trade_link_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trade_link_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading System Name
+cme_futures_ilink3_sbe_v8_2.trading_system_name = {}
+
+-- Size: Trading System Name
+cme_futures_ilink3_sbe_v8_2.trading_system_name.size = 30
+
+-- Display: Trading System Name
+cme_futures_ilink3_sbe_v8_2.trading_system_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trading System Name: No Value"
+  end
+
+  return "Trading System Name: "..value
+end
+
+-- Dissect: Trading System Name
+cme_futures_ilink3_sbe_v8_2.trading_system_name.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trading_system_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.trading_system_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trading_system_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading System Vendor
+cme_futures_ilink3_sbe_v8_2.trading_system_vendor = {}
+
+-- Size: Trading System Vendor
+cme_futures_ilink3_sbe_v8_2.trading_system_vendor.size = 10
+
+-- Display: Trading System Vendor
+cme_futures_ilink3_sbe_v8_2.trading_system_vendor.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trading System Vendor: No Value"
+  end
+
+  return "Trading System Vendor: "..value
+end
+
+-- Dissect: Trading System Vendor
+cme_futures_ilink3_sbe_v8_2.trading_system_vendor.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trading_system_vendor.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.trading_system_vendor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trading_system_vendor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading System Version
+cme_futures_ilink3_sbe_v8_2.trading_system_version = {}
+
+-- Size: Trading System Version
+cme_futures_ilink3_sbe_v8_2.trading_system_version.size = 10
+
+-- Display: Trading System Version
+cme_futures_ilink3_sbe_v8_2.trading_system_version.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trading System Version: No Value"
+  end
+
+  return "Trading System Version: "..value
+end
+
+-- Dissect: Trading System Version
+cme_futures_ilink3_sbe_v8_2.trading_system_version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trading_system_version.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.trading_system_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trading_system_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trans Bkd Time
+cme_futures_ilink3_sbe_v8_2.trans_bkd_time = {}
+
+-- Size: Trans Bkd Time
+cme_futures_ilink3_sbe_v8_2.trans_bkd_time.size = 8
+
+-- Display: Trans Bkd Time
+cme_futures_ilink3_sbe_v8_2.trans_bkd_time.display = function(value)
+  return "Trans Bkd Time: "..value
+end
+
+-- Dissect: Trans Bkd Time
+cme_futures_ilink3_sbe_v8_2.trans_bkd_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trans_bkd_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.trans_bkd_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trans_bkd_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+cme_futures_ilink3_sbe_v8_2.transact_time = {}
+
+-- Size: Transact Time
+cme_futures_ilink3_sbe_v8_2.transact_time.size = 8
+
+-- Display: Transact Time
+cme_futures_ilink3_sbe_v8_2.transact_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+cme_futures_ilink3_sbe_v8_2.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Publication Reason
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason = {}
+
+-- Size: Trd Reg Publication Reason
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.size = 1
+
+-- Display: Trd Reg Publication Reason
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.display = function(value)
+  return "Trd Reg Publication Reason: "..value
+end
+
+-- Dissect: Trd Reg Publication Reason
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trd Reg Publication Type
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type = {}
+
+-- Size: Trd Reg Publication Type
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.size = 1
+
+-- Display: Trd Reg Publication Type
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.display = function(value)
+  return "Trd Reg Publication Type: "..value
+end
+
+-- Dissect: Trd Reg Publication Type
+cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Px
+cme_futures_ilink3_sbe_v8_2.underlying_px = {}
+
+-- Size: Underlying Px
+cme_futures_ilink3_sbe_v8_2.underlying_px.size = 8
+
+-- Display: Underlying Px
+cme_futures_ilink3_sbe_v8_2.underlying_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Underlying Px: No Value"
+  end
+
+  return "Underlying Px: "..value
+end
+
+-- Translate: Underlying Px
+cme_futures_ilink3_sbe_v8_2.underlying_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Underlying Px
+cme_futures_ilink3_sbe_v8_2.underlying_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.underlying_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_futures_ilink3_sbe_v8_2.underlying_px.translate(raw)
+  local display = cme_futures_ilink3_sbe_v8_2.underlying_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.underlying_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Security Id
+cme_futures_ilink3_sbe_v8_2.underlying_security_id = {}
+
+-- Size: Underlying Security Id
+cme_futures_ilink3_sbe_v8_2.underlying_security_id.size = 4
+
+-- Display: Underlying Security Id
+cme_futures_ilink3_sbe_v8_2.underlying_security_id.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Underlying Security Id: No Value"
+  end
+
+  return "Underlying Security Id: "..value
+end
+
+-- Dissect: Underlying Security Id
+cme_futures_ilink3_sbe_v8_2.underlying_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.underlying_security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_futures_ilink3_sbe_v8_2.underlying_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.underlying_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsolicited Cancel Type
+cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type = {}
+
+-- Size: Unsolicited Cancel Type
+cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.size = 1
+
+-- Display: Unsolicited Cancel Type
+cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unsolicited Cancel Type: No Value"
+  end
+
+  return "Unsolicited Cancel Type: "..value
+end
+
+-- Dissect: Unsolicited Cancel Type
+cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Uuid
+cme_futures_ilink3_sbe_v8_2.uuid = {}
+
+-- Size: Uuid
+cme_futures_ilink3_sbe_v8_2.uuid.size = 8
+
+-- Display: Uuid
+cme_futures_ilink3_sbe_v8_2.uuid.display = function(value)
+  return "Uuid: "..value
+end
+
+-- Dissect: Uuid
+cme_futures_ilink3_sbe_v8_2.uuid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.uuid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_futures_ilink3_sbe_v8_2.uuid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.uuid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+cme_futures_ilink3_sbe_v8_2.version = {}
+
+-- Size: Version
+cme_futures_ilink3_sbe_v8_2.version.size = 2
+
+-- Display: Version
+cme_futures_ilink3_sbe_v8_2.version.display = function(value)
+  if value == 2 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+cme_futures_ilink3_sbe_v8_2.version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Week
+cme_futures_ilink3_sbe_v8_2.week = {}
+
+-- Size: Week
+cme_futures_ilink3_sbe_v8_2.week.size = 1
+
+-- Display: Week
+cme_futures_ilink3_sbe_v8_2.week.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Week: No Value"
+  end
+
+  return "Week: "..value
+end
+
+-- Dissect: Week
+cme_futures_ilink3_sbe_v8_2.week.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.week.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.week.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.week, range, value, display)
+
+  return offset + length, value
+end
+
+-- Year
+cme_futures_ilink3_sbe_v8_2.year = {}
+
+-- Size: Year
+cme_futures_ilink3_sbe_v8_2.year.size = 2
+
+-- Display: Year
+cme_futures_ilink3_sbe_v8_2.year.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Year: No Value"
+  end
+
+  return "Year: "..value
+end
+
+-- Dissect: Year
+cme_futures_ilink3_sbe_v8_2.year.dissect = function(buffer, offset, packet, parent)
+  local length = cme_futures_ilink3_sbe_v8_2.year.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_futures_ilink3_sbe_v8_2.year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.year, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cme Futures iLink3 Sbe 8.2
+-----------------------------------------------------------------------
 
 -- Leg Option Delta
 cme_futures_ilink3_sbe_v8_2.leg_option_delta = {}
@@ -1255,45 +8146,6 @@ cme_futures_ilink3_sbe_v8_2.leg_option_delta.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.leg_option_delta.fields(buffer, offset, packet, parent)
   end
-end
-
--- Leg Price
-cme_futures_ilink3_sbe_v8_2.leg_price = {}
-
--- Size: Leg Price
-cme_futures_ilink3_sbe_v8_2.leg_price.size = 8
-
--- Display: Leg Price
-cme_futures_ilink3_sbe_v8_2.leg_price.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Leg Price: No Value"
-  end
-
-  return "Leg Price: "..value
-end
-
--- Translate: Leg Price
-cme_futures_ilink3_sbe_v8_2.leg_price.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Leg Price
-cme_futures_ilink3_sbe_v8_2.leg_price.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.leg_price.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.leg_price.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Response Legs Group
@@ -1356,52 +8208,6 @@ cme_futures_ilink3_sbe_v8_2.response_legs_group.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.response_legs_group.fields(buffer, offset, packet, parent, response_legs_group_index)
   end
-end
-
--- Num In Group
-cme_futures_ilink3_sbe_v8_2.num_in_group = {}
-
--- Size: Num In Group
-cme_futures_ilink3_sbe_v8_2.num_in_group.size = 1
-
--- Display: Num In Group
-cme_futures_ilink3_sbe_v8_2.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-cme_futures_ilink3_sbe_v8_2.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-cme_futures_ilink3_sbe_v8_2.block_length = {}
-
--- Size: Block Length
-cme_futures_ilink3_sbe_v8_2.block_length.size = 2
-
--- Display: Block Length
-cme_futures_ilink3_sbe_v8_2.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-cme_futures_ilink3_sbe_v8_2.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.block_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Group Size
@@ -1505,489 +8311,6 @@ cme_futures_ilink3_sbe_v8_2.response_legs_groups.dissect = function(buffer, offs
   end
 end
 
--- Poss Retrans Flag
-cme_futures_ilink3_sbe_v8_2.poss_retrans_flag = {}
-
--- Size: Poss Retrans Flag
-cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.size = 1
-
--- Display: Poss Retrans Flag
-cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.display = function(value)
-  if value == 0 then
-    return "Poss Retrans Flag: False (0)"
-  end
-  if value == 1 then
-    return "Poss Retrans Flag: True (1)"
-  end
-
-  return "Poss Retrans Flag: Unknown("..value..")"
-end
-
--- Dissect: Poss Retrans Flag
-cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.poss_retrans_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.poss_retrans_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Auto Quote Request
-cme_futures_ilink3_sbe_v8_2.auto_quote_request = {}
-
--- Size: Auto Quote Request
-cme_futures_ilink3_sbe_v8_2.auto_quote_request.size = 1
-
--- Display: Auto Quote Request
-cme_futures_ilink3_sbe_v8_2.auto_quote_request.display = function(value)
-  if value == 0 then
-    return "Auto Quote Request: False (0)"
-  end
-  if value == 1 then
-    return "Auto Quote Request: True (1)"
-  end
-
-  return "Auto Quote Request: Unknown("..value..")"
-end
-
--- Dissect: Auto Quote Request
-cme_futures_ilink3_sbe_v8_2.auto_quote_request.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.auto_quote_request.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.auto_quote_request.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.auto_quote_request, range, value, display)
-
-  return offset + length, value
-end
-
--- Split Msg
-cme_futures_ilink3_sbe_v8_2.split_msg = {}
-
--- Size: Split Msg
-cme_futures_ilink3_sbe_v8_2.split_msg.size = 1
-
--- Display: Split Msg
-cme_futures_ilink3_sbe_v8_2.split_msg.display = function(value)
-  if value == 255 then
-    return "Split Msg: No Value"
-  end
-  if value == 0 then
-    return "Split Msg: Split Message Delayed (0)"
-  end
-  if value == 1 then
-    return "Split Msg: Outof Order Message Delayed (1)"
-  end
-  if value == 2 then
-    return "Split Msg: Complete Message Delayed (2)"
-  end
-
-  return "Split Msg: Unknown("..value..")"
-end
-
--- Dissect: Split Msg
-cme_futures_ilink3_sbe_v8_2.split_msg.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.split_msg.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.split_msg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.split_msg, range, value, display)
-
-  return offset + length, value
-end
-
--- Manual Order Indicator
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator = {}
-
--- Size: Manual Order Indicator
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator.size = 1
-
--- Display: Manual Order Indicator
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator.display = function(value)
-  if value == 0 then
-    return "Manual Order Indicator: Automated (0)"
-  end
-  if value == 1 then
-    return "Manual Order Indicator: Manual (1)"
-  end
-
-  return "Manual Order Indicator: Unknown("..value..")"
-end
-
--- Dissect: Manual Order Indicator
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.manual_order_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.manual_order_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Cycle
-cme_futures_ilink3_sbe_v8_2.expiration_cycle = {}
-
--- Size: Expiration Cycle
-cme_futures_ilink3_sbe_v8_2.expiration_cycle.size = 1
-
--- Display: Expiration Cycle
-cme_futures_ilink3_sbe_v8_2.expiration_cycle.display = function(value)
-  if value == 255 then
-    return "Expiration Cycle: No Value"
-  end
-  if value == 0 then
-    return "Expiration Cycle: Expire On Trading Session Close (0)"
-  end
-  if value == 2 then
-    return "Expiration Cycle: Expirationatgivendate (2)"
-  end
-
-  return "Expiration Cycle: Unknown("..value..")"
-end
-
--- Dissect: Expiration Cycle
-cme_futures_ilink3_sbe_v8_2.expiration_cycle.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.expiration_cycle.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.expiration_cycle.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.expiration_cycle, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Response Type
-cme_futures_ilink3_sbe_v8_2.security_response_type = {}
-
--- Size: Security Response Type
-cme_futures_ilink3_sbe_v8_2.security_response_type.size = 1
-
--- Display: Security Response Type
-cme_futures_ilink3_sbe_v8_2.security_response_type.display = function(value)
-  if value == 1 then
-    return "Security Response Type: Accept Security Proposalasis (1)"
-  end
-  if value == 2 then
-    return "Security Response Type: Accept Securityproposalwithrevisionsasindicatedinthemessage (2)"
-  end
-  if value == 5 then
-    return "Security Response Type: Reject Security Proposal (5)"
-  end
-
-  return "Security Response Type: Unknown("..value..")"
-end
-
--- Dissect: Security Response Type
-cme_futures_ilink3_sbe_v8_2.security_response_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_response_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.security_response_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_response_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Termination Type
-cme_futures_ilink3_sbe_v8_2.termination_type = {}
-
--- Size: Termination Type
-cme_futures_ilink3_sbe_v8_2.termination_type.size = 8
-
--- Display: Termination Type
-cme_futures_ilink3_sbe_v8_2.termination_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Termination Type: No Value"
-  end
-
-  return "Termination Type: "..value
-end
-
--- Dissect: Termination Type
-cme_futures_ilink3_sbe_v8_2.termination_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.termination_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.termination_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.termination_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Repo Id
-cme_futures_ilink3_sbe_v8_2.source_repo_id = {}
-
--- Size: Source Repo Id
-cme_futures_ilink3_sbe_v8_2.source_repo_id.size = 4
-
--- Display: Source Repo Id
-cme_futures_ilink3_sbe_v8_2.source_repo_id.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Source Repo Id: No Value"
-  end
-
-  return "Source Repo Id: "..value
-end
-
--- Dissect: Source Repo Id
-cme_futures_ilink3_sbe_v8_2.source_repo_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.source_repo_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_ilink3_sbe_v8_2.source_repo_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.source_repo_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Max No Of Substitutions
-cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions = {}
-
--- Size: Max No Of Substitutions
-cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.size = 1
-
--- Display: Max No Of Substitutions
-cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Max No Of Substitutions: No Value"
-  end
-
-  return "Max No Of Substitutions: "..value
-end
-
--- Dissect: Max No Of Substitutions
-cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.max_no_of_substitutions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.max_no_of_substitutions, range, value, display)
-
-  return offset + length, value
-end
-
--- End Date
-cme_futures_ilink3_sbe_v8_2.end_date = {}
-
--- Size: End Date
-cme_futures_ilink3_sbe_v8_2.end_date.size = 2
-
--- Display: End Date
-cme_futures_ilink3_sbe_v8_2.end_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "End Date: No Value"
-  end
-
-  return "End Date: "..value
-end
-
--- Dissect: End Date
-cme_futures_ilink3_sbe_v8_2.end_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.end_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.end_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.end_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Start Date
-cme_futures_ilink3_sbe_v8_2.start_date = {}
-
--- Size: Start Date
-cme_futures_ilink3_sbe_v8_2.start_date.size = 2
-
--- Display: Start Date
-cme_futures_ilink3_sbe_v8_2.start_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Start Date: No Value"
-  end
-
-  return "Start Date: "..value
-end
-
--- Dissect: Start Date
-cme_futures_ilink3_sbe_v8_2.start_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.start_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.start_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.start_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Delay Duration
-cme_futures_ilink3_sbe_v8_2.delay_duration = {}
-
--- Size: Delay Duration
-cme_futures_ilink3_sbe_v8_2.delay_duration.size = 2
-
--- Display: Delay Duration
-cme_futures_ilink3_sbe_v8_2.delay_duration.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Delay Duration: No Value"
-  end
-
-  return "Delay Duration: "..value
-end
-
--- Dissect: Delay Duration
-cme_futures_ilink3_sbe_v8_2.delay_duration.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.delay_duration.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.delay_duration.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.delay_duration, range, value, display)
-
-  return offset + length, value
-end
-
--- Week
-cme_futures_ilink3_sbe_v8_2.week = {}
-
--- Size: Week
-cme_futures_ilink3_sbe_v8_2.week.size = 1
-
--- Display: Week
-cme_futures_ilink3_sbe_v8_2.week.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Week: No Value"
-  end
-
-  return "Week: "..value
-end
-
--- Dissect: Week
-cme_futures_ilink3_sbe_v8_2.week.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.week.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.week.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.week, range, value, display)
-
-  return offset + length, value
-end
-
--- Day
-cme_futures_ilink3_sbe_v8_2.day = {}
-
--- Size: Day
-cme_futures_ilink3_sbe_v8_2.day.size = 1
-
--- Display: Day
-cme_futures_ilink3_sbe_v8_2.day.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Day: No Value"
-  end
-
-  return "Day: "..value
-end
-
--- Dissect: Day
-cme_futures_ilink3_sbe_v8_2.day.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.day.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.day, range, value, display)
-
-  return offset + length, value
-end
-
--- Month
-cme_futures_ilink3_sbe_v8_2.month = {}
-
--- Size: Month
-cme_futures_ilink3_sbe_v8_2.month.size = 1
-
--- Display: Month
-cme_futures_ilink3_sbe_v8_2.month.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Month: No Value"
-  end
-
-  return "Month: "..value
-end
-
--- Dissect: Month
-cme_futures_ilink3_sbe_v8_2.month.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.month.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.month, range, value, display)
-
-  return offset + length, value
-end
-
--- Year
-cme_futures_ilink3_sbe_v8_2.year = {}
-
--- Size: Year
-cme_futures_ilink3_sbe_v8_2.year.size = 2
-
--- Display: Year
-cme_futures_ilink3_sbe_v8_2.year.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Year: No Value"
-  end
-
-  return "Year: "..value
-end
-
--- Dissect: Year
-cme_futures_ilink3_sbe_v8_2.year.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.year.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.year, range, value, display)
-
-  return offset + length, value
-end
-
 -- Maturity Month Year
 cme_futures_ilink3_sbe_v8_2.maturity_month_year = {}
 
@@ -2038,488 +8361,6 @@ cme_futures_ilink3_sbe_v8_2.maturity_month_year.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.maturity_month_year.fields(buffer, offset, packet, parent)
   end
-end
-
--- Currency
-cme_futures_ilink3_sbe_v8_2.currency = {}
-
--- Size: Currency
-cme_futures_ilink3_sbe_v8_2.currency.size = 3
-
--- Display: Currency
-cme_futures_ilink3_sbe_v8_2.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-cme_futures_ilink3_sbe_v8_2.currency.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id Optional
-cme_futures_ilink3_sbe_v8_2.security_id_optional = {}
-
--- Size: Security Id Optional
-cme_futures_ilink3_sbe_v8_2.security_id_optional.size = 4
-
--- Display: Security Id Optional
-cme_futures_ilink3_sbe_v8_2.security_id_optional.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Security Id Optional: No Value"
-  end
-
-  return "Security Id Optional: "..value
-end
-
--- Dissect: Security Id Optional
-cme_futures_ilink3_sbe_v8_2.security_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_ilink3_sbe_v8_2.security_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Location
-cme_futures_ilink3_sbe_v8_2.location = {}
-
--- Size: Location
-cme_futures_ilink3_sbe_v8_2.location.size = 5
-
--- Display: Location
-cme_futures_ilink3_sbe_v8_2.location.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Location: No Value"
-  end
-
-  return "Location: "..value
-end
-
--- Dissect: Location
-cme_futures_ilink3_sbe_v8_2.location.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.location.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.location.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.location, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type
-cme_futures_ilink3_sbe_v8_2.security_type = {}
-
--- Size: Security Type
-cme_futures_ilink3_sbe_v8_2.security_type.size = 6
-
--- Display: Security Type
-cme_futures_ilink3_sbe_v8_2.security_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Type: No Value"
-  end
-
-  return "Security Type: "..value
-end
-
--- Dissect: Security Type
-cme_futures_ilink3_sbe_v8_2.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Group
-cme_futures_ilink3_sbe_v8_2.security_group = {}
-
--- Size: Security Group
-cme_futures_ilink3_sbe_v8_2.security_group.size = 6
-
--- Display: Security Group
-cme_futures_ilink3_sbe_v8_2.security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group: No Value"
-  end
-
-  return "Security Group: "..value
-end
-
--- Dissect: Security Group
-cme_futures_ilink3_sbe_v8_2.security_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_group.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.security_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Sending Time Epoch
-cme_futures_ilink3_sbe_v8_2.sending_time_epoch = {}
-
--- Size: Sending Time Epoch
-cme_futures_ilink3_sbe_v8_2.sending_time_epoch.size = 8
-
--- Display: Sending Time Epoch
-cme_futures_ilink3_sbe_v8_2.sending_time_epoch.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time Epoch: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time Epoch
-cme_futures_ilink3_sbe_v8_2.sending_time_epoch.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.sending_time_epoch.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.sending_time_epoch.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sending_time_epoch, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Response Id
-cme_futures_ilink3_sbe_v8_2.security_response_id = {}
-
--- Size: Security Response Id
-cme_futures_ilink3_sbe_v8_2.security_response_id.size = 8
-
--- Display: Security Response Id
-cme_futures_ilink3_sbe_v8_2.security_response_id.display = function(value)
-  return "Security Response Id: "..value
-end
-
--- Dissect: Security Response Id
-cme_futures_ilink3_sbe_v8_2.security_response_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_response_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.security_response_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_response_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Req Id
-cme_futures_ilink3_sbe_v8_2.security_req_id = {}
-
--- Size: Security Req Id
-cme_futures_ilink3_sbe_v8_2.security_req_id.size = 8
-
--- Display: Security Req Id
-cme_futures_ilink3_sbe_v8_2.security_req_id.display = function(value)
-  return "Security Req Id: "..value
-end
-
--- Dissect: Security Req Id
-cme_futures_ilink3_sbe_v8_2.security_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.security_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Details List Req Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id = {}
-
--- Size: Party Details List Req Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.size = 8
-
--- Display: Party Details List Req Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.display = function(value)
-  return "Party Details List Req Id: "..value
-end
-
--- Dissect: Party Details List Req Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cme_futures_ilink3_sbe_v8_2.symbol = {}
-
--- Size: Symbol
-cme_futures_ilink3_sbe_v8_2.symbol.size = 20
-
--- Display: Symbol
-cme_futures_ilink3_sbe_v8_2.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cme_futures_ilink3_sbe_v8_2.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Sender Id
-cme_futures_ilink3_sbe_v8_2.sender_id = {}
-
--- Size: Sender Id
-cme_futures_ilink3_sbe_v8_2.sender_id.size = 20
-
--- Display: Sender Id
-cme_futures_ilink3_sbe_v8_2.sender_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sender Id: No Value"
-  end
-
-  return "Sender Id: "..value
-end
-
--- Dissect: Sender Id
-cme_futures_ilink3_sbe_v8_2.sender_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.sender_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.sender_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sender_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Financial Instrument Full Name
-cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name = {}
-
--- Size: Financial Instrument Full Name
-cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.size = 35
-
--- Display: Financial Instrument Full Name
-cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Financial Instrument Full Name: No Value"
-  end
-
-  return "Financial Instrument Full Name: "..value
-end
-
--- Dissect: Financial Instrument Full Name
-cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.financial_instrument_full_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.financial_instrument_full_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-cme_futures_ilink3_sbe_v8_2.text = {}
-
--- Size: Text
-cme_futures_ilink3_sbe_v8_2.text.size = 256
-
--- Display: Text
-cme_futures_ilink3_sbe_v8_2.text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text: No Value"
-  end
-
-  return "Text: "..value
-end
-
--- Dissect: Text
-cme_futures_ilink3_sbe_v8_2.text.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.text.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
--- Uuid
-cme_futures_ilink3_sbe_v8_2.uuid = {}
-
--- Size: Uuid
-cme_futures_ilink3_sbe_v8_2.uuid.size = 8
-
--- Display: Uuid
-cme_futures_ilink3_sbe_v8_2.uuid.display = function(value)
-  return "Uuid: "..value
-end
-
--- Dissect: Uuid
-cme_futures_ilink3_sbe_v8_2.uuid.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.uuid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.uuid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.uuid, range, value, display)
-
-  return offset + length, value
-end
-
--- Seq Num
-cme_futures_ilink3_sbe_v8_2.seq_num = {}
-
--- Size: Seq Num
-cme_futures_ilink3_sbe_v8_2.seq_num.size = 4
-
--- Display: Seq Num
-cme_futures_ilink3_sbe_v8_2.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-cme_futures_ilink3_sbe_v8_2.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Definition Response
@@ -2826,84 +8667,6 @@ cme_futures_ilink3_sbe_v8_2.request_legs_groups.dissect = function(buffer, offse
   end
 end
 
--- Security Sub Type
-cme_futures_ilink3_sbe_v8_2.security_sub_type = {}
-
--- Size: Security Sub Type
-cme_futures_ilink3_sbe_v8_2.security_sub_type.size = 8
-
--- Display: Security Sub Type
-cme_futures_ilink3_sbe_v8_2.security_sub_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Sub Type: No Value"
-  end
-
-  return "Security Sub Type: "..value
-end
-
--- Dissect: Security Sub Type
-cme_futures_ilink3_sbe_v8_2.security_sub_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_sub_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.security_sub_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_sub_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Sender Id Optional
-cme_futures_ilink3_sbe_v8_2.sender_id_optional = {}
-
--- Size: Sender Id Optional
-cme_futures_ilink3_sbe_v8_2.sender_id_optional.size = 20
-
--- Display: Sender Id Optional
-cme_futures_ilink3_sbe_v8_2.sender_id_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Sender Id Optional: No Value"
-  end
-
-  return "Sender Id Optional: "..value
-end
-
--- Dissect: Sender Id Optional
-cme_futures_ilink3_sbe_v8_2.sender_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.sender_id_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.sender_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sender_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Definition Request
 cme_futures_ilink3_sbe_v8_2.security_definition_request = {}
 
@@ -3007,91 +8770,6 @@ cme_futures_ilink3_sbe_v8_2.security_definition_request.dissect = function(buffe
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.security_definition_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cxl Quantity
-cme_futures_ilink3_sbe_v8_2.cxl_quantity = {}
-
--- Size: Cxl Quantity
-cme_futures_ilink3_sbe_v8_2.cxl_quantity.size = 4
-
--- Display: Cxl Quantity
-cme_futures_ilink3_sbe_v8_2.cxl_quantity.display = function(value)
-  return "Cxl Quantity: "..value
-end
-
--- Dissect: Cxl Quantity
-cme_futures_ilink3_sbe_v8_2.cxl_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cxl_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.cxl_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cxl_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Affected Order Id
-cme_futures_ilink3_sbe_v8_2.affected_order_id = {}
-
--- Size: Affected Order Id
-cme_futures_ilink3_sbe_v8_2.affected_order_id.size = 8
-
--- Display: Affected Order Id
-cme_futures_ilink3_sbe_v8_2.affected_order_id.display = function(value)
-  return "Affected Order Id: "..value
-end
-
--- Dissect: Affected Order Id
-cme_futures_ilink3_sbe_v8_2.affected_order_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.affected_order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.affected_order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.affected_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- OrigClOrdId
-cme_futures_ilink3_sbe_v8_2.origclordid = {}
-
--- Size: OrigClOrdId
-cme_futures_ilink3_sbe_v8_2.origclordid.size = 20
-
--- Display: OrigClOrdId
-cme_futures_ilink3_sbe_v8_2.origclordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "OrigClOrdId: No Value"
-  end
-
-  return "OrigClOrdId: "..value
-end
-
--- Dissect: OrigClOrdId
-cme_futures_ilink3_sbe_v8_2.origclordid.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.origclordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.origclordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.origclordid, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Mass Action Report 558 No Affected Orders Group
@@ -3203,435 +8881,6 @@ cme_futures_ilink3_sbe_v8_2.order_mass_action_report_558_no_affected_orders_grou
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.order_mass_action_report_558_no_affected_orders_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Liquidity Flag
-cme_futures_ilink3_sbe_v8_2.liquidity_flag = {}
-
--- Size: Liquidity Flag
-cme_futures_ilink3_sbe_v8_2.liquidity_flag.size = 1
-
--- Display: Liquidity Flag
-cme_futures_ilink3_sbe_v8_2.liquidity_flag.display = function(value)
-  if value == 255 then
-    return "Liquidity Flag: No Value"
-  end
-  if value == 0 then
-    return "Liquidity Flag: False (0)"
-  end
-  if value == 1 then
-    return "Liquidity Flag: True (1)"
-  end
-
-  return "Liquidity Flag: Unknown("..value..")"
-end
-
--- Dissect: Liquidity Flag
-cme_futures_ilink3_sbe_v8_2.liquidity_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.liquidity_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.liquidity_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Tif
-cme_futures_ilink3_sbe_v8_2.mass_cancel_tif = {}
-
--- Size: Mass Cancel Tif
-cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.size = 1
-
--- Display: Mass Cancel Tif
-cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.display = function(value)
-  if value == 255 then
-    return "Mass Cancel Tif: No Value"
-  end
-  if value == 0 then
-    return "Mass Cancel Tif: Day (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Tif: Good Till Cancel (1)"
-  end
-  if value == 6 then
-    return "Mass Cancel Tif: Good Till Date (6)"
-  end
-
-  return "Mass Cancel Tif: Unknown("..value..")"
-end
-
--- Dissect: Mass Cancel Tif
-cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_cancel_tif.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_cancel_tif, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Ord Typ
-cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ = {}
-
--- Size: Mass Action Ord Typ
-cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.size = 1
-
--- Display: Mass Action Ord Typ
-cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Mass Action Ord Typ: No Value"
-  end
-
-  if value == "2" then
-    return "Mass Action Ord Typ: Limit (2)"
-  end
-  if value == "4" then
-    return "Mass Action Ord Typ: Stop Limit (4)"
-  end
-
-  return "Mass Action Ord Typ: Unknown("..value..")"
-end
-
--- Dissect: Mass Action Ord Typ
-cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.mass_action_ord_typ.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_ord_typ, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Optional
-cme_futures_ilink3_sbe_v8_2.side_optional = {}
-
--- Size: Side Optional
-cme_futures_ilink3_sbe_v8_2.side_optional.size = 1
-
--- Display: Side Optional
-cme_futures_ilink3_sbe_v8_2.side_optional.display = function(value)
-  if value == 255 then
-    return "Side Optional: No Value"
-  end
-  if value == 1 then
-    return "Side Optional: Buy (1)"
-  end
-  if value == 2 then
-    return "Side Optional: Sell (2)"
-  end
-
-  return "Side Optional: Unknown("..value..")"
-end
-
--- Dissect: Side Optional
-cme_futures_ilink3_sbe_v8_2.side_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.side_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.side_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Request Type
-cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type = {}
-
--- Size: Mass Cancel Request Type
-cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.size = 1
-
--- Display: Mass Cancel Request Type
-cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.display = function(value)
-  if value == 255 then
-    return "Mass Cancel Request Type: No Value"
-  end
-  if value == 100 then
-    return "Mass Cancel Request Type: Sender Sub Id (100)"
-  end
-  if value == 101 then
-    return "Mass Cancel Request Type: Account (101)"
-  end
-
-  return "Mass Cancel Request Type: Unknown("..value..")"
-end
-
--- Dissect: Mass Cancel Request Type
-cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_cancel_request_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_cancel_request_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Segment Id
-cme_futures_ilink3_sbe_v8_2.market_segment_id = {}
-
--- Size: Market Segment Id
-cme_futures_ilink3_sbe_v8_2.market_segment_id.size = 1
-
--- Display: Market Segment Id
-cme_futures_ilink3_sbe_v8_2.market_segment_id.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Market Segment Id: No Value"
-  end
-
-  return "Market Segment Id: "..value
-end
-
--- Dissect: Market Segment Id
-cme_futures_ilink3_sbe_v8_2.market_segment_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.market_segment_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.market_segment_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.market_segment_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Reject Reason
-cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason = {}
-
--- Size: Mass Action Reject Reason
-cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.size = 1
-
--- Display: Mass Action Reject Reason
-cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Mass Action Reject Reason: No Value"
-  end
-
-  return "Mass Action Reject Reason: "..value
-end
-
--- Dissect: Mass Action Reject Reason
-cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_action_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Fragment
-cme_futures_ilink3_sbe_v8_2.last_fragment = {}
-
--- Size: Last Fragment
-cme_futures_ilink3_sbe_v8_2.last_fragment.size = 1
-
--- Display: Last Fragment
-cme_futures_ilink3_sbe_v8_2.last_fragment.display = function(value)
-  if value == 0 then
-    return "Last Fragment: False (0)"
-  end
-  if value == 1 then
-    return "Last Fragment: True (1)"
-  end
-
-  return "Last Fragment: Unknown("..value..")"
-end
-
--- Dissect: Last Fragment
-cme_futures_ilink3_sbe_v8_2.last_fragment.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.last_fragment.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.last_fragment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_fragment, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Affected Orders
-cme_futures_ilink3_sbe_v8_2.total_affected_orders = {}
-
--- Size: Total Affected Orders
-cme_futures_ilink3_sbe_v8_2.total_affected_orders.size = 1
-
--- Display: Total Affected Orders
-cme_futures_ilink3_sbe_v8_2.total_affected_orders.display = function(value)
-  return "Total Affected Orders: "..value
-end
-
--- Dissect: Total Affected Orders
-cme_futures_ilink3_sbe_v8_2.total_affected_orders.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.total_affected_orders.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.total_affected_orders.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.total_affected_orders, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Scope
-cme_futures_ilink3_sbe_v8_2.mass_action_scope = {}
-
--- Size: Mass Action Scope
-cme_futures_ilink3_sbe_v8_2.mass_action_scope.size = 1
-
--- Display: Mass Action Scope
-cme_futures_ilink3_sbe_v8_2.mass_action_scope.display = function(value)
-  if value == 1 then
-    return "Mass Action Scope: Instrument (1)"
-  end
-  if value == 7 then
-    return "Mass Action Scope: All (7)"
-  end
-  if value == 9 then
-    return "Mass Action Scope: Market Segment Id (9)"
-  end
-  if value == 10 then
-    return "Mass Action Scope: Instrument Group (10)"
-  end
-  if value == 100 then
-    return "Mass Action Scope: Quote Set Id (100)"
-  end
-
-  return "Mass Action Scope: Unknown("..value..")"
-end
-
--- Dissect: Mass Action Scope
-cme_futures_ilink3_sbe_v8_2.mass_action_scope.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_action_scope.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_action_scope.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_scope, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Response
-cme_futures_ilink3_sbe_v8_2.mass_action_response = {}
-
--- Size: Mass Action Response
-cme_futures_ilink3_sbe_v8_2.mass_action_response.size = 1
-
--- Display: Mass Action Response
-cme_futures_ilink3_sbe_v8_2.mass_action_response.display = function(value)
-  if value == 0 then
-    return "Mass Action Response: Rejected (0)"
-  end
-  if value == 1 then
-    return "Mass Action Response: Accepted (1)"
-  end
-
-  return "Mass Action Response: Unknown("..value..")"
-end
-
--- Dissect: Mass Action Response
-cme_futures_ilink3_sbe_v8_2.mass_action_response.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_action_response.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_action_response.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_response, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Action Report Id
-cme_futures_ilink3_sbe_v8_2.mass_action_report_id = {}
-
--- Size: Mass Action Report Id
-cme_futures_ilink3_sbe_v8_2.mass_action_report_id.size = 8
-
--- Display: Mass Action Report Id
-cme_futures_ilink3_sbe_v8_2.mass_action_report_id.display = function(value)
-  return "Mass Action Report Id: "..value
-end
-
--- Dissect: Mass Action Report Id
-cme_futures_ilink3_sbe_v8_2.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_action_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_action_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_action_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Request Id
-cme_futures_ilink3_sbe_v8_2.order_request_id = {}
-
--- Size: Order Request Id
-cme_futures_ilink3_sbe_v8_2.order_request_id.size = 8
-
--- Display: Order Request Id
-cme_futures_ilink3_sbe_v8_2.order_request_id.display = function(value)
-  return "Order Request Id: "..value
-end
-
--- Dissect: Order Request Id
-cme_futures_ilink3_sbe_v8_2.order_request_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_request_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.order_request_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_request_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-cme_futures_ilink3_sbe_v8_2.transact_time = {}
-
--- Size: Transact Time
-cme_futures_ilink3_sbe_v8_2.transact_time.size = 8
-
--- Display: Transact Time
-cme_futures_ilink3_sbe_v8_2.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-cme_futures_ilink3_sbe_v8_2.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.transact_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Mass Action Report
@@ -3809,179 +9058,6 @@ cme_futures_ilink3_sbe_v8_2.order_mass_action_report.dissect = function(buffer, 
   end
 end
 
--- Order Event Reason
-cme_futures_ilink3_sbe_v8_2.order_event_reason = {}
-
--- Size: Order Event Reason
-cme_futures_ilink3_sbe_v8_2.order_event_reason.size = 1
-
--- Display: Order Event Reason
-cme_futures_ilink3_sbe_v8_2.order_event_reason.display = function(value)
-  return "Order Event Reason: "..value
-end
-
--- Dissect: Order Event Reason
-cme_futures_ilink3_sbe_v8_2.order_event_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_event_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.order_event_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Addendum
-cme_futures_ilink3_sbe_v8_2.trade_addendum = {}
-
--- Size: Trade Addendum
-cme_futures_ilink3_sbe_v8_2.trade_addendum.size = 1
-
--- Display: Trade Addendum
-cme_futures_ilink3_sbe_v8_2.trade_addendum.display = function(value)
-  if value == 4 then
-    return "Trade Addendum: Partially Filled (4)"
-  end
-  if value == 5 then
-    return "Trade Addendum: Filled (5)"
-  end
-  if value == 100 then
-    return "Trade Addendum: Trade Cancel (100)"
-  end
-  if value == 101 then
-    return "Trade Addendum: Trade Correction (101)"
-  end
-
-  return "Trade Addendum: Unknown("..value..")"
-end
-
--- Dissect: Trade Addendum
-cme_futures_ilink3_sbe_v8_2.trade_addendum.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trade_addendum.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.trade_addendum.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trade_addendum, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Qty
-cme_futures_ilink3_sbe_v8_2.order_event_qty = {}
-
--- Size: Order Event Qty
-cme_futures_ilink3_sbe_v8_2.order_event_qty.size = 4
-
--- Display: Order Event Qty
-cme_futures_ilink3_sbe_v8_2.order_event_qty.display = function(value)
-  return "Order Event Qty: "..value
-end
-
--- Dissect: Order Event Qty
-cme_futures_ilink3_sbe_v8_2.order_event_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_event_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.order_event_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Exec Id
-cme_futures_ilink3_sbe_v8_2.order_event_exec_id = {}
-
--- Size: Order Event Exec Id
-cme_futures_ilink3_sbe_v8_2.order_event_exec_id.size = 4
-
--- Display: Order Event Exec Id
-cme_futures_ilink3_sbe_v8_2.order_event_exec_id.display = function(value)
-  return "Order Event Exec Id: "..value
-end
-
--- Dissect: Order Event Exec Id
-cme_futures_ilink3_sbe_v8_2.order_event_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_event_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.order_event_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Text
-cme_futures_ilink3_sbe_v8_2.order_event_text = {}
-
--- Size: Order Event Text
-cme_futures_ilink3_sbe_v8_2.order_event_text.size = 5
-
--- Display: Order Event Text
-cme_futures_ilink3_sbe_v8_2.order_event_text.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Order Event Text: No Value"
-  end
-
-  return "Order Event Text: "..value
-end
-
--- Dissect: Order Event Text
-cme_futures_ilink3_sbe_v8_2.order_event_text.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_event_text.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.order_event_text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_text, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Event Px
-cme_futures_ilink3_sbe_v8_2.order_event_px = {}
-
--- Size: Order Event Px
-cme_futures_ilink3_sbe_v8_2.order_event_px.size = 8
-
--- Display: Order Event Px
-cme_futures_ilink3_sbe_v8_2.order_event_px.display = function(value)
-  return "Order Event Px: "..value
-end
-
--- Translate: Order Event Px
-cme_futures_ilink3_sbe_v8_2.order_event_px.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Order Event Px
-cme_futures_ilink3_sbe_v8_2.order_event_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_event_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.order_event_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.order_event_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Spread Trade Events Group
 cme_futures_ilink3_sbe_v8_2.spread_trade_events_group = {}
 
@@ -4105,120 +9181,6 @@ cme_futures_ilink3_sbe_v8_2.spread_trade_events_groups.dissect = function(buffer
   end
 end
 
--- Fill Yield Type
-cme_futures_ilink3_sbe_v8_2.fill_yield_type = {}
-
--- Size: Fill Yield Type
-cme_futures_ilink3_sbe_v8_2.fill_yield_type.size = 1
-
--- Display: Fill Yield Type
-cme_futures_ilink3_sbe_v8_2.fill_yield_type.display = function(value)
-  return "Fill Yield Type: "..value
-end
-
--- Dissect: Fill Yield Type
-cme_futures_ilink3_sbe_v8_2.fill_yield_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.fill_yield_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.fill_yield_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_yield_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Exec Id
-cme_futures_ilink3_sbe_v8_2.fill_exec_id = {}
-
--- Size: Fill Exec Id
-cme_futures_ilink3_sbe_v8_2.fill_exec_id.size = 2
-
--- Display: Fill Exec Id
-cme_futures_ilink3_sbe_v8_2.fill_exec_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Fill Exec Id: No Value"
-  end
-
-  return "Fill Exec Id: "..value
-end
-
--- Dissect: Fill Exec Id
-cme_futures_ilink3_sbe_v8_2.fill_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.fill_exec_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.fill_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Qty
-cme_futures_ilink3_sbe_v8_2.fill_qty = {}
-
--- Size: Fill Qty
-cme_futures_ilink3_sbe_v8_2.fill_qty.size = 4
-
--- Display: Fill Qty
-cme_futures_ilink3_sbe_v8_2.fill_qty.display = function(value)
-  return "Fill Qty: "..value
-end
-
--- Dissect: Fill Qty
-cme_futures_ilink3_sbe_v8_2.fill_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.fill_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.fill_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Fill Px
-cme_futures_ilink3_sbe_v8_2.fill_px = {}
-
--- Size: Fill Px
-cme_futures_ilink3_sbe_v8_2.fill_px.size = 8
-
--- Display: Fill Px
-cme_futures_ilink3_sbe_v8_2.fill_px.display = function(value)
-  return "Fill Px: "..value
-end
-
--- Translate: Fill Px
-cme_futures_ilink3_sbe_v8_2.fill_px.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Fill Px
-cme_futures_ilink3_sbe_v8_2.fill_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.fill_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.fill_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.fill_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fill_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fills Group
 cme_futures_ilink3_sbe_v8_2.fills_group = {}
 
@@ -4332,398 +9294,6 @@ cme_futures_ilink3_sbe_v8_2.fills_groups.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.fills_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Exec Type
-cme_futures_ilink3_sbe_v8_2.exec_type = {}
-
--- Size: Exec Type
-cme_futures_ilink3_sbe_v8_2.exec_type.size = 1
-
--- Display: Exec Type
-cme_futures_ilink3_sbe_v8_2.exec_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Exec Type: No Value"
-  end
-
-  if value == "G" then
-    return "Exec Type: Trade Correction (G)"
-  end
-  if value == "H" then
-    return "Exec Type: Trade Cancel (H)"
-  end
-
-  return "Exec Type: Unknown("..value..")"
-end
-
--- Dissect: Exec Type
-cme_futures_ilink3_sbe_v8_2.exec_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.exec_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.exec_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status Trd Cxl
-cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl = {}
-
--- Size: Ord Status Trd Cxl
-cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.size = 1
-
--- Display: Ord Status Trd Cxl
-cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Status Trd Cxl: No Value"
-  end
-
-  if value == "G" then
-    return "Ord Status Trd Cxl: Trade Correction (G)"
-  end
-  if value == "H" then
-    return "Ord Status Trd Cxl: Trade Cancel (H)"
-  end
-
-  return "Ord Status Trd Cxl: Unknown("..value..")"
-end
-
--- Dissect: Ord Status Trd Cxl
-cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.ord_status_trd_cxl.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd_cxl, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Date
-cme_futures_ilink3_sbe_v8_2.trade_date = {}
-
--- Size: Trade Date
-cme_futures_ilink3_sbe_v8_2.trade_date.size = 2
-
--- Display: Trade Date
-cme_futures_ilink3_sbe_v8_2.trade_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Trade Date: No Value"
-  end
-
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-cme_futures_ilink3_sbe_v8_2.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trade_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.trade_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Side Trade Id
-cme_futures_ilink3_sbe_v8_2.orig_side_trade_id = {}
-
--- Size: Orig Side Trade Id
-cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.size = 4
-
--- Display: Orig Side Trade Id
-cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Orig Side Trade Id: No Value"
-  end
-
-  return "Orig Side Trade Id: "..value
-end
-
--- Dissect: Orig Side Trade Id
-cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.orig_side_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.orig_side_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Trade Id
-cme_futures_ilink3_sbe_v8_2.side_trade_id = {}
-
--- Size: Side Trade Id
-cme_futures_ilink3_sbe_v8_2.side_trade_id.size = 4
-
--- Display: Side Trade Id
-cme_futures_ilink3_sbe_v8_2.side_trade_id.display = function(value)
-  return "Side Trade Id: "..value
-end
-
--- Dissect: Side Trade Id
-cme_futures_ilink3_sbe_v8_2.side_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.side_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.side_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Qty
-cme_futures_ilink3_sbe_v8_2.last_qty = {}
-
--- Size: Last Qty
-cme_futures_ilink3_sbe_v8_2.last_qty.size = 4
-
--- Display: Last Qty
-cme_futures_ilink3_sbe_v8_2.last_qty.display = function(value)
-  return "Last Qty: "..value
-end
-
--- Dissect: Last Qty
-cme_futures_ilink3_sbe_v8_2.last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.last_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Id
-cme_futures_ilink3_sbe_v8_2.security_id = {}
-
--- Size: Security Id
-cme_futures_ilink3_sbe_v8_2.security_id.size = 4
-
--- Display: Security Id
-cme_futures_ilink3_sbe_v8_2.security_id.display = function(value)
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-cme_futures_ilink3_sbe_v8_2.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_ilink3_sbe_v8_2.security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Orig Secondary Execution Id
-cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id = {}
-
--- Size: Orig Secondary Execution Id
-cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.size = 8
-
--- Display: Orig Secondary Execution Id
-cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Orig Secondary Execution Id: No Value"
-  end
-
-  return "Orig Secondary Execution Id: "..value
-end
-
--- Dissect: Orig Secondary Execution Id
-cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.orig_secondary_execution_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.orig_secondary_execution_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Sec Exec Id
-cme_futures_ilink3_sbe_v8_2.sec_exec_id = {}
-
--- Size: Sec Exec Id
-cme_futures_ilink3_sbe_v8_2.sec_exec_id.size = 8
-
--- Display: Sec Exec Id
-cme_futures_ilink3_sbe_v8_2.sec_exec_id.display = function(value)
-  return "Sec Exec Id: "..value
-end
-
--- Dissect: Sec Exec Id
-cme_futures_ilink3_sbe_v8_2.sec_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.sec_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.sec_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.sec_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-cme_futures_ilink3_sbe_v8_2.order_id = {}
-
--- Size: Order Id
-cme_futures_ilink3_sbe_v8_2.order_id.size = 8
-
--- Display: Order Id
-cme_futures_ilink3_sbe_v8_2.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-cme_futures_ilink3_sbe_v8_2.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px
-cme_futures_ilink3_sbe_v8_2.last_px = {}
-
--- Size: Last Px
-cme_futures_ilink3_sbe_v8_2.last_px.size = 8
-
--- Display: Last Px
-cme_futures_ilink3_sbe_v8_2.last_px.display = function(value)
-  return "Last Px: "..value
-end
-
--- Translate: Last Px
-cme_futures_ilink3_sbe_v8_2.last_px.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Last Px
-cme_futures_ilink3_sbe_v8_2.last_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.last_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.last_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId
-cme_futures_ilink3_sbe_v8_2.clordid = {}
-
--- Size: ClOrdId
-cme_futures_ilink3_sbe_v8_2.clordid.size = 20
-
--- Display: ClOrdId
-cme_futures_ilink3_sbe_v8_2.clordid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "ClOrdId: No Value"
-  end
-
-  return "ClOrdId: "..value
-end
-
--- Dissect: ClOrdId
-cme_futures_ilink3_sbe_v8_2.clordid.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.clordid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.clordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.clordid, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-cme_futures_ilink3_sbe_v8_2.exec_id = {}
-
--- Size: Exec Id
-cme_futures_ilink3_sbe_v8_2.exec_id.size = 40
-
--- Display: Exec Id
-cme_futures_ilink3_sbe_v8_2.exec_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Exec Id: No Value"
-  end
-
-  return "Exec Id: "..value
-end
-
--- Dissect: Exec Id
-cme_futures_ilink3_sbe_v8_2.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.exec_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Trade Addendum Spread Leg
@@ -4886,160 +9456,6 @@ cme_futures_ilink3_sbe_v8_2.execution_report_trade_addendum_spread_leg.dissect =
   end
 end
 
--- Leg Last Qty
-cme_futures_ilink3_sbe_v8_2.leg_last_qty = {}
-
--- Size: Leg Last Qty
-cme_futures_ilink3_sbe_v8_2.leg_last_qty.size = 4
-
--- Display: Leg Last Qty
-cme_futures_ilink3_sbe_v8_2.leg_last_qty.display = function(value)
-  return "Leg Last Qty: "..value
-end
-
--- Dissect: Leg Last Qty
-cme_futures_ilink3_sbe_v8_2.leg_last_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_last_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.leg_last_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_last_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Trade Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id = {}
-
--- Size: Leg Trade Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.size = 4
-
--- Display: Leg Trade Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Leg Trade Ref Id: No Value"
-  end
-
-  return "Leg Trade Ref Id: "..value
-end
-
--- Dissect: Leg Trade Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.leg_trade_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_trade_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Trade Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_id = {}
-
--- Size: Leg Trade Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_id.size = 4
-
--- Display: Leg Trade Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_id.display = function(value)
-  return "Leg Trade Id: "..value
-end
-
--- Dissect: Leg Trade Id
-cme_futures_ilink3_sbe_v8_2.leg_trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.leg_trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Exec Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id = {}
-
--- Size: Leg Exec Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.size = 8
-
--- Display: Leg Exec Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Leg Exec Ref Id: No Value"
-  end
-
-  return "Leg Exec Ref Id: "..value
-end
-
--- Dissect: Leg Exec Ref Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.leg_exec_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_exec_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Last Px
-cme_futures_ilink3_sbe_v8_2.leg_last_px = {}
-
--- Size: Leg Last Px
-cme_futures_ilink3_sbe_v8_2.leg_last_px.size = 8
-
--- Display: Leg Last Px
-cme_futures_ilink3_sbe_v8_2.leg_last_px.display = function(value)
-  return "Leg Last Px: "..value
-end
-
--- Translate: Leg Last Px
-cme_futures_ilink3_sbe_v8_2.leg_last_px.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Leg Last Px
-cme_futures_ilink3_sbe_v8_2.leg_last_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_last_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.leg_last_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.leg_last_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_last_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Exec Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_id = {}
-
--- Size: Leg Exec Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_id.size = 8
-
--- Display: Leg Exec Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_id.display = function(value)
-  return "Leg Exec Id: "..value
-end
-
--- Dissect: Leg Exec Id
-cme_futures_ilink3_sbe_v8_2.leg_exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leg_exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.leg_exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leg_exec_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Addendum Legs Group
 cme_futures_ilink3_sbe_v8_2.trade_addendum_legs_group = {}
 
@@ -5171,121 +9587,6 @@ cme_futures_ilink3_sbe_v8_2.trade_addendum_legs_groups.dissect = function(buffer
   end
 end
 
--- Short Sale Type
-cme_futures_ilink3_sbe_v8_2.short_sale_type = {}
-
--- Size: Short Sale Type
-cme_futures_ilink3_sbe_v8_2.short_sale_type.size = 1
-
--- Display: Short Sale Type
-cme_futures_ilink3_sbe_v8_2.short_sale_type.display = function(value)
-  if value == 255 then
-    return "Short Sale Type: No Value"
-  end
-  if value == 0 then
-    return "Short Sale Type: Long Sell (0)"
-  end
-  if value == 1 then
-    return "Short Sale Type: Short Sale With No Exemption Sesh (1)"
-  end
-  if value == 2 then
-    return "Short Sale Type: Short Sale With Exemption Ssex (2)"
-  end
-  if value == 3 then
-    return "Short Sale Type: Undisclosed Sell Information Not Available Undi (3)"
-  end
-
-  return "Short Sale Type: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Type
-cme_futures_ilink3_sbe_v8_2.short_sale_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.short_sale_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.short_sale_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.short_sale_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Managed Order
-cme_futures_ilink3_sbe_v8_2.managed_order = {}
-
--- Size: Managed Order
-cme_futures_ilink3_sbe_v8_2.managed_order.size = 1
-
--- Display: Managed Order
-cme_futures_ilink3_sbe_v8_2.managed_order.display = function(value)
-  if value == 255 then
-    return "Managed Order: No Value"
-  end
-  if value == 0 then
-    return "Managed Order: False (0)"
-  end
-  if value == 1 then
-    return "Managed Order: True (1)"
-  end
-
-  return "Managed Order: Unknown("..value..")"
-end
-
--- Dissect: Managed Order
-cme_futures_ilink3_sbe_v8_2.managed_order.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.managed_order.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.managed_order.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.managed_order, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Mode
-cme_futures_ilink3_sbe_v8_2.execution_mode = {}
-
--- Size: Execution Mode
-cme_futures_ilink3_sbe_v8_2.execution_mode.size = 1
-
--- Display: Execution Mode
-cme_futures_ilink3_sbe_v8_2.execution_mode.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Execution Mode: No Value"
-  end
-
-  if value == "A" then
-    return "Execution Mode: Aggressive (A)"
-  end
-  if value == "P" then
-    return "Execution Mode: Passive (P)"
-  end
-
-  return "Execution Mode: Unknown("..value..")"
-end
-
--- Dissect: Execution Mode
-cme_futures_ilink3_sbe_v8_2.execution_mode.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.execution_mode.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.execution_mode.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.execution_mode, range, value, display)
-
-  return offset + length, value
-end
-
 -- Exec Inst
 cme_futures_ilink3_sbe_v8_2.exec_inst = {}
 
@@ -5373,131 +9674,6 @@ cme_futures_ilink3_sbe_v8_2.exec_inst.dissect = function(buffer, offset, packet,
   end
 
   return offset + size, value
-end
-
--- Total Num Securities
-cme_futures_ilink3_sbe_v8_2.total_num_securities = {}
-
--- Size: Total Num Securities
-cme_futures_ilink3_sbe_v8_2.total_num_securities.size = 1
-
--- Display: Total Num Securities
-cme_futures_ilink3_sbe_v8_2.total_num_securities.display = function(value)
-  return "Total Num Securities: "..value
-end
-
--- Dissect: Total Num Securities
-cme_futures_ilink3_sbe_v8_2.total_num_securities.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.total_num_securities.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.total_num_securities.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.total_num_securities, range, value, display)
-
-  return offset + length, value
-end
-
--- Side
-cme_futures_ilink3_sbe_v8_2.side = {}
-
--- Size: Side
-cme_futures_ilink3_sbe_v8_2.side.size = 1
-
--- Display: Side
-cme_futures_ilink3_sbe_v8_2.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-cme_futures_ilink3_sbe_v8_2.side.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Type Optional
-cme_futures_ilink3_sbe_v8_2.ord_type_optional = {}
-
--- Size: Ord Type Optional
-cme_futures_ilink3_sbe_v8_2.ord_type_optional.size = 1
-
--- Display: Ord Type Optional
-cme_futures_ilink3_sbe_v8_2.ord_type_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Type Optional: No Value"
-  end
-
-  if value == "1" then
-    return "Ord Type Optional: Market With Protection (1)"
-  end
-  if value == "2" then
-    return "Ord Type Optional: Limit (2)"
-  end
-  if value == "4" then
-    return "Ord Type Optional: Stop Limit (4)"
-  end
-  if value == "K" then
-    return "Ord Type Optional: Market With Leftover As Limit (K)"
-  end
-
-  return "Ord Type Optional: Unknown("..value..")"
-end
-
--- Dissect: Ord Type Optional
-cme_futures_ilink3_sbe_v8_2.ord_type_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_type_optional.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.ord_type_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_type_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Trade Entry Id
-cme_futures_ilink3_sbe_v8_2.md_trade_entry_id = {}
-
--- Size: Md Trade Entry Id
-cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.size = 4
-
--- Display: Md Trade Entry Id
-cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.display = function(value)
-  return "Md Trade Entry Id: "..value
-end
-
--- Dissect: Md Trade Entry Id
-cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.md_trade_entry_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.md_trade_entry_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Trade Addendum Spread
@@ -6023,52 +10199,6 @@ cme_futures_ilink3_sbe_v8_2.execution_report_trade_addendum_outright.dissect = f
   end
 end
 
--- Quote Error Code
-cme_futures_ilink3_sbe_v8_2.quote_error_code = {}
-
--- Size: Quote Error Code
-cme_futures_ilink3_sbe_v8_2.quote_error_code.size = 2
-
--- Display: Quote Error Code
-cme_futures_ilink3_sbe_v8_2.quote_error_code.display = function(value)
-  return "Quote Error Code: "..value
-end
-
--- Dissect: Quote Error Code
-cme_futures_ilink3_sbe_v8_2.quote_error_code.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_error_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_error_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_error_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Set Id
-cme_futures_ilink3_sbe_v8_2.quote_set_id = {}
-
--- Size: Quote Set Id
-cme_futures_ilink3_sbe_v8_2.quote_set_id.size = 2
-
--- Display: Quote Set Id
-cme_futures_ilink3_sbe_v8_2.quote_set_id.display = function(value)
-  return "Quote Set Id: "..value
-end
-
--- Dissect: Quote Set Id
-cme_futures_ilink3_sbe_v8_2.quote_set_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_set_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_set_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_set_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Cancel Ack 547 No Quote Sets Group
 cme_futures_ilink3_sbe_v8_2.quote_cancel_ack_547_no_quote_sets_group = {}
 
@@ -6174,52 +10304,6 @@ cme_futures_ilink3_sbe_v8_2.quote_cancel_ack_547_no_quote_sets_groups.dissect = 
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.quote_cancel_ack_547_no_quote_sets_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quote Entry Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason = {}
-
--- Size: Quote Entry Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.size = 1
-
--- Display: Quote Entry Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.display = function(value)
-  return "Quote Entry Reject Reason: "..value
-end
-
--- Dissect: Quote Entry Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_entry_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_entry_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Entry Id
-cme_futures_ilink3_sbe_v8_2.quote_entry_id = {}
-
--- Size: Quote Entry Id
-cme_futures_ilink3_sbe_v8_2.quote_entry_id.size = 4
-
--- Display: Quote Entry Id
-cme_futures_ilink3_sbe_v8_2.quote_entry_id.display = function(value)
-  return "Quote Entry Id: "..value
-end
-
--- Dissect: Quote Entry Id
-cme_futures_ilink3_sbe_v8_2.quote_entry_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_entry_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_entry_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_entry_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Cancel Ack 547 No Quote Entries Group
@@ -6331,275 +10415,6 @@ cme_futures_ilink3_sbe_v8_2.quote_cancel_ack_547_no_quote_entries_groups.dissect
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.quote_cancel_ack_547_no_quote_entries_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Tot No Quote Entries Optional
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional = {}
-
--- Size: Tot No Quote Entries Optional
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.size = 1
-
--- Display: Tot No Quote Entries Optional
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Tot No Quote Entries Optional: No Value"
-  end
-
-  return "Tot No Quote Entries Optional: "..value
-end
-
--- Dissect: Tot No Quote Entries Optional
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Unsolicited Cancel Type
-cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type = {}
-
--- Size: Unsolicited Cancel Type
-cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.size = 1
-
--- Display: Unsolicited Cancel Type
-cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Unsolicited Cancel Type: No Value"
-  end
-
-  return "Unsolicited Cancel Type: "..value
-end
-
--- Dissect: Unsolicited Cancel Type
-cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.unsolicited_cancel_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Mm Protection Reset
-cme_futures_ilink3_sbe_v8_2.mm_protection_reset = {}
-
--- Size: Mm Protection Reset
-cme_futures_ilink3_sbe_v8_2.mm_protection_reset.size = 1
-
--- Display: Mm Protection Reset
-cme_futures_ilink3_sbe_v8_2.mm_protection_reset.display = function(value)
-  if value == 0 then
-    return "Mm Protection Reset: False (0)"
-  end
-  if value == 1 then
-    return "Mm Protection Reset: True (1)"
-  end
-
-  return "Mm Protection Reset: Unknown("..value..")"
-end
-
--- Dissect: Mm Protection Reset
-cme_futures_ilink3_sbe_v8_2.mm_protection_reset.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mm_protection_reset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mm_protection_reset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mm_protection_reset, range, value, display)
-
-  return offset + length, value
-end
-
--- No Processed Entries
-cme_futures_ilink3_sbe_v8_2.no_processed_entries = {}
-
--- Size: No Processed Entries
-cme_futures_ilink3_sbe_v8_2.no_processed_entries.size = 1
-
--- Display: No Processed Entries
-cme_futures_ilink3_sbe_v8_2.no_processed_entries.display = function(value)
-  return "No Processed Entries: "..value
-end
-
--- Dissect: No Processed Entries
-cme_futures_ilink3_sbe_v8_2.no_processed_entries.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.no_processed_entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.no_processed_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.no_processed_entries, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Cxl Status
-cme_futures_ilink3_sbe_v8_2.quote_cxl_status = {}
-
--- Size: Quote Cxl Status
-cme_futures_ilink3_sbe_v8_2.quote_cxl_status.size = 1
-
--- Display: Quote Cxl Status
-cme_futures_ilink3_sbe_v8_2.quote_cxl_status.display = function(value)
-  if value == 1 then
-    return "Quote Cxl Status: Cancelper Instrument (1)"
-  end
-  if value == 3 then
-    return "Quote Cxl Status: Cancelper Instrumentgroup (3)"
-  end
-  if value == 4 then
-    return "Quote Cxl Status: Cancelallquotes (4)"
-  end
-  if value == 5 then
-    return "Quote Cxl Status: Rejected (5)"
-  end
-  if value == 100 then
-    return "Quote Cxl Status: Cancelper Quote Set (100)"
-  end
-
-  return "Quote Cxl Status: Unknown("..value..")"
-end
-
--- Dissect: Quote Cxl Status
-cme_futures_ilink3_sbe_v8_2.quote_cxl_status.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_cxl_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_cxl_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_cxl_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_reject_reason = {}
-
--- Size: Quote Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_reject_reason.size = 2
-
--- Display: Quote Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_reject_reason.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Quote Reject Reason: No Value"
-  end
-
-  return "Quote Reject Reason: "..value
-end
-
--- Dissect: Quote Reject Reason
-cme_futures_ilink3_sbe_v8_2.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Id
-cme_futures_ilink3_sbe_v8_2.quote_id = {}
-
--- Size: Quote Id
-cme_futures_ilink3_sbe_v8_2.quote_id.size = 4
-
--- Display: Quote Id
-cme_futures_ilink3_sbe_v8_2.quote_id.display = function(value)
-  return "Quote Id: "..value
-end
-
--- Dissect: Quote Id
-cme_futures_ilink3_sbe_v8_2.quote_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Cancelled Symbol
-cme_futures_ilink3_sbe_v8_2.cancelled_symbol = {}
-
--- Size: Cancelled Symbol
-cme_futures_ilink3_sbe_v8_2.cancelled_symbol.size = 6
-
--- Display: Cancelled Symbol
-cme_futures_ilink3_sbe_v8_2.cancelled_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cancelled Symbol: No Value"
-  end
-
-  return "Cancelled Symbol: "..value
-end
-
--- Dissect: Cancelled Symbol
-cme_futures_ilink3_sbe_v8_2.cancelled_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cancelled_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.cancelled_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cancelled_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Time
-cme_futures_ilink3_sbe_v8_2.request_time = {}
-
--- Size: Request Time
-cme_futures_ilink3_sbe_v8_2.request_time.size = 8
-
--- Display: Request Time
-cme_futures_ilink3_sbe_v8_2.request_time.display = function(value)
-  return "Request Time: "..value
-end
-
--- Dissect: Request Time
-cme_futures_ilink3_sbe_v8_2.request_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.request_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.request_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.request_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Cancel Ack
@@ -6755,98 +10570,6 @@ cme_futures_ilink3_sbe_v8_2.quote_cancel_ack.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.quote_cancel_ack.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quote Ack Status
-cme_futures_ilink3_sbe_v8_2.quote_ack_status = {}
-
--- Size: Quote Ack Status
-cme_futures_ilink3_sbe_v8_2.quote_ack_status.size = 1
-
--- Display: Quote Ack Status
-cme_futures_ilink3_sbe_v8_2.quote_ack_status.display = function(value)
-  if value == 0 then
-    return "Quote Ack Status: Accepted (0)"
-  end
-  if value == 5 then
-    return "Quote Ack Status: Rejected (5)"
-  end
-
-  return "Quote Ack Status: Unknown("..value..")"
-end
-
--- Dissect: Quote Ack Status
-cme_futures_ilink3_sbe_v8_2.quote_ack_status.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_ack_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_ack_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_ack_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Req Id
-cme_futures_ilink3_sbe_v8_2.quote_req_id = {}
-
--- Size: Quote Req Id
-cme_futures_ilink3_sbe_v8_2.quote_req_id.size = 8
-
--- Display: Quote Req Id
-cme_futures_ilink3_sbe_v8_2.quote_req_id.display = function(value)
-  return "Quote Req Id: "..value
-end
-
--- Dissect: Quote Req Id
-cme_futures_ilink3_sbe_v8_2.quote_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange Quote Req Id
-cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id = {}
-
--- Size: Exchange Quote Req Id
-cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.size = 17
-
--- Display: Exchange Quote Req Id
-cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Exchange Quote Req Id: No Value"
-  end
-
-  return "Exchange Quote Req Id: "..value
-end
-
--- Dissect: Exchange Quote Req Id
-cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.exchange_quote_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exchange_quote_req_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Request For Quote Ack
@@ -7064,34 +10787,6 @@ cme_futures_ilink3_sbe_v8_2.quote_ack_entries_groups.dissect = function(buffer, 
   end
 end
 
--- Quote Req Id Optional
-cme_futures_ilink3_sbe_v8_2.quote_req_id_optional = {}
-
--- Size: Quote Req Id Optional
-cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.size = 8
-
--- Display: Quote Req Id Optional
-cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Req Id Optional: No Value"
-  end
-
-  return "Quote Req Id Optional: "..value
-end
-
--- Dissect: Quote Req Id Optional
-cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Mass Quote Ack
 cme_futures_ilink3_sbe_v8_2.mass_quote_ack = {}
 
@@ -7242,59 +10937,6 @@ cme_futures_ilink3_sbe_v8_2.mass_quote_ack.dissect = function(buffer, offset, pa
   end
 end
 
--- Side Time In Force
-cme_futures_ilink3_sbe_v8_2.side_time_in_force = {}
-
--- Size: Side Time In Force
-cme_futures_ilink3_sbe_v8_2.side_time_in_force.size = 1
-
--- Display: Side Time In Force
-cme_futures_ilink3_sbe_v8_2.side_time_in_force.display = function(value)
-  if value == 0 then
-    return "Side Time In Force: Day (0)"
-  end
-  if value == 3 then
-    return "Side Time In Force: Fak (3)"
-  end
-
-  return "Side Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Side Time In Force
-cme_futures_ilink3_sbe_v8_2.side_time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.side_time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.side_time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.side_time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty
-cme_futures_ilink3_sbe_v8_2.order_qty = {}
-
--- Size: Order Qty
-cme_futures_ilink3_sbe_v8_2.order_qty.size = 4
-
--- Display: Order Qty
-cme_futures_ilink3_sbe_v8_2.order_qty.display = function(value)
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-cme_futures_ilink3_sbe_v8_2.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sides Group
 cme_futures_ilink3_sbe_v8_2.sides_group = {}
 
@@ -7414,81 +11056,6 @@ cme_futures_ilink3_sbe_v8_2.sides_groups.dissect = function(buffer, offset, pack
   end
 end
 
--- Trans Bkd Time
-cme_futures_ilink3_sbe_v8_2.trans_bkd_time = {}
-
--- Size: Trans Bkd Time
-cme_futures_ilink3_sbe_v8_2.trans_bkd_time.size = 8
-
--- Display: Trans Bkd Time
-cme_futures_ilink3_sbe_v8_2.trans_bkd_time.display = function(value)
-  return "Trans Bkd Time: "..value
-end
-
--- Dissect: Trans Bkd Time
-cme_futures_ilink3_sbe_v8_2.trans_bkd_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trans_bkd_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.trans_bkd_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trans_bkd_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-cme_futures_ilink3_sbe_v8_2.price = {}
-
--- Size: Price
-cme_futures_ilink3_sbe_v8_2.price.size = 8
-
--- Display: Price
-cme_futures_ilink3_sbe_v8_2.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-cme_futures_ilink3_sbe_v8_2.price.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Price
-cme_futures_ilink3_sbe_v8_2.price.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.price.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Id
-cme_futures_ilink3_sbe_v8_2.cross_id = {}
-
--- Size: Cross Id
-cme_futures_ilink3_sbe_v8_2.cross_id.size = 8
-
--- Display: Cross Id
-cme_futures_ilink3_sbe_v8_2.cross_id.display = function(value)
-  return "Cross Id: "..value
-end
-
--- Dissect: Cross Id
-cme_futures_ilink3_sbe_v8_2.cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cross_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cross_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- New Order Cross
 cme_futures_ilink3_sbe_v8_2.new_order_cross = {}
 
@@ -7582,67 +11149,6 @@ cme_futures_ilink3_sbe_v8_2.new_order_cross.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.new_order_cross.fields(buffer, offset, packet, parent)
   end
-end
-
--- Rfq Side
-cme_futures_ilink3_sbe_v8_2.rfq_side = {}
-
--- Size: Rfq Side
-cme_futures_ilink3_sbe_v8_2.rfq_side.size = 1
-
--- Display: Rfq Side
-cme_futures_ilink3_sbe_v8_2.rfq_side.display = function(value)
-  if value == 1 then
-    return "Rfq Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Rfq Side: Sell (2)"
-  end
-  if value == 8 then
-    return "Rfq Side: Cross (8)"
-  end
-
-  return "Rfq Side: Unknown("..value..")"
-end
-
--- Dissect: Rfq Side
-cme_futures_ilink3_sbe_v8_2.rfq_side.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.rfq_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.rfq_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.rfq_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty Optional
-cme_futures_ilink3_sbe_v8_2.order_qty_optional = {}
-
--- Size: Order Qty Optional
-cme_futures_ilink3_sbe_v8_2.order_qty_optional.size = 4
-
--- Display: Order Qty Optional
-cme_futures_ilink3_sbe_v8_2.order_qty_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Order Qty Optional: No Value"
-  end
-
-  return "Order Qty Optional: "..value
-end
-
--- Dissect: Order Qty Optional
-cme_futures_ilink3_sbe_v8_2.order_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.order_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_qty_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Related Sym Group
@@ -7756,36 +11262,6 @@ cme_futures_ilink3_sbe_v8_2.related_sym_groups.dissect = function(buffer, offset
   end
 end
 
--- Quote Type
-cme_futures_ilink3_sbe_v8_2.quote_type = {}
-
--- Size: Quote Type
-cme_futures_ilink3_sbe_v8_2.quote_type.size = 1
-
--- Display: Quote Type
-cme_futures_ilink3_sbe_v8_2.quote_type.display = function(value)
-  if value == 255 then
-    return "Quote Type: No Value"
-  end
-  if value == 1 then
-    return "Quote Type: Tradeable (1)"
-  end
-
-  return "Quote Type: Unknown("..value..")"
-end
-
--- Dissect: Quote Type
-cme_futures_ilink3_sbe_v8_2.quote_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Request For Quote
 cme_futures_ilink3_sbe_v8_2.request_for_quote = {}
 
@@ -7871,97 +11347,6 @@ cme_futures_ilink3_sbe_v8_2.request_for_quote.dissect = function(buffer, offset,
   end
 end
 
--- Dk Reason
-cme_futures_ilink3_sbe_v8_2.dk_reason = {}
-
--- Size: Dk Reason
-cme_futures_ilink3_sbe_v8_2.dk_reason.size = 1
-
--- Display: Dk Reason
-cme_futures_ilink3_sbe_v8_2.dk_reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Dk Reason: No Value"
-  end
-
-  if value == "A" then
-    return "Dk Reason: Unknown Security (A)"
-  end
-  if value == "B" then
-    return "Dk Reason: Wrong Side (B)"
-  end
-  if value == "C" then
-    return "Dk Reason: Quantity Exceeds Order (C)"
-  end
-  if value == "D" then
-    return "Dk Reason: No Matching Order (D)"
-  end
-  if value == "E" then
-    return "Dk Reason: Price Exceeds Limit (E)"
-  end
-  if value == "F" then
-    return "Dk Reason: Calculation Difference (F)"
-  end
-  if value == "G" then
-    return "Dk Reason: No Matching Execution Report (G)"
-  end
-  if value == "Z" then
-    return "Dk Reason: Other (Z)"
-  end
-
-  return "Dk Reason: Unknown("..value..")"
-end
-
--- Dissect: Dk Reason
-cme_futures_ilink3_sbe_v8_2.dk_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.dk_reason.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.dk_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.dk_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Ack Status
-cme_futures_ilink3_sbe_v8_2.exec_ack_status = {}
-
--- Size: Exec Ack Status
-cme_futures_ilink3_sbe_v8_2.exec_ack_status.size = 1
-
--- Display: Exec Ack Status
-cme_futures_ilink3_sbe_v8_2.exec_ack_status.display = function(value)
-  if value == 1 then
-    return "Exec Ack Status: Accepted (1)"
-  end
-  if value == 2 then
-    return "Exec Ack Status: Rejected (2)"
-  end
-
-  return "Exec Ack Status: Unknown("..value..")"
-end
-
--- Dissect: Exec Ack Status
-cme_futures_ilink3_sbe_v8_2.exec_ack_status.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.exec_ack_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.exec_ack_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_ack_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Ack
 cme_futures_ilink3_sbe_v8_2.execution_ack = {}
 
@@ -8040,52 +11425,6 @@ cme_futures_ilink3_sbe_v8_2.execution_ack.dissect = function(buffer, offset, pac
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.execution_ack.fields(buffer, offset, packet, parent)
   end
-end
-
--- Trd Reg Publication Reason
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason = {}
-
--- Size: Trd Reg Publication Reason
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.size = 1
-
--- Display: Trd Reg Publication Reason
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.display = function(value)
-  return "Trd Reg Publication Reason: "..value
-end
-
--- Dissect: Trd Reg Publication Reason
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Trd Reg Publication Type
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type = {}
-
--- Size: Trd Reg Publication Type
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.size = 1
-
--- Display: Trd Reg Publication Type
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.display = function(value)
-  return "Trd Reg Publication Type: "..value
-end
-
--- Dissect: Trd Reg Publication Type
-cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.trd_reg_publication_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trd_reg_publication_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trd Reg Publications Group
@@ -8195,84 +11534,6 @@ cme_futures_ilink3_sbe_v8_2.trd_reg_publications_groups.dissect = function(buffe
   end
 end
 
--- Party Detail Role
-cme_futures_ilink3_sbe_v8_2.party_detail_role = {}
-
--- Size: Party Detail Role
-cme_futures_ilink3_sbe_v8_2.party_detail_role.size = 2
-
--- Display: Party Detail Role
-cme_futures_ilink3_sbe_v8_2.party_detail_role.display = function(value)
-  if value == 1 then
-    return "Party Detail Role: Executing Firm (1)"
-  end
-  if value == 24 then
-    return "Party Detail Role: Customer Account (24)"
-  end
-  if value == 96 then
-    return "Party Detail Role: Take Up Firm (96)"
-  end
-  if value == 118 then
-    return "Party Detail Role: Operator (118)"
-  end
-  if value == 1000 then
-    return "Party Detail Role: Take Up Account (1000)"
-  end
-
-  return "Party Detail Role: Unknown("..value..")"
-end
-
--- Dissect: Party Detail Role
-cme_futures_ilink3_sbe_v8_2.party_detail_role.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_detail_role.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.party_detail_role.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_role, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Id
-cme_futures_ilink3_sbe_v8_2.party_detail_id = {}
-
--- Size: Party Detail Id
-cme_futures_ilink3_sbe_v8_2.party_detail_id.size = 20
-
--- Display: Party Detail Id
-cme_futures_ilink3_sbe_v8_2.party_detail_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Detail Id: No Value"
-  end
-
-  return "Party Detail Id: "..value
-end
-
--- Dissect: Party Detail Id
-cme_futures_ilink3_sbe_v8_2.party_detail_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_detail_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.party_detail_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Details Group
 cme_futures_ilink3_sbe_v8_2.party_details_group = {}
 
@@ -8378,493 +11639,6 @@ cme_futures_ilink3_sbe_v8_2.party_details_groups.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.party_details_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Idm Short Code
-cme_futures_ilink3_sbe_v8_2.idm_short_code = {}
-
--- Size: Idm Short Code
-cme_futures_ilink3_sbe_v8_2.idm_short_code.size = 8
-
--- Display: Idm Short Code
-cme_futures_ilink3_sbe_v8_2.idm_short_code.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Idm Short Code: No Value"
-  end
-
-  return "Idm Short Code: "..value
-end
-
--- Dissect: Idm Short Code
-cme_futures_ilink3_sbe_v8_2.idm_short_code.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.idm_short_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.idm_short_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.idm_short_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Executor
-cme_futures_ilink3_sbe_v8_2.executor = {}
-
--- Size: Executor
-cme_futures_ilink3_sbe_v8_2.executor.size = 8
-
--- Display: Executor
-cme_futures_ilink3_sbe_v8_2.executor.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Executor: No Value"
-  end
-
-  return "Executor: "..value
-end
-
--- Dissect: Executor
-cme_futures_ilink3_sbe_v8_2.executor.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.executor.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.executor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.executor, range, value, display)
-
-  return offset + length, value
-end
-
--- Cust Order Handling Inst
-cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst = {}
-
--- Size: Cust Order Handling Inst
-cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.size = 1
-
--- Display: Cust Order Handling Inst
-cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Cust Order Handling Inst: No Value"
-  end
-
-  if value == "C" then
-    return "Cust Order Handling Inst: Fc Mprovidedscreen (C)"
-  end
-  if value == "D" then
-    return "Cust Order Handling Inst: Otherprovidedscreen (D)"
-  end
-  if value == "G" then
-    return "Cust Order Handling Inst: Fcmapi Cta Ix (G)"
-  end
-  if value == "H" then
-    return "Cust Order Handling Inst: Algo Engine (H)"
-  end
-  if value == "W" then
-    return "Cust Order Handling Inst: Desk Electronic (W)"
-  end
-  if value == "Y" then
-    return "Cust Order Handling Inst: Client Electronic (Y)"
-  end
-
-  return "Cust Order Handling Inst: Unknown("..value..")"
-end
-
--- Dissect: Cust Order Handling Inst
-cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.cust_order_handling_inst.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cust_order_handling_inst, range, value, display)
-
-  return offset + length, value
-end
-
--- Cmta Giveup Cd
-cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd = {}
-
--- Size: Cmta Giveup Cd
-cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.size = 1
-
--- Display: Cmta Giveup Cd
-cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Cmta Giveup Cd: No Value"
-  end
-
-  if value == "G" then
-    return "Cmta Giveup Cd: Give Up (G)"
-  end
-  if value == "S" then
-    return "Cmta Giveup Cd: Sg Xoffset (S)"
-  end
-
-  return "Cmta Giveup Cd: Unknown("..value..")"
-end
-
--- Dissect: Cmta Giveup Cd
-cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.cmta_giveup_cd.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Trade Price Type
-cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type = {}
-
--- Size: Clearing Trade Price Type
-cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.size = 1
-
--- Display: Clearing Trade Price Type
-cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.display = function(value)
-  if value == 255 then
-    return "Clearing Trade Price Type: No Value"
-  end
-  if value == 0 then
-    return "Clearing Trade Price Type: Trade Clearingat Execution Price (0)"
-  end
-  if value == 1 then
-    return "Clearing Trade Price Type: Trade Clearingat Alternate Clearing Price (1)"
-  end
-
-  return "Clearing Trade Price Type: Unknown("..value..")"
-end
-
--- Dissect: Clearing Trade Price Type
-cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.clearing_trade_price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.clearing_trade_price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Avg Px Indicator
-cme_futures_ilink3_sbe_v8_2.avg_px_indicator = {}
-
--- Size: Avg Px Indicator
-cme_futures_ilink3_sbe_v8_2.avg_px_indicator.size = 1
-
--- Display: Avg Px Indicator
-cme_futures_ilink3_sbe_v8_2.avg_px_indicator.display = function(value)
-  if value == 255 then
-    return "Avg Px Indicator: No Value"
-  end
-  if value == 0 then
-    return "Avg Px Indicator: No Average Pricing (0)"
-  end
-  if value == 1 then
-    return "Avg Px Indicator: Tradeispartofan Average Price Group Identifiedbythe Avg Px Grp Id (1)"
-  end
-  if value == 3 then
-    return "Avg Px Indicator: Tradeispartofa Notional Value Average Price Group (3)"
-  end
-
-  return "Avg Px Indicator: Unknown("..value..")"
-end
-
--- Dissect: Avg Px Indicator
-cme_futures_ilink3_sbe_v8_2.avg_px_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.avg_px_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.avg_px_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.avg_px_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Match Prevention Instruction
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction = {}
-
--- Size: Self Match Prevention Instruction
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.size = 1
-
--- Display: Self Match Prevention Instruction
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Self Match Prevention Instruction: No Value"
-  end
-
-  if value == "N" then
-    return "Self Match Prevention Instruction: Cancel Newest (N)"
-  end
-  if value == "O" then
-    return "Self Match Prevention Instruction: Cancel Oldest (O)"
-  end
-
-  return "Self Match Prevention Instruction: Unknown("..value..")"
-end
-
--- Dissect: Self Match Prevention Instruction
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.self_match_prevention_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Clearing Account Type
-cme_futures_ilink3_sbe_v8_2.clearing_account_type = {}
-
--- Size: Clearing Account Type
-cme_futures_ilink3_sbe_v8_2.clearing_account_type.size = 1
-
--- Display: Clearing Account Type
-cme_futures_ilink3_sbe_v8_2.clearing_account_type.display = function(value)
-  if value == 255 then
-    return "Clearing Account Type: No Value"
-  end
-  if value == 0 then
-    return "Clearing Account Type: Customer (0)"
-  end
-  if value == 1 then
-    return "Clearing Account Type: Firm (1)"
-  end
-
-  return "Clearing Account Type: Unknown("..value..")"
-end
-
--- Dissect: Clearing Account Type
-cme_futures_ilink3_sbe_v8_2.clearing_account_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.clearing_account_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.clearing_account_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.clearing_account_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Cust Order Capacity
-cme_futures_ilink3_sbe_v8_2.cust_order_capacity = {}
-
--- Size: Cust Order Capacity
-cme_futures_ilink3_sbe_v8_2.cust_order_capacity.size = 1
-
--- Display: Cust Order Capacity
-cme_futures_ilink3_sbe_v8_2.cust_order_capacity.display = function(value)
-  if value == 255 then
-    return "Cust Order Capacity: No Value"
-  end
-  if value == 1 then
-    return "Cust Order Capacity: Membertradingfortheirownaccount (1)"
-  end
-  if value == 2 then
-    return "Cust Order Capacity: Clearingfirmtradingforitsproprietaryaccount (2)"
-  end
-  if value == 3 then
-    return "Cust Order Capacity: Membertradingforanothermember (3)"
-  end
-  if value == 4 then
-    return "Cust Order Capacity: Allother (4)"
-  end
-
-  return "Cust Order Capacity: Unknown("..value..")"
-end
-
--- Dissect: Cust Order Capacity
-cme_futures_ilink3_sbe_v8_2.cust_order_capacity.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cust_order_capacity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.cust_order_capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cust_order_capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Result
-cme_futures_ilink3_sbe_v8_2.request_result = {}
-
--- Size: Request Result
-cme_futures_ilink3_sbe_v8_2.request_result.size = 1
-
--- Display: Request Result
-cme_futures_ilink3_sbe_v8_2.request_result.display = function(value)
-  if value == 0 then
-    return "Request Result: Valid Request (0)"
-  end
-  if value == 2 then
-    return "Request Result: No Data Found That Matched Selection Criteria (2)"
-  end
-  if value == 3 then
-    return "Request Result: Not Authorizedto Retrieve Data (3)"
-  end
-  if value == 4 then
-    return "Request Result: Data Temporarily Unavailable (4)"
-  end
-
-  return "Request Result: Unknown("..value..")"
-end
-
--- Dissect: Request Result
-cme_futures_ilink3_sbe_v8_2.request_result.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.request_result.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.request_result.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.request_result, range, value, display)
-
-  return offset + length, value
-end
-
--- Tot Num Parties
-cme_futures_ilink3_sbe_v8_2.tot_num_parties = {}
-
--- Size: Tot Num Parties
-cme_futures_ilink3_sbe_v8_2.tot_num_parties.size = 2
-
--- Display: Tot Num Parties
-cme_futures_ilink3_sbe_v8_2.tot_num_parties.display = function(value)
-  return "Tot Num Parties: "..value
-end
-
--- Dissect: Tot Num Parties
-cme_futures_ilink3_sbe_v8_2.tot_num_parties.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.tot_num_parties.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.tot_num_parties.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.tot_num_parties, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Match Prevention Id
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_id = {}
-
--- Size: Self Match Prevention Id
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.size = 8
-
--- Display: Self Match Prevention Id
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Self Match Prevention Id: No Value"
-  end
-
-  return "Self Match Prevention Id: "..value
-end
-
--- Dissect: Self Match Prevention Id
-cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.self_match_prevention_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Details List Report Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_report_id = {}
-
--- Size: Party Details List Report Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.size = 8
-
--- Display: Party Details List Report Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.display = function(value)
-  return "Party Details List Report Id: "..value
-end
-
--- Dissect: Party Details List Report Id
-cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.party_details_list_report_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Avg Px Group Id
-cme_futures_ilink3_sbe_v8_2.avg_px_group_id = {}
-
--- Size: Avg Px Group Id
-cme_futures_ilink3_sbe_v8_2.avg_px_group_id.size = 20
-
--- Display: Avg Px Group Id
-cme_futures_ilink3_sbe_v8_2.avg_px_group_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Avg Px Group Id: No Value"
-  end
-
-  return "Avg Px Group Id: "..value
-end
-
--- Dissect: Avg Px Group Id
-cme_futures_ilink3_sbe_v8_2.avg_px_group_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.avg_px_group_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.avg_px_group_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.avg_px_group_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Party Details List Report
@@ -9022,88 +11796,6 @@ cme_futures_ilink3_sbe_v8_2.party_details_list_report.dissect = function(buffer,
   end
 end
 
--- Party Role
-cme_futures_ilink3_sbe_v8_2.party_role = {}
-
--- Size: Party Role
-cme_futures_ilink3_sbe_v8_2.party_role.size = 2
-
--- Display: Party Role
-cme_futures_ilink3_sbe_v8_2.party_role.display = function(value)
-  return "Party Role: "..value
-end
-
--- Dissect: Party Role
-cme_futures_ilink3_sbe_v8_2.party_role.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_role.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.party_role.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_role, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id Source
-cme_futures_ilink3_sbe_v8_2.party_id_source = {}
-
--- Size: Party Id Source
-cme_futures_ilink3_sbe_v8_2.party_id_source.size = 1
-
--- Display: Party Id Source
-cme_futures_ilink3_sbe_v8_2.party_id_source.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party Id Source: No Value"
-  end
-
-  return "Party Id Source: "..value
-end
-
--- Dissect: Party Id Source
-cme_futures_ilink3_sbe_v8_2.party_id_source.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_id_source.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.party_id_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_id_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Id
-cme_futures_ilink3_sbe_v8_2.party_id = {}
-
--- Size: Party Id
-cme_futures_ilink3_sbe_v8_2.party_id.size = 8
-
--- Display: Party Id
-cme_futures_ilink3_sbe_v8_2.party_id.display = function(value)
-  return "Party Id: "..value
-end
-
--- Dissect: Party Id
-cme_futures_ilink3_sbe_v8_2.party_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Ids Group
 cme_futures_ilink3_sbe_v8_2.party_ids_group = {}
 
@@ -9213,117 +11905,6 @@ cme_futures_ilink3_sbe_v8_2.party_ids_groups.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.party_ids_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Requesting Party Role
-cme_futures_ilink3_sbe_v8_2.requesting_party_role = {}
-
--- Size: Requesting Party Role
-cme_futures_ilink3_sbe_v8_2.requesting_party_role.size = 1
-
--- Display: Requesting Party Role
-cme_futures_ilink3_sbe_v8_2.requesting_party_role.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Role: No Value"
-  end
-
-  return "Requesting Party Role: "..value
-end
-
--- Dissect: Requesting Party Role
-cme_futures_ilink3_sbe_v8_2.requesting_party_role.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.requesting_party_role.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.requesting_party_role.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.requesting_party_role, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Party Id Source
-cme_futures_ilink3_sbe_v8_2.requesting_party_id_source = {}
-
--- Size: Requesting Party Id Source
-cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.size = 1
-
--- Display: Requesting Party Id Source
-cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Id Source: No Value"
-  end
-
-  return "Requesting Party Id Source: "..value
-end
-
--- Dissect: Requesting Party Id Source
-cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.requesting_party_id_source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id_source, range, value, display)
-
-  return offset + length, value
-end
-
--- Requesting Party Id
-cme_futures_ilink3_sbe_v8_2.requesting_party_id = {}
-
--- Size: Requesting Party Id
-cme_futures_ilink3_sbe_v8_2.requesting_party_id.size = 5
-
--- Display: Requesting Party Id
-cme_futures_ilink3_sbe_v8_2.requesting_party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Requesting Party Id: No Value"
-  end
-
-  return "Requesting Party Id: "..value
-end
-
--- Dissect: Requesting Party Id
-cme_futures_ilink3_sbe_v8_2.requesting_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.requesting_party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.requesting_party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Requesting Party Ids Group
@@ -9500,29 +12081,6 @@ cme_futures_ilink3_sbe_v8_2.party_details_list_request.dissect = function(buffer
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.party_details_list_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cxl Rej Reason
-cme_futures_ilink3_sbe_v8_2.cxl_rej_reason = {}
-
--- Size: Cxl Rej Reason
-cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.size = 2
-
--- Display: Cxl Rej Reason
-cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.display = function(value)
-  return "Cxl Rej Reason: "..value
-end
-
--- Dissect: Cxl Rej Reason
-cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.cxl_rej_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cxl_rej_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Cancel Replace Reject
@@ -9741,329 +12299,6 @@ cme_futures_ilink3_sbe_v8_2.order_cancel_reject.dissect = function(buffer, offse
   end
 end
 
--- Cross Type
-cme_futures_ilink3_sbe_v8_2.cross_type = {}
-
--- Size: Cross Type
-cme_futures_ilink3_sbe_v8_2.cross_type.size = 1
-
--- Display: Cross Type
-cme_futures_ilink3_sbe_v8_2.cross_type.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Cross Type: No Value"
-  end
-
-  return "Cross Type: "..value
-end
-
--- Dissect: Cross Type
-cme_futures_ilink3_sbe_v8_2.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cross_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cross_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Restatement Reason
-cme_futures_ilink3_sbe_v8_2.exec_restatement_reason = {}
-
--- Size: Exec Restatement Reason
-cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.size = 1
-
--- Display: Exec Restatement Reason
-cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.display = function(value)
-  if value == 255 then
-    return "Exec Restatement Reason: No Value"
-  end
-  if value == 8 then
-    return "Exec Restatement Reason: Market Exchange Option (8)"
-  end
-  if value == 9 then
-    return "Exec Restatement Reason: Cancelled Not Best (9)"
-  end
-  if value == 100 then
-    return "Exec Restatement Reason: Cancel On Disconnect (100)"
-  end
-  if value == 103 then
-    return "Exec Restatement Reason: Self Match Prevention Oldest Order Cancelled (103)"
-  end
-  if value == 104 then
-    return "Exec Restatement Reason: Cancel On Globex Credit Controls Violation (104)"
-  end
-  if value == 105 then
-    return "Exec Restatement Reason: Cancel From Firmsoft (105)"
-  end
-  if value == 106 then
-    return "Exec Restatement Reason: Cancel From Risk Management Api (106)"
-  end
-  if value == 107 then
-    return "Exec Restatement Reason: Self Match Prevention Newest Order Cancelled (107)"
-  end
-  if value == 108 then
-    return "Exec Restatement Reason: Cancelduetovolquotedoptionorderrestedqtylessthanminordersize (108)"
-  end
-
-  return "Exec Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Exec Restatement Reason
-cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.exec_restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.exec_restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-cme_futures_ilink3_sbe_v8_2.time_in_force = {}
-
--- Size: Time In Force
-cme_futures_ilink3_sbe_v8_2.time_in_force.size = 1
-
--- Display: Time In Force
-cme_futures_ilink3_sbe_v8_2.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force: Good Till Cancel (1)"
-  end
-  if value == 3 then
-    return "Time In Force: Fill And Kill (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fill Or Kill (4)"
-  end
-  if value == 6 then
-    return "Time In Force: Good Till Date (6)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-cme_futures_ilink3_sbe_v8_2.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Expire Date
-cme_futures_ilink3_sbe_v8_2.expire_date = {}
-
--- Size: Expire Date
-cme_futures_ilink3_sbe_v8_2.expire_date.size = 2
-
--- Display: Expire Date
-cme_futures_ilink3_sbe_v8_2.expire_date.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Expire Date: No Value"
-  end
-
-  return "Expire Date: "..value
-end
-
--- Dissect: Expire Date
-cme_futures_ilink3_sbe_v8_2.expire_date.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.expire_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.expire_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.expire_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Qty
-cme_futures_ilink3_sbe_v8_2.display_qty = {}
-
--- Size: Display Qty
-cme_futures_ilink3_sbe_v8_2.display_qty.size = 4
-
--- Display: Display Qty
-cme_futures_ilink3_sbe_v8_2.display_qty.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Display Qty: No Value"
-  end
-
-  return "Display Qty: "..value
-end
-
--- Dissect: Display Qty
-cme_futures_ilink3_sbe_v8_2.display_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.display_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.display_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.display_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Qty
-cme_futures_ilink3_sbe_v8_2.min_qty = {}
-
--- Size: Min Qty
-cme_futures_ilink3_sbe_v8_2.min_qty.size = 4
-
--- Display: Min Qty
-cme_futures_ilink3_sbe_v8_2.min_qty.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Min Qty: No Value"
-  end
-
-  return "Min Qty: "..value
-end
-
--- Dissect: Min Qty
-cme_futures_ilink3_sbe_v8_2.min_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.min_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.min_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.min_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Cum Qty
-cme_futures_ilink3_sbe_v8_2.cum_qty = {}
-
--- Size: Cum Qty
-cme_futures_ilink3_sbe_v8_2.cum_qty.size = 4
-
--- Display: Cum Qty
-cme_futures_ilink3_sbe_v8_2.cum_qty.display = function(value)
-  return "Cum Qty: "..value
-end
-
--- Dissect: Cum Qty
-cme_futures_ilink3_sbe_v8_2.cum_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cum_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.cum_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cum_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Host Cross Id
-cme_futures_ilink3_sbe_v8_2.host_cross_id = {}
-
--- Size: Host Cross Id
-cme_futures_ilink3_sbe_v8_2.host_cross_id.size = 8
-
--- Display: Host Cross Id
-cme_futures_ilink3_sbe_v8_2.host_cross_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Host Cross Id: No Value"
-  end
-
-  return "Host Cross Id: "..value
-end
-
--- Dissect: Host Cross Id
-cme_futures_ilink3_sbe_v8_2.host_cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.host_cross_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.host_cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.host_cross_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Id Optional
-cme_futures_ilink3_sbe_v8_2.cross_id_optional = {}
-
--- Size: Cross Id Optional
-cme_futures_ilink3_sbe_v8_2.cross_id_optional.size = 8
-
--- Display: Cross Id Optional
-cme_futures_ilink3_sbe_v8_2.cross_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Cross Id Optional: No Value"
-  end
-
-  return "Cross Id Optional: "..value
-end
-
--- Dissect: Cross Id Optional
-cme_futures_ilink3_sbe_v8_2.cross_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.cross_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.cross_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.cross_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Px
-cme_futures_ilink3_sbe_v8_2.stop_px = {}
-
--- Size: Stop Px
-cme_futures_ilink3_sbe_v8_2.stop_px.size = 8
-
--- Display: Stop Px
-cme_futures_ilink3_sbe_v8_2.stop_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Stop Px: No Value"
-  end
-
-  return "Stop Px: "..value
-end
-
--- Translate: Stop Px
-cme_futures_ilink3_sbe_v8_2.stop_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Stop Px
-cme_futures_ilink3_sbe_v8_2.stop_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.stop_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.stop_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.stop_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Cancel
 cme_futures_ilink3_sbe_v8_2.execution_report_cancel = {}
 
@@ -10240,29 +12475,6 @@ cme_futures_ilink3_sbe_v8_2.execution_report_cancel.dissect = function(buffer, o
   end
 end
 
--- Ord Status Req Id
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id = {}
-
--- Size: Ord Status Req Id
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id.size = 8
-
--- Display: Ord Status Req Id
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id.display = function(value)
-  return "Ord Status Req Id: "..value
-end
-
--- Dissect: Ord Status Req Id
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_status_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.ord_status_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Status Request
 cme_futures_ilink3_sbe_v8_2.order_status_request = {}
 
@@ -10329,218 +12541,6 @@ cme_futures_ilink3_sbe_v8_2.order_status_request.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.order_status_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Last Rpt Requested
-cme_futures_ilink3_sbe_v8_2.last_rpt_requested = {}
-
--- Size: Last Rpt Requested
-cme_futures_ilink3_sbe_v8_2.last_rpt_requested.size = 1
-
--- Display: Last Rpt Requested
-cme_futures_ilink3_sbe_v8_2.last_rpt_requested.display = function(value)
-  if value == 255 then
-    return "Last Rpt Requested: No Value"
-  end
-  if value == 0 then
-    return "Last Rpt Requested: False (0)"
-  end
-  if value == 1 then
-    return "Last Rpt Requested: True (1)"
-  end
-
-  return "Last Rpt Requested: Unknown("..value..")"
-end
-
--- Dissect: Last Rpt Requested
-cme_futures_ilink3_sbe_v8_2.last_rpt_requested.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.last_rpt_requested.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.last_rpt_requested.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_rpt_requested, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status
-cme_futures_ilink3_sbe_v8_2.ord_status = {}
-
--- Size: Ord Status
-cme_futures_ilink3_sbe_v8_2.ord_status.size = 1
-
--- Display: Ord Status
-cme_futures_ilink3_sbe_v8_2.ord_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Status: No Value"
-  end
-
-  if value == "0" then
-    return "Ord Status: New (0)"
-  end
-  if value == "1" then
-    return "Ord Status: Partially Filled (1)"
-  end
-  if value == "2" then
-    return "Ord Status: Filled (2)"
-  end
-  if value == "4" then
-    return "Ord Status: Cancelled (4)"
-  end
-  if value == "5" then
-    return "Ord Status: Replaced (5)"
-  end
-  if value == "8" then
-    return "Ord Status: Rejected (8)"
-  end
-  if value == "C" then
-    return "Ord Status: Expired (C)"
-  end
-  if value == "U" then
-    return "Ord Status: Undefined (U)"
-  end
-
-  return "Ord Status: Unknown("..value..")"
-end
-
--- Dissect: Ord Status
-cme_futures_ilink3_sbe_v8_2.ord_status.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.ord_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Leaves Qty
-cme_futures_ilink3_sbe_v8_2.leaves_qty = {}
-
--- Size: Leaves Qty
-cme_futures_ilink3_sbe_v8_2.leaves_qty.size = 4
-
--- Display: Leaves Qty
-cme_futures_ilink3_sbe_v8_2.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-cme_futures_ilink3_sbe_v8_2.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional = {}
-
--- Size: Mass Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.size = 8
-
--- Display: Mass Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Mass Status Req Id Optional: No Value"
-  end
-
-  return "Mass Status Req Id Optional: "..value
-end
-
--- Dissect: Mass Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_status_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional = {}
-
--- Size: Ord Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.size = 8
-
--- Display: Ord Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Ord Status Req Id Optional: No Value"
-  end
-
-  return "Ord Status Req Id Optional: "..value
-end
-
--- Dissect: Ord Status Req Id Optional
-cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.ord_status_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Optional
-cme_futures_ilink3_sbe_v8_2.price_optional = {}
-
--- Size: Price Optional
-cme_futures_ilink3_sbe_v8_2.price_optional.size = 8
-
--- Display: Price Optional
-cme_futures_ilink3_sbe_v8_2.price_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Price Optional: No Value"
-  end
-
-  return "Price Optional: "..value
-end
-
--- Translate: Price Optional
-cme_futures_ilink3_sbe_v8_2.price_optional.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Price Optional
-cme_futures_ilink3_sbe_v8_2.price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.price_optional.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.price_optional.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.price_optional.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.price_optional, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Status
@@ -10907,131 +12907,6 @@ cme_futures_ilink3_sbe_v8_2.execution_report_modify.dissect = function(buffer, o
   end
 end
 
--- Mass Status Tif
-cme_futures_ilink3_sbe_v8_2.mass_status_tif = {}
-
--- Size: Mass Status Tif
-cme_futures_ilink3_sbe_v8_2.mass_status_tif.size = 1
-
--- Display: Mass Status Tif
-cme_futures_ilink3_sbe_v8_2.mass_status_tif.display = function(value)
-  if value == 255 then
-    return "Mass Status Tif: No Value"
-  end
-  if value == 0 then
-    return "Mass Status Tif: Day (0)"
-  end
-  if value == 1 then
-    return "Mass Status Tif: Gtc (1)"
-  end
-  if value == 6 then
-    return "Mass Status Tif: Gtd (6)"
-  end
-
-  return "Mass Status Tif: Unknown("..value..")"
-end
-
--- Dissect: Mass Status Tif
-cme_futures_ilink3_sbe_v8_2.mass_status_tif.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_status_tif.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_status_tif.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_tif, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Status Req Type
-cme_futures_ilink3_sbe_v8_2.ord_status_req_type = {}
-
--- Size: Ord Status Req Type
-cme_futures_ilink3_sbe_v8_2.ord_status_req_type.size = 1
-
--- Display: Ord Status Req Type
-cme_futures_ilink3_sbe_v8_2.ord_status_req_type.display = function(value)
-  if value == 255 then
-    return "Ord Status Req Type: No Value"
-  end
-  if value == 100 then
-    return "Ord Status Req Type: Sender Sub Id (100)"
-  end
-  if value == 101 then
-    return "Ord Status Req Type: Account (101)"
-  end
-
-  return "Ord Status Req Type: Unknown("..value..")"
-end
-
--- Dissect: Ord Status Req Type
-cme_futures_ilink3_sbe_v8_2.ord_status_req_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_status_req_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ord_status_req_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Status Req Type
-cme_futures_ilink3_sbe_v8_2.mass_status_req_type = {}
-
--- Size: Mass Status Req Type
-cme_futures_ilink3_sbe_v8_2.mass_status_req_type.size = 1
-
--- Display: Mass Status Req Type
-cme_futures_ilink3_sbe_v8_2.mass_status_req_type.display = function(value)
-  if value == 1 then
-    return "Mass Status Req Type: Instrument (1)"
-  end
-  if value == 3 then
-    return "Mass Status Req Type: Instrument Group (3)"
-  end
-  if value == 100 then
-    return "Mass Status Req Type: Market Segment (100)"
-  end
-
-  return "Mass Status Req Type: Unknown("..value..")"
-end
-
--- Dissect: Mass Status Req Type
-cme_futures_ilink3_sbe_v8_2.mass_status_req_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_status_req_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_status_req_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Status Req Id
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id = {}
-
--- Size: Mass Status Req Id
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id.size = 8
-
--- Display: Mass Status Req Id
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id.display = function(value)
-  return "Mass Status Req Id: "..value
-end
-
--- Dissect: Mass Status Req Id
-cme_futures_ilink3_sbe_v8_2.mass_status_req_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mass_status_req_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.mass_status_req_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Mass Status Request
 cme_futures_ilink3_sbe_v8_2.order_mass_status_request = {}
 
@@ -11218,62 +13093,6 @@ cme_futures_ilink3_sbe_v8_2.order_mass_action_request.dissect = function(buffer,
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.order_mass_action_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offer Size
-cme_futures_ilink3_sbe_v8_2.offer_size = {}
-
--- Size: Offer Size
-cme_futures_ilink3_sbe_v8_2.offer_size.size = 4
-
--- Display: Offer Size
-cme_futures_ilink3_sbe_v8_2.offer_size.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Offer Size: No Value"
-  end
-
-  return "Offer Size: "..value
-end
-
--- Dissect: Offer Size
-cme_futures_ilink3_sbe_v8_2.offer_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.offer_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.offer_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.offer_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-cme_futures_ilink3_sbe_v8_2.bid_size = {}
-
--- Size: Bid Size
-cme_futures_ilink3_sbe_v8_2.bid_size.size = 4
-
--- Display: Bid Size
-cme_futures_ilink3_sbe_v8_2.bid_size.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Bid Size: No Value"
-  end
-
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-cme_futures_ilink3_sbe_v8_2.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.bid_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Quote Cancel Sets Group
@@ -11494,42 +13313,6 @@ cme_futures_ilink3_sbe_v8_2.quote_cancel_entries_groups.dissect = function(buffe
   end
 end
 
--- Quote Cancel Type
-cme_futures_ilink3_sbe_v8_2.quote_cancel_type = {}
-
--- Size: Quote Cancel Type
-cme_futures_ilink3_sbe_v8_2.quote_cancel_type.size = 1
-
--- Display: Quote Cancel Type
-cme_futures_ilink3_sbe_v8_2.quote_cancel_type.display = function(value)
-  if value == 1 then
-    return "Quote Cancel Type: Cancelper Instrument (1)"
-  end
-  if value == 3 then
-    return "Quote Cancel Type: Cancelper Instrumentgroup (3)"
-  end
-  if value == 4 then
-    return "Quote Cancel Type: Cancelallquotes (4)"
-  end
-  if value == 100 then
-    return "Quote Cancel Type: Cancelper Quote Set (100)"
-  end
-
-  return "Quote Cancel Type: Unknown("..value..")"
-end
-
--- Dissect: Quote Cancel Type
-cme_futures_ilink3_sbe_v8_2.quote_cancel_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.quote_cancel_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.quote_cancel_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Cancel
 cme_futures_ilink3_sbe_v8_2.quote_cancel = {}
 
@@ -11623,39 +13406,6 @@ cme_futures_ilink3_sbe_v8_2.quote_cancel.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.quote_cancel.fields(buffer, offset, packet, parent)
   end
-end
-
--- Order Event Type
-cme_futures_ilink3_sbe_v8_2.order_event_type = {}
-
--- Size: Order Event Type
-cme_futures_ilink3_sbe_v8_2.order_event_type.size = 1
-
--- Display: Order Event Type
-cme_futures_ilink3_sbe_v8_2.order_event_type.display = function(value)
-  if value == 255 then
-    return "Order Event Type: No Value"
-  end
-  if value == 4 then
-    return "Order Event Type: Partially Filled (4)"
-  end
-  if value == 5 then
-    return "Order Event Type: Filled (5)"
-  end
-
-  return "Order Event Type: Unknown("..value..")"
-end
-
--- Dissect: Order Event Type
-cme_futures_ilink3_sbe_v8_2.order_event_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.order_event_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.order_event_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.order_event_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Spread Order Events Group
@@ -11779,36 +13529,6 @@ cme_futures_ilink3_sbe_v8_2.spread_order_events_groups.dissect = function(buffer
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.spread_order_events_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ord Status Trd
-cme_futures_ilink3_sbe_v8_2.ord_status_trd = {}
-
--- Size: Ord Status Trd
-cme_futures_ilink3_sbe_v8_2.ord_status_trd.size = 1
-
--- Display: Ord Status Trd
-cme_futures_ilink3_sbe_v8_2.ord_status_trd.display = function(value)
-  if value == 1 then
-    return "Ord Status Trd: Partially Filled (1)"
-  end
-  if value == 2 then
-    return "Ord Status Trd: Filled (2)"
-  end
-
-  return "Ord Status Trd: Unknown("..value..")"
-end
-
--- Dissect: Ord Status Trd
-cme_futures_ilink3_sbe_v8_2.ord_status_trd.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_status_trd.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ord_status_trd.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd, range, value, display)
-
-  return offset + length, value
 end
 
 -- Risk Free Rate
@@ -11962,73 +13682,6 @@ cme_futures_ilink3_sbe_v8_2.option_delta.dissect = function(buffer, offset, pack
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.option_delta.fields(buffer, offset, packet, parent)
   end
-end
-
--- Underlying Px
-cme_futures_ilink3_sbe_v8_2.underlying_px = {}
-
--- Size: Underlying Px
-cme_futures_ilink3_sbe_v8_2.underlying_px.size = 8
-
--- Display: Underlying Px
-cme_futures_ilink3_sbe_v8_2.underlying_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Underlying Px: No Value"
-  end
-
-  return "Underlying Px: "..value
-end
-
--- Translate: Underlying Px
-cme_futures_ilink3_sbe_v8_2.underlying_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Underlying Px
-cme_futures_ilink3_sbe_v8_2.underlying_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.underlying_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.underlying_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.underlying_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.underlying_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Mantissa
-cme_futures_ilink3_sbe_v8_2.mantissa = {}
-
--- Size: Mantissa
-cme_futures_ilink3_sbe_v8_2.mantissa.size = 8
-
--- Display: Mantissa
-cme_futures_ilink3_sbe_v8_2.mantissa.display = function(value)
-  -- Check if field has value
-  if value == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Mantissa: No Value"
-  end
-
-  return "Mantissa: "..value
-end
-
--- Dissect: Mantissa
-cme_futures_ilink3_sbe_v8_2.mantissa.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.mantissa.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = cme_futures_ilink3_sbe_v8_2.mantissa.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.mantissa, range, value, display)
-
-  return offset + length, value
 end
 
 -- Volatility
@@ -12383,36 +14036,6 @@ cme_futures_ilink3_sbe_v8_2.trade_legs_groups.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.trade_legs_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Aggressor Indicator
-cme_futures_ilink3_sbe_v8_2.aggressor_indicator = {}
-
--- Size: Aggressor Indicator
-cme_futures_ilink3_sbe_v8_2.aggressor_indicator.size = 1
-
--- Display: Aggressor Indicator
-cme_futures_ilink3_sbe_v8_2.aggressor_indicator.display = function(value)
-  if value == 0 then
-    return "Aggressor Indicator: False (0)"
-  end
-  if value == 1 then
-    return "Aggressor Indicator: True (1)"
-  end
-
-  return "Aggressor Indicator: Unknown("..value..")"
-end
-
--- Dissect: Aggressor Indicator
-cme_futures_ilink3_sbe_v8_2.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.aggressor_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.aggressor_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.aggressor_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Trade Spread
@@ -12786,57 +14409,6 @@ cme_futures_ilink3_sbe_v8_2.outright_order_events_groups.dissect = function(buff
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.outright_order_events_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ownership
-cme_futures_ilink3_sbe_v8_2.ownership = {}
-
--- Size: Ownership
-cme_futures_ilink3_sbe_v8_2.ownership.size = 1
-
--- Display: Ownership
-cme_futures_ilink3_sbe_v8_2.ownership.display = function(value)
-  return "Ownership: "..value
-end
-
--- Dissect: Ownership
-cme_futures_ilink3_sbe_v8_2.ownership.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ownership.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ownership.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ownership, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Link Id
-cme_futures_ilink3_sbe_v8_2.trade_link_id = {}
-
--- Size: Trade Link Id
-cme_futures_ilink3_sbe_v8_2.trade_link_id.size = 4
-
--- Display: Trade Link Id
-cme_futures_ilink3_sbe_v8_2.trade_link_id.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Trade Link Id: No Value"
-  end
-
-  return "Trade Link Id: "..value
-end
-
--- Dissect: Trade Link Id
-cme_futures_ilink3_sbe_v8_2.trade_link_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trade_link_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.trade_link_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trade_link_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Execution Report Trade Outright
@@ -13258,29 +14830,6 @@ cme_futures_ilink3_sbe_v8_2.execution_report_elimination.dissect = function(buff
   end
 end
 
--- Ord Rej Reason
-cme_futures_ilink3_sbe_v8_2.ord_rej_reason = {}
-
--- Size: Ord Rej Reason
-cme_futures_ilink3_sbe_v8_2.ord_rej_reason.size = 2
-
--- Display: Ord Rej Reason
-cme_futures_ilink3_sbe_v8_2.ord_rej_reason.display = function(value)
-  return "Ord Rej Reason: "..value
-end
-
--- Dissect: Ord Rej Reason
-cme_futures_ilink3_sbe_v8_2.ord_rej_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_rej_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ord_rej_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Report Reject
 cme_futures_ilink3_sbe_v8_2.execution_report_reject = {}
 
@@ -13625,252 +15174,6 @@ cme_futures_ilink3_sbe_v8_2.execution_report_new.dissect = function(buffer, offs
   end
 end
 
--- Manual Order Indicator Optional
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional = {}
-
--- Size: Manual Order Indicator Optional
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.size = 1
-
--- Display: Manual Order Indicator Optional
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.display = function(value)
-  if value == 255 then
-    return "Manual Order Indicator Optional: No Value"
-  end
-  if value == 0 then
-    return "Manual Order Indicator Optional: Automated (0)"
-  end
-  if value == 1 then
-    return "Manual Order Indicator Optional: Manual (1)"
-  end
-
-  return "Manual Order Indicator Optional: Unknown("..value..")"
-end
-
--- Dissect: Manual Order Indicator Optional
-cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.manual_order_indicator_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Msg Type
-cme_futures_ilink3_sbe_v8_2.ref_msg_type = {}
-
--- Size: Ref Msg Type
-cme_futures_ilink3_sbe_v8_2.ref_msg_type.size = 2
-
--- Display: Ref Msg Type
-cme_futures_ilink3_sbe_v8_2.ref_msg_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Ref Msg Type: No Value"
-  end
-
-  return "Ref Msg Type: "..value
-end
-
--- Dissect: Ref Msg Type
-cme_futures_ilink3_sbe_v8_2.ref_msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ref_msg_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.ref_msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ref_msg_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Business Reject Reason
-cme_futures_ilink3_sbe_v8_2.business_reject_reason = {}
-
--- Size: Business Reject Reason
-cme_futures_ilink3_sbe_v8_2.business_reject_reason.size = 2
-
--- Display: Business Reject Reason
-cme_futures_ilink3_sbe_v8_2.business_reject_reason.display = function(value)
-  return "Business Reject Reason: "..value
-end
-
--- Dissect: Business Reject Reason
-cme_futures_ilink3_sbe_v8_2.business_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.business_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.business_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.business_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Tag Id
-cme_futures_ilink3_sbe_v8_2.ref_tag_id = {}
-
--- Size: Ref Tag Id
-cme_futures_ilink3_sbe_v8_2.ref_tag_id.size = 2
-
--- Display: Ref Tag Id
-cme_futures_ilink3_sbe_v8_2.ref_tag_id.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Ref Tag Id: No Value"
-  end
-
-  return "Ref Tag Id: "..value
-end
-
--- Dissect: Ref Tag Id
-cme_futures_ilink3_sbe_v8_2.ref_tag_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ref_tag_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ref_tag_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ref_tag_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Ref Seq Num
-cme_futures_ilink3_sbe_v8_2.ref_seq_num = {}
-
--- Size: Ref Seq Num
-cme_futures_ilink3_sbe_v8_2.ref_seq_num.size = 4
-
--- Display: Ref Seq Num
-cme_futures_ilink3_sbe_v8_2.ref_seq_num.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Ref Seq Num: No Value"
-  end
-
-  return "Ref Seq Num: "..value
-end
-
--- Dissect: Ref Seq Num
-cme_futures_ilink3_sbe_v8_2.ref_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ref_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ref_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ref_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Location Optional
-cme_futures_ilink3_sbe_v8_2.location_optional = {}
-
--- Size: Location Optional
-cme_futures_ilink3_sbe_v8_2.location_optional.size = 5
-
--- Display: Location Optional
-cme_futures_ilink3_sbe_v8_2.location_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Location Optional: No Value"
-  end
-
-  return "Location Optional: "..value
-end
-
--- Dissect: Location Optional
-cme_futures_ilink3_sbe_v8_2.location_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.location_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.location_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.location_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Business Reject Ref Id
-cme_futures_ilink3_sbe_v8_2.business_reject_ref_id = {}
-
--- Size: Business Reject Ref Id
-cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.size = 8
-
--- Display: Business Reject Ref Id
-cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Business Reject Ref Id: No Value"
-  end
-
-  return "Business Reject Ref Id: "..value
-end
-
--- Dissect: Business Reject Ref Id
-cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.business_reject_ref_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.business_reject_ref_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Details List Req Id Optional
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional = {}
-
--- Size: Party Details List Req Id Optional
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.size = 8
-
--- Display: Party Details List Req Id Optional
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Party Details List Req Id Optional: No Value"
-  end
-
-  return "Party Details List Req Id Optional: "..value
-end
-
--- Dissect: Party Details List Req Id Optional
-cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.party_details_list_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Business Reject
 cme_futures_ilink3_sbe_v8_2.business_reject = {}
 
@@ -13965,134 +15268,6 @@ cme_futures_ilink3_sbe_v8_2.business_reject.dissect = function(buffer, offset, p
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.business_reject.fields(buffer, offset, packet, parent)
   end
-end
-
--- Party Detail Definition Status
-cme_futures_ilink3_sbe_v8_2.party_detail_definition_status = {}
-
--- Size: Party Detail Definition Status
-cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.size = 1
-
--- Display: Party Detail Definition Status
-cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.display = function(value)
-  return "Party Detail Definition Status: "..value
-end
-
--- Dissect: Party Detail Definition Status
-cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.party_detail_definition_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_definition_status, range, value, display)
-
-  return offset + length, value
-end
-
--- List Update Action
-cme_futures_ilink3_sbe_v8_2.list_update_action = {}
-
--- Size: List Update Action
-cme_futures_ilink3_sbe_v8_2.list_update_action.size = 1
-
--- Display: List Update Action
-cme_futures_ilink3_sbe_v8_2.list_update_action.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "List Update Action: No Value"
-  end
-
-  if value == "A" then
-    return "List Update Action: Add (A)"
-  end
-  if value == "D" then
-    return "List Update Action: Delete (D)"
-  end
-
-  return "List Update Action: Unknown("..value..")"
-end
-
--- Dissect: List Update Action
-cme_futures_ilink3_sbe_v8_2.list_update_action.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.list_update_action.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.list_update_action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.list_update_action, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Detail Request Status
-cme_futures_ilink3_sbe_v8_2.party_detail_request_status = {}
-
--- Size: Party Detail Request Status
-cme_futures_ilink3_sbe_v8_2.party_detail_request_status.size = 1
-
--- Display: Party Detail Request Status
-cme_futures_ilink3_sbe_v8_2.party_detail_request_status.display = function(value)
-  return "Party Detail Request Status: "..value
-end
-
--- Dissect: Party Detail Request Status
-cme_futures_ilink3_sbe_v8_2.party_detail_request_status.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.party_detail_request_status.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.party_detail_request_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.party_detail_request_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Memo
-cme_futures_ilink3_sbe_v8_2.memo = {}
-
--- Size: Memo
-cme_futures_ilink3_sbe_v8_2.memo.size = 75
-
--- Display: Memo
-cme_futures_ilink3_sbe_v8_2.memo.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Memo: No Value"
-  end
-
-  return "Memo: "..value
-end
-
--- Dissect: Memo
-cme_futures_ilink3_sbe_v8_2.memo.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.memo.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.memo.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.memo, range, value, display)
-
-  return offset + length, value
 end
 
 -- Party Details Definition Request Ack
@@ -14250,29 +15425,6 @@ cme_futures_ilink3_sbe_v8_2.party_details_definition_request_ack.dissect = funct
   end
 end
 
--- Padding 272
-cme_futures_ilink3_sbe_v8_2.padding_272 = {}
-
--- Size: Padding 272
-cme_futures_ilink3_sbe_v8_2.padding_272.size = 272
-
--- Display: Padding 272
-cme_futures_ilink3_sbe_v8_2.padding_272.display = function(value)
-  return "Padding 272: "..value
-end
-
--- Dissect: Padding 272
-cme_futures_ilink3_sbe_v8_2.padding_272.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.padding_272.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cme_futures_ilink3_sbe_v8_2.padding_272.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.padding_272, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Details Definition Request
 cme_futures_ilink3_sbe_v8_2.party_details_definition_request = {}
 
@@ -14408,112 +15560,6 @@ cme_futures_ilink3_sbe_v8_2.party_details_definition_request.dissect = function(
   end
 end
 
--- Underlying Security Id
-cme_futures_ilink3_sbe_v8_2.underlying_security_id = {}
-
--- Size: Underlying Security Id
-cme_futures_ilink3_sbe_v8_2.underlying_security_id.size = 4
-
--- Display: Underlying Security Id
-cme_futures_ilink3_sbe_v8_2.underlying_security_id.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Underlying Security Id: No Value"
-  end
-
-  return "Underlying Security Id: "..value
-end
-
--- Dissect: Underlying Security Id
-cme_futures_ilink3_sbe_v8_2.underlying_security_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.underlying_security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_futures_ilink3_sbe_v8_2.underlying_security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.underlying_security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Px
-cme_futures_ilink3_sbe_v8_2.offer_px = {}
-
--- Size: Offer Px
-cme_futures_ilink3_sbe_v8_2.offer_px.size = 8
-
--- Display: Offer Px
-cme_futures_ilink3_sbe_v8_2.offer_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Offer Px: No Value"
-  end
-
-  return "Offer Px: "..value
-end
-
--- Translate: Offer Px
-cme_futures_ilink3_sbe_v8_2.offer_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Offer Px
-cme_futures_ilink3_sbe_v8_2.offer_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.offer_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.offer_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.offer_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.offer_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Px
-cme_futures_ilink3_sbe_v8_2.bid_px = {}
-
--- Size: Bid Px
-cme_futures_ilink3_sbe_v8_2.bid_px.size = 8
-
--- Display: Bid Px
-cme_futures_ilink3_sbe_v8_2.bid_px.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Bid Px: No Value"
-  end
-
-  return "Bid Px: "..value
-end
-
--- Translate: Bid Px
-cme_futures_ilink3_sbe_v8_2.bid_px.translate = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return 0/0
-  end
-
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Bid Px
-cme_futures_ilink3_sbe_v8_2.bid_px.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.bid_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_futures_ilink3_sbe_v8_2.bid_px.translate(raw)
-  local display = cme_futures_ilink3_sbe_v8_2.bid_px.display(raw, value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.bid_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quote Entries Group
 cme_futures_ilink3_sbe_v8_2.quote_entries_group = {}
 
@@ -14643,29 +15689,6 @@ cme_futures_ilink3_sbe_v8_2.quote_entries_groups.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.quote_entries_groups.fields(buffer, offset, packet, parent)
   end
-end
-
--- Tot No Quote Entries
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries = {}
-
--- Size: Tot No Quote Entries
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.size = 1
-
--- Display: Tot No Quote Entries
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.display = function(value)
-  return "Tot No Quote Entries: "..value
-end
-
--- Dissect: Tot No Quote Entries
-cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.tot_no_quote_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mass Quote
@@ -14855,88 +15878,6 @@ cme_futures_ilink3_sbe_v8_2.order_cancel_request.dissect = function(buffer, offs
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.order_cancel_request.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ofm Override
-cme_futures_ilink3_sbe_v8_2.ofm_override = {}
-
--- Size: Ofm Override
-cme_futures_ilink3_sbe_v8_2.ofm_override.size = 1
-
--- Display: Ofm Override
-cme_futures_ilink3_sbe_v8_2.ofm_override.display = function(value)
-  if value == 0 then
-    return "Ofm Override: Disabled (0)"
-  end
-  if value == 1 then
-    return "Ofm Override: Enabled (1)"
-  end
-
-  return "Ofm Override: Unknown("..value..")"
-end
-
--- Dissect: Ofm Override
-cme_futures_ilink3_sbe_v8_2.ofm_override.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ofm_override.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.ofm_override.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ofm_override, range, value, display)
-
-  return offset + length, value
-end
-
--- Ord Type
-cme_futures_ilink3_sbe_v8_2.ord_type = {}
-
--- Size: Ord Type
-cme_futures_ilink3_sbe_v8_2.ord_type.size = 1
-
--- Display: Ord Type
-cme_futures_ilink3_sbe_v8_2.ord_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ord Type: No Value"
-  end
-
-  if value == "1" then
-    return "Ord Type: Marketwith Protection (1)"
-  end
-  if value == "2" then
-    return "Ord Type: Limit (2)"
-  end
-  if value == "3" then
-    return "Ord Type: Stopwith Protection (3)"
-  end
-  if value == "4" then
-    return "Ord Type: Stop Limit (4)"
-  end
-  if value == "K" then
-    return "Ord Type: Market With Leftover As Limit (K)"
-  end
-
-  return "Ord Type: Unknown("..value..")"
-end
-
--- Dissect: Ord Type
-cme_futures_ilink3_sbe_v8_2.ord_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.ord_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.ord_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.ord_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Cancel Replace Request
@@ -15203,52 +16144,6 @@ cme_futures_ilink3_sbe_v8_2.new_order_single.dissect = function(buffer, offset, 
   end
 end
 
--- Msg Count
-cme_futures_ilink3_sbe_v8_2.msg_count = {}
-
--- Size: Msg Count
-cme_futures_ilink3_sbe_v8_2.msg_count.size = 4
-
--- Display: Msg Count
-cme_futures_ilink3_sbe_v8_2.msg_count.display = function(value)
-  return "Msg Count: "..value
-end
-
--- Dissect: Msg Count
-cme_futures_ilink3_sbe_v8_2.msg_count.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.msg_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.msg_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.msg_count, range, value, display)
-
-  return offset + length, value
-end
-
--- From Seq No
-cme_futures_ilink3_sbe_v8_2.from_seq_no = {}
-
--- Size: From Seq No
-cme_futures_ilink3_sbe_v8_2.from_seq_no.size = 4
-
--- Display: From Seq No
-cme_futures_ilink3_sbe_v8_2.from_seq_no.display = function(value)
-  return "From Seq No: "..value
-end
-
--- Dissect: From Seq No
-cme_futures_ilink3_sbe_v8_2.from_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.from_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.from_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.from_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
 -- Not Applied
 cme_futures_ilink3_sbe_v8_2.not_applied = {}
 
@@ -15299,123 +16194,6 @@ cme_futures_ilink3_sbe_v8_2.not_applied.dissect = function(buffer, offset, packe
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.not_applied.fields(buffer, offset, packet, parent)
   end
-end
-
--- Error Codes
-cme_futures_ilink3_sbe_v8_2.error_codes = {}
-
--- Size: Error Codes
-cme_futures_ilink3_sbe_v8_2.error_codes.size = 2
-
--- Display: Error Codes
-cme_futures_ilink3_sbe_v8_2.error_codes.display = function(value)
-  return "Error Codes: "..value
-end
-
--- Dissect: Error Codes
-cme_futures_ilink3_sbe_v8_2.error_codes.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.error_codes.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.error_codes.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.error_codes, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Timestamp
-cme_futures_ilink3_sbe_v8_2.request_timestamp = {}
-
--- Size: Request Timestamp
-cme_futures_ilink3_sbe_v8_2.request_timestamp.size = 8
-
--- Display: Request Timestamp
-cme_futures_ilink3_sbe_v8_2.request_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Request Timestamp
-cme_futures_ilink3_sbe_v8_2.request_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.request_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.request_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.request_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Uuid
-cme_futures_ilink3_sbe_v8_2.last_uuid = {}
-
--- Size: Last Uuid
-cme_futures_ilink3_sbe_v8_2.last_uuid.size = 8
-
--- Display: Last Uuid
-cme_futures_ilink3_sbe_v8_2.last_uuid.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Last Uuid: No Value"
-  end
-
-  return "Last Uuid: "..value
-end
-
--- Dissect: Last Uuid
-cme_futures_ilink3_sbe_v8_2.last_uuid.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.last_uuid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.last_uuid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.last_uuid, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason
-cme_futures_ilink3_sbe_v8_2.reason = {}
-
--- Size: Reason
-cme_futures_ilink3_sbe_v8_2.reason.size = 48
-
--- Display: Reason
-cme_futures_ilink3_sbe_v8_2.reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reason: No Value"
-  end
-
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-cme_futures_ilink3_sbe_v8_2.reason.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.reason.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmit Reject
@@ -15476,29 +16254,6 @@ cme_futures_ilink3_sbe_v8_2.retransmit_reject.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.retransmit_reject.fields(buffer, offset, packet, parent)
   end
-end
-
--- Msg Count 16
-cme_futures_ilink3_sbe_v8_2.msg_count_16 = {}
-
--- Size: Msg Count 16
-cme_futures_ilink3_sbe_v8_2.msg_count_16.size = 2
-
--- Display: Msg Count 16
-cme_futures_ilink3_sbe_v8_2.msg_count_16.display = function(value)
-  return "Msg Count 16: "..value
-end
-
--- Dissect: Msg Count 16
-cme_futures_ilink3_sbe_v8_2.msg_count_16.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.msg_count_16.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.msg_count_16.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.msg_count_16, range, value, display)
-
-  return offset + length, value
 end
 
 -- Retransmission
@@ -15673,92 +16428,6 @@ cme_futures_ilink3_sbe_v8_2.terminate.dissect = function(buffer, offset, packet,
   end
 end
 
--- Keep Alive Interval Lapsed
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed = {}
-
--- Size: Keep Alive Interval Lapsed
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.size = 1
-
--- Display: Keep Alive Interval Lapsed
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.display = function(value)
-  if value == 0 then
-    return "Keep Alive Interval Lapsed: Not Lapsed (0)"
-  end
-  if value == 1 then
-    return "Keep Alive Interval Lapsed: Lapsed (1)"
-  end
-
-  return "Keep Alive Interval Lapsed: Unknown("..value..")"
-end
-
--- Dissect: Keep Alive Interval Lapsed
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.keep_alive_interval_lapsed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval_lapsed, range, value, display)
-
-  return offset + length, value
-end
-
--- Fault Tolerance Indicator
-cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator = {}
-
--- Size: Fault Tolerance Indicator
-cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.size = 1
-
--- Display: Fault Tolerance Indicator
-cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.display = function(value)
-  if value == 255 then
-    return "Fault Tolerance Indicator: No Value"
-  end
-  if value == 0 then
-    return "Fault Tolerance Indicator: Backup (0)"
-  end
-  if value == 1 then
-    return "Fault Tolerance Indicator: Primary (1)"
-  end
-
-  return "Fault Tolerance Indicator: Unknown("..value..")"
-end
-
--- Dissect: Fault Tolerance Indicator
-cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.fault_tolerance_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.fault_tolerance_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Seq No
-cme_futures_ilink3_sbe_v8_2.next_seq_no = {}
-
--- Size: Next Seq No
-cme_futures_ilink3_sbe_v8_2.next_seq_no.size = 4
-
--- Display: Next Seq No
-cme_futures_ilink3_sbe_v8_2.next_seq_no.display = function(value)
-  return "Next Seq No: "..value
-end
-
--- Dissect: Next Seq No
-cme_futures_ilink3_sbe_v8_2.next_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.next_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.next_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.next_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequence
 cme_futures_ilink3_sbe_v8_2.sequence = {}
 
@@ -15875,103 +16544,6 @@ cme_futures_ilink3_sbe_v8_2.establishment_reject.dissect = function(buffer, offs
   end
 end
 
--- Secret Key Secure Id Expiration
-cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration = {}
-
--- Size: Secret Key Secure Id Expiration
-cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.size = 2
-
--- Display: Secret Key Secure Id Expiration
-cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Secret Key Secure Id Expiration: No Value"
-  end
-
-  return "Secret Key Secure Id Expiration: "..value
-end
-
--- Dissect: Secret Key Secure Id Expiration
-cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.secret_key_secure_id_expiration.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.secret_key_secure_id_expiration, range, value, display)
-
-  return offset + length, value
-end
-
--- Keep Alive Interval
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval = {}
-
--- Size: Keep Alive Interval
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval.size = 2
-
--- Display: Keep Alive Interval
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval.display = function(value)
-  return "Keep Alive Interval: "..value
-end
-
--- Dissect: Keep Alive Interval
-cme_futures_ilink3_sbe_v8_2.keep_alive_interval.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.keep_alive_interval.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.keep_alive_interval.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Uuid
-cme_futures_ilink3_sbe_v8_2.previous_uuid = {}
-
--- Size: Previous Uuid
-cme_futures_ilink3_sbe_v8_2.previous_uuid.size = 8
-
--- Display: Previous Uuid
-cme_futures_ilink3_sbe_v8_2.previous_uuid.display = function(value)
-  return "Previous Uuid: "..value
-end
-
--- Dissect: Previous Uuid
-cme_futures_ilink3_sbe_v8_2.previous_uuid.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.previous_uuid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_futures_ilink3_sbe_v8_2.previous_uuid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.previous_uuid, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Seq No
-cme_futures_ilink3_sbe_v8_2.previous_seq_no = {}
-
--- Size: Previous Seq No
-cme_futures_ilink3_sbe_v8_2.previous_seq_no.size = 4
-
--- Display: Previous Seq No
-cme_futures_ilink3_sbe_v8_2.previous_seq_no.display = function(value)
-  return "Previous Seq No: "..value
-end
-
--- Dissect: Previous Seq No
-cme_futures_ilink3_sbe_v8_2.previous_seq_no.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.previous_seq_no.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.previous_seq_no.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.previous_seq_no, range, value, display)
-
-  return offset + length, value
-end
-
 -- Establishment Ack
 cme_futures_ilink3_sbe_v8_2.establishment_ack = {}
 
@@ -16044,48 +16616,6 @@ cme_futures_ilink3_sbe_v8_2.establishment_ack.dissect = function(buffer, offset,
   end
 end
 
--- Credentials Data
-cme_futures_ilink3_sbe_v8_2.credentials_data = {}
-
--- Display: Credentials Data
-cme_futures_ilink3_sbe_v8_2.credentials_data.display = function(value)
-  return "Credentials Data: "..value
-end
-
--- Dissect runtime sized field: Credentials Data
-cme_futures_ilink3_sbe_v8_2.credentials_data.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
-  local display = cme_futures_ilink3_sbe_v8_2.credentials_data.display(value, packet, parent, size)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.credentials_data, range, value, display)
-
-  return offset + size, value
-end
-
--- Credentials Length
-cme_futures_ilink3_sbe_v8_2.credentials_length = {}
-
--- Size: Credentials Length
-cme_futures_ilink3_sbe_v8_2.credentials_length.size = 2
-
--- Display: Credentials Length
-cme_futures_ilink3_sbe_v8_2.credentials_length.display = function(value)
-  return "Credentials Length: "..value
-end
-
--- Dissect: Credentials Length
-cme_futures_ilink3_sbe_v8_2.credentials_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.credentials_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.credentials_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.credentials_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Credentials
 cme_futures_ilink3_sbe_v8_2.credentials = {}
 
@@ -16155,263 +16685,6 @@ cme_futures_ilink3_sbe_v8_2.credentials.dissect = function(buffer, offset, packe
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.credentials.fields(buffer, offset, packet, parent)
   end
-end
-
--- Firm
-cme_futures_ilink3_sbe_v8_2.firm = {}
-
--- Size: Firm
-cme_futures_ilink3_sbe_v8_2.firm.size = 5
-
--- Display: Firm
-cme_futures_ilink3_sbe_v8_2.firm.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Firm: No Value"
-  end
-
-  return "Firm: "..value
-end
-
--- Dissect: Firm
-cme_futures_ilink3_sbe_v8_2.firm.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.firm.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-cme_futures_ilink3_sbe_v8_2.session = {}
-
--- Size: Session
-cme_futures_ilink3_sbe_v8_2.session.size = 3
-
--- Display: Session
-cme_futures_ilink3_sbe_v8_2.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-cme_futures_ilink3_sbe_v8_2.session.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.session, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading System Vendor
-cme_futures_ilink3_sbe_v8_2.trading_system_vendor = {}
-
--- Size: Trading System Vendor
-cme_futures_ilink3_sbe_v8_2.trading_system_vendor.size = 10
-
--- Display: Trading System Vendor
-cme_futures_ilink3_sbe_v8_2.trading_system_vendor.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trading System Vendor: No Value"
-  end
-
-  return "Trading System Vendor: "..value
-end
-
--- Dissect: Trading System Vendor
-cme_futures_ilink3_sbe_v8_2.trading_system_vendor.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trading_system_vendor.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.trading_system_vendor.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trading_system_vendor, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading System Version
-cme_futures_ilink3_sbe_v8_2.trading_system_version = {}
-
--- Size: Trading System Version
-cme_futures_ilink3_sbe_v8_2.trading_system_version.size = 10
-
--- Display: Trading System Version
-cme_futures_ilink3_sbe_v8_2.trading_system_version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trading System Version: No Value"
-  end
-
-  return "Trading System Version: "..value
-end
-
--- Dissect: Trading System Version
-cme_futures_ilink3_sbe_v8_2.trading_system_version.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trading_system_version.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.trading_system_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trading_system_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading System Name
-cme_futures_ilink3_sbe_v8_2.trading_system_name = {}
-
--- Size: Trading System Name
-cme_futures_ilink3_sbe_v8_2.trading_system_name.size = 30
-
--- Display: Trading System Name
-cme_futures_ilink3_sbe_v8_2.trading_system_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Trading System Name: No Value"
-  end
-
-  return "Trading System Name: "..value
-end
-
--- Dissect: Trading System Name
-cme_futures_ilink3_sbe_v8_2.trading_system_name.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.trading_system_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.trading_system_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.trading_system_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Access Key Id
-cme_futures_ilink3_sbe_v8_2.access_key_id = {}
-
--- Size: Access Key Id
-cme_futures_ilink3_sbe_v8_2.access_key_id.size = 20
-
--- Display: Access Key Id
-cme_futures_ilink3_sbe_v8_2.access_key_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Access Key Id: No Value"
-  end
-
-  return "Access Key Id: "..value
-end
-
--- Dissect: Access Key Id
-cme_futures_ilink3_sbe_v8_2.access_key_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.access_key_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_futures_ilink3_sbe_v8_2.access_key_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.access_key_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Hmac Signature
-cme_futures_ilink3_sbe_v8_2.hmac_signature = {}
-
--- Size: Hmac Signature
-cme_futures_ilink3_sbe_v8_2.hmac_signature.size = 32
-
--- Display: Hmac Signature
-cme_futures_ilink3_sbe_v8_2.hmac_signature.display = function(value)
-  return "Hmac Signature: "..value
-end
-
--- Dissect: Hmac Signature
-cme_futures_ilink3_sbe_v8_2.hmac_signature.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.hmac_signature.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cme_futures_ilink3_sbe_v8_2.hmac_signature.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.hmac_signature, range, value, display)
-
-  return offset + length, value
 end
 
 -- Establish
@@ -16930,228 +17203,6 @@ cme_futures_ilink3_sbe_v8_2.payload.dissect = function(buffer, offset, packet, p
   return offset
 end
 
--- Version
-cme_futures_ilink3_sbe_v8_2.version = {}
-
--- Size: Version
-cme_futures_ilink3_sbe_v8_2.version.size = 2
-
--- Display: Version
-cme_futures_ilink3_sbe_v8_2.version.display = function(value)
-  if value == 2 then
-    return "Version: Version"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-cme_futures_ilink3_sbe_v8_2.version.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-cme_futures_ilink3_sbe_v8_2.schema_id = {}
-
--- Size: Schema Id
-cme_futures_ilink3_sbe_v8_2.schema_id.size = 2
-
--- Display: Schema Id
-cme_futures_ilink3_sbe_v8_2.schema_id.display = function(value)
-  if value == 8 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-cme_futures_ilink3_sbe_v8_2.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-cme_futures_ilink3_sbe_v8_2.template_id = {}
-
--- Size: Template Id
-cme_futures_ilink3_sbe_v8_2.template_id.size = 2
-
--- Display: Template Id
-cme_futures_ilink3_sbe_v8_2.template_id.display = function(value)
-  if value == 500 then
-    return "Template Id: Negotiate (500)"
-  end
-  if value == 501 then
-    return "Template Id: Negotiation Response (501)"
-  end
-  if value == 502 then
-    return "Template Id: Negotiation Reject (502)"
-  end
-  if value == 503 then
-    return "Template Id: Establish (503)"
-  end
-  if value == 504 then
-    return "Template Id: Establishment Ack (504)"
-  end
-  if value == 505 then
-    return "Template Id: Establishment Reject (505)"
-  end
-  if value == 506 then
-    return "Template Id: Sequence (506)"
-  end
-  if value == 507 then
-    return "Template Id: Terminate (507)"
-  end
-  if value == 508 then
-    return "Template Id: Retransmit Request (508)"
-  end
-  if value == 509 then
-    return "Template Id: Retransmission (509)"
-  end
-  if value == 510 then
-    return "Template Id: Retransmit Reject (510)"
-  end
-  if value == 513 then
-    return "Template Id: Not Applied (513)"
-  end
-  if value == 514 then
-    return "Template Id: New Order Single (514)"
-  end
-  if value == 515 then
-    return "Template Id: Order Cancel Replace Request (515)"
-  end
-  if value == 516 then
-    return "Template Id: Order Cancel Request (516)"
-  end
-  if value == 517 then
-    return "Template Id: Mass Quote (517)"
-  end
-  if value == 518 then
-    return "Template Id: Party Details Definition Request (518)"
-  end
-  if value == 519 then
-    return "Template Id: Party Details Definition Request Ack (519)"
-  end
-  if value == 521 then
-    return "Template Id: Business Reject (521)"
-  end
-  if value == 522 then
-    return "Template Id: Execution Report New (522)"
-  end
-  if value == 523 then
-    return "Template Id: Execution Report Reject (523)"
-  end
-  if value == 524 then
-    return "Template Id: Execution Report Elimination (524)"
-  end
-  if value == 525 then
-    return "Template Id: Execution Report Trade Outright (525)"
-  end
-  if value == 526 then
-    return "Template Id: Execution Report Trade Spread (526)"
-  end
-  if value == 527 then
-    return "Template Id: Execution Report Trade Spread Leg (527)"
-  end
-  if value == 528 then
-    return "Template Id: Quote Cancel (528)"
-  end
-  if value == 529 then
-    return "Template Id: Order Mass Action Request (529)"
-  end
-  if value == 530 then
-    return "Template Id: Order Mass Status Request (530)"
-  end
-  if value == 531 then
-    return "Template Id: Execution Report Modify (531)"
-  end
-  if value == 532 then
-    return "Template Id: Execution Report Status (532)"
-  end
-  if value == 533 then
-    return "Template Id: Order Status Request (533)"
-  end
-  if value == 534 then
-    return "Template Id: Execution Report Cancel (534)"
-  end
-  if value == 535 then
-    return "Template Id: Order Cancel Reject (535)"
-  end
-  if value == 536 then
-    return "Template Id: Order Cancel Replace Reject (536)"
-  end
-  if value == 537 then
-    return "Template Id: Party Details List Request (537)"
-  end
-  if value == 538 then
-    return "Template Id: Party Details List Report (538)"
-  end
-  if value == 539 then
-    return "Template Id: Execution Ack (539)"
-  end
-  if value == 543 then
-    return "Template Id: Request For Quote (543)"
-  end
-  if value == 544 then
-    return "Template Id: New Order Cross (544)"
-  end
-  if value == 545 then
-    return "Template Id: Mass Quote Ack (545)"
-  end
-  if value == 546 then
-    return "Template Id: Request For Quote Ack (546)"
-  end
-  if value == 547 then
-    return "Template Id: Quote Cancel Ack (547)"
-  end
-  if value == 548 then
-    return "Template Id: Execution Report Trade Addendum Outright (548)"
-  end
-  if value == 549 then
-    return "Template Id: Execution Report Trade Addendum Spread (549)"
-  end
-  if value == 550 then
-    return "Template Id: Execution Report Trade Addendum Spread Leg (550)"
-  end
-  if value == 558 then
-    return "Template Id: Order Mass Action Report (558)"
-  end
-  if value == 560 then
-    return "Template Id: Security Definition Request (560)"
-  end
-  if value == 561 then
-    return "Template Id: Security Definition Response (561)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-cme_futures_ilink3_sbe_v8_2.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 cme_futures_ilink3_sbe_v8_2.message_header = {}
 
@@ -17202,52 +17253,6 @@ cme_futures_ilink3_sbe_v8_2.message_header.dissect = function(buffer, offset, pa
     -- Skip element, add fields directly
     return cme_futures_ilink3_sbe_v8_2.message_header.fields(buffer, offset, packet, parent)
   end
-end
-
--- Encoding Type
-cme_futures_ilink3_sbe_v8_2.encoding_type = {}
-
--- Size: Encoding Type
-cme_futures_ilink3_sbe_v8_2.encoding_type.size = 2
-
--- Display: Encoding Type
-cme_futures_ilink3_sbe_v8_2.encoding_type.display = function(value)
-  return "Encoding Type: "..value
-end
-
--- Dissect: Encoding Type
-cme_futures_ilink3_sbe_v8_2.encoding_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.encoding_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.encoding_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.encoding_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-cme_futures_ilink3_sbe_v8_2.message_length = {}
-
--- Size: Message Length
-cme_futures_ilink3_sbe_v8_2.message_length.size = 2
-
--- Display: Message Length
-cme_futures_ilink3_sbe_v8_2.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-cme_futures_ilink3_sbe_v8_2.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_futures_ilink3_sbe_v8_2.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_futures_ilink3_sbe_v8_2.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_futures_ilink3_sbe_v8_2.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Simple Open Framing Header

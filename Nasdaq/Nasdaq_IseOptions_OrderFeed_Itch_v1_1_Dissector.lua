@@ -195,133 +195,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq IseOptions OrderFeed Itch 1.1
+-- Nasdaq IseOptions OrderFeed Itch 1.1 Fields
 -----------------------------------------------------------------------
-
--- Response Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_size = {}
-
--- Size: Response Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size = 4
-
--- Display: Response Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.display = function(value)
-  return "Response Size: "..value
-end
-
--- Dissect: Response Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Response Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_price = {}
-
--- Size: Response Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size = 4
-
--- Display: Response Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display = function(value)
-  return "Response Price: "..value
-end
-
--- Translate: Response Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Response Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate(raw)
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Response
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response = {}
-
--- Size: Auction Response
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.size =
-  nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size + 
-  nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size
-
--- Display: Auction Response
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Auction Response
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields = function(buffer, offset, packet, parent, auction_response_index)
-  local index = offset
-
-  -- Implicit Auction Response Index
-  if auction_response_index ~= nil then
-    local iteration = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
-    iteration:set_generated()
-  end
-
-  -- Response Price: 4 Byte Signed Fixed Width Integer
-  index, response_price = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect(buffer, index, packet, parent)
-
-  -- Response Size: 4 Byte Unsigned Fixed Width Integer
-  index, response_size = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Auction Response
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.dissect = function(buffer, offset, packet, parent, auction_response_index)
-  if show.auction_response then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
-    local index = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields(buffer, offset, packet, parent, auction_response_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields(buffer, offset, packet, parent, auction_response_index)
-  end
-end
-
--- Number Of Responses
-nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses = {}
-
--- Size: Number Of Responses
-nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.size = 1
-
--- Display: Number Of Responses
-nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.display = function(value)
-  return "Number Of Responses: "..value
-end
-
--- Dissect: Number Of Responses
-nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses, range, value, display)
-
-  return offset + length, value
-end
 
 -- Auction Event
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event = {}
@@ -356,6 +231,59 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Auction Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id = {}
+
+-- Size: Auction Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.size = 4
+
+-- Display: Auction Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Only
+nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only = {}
+
+-- Size: Closing Only
+nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size = 1
+
+-- Display: Closing Only
+nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.display = function(value)
+  if value == "Y" then
+    return "Closing Only: Closing Position Only (Y)"
+  end
+  if value == "N" then
+    return "Closing Only: Not Closing Position Only (N)"
+  end
+
+  return "Closing Only: Unknown("..value..")"
+end
+
+-- Dissect: Closing Only
+nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only, range, value, display)
+
+  return offset + length, value
+end
+
 -- Cmta
 nasdaq_iseoptions_orderfeed_itch_v1_1.cmta = {}
 
@@ -375,6 +303,278 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.cmta.dissect = function(buffer, offset, pa
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.cmta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.cmta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size = {}
+
+-- Size: Contract Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.size = 2
+
+-- Display: Contract Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.display = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_day = {}
+
+-- Size: Current Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.size = 1
+
+-- Display: Current Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.display = function(value)
+  return "Current Day: "..value
+end
+
+-- Dissect: Current Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_month = {}
+
+-- Size: Current Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.size = 1
+
+-- Display: Current Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.display = function(value)
+  return "Current Month: "..value
+end
+
+-- Dissect: Current Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt In Effect (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading On The Options System (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_year = {}
+
+-- Size: Current Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.size = 2
+
+-- Display: Current Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.display = function(value)
+  return "Current Year: "..value
+end
+
+-- Dissect: Current Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_iseoptions_orderfeed_itch_v1_1.event_code = {}
+
+-- Size: Event Code
+nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Opening Process (Q)"
+  end
+  if value == "N" then
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
+  end
+  if value == "L" then
+    return "Event Code: Start Of Late Hours Closing Process (L)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+  if value == "W" then
+    return "Event Code: End Of Wco Early Closing (W)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Flag
+nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag = {}
+
+-- Size: Exec Flag
+nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.size = 1
+
+-- Display: Exec Flag
+nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.display = function(value)
+  if value == "N" then
+    return "Exec Flag: None (N)"
+  end
+  if value == "A" then
+    return "Exec Flag: Aon (A)"
+  end
+  if value == " " then
+    return "Exec Flag: Hidden (<whitespace>)"
+  end
+
+  return "Exec Flag: Unknown("..value..")"
+end
+
+-- Dissect: Exec Flag
+nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.exec_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day = {}
+
+-- Size: Expiration Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.size = 1
+
+-- Display: Expiration Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.display = function(value)
+  return "Expiration Day: "..value
+end
+
+-- Dissect: Expiration Day
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month = {}
+
+-- Size: Expiration Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.size = 1
+
+-- Display: Expiration Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.display = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year = {}
+
+-- Size: Expiration Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.size = 1
+
+-- Display: Expiration Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.display = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -402,25 +602,344 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.giveup.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Owner Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id = {}
+-- Imbalance Direction
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction = {}
 
--- Size: Owner Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.size = 6
+-- Size: Imbalance Direction
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size = 1
 
--- Display: Owner Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.display = function(value)
-  return "Owner Id: "..value
+-- Display: Imbalance Direction
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.display = function(value)
+  if value == "B" then
+    return "Imbalance Direction: Buy Imbalance (B)"
+  end
+  if value == "S" then
+    return "Imbalance Direction: Sell Imbalance (S)"
+  end
+
+  return "Imbalance Direction: Unknown("..value..")"
 end
 
--- Dissect: Owner Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.size
+-- Dissect: Imbalance Direction
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price = {}
+
+-- Size: Imbalance Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size = 4
+
+-- Display: Imbalance Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display = function(value)
+  return "Imbalance Price: "..value
+end
+
+-- Translate: Imbalance Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Imbalance Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate(raw)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Volume
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume = {}
+
+-- Size: Imbalance Volume
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.size = 4
+
+-- Display: Imbalance Volume
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.display = function(value)
+  return "Imbalance Volume: "..value
+end
+
+-- Dissect: Imbalance Volume
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_count = {}
+
+-- Size: Message Count
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_length = {}
+
+-- Size: Message Length
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_type = {}
+
+-- Size: Message Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "D" then
+    return "Message Type: Option Directory Message (D)"
+  end
+  if value == "H" then
+    return "Message Type: Trading Action Message (H)"
+  end
+  if value == "O" then
+    return "Message Type: Security Open Closed Message (O)"
+  end
+  if value == "N" then
+    return "Message Type: Opening Imbalance Message (N)"
+  end
+  if value == "B" then
+    return "Message Type: Order On Book Message (B)"
+  end
+  if value == "A" then
+    return "Message Type: Auction Message (A)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nasdaq_iseoptions_orderfeed_itch_v1_1.mpv = {}
+
+-- Size: Mpv
+nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size = 1
+
+-- Display: Mpv
+nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.display = function(value)
+  if value == "E" then
+    return "Mpv: Penny Everywhere (E)"
+  end
+  if value == "S" then
+    return "Mpv: Scaled (S)"
+  end
+  if value == "P" then
+    return "Mpv: Penny Pilot (P)"
+  end
+
+  return "Mpv: Unknown("..value..")"
+end
+
+-- Dissect: Mpv
+nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Responses
+nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses = {}
+
+-- Size: Number Of Responses
+nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.size = 1
+
+-- Display: Number Of Responses
+nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.display = function(value)
+  return "Number Of Responses: "..value
+end
+
+-- Dissect: Number Of Responses
+nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.number_of_responses, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_iseoptions_orderfeed_itch_v1_1.open_state = {}
+
+-- Size: Open State
+nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size = 1
+
+-- Display: Open State
+nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.display = function(value)
+  if value == "Y" then
+    return "Open State: Open For Auto Execution (Y)"
+  end
+  if value == "N" then
+    return "Open State: Closed For Auto Execution (N)"
+  end
+
+  return "Open State: Unknown("..value..")"
+end
+
+-- Dissect: Open State
+nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Closing Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type = {}
+
+-- Size: Option Closing Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size = 1
+
+-- Display: Option Closing Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.display = function(value)
+  if value == "N" then
+    return "Option Closing Type: Normal (N)"
+  end
+  if value == "L" then
+    return "Option Closing Type: Late (L)"
+  end
+
+  return "Option Closing Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Closing Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_id = {}
+
+-- Size: Option Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_type = {}
+
+-- Size: Option Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -473,58 +992,78 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Exec Flag
-nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag = {}
+-- Order Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_type = {}
 
--- Size: Exec Flag
-nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.size = 1
+-- Size: Order Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size = 1
 
--- Display: Exec Flag
-nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.display = function(value)
-  if value == "N" then
-    return "Exec Flag: None (N)"
+-- Display: Order Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.display = function(value)
+  if value == "M" then
+    return "Order Type: Market (M)"
   end
-  if value == "A" then
-    return "Exec Flag: Aon (A)"
-  end
-  if value == " " then
-    return "Exec Flag: Hidden (<whitespace>)"
+  if value == "L" then
+    return "Order Type: Limit (L)"
   end
 
-  return "Exec Flag: Unknown("..value..")"
+  return "Order Type: Unknown("..value..")"
 end
 
--- Dissect: Exec Flag
-nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.size
+-- Dissect: Order Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.exec_flag, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type, range, value, display)
 
   return offset + length, value
 end
 
--- Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.size = {}
+-- Owner Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id = {}
 
--- Size: Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.size.size = 4
+-- Size: Owner Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.size = 6
 
--- Display: Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.size.display = function(value)
-  return "Size: "..value
+-- Display: Owner Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.display = function(value)
+  return "Owner Id: "..value
 end
 
--- Dissect: Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.size.size
+-- Dissect: Owner Id
+nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.owner_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Paired Contracts
+nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts = {}
+
+-- Size: Paired Contracts
+nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.size = 4
+
+-- Display: Paired Contracts
+nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.display = function(value)
+  return "Paired Contracts: "..value
+end
+
+-- Dissect: Paired Contracts
+nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.size.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.paired_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -554,6 +1093,143 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.price.dissect = function(buffer, offset, p
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Response Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_price = {}
+
+-- Size: Response Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size = 4
+
+-- Display: Response Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display = function(value)
+  return "Response Price: "..value
+end
+
+-- Translate: Response Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Response Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate(raw)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Response Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_size = {}
+
+-- Size: Response Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size = 4
+
+-- Display: Response Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.display = function(value)
+  return "Response Size: "..value
+end
+
+-- Dissect: Response Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.response_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.size = 6
+
+-- Display: Security Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_iseoptions_orderfeed_itch_v1_1.session = {}
+
+-- Size: Session
+nasdaq_iseoptions_orderfeed_itch_v1_1.session.size = 10
+
+-- Display: Session
+nasdaq_iseoptions_orderfeed_itch_v1_1.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_iseoptions_orderfeed_itch_v1_1.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -591,78 +1267,100 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.side.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Order Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_type = {}
+-- Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.size = {}
 
--- Size: Order Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size = 1
+-- Size: Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.size.size = 4
 
--- Display: Order Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.display = function(value)
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
-
-  return "Order Type: Unknown("..value..")"
+-- Display: Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.size.display = function(value)
+  return "Size: "..value
 end
 
--- Dissect: Order Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size
+-- Dissect: Size
+nasdaq_iseoptions_orderfeed_itch_v1_1.size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.size.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.order_type, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.size, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id = {}
+-- Source
+nasdaq_iseoptions_orderfeed_itch_v1_1.source = {}
 
--- Size: Auction Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.size = 4
+-- Size: Source
+nasdaq_iseoptions_orderfeed_itch_v1_1.source.size = 1
 
--- Display: Auction Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.display = function(value)
-  return "Auction Id: "..value
+-- Display: Source
+nasdaq_iseoptions_orderfeed_itch_v1_1.source.display = function(value)
+  return "Source: "..value
 end
 
--- Dissect: Auction Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.size
+-- Dissect: Source
+nasdaq_iseoptions_orderfeed_itch_v1_1.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.source.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.source.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_id, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source, range, value, display)
 
   return offset + length, value
 end
 
--- Option Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_id = {}
+-- Strike Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price = {}
 
--- Size: Option Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size = 4
+-- Size: Strike Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size = 8
 
--- Display: Option Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.display = function(value)
-  return "Option Id: "..value
+-- Display: Strike Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display = function(value)
+  return "Strike Price: "..value
 end
 
--- Dissect: Option Id
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.size
+-- Translate: Strike Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Strike Price
+nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate(raw)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Subversion
+nasdaq_iseoptions_orderfeed_itch_v1_1.subversion = {}
+
+-- Size: Subversion
+nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.size = 1
+
+-- Display: Subversion
+nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.display = function(value)
+  return "Subversion: "..value
+end
+
+-- Dissect: Subversion
+nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_id, range, value, display)
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion, range, value, display)
 
   return offset + length, value
 end
@@ -688,6 +1386,173 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect = function(buffer, offse
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.timestamp, range, value, display)
 
   return offset + length, value
+end
+
+-- Tradable
+nasdaq_iseoptions_orderfeed_itch_v1_1.tradable = {}
+
+-- Size: Tradable
+nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size = 1
+
+-- Display: Tradable
+nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.display = function(value)
+  if value == "Y" then
+    return "Tradable: Tradable (Y)"
+  end
+  if value == "N" then
+    return "Tradable: Not Tradable (N)"
+  end
+
+  return "Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Tradable
+nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type = {}
+
+-- Size: Trading Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size = 1
+
+-- Display: Trading Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.display = function(value)
+  if value == "E" then
+    return "Trading Type: Equity (E)"
+  end
+  if value == "I" then
+    return "Trading Type: Index (I)"
+  end
+  if value == "F" then
+    return "Trading Type: Etf (F)"
+  end
+  if value == "C" then
+    return "Trading Type: Currency (C)"
+  end
+
+  return "Trading Type: Unknown("..value..")"
+end
+
+-- Dissect: Trading Type
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_iseoptions_orderfeed_itch_v1_1.version = {}
+
+-- Size: Version
+nasdaq_iseoptions_orderfeed_itch_v1_1.version.size = 1
+
+-- Display: Version
+nasdaq_iseoptions_orderfeed_itch_v1_1.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_iseoptions_orderfeed_itch_v1_1.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq IseOptions OrderFeed Itch 1.1
+-----------------------------------------------------------------------
+
+-- Auction Response
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response = {}
+
+-- Size: Auction Response
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.size =
+  nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size + 
+  nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.size
+
+-- Display: Auction Response
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Response
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields = function(buffer, offset, packet, parent, auction_response_index)
+  local index = offset
+
+  -- Implicit Auction Response Index
+  if auction_response_index ~= nil then
+    local iteration = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index, auction_response_index)
+    iteration:set_generated()
+  end
+
+  -- Response Price: 4 Byte Signed Fixed Width Integer
+  index, response_price = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect(buffer, index, packet, parent)
+
+  -- Response Size: 4 Byte Unsigned Fixed Width Integer
+  index, response_size = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Response
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.dissect = function(buffer, offset, packet, parent, auction_response_index)
+  if show.auction_response then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
+    local index = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields(buffer, offset, packet, parent, auction_response_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields(buffer, offset, packet, parent, auction_response_index)
+  end
 end
 
 -- Auction Message
@@ -889,111 +1754,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.dissect = function(b
   end
 end
 
--- Imbalance Volume
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume = {}
-
--- Size: Imbalance Volume
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.size = 4
-
--- Display: Imbalance Volume
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.display = function(value)
-  return "Imbalance Volume: "..value
-end
-
--- Dissect: Imbalance Volume
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price = {}
-
--- Size: Imbalance Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size = 4
-
--- Display: Imbalance Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display = function(value)
-  return "Imbalance Price: "..value
-end
-
--- Translate: Imbalance Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Imbalance Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate(raw)
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Direction
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction = {}
-
--- Size: Imbalance Direction
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size = 1
-
--- Display: Imbalance Direction
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy Imbalance (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell Imbalance (S)"
-  end
-
-  return "Imbalance Direction: Unknown("..value..")"
-end
-
--- Dissect: Imbalance Direction
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction, range, value, display)
-
-  return offset + length, value
-end
-
--- Paired Contracts
-nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts = {}
-
--- Size: Paired Contracts
-nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.size = 4
-
--- Display: Paired Contracts
-nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.display = function(value)
-  return "Paired Contracts: "..value
-end
-
--- Dissect: Paired Contracts
-nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.paired_contracts, range, value, display)
-
-  return offset + length, value
-end
-
 -- Opening Imbalance Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message = {}
 
@@ -1054,36 +1814,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.dissect = functi
   end
 end
 
--- Open State
-nasdaq_iseoptions_orderfeed_itch_v1_1.open_state = {}
-
--- Size: Open State
-nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size = 1
-
--- Display: Open State
-nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
-
-  return "Open State: Unknown("..value..")"
-end
-
--- Dissect: Open State
-nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.open_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Open Closed Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message = {}
 
@@ -1132,36 +1862,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.dissect = fun
   end
 end
 
--- Current Trading State
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading On The Options System (T)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Action Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message = {}
 
@@ -1208,385 +1908,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.dissect = function(
     -- Skip element, add fields directly
     return nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Closing Only
-nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only = {}
-
--- Size: Closing Only
-nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size = 1
-
--- Display: Closing Only
-nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.display = function(value)
-  if value == "Y" then
-    return "Closing Only: Closing Position Only (Y)"
-  end
-  if value == "N" then
-    return "Closing Only: Not Closing Position Only (N)"
-  end
-
-  return "Closing Only: Unknown("..value..")"
-end
-
--- Dissect: Closing Only
-nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.closing_only, range, value, display)
-
-  return offset + length, value
-end
-
--- Mpv
-nasdaq_iseoptions_orderfeed_itch_v1_1.mpv = {}
-
--- Size: Mpv
-nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size = 1
-
--- Display: Mpv
-nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
-
-  return "Mpv: Unknown("..value..")"
-end
-
--- Dissect: Mpv
-nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Tradable
-nasdaq_iseoptions_orderfeed_itch_v1_1.tradable = {}
-
--- Size: Tradable
-nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size = 1
-
--- Display: Tradable
-nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
-
-  return "Tradable: Unknown("..value..")"
-end
-
--- Dissect: Tradable
-nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Closing Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type = {}
-
--- Size: Option Closing Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size = 1
-
--- Display: Option Closing Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
-
-  return "Option Closing Type: Unknown("..value..")"
-end
-
--- Dissect: Option Closing Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_closing_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size = {}
-
--- Size: Contract Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.size = 2
-
--- Display: Contract Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.display = function(value)
-  return "Contract Size: "..value
-end
-
--- Dissect: Contract Size
-nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.contract_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type = {}
-
--- Size: Trading Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size = 1
-
--- Display: Trading Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.display = function(value)
-  if value == "E" then
-    return "Trading Type: Equity (E)"
-  end
-  if value == "I" then
-    return "Trading Type: Index (I)"
-  end
-  if value == "F" then
-    return "Trading Type: Etf (F)"
-  end
-  if value == "C" then
-    return "Trading Type: Currency (C)"
-  end
-
-  return "Trading Type: Unknown("..value..")"
-end
-
--- Dissect: Trading Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.size = 13
-
--- Display: Underlying Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Source
-nasdaq_iseoptions_orderfeed_itch_v1_1.source = {}
-
--- Size: Source
-nasdaq_iseoptions_orderfeed_itch_v1_1.source.size = 1
-
--- Display: Source
-nasdaq_iseoptions_orderfeed_itch_v1_1.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-nasdaq_iseoptions_orderfeed_itch_v1_1.source.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_type = {}
-
--- Size: Option Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size = 1
-
--- Display: Option Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price = {}
-
--- Size: Strike Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size = 8
-
--- Display: Strike Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Strike Price
-nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate(raw)
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day = {}
-
--- Size: Expiration Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.size = 1
-
--- Display: Expiration Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.display = function(value)
-  return "Expiration Day: "..value
-end
-
--- Dissect: Expiration Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month = {}
-
--- Size: Expiration Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.size = 1
-
--- Display: Expiration Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.display = function(value)
-  return "Expiration Month: "..value
-end
-
--- Dissect: Expiration Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year = {}
-
--- Size: Expiration Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.size = 1
-
--- Display: Expiration Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.display = function(value)
-  return "Expiration Year: "..value
-end
-
--- Dissect: Expiration Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.expiration_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol = {}
-
--- Size: Security Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.size = 6
-
--- Display: Security Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Option Directory Message
@@ -1689,169 +2010,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.dissect = functio
   end
 end
 
--- Subversion
-nasdaq_iseoptions_orderfeed_itch_v1_1.subversion = {}
-
--- Size: Subversion
-nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.size = 1
-
--- Display: Subversion
-nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.display = function(value)
-  return "Subversion: "..value
-end
-
--- Dissect: Subversion
-nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.subversion, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-nasdaq_iseoptions_orderfeed_itch_v1_1.version = {}
-
--- Size: Version
-nasdaq_iseoptions_orderfeed_itch_v1_1.version.size = 1
-
--- Display: Version
-nasdaq_iseoptions_orderfeed_itch_v1_1.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-nasdaq_iseoptions_orderfeed_itch_v1_1.version.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_day = {}
-
--- Size: Current Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.size = 1
-
--- Display: Current Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.display = function(value)
-  return "Current Day: "..value
-end
-
--- Dissect: Current Day
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_month = {}
-
--- Size: Current Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.size = 1
-
--- Display: Current Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.display = function(value)
-  return "Current Month: "..value
-end
-
--- Dissect: Current Month
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_year = {}
-
--- Size: Current Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.size = 2
-
--- Display: Current Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.display = function(value)
-  return "Current Year: "..value
-end
-
--- Dissect: Current Year
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.current_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Code
-nasdaq_iseoptions_orderfeed_itch_v1_1.event_code = {}
-
--- Size: Event Code
-nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size = 1
-
--- Display: Event Code
-nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message = {}
 
@@ -1951,74 +2109,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.payload.dissect = function(buffer, offset,
   end
 
   return offset
-end
-
--- Message Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_type = {}
-
--- Size: Message Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size = 1
-
--- Display: Message Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Option Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Closed Message (O)"
-  end
-  if value == "N" then
-    return "Message Type: Opening Imbalance Message (N)"
-  end
-  if value == "B" then
-    return "Message Type: Order On Book Message (B)"
-  end
-  if value == "A" then
-    return "Message Type: Auction Message (A)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_length = {}
-
--- Size: Message Length
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.size = 2
-
--- Display: Message Length
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2154,91 +2244,6 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.messages.dissect = function(buffer, offset
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_count = {}
-
--- Size: Message Count
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.size = 2
-
--- Display: Message Count
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_iseoptions_orderfeed_itch_v1_1.session = {}
-
--- Size: Session
-nasdaq_iseoptions_orderfeed_itch_v1_1.session.size = 10
-
--- Display: Session
-nasdaq_iseoptions_orderfeed_itch_v1_1.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_iseoptions_orderfeed_itch_v1_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_orderfeed_itch_v1_1.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_iseoptions_orderfeed_itch_v1_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

@@ -67,7 +67,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Miax OnyxFutures HeaderOnly Mach 1.0
+-- Miax OnyxFutures HeaderOnly Mach 1.0 Fields
 -----------------------------------------------------------------------
 
 -- Data
@@ -111,6 +111,116 @@ miax_onyxfutures_mach_v1_0.message_type.dissect = function(buffer, offset, packe
 
   return offset + length, value
 end
+
+-- Packet Length
+miax_onyxfutures_mach_v1_0.packet_length = {}
+
+-- Size: Packet Length
+miax_onyxfutures_mach_v1_0.packet_length.size = 2
+
+-- Display: Packet Length
+miax_onyxfutures_mach_v1_0.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+miax_onyxfutures_mach_v1_0.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_mach_v1_0.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_onyxfutures_mach_v1_0.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+miax_onyxfutures_mach_v1_0.packet_type = {}
+
+-- Size: Packet Type
+miax_onyxfutures_mach_v1_0.packet_type.size = 1
+
+-- Display: Packet Type
+miax_onyxfutures_mach_v1_0.packet_type.display = function(value)
+  if value == 0 then
+    return "Packet Type: Heartbeat (0)"
+  end
+  if value == 1 then
+    return "Packet Type: Start Of Session (1)"
+  end
+  if value == 2 then
+    return "Packet Type: End Of Session (2)"
+  end
+  if value == 3 then
+    return "Packet Type: Application Message (3)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+miax_onyxfutures_mach_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_mach_v1_0.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_onyxfutures_mach_v1_0.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+miax_onyxfutures_mach_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+miax_onyxfutures_mach_v1_0.sequence_number.size = 8
+
+-- Display: Sequence Number
+miax_onyxfutures_mach_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+miax_onyxfutures_mach_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_mach_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_onyxfutures_mach_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Number
+miax_onyxfutures_mach_v1_0.session_number = {}
+
+-- Size: Session Number
+miax_onyxfutures_mach_v1_0.session_number.size = 1
+
+-- Display: Session Number
+miax_onyxfutures_mach_v1_0.session_number.display = function(value)
+  return "Session Number: "..value
+end
+
+-- Dissect: Session Number
+miax_onyxfutures_mach_v1_0.session_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_mach_v1_0.session_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_onyxfutures_mach_v1_0.session_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.session_number, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Miax OnyxFutures HeaderOnly Mach 1.0
+-----------------------------------------------------------------------
 
 -- Application Message
 miax_onyxfutures_mach_v1_0.application_message = {}
@@ -182,111 +292,6 @@ miax_onyxfutures_mach_v1_0.payload.dissect = function(buffer, offset, packet, pa
   end
 
   return offset
-end
-
--- Session Number
-miax_onyxfutures_mach_v1_0.session_number = {}
-
--- Size: Session Number
-miax_onyxfutures_mach_v1_0.session_number.size = 1
-
--- Display: Session Number
-miax_onyxfutures_mach_v1_0.session_number.display = function(value)
-  return "Session Number: "..value
-end
-
--- Dissect: Session Number
-miax_onyxfutures_mach_v1_0.session_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_mach_v1_0.session_number.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = miax_onyxfutures_mach_v1_0.session_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.session_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-miax_onyxfutures_mach_v1_0.packet_type = {}
-
--- Size: Packet Type
-miax_onyxfutures_mach_v1_0.packet_type.size = 1
-
--- Display: Packet Type
-miax_onyxfutures_mach_v1_0.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-miax_onyxfutures_mach_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_mach_v1_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = miax_onyxfutures_mach_v1_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-miax_onyxfutures_mach_v1_0.packet_length = {}
-
--- Size: Packet Length
-miax_onyxfutures_mach_v1_0.packet_length.size = 2
-
--- Display: Packet Length
-miax_onyxfutures_mach_v1_0.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-miax_onyxfutures_mach_v1_0.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_mach_v1_0.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_onyxfutures_mach_v1_0.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-miax_onyxfutures_mach_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-miax_onyxfutures_mach_v1_0.sequence_number.size = 8
-
--- Display: Sequence Number
-miax_onyxfutures_mach_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-miax_onyxfutures_mach_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_mach_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = miax_onyxfutures_mach_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_mach_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message

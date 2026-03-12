@@ -90,28 +90,28 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Otc Markets Headers Ats 1.0
+-- Otc Markets Headers Ats 1.0 Fields
 -----------------------------------------------------------------------
 
--- Payload
-otc_markets_headers_ats_v1_0.payload = {}
+-- Message Size
+otc_markets_headers_ats_v1_0.message_size = {}
 
--- Size: Payload
-otc_markets_headers_ats_v1_0.payload.size = 0
+-- Size: Message Size
+otc_markets_headers_ats_v1_0.message_size.size = 2
 
--- Display: Payload
-otc_markets_headers_ats_v1_0.payload.display = function(value)
-  return "Payload: "..value
+-- Display: Message Size
+otc_markets_headers_ats_v1_0.message_size.display = function(value)
+  return "Message Size: "..value
 end
 
--- Dissect: Payload
-otc_markets_headers_ats_v1_0.payload.dissect = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0.payload.size
+-- Dissect: Message Size
+otc_markets_headers_ats_v1_0.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.message_size.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = otc_markets_headers_ats_v1_0.payload.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = otc_markets_headers_ats_v1_0.message_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.payload, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_size, range, value, display)
 
   return offset + length, value
 end
@@ -139,28 +139,125 @@ otc_markets_headers_ats_v1_0.message_type.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Message Size
-otc_markets_headers_ats_v1_0.message_size = {}
+-- Messages
+otc_markets_headers_ats_v1_0.messages = {}
 
--- Size: Message Size
-otc_markets_headers_ats_v1_0.message_size.size = 2
+-- Size: Messages
+otc_markets_headers_ats_v1_0.messages.size = 1
 
--- Display: Message Size
-otc_markets_headers_ats_v1_0.message_size.display = function(value)
-  return "Message Size: "..value
+-- Display: Messages
+otc_markets_headers_ats_v1_0.messages.display = function(value)
+  return "Messages: "..value
 end
 
--- Dissect: Message Size
-otc_markets_headers_ats_v1_0.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0.message_size.size
+-- Dissect: Messages
+otc_markets_headers_ats_v1_0.messages.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.messages.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0.message_size.display(value, buffer, offset, packet, parent)
+  local display = otc_markets_headers_ats_v1_0.messages.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.message_size, range, value, display)
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.messages, range, value, display)
 
   return offset + length, value
 end
+
+-- Packet Milli
+otc_markets_headers_ats_v1_0.packet_milli = {}
+
+-- Size: Packet Milli
+otc_markets_headers_ats_v1_0.packet_milli.size = 4
+
+-- Display: Packet Milli
+otc_markets_headers_ats_v1_0.packet_milli.display = function(value)
+  return "Packet Milli: "..value
+end
+
+-- Dissect: Packet Milli
+otc_markets_headers_ats_v1_0.packet_milli.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.packet_milli.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otc_markets_headers_ats_v1_0.packet_milli.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_milli, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Size
+otc_markets_headers_ats_v1_0.packet_size = {}
+
+-- Size: Packet Size
+otc_markets_headers_ats_v1_0.packet_size.size = 2
+
+-- Display: Packet Size
+otc_markets_headers_ats_v1_0.packet_size.display = function(value)
+  return "Packet Size: "..value
+end
+
+-- Dissect: Packet Size
+otc_markets_headers_ats_v1_0.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.packet_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otc_markets_headers_ats_v1_0.packet_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload
+otc_markets_headers_ats_v1_0.payload = {}
+
+-- Size: Payload
+otc_markets_headers_ats_v1_0.payload.size = 0
+
+-- Display: Payload
+otc_markets_headers_ats_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect: Payload
+otc_markets_headers_ats_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.payload.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = otc_markets_headers_ats_v1_0.payload.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.payload, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq Num
+otc_markets_headers_ats_v1_0.seq_num = {}
+
+-- Size: Seq Num
+otc_markets_headers_ats_v1_0.seq_num.size = 4
+
+-- Display: Seq Num
+otc_markets_headers_ats_v1_0.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+otc_markets_headers_ats_v1_0.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = otc_markets_headers_ats_v1_0.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otc_markets_headers_ats_v1_0.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Otc Markets Headers Ats 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 otc_markets_headers_ats_v1_0.message_header = {}
@@ -254,52 +351,6 @@ otc_markets_headers_ats_v1_0.message.dissect = function(buffer, offset, packet, 
   end
 end
 
--- Packet Milli
-otc_markets_headers_ats_v1_0.packet_milli = {}
-
--- Size: Packet Milli
-otc_markets_headers_ats_v1_0.packet_milli.size = 4
-
--- Display: Packet Milli
-otc_markets_headers_ats_v1_0.packet_milli.display = function(value)
-  return "Packet Milli: "..value
-end
-
--- Dissect: Packet Milli
-otc_markets_headers_ats_v1_0.packet_milli.dissect = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0.packet_milli.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0.packet_milli.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_milli, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages
-otc_markets_headers_ats_v1_0.messages = {}
-
--- Size: Messages
-otc_markets_headers_ats_v1_0.messages.size = 1
-
--- Display: Messages
-otc_markets_headers_ats_v1_0.messages.display = function(value)
-  return "Messages: "..value
-end
-
--- Dissect: Messages
-otc_markets_headers_ats_v1_0.messages.dissect = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0.messages.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0.messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.messages, range, value, display)
-
-  return offset + length, value
-end
-
 -- Packet Flag
 otc_markets_headers_ats_v1_0.packet_flag = {}
 
@@ -362,52 +413,6 @@ otc_markets_headers_ats_v1_0.packet_flag.dissect = function(buffer, offset, pack
   end
 
   return offset + size, value
-end
-
--- Seq Num
-otc_markets_headers_ats_v1_0.seq_num = {}
-
--- Size: Seq Num
-otc_markets_headers_ats_v1_0.seq_num.size = 4
-
--- Display: Seq Num
-otc_markets_headers_ats_v1_0.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-otc_markets_headers_ats_v1_0.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Size
-otc_markets_headers_ats_v1_0.packet_size = {}
-
--- Size: Packet Size
-otc_markets_headers_ats_v1_0.packet_size.size = 2
-
--- Display: Packet Size
-otc_markets_headers_ats_v1_0.packet_size.display = function(value)
-  return "Packet Size: "..value
-end
-
--- Dissect: Packet Size
-otc_markets_headers_ats_v1_0.packet_size.dissect = function(buffer, offset, packet, parent)
-  local length = otc_markets_headers_ats_v1_0.packet_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otc_markets_headers_ats_v1_0.packet_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otc_markets_headers_ats_v1_0.fields.packet_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

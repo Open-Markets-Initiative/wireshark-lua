@@ -84,8 +84,77 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Iex Equities UdpHeader IexTp 1.0
+-- Iex Equities UdpHeader IexTp 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Channel Id
+iex_equities_udpheader_iextp_v1_0.channel_id = {}
+
+-- Size: Channel Id
+iex_equities_udpheader_iextp_v1_0.channel_id.size = 4
+
+-- Display: Channel Id
+iex_equities_udpheader_iextp_v1_0.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+iex_equities_udpheader_iextp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_udpheader_iextp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Message Sequence Number
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number = {}
+
+-- Size: First Message Sequence Number
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size = 8
+
+-- Display: First Message Sequence Number
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.display = function(value)
+  return "First Message Sequence Number: "..value
+end
+
+-- Dissect: First Message Sequence Number
+iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+iex_equities_udpheader_iextp_v1_0.message_count = {}
+
+-- Size: Message Count
+iex_equities_udpheader_iextp_v1_0.message_count.size = 2
+
+-- Display: Message Count
+iex_equities_udpheader_iextp_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+iex_equities_udpheader_iextp_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_udpheader_iextp_v1_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
 
 -- Message Data
 iex_equities_udpheader_iextp_v1_0.message_data = {}
@@ -104,6 +173,52 @@ iex_equities_udpheader_iextp_v1_0.message_data.dissect = function(buffer, offset
   parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_data, range, value, display)
 
   return offset + size, value
+end
+
+-- Message Length
+iex_equities_udpheader_iextp_v1_0.message_length = {}
+
+-- Size: Message Length
+iex_equities_udpheader_iextp_v1_0.message_length.size = 2
+
+-- Display: Message Length
+iex_equities_udpheader_iextp_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+iex_equities_udpheader_iextp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_udpheader_iextp_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Protocol Id
+iex_equities_udpheader_iextp_v1_0.message_protocol_id = {}
+
+-- Size: Message Protocol Id
+iex_equities_udpheader_iextp_v1_0.message_protocol_id.size = 2
+
+-- Display: Message Protocol Id
+iex_equities_udpheader_iextp_v1_0.message_protocol_id.display = function(value)
+  return "Message Protocol Id: "..value
+end
+
+-- Dissect: Message Protocol Id
+iex_equities_udpheader_iextp_v1_0.message_protocol_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.message_protocol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_udpheader_iextp_v1_0.message_protocol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id, range, value, display)
+
+  return offset + length, value
 end
 
 -- Message Type
@@ -129,28 +244,152 @@ iex_equities_udpheader_iextp_v1_0.message_type.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Message Length
-iex_equities_udpheader_iextp_v1_0.message_length = {}
+-- Payload Length
+iex_equities_udpheader_iextp_v1_0.payload_length = {}
 
--- Size: Message Length
-iex_equities_udpheader_iextp_v1_0.message_length.size = 2
+-- Size: Payload Length
+iex_equities_udpheader_iextp_v1_0.payload_length.size = 2
 
--- Display: Message Length
-iex_equities_udpheader_iextp_v1_0.message_length.display = function(value)
-  return "Message Length: "..value
+-- Display: Payload Length
+iex_equities_udpheader_iextp_v1_0.payload_length.display = function(value)
+  return "Payload Length: "..value
 end
 
--- Dissect: Message Length
-iex_equities_udpheader_iextp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.message_length.size
+-- Dissect: Payload Length
+iex_equities_udpheader_iextp_v1_0.payload_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.payload_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.message_length.display(value, buffer, offset, packet, parent)
+  local display = iex_equities_udpheader_iextp_v1_0.payload_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_length, range, value, display)
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.payload_length, range, value, display)
 
   return offset + length, value
 end
+
+-- Reserved
+iex_equities_udpheader_iextp_v1_0.reserved = {}
+
+-- Size: Reserved
+iex_equities_udpheader_iextp_v1_0.reserved.size = 1
+
+-- Display: Reserved
+iex_equities_udpheader_iextp_v1_0.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+iex_equities_udpheader_iextp_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.reserved.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = iex_equities_udpheader_iextp_v1_0.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Time
+iex_equities_udpheader_iextp_v1_0.send_time = {}
+
+-- Size: Send Time
+iex_equities_udpheader_iextp_v1_0.send_time.size = 8
+
+-- Display: Send Time
+iex_equities_udpheader_iextp_v1_0.send_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Send Time
+iex_equities_udpheader_iextp_v1_0.send_time.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.send_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_udpheader_iextp_v1_0.send_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.send_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+iex_equities_udpheader_iextp_v1_0.session_id = {}
+
+-- Size: Session Id
+iex_equities_udpheader_iextp_v1_0.session_id.size = 4
+
+-- Display: Session Id
+iex_equities_udpheader_iextp_v1_0.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+iex_equities_udpheader_iextp_v1_0.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_udpheader_iextp_v1_0.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Offset
+iex_equities_udpheader_iextp_v1_0.stream_offset = {}
+
+-- Size: Stream Offset
+iex_equities_udpheader_iextp_v1_0.stream_offset.size = 8
+
+-- Display: Stream Offset
+iex_equities_udpheader_iextp_v1_0.stream_offset.display = function(value)
+  return "Stream Offset: "..value
+end
+
+-- Dissect: Stream Offset
+iex_equities_udpheader_iextp_v1_0.stream_offset.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.stream_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_equities_udpheader_iextp_v1_0.stream_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.stream_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+iex_equities_udpheader_iextp_v1_0.version = {}
+
+-- Size: Version
+iex_equities_udpheader_iextp_v1_0.version.size = 1
+
+-- Display: Version
+iex_equities_udpheader_iextp_v1_0.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+iex_equities_udpheader_iextp_v1_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = iex_equities_udpheader_iextp_v1_0.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_equities_udpheader_iextp_v1_0.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Iex Equities UdpHeader IexTp 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 iex_equities_udpheader_iextp_v1_0.message_header = {}
@@ -284,240 +523,6 @@ iex_equities_udpheader_iextp_v1_0.messages.dissect = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Send Time
-iex_equities_udpheader_iextp_v1_0.send_time = {}
-
--- Size: Send Time
-iex_equities_udpheader_iextp_v1_0.send_time.size = 8
-
--- Display: Send Time
-iex_equities_udpheader_iextp_v1_0.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Send Time
-iex_equities_udpheader_iextp_v1_0.send_time.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.send_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_udpheader_iextp_v1_0.send_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.send_time, range, value, display)
-
-  return offset + length, value
-end
-
--- First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0.first_message_sequence_number = {}
-
--- Size: First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size = 8
-
--- Display: First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.display = function(value)
-  return "First Message Sequence Number: "..value
-end
-
--- Dissect: First Message Sequence Number
-iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_udpheader_iextp_v1_0.first_message_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.first_message_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Offset
-iex_equities_udpheader_iextp_v1_0.stream_offset = {}
-
--- Size: Stream Offset
-iex_equities_udpheader_iextp_v1_0.stream_offset.size = 8
-
--- Display: Stream Offset
-iex_equities_udpheader_iextp_v1_0.stream_offset.display = function(value)
-  return "Stream Offset: "..value
-end
-
--- Dissect: Stream Offset
-iex_equities_udpheader_iextp_v1_0.stream_offset.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.stream_offset.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = iex_equities_udpheader_iextp_v1_0.stream_offset.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.stream_offset, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Count
-iex_equities_udpheader_iextp_v1_0.message_count = {}
-
--- Size: Message Count
-iex_equities_udpheader_iextp_v1_0.message_count.size = 2
-
--- Display: Message Count
-iex_equities_udpheader_iextp_v1_0.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-iex_equities_udpheader_iextp_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.message_count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Payload Length
-iex_equities_udpheader_iextp_v1_0.payload_length = {}
-
--- Size: Payload Length
-iex_equities_udpheader_iextp_v1_0.payload_length.size = 2
-
--- Display: Payload Length
-iex_equities_udpheader_iextp_v1_0.payload_length.display = function(value)
-  return "Payload Length: "..value
-end
-
--- Dissect: Payload Length
-iex_equities_udpheader_iextp_v1_0.payload_length.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.payload_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.payload_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.payload_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-iex_equities_udpheader_iextp_v1_0.session_id = {}
-
--- Size: Session Id
-iex_equities_udpheader_iextp_v1_0.session_id.size = 4
-
--- Display: Session Id
-iex_equities_udpheader_iextp_v1_0.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-iex_equities_udpheader_iextp_v1_0.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Channel Id
-iex_equities_udpheader_iextp_v1_0.channel_id = {}
-
--- Size: Channel Id
-iex_equities_udpheader_iextp_v1_0.channel_id.size = 4
-
--- Display: Channel Id
-iex_equities_udpheader_iextp_v1_0.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-iex_equities_udpheader_iextp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Protocol Id
-iex_equities_udpheader_iextp_v1_0.message_protocol_id = {}
-
--- Size: Message Protocol Id
-iex_equities_udpheader_iextp_v1_0.message_protocol_id.size = 2
-
--- Display: Message Protocol Id
-iex_equities_udpheader_iextp_v1_0.message_protocol_id.display = function(value)
-  return "Message Protocol Id: "..value
-end
-
--- Dissect: Message Protocol Id
-iex_equities_udpheader_iextp_v1_0.message_protocol_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.message_protocol_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.message_protocol_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.message_protocol_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-iex_equities_udpheader_iextp_v1_0.reserved = {}
-
--- Size: Reserved
-iex_equities_udpheader_iextp_v1_0.reserved.size = 1
-
--- Display: Reserved
-iex_equities_udpheader_iextp_v1_0.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-iex_equities_udpheader_iextp_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.reserved.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = iex_equities_udpheader_iextp_v1_0.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-iex_equities_udpheader_iextp_v1_0.version = {}
-
--- Size: Version
-iex_equities_udpheader_iextp_v1_0.version.size = 1
-
--- Display: Version
-iex_equities_udpheader_iextp_v1_0.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-iex_equities_udpheader_iextp_v1_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = iex_equities_udpheader_iextp_v1_0.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_equities_udpheader_iextp_v1_0.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_equities_udpheader_iextp_v1_0.fields.version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Iextp Header

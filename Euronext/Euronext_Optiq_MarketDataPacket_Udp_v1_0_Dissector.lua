@@ -164,8 +164,127 @@ local function lz4_decompress(input, decompressed_size)
   return output
 end
 -----------------------------------------------------------------------
--- Dissect Euronext Optiq MarketDataPacket Udp 1.0
+-- Euronext Optiq MarketDataPacket Udp 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Block Length
+euronext_optiq_marketdatapacket_udp_v1_0.block_length = {}
+
+-- Size: Block Length
+euronext_optiq_marketdatapacket_udp_v1_0.block_length.size = 2
+
+-- Display: Block Length
+euronext_optiq_marketdatapacket_udp_v1_0.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+euronext_optiq_marketdatapacket_udp_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+euronext_optiq_marketdatapacket_udp_v1_0.channel_id = {}
+
+-- Size: Channel Id
+euronext_optiq_marketdatapacket_udp_v1_0.channel_id.size = 2
+
+-- Display: Channel Id
+euronext_optiq_marketdatapacket_udp_v1_0.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+euronext_optiq_marketdatapacket_udp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Frame
+euronext_optiq_marketdatapacket_udp_v1_0.frame = {}
+
+-- Size: Frame
+euronext_optiq_marketdatapacket_udp_v1_0.frame.size = 2
+
+-- Display: Frame
+euronext_optiq_marketdatapacket_udp_v1_0.frame.display = function(value)
+  return "Frame: "..value
+end
+
+-- Dissect: Frame
+euronext_optiq_marketdatapacket_udp_v1_0.frame.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.frame.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.frame.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.frame, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Sequence Number
+euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number = {}
+
+-- Size: Packet Sequence Number
+euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.size = 4
+
+-- Display: Packet Sequence Number
+euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
+end
+
+-- Dissect: Packet Sequence Number
+euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Time
+euronext_optiq_marketdatapacket_udp_v1_0.packet_time = {}
+
+-- Size: Packet Time
+euronext_optiq_marketdatapacket_udp_v1_0.packet_time.size = 8
+
+-- Display: Packet Time
+euronext_optiq_marketdatapacket_udp_v1_0.packet_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Packet Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Packet Time
+euronext_optiq_marketdatapacket_udp_v1_0.packet_time.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.packet_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.packet_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_time, range, value, display)
+
+  return offset + length, value
+end
 
 -- Payload
 euronext_optiq_marketdatapacket_udp_v1_0.payload = {}
@@ -184,29 +303,6 @@ euronext_optiq_marketdatapacket_udp_v1_0.payload.dissect = function(buffer, offs
   parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.payload, range, value, display)
 
   return offset + size, value
-end
-
--- Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version = {}
-
--- Size: Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size = 2
-
--- Display: Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version.display = function(value)
-  return "Schema Version: "..value
-end
-
--- Dissect: Schema Version
-euronext_optiq_marketdatapacket_udp_v1_0.schema_version.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.schema_version, range, value, display)
-
-  return offset + length, value
 end
 
 -- Schema Id
@@ -228,6 +324,29 @@ euronext_optiq_marketdatapacket_udp_v1_0.schema_id.dissect = function(buffer, of
   local display = euronext_optiq_marketdatapacket_udp_v1_0.schema_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Version
+euronext_optiq_marketdatapacket_udp_v1_0.schema_version = {}
+
+-- Size: Schema Version
+euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size = 2
+
+-- Display: Schema Version
+euronext_optiq_marketdatapacket_udp_v1_0.schema_version.display = function(value)
+  return "Schema Version: "..value
+end
+
+-- Dissect: Schema Version
+euronext_optiq_marketdatapacket_udp_v1_0.schema_version.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_marketdatapacket_udp_v1_0.schema_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.schema_version, range, value, display)
 
   return offset + length, value
 end
@@ -259,28 +378,10 @@ euronext_optiq_marketdatapacket_udp_v1_0.template_id.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Block Length
-euronext_optiq_marketdatapacket_udp_v1_0.block_length = {}
 
--- Size: Block Length
-euronext_optiq_marketdatapacket_udp_v1_0.block_length.size = 2
-
--- Display: Block Length
-euronext_optiq_marketdatapacket_udp_v1_0.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-euronext_optiq_marketdatapacket_udp_v1_0.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
+-----------------------------------------------------------------------
+-- Dissect Euronext Optiq MarketDataPacket Udp 1.0
+-----------------------------------------------------------------------
 
 -- Message Header
 euronext_optiq_marketdatapacket_udp_v1_0.message_header = {}
@@ -334,29 +435,6 @@ euronext_optiq_marketdatapacket_udp_v1_0.message_header.dissect = function(buffe
   end
 end
 
--- Frame
-euronext_optiq_marketdatapacket_udp_v1_0.frame = {}
-
--- Size: Frame
-euronext_optiq_marketdatapacket_udp_v1_0.frame.size = 2
-
--- Display: Frame
-euronext_optiq_marketdatapacket_udp_v1_0.frame.display = function(value)
-  return "Frame: "..value
-end
-
--- Dissect: Frame
-euronext_optiq_marketdatapacket_udp_v1_0.frame.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.frame.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.frame.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.frame, range, value, display)
-
-  return offset + length, value
-end
-
 -- Optiq Message
 euronext_optiq_marketdatapacket_udp_v1_0.optiq_message = {}
 
@@ -403,29 +481,6 @@ euronext_optiq_marketdatapacket_udp_v1_0.optiq_message.dissect = function(buffer
 
     return index
   end
-end
-
--- Channel Id
-euronext_optiq_marketdatapacket_udp_v1_0.channel_id = {}
-
--- Size: Channel Id
-euronext_optiq_marketdatapacket_udp_v1_0.channel_id.size = 2
-
--- Display: Channel Id
-euronext_optiq_marketdatapacket_udp_v1_0.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-euronext_optiq_marketdatapacket_udp_v1_0.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.channel_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Flags
@@ -496,56 +551,6 @@ euronext_optiq_marketdatapacket_udp_v1_0.packet_flags.dissect = function(buffer,
   end
 
   return offset + size, value
-end
-
--- Packet Sequence Number
-euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number = {}
-
--- Size: Packet Sequence Number
-euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.size = 4
-
--- Display: Packet Sequence Number
-euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.display = function(value)
-  return "Packet Sequence Number: "..value
-end
-
--- Dissect: Packet Sequence Number
-euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Time
-euronext_optiq_marketdatapacket_udp_v1_0.packet_time = {}
-
--- Size: Packet Time
-euronext_optiq_marketdatapacket_udp_v1_0.packet_time.size = 8
-
--- Display: Packet Time
-euronext_optiq_marketdatapacket_udp_v1_0.packet_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Packet Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Packet Time
-euronext_optiq_marketdatapacket_udp_v1_0.packet_time.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_marketdatapacket_udp_v1_0.packet_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_marketdatapacket_udp_v1_0.packet_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1_0.fields.packet_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Data Packet Header

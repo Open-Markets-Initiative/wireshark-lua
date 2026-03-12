@@ -580,74 +580,866 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Ice Futures Mdf iMpact 1.1.33
+-- Ice Futures Mdf iMpact 1.1.33 Fields
 -----------------------------------------------------------------------
 
--- Vwap
-ice_futures_mdf_impact_v1_1_33.vwap = {}
+-- Agg Bid Qty
+ice_futures_mdf_impact_v1_1_33.agg_bid_qty = {}
 
--- Size: Vwap
-ice_futures_mdf_impact_v1_1_33.vwap.size = 8
+-- Size: Agg Bid Qty
+ice_futures_mdf_impact_v1_1_33.agg_bid_qty.size = 4
 
--- Display: Vwap
-ice_futures_mdf_impact_v1_1_33.vwap.display = function(value)
-  return "Vwap: "..value
+-- Display: Agg Bid Qty
+ice_futures_mdf_impact_v1_1_33.agg_bid_qty.display = function(value)
+  return "Agg Bid Qty: "..value
 end
 
--- Dissect: Vwap
-ice_futures_mdf_impact_v1_1_33.vwap.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.vwap.size
+-- Dissect: Agg Bid Qty
+ice_futures_mdf_impact_v1_1_33.agg_bid_qty.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.agg_bid_qty.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.vwap.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.agg_bid_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.vwap, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.agg_bid_qty, range, value, display)
 
   return offset + length, value
 end
 
--- Low
-ice_futures_mdf_impact_v1_1_33.low = {}
+-- Agg Offer Qty
+ice_futures_mdf_impact_v1_1_33.agg_offer_qty = {}
 
--- Size: Low
-ice_futures_mdf_impact_v1_1_33.low.size = 8
+-- Size: Agg Offer Qty
+ice_futures_mdf_impact_v1_1_33.agg_offer_qty.size = 4
 
--- Display: Low
-ice_futures_mdf_impact_v1_1_33.low.display = function(value)
-  return "Low: "..value
+-- Display: Agg Offer Qty
+ice_futures_mdf_impact_v1_1_33.agg_offer_qty.display = function(value)
+  return "Agg Offer Qty: "..value
 end
 
--- Dissect: Low
-ice_futures_mdf_impact_v1_1_33.low.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.low.size
+-- Dissect: Agg Offer Qty
+ice_futures_mdf_impact_v1_1_33.agg_offer_qty.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.agg_offer_qty.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.low.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.agg_offer_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.low, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.agg_offer_qty, range, value, display)
 
   return offset + length, value
 end
 
--- High
-ice_futures_mdf_impact_v1_1_33.high = {}
+-- Aggressor Side
+ice_futures_mdf_impact_v1_1_33.aggressor_side = {}
 
--- Size: High
-ice_futures_mdf_impact_v1_1_33.high.size = 8
+-- Size: Aggressor Side
+ice_futures_mdf_impact_v1_1_33.aggressor_side.size = 1
 
--- Display: High
-ice_futures_mdf_impact_v1_1_33.high.display = function(value)
-  return "High: "..value
+-- Display: Aggressor Side
+ice_futures_mdf_impact_v1_1_33.aggressor_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Aggressor Side: No Value"
+  end
+
+  if value == " " then
+    return "Aggressor Side: None (<whitespace>)"
+  end
+  if value == "1" then
+    return "Aggressor Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Aggressor Side: Sell (2)"
+  end
+
+  return "Aggressor Side: Unknown("..value..")"
 end
 
--- Dissect: High
-ice_futures_mdf_impact_v1_1_33.high.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.high.size
+-- Dissect: Aggressor Side
+ice_futures_mdf_impact_v1_1_33.aggressor_side.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.aggressor_side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.aggressor_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.aggressor_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Allow Options
+ice_futures_mdf_impact_v1_1_33.allow_options = {}
+
+-- Size: Allow Options
+ice_futures_mdf_impact_v1_1_33.allow_options.size = 1
+
+-- Display: Allow Options
+ice_futures_mdf_impact_v1_1_33.allow_options.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Allow Options: No Value"
+  end
+
+  if value == "Y" then
+    return "Allow Options: Yes (Y)"
+  end
+  if value == "N" then
+    return "Allow Options: No (N)"
+  end
+
+  return "Allow Options: Unknown("..value..")"
+end
+
+-- Dissect: Allow Options
+ice_futures_mdf_impact_v1_1_33.allow_options.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.allow_options.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.allow_options.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.allow_options, range, value, display)
+
+  return offset + length, value
+end
+
+-- Allows Implied
+ice_futures_mdf_impact_v1_1_33.allows_implied = {}
+
+-- Size: Allows Implied
+ice_futures_mdf_impact_v1_1_33.allows_implied.size = 1
+
+-- Display: Allows Implied
+ice_futures_mdf_impact_v1_1_33.allows_implied.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Allows Implied: No Value"
+  end
+
+  if value == "Y" then
+    return "Allows Implied: Yes (Y)"
+  end
+  if value == "N" then
+    return "Allows Implied: No (N)"
+  end
+
+  return "Allows Implied: Unknown("..value..")"
+end
+
+-- Dissect: Allows Implied
+ice_futures_mdf_impact_v1_1_33.allows_implied.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.allows_implied.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.allows_implied.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.allows_implied, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alt High Price
+ice_futures_mdf_impact_v1_1_33.alt_high_price = {}
+
+-- Size: Alt High Price
+ice_futures_mdf_impact_v1_1_33.alt_high_price.size = 8
+
+-- Display: Alt High Price
+ice_futures_mdf_impact_v1_1_33.alt_high_price.display = function(value)
+  return "Alt High Price: "..value
+end
+
+-- Dissect: Alt High Price
+ice_futures_mdf_impact_v1_1_33.alt_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.alt_high_price.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.high.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.alt_high_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.high, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_33.alt_last_trade_price = {}
+
+-- Size: Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.size = 8
+
+-- Display: Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.display = function(value)
+  return "Alt Last Trade Price: "..value
+end
+
+-- Dissect: Alt Last Trade Price
+ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_last_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alt Low Price
+ice_futures_mdf_impact_v1_1_33.alt_low_price = {}
+
+-- Size: Alt Low Price
+ice_futures_mdf_impact_v1_1_33.alt_low_price.size = 8
+
+-- Display: Alt Low Price
+ice_futures_mdf_impact_v1_1_33.alt_low_price.display = function(value)
+  return "Alt Low Price: "..value
+end
+
+-- Dissect: Alt Low Price
+ice_futures_mdf_impact_v1_1_33.alt_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.alt_low_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.alt_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alt Price
+ice_futures_mdf_impact_v1_1_33.alt_price = {}
+
+-- Size: Alt Price
+ice_futures_mdf_impact_v1_1_33.alt_price.size = 8
+
+-- Display: Alt Price
+ice_futures_mdf_impact_v1_1_33.alt_price.display = function(value)
+  return "Alt Price: "..value
+end
+
+-- Dissect: Alt Price
+ice_futures_mdf_impact_v1_1_33.alt_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.alt_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.alt_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Alt Vwap
+ice_futures_mdf_impact_v1_1_33.alt_vwap = {}
+
+-- Size: Alt Vwap
+ice_futures_mdf_impact_v1_1_33.alt_vwap.size = 8
+
+-- Display: Alt Vwap
+ice_futures_mdf_impact_v1_1_33.alt_vwap.display = function(value)
+  return "Alt Vwap: "..value
+end
+
+-- Dissect: Alt Vwap
+ice_futures_mdf_impact_v1_1_33.alt_vwap.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.alt_vwap.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.alt_vwap.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_vwap, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aon
+ice_futures_mdf_impact_v1_1_33.aon = {}
+
+-- Size: Aon
+ice_futures_mdf_impact_v1_1_33.aon.size = 1
+
+-- Display: Aon
+ice_futures_mdf_impact_v1_1_33.aon.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Aon: No Value"
+  end
+
+  return "Aon: "..value
+end
+
+-- Dissect: Aon
+ice_futures_mdf_impact_v1_1_33.aon.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.aon.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.aon.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.aon, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Date
+ice_futures_mdf_impact_v1_1_33.auction_date = {}
+
+-- Size: Auction Date
+ice_futures_mdf_impact_v1_1_33.auction_date.size = 10
+
+-- Display: Auction Date
+ice_futures_mdf_impact_v1_1_33.auction_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Auction Date: No Value"
+  end
+
+  return "Auction Date: "..value
+end
+
+-- Dissect: Auction Date
+ice_futures_mdf_impact_v1_1_33.auction_date.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.auction_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.auction_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.auction_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction End Time
+ice_futures_mdf_impact_v1_1_33.auction_end_time = {}
+
+-- Size: Auction End Time
+ice_futures_mdf_impact_v1_1_33.auction_end_time.size = 8
+
+-- Display: Auction End Time
+ice_futures_mdf_impact_v1_1_33.auction_end_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Auction End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Auction End Time
+ice_futures_mdf_impact_v1_1_33.auction_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.auction_end_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.auction_end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.auction_end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Day
+ice_futures_mdf_impact_v1_1_33.begin_day = {}
+
+-- Size: Begin Day
+ice_futures_mdf_impact_v1_1_33.begin_day.size = 2
+
+-- Display: Begin Day
+ice_futures_mdf_impact_v1_1_33.begin_day.display = function(value)
+  return "Begin Day: "..value
+end
+
+-- Dissect: Begin Day
+ice_futures_mdf_impact_v1_1_33.begin_day.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.begin_day.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.begin_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.begin_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Month
+ice_futures_mdf_impact_v1_1_33.begin_month = {}
+
+-- Size: Begin Month
+ice_futures_mdf_impact_v1_1_33.begin_month.size = 2
+
+-- Display: Begin Month
+ice_futures_mdf_impact_v1_1_33.begin_month.display = function(value)
+  return "Begin Month: "..value
+end
+
+-- Dissect: Begin Month
+ice_futures_mdf_impact_v1_1_33.begin_month.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.begin_month.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.begin_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.begin_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Year
+ice_futures_mdf_impact_v1_1_33.begin_year = {}
+
+-- Size: Begin Year
+ice_futures_mdf_impact_v1_1_33.begin_year.size = 2
+
+-- Display: Begin Year
+ice_futures_mdf_impact_v1_1_33.begin_year.display = function(value)
+  return "Begin Year: "..value
+end
+
+-- Dissect: Begin Year
+ice_futures_mdf_impact_v1_1_33.begin_year.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.begin_year.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.begin_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.begin_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Volume
+ice_futures_mdf_impact_v1_1_33.block_volume = {}
+
+-- Size: Block Volume
+ice_futures_mdf_impact_v1_1_33.block_volume.size = 4
+
+-- Display: Block Volume
+ice_futures_mdf_impact_v1_1_33.block_volume.display = function(value)
+  return "Block Volume: "..value
+end
+
+-- Dissect: Block Volume
+ice_futures_mdf_impact_v1_1_33.block_volume.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.block_volume.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.block_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.block_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cleared Alias
+ice_futures_mdf_impact_v1_1_33.cleared_alias = {}
+
+-- Size: Cleared Alias
+ice_futures_mdf_impact_v1_1_33.cleared_alias.size = 15
+
+-- Display: Cleared Alias
+ice_futures_mdf_impact_v1_1_33.cleared_alias.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cleared Alias: No Value"
+  end
+
+  return "Cleared Alias: "..value
+end
+
+-- Dissect: Cleared Alias
+ice_futures_mdf_impact_v1_1_33.cleared_alias.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.cleared_alias.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.cleared_alias.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.cleared_alias, range, value, display)
+
+  return offset + length, value
+end
+
+-- Close Price
+ice_futures_mdf_impact_v1_1_33.close_price = {}
+
+-- Size: Close Price
+ice_futures_mdf_impact_v1_1_33.close_price.size = 8
+
+-- Display: Close Price
+ice_futures_mdf_impact_v1_1_33.close_price.display = function(value)
+  return "Close Price: "..value
+end
+
+-- Dissect: Close Price
+ice_futures_mdf_impact_v1_1_33.close_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.close_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Symbol
+ice_futures_mdf_impact_v1_1_33.contract_symbol = {}
+
+-- Size: Contract Symbol
+ice_futures_mdf_impact_v1_1_33.contract_symbol.size = 35
+
+-- Display: Contract Symbol
+ice_futures_mdf_impact_v1_1_33.contract_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contract Symbol: No Value"
+  end
+
+  return "Contract Symbol: "..value
+end
+
+-- Dissect: Contract Symbol
+ice_futures_mdf_impact_v1_1_33.contract_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.contract_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.contract_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.contract_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Symbol Extra
+ice_futures_mdf_impact_v1_1_33.contract_symbol_extra = {}
+
+-- Size: Contract Symbol Extra
+ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.size = 35
+
+-- Display: Contract Symbol Extra
+ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contract Symbol Extra: No Value"
+  end
+
+  return "Contract Symbol Extra: "..value
+end
+
+-- Dissect: Contract Symbol Extra
+ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.contract_symbol_extra, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Order Supported
+ice_futures_mdf_impact_v1_1_33.cross_order_supported = {}
+
+-- Size: Cross Order Supported
+ice_futures_mdf_impact_v1_1_33.cross_order_supported.size = 1
+
+-- Display: Cross Order Supported
+ice_futures_mdf_impact_v1_1_33.cross_order_supported.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Order Supported: No Value"
+  end
+
+  if value == "Y" then
+    return "Cross Order Supported: Yes (Y)"
+  end
+  if value == "N" then
+    return "Cross Order Supported: No (N)"
+  end
+
+  return "Cross Order Supported: Unknown("..value..")"
+end
+
+-- Dissect: Cross Order Supported
+ice_futures_mdf_impact_v1_1_33.cross_order_supported.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.cross_order_supported.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.cross_order_supported.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.cross_order_supported, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+ice_futures_mdf_impact_v1_1_33.currency = {}
+
+-- Size: Currency
+ice_futures_mdf_impact_v1_1_33.currency.size = 20
+
+-- Display: Currency
+ice_futures_mdf_impact_v1_1_33.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+ice_futures_mdf_impact_v1_1_33.currency.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.currency.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deal Price Denominator
+ice_futures_mdf_impact_v1_1_33.deal_price_denominator = {}
+
+-- Size: Deal Price Denominator
+ice_futures_mdf_impact_v1_1_33.deal_price_denominator.size = 1
+
+-- Display: Deal Price Denominator
+ice_futures_mdf_impact_v1_1_33.deal_price_denominator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Deal Price Denominator: No Value"
+  end
+
+  return "Deal Price Denominator: "..value
+end
+
+-- Dissect: Deal Price Denominator
+ice_futures_mdf_impact_v1_1_33.deal_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.deal_price_denominator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.deal_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.deal_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Begin Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time = {}
+
+-- Size: Delivery Begin Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.size = 8
+
+-- Display: Delivery Begin Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Delivery Begin Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Delivery Begin Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.delivery_begin_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery End Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_end_date_time = {}
+
+-- Size: Delivery End Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.size = 8
+
+-- Display: Delivery End Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Delivery End Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Delivery End Date Time
+ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.delivery_end_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delta
+ice_futures_mdf_impact_v1_1_33.delta = {}
+
+-- Size: Delta
+ice_futures_mdf_impact_v1_1_33.delta.size = 8
+
+-- Display: Delta
+ice_futures_mdf_impact_v1_1_33.delta.display = function(value)
+  return "Delta: "..value
+end
+
+-- Dissect: Delta
+ice_futures_mdf_impact_v1_1_33.delta.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.delta.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Description
+ice_futures_mdf_impact_v1_1_33.description = {}
+
+-- Size: Description
+ice_futures_mdf_impact_v1_1_33.description.size = 20
+
+-- Display: Description
+ice_futures_mdf_impact_v1_1_33.description.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Description: No Value"
+  end
+
+  return "Description: "..value
+end
+
+-- Dissect: Description
+ice_futures_mdf_impact_v1_1_33.description.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.description.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.description.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.description, range, value, display)
 
   return offset + length, value
 end
@@ -698,48 +1490,94 @@ ice_futures_mdf_impact_v1_1_33.efs_volume.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Block Volume
-ice_futures_mdf_impact_v1_1_33.block_volume = {}
+-- End Day
+ice_futures_mdf_impact_v1_1_33.end_day = {}
 
--- Size: Block Volume
-ice_futures_mdf_impact_v1_1_33.block_volume.size = 4
+-- Size: End Day
+ice_futures_mdf_impact_v1_1_33.end_day.size = 2
 
--- Display: Block Volume
-ice_futures_mdf_impact_v1_1_33.block_volume.display = function(value)
-  return "Block Volume: "..value
+-- Display: End Day
+ice_futures_mdf_impact_v1_1_33.end_day.display = function(value)
+  return "End Day: "..value
 end
 
--- Dissect: Block Volume
-ice_futures_mdf_impact_v1_1_33.block_volume.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.block_volume.size
+-- Dissect: End Day
+ice_futures_mdf_impact_v1_1_33.end_day.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.end_day.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.block_volume.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.end_day.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.block_volume, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.end_day, range, value, display)
 
   return offset + length, value
 end
 
--- Total Volume
-ice_futures_mdf_impact_v1_1_33.total_volume = {}
+-- End Month
+ice_futures_mdf_impact_v1_1_33.end_month = {}
 
--- Size: Total Volume
-ice_futures_mdf_impact_v1_1_33.total_volume.size = 4
+-- Size: End Month
+ice_futures_mdf_impact_v1_1_33.end_month.size = 2
 
--- Display: Total Volume
-ice_futures_mdf_impact_v1_1_33.total_volume.display = function(value)
-  return "Total Volume: "..value
+-- Display: End Month
+ice_futures_mdf_impact_v1_1_33.end_month.display = function(value)
+  return "End Month: "..value
 end
 
--- Dissect: Total Volume
-ice_futures_mdf_impact_v1_1_33.total_volume.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.total_volume.size
+-- Dissect: End Month
+ice_futures_mdf_impact_v1_1_33.end_month.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.end_month.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.total_volume.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.end_month.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.total_volume, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.end_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Year
+ice_futures_mdf_impact_v1_1_33.end_year = {}
+
+-- Size: End Year
+ice_futures_mdf_impact_v1_1_33.end_year.size = 2
+
+-- Display: End Year
+ice_futures_mdf_impact_v1_1_33.end_year.display = function(value)
+  return "End Year: "..value
+end
+
+-- Dissect: End Year
+ice_futures_mdf_impact_v1_1_33.end_year.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.end_year.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.end_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.end_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Eur Price
+ice_futures_mdf_impact_v1_1_33.eur_price = {}
+
+-- Size: Eur Price
+ice_futures_mdf_impact_v1_1_33.eur_price.size = 8
+
+-- Display: Eur Price
+ice_futures_mdf_impact_v1_1_33.eur_price.display = function(value)
+  return "Eur Price: "..value
+end
+
+-- Dissect: Eur Price
+ice_futures_mdf_impact_v1_1_33.eur_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.eur_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.eur_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.eur_price, range, value, display)
 
   return offset + length, value
 end
@@ -790,55 +1628,25 @@ ice_futures_mdf_impact_v1_1_33.event_code.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Strike Price
-ice_futures_mdf_impact_v1_1_33.strike_price = {}
+-- Event Type
+ice_futures_mdf_impact_v1_1_33.event_type = {}
 
--- Size: Strike Price
-ice_futures_mdf_impact_v1_1_33.strike_price.size = 8
+-- Size: Event Type
+ice_futures_mdf_impact_v1_1_33.event_type.size = 1
 
--- Display: Strike Price
-ice_futures_mdf_impact_v1_1_33.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-ice_futures_mdf_impact_v1_1_33.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.strike_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-ice_futures_mdf_impact_v1_1_33.option_type = {}
-
--- Size: Option Type
-ice_futures_mdf_impact_v1_1_33.option_type.size = 1
-
--- Display: Option Type
-ice_futures_mdf_impact_v1_1_33.option_type.display = function(value)
+-- Display: Event Type
+ice_futures_mdf_impact_v1_1_33.event_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == 0 then
-    return "Option Type: No Value"
+  if value == nil or value == '' then
+    return "Event Type: No Value"
   end
 
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-
-  return "Option Type: Unknown("..value..")"
+  return "Event Type: "..value
 end
 
--- Dissect: Option Type
-ice_futures_mdf_impact_v1_1_33.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.option_type.size
+-- Dissect: Event Type
+ice_futures_mdf_impact_v1_1_33.event_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.event_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -849,87 +1657,581 @@ ice_futures_mdf_impact_v1_1_33.option_type.dissect = function(buffer, offset, pa
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_33.option_type.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.event_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Date Time
-ice_futures_mdf_impact_v1_1_33.transact_date_time = {}
-
--- Size: Transact Date Time
-ice_futures_mdf_impact_v1_1_33.transact_date_time.size = 8
-
--- Display: Transact Date Time
-ice_futures_mdf_impact_v1_1_33.transact_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Transact Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Transact Date Time
-ice_futures_mdf_impact_v1_1_33.transact_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.transact_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.transact_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.transact_date_time, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.event_type, range, value, display)
 
   return offset + length, value
 end
 
--- Off Market Trade Indicator
-ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator = {}
+-- Exchange Silo
+ice_futures_mdf_impact_v1_1_33.exchange_silo = {}
 
--- Size: Off Market Trade Indicator
-ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.size = 1
+-- Size: Exchange Silo
+ice_futures_mdf_impact_v1_1_33.exchange_silo.size = 1
 
--- Display: Off Market Trade Indicator
-ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.display = function(value)
+-- Display: Exchange Silo
+ice_futures_mdf_impact_v1_1_33.exchange_silo.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Off Market Trade Indicator: No Value"
+    return "Exchange Silo: No Value"
+  end
+
+  if value == "0" then
+    return "Exchange Silo: Ice (0)"
+  end
+  if value == "1" then
+    return "Exchange Silo: Endex (1)"
+  end
+  if value == "2" then
+    return "Exchange Silo: Liffe (2)"
+  end
+
+  return "Exchange Silo: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Silo
+ice_futures_mdf_impact_v1_1_33.exchange_silo.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.exchange_silo.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.exchange_silo.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.exchange_silo, range, value, display)
+
+  return offset + length, value
+end
+
+-- Extra Flags
+ice_futures_mdf_impact_v1_1_33.extra_flags = {}
+
+-- Size: Extra Flags
+ice_futures_mdf_impact_v1_1_33.extra_flags.size = 1
+
+-- Display: Extra Flags
+ice_futures_mdf_impact_v1_1_33.extra_flags.display = function(value)
+  return "Extra Flags: "..value
+end
+
+-- Dissect: Extra Flags
+ice_futures_mdf_impact_v1_1_33.extra_flags.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.extra_flags.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.extra_flags.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.extra_flags, range, value, display)
+
+  return offset + length, value
+end
+
+-- Flex Allowed
+ice_futures_mdf_impact_v1_1_33.flex_allowed = {}
+
+-- Size: Flex Allowed
+ice_futures_mdf_impact_v1_1_33.flex_allowed.size = 1
+
+-- Display: Flex Allowed
+ice_futures_mdf_impact_v1_1_33.flex_allowed.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Flex Allowed: No Value"
+  end
+
+  return "Flex Allowed: "..value
+end
+
+-- Dissect: Flex Allowed
+ice_futures_mdf_impact_v1_1_33.flex_allowed.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.flex_allowed.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.flex_allowed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.flex_allowed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Futures Contract Symbol
+ice_futures_mdf_impact_v1_1_33.futures_contract_symbol = {}
+
+-- Size: Futures Contract Symbol
+ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.size = 70
+
+-- Display: Futures Contract Symbol
+ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Futures Contract Symbol: No Value"
+  end
+
+  return "Futures Contract Symbol: "..value
+end
+
+-- Dissect: Futures Contract Symbol
+ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.futures_contract_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gbp Price
+ice_futures_mdf_impact_v1_1_33.gbp_price = {}
+
+-- Size: Gbp Price
+ice_futures_mdf_impact_v1_1_33.gbp_price.size = 8
+
+-- Display: Gbp Price
+ice_futures_mdf_impact_v1_1_33.gbp_price.display = function(value)
+  return "Gbp Price: "..value
+end
+
+-- Dissect: Gbp Price
+ice_futures_mdf_impact_v1_1_33.gbp_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.gbp_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.gbp_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.gbp_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gt Allowed
+ice_futures_mdf_impact_v1_1_33.gt_allowed = {}
+
+-- Size: Gt Allowed
+ice_futures_mdf_impact_v1_1_33.gt_allowed.size = 1
+
+-- Display: Gt Allowed
+ice_futures_mdf_impact_v1_1_33.gt_allowed.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Gt Allowed: No Value"
+  end
+
+  if value == "Y" then
+    return "Gt Allowed: Yes (Y)"
+  end
+  if value == "N" then
+    return "Gt Allowed: No (N)"
+  end
+
+  return "Gt Allowed: Unknown("..value..")"
+end
+
+-- Dissect: Gt Allowed
+ice_futures_mdf_impact_v1_1_33.gt_allowed.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.gt_allowed.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.gt_allowed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.gt_allowed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Guaranteed Cross Supported
+ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported = {}
+
+-- Size: Guaranteed Cross Supported
+ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.size = 1
+
+-- Display: Guaranteed Cross Supported
+ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Guaranteed Cross Supported: No Value"
+  end
+
+  if value == "Y" then
+    return "Guaranteed Cross Supported: Yes (Y)"
+  end
+  if value == "N" then
+    return "Guaranteed Cross Supported: No (N)"
+  end
+
+  return "Guaranteed Cross Supported: Unknown("..value..")"
+end
+
+-- Dissect: Guaranteed Cross Supported
+ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.guaranteed_cross_supported, range, value, display)
+
+  return offset + length, value
+end
+
+-- Has Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.has_pre_open_volume = {}
+
+-- Size: Has Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.size = 1
+
+-- Display: Has Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Has Pre Open Volume: No Value"
+  end
+
+  return "Has Pre Open Volume: "..value
+end
+
+-- Dissect: Has Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.has_pre_open_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Has Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price = {}
+
+-- Size: Has Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.size = 1
+
+-- Display: Has Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Has Previous Day Settlement Price: No Value"
+  end
+
+  if value == "N" then
+    return "Has Previous Day Settlement Price: No (N)"
+  end
+  if value == "Y" then
+    return "Has Previous Day Settlement Price: Yes (Y)"
+  end
+
+  return "Has Previous Day Settlement Price: Unknown("..value..")"
+end
+
+-- Dissect: Has Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.has_previous_day_settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Body Length
+ice_futures_mdf_impact_v1_1_33.hedge_body_length = {}
+
+-- Size: Hedge Body Length
+ice_futures_mdf_impact_v1_1_33.hedge_body_length.size = 1
+
+-- Display: Hedge Body Length
+ice_futures_mdf_impact_v1_1_33.hedge_body_length.display = function(value)
+  return "Hedge Body Length: "..value
+end
+
+-- Dissect: Hedge Body Length
+ice_futures_mdf_impact_v1_1_33.hedge_body_length.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_body_length.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_body_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_body_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Delta
+ice_futures_mdf_impact_v1_1_33.hedge_delta = {}
+
+-- Size: Hedge Delta
+ice_futures_mdf_impact_v1_1_33.hedge_delta.size = 2
+
+-- Display: Hedge Delta
+ice_futures_mdf_impact_v1_1_33.hedge_delta.display = function(value)
+  return "Hedge Delta: "..value
+end
+
+-- Dissect: Hedge Delta
+ice_futures_mdf_impact_v1_1_33.hedge_delta.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_delta.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_delta.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_delta, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Market Id
+ice_futures_mdf_impact_v1_1_33.hedge_market_id = {}
+
+-- Size: Hedge Market Id
+ice_futures_mdf_impact_v1_1_33.hedge_market_id.size = 4
+
+-- Display: Hedge Market Id
+ice_futures_mdf_impact_v1_1_33.hedge_market_id.display = function(value)
+  return "Hedge Market Id: "..value
+end
+
+-- Dissect: Hedge Market Id
+ice_futures_mdf_impact_v1_1_33.hedge_market_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_market_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Only
+ice_futures_mdf_impact_v1_1_33.hedge_only = {}
+
+-- Size: Hedge Only
+ice_futures_mdf_impact_v1_1_33.hedge_only.size = 1
+
+-- Display: Hedge Only
+ice_futures_mdf_impact_v1_1_33.hedge_only.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Hedge Only: No Value"
+  end
+
+  if value == "Y" then
+    return "Hedge Only: Yes (Y)"
+  end
+  if value == "N" then
+    return "Hedge Only: No (N)"
+  end
+
+  return "Hedge Only: Unknown("..value..")"
+end
+
+-- Dissect: Hedge Only
+ice_futures_mdf_impact_v1_1_33.hedge_only.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_only.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Price
+ice_futures_mdf_impact_v1_1_33.hedge_price = {}
+
+-- Size: Hedge Price
+ice_futures_mdf_impact_v1_1_33.hedge_price.size = 8
+
+-- Display: Hedge Price
+ice_futures_mdf_impact_v1_1_33.hedge_price.display = function(value)
+  return "Hedge Price: "..value
+end
+
+-- Dissect: Hedge Price
+ice_futures_mdf_impact_v1_1_33.hedge_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Price Denominator
+ice_futures_mdf_impact_v1_1_33.hedge_price_denominator = {}
+
+-- Size: Hedge Price Denominator
+ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.size = 1
+
+-- Display: Hedge Price Denominator
+ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Hedge Price Denominator: No Value"
+  end
+
+  return "Hedge Price Denominator: "..value
+end
+
+-- Dissect: Hedge Price Denominator
+ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Security Type
+ice_futures_mdf_impact_v1_1_33.hedge_security_type = {}
+
+-- Size: Hedge Security Type
+ice_futures_mdf_impact_v1_1_33.hedge_security_type.size = 1
+
+-- Display: Hedge Security Type
+ice_futures_mdf_impact_v1_1_33.hedge_security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Hedge Security Type: No Value"
+  end
+
+  return "Hedge Security Type: "..value
+end
+
+-- Dissect: Hedge Security Type
+ice_futures_mdf_impact_v1_1_33.hedge_security_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_security_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hedge Side
+ice_futures_mdf_impact_v1_1_33.hedge_side = {}
+
+-- Size: Hedge Side
+ice_futures_mdf_impact_v1_1_33.hedge_side.size = 1
+
+-- Display: Hedge Side
+ice_futures_mdf_impact_v1_1_33.hedge_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Hedge Side: No Value"
   end
 
   if value == " " then
-    return "Off Market Trade Indicator: Regular (<whitespace>)"
+    return "Hedge Side: None (<whitespace>)"
   end
-  if value == "K" then
-    return "Off Market Trade Indicator: Block (K)"
+  if value == "1" then
+    return "Hedge Side: Bid (1)"
   end
-  if value == "S" then
-    return "Off Market Trade Indicator: Efs (S)"
-  end
-  if value == "E" then
-    return "Off Market Trade Indicator: Efp (E)"
-  end
-  if value == "O" then
-    return "Off Market Trade Indicator: Efp Efs (O)"
-  end
-  if value == "Q" then
-    return "Off Market Trade Indicator: Eoo (Q)"
-  end
-  if value == "I" then
-    return "Off Market Trade Indicator: Efm (I)"
-  end
-  if value == "5" then
-    return "Off Market Trade Indicator: Guaranteed Cross (5)"
-  end
-  if value == "5" then
-    return "Off Market Trade Indicator: Basis (5)"
+  if value == "2" then
+    return "Hedge Side: Offer (2)"
   end
 
-  return "Off Market Trade Indicator: Unknown("..value..")"
+  return "Hedge Side: Unknown("..value..")"
 end
 
--- Dissect: Off Market Trade Indicator
-ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.size
+-- Dissect: Hedge Side
+ice_futures_mdf_impact_v1_1_33.hedge_side.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_side.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -940,297 +2242,663 @@ ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.dissect = function(buf
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_market_trade_indicator, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_side, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity
-ice_futures_mdf_impact_v1_1_33.quantity = {}
+-- Hedge Strategy Code
+ice_futures_mdf_impact_v1_1_33.hedge_strategy_code = {}
 
--- Size: Quantity
-ice_futures_mdf_impact_v1_1_33.quantity.size = 4
+-- Size: Hedge Strategy Code
+ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.size = 2
 
--- Display: Quantity
-ice_futures_mdf_impact_v1_1_33.quantity.display = function(value)
-  return "Quantity: "..value
+-- Display: Hedge Strategy Code
+ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.display = function(value)
+  return "Hedge Strategy Code: "..value
 end
 
--- Dissect: Quantity
-ice_futures_mdf_impact_v1_1_33.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.quantity.size
+-- Dissect: Hedge Strategy Code
+ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.quantity.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.quantity, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_strategy_code, range, value, display)
 
   return offset + length, value
 end
 
--- Price
-ice_futures_mdf_impact_v1_1_33.price = {}
+-- High
+ice_futures_mdf_impact_v1_1_33.high = {}
 
--- Size: Price
-ice_futures_mdf_impact_v1_1_33.price.size = 8
+-- Size: High
+ice_futures_mdf_impact_v1_1_33.high.size = 8
 
--- Display: Price
-ice_futures_mdf_impact_v1_1_33.price.display = function(value)
-  return "Price: "..value
+-- Display: High
+ice_futures_mdf_impact_v1_1_33.high.display = function(value)
+  return "High: "..value
 end
 
--- Dissect: Price
-ice_futures_mdf_impact_v1_1_33.price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.price.size
+-- Dissect: High
+ice_futures_mdf_impact_v1_1_33.high.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.high.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.price.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.high.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-ice_futures_mdf_impact_v1_1_33.trade_id = {}
-
--- Size: Trade Id
-ice_futures_mdf_impact_v1_1_33.trade_id.size = 8
-
--- Display: Trade Id
-ice_futures_mdf_impact_v1_1_33.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-ice_futures_mdf_impact_v1_1_33.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.trade_id, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.high, range, value, display)
 
   return offset + length, value
 end
 
--- Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.underlying_market_id = {}
+-- Hub Alias
+ice_futures_mdf_impact_v1_1_33.hub_alias = {}
 
--- Size: Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.underlying_market_id.size = 4
+-- Size: Hub Alias
+ice_futures_mdf_impact_v1_1_33.hub_alias.size = 80
 
--- Display: Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.underlying_market_id.display = function(value)
-  return "Underlying Market Id: "..value
-end
-
--- Dissect: Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.underlying_market_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.underlying_market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.underlying_market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Old Style Options Trade And Market Stats Message
-ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message = {}
-
--- Size: Old Style Options Trade And Market Stats Message
-ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.size =
-  ice_futures_mdf_impact_v1_1_33.underlying_market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.trade_id.size + 
-  ice_futures_mdf_impact_v1_1_33.price.size + 
-  ice_futures_mdf_impact_v1_1_33.quantity.size + 
-  ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.size + 
-  ice_futures_mdf_impact_v1_1_33.transact_date_time.size + 
-  ice_futures_mdf_impact_v1_1_33.option_type.size + 
-  ice_futures_mdf_impact_v1_1_33.strike_price.size + 
-  ice_futures_mdf_impact_v1_1_33.event_code.size + 
-  ice_futures_mdf_impact_v1_1_33.total_volume.size + 
-  ice_futures_mdf_impact_v1_1_33.block_volume.size + 
-  ice_futures_mdf_impact_v1_1_33.efs_volume.size + 
-  ice_futures_mdf_impact_v1_1_33.efp_volume.size + 
-  ice_futures_mdf_impact_v1_1_33.high.size + 
-  ice_futures_mdf_impact_v1_1_33.low.size + 
-  ice_futures_mdf_impact_v1_1_33.vwap.size
-
--- Display: Old Style Options Trade And Market Stats Message
-ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Old Style Options Trade And Market Stats Message
-ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Underlying Market Id: Numeric
-  index, underlying_market_id = ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect(buffer, index, packet, parent)
-
-  -- Trade Id: Numeric
-  index, trade_id = ice_futures_mdf_impact_v1_1_33.trade_id.dissect(buffer, index, packet, parent)
-
-  -- Price: Numeric
-  index, price = ice_futures_mdf_impact_v1_1_33.price.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Numeric
-  index, quantity = ice_futures_mdf_impact_v1_1_33.quantity.dissect(buffer, index, packet, parent)
-
-  -- Off Market Trade Indicator: Alpha
-  index, off_market_trade_indicator = ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.dissect(buffer, index, packet, parent)
-
-  -- Transact Date Time: Numeric
-  index, transact_date_time = ice_futures_mdf_impact_v1_1_33.transact_date_time.dissect(buffer, index, packet, parent)
-
-  -- Option Type: Alpha
-  index, option_type = ice_futures_mdf_impact_v1_1_33.option_type.dissect(buffer, index, packet, parent)
-
-  -- Strike Price: Numeric
-  index, strike_price = ice_futures_mdf_impact_v1_1_33.strike_price.dissect(buffer, index, packet, parent)
-
-  -- Event Code: Alpha
-  index, event_code = ice_futures_mdf_impact_v1_1_33.event_code.dissect(buffer, index, packet, parent)
-
-  -- Total Volume: Numeric
-  index, total_volume = ice_futures_mdf_impact_v1_1_33.total_volume.dissect(buffer, index, packet, parent)
-
-  -- Block Volume: Numeric
-  index, block_volume = ice_futures_mdf_impact_v1_1_33.block_volume.dissect(buffer, index, packet, parent)
-
-  -- Efs Volume: Numeric
-  index, efs_volume = ice_futures_mdf_impact_v1_1_33.efs_volume.dissect(buffer, index, packet, parent)
-
-  -- Efp Volume: Numeric
-  index, efp_volume = ice_futures_mdf_impact_v1_1_33.efp_volume.dissect(buffer, index, packet, parent)
-
-  -- High: Numeric
-  index, high = ice_futures_mdf_impact_v1_1_33.high.dissect(buffer, index, packet, parent)
-
-  -- Low: Numeric
-  index, low = ice_futures_mdf_impact_v1_1_33.low.dissect(buffer, index, packet, parent)
-
-  -- Vwap: Numeric
-  index, vwap = ice_futures_mdf_impact_v1_1_33.vwap.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Old Style Options Trade And Market Stats Message
-ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.dissect = function(buffer, offset, packet, parent)
-  if show.old_style_options_trade_and_market_stats_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.old_style_options_trade_and_market_stats_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.fields(buffer, offset, packet, parent)
+-- Display: Hub Alias
+ice_futures_mdf_impact_v1_1_33.hub_alias.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Hub Alias: No Value"
   end
+
+  return "Hub Alias: "..value
 end
 
--- Delta
-ice_futures_mdf_impact_v1_1_33.delta = {}
-
--- Size: Delta
-ice_futures_mdf_impact_v1_1_33.delta.size = 8
-
--- Display: Delta
-ice_futures_mdf_impact_v1_1_33.delta.display = function(value)
-  return "Delta: "..value
-end
-
--- Dissect: Delta
-ice_futures_mdf_impact_v1_1_33.delta.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.delta.size
+-- Dissect: Hub Alias
+ice_futures_mdf_impact_v1_1_33.hub_alias.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hub_alias.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.delta.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.delta, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.hub_alias.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hub_alias, range, value, display)
 
   return offset + length, value
 end
 
--- Settlement Price
-ice_futures_mdf_impact_v1_1_33.settlement_price = {}
+-- Hub Id
+ice_futures_mdf_impact_v1_1_33.hub_id = {}
 
--- Size: Settlement Price
-ice_futures_mdf_impact_v1_1_33.settlement_price.size = 8
+-- Size: Hub Id
+ice_futures_mdf_impact_v1_1_33.hub_id.size = 4
 
--- Display: Settlement Price
-ice_futures_mdf_impact_v1_1_33.settlement_price.display = function(value)
-  return "Settlement Price: "..value
+-- Display: Hub Id
+ice_futures_mdf_impact_v1_1_33.hub_id.display = function(value)
+  return "Hub Id: "..value
 end
 
--- Dissect: Settlement Price
-ice_futures_mdf_impact_v1_1_33.settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.settlement_price.size
+-- Dissect: Hub Id
+ice_futures_mdf_impact_v1_1_33.hub_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.hub_id.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.settlement_price.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.hub_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settlement_price, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hub_id, range, value, display)
 
   return offset + length, value
 end
 
--- Volatility
-ice_futures_mdf_impact_v1_1_33.volatility = {}
+-- Iba Currency
+ice_futures_mdf_impact_v1_1_33.iba_currency = {}
 
--- Size: Volatility
-ice_futures_mdf_impact_v1_1_33.volatility.size = 8
+-- Size: Iba Currency
+ice_futures_mdf_impact_v1_1_33.iba_currency.size = 3
 
--- Display: Volatility
-ice_futures_mdf_impact_v1_1_33.volatility.display = function(value)
-  return "Volatility: "..value
+-- Display: Iba Currency
+ice_futures_mdf_impact_v1_1_33.iba_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Iba Currency: No Value"
+  end
+
+  return "Iba Currency: "..value
 end
 
--- Dissect: Volatility
-ice_futures_mdf_impact_v1_1_33.volatility.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.volatility.size
+-- Dissect: Iba Currency
+ice_futures_mdf_impact_v1_1_33.iba_currency.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.iba_currency.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.volatility.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.volatility, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.iba_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.iba_currency, range, value, display)
 
   return offset + length, value
 end
 
--- Valuation Date Time
-ice_futures_mdf_impact_v1_1_33.valuation_date_time = {}
+-- Implied Order Count
+ice_futures_mdf_impact_v1_1_33.implied_order_count = {}
 
--- Size: Valuation Date Time
-ice_futures_mdf_impact_v1_1_33.valuation_date_time.size = 8
+-- Size: Implied Order Count
+ice_futures_mdf_impact_v1_1_33.implied_order_count.size = 2
 
--- Display: Valuation Date Time
-ice_futures_mdf_impact_v1_1_33.valuation_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Valuation Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+-- Display: Implied Order Count
+ice_futures_mdf_impact_v1_1_33.implied_order_count.display = function(value)
+  return "Implied Order Count: "..value
 end
 
--- Dissect: Valuation Date Time
-ice_futures_mdf_impact_v1_1_33.valuation_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.valuation_date_time.size
+-- Dissect: Implied Order Count
+ice_futures_mdf_impact_v1_1_33.implied_order_count.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.implied_order_count.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.implied_order_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.implied_order_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Implied Quantity
+ice_futures_mdf_impact_v1_1_33.implied_quantity = {}
+
+-- Size: Implied Quantity
+ice_futures_mdf_impact_v1_1_33.implied_quantity.size = 4
+
+-- Display: Implied Quantity
+ice_futures_mdf_impact_v1_1_33.implied_quantity.display = function(value)
+  return "Implied Quantity: "..value
+end
+
+-- Dissect: Implied Quantity
+ice_futures_mdf_impact_v1_1_33.implied_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.implied_quantity.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.implied_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.implied_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Increment Premium Price
+ice_futures_mdf_impact_v1_1_33.increment_premium_price = {}
+
+-- Size: Increment Premium Price
+ice_futures_mdf_impact_v1_1_33.increment_premium_price.size = 4
+
+-- Display: Increment Premium Price
+ice_futures_mdf_impact_v1_1_33.increment_premium_price.display = function(value)
+  return "Increment Premium Price: "..value
+end
+
+-- Dissect: Increment Premium Price
+ice_futures_mdf_impact_v1_1_33.increment_premium_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.increment_premium_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.increment_premium_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.increment_premium_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Increment Price
+ice_futures_mdf_impact_v1_1_33.increment_price = {}
+
+-- Size: Increment Price
+ice_futures_mdf_impact_v1_1_33.increment_price.size = 4
+
+-- Display: Increment Price
+ice_futures_mdf_impact_v1_1_33.increment_price.display = function(value)
+  return "Increment Price: "..value
+end
+
+-- Dissect: Increment Price
+ice_futures_mdf_impact_v1_1_33.increment_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.increment_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.increment_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.increment_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Increment Qty
+ice_futures_mdf_impact_v1_1_33.increment_qty = {}
+
+-- Size: Increment Qty
+ice_futures_mdf_impact_v1_1_33.increment_qty.size = 4
+
+-- Display: Increment Qty
+ice_futures_mdf_impact_v1_1_33.increment_qty.display = function(value)
+  return "Increment Qty: "..value
+end
+
+-- Dissect: Increment Qty
+ice_futures_mdf_impact_v1_1_33.increment_qty.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.increment_qty.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.increment_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.increment_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Investigation Status
+ice_futures_mdf_impact_v1_1_33.investigation_status = {}
+
+-- Size: Investigation Status
+ice_futures_mdf_impact_v1_1_33.investigation_status.size = 1
+
+-- Display: Investigation Status
+ice_futures_mdf_impact_v1_1_33.investigation_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Investigation Status: No Value"
+  end
+
+  if value == "1" then
+    return "Investigation Status: Under Investigation (1)"
+  end
+  if value == "2" then
+    return "Investigation Status: Investigation Completed (2)"
+  end
+
+  return "Investigation Status: Unknown("..value..")"
+end
+
+-- Dissect: Investigation Status
+ice_futures_mdf_impact_v1_1_33.investigation_status.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.investigation_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.investigation_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.investigation_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ipl Down
+ice_futures_mdf_impact_v1_1_33.ipl_down = {}
+
+-- Size: Ipl Down
+ice_futures_mdf_impact_v1_1_33.ipl_down.size = 8
+
+-- Display: Ipl Down
+ice_futures_mdf_impact_v1_1_33.ipl_down.display = function(value)
+  return "Ipl Down: "..value
+end
+
+-- Dissect: Ipl Down
+ice_futures_mdf_impact_v1_1_33.ipl_down.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.ipl_down.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.valuation_date_time.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.ipl_down.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.valuation_date_time, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_down, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ipl Hold Duration
+ice_futures_mdf_impact_v1_1_33.ipl_hold_duration = {}
+
+-- Size: Ipl Hold Duration
+ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.size = 4
+
+-- Display: Ipl Hold Duration
+ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.display = function(value)
+  return "Ipl Hold Duration: "..value
+end
+
+-- Dissect: Ipl Hold Duration
+ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_hold_duration, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ipl Hold Type
+ice_futures_mdf_impact_v1_1_33.ipl_hold_type = {}
+
+-- Size: Ipl Hold Type
+ice_futures_mdf_impact_v1_1_33.ipl_hold_type.size = 1
+
+-- Display: Ipl Hold Type
+ice_futures_mdf_impact_v1_1_33.ipl_hold_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ipl Hold Type: No Value"
+  end
+
+  if value == "S" then
+    return "Ipl Hold Type: Ipl Hold Start (S)"
+  end
+  if value == "E" then
+    return "Ipl Hold Type: Ipl Hold End (E)"
+  end
+
+  return "Ipl Hold Type: Unknown("..value..")"
+end
+
+-- Dissect: Ipl Hold Type
+ice_futures_mdf_impact_v1_1_33.ipl_hold_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.ipl_hold_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.ipl_hold_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_hold_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ipl Up
+ice_futures_mdf_impact_v1_1_33.ipl_up = {}
+
+-- Size: Ipl Up
+ice_futures_mdf_impact_v1_1_33.ipl_up.size = 8
+
+-- Display: Ipl Up
+ice_futures_mdf_impact_v1_1_33.ipl_up.display = function(value)
+  return "Ipl Up: "..value
+end
+
+-- Dissect: Ipl Up
+ice_futures_mdf_impact_v1_1_33.ipl_up.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.ipl_up.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.ipl_up.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_up, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Adjusted Trade
+ice_futures_mdf_impact_v1_1_33.is_adjusted_trade = {}
+
+-- Size: Is Adjusted Trade
+ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.size = 1
+
+-- Display: Is Adjusted Trade
+ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Is Adjusted Trade: No Value"
+  end
+
+  return "Is Adjusted Trade: "..value
+end
+
+-- Dissect: Is Adjusted Trade
+ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_adjusted_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Balanced
+ice_futures_mdf_impact_v1_1_33.is_balanced = {}
+
+-- Size: Is Balanced
+ice_futures_mdf_impact_v1_1_33.is_balanced.size = 1
+
+-- Display: Is Balanced
+ice_futures_mdf_impact_v1_1_33.is_balanced.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Balanced: No Value"
+  end
+
+  if value == "Y" then
+    return "Is Balanced: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Balanced: No (N)"
+  end
+
+  return "Is Balanced: Unknown("..value..")"
+end
+
+-- Dissect: Is Balanced
+ice_futures_mdf_impact_v1_1_33.is_balanced.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_balanced.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_balanced.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_balanced, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Block Only
+ice_futures_mdf_impact_v1_1_33.is_block_only = {}
+
+-- Size: Is Block Only
+ice_futures_mdf_impact_v1_1_33.is_block_only.size = 1
+
+-- Display: Is Block Only
+ice_futures_mdf_impact_v1_1_33.is_block_only.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Block Only: No Value"
+  end
+
+  if value == "Y" then
+    return "Is Block Only: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Block Only: No (N)"
+  end
+
+  return "Is Block Only: Unknown("..value..")"
+end
+
+-- Dissect: Is Block Only
+ice_futures_mdf_impact_v1_1_33.is_block_only.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_block_only.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_block_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_block_only, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Final
+ice_futures_mdf_impact_v1_1_33.is_final = {}
+
+-- Size: Is Final
+ice_futures_mdf_impact_v1_1_33.is_final.size = 1
+
+-- Display: Is Final
+ice_futures_mdf_impact_v1_1_33.is_final.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Final: No Value"
+  end
+
+  if value == "Y" then
+    return "Is Final: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Final: No (N)"
+  end
+
+  return "Is Final: Unknown("..value..")"
+end
+
+-- Dissect: Is Final
+ice_futures_mdf_impact_v1_1_33.is_final.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_final.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_final.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_final, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Implied
+ice_futures_mdf_impact_v1_1_33.is_implied = {}
+
+-- Size: Is Implied
+ice_futures_mdf_impact_v1_1_33.is_implied.size = 1
+
+-- Display: Is Implied
+ice_futures_mdf_impact_v1_1_33.is_implied.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Is Implied: No Value"
+  end
+
+  return "Is Implied: "..value
+end
+
+-- Dissect: Is Implied
+ice_futures_mdf_impact_v1_1_33.is_implied.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_implied.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_implied.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_implied, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Implied Spread At Market Open
+ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open = {}
+
+-- Size: Is Implied Spread At Market Open
+ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.size = 1
+
+-- Display: Is Implied Spread At Market Open
+ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Is Implied Spread At Market Open: No Value"
+  end
+
+  return "Is Implied Spread At Market Open: "..value
+end
+
+-- Dissect: Is Implied Spread At Market Open
+ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_implied_spread_at_market_open, range, value, display)
 
   return offset + length, value
 end
@@ -1278,52 +2946,755 @@ ice_futures_mdf_impact_v1_1_33.is_official.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Message Date Time
-ice_futures_mdf_impact_v1_1_33.message_date_time = {}
+-- Is Rfq
+ice_futures_mdf_impact_v1_1_33.is_rfq = {}
 
--- Size: Message Date Time
-ice_futures_mdf_impact_v1_1_33.message_date_time.size = 8
+-- Size: Is Rfq
+ice_futures_mdf_impact_v1_1_33.is_rfq.size = 1
 
--- Display: Message Date Time
-ice_futures_mdf_impact_v1_1_33.message_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
+-- Display: Is Rfq
+ice_futures_mdf_impact_v1_1_33.is_rfq.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Is Rfq: No Value"
+  end
 
-  return "Message Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+  return "Is Rfq: "..value
 end
 
--- Dissect: Message Date Time
-ice_futures_mdf_impact_v1_1_33.message_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.message_date_time.size
+-- Dissect: Is Rfq
+ice_futures_mdf_impact_v1_1_33.is_rfq.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_rfq.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.message_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message_date_time, range, value, display)
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_rfq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_rfq, range, value, display)
 
   return offset + length, value
 end
 
--- Settlement Price With Deal Price Precision
-ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision = {}
+-- Is Settle Price Official
+ice_futures_mdf_impact_v1_1_33.is_settle_price_official = {}
 
--- Size: Settlement Price With Deal Price Precision
-ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.size = 8
+-- Size: Is Settle Price Official
+ice_futures_mdf_impact_v1_1_33.is_settle_price_official.size = 1
 
--- Display: Settlement Price With Deal Price Precision
-ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.display = function(value)
-  return "Settlement Price With Deal Price Precision: "..value
+-- Display: Is Settle Price Official
+ice_futures_mdf_impact_v1_1_33.is_settle_price_official.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Settle Price Official: No Value"
+  end
+
+  if value == "Y" then
+    return "Is Settle Price Official: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Settle Price Official: No (N)"
+  end
+
+  return "Is Settle Price Official: Unknown("..value..")"
 end
 
--- Dissect: Settlement Price With Deal Price Precision
-ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.size
+-- Dissect: Is Settle Price Official
+ice_futures_mdf_impact_v1_1_33.is_settle_price_official.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_settle_price_official.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_settle_price_official.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_settle_price_official, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is System Priced Leg
+ice_futures_mdf_impact_v1_1_33.is_system_priced_leg = {}
+
+-- Size: Is System Priced Leg
+ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.size = 1
+
+-- Display: Is System Priced Leg
+ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is System Priced Leg: No Value"
+  end
+
+  if value == "Y" then
+    return "Is System Priced Leg: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is System Priced Leg: No (N)"
+  end
+
+  return "Is System Priced Leg: Unknown("..value..")"
+end
+
+-- Dissect: Is System Priced Leg
+ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_system_priced_leg, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Tradable
+ice_futures_mdf_impact_v1_1_33.is_tradable = {}
+
+-- Size: Is Tradable
+ice_futures_mdf_impact_v1_1_33.is_tradable.size = 1
+
+-- Display: Is Tradable
+ice_futures_mdf_impact_v1_1_33.is_tradable.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Tradable: No Value"
+  end
+
+  if value == "Y" then
+    return "Is Tradable: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Tradable: No (N)"
+  end
+
+  return "Is Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Is Tradable
+ice_futures_mdf_impact_v1_1_33.is_tradable.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_tradable.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Up
+ice_futures_mdf_impact_v1_1_33.is_up = {}
+
+-- Size: Is Up
+ice_futures_mdf_impact_v1_1_33.is_up.size = 1
+
+-- Display: Is Up
+ice_futures_mdf_impact_v1_1_33.is_up.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Up: No Value"
+  end
+
+  if value == "Y" then
+    return "Is Up: Ipl Upper Bound Violation (Y)"
+  end
+  if value == "N" then
+    return "Is Up: Ipl Lower Bound Violation (N)"
+  end
+  if value == "F" then
+    return "Is Up: Final (F)"
+  end
+  if value == " " then
+    return "Is Up: Non Endex Spot Market (<whitespace>)"
+  end
+
+  return "Is Up: Unknown("..value..")"
+end
+
+-- Dissect: Is Up
+ice_futures_mdf_impact_v1_1_33.is_up.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.is_up.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.is_up.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_up, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+ice_futures_mdf_impact_v1_1_33.isin = {}
+
+-- Size: Isin
+ice_futures_mdf_impact_v1_1_33.isin.size = 12
+
+-- Display: Isin
+ice_futures_mdf_impact_v1_1_33.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+ice_futures_mdf_impact_v1_1_33.isin.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.isin.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Message Sequence Id
+ice_futures_mdf_impact_v1_1_33.last_message_sequence_id = {}
+
+-- Size: Last Message Sequence Id
+ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.size = 4
+
+-- Display: Last Message Sequence Id
+ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.display = function(value)
+  return "Last Message Sequence Id: "..value
+end
+
+-- Dissect: Last Message Sequence Id
+ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_message_sequence_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Date Time
+ice_futures_mdf_impact_v1_1_33.last_trade_date_time = {}
+
+-- Size: Last Trade Date Time
+ice_futures_mdf_impact_v1_1_33.last_trade_date_time.size = 8
+
+-- Display: Last Trade Date Time
+ice_futures_mdf_impact_v1_1_33.last_trade_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Last Trade Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Last Trade Date Time
+ice_futures_mdf_impact_v1_1_33.last_trade_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.last_trade_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.last_trade_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settlement_price_with_deal_price_precision, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_trade_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Price
+ice_futures_mdf_impact_v1_1_33.last_trade_price = {}
+
+-- Size: Last Trade Price
+ice_futures_mdf_impact_v1_1_33.last_trade_price.size = 8
+
+-- Display: Last Trade Price
+ice_futures_mdf_impact_v1_1_33.last_trade_price.display = function(value)
+  return "Last Trade Price: "..value
+end
+
+-- Dissect: Last Trade Price
+ice_futures_mdf_impact_v1_1_33.last_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.last_trade_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.last_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Quantity
+ice_futures_mdf_impact_v1_1_33.last_trade_quantity = {}
+
+-- Size: Last Trade Quantity
+ice_futures_mdf_impact_v1_1_33.last_trade_quantity.size = 4
+
+-- Display: Last Trade Quantity
+ice_futures_mdf_impact_v1_1_33.last_trade_quantity.display = function(value)
+  return "Last Trade Quantity: "..value
+end
+
+-- Dissect: Last Trade Quantity
+ice_futures_mdf_impact_v1_1_33.last_trade_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.last_trade_quantity.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.last_trade_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_trade_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Body Length
+ice_futures_mdf_impact_v1_1_33.leg_body_length = {}
+
+-- Size: Leg Body Length
+ice_futures_mdf_impact_v1_1_33.leg_body_length.size = 1
+
+-- Display: Leg Body Length
+ice_futures_mdf_impact_v1_1_33.leg_body_length.display = function(value)
+  return "Leg Body Length: "..value
+end
+
+-- Dissect: Leg Body Length
+ice_futures_mdf_impact_v1_1_33.leg_body_length.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_body_length.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_body_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_body_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Deal Suppressed
+ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed = {}
+
+-- Size: Leg Deal Suppressed
+ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.size = 1
+
+-- Display: Leg Deal Suppressed
+ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Deal Suppressed: No Value"
+  end
+
+  if value == "Y" then
+    return "Leg Deal Suppressed: Yes (Y)"
+  end
+  if value == "N" then
+    return "Leg Deal Suppressed: No (N)"
+  end
+
+  return "Leg Deal Suppressed: Unknown("..value..")"
+end
+
+-- Dissect: Leg Deal Suppressed
+ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_deal_suppressed, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Market Id
+ice_futures_mdf_impact_v1_1_33.leg_market_id = {}
+
+-- Size: Leg Market Id
+ice_futures_mdf_impact_v1_1_33.leg_market_id.size = 4
+
+-- Display: Leg Market Id
+ice_futures_mdf_impact_v1_1_33.leg_market_id.display = function(value)
+  return "Leg Market Id: "..value
+end
+
+-- Dissect: Leg Market Id
+ice_futures_mdf_impact_v1_1_33.leg_market_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_market_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+ice_futures_mdf_impact_v1_1_33.leg_ratio = {}
+
+-- Size: Leg Ratio
+ice_futures_mdf_impact_v1_1_33.leg_ratio.size = 2
+
+-- Display: Leg Ratio
+ice_futures_mdf_impact_v1_1_33.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+ice_futures_mdf_impact_v1_1_33.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Price Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator = {}
+
+-- Size: Leg Ratio Price Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.size = 4
+
+-- Display: Leg Ratio Price Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.display = function(value)
+  return "Leg Ratio Price Denominator: "..value
+end
+
+-- Dissect: Leg Ratio Price Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Price Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator = {}
+
+-- Size: Leg Ratio Price Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.size = 4
+
+-- Display: Leg Ratio Price Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.display = function(value)
+  return "Leg Ratio Price Numerator: "..value
+end
+
+-- Dissect: Leg Ratio Price Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_price_numerator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator = {}
+
+-- Size: Leg Ratio Qty Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.size = 4
+
+-- Display: Leg Ratio Qty Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.display = function(value)
+  return "Leg Ratio Qty Denominator: "..value
+end
+
+-- Dissect: Leg Ratio Qty Denominator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_qty_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator = {}
+
+-- Size: Leg Ratio Qty Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.size = 4
+
+-- Display: Leg Ratio Qty Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.display = function(value)
+  return "Leg Ratio Qty Numerator: "..value
+end
+
+-- Dissect: Leg Ratio Qty Numerator
+ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_qty_numerator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+ice_futures_mdf_impact_v1_1_33.leg_side = {}
+
+-- Size: Leg Side
+ice_futures_mdf_impact_v1_1_33.leg_side.size = 1
+
+-- Display: Leg Side
+ice_futures_mdf_impact_v1_1_33.leg_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Side: No Value"
+  end
+
+  if value == " " then
+    return "Leg Side: None (<whitespace>)"
+  end
+  if value == "1" then
+    return "Leg Side: Bid (1)"
+  end
+  if value == "2" then
+    return "Leg Side: Offer (2)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+ice_futures_mdf_impact_v1_1_33.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Strategy Code
+ice_futures_mdf_impact_v1_1_33.leg_strategy_code = {}
+
+-- Size: Leg Strategy Code
+ice_futures_mdf_impact_v1_1_33.leg_strategy_code.size = 2
+
+-- Display: Leg Strategy Code
+ice_futures_mdf_impact_v1_1_33.leg_strategy_code.display = function(value)
+  return "Leg Strategy Code: "..value
+end
+
+-- Dissect: Leg Strategy Code
+ice_futures_mdf_impact_v1_1_33.leg_strategy_code.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_strategy_code.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_strategy_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_strategy_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id = {}
+
+-- Size: Leg Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.size = 4
+
+-- Display: Leg Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.display = function(value)
+  return "Leg Underlying Market Id: "..value
+end
+
+-- Dissect: Leg Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_underlying_market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+ice_futures_mdf_impact_v1_1_33.length = {}
+
+-- Size: Length
+ice_futures_mdf_impact_v1_1_33.length.size = 2
+
+-- Display: Length
+ice_futures_mdf_impact_v1_1_33.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+ice_futures_mdf_impact_v1_1_33.length.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = ice_futures_mdf_impact_v1_1_33.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+ice_futures_mdf_impact_v1_1_33.lot_size = {}
+
+-- Size: Lot Size
+ice_futures_mdf_impact_v1_1_33.lot_size.size = 4
+
+-- Display: Lot Size
+ice_futures_mdf_impact_v1_1_33.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+ice_futures_mdf_impact_v1_1_33.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low
+ice_futures_mdf_impact_v1_1_33.low = {}
+
+-- Size: Low
+ice_futures_mdf_impact_v1_1_33.low.size = 8
+
+-- Display: Low
+ice_futures_mdf_impact_v1_1_33.low.display = function(value)
+  return "Low: "..value
+end
+
+-- Dissect: Low
+ice_futures_mdf_impact_v1_1_33.low.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.low.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.low.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.low, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Desc
+ice_futures_mdf_impact_v1_1_33.market_desc = {}
+
+-- Size: Market Desc
+ice_futures_mdf_impact_v1_1_33.market_desc.size = 120
+
+-- Display: Market Desc
+ice_futures_mdf_impact_v1_1_33.market_desc.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Desc: No Value"
+  end
+
+  return "Market Desc: "..value
+end
+
+-- Dissect: Market Desc
+ice_futures_mdf_impact_v1_1_33.market_desc.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.market_desc.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.market_desc.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.market_desc, range, value, display)
 
   return offset + length, value
 end
@@ -1351,230 +3722,25 @@ ice_futures_mdf_impact_v1_1_33.market_id.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Option Settlement Price Message
-ice_futures_mdf_impact_v1_1_33.option_settlement_price_message = {}
+-- Market Type
+ice_futures_mdf_impact_v1_1_33.market_type = {}
 
--- Size: Option Settlement Price Message
-ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.size =
-  ice_futures_mdf_impact_v1_1_33.market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.size + 
-  ice_futures_mdf_impact_v1_1_33.message_date_time.size + 
-  ice_futures_mdf_impact_v1_1_33.is_official.size + 
-  ice_futures_mdf_impact_v1_1_33.valuation_date_time.size + 
-  ice_futures_mdf_impact_v1_1_33.volatility.size + 
-  ice_futures_mdf_impact_v1_1_33.settlement_price.size + 
-  ice_futures_mdf_impact_v1_1_33.delta.size
+-- Size: Market Type
+ice_futures_mdf_impact_v1_1_33.market_type.size = 2
 
--- Display: Option Settlement Price Message
-ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.display = function(packet, parent, length)
-  return ""
+-- Display: Market Type
+ice_futures_mdf_impact_v1_1_33.market_type.display = function(value)
+  return "Market Type: "..value
 end
 
--- Dissect Fields: Option Settlement Price Message
-ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Id: Numeric
-  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
-
-  -- Settlement Price With Deal Price Precision: Numeric
-  index, settlement_price_with_deal_price_precision = ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.dissect(buffer, index, packet, parent)
-
-  -- Message Date Time: Numeric
-  index, message_date_time = ice_futures_mdf_impact_v1_1_33.message_date_time.dissect(buffer, index, packet, parent)
-
-  -- Is Official: Alpha
-  index, is_official = ice_futures_mdf_impact_v1_1_33.is_official.dissect(buffer, index, packet, parent)
-
-  -- Valuation Date Time: Numeric
-  index, valuation_date_time = ice_futures_mdf_impact_v1_1_33.valuation_date_time.dissect(buffer, index, packet, parent)
-
-  -- Volatility: Numeric
-  index, volatility = ice_futures_mdf_impact_v1_1_33.volatility.dissect(buffer, index, packet, parent)
-
-  -- Settlement Price: Numeric
-  index, settlement_price = ice_futures_mdf_impact_v1_1_33.settlement_price.dissect(buffer, index, packet, parent)
-
-  -- Delta: Numeric
-  index, delta = ice_futures_mdf_impact_v1_1_33.delta.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Option Settlement Price Message
-ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_settlement_price_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.option_settlement_price_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Open Interest Date
-ice_futures_mdf_impact_v1_1_33.open_interest_date = {}
-
--- Size: Open Interest Date
-ice_futures_mdf_impact_v1_1_33.open_interest_date.size = 10
-
--- Display: Open Interest Date
-ice_futures_mdf_impact_v1_1_33.open_interest_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Open Interest Date: No Value"
-  end
-
-  return "Open Interest Date: "..value
-end
-
--- Dissect: Open Interest Date
-ice_futures_mdf_impact_v1_1_33.open_interest_date.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.open_interest_date.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.open_interest_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_interest_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Interest
-ice_futures_mdf_impact_v1_1_33.open_interest = {}
-
--- Size: Open Interest
-ice_futures_mdf_impact_v1_1_33.open_interest.size = 4
-
--- Display: Open Interest
-ice_futures_mdf_impact_v1_1_33.open_interest.display = function(value)
-  return "Open Interest: "..value
-end
-
--- Dissect: Open Interest
-ice_futures_mdf_impact_v1_1_33.open_interest.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.open_interest.size
+-- Dissect: Market Type
+ice_futures_mdf_impact_v1_1_33.market_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.market_type.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.open_interest.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.market_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_interest, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Open Interest Message
-ice_futures_mdf_impact_v1_1_33.option_open_interest_message = {}
-
--- Size: Option Open Interest Message
-ice_futures_mdf_impact_v1_1_33.option_open_interest_message.size =
-  ice_futures_mdf_impact_v1_1_33.market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.open_interest.size + 
-  ice_futures_mdf_impact_v1_1_33.message_date_time.size + 
-  ice_futures_mdf_impact_v1_1_33.open_interest_date.size
-
--- Display: Option Open Interest Message
-ice_futures_mdf_impact_v1_1_33.option_open_interest_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Option Open Interest Message
-ice_futures_mdf_impact_v1_1_33.option_open_interest_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Id: Numeric
-  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
-
-  -- Open Interest: Numeric
-  index, open_interest = ice_futures_mdf_impact_v1_1_33.open_interest.dissect(buffer, index, packet, parent)
-
-  -- Message Date Time: Numeric
-  index, message_date_time = ice_futures_mdf_impact_v1_1_33.message_date_time.dissect(buffer, index, packet, parent)
-
-  -- Open Interest Date: Alpha
-  index, open_interest_date = ice_futures_mdf_impact_v1_1_33.open_interest_date.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Option Open Interest Message
-ice_futures_mdf_impact_v1_1_33.option_open_interest_message.dissect = function(buffer, offset, packet, parent)
-  if show.option_open_interest_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.option_open_interest_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_33.option_open_interest_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_futures_mdf_impact_v1_1_33.option_open_interest_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_33.option_open_interest_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Side
-ice_futures_mdf_impact_v1_1_33.side = {}
-
--- Size: Side
-ice_futures_mdf_impact_v1_1_33.side.size = 1
-
--- Display: Side
-ice_futures_mdf_impact_v1_1_33.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == " " then
-    return "Side: None (<whitespace>)"
-  end
-  if value == "1" then
-    return "Side: Bid (1)"
-  end
-  if value == "2" then
-    return "Side: Offer (2)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-ice_futures_mdf_impact_v1_1_33.side.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.side, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.market_type, range, value, display)
 
   return offset + length, value
 end
@@ -2023,25 +4189,144 @@ ice_futures_mdf_impact_v1_1_33.market_type_id.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Rfq System Id
-ice_futures_mdf_impact_v1_1_33.rfq_system_id = {}
+-- Maturity Day
+ice_futures_mdf_impact_v1_1_33.maturity_day = {}
 
--- Size: Rfq System Id
-ice_futures_mdf_impact_v1_1_33.rfq_system_id.size = 8
+-- Size: Maturity Day
+ice_futures_mdf_impact_v1_1_33.maturity_day.size = 2
 
--- Display: Rfq System Id
-ice_futures_mdf_impact_v1_1_33.rfq_system_id.display = function(value)
-  return "Rfq System Id: "..value
+-- Display: Maturity Day
+ice_futures_mdf_impact_v1_1_33.maturity_day.display = function(value)
+  return "Maturity Day: "..value
 end
 
--- Dissect: Rfq System Id
-ice_futures_mdf_impact_v1_1_33.rfq_system_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.rfq_system_id.size
+-- Dissect: Maturity Day
+ice_futures_mdf_impact_v1_1_33.maturity_day.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.maturity_day.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.maturity_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.maturity_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Month
+ice_futures_mdf_impact_v1_1_33.maturity_month = {}
+
+-- Size: Maturity Month
+ice_futures_mdf_impact_v1_1_33.maturity_month.size = 2
+
+-- Display: Maturity Month
+ice_futures_mdf_impact_v1_1_33.maturity_month.display = function(value)
+  return "Maturity Month: "..value
+end
+
+-- Dissect: Maturity Month
+ice_futures_mdf_impact_v1_1_33.maturity_month.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.maturity_month.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.maturity_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.maturity_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Maturity Year
+ice_futures_mdf_impact_v1_1_33.maturity_year = {}
+
+-- Size: Maturity Year
+ice_futures_mdf_impact_v1_1_33.maturity_year.size = 2
+
+-- Display: Maturity Year
+ice_futures_mdf_impact_v1_1_33.maturity_year.display = function(value)
+  return "Maturity Year: "..value
+end
+
+-- Dissect: Maturity Year
+ice_futures_mdf_impact_v1_1_33.maturity_year.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.maturity_year.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.maturity_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.maturity_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Options Price
+ice_futures_mdf_impact_v1_1_33.max_options_price = {}
+
+-- Size: Max Options Price
+ice_futures_mdf_impact_v1_1_33.max_options_price.size = 8
+
+-- Display: Max Options Price
+ice_futures_mdf_impact_v1_1_33.max_options_price.display = function(value)
+  return "Max Options Price: "..value
+end
+
+-- Dissect: Max Options Price
+ice_futures_mdf_impact_v1_1_33.max_options_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.max_options_price.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.rfq_system_id.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.max_options_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.rfq_system_id, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.max_options_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Price
+ice_futures_mdf_impact_v1_1_33.max_price = {}
+
+-- Size: Max Price
+ice_futures_mdf_impact_v1_1_33.max_price.size = 8
+
+-- Display: Max Price
+ice_futures_mdf_impact_v1_1_33.max_price.display = function(value)
+  return "Max Price: "..value
+end
+
+-- Dissect: Max Price
+ice_futures_mdf_impact_v1_1_33.max_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.max_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.max_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.max_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Date Time
+ice_futures_mdf_impact_v1_1_33.message_date_time = {}
+
+-- Size: Message Date Time
+ice_futures_mdf_impact_v1_1_33.message_date_time.size = 8
+
+-- Display: Message Date Time
+ice_futures_mdf_impact_v1_1_33.message_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Message Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Message Date Time
+ice_futures_mdf_impact_v1_1_33.message_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.message_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.message_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message_date_time, range, value, display)
 
   return offset + length, value
 end
@@ -2073,68 +4358,181 @@ ice_futures_mdf_impact_v1_1_33.message_timestamp.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Rfq Message
-ice_futures_mdf_impact_v1_1_33.rfq_message = {}
+-- Message Type
+ice_futures_mdf_impact_v1_1_33.message_type = {}
 
--- Size: Rfq Message
-ice_futures_mdf_impact_v1_1_33.rfq_message.size =
-  ice_futures_mdf_impact_v1_1_33.market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.message_timestamp.size + 
-  ice_futures_mdf_impact_v1_1_33.rfq_system_id.size + 
-  ice_futures_mdf_impact_v1_1_33.market_type_id.size + 
-  ice_futures_mdf_impact_v1_1_33.underlying_market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.quantity.size + 
-  ice_futures_mdf_impact_v1_1_33.side.size
+-- Size: Message Type
+ice_futures_mdf_impact_v1_1_33.message_type.size = 1
 
--- Display: Rfq Message
-ice_futures_mdf_impact_v1_1_33.rfq_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Rfq Message
-ice_futures_mdf_impact_v1_1_33.rfq_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Id: Numeric
-  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
-
-  -- Message Timestamp: Numeric
-  index, message_timestamp = ice_futures_mdf_impact_v1_1_33.message_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Rfq System Id: Numeric
-  index, rfq_system_id = ice_futures_mdf_impact_v1_1_33.rfq_system_id.dissect(buffer, index, packet, parent)
-
-  -- Market Type Id: Numeric
-  index, market_type_id = ice_futures_mdf_impact_v1_1_33.market_type_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Market Id: Numeric
-  index, underlying_market_id = ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect(buffer, index, packet, parent)
-
-  -- Quantity: Numeric
-  index, quantity = ice_futures_mdf_impact_v1_1_33.quantity.dissect(buffer, index, packet, parent)
-
-  -- Side: Alpha
-  index, side = ice_futures_mdf_impact_v1_1_33.side.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Rfq Message
-ice_futures_mdf_impact_v1_1_33.rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.rfq_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.rfq_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_33.rfq_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_futures_mdf_impact_v1_1_33.rfq_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_33.rfq_message.fields(buffer, offset, packet, parent)
+-- Display: Message Type
+ice_futures_mdf_impact_v1_1_33.message_type.display = function(value)
+  if value == "C" then
+    return "Message Type: Market Snapshot Message (C)"
   end
+  if value == "G" then
+    return "Message Type: Trade Message (G)"
+  end
+  if value == "Y" then
+    return "Message Type: Spot Market Trade Message (Y)"
+  end
+  if value == "H" then
+    return "Message Type: Investigated Trade Message (H)"
+  end
+  if value == "I" then
+    return "Message Type: Cancelled Trade Message (I)"
+  end
+  if value == "J" then
+    return "Message Type: Market Statistics Message (J)"
+  end
+  if value == "K" then
+    return "Message Type: Market State Change Message (K)"
+  end
+  if value == "L" then
+    return "Message Type: System Text Message (L)"
+  end
+  if value == "M" then
+    return "Message Type: Open Interest Message (M)"
+  end
+  if value == "N" then
+    return "Message Type: Open Price Message (N)"
+  end
+  if value == "c" then
+    return "Message Type: Close Price Message (c)"
+  end
+  if value == "O" then
+    return "Message Type: Settlement Price Message (O)"
+  end
+  if value == "z" then
+    return "Message Type: Index Prices Message (z)"
+  end
+  if value == "u" then
+    return "Message Type: End Of Day Market Summary Message (u)"
+  end
+  if value == "f" then
+    return "Message Type: Market Event Message (f)"
+  end
+  if value == "g" then
+    return "Message Type: Pre Open Price Indicator Message (g)"
+  end
+  if value == "i" then
+    return "Message Type: Strip Info Message (i)"
+  end
+  if value == "V" then
+    return "Message Type: Interval Price Limit Notification Message (V)"
+  end
+  if value == "9" then
+    return "Message Type: New Futures Strategy Definition Message (9)"
+  end
+  if value == "R" then
+    return "Message Type: New Expiry Message (R)"
+  end
+  if value == "b" then
+    return "Message Type: Special Field Message (b)"
+  end
+  if value == "D" then
+    return "Message Type: Market Snapshot Order Message (D)"
+  end
+  if value == "E" then
+    return "Message Type: Add Or Modify Order Message (E)"
+  end
+  if value == "F" then
+    return "Message Type: Delete Order Message (F)"
+  end
+  if value == "T" then
+    return "Message Type: Message Bundle Marker (T)"
+  end
+  if value == "3" then
+    return "Message Type: Fixing Transition Message (3)"
+  end
+  if value == "4" then
+    return "Message Type: Fixing Lockdown Message (4)"
+  end
+  if value == "0" then
+    return "Message Type: Fixing Indicative Price Message Message (0)"
+  end
+  if value == "m" then
+    return "Message Type: Market Snapshot Price Level Message (m)"
+  end
+  if value == "t" then
+    return "Message Type: Add Price Level Message (t)"
+  end
+  if value == "s" then
+    return "Message Type: Change Price Level Message (s)"
+  end
+  if value == "r" then
+    return "Message Type: Delete Price Level Message (r)"
+  end
+  if value == "U" then
+    return "Message Type: New Options Strategy Definition Message (U)"
+  end
+  if value == "l" then
+    return "Message Type: New Options Market Definition Message (l)"
+  end
+  if value == "k" then
+    return "Message Type: Rfq Message (k)"
+  end
+  if value == "v" then
+    return "Message Type: Option Open Interest Message (v)"
+  end
+  if value == "w" then
+    return "Message Type: Option Settlement Price Message (w)"
+  end
+  if value == "W" then
+    return "Message Type: Old Style Options Trade And Market Stats Message (W)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+ice_futures_mdf_impact_v1_1_33.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = ice_futures_mdf_impact_v1_1_33.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mic Code
+ice_futures_mdf_impact_v1_1_33.mic_code = {}
+
+-- Size: Mic Code
+ice_futures_mdf_impact_v1_1_33.mic_code.size = 4
+
+-- Display: Mic Code
+ice_futures_mdf_impact_v1_1_33.mic_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mic Code: No Value"
+  end
+
+  return "Mic Code: "..value
+end
+
+-- Dissect: Mic Code
+ice_futures_mdf_impact_v1_1_33.mic_code.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.mic_code.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.mic_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.mic_code, range, value, display)
+
+  return offset + length, value
 end
 
 -- Mifid Regulated Market
@@ -2180,25 +4578,599 @@ ice_futures_mdf_impact_v1_1_33.mifid_regulated_market.dissect = function(buffer,
   return offset + length, value
 end
 
--- Unit Of Measure
-ice_futures_mdf_impact_v1_1_33.unit_of_measure = {}
+-- Min Options Price
+ice_futures_mdf_impact_v1_1_33.min_options_price = {}
 
--- Size: Unit Of Measure
-ice_futures_mdf_impact_v1_1_33.unit_of_measure.size = 30
+-- Size: Min Options Price
+ice_futures_mdf_impact_v1_1_33.min_options_price.size = 8
 
--- Display: Unit Of Measure
-ice_futures_mdf_impact_v1_1_33.unit_of_measure.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Unit Of Measure: No Value"
-  end
-
-  return "Unit Of Measure: "..value
+-- Display: Min Options Price
+ice_futures_mdf_impact_v1_1_33.min_options_price.display = function(value)
+  return "Min Options Price: "..value
 end
 
--- Dissect: Unit Of Measure
-ice_futures_mdf_impact_v1_1_33.unit_of_measure.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.unit_of_measure.size
+-- Dissect: Min Options Price
+ice_futures_mdf_impact_v1_1_33.min_options_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.min_options_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.min_options_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.min_options_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Price
+ice_futures_mdf_impact_v1_1_33.min_price = {}
+
+-- Size: Min Price
+ice_futures_mdf_impact_v1_1_33.min_price.size = 8
+
+-- Display: Min Price
+ice_futures_mdf_impact_v1_1_33.min_price.display = function(value)
+  return "Min Price: "..value
+end
+
+-- Dissect: Min Price
+ice_futures_mdf_impact_v1_1_33.min_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.min_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.min_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.min_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+ice_futures_mdf_impact_v1_1_33.min_qty = {}
+
+-- Size: Min Qty
+ice_futures_mdf_impact_v1_1_33.min_qty.size = 4
+
+-- Display: Min Qty
+ice_futures_mdf_impact_v1_1_33.min_qty.display = function(value)
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+ice_futures_mdf_impact_v1_1_33.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modification Timestamp
+ice_futures_mdf_impact_v1_1_33.modification_timestamp = {}
+
+-- Size: Modification Timestamp
+ice_futures_mdf_impact_v1_1_33.modification_timestamp.size = 8
+
+-- Display: Modification Timestamp
+ice_futures_mdf_impact_v1_1_33.modification_timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Modification Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Modification Timestamp
+ice_futures_mdf_impact_v1_1_33.modification_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.modification_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.modification_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.modification_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notification Date Time
+ice_futures_mdf_impact_v1_1_33.notification_date_time = {}
+
+-- Size: Notification Date Time
+ice_futures_mdf_impact_v1_1_33.notification_date_time.size = 8
+
+-- Display: Notification Date Time
+ice_futures_mdf_impact_v1_1_33.notification_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Notification Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Notification Date Time
+ice_futures_mdf_impact_v1_1_33.notification_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.notification_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.notification_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.notification_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Decimals Options Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_options_price = {}
+
+-- Size: Num Decimals Options Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.size = 1
+
+-- Display: Num Decimals Options Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Num Decimals Options Price: No Value"
+  end
+
+  return "Num Decimals Options Price: "..value
+end
+
+-- Dissect: Num Decimals Options Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_options_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Decimals Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_price = {}
+
+-- Size: Num Decimals Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_price.size = 1
+
+-- Display: Num Decimals Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_price.display = function(value)
+  return "Num Decimals Price: "..value
+end
+
+-- Dissect: Num Decimals Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Decimals Price In Gram
+ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram = {}
+
+-- Size: Num Decimals Price In Gram
+ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.size = 1
+
+-- Display: Num Decimals Price In Gram
+ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.display = function(value)
+  return "Num Decimals Price In Gram: "..value
+end
+
+-- Dissect: Num Decimals Price In Gram
+ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_price_in_gram, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Decimals Strike Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price = {}
+
+-- Size: Num Decimals Strike Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.size = 1
+
+-- Display: Num Decimals Strike Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Num Decimals Strike Price: No Value"
+  end
+
+  return "Num Decimals Strike Price: "..value
+end
+
+-- Dissect: Num Decimals Strike Price
+ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Of Book Entries
+ice_futures_mdf_impact_v1_1_33.num_of_book_entries = {}
+
+-- Size: Num Of Book Entries
+ice_futures_mdf_impact_v1_1_33.num_of_book_entries.size = 4
+
+-- Display: Num Of Book Entries
+ice_futures_mdf_impact_v1_1_33.num_of_book_entries.display = function(value)
+  return "Num Of Book Entries: "..value
+end
+
+-- Dissect: Num Of Book Entries
+ice_futures_mdf_impact_v1_1_33.num_of_book_entries.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.num_of_book_entries.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.num_of_book_entries.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_of_book_entries, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Hedge Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions = {}
+
+-- Size: Number Of Hedge Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.size = 1
+
+-- Display: Number Of Hedge Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.display = function(value)
+  return "Number Of Hedge Definitions: "..value
+end
+
+-- Dissect: Number Of Hedge Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_hedge_definitions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions = {}
+
+-- Size: Number Of Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.size = 1
+
+-- Display: Number Of Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.display = function(value)
+  return "Number Of Leg Definitions: "..value
+end
+
+-- Dissect: Number Of Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_leg_definitions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Msgs
+ice_futures_mdf_impact_v1_1_33.number_of_msgs = {}
+
+-- Size: Number Of Msgs
+ice_futures_mdf_impact_v1_1_33.number_of_msgs.size = 2
+
+-- Display: Number Of Msgs
+ice_futures_mdf_impact_v1_1_33.number_of_msgs.display = function(value)
+  return "Number Of Msgs: "..value
+end
+
+-- Dissect: Number Of Msgs
+ice_futures_mdf_impact_v1_1_33.number_of_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.number_of_msgs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = ice_futures_mdf_impact_v1_1_33.number_of_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Special Fields
+ice_futures_mdf_impact_v1_1_33.number_of_special_fields = {}
+
+-- Size: Number Of Special Fields
+ice_futures_mdf_impact_v1_1_33.number_of_special_fields.size = 1
+
+-- Display: Number Of Special Fields
+ice_futures_mdf_impact_v1_1_33.number_of_special_fields.display = function(value)
+  return "Number Of Special Fields: "..value
+end
+
+-- Dissect: Number Of Special Fields
+ice_futures_mdf_impact_v1_1_33.number_of_special_fields.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.number_of_special_fields.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.number_of_special_fields.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_special_fields, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Strategy Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions = {}
+
+-- Size: Number Of Strategy Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.size = 1
+
+-- Display: Number Of Strategy Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.display = function(value)
+  return "Number Of Strategy Leg Definitions: "..value
+end
+
+-- Dissect: Number Of Strategy Leg Definitions
+ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_strategy_leg_definitions, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Exchange Increment Option Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price = {}
+
+-- Size: Off Exchange Increment Option Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.size = 4
+
+-- Display: Off Exchange Increment Option Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.display = function(value)
+  return "Off Exchange Increment Option Price: "..value
+end
+
+-- Dissect: Off Exchange Increment Option Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_option_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Exchange Increment Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price = {}
+
+-- Size: Off Exchange Increment Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.size = 4
+
+-- Display: Off Exchange Increment Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.display = function(value)
+  return "Off Exchange Increment Price: "..value
+end
+
+-- Dissect: Off Exchange Increment Price
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Exchange Increment Qty
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty = {}
+
+-- Size: Off Exchange Increment Qty
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.size = 4
+
+-- Display: Off Exchange Increment Qty
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.display = function(value)
+  return "Off Exchange Increment Qty: "..value
+end
+
+-- Dissect: Off Exchange Increment Qty
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Exchange Increment Qty Denominator
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator = {}
+
+-- Size: Off Exchange Increment Qty Denominator
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.size = 1
+
+-- Display: Off Exchange Increment Qty Denominator
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Off Exchange Increment Qty Denominator: No Value"
+  end
+
+  return "Off Exchange Increment Qty Denominator: "..value
+end
+
+-- Dissect: Off Exchange Increment Qty Denominator
+ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_qty_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Market Trade Indicator
+ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator = {}
+
+-- Size: Off Market Trade Indicator
+ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.size = 1
+
+-- Display: Off Market Trade Indicator
+ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Off Market Trade Indicator: No Value"
+  end
+
+  if value == " " then
+    return "Off Market Trade Indicator: Regular (<whitespace>)"
+  end
+  if value == "K" then
+    return "Off Market Trade Indicator: Block (K)"
+  end
+  if value == "S" then
+    return "Off Market Trade Indicator: Efs (S)"
+  end
+  if value == "E" then
+    return "Off Market Trade Indicator: Efp (E)"
+  end
+  if value == "O" then
+    return "Off Market Trade Indicator: Efp Efs (O)"
+  end
+  if value == "Q" then
+    return "Off Market Trade Indicator: Eoo (Q)"
+  end
+  if value == "I" then
+    return "Off Market Trade Indicator: Efm (I)"
+  end
+  if value == "5" then
+    return "Off Market Trade Indicator: Guaranteed Cross (5)"
+  end
+  if value == "5" then
+    return "Off Market Trade Indicator: Basis (5)"
+  end
+
+  return "Off Market Trade Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Off Market Trade Indicator
+ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_market_trade_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Market Trade Type
+ice_futures_mdf_impact_v1_1_33.off_market_trade_type = {}
+
+-- Size: Off Market Trade Type
+ice_futures_mdf_impact_v1_1_33.off_market_trade_type.size = 3
+
+-- Display: Off Market Trade Type
+ice_futures_mdf_impact_v1_1_33.off_market_trade_type.display = function(value)
+  if value == " " then
+    return "Off Market Trade Type: Regular (<whitespace>)"
+  end
+  if value == "K" then
+    return "Off Market Trade Type: Block (K)"
+  end
+  if value == "S" then
+    return "Off Market Trade Type: Efs (S)"
+  end
+  if value == "E" then
+    return "Off Market Trade Type: Efp (E)"
+  end
+  if value == "O" then
+    return "Off Market Trade Type: Efp Efs (O)"
+  end
+  if value == "Q" then
+    return "Off Market Trade Type: Eoo (Q)"
+  end
+  if value == "I" then
+    return "Off Market Trade Type: Efm (I)"
+  end
+  if value == "5" then
+    return "Off Market Trade Type: Guaranteed Cross (5)"
+  end
+  if value == "5" then
+    return "Off Market Trade Type: Basis (5)"
+  end
+  if value == "AA" then
+    return "Off Market Trade Type: Asset Allocation (AA)"
+  end
+
+  return "Off Market Trade Type: Unknown("..value..")"
+end
+
+-- Dissect: Off Market Trade Type
+ice_futures_mdf_impact_v1_1_33.off_market_trade_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.off_market_trade_type.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2212,378 +5184,252 @@ ice_futures_mdf_impact_v1_1_33.unit_of_measure.dissect = function(buffer, offset
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_33.unit_of_measure.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.off_market_trade_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.unit_of_measure, range, value, display)
-
-  return offset + length, value
-end
-
--- Guaranteed Cross Supported
-ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported = {}
-
--- Size: Guaranteed Cross Supported
-ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.size = 1
-
--- Display: Guaranteed Cross Supported
-ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Guaranteed Cross Supported: No Value"
-  end
-
-  if value == "Y" then
-    return "Guaranteed Cross Supported: Yes (Y)"
-  end
-  if value == "N" then
-    return "Guaranteed Cross Supported: No (N)"
-  end
-
-  return "Guaranteed Cross Supported: Unknown("..value..")"
-end
-
--- Dissect: Guaranteed Cross Supported
-ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.guaranteed_cross_supported, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_market_trade_type, range, value, display)
 
   return offset + length, value
 end
 
--- Cross Order Supported
-ice_futures_mdf_impact_v1_1_33.cross_order_supported = {}
+-- Old Strip Id
+ice_futures_mdf_impact_v1_1_33.old_strip_id = {}
 
--- Size: Cross Order Supported
-ice_futures_mdf_impact_v1_1_33.cross_order_supported.size = 1
+-- Size: Old Strip Id
+ice_futures_mdf_impact_v1_1_33.old_strip_id.size = 2
 
--- Display: Cross Order Supported
-ice_futures_mdf_impact_v1_1_33.cross_order_supported.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Cross Order Supported: No Value"
-  end
-
-  if value == "Y" then
-    return "Cross Order Supported: Yes (Y)"
-  end
-  if value == "N" then
-    return "Cross Order Supported: No (N)"
-  end
-
-  return "Cross Order Supported: Unknown("..value..")"
+-- Display: Old Strip Id
+ice_futures_mdf_impact_v1_1_33.old_strip_id.display = function(value)
+  return "Old Strip Id: "..value
 end
 
--- Dissect: Cross Order Supported
-ice_futures_mdf_impact_v1_1_33.cross_order_supported.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.cross_order_supported.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.cross_order_supported.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.cross_order_supported, range, value, display)
-
-  return offset + length, value
-end
-
--- Gt Allowed
-ice_futures_mdf_impact_v1_1_33.gt_allowed = {}
-
--- Size: Gt Allowed
-ice_futures_mdf_impact_v1_1_33.gt_allowed.size = 1
-
--- Display: Gt Allowed
-ice_futures_mdf_impact_v1_1_33.gt_allowed.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Gt Allowed: No Value"
-  end
-
-  if value == "Y" then
-    return "Gt Allowed: Yes (Y)"
-  end
-  if value == "N" then
-    return "Gt Allowed: No (N)"
-  end
-
-  return "Gt Allowed: Unknown("..value..")"
-end
-
--- Dissect: Gt Allowed
-ice_futures_mdf_impact_v1_1_33.gt_allowed.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.gt_allowed.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.gt_allowed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.gt_allowed, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Block Only
-ice_futures_mdf_impact_v1_1_33.is_block_only = {}
-
--- Size: Is Block Only
-ice_futures_mdf_impact_v1_1_33.is_block_only.size = 1
-
--- Display: Is Block Only
-ice_futures_mdf_impact_v1_1_33.is_block_only.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is Block Only: No Value"
-  end
-
-  if value == "Y" then
-    return "Is Block Only: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Block Only: No (N)"
-  end
-
-  return "Is Block Only: Unknown("..value..")"
-end
-
--- Dissect: Is Block Only
-ice_futures_mdf_impact_v1_1_33.is_block_only.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_block_only.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_block_only.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_block_only, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Type
-ice_futures_mdf_impact_v1_1_33.settlement_type = {}
-
--- Size: Settlement Type
-ice_futures_mdf_impact_v1_1_33.settlement_type.size = 1
-
--- Display: Settlement Type
-ice_futures_mdf_impact_v1_1_33.settlement_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Settlement Type: No Value"
-  end
-
-  if value == "0" then
-    return "Settlement Type: Financial (0)"
-  end
-  if value == "1" then
-    return "Settlement Type: Physical (1)"
-  end
-
-  return "Settlement Type: Unknown("..value..")"
-end
-
--- Dissect: Settlement Type
-ice_futures_mdf_impact_v1_1_33.settlement_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.settlement_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.settlement_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settlement_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Flex Allowed
-ice_futures_mdf_impact_v1_1_33.flex_allowed = {}
-
--- Size: Flex Allowed
-ice_futures_mdf_impact_v1_1_33.flex_allowed.size = 1
-
--- Display: Flex Allowed
-ice_futures_mdf_impact_v1_1_33.flex_allowed.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Flex Allowed: No Value"
-  end
-
-  return "Flex Allowed: "..value
-end
-
--- Dissect: Flex Allowed
-ice_futures_mdf_impact_v1_1_33.flex_allowed.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.flex_allowed.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.flex_allowed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.flex_allowed, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Value
-ice_futures_mdf_impact_v1_1_33.tick_value = {}
-
--- Size: Tick Value
-ice_futures_mdf_impact_v1_1_33.tick_value.size = 8
-
--- Display: Tick Value
-ice_futures_mdf_impact_v1_1_33.tick_value.display = function(value)
-  return "Tick Value: "..value
-end
-
--- Dissect: Tick Value
-ice_futures_mdf_impact_v1_1_33.tick_value.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.tick_value.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.tick_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.tick_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Qty Denominator
-ice_futures_mdf_impact_v1_1_33.unit_qty_denominator = {}
-
--- Size: Unit Qty Denominator
-ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.size = 1
-
--- Display: Unit Qty Denominator
-ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Unit Qty Denominator: No Value"
-  end
-
-  return "Unit Qty Denominator: "..value
-end
-
--- Dissect: Unit Qty Denominator
-ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.unit_qty_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Settle Price Denominator
-ice_futures_mdf_impact_v1_1_33.settle_price_denominator = {}
-
--- Size: Settle Price Denominator
-ice_futures_mdf_impact_v1_1_33.settle_price_denominator.size = 1
-
--- Display: Settle Price Denominator
-ice_futures_mdf_impact_v1_1_33.settle_price_denominator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Settle Price Denominator: No Value"
-  end
-
-  return "Settle Price Denominator: "..value
-end
-
--- Dissect: Settle Price Denominator
-ice_futures_mdf_impact_v1_1_33.settle_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.settle_price_denominator.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.settle_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settle_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Hedge Market Id
-ice_futures_mdf_impact_v1_1_33.hedge_market_id = {}
-
--- Size: Hedge Market Id
-ice_futures_mdf_impact_v1_1_33.hedge_market_id.size = 4
-
--- Display: Hedge Market Id
-ice_futures_mdf_impact_v1_1_33.hedge_market_id.display = function(value)
-  return "Hedge Market Id: "..value
-end
-
--- Dissect: Hedge Market Id
-ice_futures_mdf_impact_v1_1_33.hedge_market_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_market_id.size
+-- Dissect: Old Strip Id
+ice_futures_mdf_impact_v1_1_33.old_strip_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.old_strip_id.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_market_id.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.old_strip_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_market_id, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.old_strip_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+ice_futures_mdf_impact_v1_1_33.open_interest = {}
+
+-- Size: Open Interest
+ice_futures_mdf_impact_v1_1_33.open_interest.size = 4
+
+-- Display: Open Interest
+ice_futures_mdf_impact_v1_1_33.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+ice_futures_mdf_impact_v1_1_33.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.open_interest.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest Change
+ice_futures_mdf_impact_v1_1_33.open_interest_change = {}
+
+-- Size: Open Interest Change
+ice_futures_mdf_impact_v1_1_33.open_interest_change.size = 4
+
+-- Display: Open Interest Change
+ice_futures_mdf_impact_v1_1_33.open_interest_change.display = function(value)
+  return "Open Interest Change: "..value
+end
+
+-- Dissect: Open Interest Change
+ice_futures_mdf_impact_v1_1_33.open_interest_change.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.open_interest_change.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.open_interest_change.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_interest_change, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest Date
+ice_futures_mdf_impact_v1_1_33.open_interest_date = {}
+
+-- Size: Open Interest Date
+ice_futures_mdf_impact_v1_1_33.open_interest_date.size = 10
+
+-- Display: Open Interest Date
+ice_futures_mdf_impact_v1_1_33.open_interest_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Open Interest Date: No Value"
+  end
+
+  return "Open Interest Date: "..value
+end
+
+-- Dissect: Open Interest Date
+ice_futures_mdf_impact_v1_1_33.open_interest_date.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.open_interest_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.open_interest_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_interest_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+ice_futures_mdf_impact_v1_1_33.open_price = {}
+
+-- Size: Open Price
+ice_futures_mdf_impact_v1_1_33.open_price.size = 8
+
+-- Display: Open Price
+ice_futures_mdf_impact_v1_1_33.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Dissect: Open Price
+ice_futures_mdf_impact_v1_1_33.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.open_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Price
+ice_futures_mdf_impact_v1_1_33.opening_price = {}
+
+-- Size: Opening Price
+ice_futures_mdf_impact_v1_1_33.opening_price.size = 8
+
+-- Display: Opening Price
+ice_futures_mdf_impact_v1_1_33.opening_price.display = function(value)
+  return "Opening Price: "..value
+end
+
+-- Dissect: Opening Price
+ice_futures_mdf_impact_v1_1_33.opening_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.opening_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.opening_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.opening_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+ice_futures_mdf_impact_v1_1_33.option_type = {}
+
+-- Size: Option Type
+ice_futures_mdf_impact_v1_1_33.option_type.size = 1
+
+-- Display: Option Type
+ice_futures_mdf_impact_v1_1_33.option_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Option Type: No Value"
+  end
+
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+ice_futures_mdf_impact_v1_1_33.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.option_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Expiration Day
+ice_futures_mdf_impact_v1_1_33.options_expiration_day = {}
+
+-- Size: Options Expiration Day
+ice_futures_mdf_impact_v1_1_33.options_expiration_day.size = 2
+
+-- Display: Options Expiration Day
+ice_futures_mdf_impact_v1_1_33.options_expiration_day.display = function(value)
+  return "Options Expiration Day: "..value
+end
+
+-- Dissect: Options Expiration Day
+ice_futures_mdf_impact_v1_1_33.options_expiration_day.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.options_expiration_day.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.options_expiration_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Expiration Month
+ice_futures_mdf_impact_v1_1_33.options_expiration_month = {}
+
+-- Size: Options Expiration Month
+ice_futures_mdf_impact_v1_1_33.options_expiration_month.size = 2
+
+-- Display: Options Expiration Month
+ice_futures_mdf_impact_v1_1_33.options_expiration_month.display = function(value)
+  return "Options Expiration Month: "..value
+end
+
+-- Dissect: Options Expiration Month
+ice_futures_mdf_impact_v1_1_33.options_expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.options_expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.options_expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_month, range, value, display)
 
   return offset + length, value
 end
@@ -2627,6 +5473,29 @@ ice_futures_mdf_impact_v1_1_33.options_expiration_type.dissect = function(buffer
   local display = ice_futures_mdf_impact_v1_1_33.options_expiration_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Expiration Year
+ice_futures_mdf_impact_v1_1_33.options_expiration_year = {}
+
+-- Size: Options Expiration Year
+ice_futures_mdf_impact_v1_1_33.options_expiration_year.size = 2
+
+-- Display: Options Expiration Year
+ice_futures_mdf_impact_v1_1_33.options_expiration_year.display = function(value)
+  return "Options Expiration Year: "..value
+end
+
+-- Dissect: Options Expiration Year
+ice_futures_mdf_impact_v1_1_33.options_expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.options_expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.options_expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_year, range, value, display)
 
   return offset + length, value
 end
@@ -2683,359 +5552,75 @@ ice_futures_mdf_impact_v1_1_33.options_style.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Options Expiration Day
-ice_futures_mdf_impact_v1_1_33.options_expiration_day = {}
+-- Order Count
+ice_futures_mdf_impact_v1_1_33.order_count = {}
 
--- Size: Options Expiration Day
-ice_futures_mdf_impact_v1_1_33.options_expiration_day.size = 2
+-- Size: Order Count
+ice_futures_mdf_impact_v1_1_33.order_count.size = 2
 
--- Display: Options Expiration Day
-ice_futures_mdf_impact_v1_1_33.options_expiration_day.display = function(value)
-  return "Options Expiration Day: "..value
+-- Display: Order Count
+ice_futures_mdf_impact_v1_1_33.order_count.display = function(value)
+  return "Order Count: "..value
 end
 
--- Dissect: Options Expiration Day
-ice_futures_mdf_impact_v1_1_33.options_expiration_day.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.options_expiration_day.size
+-- Dissect: Order Count
+ice_futures_mdf_impact_v1_1_33.order_count.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.order_count.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.options_expiration_day.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.order_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_day, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_count, range, value, display)
 
   return offset + length, value
 end
 
--- Options Expiration Month
-ice_futures_mdf_impact_v1_1_33.options_expiration_month = {}
+-- Order Entry Date Time
+ice_futures_mdf_impact_v1_1_33.order_entry_date_time = {}
 
--- Size: Options Expiration Month
-ice_futures_mdf_impact_v1_1_33.options_expiration_month.size = 2
+-- Size: Order Entry Date Time
+ice_futures_mdf_impact_v1_1_33.order_entry_date_time.size = 8
 
--- Display: Options Expiration Month
-ice_futures_mdf_impact_v1_1_33.options_expiration_month.display = function(value)
-  return "Options Expiration Month: "..value
+-- Display: Order Entry Date Time
+ice_futures_mdf_impact_v1_1_33.order_entry_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Order Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect: Options Expiration Month
-ice_futures_mdf_impact_v1_1_33.options_expiration_month.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.options_expiration_month.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.options_expiration_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Options Expiration Year
-ice_futures_mdf_impact_v1_1_33.options_expiration_year = {}
-
--- Size: Options Expiration Year
-ice_futures_mdf_impact_v1_1_33.options_expiration_year.size = 2
-
--- Display: Options Expiration Year
-ice_futures_mdf_impact_v1_1_33.options_expiration_year.display = function(value)
-  return "Options Expiration Year: "..value
-end
-
--- Dissect: Options Expiration Year
-ice_futures_mdf_impact_v1_1_33.options_expiration_year.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.options_expiration_year.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.options_expiration_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.options_expiration_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Increment Premium Price
-ice_futures_mdf_impact_v1_1_33.increment_premium_price = {}
-
--- Size: Increment Premium Price
-ice_futures_mdf_impact_v1_1_33.increment_premium_price.size = 4
-
--- Display: Increment Premium Price
-ice_futures_mdf_impact_v1_1_33.increment_premium_price.display = function(value)
-  return "Increment Premium Price: "..value
-end
-
--- Dissect: Increment Premium Price
-ice_futures_mdf_impact_v1_1_33.increment_premium_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.increment_premium_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.increment_premium_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.increment_premium_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Options Price
-ice_futures_mdf_impact_v1_1_33.max_options_price = {}
-
--- Size: Max Options Price
-ice_futures_mdf_impact_v1_1_33.max_options_price.size = 8
-
--- Display: Max Options Price
-ice_futures_mdf_impact_v1_1_33.max_options_price.display = function(value)
-  return "Max Options Price: "..value
-end
-
--- Dissect: Max Options Price
-ice_futures_mdf_impact_v1_1_33.max_options_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.max_options_price.size
+-- Dissect: Order Entry Date Time
+ice_futures_mdf_impact_v1_1_33.order_entry_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.order_entry_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.max_options_price.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.order_entry_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.max_options_price, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_entry_date_time, range, value, display)
 
   return offset + length, value
 end
 
--- Min Options Price
-ice_futures_mdf_impact_v1_1_33.min_options_price = {}
+-- Order Id
+ice_futures_mdf_impact_v1_1_33.order_id = {}
 
--- Size: Min Options Price
-ice_futures_mdf_impact_v1_1_33.min_options_price.size = 8
+-- Size: Order Id
+ice_futures_mdf_impact_v1_1_33.order_id.size = 8
 
--- Display: Min Options Price
-ice_futures_mdf_impact_v1_1_33.min_options_price.display = function(value)
-  return "Min Options Price: "..value
+-- Display: Order Id
+ice_futures_mdf_impact_v1_1_33.order_id.display = function(value)
+  return "Order Id: "..value
 end
 
--- Dissect: Min Options Price
-ice_futures_mdf_impact_v1_1_33.min_options_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.min_options_price.size
+-- Dissect: Order Id
+ice_futures_mdf_impact_v1_1_33.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.order_id.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.min_options_price.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.order_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.min_options_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Num Decimals Strike Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price = {}
-
--- Size: Num Decimals Strike Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.size = 1
-
--- Display: Num Decimals Strike Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Num Decimals Strike Price: No Value"
-  end
-
-  return "Num Decimals Strike Price: "..value
-end
-
--- Dissect: Num Decimals Strike Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-ice_futures_mdf_impact_v1_1_33.currency = {}
-
--- Size: Currency
-ice_futures_mdf_impact_v1_1_33.currency.size = 20
-
--- Display: Currency
-ice_futures_mdf_impact_v1_1_33.currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-ice_futures_mdf_impact_v1_1_33.currency.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Qty
-ice_futures_mdf_impact_v1_1_33.min_qty = {}
-
--- Size: Min Qty
-ice_futures_mdf_impact_v1_1_33.min_qty.size = 4
-
--- Display: Min Qty
-ice_futures_mdf_impact_v1_1_33.min_qty.display = function(value)
-  return "Min Qty: "..value
-end
-
--- Dissect: Min Qty
-ice_futures_mdf_impact_v1_1_33.min_qty.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.min_qty.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.min_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.min_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Deal Price Denominator
-ice_futures_mdf_impact_v1_1_33.deal_price_denominator = {}
-
--- Size: Deal Price Denominator
-ice_futures_mdf_impact_v1_1_33.deal_price_denominator.size = 1
-
--- Display: Deal Price Denominator
-ice_futures_mdf_impact_v1_1_33.deal_price_denominator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Deal Price Denominator: No Value"
-  end
-
-  return "Deal Price Denominator: "..value
-end
-
--- Dissect: Deal Price Denominator
-ice_futures_mdf_impact_v1_1_33.deal_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.deal_price_denominator.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.deal_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.deal_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Desc
-ice_futures_mdf_impact_v1_1_33.market_desc = {}
-
--- Size: Market Desc
-ice_futures_mdf_impact_v1_1_33.market_desc.size = 120
-
--- Display: Market Desc
-ice_futures_mdf_impact_v1_1_33.market_desc.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Market Desc: No Value"
-  end
-
-  return "Market Desc: "..value
-end
-
--- Dissect: Market Desc
-ice_futures_mdf_impact_v1_1_33.market_desc.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.market_desc.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.market_desc.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.market_desc, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size
-ice_futures_mdf_impact_v1_1_33.lot_size = {}
-
--- Size: Lot Size
-ice_futures_mdf_impact_v1_1_33.lot_size.size = 4
-
--- Display: Lot Size
-ice_futures_mdf_impact_v1_1_33.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-ice_futures_mdf_impact_v1_1_33.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Increment Qty
-ice_futures_mdf_impact_v1_1_33.increment_qty = {}
-
--- Size: Increment Qty
-ice_futures_mdf_impact_v1_1_33.increment_qty.size = 4
-
--- Display: Increment Qty
-ice_futures_mdf_impact_v1_1_33.increment_qty.display = function(value)
-  return "Increment Qty: "..value
-end
-
--- Dissect: Increment Qty
-ice_futures_mdf_impact_v1_1_33.increment_qty.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.increment_qty.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.increment_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.increment_qty, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3076,77 +5661,209 @@ ice_futures_mdf_impact_v1_1_33.order_price_denominator.dissect = function(buffer
   return offset + length, value
 end
 
--- Trading Status
-ice_futures_mdf_impact_v1_1_33.trading_status = {}
+-- Order Sequence Id
+ice_futures_mdf_impact_v1_1_33.order_sequence_id = {}
 
--- Size: Trading Status
-ice_futures_mdf_impact_v1_1_33.trading_status.size = 1
+-- Size: Order Sequence Id
+ice_futures_mdf_impact_v1_1_33.order_sequence_id.size = 2
 
--- Display: Trading Status
-ice_futures_mdf_impact_v1_1_33.trading_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trading Status: No Value"
-  end
-
-  if value == "O" then
-    return "Trading Status: Open (O)"
-  end
-  if value == "C" then
-    return "Trading Status: Close (C)"
-  end
-  if value == "E" then
-    return "Trading Status: Expired (E)"
-  end
-  if value == "1" then
-    return "Trading Status: Pre Open (1)"
-  end
-  if value == "2" then
-    return "Trading Status: Pre Close (2)"
-  end
-
-  return "Trading Status: Unknown("..value..")"
+-- Display: Order Sequence Id
+ice_futures_mdf_impact_v1_1_33.order_sequence_id.display = function(value)
+  return "Order Sequence Id: "..value
 end
 
--- Dissect: Trading Status
-ice_futures_mdf_impact_v1_1_33.trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.trading_status.size
+-- Dissect: Order Sequence Id
+ice_futures_mdf_impact_v1_1_33.order_sequence_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.order_sequence_id.size
   local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.order_sequence_id.display(value, buffer, offset, packet, parent)
 
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.trading_status, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_sequence_id, range, value, display)
 
   return offset + length, value
 end
 
--- Futures Contract Symbol
-ice_futures_mdf_impact_v1_1_33.futures_contract_symbol = {}
+-- Pre Open Price
+ice_futures_mdf_impact_v1_1_33.pre_open_price = {}
 
--- Size: Futures Contract Symbol
-ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.size = 70
+-- Size: Pre Open Price
+ice_futures_mdf_impact_v1_1_33.pre_open_price.size = 8
 
--- Display: Futures Contract Symbol
-ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Futures Contract Symbol: No Value"
-  end
-
-  return "Futures Contract Symbol: "..value
+-- Display: Pre Open Price
+ice_futures_mdf_impact_v1_1_33.pre_open_price.display = function(value)
+  return "Pre Open Price: "..value
 end
 
--- Dissect: Futures Contract Symbol
-ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.size
+-- Dissect: Pre Open Price
+ice_futures_mdf_impact_v1_1_33.pre_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.pre_open_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.pre_open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.pre_open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.pre_open_volume = {}
+
+-- Size: Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.pre_open_volume.size = 4
+
+-- Display: Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.pre_open_volume.display = function(value)
+  return "Pre Open Volume: "..value
+end
+
+-- Dissect: Pre Open Volume
+ice_futures_mdf_impact_v1_1_33.pre_open_volume.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.pre_open_volume.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.pre_open_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.pre_open_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price = {}
+
+-- Size: Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.size = 8
+
+-- Display: Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.display = function(value)
+  return "Previous Day Settlement Price: "..value
+end
+
+-- Dissect: Previous Day Settlement Price
+ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.previous_day_settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+ice_futures_mdf_impact_v1_1_33.price = {}
+
+-- Size: Price
+ice_futures_mdf_impact_v1_1_33.price.size = 8
+
+-- Display: Price
+ice_futures_mdf_impact_v1_1_33.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+ice_futures_mdf_impact_v1_1_33.price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price In Gram
+ice_futures_mdf_impact_v1_1_33.price_in_gram = {}
+
+-- Size: Price In Gram
+ice_futures_mdf_impact_v1_1_33.price_in_gram.size = 8
+
+-- Display: Price In Gram
+ice_futures_mdf_impact_v1_1_33.price_in_gram.display = function(value)
+  return "Price In Gram: "..value
+end
+
+-- Dissect: Price In Gram
+ice_futures_mdf_impact_v1_1_33.price_in_gram.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.price_in_gram.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.price_in_gram.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.price_in_gram, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Level Position
+ice_futures_mdf_impact_v1_1_33.price_level_position = {}
+
+-- Size: Price Level Position
+ice_futures_mdf_impact_v1_1_33.price_level_position.size = 1
+
+-- Display: Price Level Position
+ice_futures_mdf_impact_v1_1_33.price_level_position.display = function(value)
+  return "Price Level Position: "..value
+end
+
+-- Dissect: Price Level Position
+ice_futures_mdf_impact_v1_1_33.price_level_position.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.price_level_position.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.price_level_position.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.price_level_position, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+ice_futures_mdf_impact_v1_1_33.product_id = {}
+
+-- Size: Product Id
+ice_futures_mdf_impact_v1_1_33.product_id.size = 4
+
+-- Display: Product Id
+ice_futures_mdf_impact_v1_1_33.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+ice_futures_mdf_impact_v1_1_33.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.product_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Name
+ice_futures_mdf_impact_v1_1_33.product_name = {}
+
+-- Size: Product Name
+ice_futures_mdf_impact_v1_1_33.product_name.size = 62
+
+-- Display: Product Name
+ice_futures_mdf_impact_v1_1_33.product_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product Name: No Value"
+  end
+
+  return "Product Name: "..value
+end
+
+-- Dissect: Product Name
+ice_futures_mdf_impact_v1_1_33.product_name.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.product_name.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3160,345 +5877,151 @@ ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.dissect = function(buffer
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.product_name.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.futures_contract_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- New Options Market Definition Message
-ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message = {}
-
--- Size: New Options Market Definition Message
-ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.size =
-  ice_futures_mdf_impact_v1_1_33.market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.underlying_market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.size + 
-  ice_futures_mdf_impact_v1_1_33.trading_status.size + 
-  ice_futures_mdf_impact_v1_1_33.order_price_denominator.size + 
-  ice_futures_mdf_impact_v1_1_33.increment_qty.size + 
-  ice_futures_mdf_impact_v1_1_33.lot_size.size + 
-  ice_futures_mdf_impact_v1_1_33.market_desc.size + 
-  ice_futures_mdf_impact_v1_1_33.option_type.size + 
-  ice_futures_mdf_impact_v1_1_33.strike_price.size + 
-  ice_futures_mdf_impact_v1_1_33.deal_price_denominator.size + 
-  ice_futures_mdf_impact_v1_1_33.min_qty.size + 
-  ice_futures_mdf_impact_v1_1_33.currency.size + 
-  ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.size + 
-  ice_futures_mdf_impact_v1_1_33.min_options_price.size + 
-  ice_futures_mdf_impact_v1_1_33.max_options_price.size + 
-  ice_futures_mdf_impact_v1_1_33.increment_premium_price.size + 
-  ice_futures_mdf_impact_v1_1_33.options_expiration_year.size + 
-  ice_futures_mdf_impact_v1_1_33.options_expiration_month.size + 
-  ice_futures_mdf_impact_v1_1_33.options_expiration_day.size + 
-  ice_futures_mdf_impact_v1_1_33.options_style.size + 
-  ice_futures_mdf_impact_v1_1_33.options_expiration_type.size + 
-  ice_futures_mdf_impact_v1_1_33.hedge_market_id.size + 
-  ice_futures_mdf_impact_v1_1_33.settle_price_denominator.size + 
-  ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.size + 
-  ice_futures_mdf_impact_v1_1_33.tick_value.size + 
-  ice_futures_mdf_impact_v1_1_33.flex_allowed.size + 
-  ice_futures_mdf_impact_v1_1_33.settlement_type.size + 
-  ice_futures_mdf_impact_v1_1_33.is_block_only.size + 
-  ice_futures_mdf_impact_v1_1_33.gt_allowed.size + 
-  ice_futures_mdf_impact_v1_1_33.cross_order_supported.size + 
-  ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.size + 
-  ice_futures_mdf_impact_v1_1_33.unit_of_measure.size + 
-  ice_futures_mdf_impact_v1_1_33.mifid_regulated_market.size
-
--- Display: New Options Market Definition Message
-ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Options Market Definition Message
-ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Id: Numeric
-  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
-
-  -- Underlying Market Id: Numeric
-  index, underlying_market_id = ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect(buffer, index, packet, parent)
-
-  -- Futures Contract Symbol: Alpha
-  index, futures_contract_symbol = ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.dissect(buffer, index, packet, parent)
-
-  -- Trading Status: Alpha
-  index, trading_status = ice_futures_mdf_impact_v1_1_33.trading_status.dissect(buffer, index, packet, parent)
-
-  -- Order Price Denominator: Alpha
-  index, order_price_denominator = ice_futures_mdf_impact_v1_1_33.order_price_denominator.dissect(buffer, index, packet, parent)
-
-  -- Increment Qty: Numeric
-  index, increment_qty = ice_futures_mdf_impact_v1_1_33.increment_qty.dissect(buffer, index, packet, parent)
-
-  -- Lot Size: Numeric
-  index, lot_size = ice_futures_mdf_impact_v1_1_33.lot_size.dissect(buffer, index, packet, parent)
-
-  -- Market Desc: Alpha
-  index, market_desc = ice_futures_mdf_impact_v1_1_33.market_desc.dissect(buffer, index, packet, parent)
-
-  -- Option Type: Alpha
-  index, option_type = ice_futures_mdf_impact_v1_1_33.option_type.dissect(buffer, index, packet, parent)
-
-  -- Strike Price: Numeric
-  index, strike_price = ice_futures_mdf_impact_v1_1_33.strike_price.dissect(buffer, index, packet, parent)
-
-  -- Deal Price Denominator: Alpha
-  index, deal_price_denominator = ice_futures_mdf_impact_v1_1_33.deal_price_denominator.dissect(buffer, index, packet, parent)
-
-  -- Min Qty: Numeric
-  index, min_qty = ice_futures_mdf_impact_v1_1_33.min_qty.dissect(buffer, index, packet, parent)
-
-  -- Currency: Alpha
-  index, currency = ice_futures_mdf_impact_v1_1_33.currency.dissect(buffer, index, packet, parent)
-
-  -- Num Decimals Strike Price: Alpha
-  index, num_decimals_strike_price = ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.dissect(buffer, index, packet, parent)
-
-  -- Min Options Price: Numeric
-  index, min_options_price = ice_futures_mdf_impact_v1_1_33.min_options_price.dissect(buffer, index, packet, parent)
-
-  -- Max Options Price: Numeric
-  index, max_options_price = ice_futures_mdf_impact_v1_1_33.max_options_price.dissect(buffer, index, packet, parent)
-
-  -- Increment Premium Price: Numeric
-  index, increment_premium_price = ice_futures_mdf_impact_v1_1_33.increment_premium_price.dissect(buffer, index, packet, parent)
-
-  -- Options Expiration Year: Numeric
-  index, options_expiration_year = ice_futures_mdf_impact_v1_1_33.options_expiration_year.dissect(buffer, index, packet, parent)
-
-  -- Options Expiration Month: Numeric
-  index, options_expiration_month = ice_futures_mdf_impact_v1_1_33.options_expiration_month.dissect(buffer, index, packet, parent)
-
-  -- Options Expiration Day: Numeric
-  index, options_expiration_day = ice_futures_mdf_impact_v1_1_33.options_expiration_day.dissect(buffer, index, packet, parent)
-
-  -- Options Style: Alpha
-  index, options_style = ice_futures_mdf_impact_v1_1_33.options_style.dissect(buffer, index, packet, parent)
-
-  -- Options Expiration Type: Alpha
-  index, options_expiration_type = ice_futures_mdf_impact_v1_1_33.options_expiration_type.dissect(buffer, index, packet, parent)
-
-  -- Hedge Market Id: Numeric
-  index, hedge_market_id = ice_futures_mdf_impact_v1_1_33.hedge_market_id.dissect(buffer, index, packet, parent)
-
-  -- Settle Price Denominator: Alpha
-  index, settle_price_denominator = ice_futures_mdf_impact_v1_1_33.settle_price_denominator.dissect(buffer, index, packet, parent)
-
-  -- Unit Qty Denominator: Alpha
-  index, unit_qty_denominator = ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.dissect(buffer, index, packet, parent)
-
-  -- Tick Value: Numeric
-  index, tick_value = ice_futures_mdf_impact_v1_1_33.tick_value.dissect(buffer, index, packet, parent)
-
-  -- Flex Allowed: Alpha
-  index, flex_allowed = ice_futures_mdf_impact_v1_1_33.flex_allowed.dissect(buffer, index, packet, parent)
-
-  -- Settlement Type: Alpha
-  index, settlement_type = ice_futures_mdf_impact_v1_1_33.settlement_type.dissect(buffer, index, packet, parent)
-
-  -- Is Block Only: Alpha
-  index, is_block_only = ice_futures_mdf_impact_v1_1_33.is_block_only.dissect(buffer, index, packet, parent)
-
-  -- Gt Allowed: Alpha
-  index, gt_allowed = ice_futures_mdf_impact_v1_1_33.gt_allowed.dissect(buffer, index, packet, parent)
-
-  -- Cross Order Supported: Alpha
-  index, cross_order_supported = ice_futures_mdf_impact_v1_1_33.cross_order_supported.dissect(buffer, index, packet, parent)
-
-  -- Guaranteed Cross Supported: Alpha
-  index, guaranteed_cross_supported = ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.dissect(buffer, index, packet, parent)
-
-  -- Unit Of Measure: Alpha
-  index, unit_of_measure = ice_futures_mdf_impact_v1_1_33.unit_of_measure.dissect(buffer, index, packet, parent)
-
-  -- Mifid Regulated Market: Alpha
-  index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_33.mifid_regulated_market.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Options Market Definition Message
-ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.new_options_market_definition_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.new_options_market_definition_message, buffer(offset, 0))
-    local index = ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Leg Deal Suppressed
-ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed = {}
-
--- Size: Leg Deal Suppressed
-ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.size = 1
-
--- Display: Leg Deal Suppressed
-ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Leg Deal Suppressed: No Value"
-  end
-
-  if value == "Y" then
-    return "Leg Deal Suppressed: Yes (Y)"
-  end
-  if value == "N" then
-    return "Leg Deal Suppressed: No (N)"
-  end
-
-  return "Leg Deal Suppressed: Unknown("..value..")"
-end
-
--- Dissect: Leg Deal Suppressed
-ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.leg_deal_suppressed.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_deal_suppressed, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.product_name, range, value, display)
 
   return offset + length, value
 end
 
--- Contract Symbol Extra
-ice_futures_mdf_impact_v1_1_33.contract_symbol_extra = {}
+-- Published Date Time
+ice_futures_mdf_impact_v1_1_33.published_date_time = {}
 
--- Size: Contract Symbol Extra
-ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.size = 35
+-- Size: Published Date Time
+ice_futures_mdf_impact_v1_1_33.published_date_time.size = 8
 
--- Display: Contract Symbol Extra
-ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contract Symbol Extra: No Value"
-  end
+-- Display: Published Date Time
+ice_futures_mdf_impact_v1_1_33.published_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
 
-  return "Contract Symbol Extra: "..value
+  return "Published Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect: Contract Symbol Extra
-ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.size
+-- Dissect: Published Date Time
+ice_futures_mdf_impact_v1_1_33.published_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.published_date_time.size
   local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.published_date_time.display(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.contract_symbol_extra.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.contract_symbol_extra, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.published_date_time, range, value, display)
 
   return offset + length, value
 end
 
--- Test Market Indicator
-ice_futures_mdf_impact_v1_1_33.test_market_indicator = {}
+-- Quantity
+ice_futures_mdf_impact_v1_1_33.quantity = {}
 
--- Size: Test Market Indicator
-ice_futures_mdf_impact_v1_1_33.test_market_indicator.size = 1
+-- Size: Quantity
+ice_futures_mdf_impact_v1_1_33.quantity.size = 4
 
--- Display: Test Market Indicator
-ice_futures_mdf_impact_v1_1_33.test_market_indicator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Test Market Indicator: No Value"
-  end
-
-  if value == "Y" then
-    return "Test Market Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Market Indicator: No (N)"
-  end
-
-  return "Test Market Indicator: Unknown("..value..")"
+-- Display: Quantity
+ice_futures_mdf_impact_v1_1_33.quantity.display = function(value)
+  return "Quantity: "..value
 end
 
--- Dissect: Test Market Indicator
-ice_futures_mdf_impact_v1_1_33.test_market_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.test_market_indicator.size
+-- Dissect: Quantity
+ice_futures_mdf_impact_v1_1_33.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.quantity.size
   local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.quantity.display(value, buffer, offset, packet, parent)
 
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.test_market_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.test_market_indicator, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Strategy Symbol
-ice_futures_mdf_impact_v1_1_33.strategy_symbol = {}
+-- Reserved 2
+ice_futures_mdf_impact_v1_1_33.reserved_2 = {}
 
--- Size: Strategy Symbol
-ice_futures_mdf_impact_v1_1_33.strategy_symbol.size = 18
+-- Size: Reserved 2
+ice_futures_mdf_impact_v1_1_33.reserved_2.size = 2
 
--- Display: Strategy Symbol
-ice_futures_mdf_impact_v1_1_33.strategy_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Strategy Symbol: No Value"
-  end
-
-  return "Strategy Symbol: "..value
+-- Display: Reserved 2
+ice_futures_mdf_impact_v1_1_33.reserved_2.display = function(value)
+  return "Reserved 2: "..value
 end
 
--- Dissect: Strategy Symbol
-ice_futures_mdf_impact_v1_1_33.strategy_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.strategy_symbol.size
+-- Dissect: Reserved 2
+ice_futures_mdf_impact_v1_1_33.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.reserved_2.size
   local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = ice_futures_mdf_impact_v1_1_33.reserved_2.display(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.reserved_2, range, value, display)
 
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
+  return offset + length, value
+end
 
-  local display = ice_futures_mdf_impact_v1_1_33.strategy_symbol.display(value, buffer, offset, packet, parent)
+-- Reserved 4
+ice_futures_mdf_impact_v1_1_33.reserved_4 = {}
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strategy_symbol, range, value, display)
+-- Size: Reserved 4
+ice_futures_mdf_impact_v1_1_33.reserved_4.size = 4
+
+-- Display: Reserved 4
+ice_futures_mdf_impact_v1_1_33.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+ice_futures_mdf_impact_v1_1_33.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = ice_futures_mdf_impact_v1_1_33.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq System Id
+ice_futures_mdf_impact_v1_1_33.rfq_system_id = {}
+
+-- Size: Rfq System Id
+ice_futures_mdf_impact_v1_1_33.rfq_system_id.size = 8
+
+-- Display: Rfq System Id
+ice_futures_mdf_impact_v1_1_33.rfq_system_id.display = function(value)
+  return "Rfq System Id: "..value
+end
+
+-- Dissect: Rfq System Id
+ice_futures_mdf_impact_v1_1_33.rfq_system_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.rfq_system_id.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.rfq_system_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.rfq_system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round
+ice_futures_mdf_impact_v1_1_33.round = {}
+
+-- Size: Round
+ice_futures_mdf_impact_v1_1_33.round.size = 2
+
+-- Display: Round
+ice_futures_mdf_impact_v1_1_33.round.display = function(value)
+  return "Round: "..value
+end
+
+-- Dissect: Round
+ice_futures_mdf_impact_v1_1_33.round.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.round.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.round.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.round, range, value, display)
 
   return offset + length, value
 end
@@ -3887,71 +6410,148 @@ ice_futures_mdf_impact_v1_1_33.security_sub_type.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Hedge Strategy Code
-ice_futures_mdf_impact_v1_1_33.hedge_strategy_code = {}
+-- Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time = {}
 
--- Size: Hedge Strategy Code
-ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.size = 2
+-- Size: Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time.size = 8
 
--- Display: Hedge Strategy Code
-ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.display = function(value)
-  return "Hedge Strategy Code: "..value
+-- Display: Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Sent Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect: Hedge Strategy Code
-ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.size
+-- Dissect: Sent Date Time
+ice_futures_mdf_impact_v1_1_33.sent_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.sent_date_time.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_strategy_code.display(value, buffer, offset, packet, parent)
+  local value = range:uint64()
+  local display = ice_futures_mdf_impact_v1_1_33.sent_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_strategy_code, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sent_date_time, range, value, display)
 
   return offset + length, value
 end
 
--- Hedge Delta
-ice_futures_mdf_impact_v1_1_33.hedge_delta = {}
+-- Sequence
+ice_futures_mdf_impact_v1_1_33.sequence = {}
 
--- Size: Hedge Delta
-ice_futures_mdf_impact_v1_1_33.hedge_delta.size = 2
+-- Size: Sequence
+ice_futures_mdf_impact_v1_1_33.sequence.size = 4
 
--- Display: Hedge Delta
-ice_futures_mdf_impact_v1_1_33.hedge_delta.display = function(value)
-  return "Hedge Delta: "..value
+-- Display: Sequence
+ice_futures_mdf_impact_v1_1_33.sequence.display = function(value)
+  return "Sequence: "..value
 end
 
--- Dissect: Hedge Delta
-ice_futures_mdf_impact_v1_1_33.hedge_delta.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_delta.size
+-- Dissect: Sequence
+ice_futures_mdf_impact_v1_1_33.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.sequence.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_delta.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = ice_futures_mdf_impact_v1_1_33.sequence.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_delta, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sequence, range, value, display)
 
   return offset + length, value
 end
 
--- Hedge Price Denominator
-ice_futures_mdf_impact_v1_1_33.hedge_price_denominator = {}
+-- Sequence Within Millis
+ice_futures_mdf_impact_v1_1_33.sequence_within_millis = {}
 
--- Size: Hedge Price Denominator
-ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.size = 1
+-- Size: Sequence Within Millis
+ice_futures_mdf_impact_v1_1_33.sequence_within_millis.size = 4
 
--- Display: Hedge Price Denominator
-ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.display = function(value)
+-- Display: Sequence Within Millis
+ice_futures_mdf_impact_v1_1_33.sequence_within_millis.display = function(value)
+  return "Sequence Within Millis: "..value
+end
+
+-- Dissect: Sequence Within Millis
+ice_futures_mdf_impact_v1_1_33.sequence_within_millis.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.sequence_within_millis.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.sequence_within_millis.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sequence_within_millis, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+ice_futures_mdf_impact_v1_1_33.session = {}
+
+-- Size: Session
+ice_futures_mdf_impact_v1_1_33.session.size = 2
+
+-- Display: Session
+ice_futures_mdf_impact_v1_1_33.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+ice_futures_mdf_impact_v1_1_33.session.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.session.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = ice_futures_mdf_impact_v1_1_33.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settle Price Date Time
+ice_futures_mdf_impact_v1_1_33.settle_price_date_time = {}
+
+-- Size: Settle Price Date Time
+ice_futures_mdf_impact_v1_1_33.settle_price_date_time.size = 8
+
+-- Display: Settle Price Date Time
+ice_futures_mdf_impact_v1_1_33.settle_price_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Settle Price Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Settle Price Date Time
+ice_futures_mdf_impact_v1_1_33.settle_price_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.settle_price_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.settle_price_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settle_price_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settle Price Denominator
+ice_futures_mdf_impact_v1_1_33.settle_price_denominator = {}
+
+-- Size: Settle Price Denominator
+ice_futures_mdf_impact_v1_1_33.settle_price_denominator.size = 1
+
+-- Display: Settle Price Denominator
+ice_futures_mdf_impact_v1_1_33.settle_price_denominator.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Hedge Price Denominator: No Value"
+    return "Settle Price Denominator: No Value"
   end
 
-  return "Hedge Price Denominator: "..value
+  return "Settle Price Denominator: "..value
 end
 
--- Dissect: Hedge Price Denominator
-ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.size
+-- Dissect: Settle Price Denominator
+ice_futures_mdf_impact_v1_1_33.settle_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.settle_price_denominator.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -3962,65 +6562,170 @@ ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.dissect = function(buffer
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_price_denominator.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.settle_price_denominator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_price_denominator, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settle_price_denominator, range, value, display)
 
   return offset + length, value
 end
 
--- Hedge Price
-ice_futures_mdf_impact_v1_1_33.hedge_price = {}
+-- Settlement Price
+ice_futures_mdf_impact_v1_1_33.settlement_price = {}
 
--- Size: Hedge Price
-ice_futures_mdf_impact_v1_1_33.hedge_price.size = 8
+-- Size: Settlement Price
+ice_futures_mdf_impact_v1_1_33.settlement_price.size = 8
 
--- Display: Hedge Price
-ice_futures_mdf_impact_v1_1_33.hedge_price.display = function(value)
-  return "Hedge Price: "..value
+-- Display: Settlement Price
+ice_futures_mdf_impact_v1_1_33.settlement_price.display = function(value)
+  return "Settlement Price: "..value
 end
 
--- Dissect: Hedge Price
-ice_futures_mdf_impact_v1_1_33.hedge_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_price.size
+-- Dissect: Settlement Price
+ice_futures_mdf_impact_v1_1_33.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.settlement_price.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_price.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.settlement_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_price, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settlement_price, range, value, display)
 
   return offset + length, value
 end
 
--- Hedge Side
-ice_futures_mdf_impact_v1_1_33.hedge_side = {}
+-- Settlement Price With Deal Price Precision
+ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision = {}
 
--- Size: Hedge Side
-ice_futures_mdf_impact_v1_1_33.hedge_side.size = 1
+-- Size: Settlement Price With Deal Price Precision
+ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.size = 8
 
--- Display: Hedge Side
-ice_futures_mdf_impact_v1_1_33.hedge_side.display = function(value)
+-- Display: Settlement Price With Deal Price Precision
+ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.display = function(value)
+  return "Settlement Price With Deal Price Precision: "..value
+end
+
+-- Dissect: Settlement Price With Deal Price Precision
+ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settlement_price_with_deal_price_precision, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Type
+ice_futures_mdf_impact_v1_1_33.settlement_type = {}
+
+-- Size: Settlement Type
+ice_futures_mdf_impact_v1_1_33.settlement_type.size = 1
+
+-- Display: Settlement Type
+ice_futures_mdf_impact_v1_1_33.settlement_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Hedge Side: No Value"
+    return "Settlement Type: No Value"
+  end
+
+  if value == "0" then
+    return "Settlement Type: Financial (0)"
+  end
+  if value == "1" then
+    return "Settlement Type: Physical (1)"
+  end
+
+  return "Settlement Type: Unknown("..value..")"
+end
+
+-- Dissect: Settlement Type
+ice_futures_mdf_impact_v1_1_33.settlement_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.settlement_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.settlement_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settlement_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Name
+ice_futures_mdf_impact_v1_1_33.short_name = {}
+
+-- Size: Short Name
+ice_futures_mdf_impact_v1_1_33.short_name.size = 30
+
+-- Display: Short Name
+ice_futures_mdf_impact_v1_1_33.short_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Short Name: No Value"
+  end
+
+  return "Short Name: "..value
+end
+
+-- Dissect: Short Name
+ice_futures_mdf_impact_v1_1_33.short_name.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.short_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.short_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.short_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+ice_futures_mdf_impact_v1_1_33.side = {}
+
+-- Size: Side
+ice_futures_mdf_impact_v1_1_33.side.size = 1
+
+-- Display: Side
+ice_futures_mdf_impact_v1_1_33.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
   end
 
   if value == " " then
-    return "Hedge Side: None (<whitespace>)"
+    return "Side: None (<whitespace>)"
   end
   if value == "1" then
-    return "Hedge Side: Bid (1)"
+    return "Side: Bid (1)"
   end
   if value == "2" then
-    return "Hedge Side: Offer (2)"
+    return "Side: Offer (2)"
   end
 
-  return "Hedge Side: Unknown("..value..")"
+  return "Side: Unknown("..value..")"
 end
 
--- Dissect: Hedge Side
-ice_futures_mdf_impact_v1_1_33.hedge_side.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_side.size
+-- Dissect: Side
+ice_futures_mdf_impact_v1_1_33.side.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.side.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -4031,70 +6736,1504 @@ ice_futures_mdf_impact_v1_1_33.hedge_side.dissect = function(buffer, offset, pac
     value = range:string()
   end
 
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_side.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Hedge Security Type
-ice_futures_mdf_impact_v1_1_33.hedge_security_type = {}
-
--- Size: Hedge Security Type
-ice_futures_mdf_impact_v1_1_33.hedge_security_type.size = 1
-
--- Display: Hedge Security Type
-ice_futures_mdf_impact_v1_1_33.hedge_security_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Hedge Security Type: No Value"
-  end
-
-  return "Hedge Security Type: "..value
-end
-
--- Dissect: Hedge Security Type
-ice_futures_mdf_impact_v1_1_33.hedge_security_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_security_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_security_type, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.side, range, value, display)
 
   return offset + length, value
 end
 
--- Hedge Body Length
-ice_futures_mdf_impact_v1_1_33.hedge_body_length = {}
+-- Special Field Id
+ice_futures_mdf_impact_v1_1_33.special_field_id = {}
 
--- Size: Hedge Body Length
-ice_futures_mdf_impact_v1_1_33.hedge_body_length.size = 1
+-- Size: Special Field Id
+ice_futures_mdf_impact_v1_1_33.special_field_id.size = 1
 
--- Display: Hedge Body Length
-ice_futures_mdf_impact_v1_1_33.hedge_body_length.display = function(value)
-  return "Hedge Body Length: "..value
+-- Display: Special Field Id
+ice_futures_mdf_impact_v1_1_33.special_field_id.display = function(value)
+  if value == 1 then
+    return "Special Field Id: Alt Price (1)"
+  end
+  if value == 2 then
+    return "Special Field Id: Alt High Price (2)"
+  end
+  if value == 3 then
+    return "Special Field Id: Alt Low Price (3)"
+  end
+  if value == 4 then
+    return "Special Field Id: Alt Vwap (4)"
+  end
+  if value == 5 then
+    return "Special Field Id: Alt Last Trade Price (5)"
+  end
+  if value == 6 then
+    return "Special Field Id: Aon (6)"
+  end
+
+  return "Special Field Id: Unknown("..value..")"
 end
 
--- Dissect: Hedge Body Length
-ice_futures_mdf_impact_v1_1_33.hedge_body_length.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_body_length.size
+-- Dissect: Special Field Id
+ice_futures_mdf_impact_v1_1_33.special_field_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.special_field_id.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_body_length.display(value, buffer, offset, packet, parent)
+  local display = ice_futures_mdf_impact_v1_1_33.special_field_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_body_length, range, value, display)
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Special Field Length
+ice_futures_mdf_impact_v1_1_33.special_field_length = {}
+
+-- Size: Special Field Length
+ice_futures_mdf_impact_v1_1_33.special_field_length.size = 2
+
+-- Display: Special Field Length
+ice_futures_mdf_impact_v1_1_33.special_field_length.display = function(value)
+  return "Special Field Length: "..value
+end
+
+-- Dissect: Special Field Length
+ice_futures_mdf_impact_v1_1_33.special_field_length.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.special_field_length.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.special_field_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Or End
+ice_futures_mdf_impact_v1_1_33.start_or_end = {}
+
+-- Size: Start Or End
+ice_futures_mdf_impact_v1_1_33.start_or_end.size = 1
+
+-- Display: Start Or End
+ice_futures_mdf_impact_v1_1_33.start_or_end.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Start Or End: No Value"
+  end
+
+  if value == "S" then
+    return "Start Or End: Start (S)"
+  end
+  if value == "E" then
+    return "Start Or End: End (E)"
+  end
+
+  return "Start Or End: Unknown("..value..")"
+end
+
+-- Dissect: Start Or End
+ice_futures_mdf_impact_v1_1_33.start_or_end.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.start_or_end.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.start_or_end.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.start_or_end, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+ice_futures_mdf_impact_v1_1_33.status = {}
+
+-- Size: Status
+ice_futures_mdf_impact_v1_1_33.status.size = 1
+
+-- Display: Status
+ice_futures_mdf_impact_v1_1_33.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
+  if value == "C" then
+    return "Status: Closed (C)"
+  end
+  if value == "P" then
+    return "Status: Preopen (P)"
+  end
+  if value == "L" then
+    return "Status: Lockdown (L)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+ice_futures_mdf_impact_v1_1_33.status.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Symbol
+ice_futures_mdf_impact_v1_1_33.strategy_symbol = {}
+
+-- Size: Strategy Symbol
+ice_futures_mdf_impact_v1_1_33.strategy_symbol.size = 18
+
+-- Display: Strategy Symbol
+ice_futures_mdf_impact_v1_1_33.strategy_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strategy Symbol: No Value"
+  end
+
+  return "Strategy Symbol: "..value
+end
+
+-- Dissect: Strategy Symbol
+ice_futures_mdf_impact_v1_1_33.strategy_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.strategy_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.strategy_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strategy_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+ice_futures_mdf_impact_v1_1_33.strike_price = {}
+
+-- Size: Strike Price
+ice_futures_mdf_impact_v1_1_33.strike_price.size = 8
+
+-- Display: Strike Price
+ice_futures_mdf_impact_v1_1_33.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Dissect: Strike Price
+ice_futures_mdf_impact_v1_1_33.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.strike_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strip Id
+ice_futures_mdf_impact_v1_1_33.strip_id = {}
+
+-- Size: Strip Id
+ice_futures_mdf_impact_v1_1_33.strip_id.size = 4
+
+-- Display: Strip Id
+ice_futures_mdf_impact_v1_1_33.strip_id.display = function(value)
+  return "Strip Id: "..value
+end
+
+-- Dissect: Strip Id
+ice_futures_mdf_impact_v1_1_33.strip_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.strip_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.strip_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strip Info
+ice_futures_mdf_impact_v1_1_33.strip_info = {}
+
+-- Size: Strip Info
+ice_futures_mdf_impact_v1_1_33.strip_info.size = 50
+
+-- Display: Strip Info
+ice_futures_mdf_impact_v1_1_33.strip_info.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strip Info: No Value"
+  end
+
+  return "Strip Info: "..value
+end
+
+-- Dissect: Strip Info
+ice_futures_mdf_impact_v1_1_33.strip_info.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.strip_info.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.strip_info.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_info, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strip Name
+ice_futures_mdf_impact_v1_1_33.strip_name = {}
+
+-- Size: Strip Name
+ice_futures_mdf_impact_v1_1_33.strip_name.size = 39
+
+-- Display: Strip Name
+ice_futures_mdf_impact_v1_1_33.strip_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strip Name: No Value"
+  end
+
+  return "Strip Name: "..value
+end
+
+-- Dissect: Strip Name
+ice_futures_mdf_impact_v1_1_33.strip_name.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.strip_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.strip_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strip Type
+ice_futures_mdf_impact_v1_1_33.strip_type = {}
+
+-- Size: Strip Type
+ice_futures_mdf_impact_v1_1_33.strip_type.size = 20
+
+-- Display: Strip Type
+ice_futures_mdf_impact_v1_1_33.strip_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strip Type: No Value"
+  end
+
+  return "Strip Type: "..value
+end
+
+-- Dissect: Strip Type
+ice_futures_mdf_impact_v1_1_33.strip_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.strip_type.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.strip_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Priced Leg Type
+ice_futures_mdf_impact_v1_1_33.system_priced_leg_type = {}
+
+-- Size: System Priced Leg Type
+ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.size = 1
+
+-- Display: System Priced Leg Type
+ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "System Priced Leg Type: No Value"
+  end
+
+  if value == "C" then
+    return "System Priced Leg Type: System Priced Crack Spread Leg (C)"
+  end
+  if value == "S" then
+    return "System Priced Leg Type: System Priced Leg (S)"
+  end
+
+  return "System Priced Leg Type: Unknown("..value..")"
+end
+
+-- Dissect: System Priced Leg Type
+ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.system_priced_leg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Test Market Indicator
+ice_futures_mdf_impact_v1_1_33.test_market_indicator = {}
+
+-- Size: Test Market Indicator
+ice_futures_mdf_impact_v1_1_33.test_market_indicator.size = 1
+
+-- Display: Test Market Indicator
+ice_futures_mdf_impact_v1_1_33.test_market_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Test Market Indicator: No Value"
+  end
+
+  if value == "Y" then
+    return "Test Market Indicator: Yes (Y)"
+  end
+  if value == "N" then
+    return "Test Market Indicator: No (N)"
+  end
+
+  return "Test Market Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Test Market Indicator
+ice_futures_mdf_impact_v1_1_33.test_market_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.test_market_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.test_market_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.test_market_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text Message
+ice_futures_mdf_impact_v1_1_33.text_message = {}
+
+-- Size: Text Message
+ice_futures_mdf_impact_v1_1_33.text_message.size = 200
+
+-- Display: Text Message
+ice_futures_mdf_impact_v1_1_33.text_message.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text Message: No Value"
+  end
+
+  return "Text Message: "..value
+end
+
+-- Dissect: Text Message
+ice_futures_mdf_impact_v1_1_33.text_message.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.text_message.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.text_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.text_message, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text Message Extra Fld
+ice_futures_mdf_impact_v1_1_33.text_message_extra_fld = {}
+
+-- Size: Text Message Extra Fld
+ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.size = 800
+
+-- Display: Text Message Extra Fld
+ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text Message Extra Fld: No Value"
+  end
+
+  return "Text Message Extra Fld: "..value
+end
+
+-- Dissect: Text Message Extra Fld
+ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.text_message_extra_fld, range, value, display)
+
+  return offset + length, value
+end
+
+-- Threshold Imbalance Qty
+ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty = {}
+
+-- Size: Threshold Imbalance Qty
+ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.size = 4
+
+-- Display: Threshold Imbalance Qty
+ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.display = function(value)
+  return "Threshold Imbalance Qty: "..value
+end
+
+-- Dissect: Threshold Imbalance Qty
+ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.threshold_imbalance_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Value
+ice_futures_mdf_impact_v1_1_33.tick_value = {}
+
+-- Size: Tick Value
+ice_futures_mdf_impact_v1_1_33.tick_value.size = 8
+
+-- Display: Tick Value
+ice_futures_mdf_impact_v1_1_33.tick_value.display = function(value)
+  return "Tick Value: "..value
+end
+
+-- Dissect: Tick Value
+ice_futures_mdf_impact_v1_1_33.tick_value.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.tick_value.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.tick_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.tick_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+ice_futures_mdf_impact_v1_1_33.timestamp = {}
+
+-- Size: Timestamp
+ice_futures_mdf_impact_v1_1_33.timestamp.size = 8
+
+-- Display: Timestamp
+ice_futures_mdf_impact_v1_1_33.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+ice_futures_mdf_impact_v1_1_33.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume
+ice_futures_mdf_impact_v1_1_33.total_volume = {}
+
+-- Size: Total Volume
+ice_futures_mdf_impact_v1_1_33.total_volume.size = 4
+
+-- Display: Total Volume
+ice_futures_mdf_impact_v1_1_33.total_volume.display = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+ice_futures_mdf_impact_v1_1_33.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.total_volume.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.total_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+ice_futures_mdf_impact_v1_1_33.trade_id = {}
+
+-- Size: Trade Id
+ice_futures_mdf_impact_v1_1_33.trade_id.size = 8
+
+-- Display: Trade Id
+ice_futures_mdf_impact_v1_1_33.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+ice_futures_mdf_impact_v1_1_33.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+ice_futures_mdf_impact_v1_1_33.trading_status = {}
+
+-- Size: Trading Status
+ice_futures_mdf_impact_v1_1_33.trading_status.size = 1
+
+-- Display: Trading Status
+ice_futures_mdf_impact_v1_1_33.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
+  if value == "O" then
+    return "Trading Status: Open (O)"
+  end
+  if value == "C" then
+    return "Trading Status: Close (C)"
+  end
+  if value == "E" then
+    return "Trading Status: Expired (E)"
+  end
+  if value == "1" then
+    return "Trading Status: Pre Open (1)"
+  end
+  if value == "2" then
+    return "Trading Status: Pre Close (2)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+ice_futures_mdf_impact_v1_1_33.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Date Time
+ice_futures_mdf_impact_v1_1_33.transact_date_time = {}
+
+-- Size: Transact Date Time
+ice_futures_mdf_impact_v1_1_33.transact_date_time.size = 8
+
+-- Display: Transact Date Time
+ice_futures_mdf_impact_v1_1_33.transact_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Transact Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Transact Date Time
+ice_futures_mdf_impact_v1_1_33.transact_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.transact_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.transact_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.transact_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Isin
+ice_futures_mdf_impact_v1_1_33.underlying_isin = {}
+
+-- Size: Underlying Isin
+ice_futures_mdf_impact_v1_1_33.underlying_isin.size = 12
+
+-- Display: Underlying Isin
+ice_futures_mdf_impact_v1_1_33.underlying_isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Isin: No Value"
+  end
+
+  return "Underlying Isin: "..value
+end
+
+-- Dissect: Underlying Isin
+ice_futures_mdf_impact_v1_1_33.underlying_isin.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.underlying_isin.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.underlying_isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.underlying_isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.underlying_market_id = {}
+
+-- Size: Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.underlying_market_id.size = 4
+
+-- Display: Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.underlying_market_id.display = function(value)
+  return "Underlying Market Id: "..value
+end
+
+-- Dissect: Underlying Market Id
+ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.underlying_market_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.underlying_market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.underlying_market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Measure
+ice_futures_mdf_impact_v1_1_33.unit_of_measure = {}
+
+-- Size: Unit Of Measure
+ice_futures_mdf_impact_v1_1_33.unit_of_measure.size = 30
+
+-- Display: Unit Of Measure
+ice_futures_mdf_impact_v1_1_33.unit_of_measure.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure: No Value"
+  end
+
+  return "Unit Of Measure: "..value
+end
+
+-- Dissect: Unit Of Measure
+ice_futures_mdf_impact_v1_1_33.unit_of_measure.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.unit_of_measure.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.unit_of_measure.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.unit_of_measure, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Qty Denominator
+ice_futures_mdf_impact_v1_1_33.unit_qty_denominator = {}
+
+-- Size: Unit Qty Denominator
+ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.size = 1
+
+-- Display: Unit Qty Denominator
+ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Qty Denominator: No Value"
+  end
+
+  return "Unit Qty Denominator: "..value
+end
+
+-- Dissect: Unit Qty Denominator
+ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.unit_qty_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Quantity
+ice_futures_mdf_impact_v1_1_33.unit_quantity = {}
+
+-- Size: Unit Quantity
+ice_futures_mdf_impact_v1_1_33.unit_quantity.size = 4
+
+-- Display: Unit Quantity
+ice_futures_mdf_impact_v1_1_33.unit_quantity.display = function(value)
+  return "Unit Quantity: "..value
+end
+
+-- Dissect: Unit Quantity
+ice_futures_mdf_impact_v1_1_33.unit_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.unit_quantity.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.unit_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.unit_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Usd Price
+ice_futures_mdf_impact_v1_1_33.usd_price = {}
+
+-- Size: Usd Price
+ice_futures_mdf_impact_v1_1_33.usd_price.size = 8
+
+-- Display: Usd Price
+ice_futures_mdf_impact_v1_1_33.usd_price.display = function(value)
+  return "Usd Price: "..value
+end
+
+-- Dissect: Usd Price
+ice_futures_mdf_impact_v1_1_33.usd_price.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.usd_price.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.usd_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.usd_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date = {}
+
+-- Size: Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.size = 10
+
+-- Display: Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Valuation Date Applying Date: No Value"
+  end
+
+  return "Valuation Date Applying Date: "..value
+end
+
+-- Dissect: Valuation Date Applying Date
+ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.valuation_date_applying_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Valuation Date Time
+ice_futures_mdf_impact_v1_1_33.valuation_date_time = {}
+
+-- Size: Valuation Date Time
+ice_futures_mdf_impact_v1_1_33.valuation_date_time.size = 8
+
+-- Display: Valuation Date Time
+ice_futures_mdf_impact_v1_1_33.valuation_date_time.display = function(value)
+  -- Parse unix millisecond timestamp
+  local seconds = (value / UInt64(1000)):tonumber()
+  local milliseconds = (value % UInt64(1000)):tonumber()
+
+  return "Valuation Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
+end
+
+-- Dissect: Valuation Date Time
+ice_futures_mdf_impact_v1_1_33.valuation_date_time.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.valuation_date_time.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.valuation_date_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.valuation_date_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volatility
+ice_futures_mdf_impact_v1_1_33.volatility = {}
+
+-- Size: Volatility
+ice_futures_mdf_impact_v1_1_33.volatility.size = 8
+
+-- Display: Volatility
+ice_futures_mdf_impact_v1_1_33.volatility.display = function(value)
+  return "Volatility: "..value
+end
+
+-- Dissect: Volatility
+ice_futures_mdf_impact_v1_1_33.volatility.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.volatility.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.volatility.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.volatility, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+ice_futures_mdf_impact_v1_1_33.volume = {}
+
+-- Size: Volume
+ice_futures_mdf_impact_v1_1_33.volume.size = 4
+
+-- Display: Volume
+ice_futures_mdf_impact_v1_1_33.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+ice_futures_mdf_impact_v1_1_33.volume.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.volume.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = ice_futures_mdf_impact_v1_1_33.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap
+ice_futures_mdf_impact_v1_1_33.vwap = {}
+
+-- Size: Vwap
+ice_futures_mdf_impact_v1_1_33.vwap.size = 8
+
+-- Display: Vwap
+ice_futures_mdf_impact_v1_1_33.vwap.display = function(value)
+  return "Vwap: "..value
+end
+
+-- Dissect: Vwap
+ice_futures_mdf_impact_v1_1_33.vwap.dissect = function(buffer, offset, packet, parent)
+  local length = ice_futures_mdf_impact_v1_1_33.vwap.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = ice_futures_mdf_impact_v1_1_33.vwap.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.vwap, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Ice Futures Mdf iMpact 1.1.33
+-----------------------------------------------------------------------
+
+-- Old Style Options Trade And Market Stats Message
+ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message = {}
+
+-- Size: Old Style Options Trade And Market Stats Message
+ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.size =
+  ice_futures_mdf_impact_v1_1_33.underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.trade_id.size + 
+  ice_futures_mdf_impact_v1_1_33.price.size + 
+  ice_futures_mdf_impact_v1_1_33.quantity.size + 
+  ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.size + 
+  ice_futures_mdf_impact_v1_1_33.transact_date_time.size + 
+  ice_futures_mdf_impact_v1_1_33.option_type.size + 
+  ice_futures_mdf_impact_v1_1_33.strike_price.size + 
+  ice_futures_mdf_impact_v1_1_33.event_code.size + 
+  ice_futures_mdf_impact_v1_1_33.total_volume.size + 
+  ice_futures_mdf_impact_v1_1_33.block_volume.size + 
+  ice_futures_mdf_impact_v1_1_33.efs_volume.size + 
+  ice_futures_mdf_impact_v1_1_33.efp_volume.size + 
+  ice_futures_mdf_impact_v1_1_33.high.size + 
+  ice_futures_mdf_impact_v1_1_33.low.size + 
+  ice_futures_mdf_impact_v1_1_33.vwap.size
+
+-- Display: Old Style Options Trade And Market Stats Message
+ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Old Style Options Trade And Market Stats Message
+ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Underlying Market Id: Numeric
+  index, underlying_market_id = ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Numeric
+  index, trade_id = ice_futures_mdf_impact_v1_1_33.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Numeric
+  index, price = ice_futures_mdf_impact_v1_1_33.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Numeric
+  index, quantity = ice_futures_mdf_impact_v1_1_33.quantity.dissect(buffer, index, packet, parent)
+
+  -- Off Market Trade Indicator: Alpha
+  index, off_market_trade_indicator = ice_futures_mdf_impact_v1_1_33.off_market_trade_indicator.dissect(buffer, index, packet, parent)
+
+  -- Transact Date Time: Numeric
+  index, transact_date_time = ice_futures_mdf_impact_v1_1_33.transact_date_time.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = ice_futures_mdf_impact_v1_1_33.option_type.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: Numeric
+  index, strike_price = ice_futures_mdf_impact_v1_1_33.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Event Code: Alpha
+  index, event_code = ice_futures_mdf_impact_v1_1_33.event_code.dissect(buffer, index, packet, parent)
+
+  -- Total Volume: Numeric
+  index, total_volume = ice_futures_mdf_impact_v1_1_33.total_volume.dissect(buffer, index, packet, parent)
+
+  -- Block Volume: Numeric
+  index, block_volume = ice_futures_mdf_impact_v1_1_33.block_volume.dissect(buffer, index, packet, parent)
+
+  -- Efs Volume: Numeric
+  index, efs_volume = ice_futures_mdf_impact_v1_1_33.efs_volume.dissect(buffer, index, packet, parent)
+
+  -- Efp Volume: Numeric
+  index, efp_volume = ice_futures_mdf_impact_v1_1_33.efp_volume.dissect(buffer, index, packet, parent)
+
+  -- High: Numeric
+  index, high = ice_futures_mdf_impact_v1_1_33.high.dissect(buffer, index, packet, parent)
+
+  -- Low: Numeric
+  index, low = ice_futures_mdf_impact_v1_1_33.low.dissect(buffer, index, packet, parent)
+
+  -- Vwap: Numeric
+  index, vwap = ice_futures_mdf_impact_v1_1_33.vwap.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Old Style Options Trade And Market Stats Message
+ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.dissect = function(buffer, offset, packet, parent)
+  if show.old_style_options_trade_and_market_stats_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.old_style_options_trade_and_market_stats_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.old_style_options_trade_and_market_stats_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Option Settlement Price Message
+ice_futures_mdf_impact_v1_1_33.option_settlement_price_message = {}
+
+-- Size: Option Settlement Price Message
+ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.size =
+  ice_futures_mdf_impact_v1_1_33.market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.size + 
+  ice_futures_mdf_impact_v1_1_33.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_33.is_official.size + 
+  ice_futures_mdf_impact_v1_1_33.valuation_date_time.size + 
+  ice_futures_mdf_impact_v1_1_33.volatility.size + 
+  ice_futures_mdf_impact_v1_1_33.settlement_price.size + 
+  ice_futures_mdf_impact_v1_1_33.delta.size
+
+-- Display: Option Settlement Price Message
+ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Option Settlement Price Message
+ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Id: Numeric
+  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
+
+  -- Settlement Price With Deal Price Precision: Numeric
+  index, settlement_price_with_deal_price_precision = ice_futures_mdf_impact_v1_1_33.settlement_price_with_deal_price_precision.dissect(buffer, index, packet, parent)
+
+  -- Message Date Time: Numeric
+  index, message_date_time = ice_futures_mdf_impact_v1_1_33.message_date_time.dissect(buffer, index, packet, parent)
+
+  -- Is Official: Alpha
+  index, is_official = ice_futures_mdf_impact_v1_1_33.is_official.dissect(buffer, index, packet, parent)
+
+  -- Valuation Date Time: Numeric
+  index, valuation_date_time = ice_futures_mdf_impact_v1_1_33.valuation_date_time.dissect(buffer, index, packet, parent)
+
+  -- Volatility: Numeric
+  index, volatility = ice_futures_mdf_impact_v1_1_33.volatility.dissect(buffer, index, packet, parent)
+
+  -- Settlement Price: Numeric
+  index, settlement_price = ice_futures_mdf_impact_v1_1_33.settlement_price.dissect(buffer, index, packet, parent)
+
+  -- Delta: Numeric
+  index, delta = ice_futures_mdf_impact_v1_1_33.delta.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Option Settlement Price Message
+ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.dissect = function(buffer, offset, packet, parent)
+  if show.option_settlement_price_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.option_settlement_price_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.option_settlement_price_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Option Open Interest Message
+ice_futures_mdf_impact_v1_1_33.option_open_interest_message = {}
+
+-- Size: Option Open Interest Message
+ice_futures_mdf_impact_v1_1_33.option_open_interest_message.size =
+  ice_futures_mdf_impact_v1_1_33.market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.open_interest.size + 
+  ice_futures_mdf_impact_v1_1_33.message_date_time.size + 
+  ice_futures_mdf_impact_v1_1_33.open_interest_date.size
+
+-- Display: Option Open Interest Message
+ice_futures_mdf_impact_v1_1_33.option_open_interest_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Option Open Interest Message
+ice_futures_mdf_impact_v1_1_33.option_open_interest_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Id: Numeric
+  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
+
+  -- Open Interest: Numeric
+  index, open_interest = ice_futures_mdf_impact_v1_1_33.open_interest.dissect(buffer, index, packet, parent)
+
+  -- Message Date Time: Numeric
+  index, message_date_time = ice_futures_mdf_impact_v1_1_33.message_date_time.dissect(buffer, index, packet, parent)
+
+  -- Open Interest Date: Alpha
+  index, open_interest_date = ice_futures_mdf_impact_v1_1_33.open_interest_date.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Option Open Interest Message
+ice_futures_mdf_impact_v1_1_33.option_open_interest_message.dissect = function(buffer, offset, packet, parent)
+  if show.option_open_interest_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.option_open_interest_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.option_open_interest_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.option_open_interest_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.option_open_interest_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Rfq Message
+ice_futures_mdf_impact_v1_1_33.rfq_message = {}
+
+-- Size: Rfq Message
+ice_futures_mdf_impact_v1_1_33.rfq_message.size =
+  ice_futures_mdf_impact_v1_1_33.market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.message_timestamp.size + 
+  ice_futures_mdf_impact_v1_1_33.rfq_system_id.size + 
+  ice_futures_mdf_impact_v1_1_33.market_type_id.size + 
+  ice_futures_mdf_impact_v1_1_33.underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.quantity.size + 
+  ice_futures_mdf_impact_v1_1_33.side.size
+
+-- Display: Rfq Message
+ice_futures_mdf_impact_v1_1_33.rfq_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Message
+ice_futures_mdf_impact_v1_1_33.rfq_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Id: Numeric
+  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
+
+  -- Message Timestamp: Numeric
+  index, message_timestamp = ice_futures_mdf_impact_v1_1_33.message_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Rfq System Id: Numeric
+  index, rfq_system_id = ice_futures_mdf_impact_v1_1_33.rfq_system_id.dissect(buffer, index, packet, parent)
+
+  -- Market Type Id: Numeric
+  index, market_type_id = ice_futures_mdf_impact_v1_1_33.market_type_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Market Id: Numeric
+  index, underlying_market_id = ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Numeric
+  index, quantity = ice_futures_mdf_impact_v1_1_33.quantity.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = ice_futures_mdf_impact_v1_1_33.side.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rfq Message
+ice_futures_mdf_impact_v1_1_33.rfq_message.dissect = function(buffer, offset, packet, parent)
+  if show.rfq_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.rfq_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.rfq_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.rfq_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.rfq_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Options Market Definition Message
+ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message = {}
+
+-- Size: New Options Market Definition Message
+ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.size =
+  ice_futures_mdf_impact_v1_1_33.market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.underlying_market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.size + 
+  ice_futures_mdf_impact_v1_1_33.trading_status.size + 
+  ice_futures_mdf_impact_v1_1_33.order_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_33.increment_qty.size + 
+  ice_futures_mdf_impact_v1_1_33.lot_size.size + 
+  ice_futures_mdf_impact_v1_1_33.market_desc.size + 
+  ice_futures_mdf_impact_v1_1_33.option_type.size + 
+  ice_futures_mdf_impact_v1_1_33.strike_price.size + 
+  ice_futures_mdf_impact_v1_1_33.deal_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_33.min_qty.size + 
+  ice_futures_mdf_impact_v1_1_33.currency.size + 
+  ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.size + 
+  ice_futures_mdf_impact_v1_1_33.min_options_price.size + 
+  ice_futures_mdf_impact_v1_1_33.max_options_price.size + 
+  ice_futures_mdf_impact_v1_1_33.increment_premium_price.size + 
+  ice_futures_mdf_impact_v1_1_33.options_expiration_year.size + 
+  ice_futures_mdf_impact_v1_1_33.options_expiration_month.size + 
+  ice_futures_mdf_impact_v1_1_33.options_expiration_day.size + 
+  ice_futures_mdf_impact_v1_1_33.options_style.size + 
+  ice_futures_mdf_impact_v1_1_33.options_expiration_type.size + 
+  ice_futures_mdf_impact_v1_1_33.hedge_market_id.size + 
+  ice_futures_mdf_impact_v1_1_33.settle_price_denominator.size + 
+  ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.size + 
+  ice_futures_mdf_impact_v1_1_33.tick_value.size + 
+  ice_futures_mdf_impact_v1_1_33.flex_allowed.size + 
+  ice_futures_mdf_impact_v1_1_33.settlement_type.size + 
+  ice_futures_mdf_impact_v1_1_33.is_block_only.size + 
+  ice_futures_mdf_impact_v1_1_33.gt_allowed.size + 
+  ice_futures_mdf_impact_v1_1_33.cross_order_supported.size + 
+  ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.size + 
+  ice_futures_mdf_impact_v1_1_33.unit_of_measure.size + 
+  ice_futures_mdf_impact_v1_1_33.mifid_regulated_market.size
+
+-- Display: New Options Market Definition Message
+ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Options Market Definition Message
+ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Id: Numeric
+  index, market_id = ice_futures_mdf_impact_v1_1_33.market_id.dissect(buffer, index, packet, parent)
+
+  -- Underlying Market Id: Numeric
+  index, underlying_market_id = ice_futures_mdf_impact_v1_1_33.underlying_market_id.dissect(buffer, index, packet, parent)
+
+  -- Futures Contract Symbol: Alpha
+  index, futures_contract_symbol = ice_futures_mdf_impact_v1_1_33.futures_contract_symbol.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Alpha
+  index, trading_status = ice_futures_mdf_impact_v1_1_33.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Order Price Denominator: Alpha
+  index, order_price_denominator = ice_futures_mdf_impact_v1_1_33.order_price_denominator.dissect(buffer, index, packet, parent)
+
+  -- Increment Qty: Numeric
+  index, increment_qty = ice_futures_mdf_impact_v1_1_33.increment_qty.dissect(buffer, index, packet, parent)
+
+  -- Lot Size: Numeric
+  index, lot_size = ice_futures_mdf_impact_v1_1_33.lot_size.dissect(buffer, index, packet, parent)
+
+  -- Market Desc: Alpha
+  index, market_desc = ice_futures_mdf_impact_v1_1_33.market_desc.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = ice_futures_mdf_impact_v1_1_33.option_type.dissect(buffer, index, packet, parent)
+
+  -- Strike Price: Numeric
+  index, strike_price = ice_futures_mdf_impact_v1_1_33.strike_price.dissect(buffer, index, packet, parent)
+
+  -- Deal Price Denominator: Alpha
+  index, deal_price_denominator = ice_futures_mdf_impact_v1_1_33.deal_price_denominator.dissect(buffer, index, packet, parent)
+
+  -- Min Qty: Numeric
+  index, min_qty = ice_futures_mdf_impact_v1_1_33.min_qty.dissect(buffer, index, packet, parent)
+
+  -- Currency: Alpha
+  index, currency = ice_futures_mdf_impact_v1_1_33.currency.dissect(buffer, index, packet, parent)
+
+  -- Num Decimals Strike Price: Alpha
+  index, num_decimals_strike_price = ice_futures_mdf_impact_v1_1_33.num_decimals_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Min Options Price: Numeric
+  index, min_options_price = ice_futures_mdf_impact_v1_1_33.min_options_price.dissect(buffer, index, packet, parent)
+
+  -- Max Options Price: Numeric
+  index, max_options_price = ice_futures_mdf_impact_v1_1_33.max_options_price.dissect(buffer, index, packet, parent)
+
+  -- Increment Premium Price: Numeric
+  index, increment_premium_price = ice_futures_mdf_impact_v1_1_33.increment_premium_price.dissect(buffer, index, packet, parent)
+
+  -- Options Expiration Year: Numeric
+  index, options_expiration_year = ice_futures_mdf_impact_v1_1_33.options_expiration_year.dissect(buffer, index, packet, parent)
+
+  -- Options Expiration Month: Numeric
+  index, options_expiration_month = ice_futures_mdf_impact_v1_1_33.options_expiration_month.dissect(buffer, index, packet, parent)
+
+  -- Options Expiration Day: Numeric
+  index, options_expiration_day = ice_futures_mdf_impact_v1_1_33.options_expiration_day.dissect(buffer, index, packet, parent)
+
+  -- Options Style: Alpha
+  index, options_style = ice_futures_mdf_impact_v1_1_33.options_style.dissect(buffer, index, packet, parent)
+
+  -- Options Expiration Type: Alpha
+  index, options_expiration_type = ice_futures_mdf_impact_v1_1_33.options_expiration_type.dissect(buffer, index, packet, parent)
+
+  -- Hedge Market Id: Numeric
+  index, hedge_market_id = ice_futures_mdf_impact_v1_1_33.hedge_market_id.dissect(buffer, index, packet, parent)
+
+  -- Settle Price Denominator: Alpha
+  index, settle_price_denominator = ice_futures_mdf_impact_v1_1_33.settle_price_denominator.dissect(buffer, index, packet, parent)
+
+  -- Unit Qty Denominator: Alpha
+  index, unit_qty_denominator = ice_futures_mdf_impact_v1_1_33.unit_qty_denominator.dissect(buffer, index, packet, parent)
+
+  -- Tick Value: Numeric
+  index, tick_value = ice_futures_mdf_impact_v1_1_33.tick_value.dissect(buffer, index, packet, parent)
+
+  -- Flex Allowed: Alpha
+  index, flex_allowed = ice_futures_mdf_impact_v1_1_33.flex_allowed.dissect(buffer, index, packet, parent)
+
+  -- Settlement Type: Alpha
+  index, settlement_type = ice_futures_mdf_impact_v1_1_33.settlement_type.dissect(buffer, index, packet, parent)
+
+  -- Is Block Only: Alpha
+  index, is_block_only = ice_futures_mdf_impact_v1_1_33.is_block_only.dissect(buffer, index, packet, parent)
+
+  -- Gt Allowed: Alpha
+  index, gt_allowed = ice_futures_mdf_impact_v1_1_33.gt_allowed.dissect(buffer, index, packet, parent)
+
+  -- Cross Order Supported: Alpha
+  index, cross_order_supported = ice_futures_mdf_impact_v1_1_33.cross_order_supported.dissect(buffer, index, packet, parent)
+
+  -- Guaranteed Cross Supported: Alpha
+  index, guaranteed_cross_supported = ice_futures_mdf_impact_v1_1_33.guaranteed_cross_supported.dissect(buffer, index, packet, parent)
+
+  -- Unit Of Measure: Alpha
+  index, unit_of_measure = ice_futures_mdf_impact_v1_1_33.unit_of_measure.dissect(buffer, index, packet, parent)
+
+  -- Mifid Regulated Market: Alpha
+  index, mifid_regulated_market = ice_futures_mdf_impact_v1_1_33.mifid_regulated_market.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Options Market Definition Message
+ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.dissect = function(buffer, offset, packet, parent)
+  if show.new_options_market_definition_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.new_options_market_definition_message, buffer(offset, 0))
+    local index = ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_futures_mdf_impact_v1_1_33.new_options_market_definition_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Hedge Definition
@@ -4169,282 +8308,6 @@ ice_futures_mdf_impact_v1_1_33.hedge_definition.dissect = function(buffer, offse
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.hedge_definition.fields(buffer, offset, packet, parent, hedge_definition_index)
   end
-end
-
--- Number Of Hedge Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions = {}
-
--- Size: Number Of Hedge Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.size = 1
-
--- Display: Number Of Hedge Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.display = function(value)
-  return "Number Of Hedge Definitions: "..value
-end
-
--- Dissect: Number Of Hedge Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.number_of_hedge_definitions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_hedge_definitions, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Price Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator = {}
-
--- Size: Leg Ratio Price Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.size = 4
-
--- Display: Leg Ratio Price Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.display = function(value)
-  return "Leg Ratio Price Denominator: "..value
-end
-
--- Dissect: Leg Ratio Price Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Price Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator = {}
-
--- Size: Leg Ratio Price Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.size = 4
-
--- Display: Leg Ratio Price Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.display = function(value)
-  return "Leg Ratio Price Numerator: "..value
-end
-
--- Dissect: Leg Ratio Price Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_price_numerator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_price_numerator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator = {}
-
--- Size: Leg Ratio Qty Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.size = 4
-
--- Display: Leg Ratio Qty Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.display = function(value)
-  return "Leg Ratio Qty Denominator: "..value
-end
-
--- Dissect: Leg Ratio Qty Denominator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_qty_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator = {}
-
--- Size: Leg Ratio Qty Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.size = 4
-
--- Display: Leg Ratio Qty Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.display = function(value)
-  return "Leg Ratio Qty Numerator: "..value
-end
-
--- Dissect: Leg Ratio Qty Numerator
-ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio_qty_numerator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio_qty_numerator, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Strategy Code
-ice_futures_mdf_impact_v1_1_33.leg_strategy_code = {}
-
--- Size: Leg Strategy Code
-ice_futures_mdf_impact_v1_1_33.leg_strategy_code.size = 2
-
--- Display: Leg Strategy Code
-ice_futures_mdf_impact_v1_1_33.leg_strategy_code.display = function(value)
-  return "Leg Strategy Code: "..value
-end
-
--- Dissect: Leg Strategy Code
-ice_futures_mdf_impact_v1_1_33.leg_strategy_code.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_strategy_code.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_strategy_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_strategy_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-ice_futures_mdf_impact_v1_1_33.leg_side = {}
-
--- Size: Leg Side
-ice_futures_mdf_impact_v1_1_33.leg_side.size = 1
-
--- Display: Leg Side
-ice_futures_mdf_impact_v1_1_33.leg_side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Leg Side: No Value"
-  end
-
-  if value == " " then
-    return "Leg Side: None (<whitespace>)"
-  end
-  if value == "1" then
-    return "Leg Side: Bid (1)"
-  end
-  if value == "2" then
-    return "Leg Side: Offer (2)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-ice_futures_mdf_impact_v1_1_33.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio
-ice_futures_mdf_impact_v1_1_33.leg_ratio = {}
-
--- Size: Leg Ratio
-ice_futures_mdf_impact_v1_1_33.leg_ratio.size = 2
-
--- Display: Leg Ratio
-ice_futures_mdf_impact_v1_1_33.leg_ratio.display = function(value)
-  return "Leg Ratio: "..value
-end
-
--- Dissect: Leg Ratio
-ice_futures_mdf_impact_v1_1_33.leg_ratio.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_ratio.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_ratio.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_ratio, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id = {}
-
--- Size: Leg Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.size = 4
-
--- Display: Leg Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.display = function(value)
-  return "Leg Underlying Market Id: "..value
-end
-
--- Dissect: Leg Underlying Market Id
-ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_underlying_market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_underlying_market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Market Id
-ice_futures_mdf_impact_v1_1_33.leg_market_id = {}
-
--- Size: Leg Market Id
-ice_futures_mdf_impact_v1_1_33.leg_market_id.size = 4
-
--- Display: Leg Market Id
-ice_futures_mdf_impact_v1_1_33.leg_market_id.display = function(value)
-  return "Leg Market Id: "..value
-end
-
--- Dissect: Leg Market Id
-ice_futures_mdf_impact_v1_1_33.leg_market_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_market_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Body Length
-ice_futures_mdf_impact_v1_1_33.leg_body_length = {}
-
--- Size: Leg Body Length
-ice_futures_mdf_impact_v1_1_33.leg_body_length.size = 1
-
--- Display: Leg Body Length
-ice_futures_mdf_impact_v1_1_33.leg_body_length.display = function(value)
-  return "Leg Body Length: "..value
-end
-
--- Dissect: Leg Body Length
-ice_futures_mdf_impact_v1_1_33.leg_body_length.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.leg_body_length.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.leg_body_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.leg_body_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Leg Definition
@@ -4527,91 +8390,6 @@ ice_futures_mdf_impact_v1_1_33.strategy_leg_definition.dissect = function(buffer
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.strategy_leg_definition.fields(buffer, offset, packet, parent, strategy_leg_definition_index)
   end
-end
-
--- Number Of Strategy Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions = {}
-
--- Size: Number Of Strategy Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.size = 1
-
--- Display: Number Of Strategy Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.display = function(value)
-  return "Number Of Strategy Leg Definitions: "..value
-end
-
--- Dissect: Number Of Strategy Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.number_of_strategy_leg_definitions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_strategy_leg_definitions, range, value, display)
-
-  return offset + length, value
-end
-
--- Increment Price
-ice_futures_mdf_impact_v1_1_33.increment_price = {}
-
--- Size: Increment Price
-ice_futures_mdf_impact_v1_1_33.increment_price.size = 4
-
--- Display: Increment Price
-ice_futures_mdf_impact_v1_1_33.increment_price.display = function(value)
-  return "Increment Price: "..value
-end
-
--- Dissect: Increment Price
-ice_futures_mdf_impact_v1_1_33.increment_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.increment_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.increment_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.increment_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Symbol
-ice_futures_mdf_impact_v1_1_33.contract_symbol = {}
-
--- Size: Contract Symbol
-ice_futures_mdf_impact_v1_1_33.contract_symbol.size = 35
-
--- Display: Contract Symbol
-ice_futures_mdf_impact_v1_1_33.contract_symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contract Symbol: No Value"
-  end
-
-  return "Contract Symbol: "..value
-end
-
--- Dissect: Contract Symbol
-ice_futures_mdf_impact_v1_1_33.contract_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.contract_symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.contract_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.contract_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- New Options Strategy Definition Message
@@ -4777,52 +8555,6 @@ ice_futures_mdf_impact_v1_1_33.new_options_strategy_definition_message.dissect =
   end
 end
 
--- Timestamp
-ice_futures_mdf_impact_v1_1_33.timestamp = {}
-
--- Size: Timestamp
-ice_futures_mdf_impact_v1_1_33.timestamp.size = 8
-
--- Display: Timestamp
-ice_futures_mdf_impact_v1_1_33.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-ice_futures_mdf_impact_v1_1_33.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Level Position
-ice_futures_mdf_impact_v1_1_33.price_level_position = {}
-
--- Size: Price Level Position
-ice_futures_mdf_impact_v1_1_33.price_level_position.size = 1
-
--- Display: Price Level Position
-ice_futures_mdf_impact_v1_1_33.price_level_position.display = function(value)
-  return "Price Level Position: "..value
-end
-
--- Dissect: Price Level Position
-ice_futures_mdf_impact_v1_1_33.price_level_position.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.price_level_position.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.price_level_position.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.price_level_position, range, value, display)
-
-  return offset + length, value
-end
-
 -- Delete Price Level Message
 ice_futures_mdf_impact_v1_1_33.delete_price_level_message = {}
 
@@ -4873,75 +8605,6 @@ ice_futures_mdf_impact_v1_1_33.delete_price_level_message.dissect = function(buf
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.delete_price_level_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Implied Order Count
-ice_futures_mdf_impact_v1_1_33.implied_order_count = {}
-
--- Size: Implied Order Count
-ice_futures_mdf_impact_v1_1_33.implied_order_count.size = 2
-
--- Display: Implied Order Count
-ice_futures_mdf_impact_v1_1_33.implied_order_count.display = function(value)
-  return "Implied Order Count: "..value
-end
-
--- Dissect: Implied Order Count
-ice_futures_mdf_impact_v1_1_33.implied_order_count.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.implied_order_count.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.implied_order_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.implied_order_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Implied Quantity
-ice_futures_mdf_impact_v1_1_33.implied_quantity = {}
-
--- Size: Implied Quantity
-ice_futures_mdf_impact_v1_1_33.implied_quantity.size = 4
-
--- Display: Implied Quantity
-ice_futures_mdf_impact_v1_1_33.implied_quantity.display = function(value)
-  return "Implied Quantity: "..value
-end
-
--- Dissect: Implied Quantity
-ice_futures_mdf_impact_v1_1_33.implied_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.implied_quantity.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.implied_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.implied_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Count
-ice_futures_mdf_impact_v1_1_33.order_count = {}
-
--- Size: Order Count
-ice_futures_mdf_impact_v1_1_33.order_count.size = 2
-
--- Display: Order Count
-ice_futures_mdf_impact_v1_1_33.order_count.display = function(value)
-  return "Order Count: "..value
-end
-
--- Dissect: Order Count
-ice_futures_mdf_impact_v1_1_33.order_count.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.order_count.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.order_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Change Price Level Message
@@ -5156,114 +8819,6 @@ ice_futures_mdf_impact_v1_1_33.market_snapshot_price_level_message.dissect = fun
   end
 end
 
--- Num Decimals Price In Gram
-ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram = {}
-
--- Size: Num Decimals Price In Gram
-ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.size = 1
-
--- Display: Num Decimals Price In Gram
-ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.display = function(value)
-  return "Num Decimals Price In Gram: "..value
-end
-
--- Dissect: Num Decimals Price In Gram
-ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_price_in_gram.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_price_in_gram, range, value, display)
-
-  return offset + length, value
-end
-
--- Num Decimals Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_price = {}
-
--- Size: Num Decimals Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_price.size = 1
-
--- Display: Num Decimals Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_price.display = function(value)
-  return "Num Decimals Price: "..value
-end
-
--- Dissect: Num Decimals Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Price In Gram
-ice_futures_mdf_impact_v1_1_33.price_in_gram = {}
-
--- Size: Price In Gram
-ice_futures_mdf_impact_v1_1_33.price_in_gram.size = 8
-
--- Display: Price In Gram
-ice_futures_mdf_impact_v1_1_33.price_in_gram.display = function(value)
-  return "Price In Gram: "..value
-end
-
--- Dissect: Price In Gram
-ice_futures_mdf_impact_v1_1_33.price_in_gram.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.price_in_gram.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.price_in_gram.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.price_in_gram, range, value, display)
-
-  return offset + length, value
-end
-
--- Iba Currency
-ice_futures_mdf_impact_v1_1_33.iba_currency = {}
-
--- Size: Iba Currency
-ice_futures_mdf_impact_v1_1_33.iba_currency.size = 3
-
--- Display: Iba Currency
-ice_futures_mdf_impact_v1_1_33.iba_currency.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Iba Currency: No Value"
-  end
-
-  return "Iba Currency: "..value
-end
-
--- Dissect: Iba Currency
-ice_futures_mdf_impact_v1_1_33.iba_currency.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.iba_currency.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.iba_currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.iba_currency, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fixing Indicative Price Message Message
 ice_futures_mdf_impact_v1_1_33.fixing_indicative_price_message_message = {}
 
@@ -5322,308 +8877,6 @@ ice_futures_mdf_impact_v1_1_33.fixing_indicative_price_message_message.dissect =
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.fixing_indicative_price_message_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Eur Price
-ice_futures_mdf_impact_v1_1_33.eur_price = {}
-
--- Size: Eur Price
-ice_futures_mdf_impact_v1_1_33.eur_price.size = 8
-
--- Display: Eur Price
-ice_futures_mdf_impact_v1_1_33.eur_price.display = function(value)
-  return "Eur Price: "..value
-end
-
--- Dissect: Eur Price
-ice_futures_mdf_impact_v1_1_33.eur_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.eur_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.eur_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.eur_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Gbp Price
-ice_futures_mdf_impact_v1_1_33.gbp_price = {}
-
--- Size: Gbp Price
-ice_futures_mdf_impact_v1_1_33.gbp_price.size = 8
-
--- Display: Gbp Price
-ice_futures_mdf_impact_v1_1_33.gbp_price.display = function(value)
-  return "Gbp Price: "..value
-end
-
--- Dissect: Gbp Price
-ice_futures_mdf_impact_v1_1_33.gbp_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.gbp_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.gbp_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.gbp_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Final
-ice_futures_mdf_impact_v1_1_33.is_final = {}
-
--- Size: Is Final
-ice_futures_mdf_impact_v1_1_33.is_final.size = 1
-
--- Display: Is Final
-ice_futures_mdf_impact_v1_1_33.is_final.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is Final: No Value"
-  end
-
-  if value == "Y" then
-    return "Is Final: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Final: No (N)"
-  end
-
-  return "Is Final: Unknown("..value..")"
-end
-
--- Dissect: Is Final
-ice_futures_mdf_impact_v1_1_33.is_final.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_final.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_final.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_final, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Balanced
-ice_futures_mdf_impact_v1_1_33.is_balanced = {}
-
--- Size: Is Balanced
-ice_futures_mdf_impact_v1_1_33.is_balanced.size = 1
-
--- Display: Is Balanced
-ice_futures_mdf_impact_v1_1_33.is_balanced.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is Balanced: No Value"
-  end
-
-  if value == "Y" then
-    return "Is Balanced: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Balanced: No (N)"
-  end
-
-  return "Is Balanced: Unknown("..value..")"
-end
-
--- Dissect: Is Balanced
-ice_futures_mdf_impact_v1_1_33.is_balanced.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_balanced.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_balanced.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_balanced, range, value, display)
-
-  return offset + length, value
-end
-
--- Usd Price
-ice_futures_mdf_impact_v1_1_33.usd_price = {}
-
--- Size: Usd Price
-ice_futures_mdf_impact_v1_1_33.usd_price.size = 8
-
--- Display: Usd Price
-ice_futures_mdf_impact_v1_1_33.usd_price.display = function(value)
-  return "Usd Price: "..value
-end
-
--- Dissect: Usd Price
-ice_futures_mdf_impact_v1_1_33.usd_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.usd_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.usd_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.usd_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Agg Offer Qty
-ice_futures_mdf_impact_v1_1_33.agg_offer_qty = {}
-
--- Size: Agg Offer Qty
-ice_futures_mdf_impact_v1_1_33.agg_offer_qty.size = 4
-
--- Display: Agg Offer Qty
-ice_futures_mdf_impact_v1_1_33.agg_offer_qty.display = function(value)
-  return "Agg Offer Qty: "..value
-end
-
--- Dissect: Agg Offer Qty
-ice_futures_mdf_impact_v1_1_33.agg_offer_qty.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.agg_offer_qty.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.agg_offer_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.agg_offer_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Agg Bid Qty
-ice_futures_mdf_impact_v1_1_33.agg_bid_qty = {}
-
--- Size: Agg Bid Qty
-ice_futures_mdf_impact_v1_1_33.agg_bid_qty.size = 4
-
--- Display: Agg Bid Qty
-ice_futures_mdf_impact_v1_1_33.agg_bid_qty.display = function(value)
-  return "Agg Bid Qty: "..value
-end
-
--- Dissect: Agg Bid Qty
-ice_futures_mdf_impact_v1_1_33.agg_bid_qty.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.agg_bid_qty.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.agg_bid_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.agg_bid_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Round
-ice_futures_mdf_impact_v1_1_33.round = {}
-
--- Size: Round
-ice_futures_mdf_impact_v1_1_33.round.size = 2
-
--- Display: Round
-ice_futures_mdf_impact_v1_1_33.round.display = function(value)
-  return "Round: "..value
-end
-
--- Dissect: Round
-ice_futures_mdf_impact_v1_1_33.round.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.round.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.round.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.round, range, value, display)
-
-  return offset + length, value
-end
-
--- Description
-ice_futures_mdf_impact_v1_1_33.description = {}
-
--- Size: Description
-ice_futures_mdf_impact_v1_1_33.description.size = 20
-
--- Display: Description
-ice_futures_mdf_impact_v1_1_33.description.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Description: No Value"
-  end
-
-  return "Description: "..value
-end
-
--- Dissect: Description
-ice_futures_mdf_impact_v1_1_33.description.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.description.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.description.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.description, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction Date
-ice_futures_mdf_impact_v1_1_33.auction_date = {}
-
--- Size: Auction Date
-ice_futures_mdf_impact_v1_1_33.auction_date.size = 10
-
--- Display: Auction Date
-ice_futures_mdf_impact_v1_1_33.auction_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Auction Date: No Value"
-  end
-
-  return "Auction Date: "..value
-end
-
--- Dissect: Auction Date
-ice_futures_mdf_impact_v1_1_33.auction_date.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.auction_date.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.auction_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.auction_date, range, value, display)
-
-  return offset + length, value
 end
 
 -- Fixing Lockdown Message
@@ -5710,102 +8963,6 @@ ice_futures_mdf_impact_v1_1_33.fixing_lockdown_message.dissect = function(buffer
   end
 end
 
--- Threshold Imbalance Qty
-ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty = {}
-
--- Size: Threshold Imbalance Qty
-ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.size = 4
-
--- Display: Threshold Imbalance Qty
-ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.display = function(value)
-  return "Threshold Imbalance Qty: "..value
-end
-
--- Dissect: Threshold Imbalance Qty
-ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.threshold_imbalance_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.threshold_imbalance_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Auction End Time
-ice_futures_mdf_impact_v1_1_33.auction_end_time = {}
-
--- Size: Auction End Time
-ice_futures_mdf_impact_v1_1_33.auction_end_time.size = 8
-
--- Display: Auction End Time
-ice_futures_mdf_impact_v1_1_33.auction_end_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Auction End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Auction End Time
-ice_futures_mdf_impact_v1_1_33.auction_end_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.auction_end_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.auction_end_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.auction_end_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Status
-ice_futures_mdf_impact_v1_1_33.status = {}
-
--- Size: Status
-ice_futures_mdf_impact_v1_1_33.status.size = 1
-
--- Display: Status
-ice_futures_mdf_impact_v1_1_33.status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Status: No Value"
-  end
-
-  if value == "C" then
-    return "Status: Closed (C)"
-  end
-  if value == "P" then
-    return "Status: Preopen (P)"
-  end
-  if value == "L" then
-    return "Status: Lockdown (L)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-ice_futures_mdf_impact_v1_1_33.status.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fixing Transition Message
 ice_futures_mdf_impact_v1_1_33.fixing_transition_message = {}
 
@@ -5862,49 +9019,6 @@ ice_futures_mdf_impact_v1_1_33.fixing_transition_message.dissect = function(buff
   end
 end
 
--- Start Or End
-ice_futures_mdf_impact_v1_1_33.start_or_end = {}
-
--- Size: Start Or End
-ice_futures_mdf_impact_v1_1_33.start_or_end.size = 1
-
--- Display: Start Or End
-ice_futures_mdf_impact_v1_1_33.start_or_end.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Start Or End: No Value"
-  end
-
-  if value == "S" then
-    return "Start Or End: Start (S)"
-  end
-  if value == "E" then
-    return "Start Or End: End (E)"
-  end
-
-  return "Start Or End: Unknown("..value..")"
-end
-
--- Dissect: Start Or End
-ice_futures_mdf_impact_v1_1_33.start_or_end.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.start_or_end.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.start_or_end.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.start_or_end, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Bundle Marker
 ice_futures_mdf_impact_v1_1_33.message_bundle_marker = {}
 
@@ -5943,52 +9057,6 @@ ice_futures_mdf_impact_v1_1_33.message_bundle_marker.dissect = function(buffer, 
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.message_bundle_marker.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequence Within Millis
-ice_futures_mdf_impact_v1_1_33.sequence_within_millis = {}
-
--- Size: Sequence Within Millis
-ice_futures_mdf_impact_v1_1_33.sequence_within_millis.size = 4
-
--- Display: Sequence Within Millis
-ice_futures_mdf_impact_v1_1_33.sequence_within_millis.display = function(value)
-  return "Sequence Within Millis: "..value
-end
-
--- Dissect: Sequence Within Millis
-ice_futures_mdf_impact_v1_1_33.sequence_within_millis.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.sequence_within_millis.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.sequence_within_millis.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sequence_within_millis, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-ice_futures_mdf_impact_v1_1_33.order_id = {}
-
--- Size: Order Id
-ice_futures_mdf_impact_v1_1_33.order_id.size = 8
-
--- Display: Order Id
-ice_futures_mdf_impact_v1_1_33.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-ice_futures_mdf_impact_v1_1_33.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.order_id.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Delete Order Message
@@ -6041,178 +9109,6 @@ ice_futures_mdf_impact_v1_1_33.delete_order_message.dissect = function(buffer, o
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.delete_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Modification Timestamp
-ice_futures_mdf_impact_v1_1_33.modification_timestamp = {}
-
--- Size: Modification Timestamp
-ice_futures_mdf_impact_v1_1_33.modification_timestamp.size = 8
-
--- Display: Modification Timestamp
-ice_futures_mdf_impact_v1_1_33.modification_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Modification Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Modification Timestamp
-ice_futures_mdf_impact_v1_1_33.modification_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.modification_timestamp.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.modification_timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.modification_timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Extra Flags
-ice_futures_mdf_impact_v1_1_33.extra_flags = {}
-
--- Size: Extra Flags
-ice_futures_mdf_impact_v1_1_33.extra_flags.size = 1
-
--- Display: Extra Flags
-ice_futures_mdf_impact_v1_1_33.extra_flags.display = function(value)
-  return "Extra Flags: "..value
-end
-
--- Dissect: Extra Flags
-ice_futures_mdf_impact_v1_1_33.extra_flags.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.extra_flags.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.extra_flags.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.extra_flags, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Entry Date Time
-ice_futures_mdf_impact_v1_1_33.order_entry_date_time = {}
-
--- Size: Order Entry Date Time
-ice_futures_mdf_impact_v1_1_33.order_entry_date_time.size = 8
-
--- Display: Order Entry Date Time
-ice_futures_mdf_impact_v1_1_33.order_entry_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Order Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Order Entry Date Time
-ice_futures_mdf_impact_v1_1_33.order_entry_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.order_entry_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.order_entry_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_entry_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Rfq
-ice_futures_mdf_impact_v1_1_33.is_rfq = {}
-
--- Size: Is Rfq
-ice_futures_mdf_impact_v1_1_33.is_rfq.size = 1
-
--- Display: Is Rfq
-ice_futures_mdf_impact_v1_1_33.is_rfq.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Is Rfq: No Value"
-  end
-
-  return "Is Rfq: "..value
-end
-
--- Dissect: Is Rfq
-ice_futures_mdf_impact_v1_1_33.is_rfq.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_rfq.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_rfq.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_rfq, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Implied
-ice_futures_mdf_impact_v1_1_33.is_implied = {}
-
--- Size: Is Implied
-ice_futures_mdf_impact_v1_1_33.is_implied.size = 1
-
--- Display: Is Implied
-ice_futures_mdf_impact_v1_1_33.is_implied.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Is Implied: No Value"
-  end
-
-  return "Is Implied: "..value
-end
-
--- Dissect: Is Implied
-ice_futures_mdf_impact_v1_1_33.is_implied.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_implied.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_implied.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_implied, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Sequence Id
-ice_futures_mdf_impact_v1_1_33.order_sequence_id = {}
-
--- Size: Order Sequence Id
-ice_futures_mdf_impact_v1_1_33.order_sequence_id.size = 2
-
--- Display: Order Sequence Id
-ice_futures_mdf_impact_v1_1_33.order_sequence_id.display = function(value)
-  return "Order Sequence Id: "..value
-end
-
--- Dissect: Order Sequence Id
-ice_futures_mdf_impact_v1_1_33.order_sequence_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.order_sequence_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.order_sequence_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.order_sequence_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Add Or Modify Order Message
@@ -6375,157 +9271,6 @@ ice_futures_mdf_impact_v1_1_33.market_snapshot_order_message.dissect = function(
   end
 end
 
--- Aon
-ice_futures_mdf_impact_v1_1_33.aon = {}
-
--- Size: Aon
-ice_futures_mdf_impact_v1_1_33.aon.size = 1
-
--- Display: Aon
-ice_futures_mdf_impact_v1_1_33.aon.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Aon: No Value"
-  end
-
-  return "Aon: "..value
-end
-
--- Dissect: Aon
-ice_futures_mdf_impact_v1_1_33.aon.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.aon.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.aon.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.aon, range, value, display)
-
-  return offset + length, value
-end
-
--- Alt Last Trade Price
-ice_futures_mdf_impact_v1_1_33.alt_last_trade_price = {}
-
--- Size: Alt Last Trade Price
-ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.size = 8
-
--- Display: Alt Last Trade Price
-ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.display = function(value)
-  return "Alt Last Trade Price: "..value
-end
-
--- Dissect: Alt Last Trade Price
-ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.alt_last_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_last_trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Alt Vwap
-ice_futures_mdf_impact_v1_1_33.alt_vwap = {}
-
--- Size: Alt Vwap
-ice_futures_mdf_impact_v1_1_33.alt_vwap.size = 8
-
--- Display: Alt Vwap
-ice_futures_mdf_impact_v1_1_33.alt_vwap.display = function(value)
-  return "Alt Vwap: "..value
-end
-
--- Dissect: Alt Vwap
-ice_futures_mdf_impact_v1_1_33.alt_vwap.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.alt_vwap.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.alt_vwap.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_vwap, range, value, display)
-
-  return offset + length, value
-end
-
--- Alt Low Price
-ice_futures_mdf_impact_v1_1_33.alt_low_price = {}
-
--- Size: Alt Low Price
-ice_futures_mdf_impact_v1_1_33.alt_low_price.size = 8
-
--- Display: Alt Low Price
-ice_futures_mdf_impact_v1_1_33.alt_low_price.display = function(value)
-  return "Alt Low Price: "..value
-end
-
--- Dissect: Alt Low Price
-ice_futures_mdf_impact_v1_1_33.alt_low_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.alt_low_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.alt_low_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_low_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Alt High Price
-ice_futures_mdf_impact_v1_1_33.alt_high_price = {}
-
--- Size: Alt High Price
-ice_futures_mdf_impact_v1_1_33.alt_high_price.size = 8
-
--- Display: Alt High Price
-ice_futures_mdf_impact_v1_1_33.alt_high_price.display = function(value)
-  return "Alt High Price: "..value
-end
-
--- Dissect: Alt High Price
-ice_futures_mdf_impact_v1_1_33.alt_high_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.alt_high_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.alt_high_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_high_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Alt Price
-ice_futures_mdf_impact_v1_1_33.alt_price = {}
-
--- Size: Alt Price
-ice_futures_mdf_impact_v1_1_33.alt_price.size = 8
-
--- Display: Alt Price
-ice_futures_mdf_impact_v1_1_33.alt_price.display = function(value)
-  return "Alt Price: "..value
-end
-
--- Dissect: Alt Price
-ice_futures_mdf_impact_v1_1_33.alt_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.alt_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.alt_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.alt_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Variable Field
 ice_futures_mdf_impact_v1_1_33.variable_field = {}
 
@@ -6557,71 +9302,6 @@ ice_futures_mdf_impact_v1_1_33.variable_field.dissect = function(buffer, offset,
   end
 
   return offset
-end
-
--- Special Field Length
-ice_futures_mdf_impact_v1_1_33.special_field_length = {}
-
--- Size: Special Field Length
-ice_futures_mdf_impact_v1_1_33.special_field_length.size = 2
-
--- Display: Special Field Length
-ice_futures_mdf_impact_v1_1_33.special_field_length.display = function(value)
-  return "Special Field Length: "..value
-end
-
--- Dissect: Special Field Length
-ice_futures_mdf_impact_v1_1_33.special_field_length.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.special_field_length.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.special_field_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Special Field Id
-ice_futures_mdf_impact_v1_1_33.special_field_id = {}
-
--- Size: Special Field Id
-ice_futures_mdf_impact_v1_1_33.special_field_id.size = 1
-
--- Display: Special Field Id
-ice_futures_mdf_impact_v1_1_33.special_field_id.display = function(value)
-  if value == 1 then
-    return "Special Field Id: Alt Price (1)"
-  end
-  if value == 2 then
-    return "Special Field Id: Alt High Price (2)"
-  end
-  if value == 3 then
-    return "Special Field Id: Alt Low Price (3)"
-  end
-  if value == 4 then
-    return "Special Field Id: Alt Vwap (4)"
-  end
-  if value == 5 then
-    return "Special Field Id: Alt Last Trade Price (5)"
-  end
-  if value == 6 then
-    return "Special Field Id: Aon (6)"
-  end
-
-  return "Special Field Id: Unknown("..value..")"
-end
-
--- Dissect: Special Field Id
-ice_futures_mdf_impact_v1_1_33.special_field_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.special_field_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.special_field_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.special_field_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Special Field
@@ -6686,29 +9366,6 @@ ice_futures_mdf_impact_v1_1_33.special_field.dissect = function(buffer, offset, 
   end
 end
 
--- Number Of Special Fields
-ice_futures_mdf_impact_v1_1_33.number_of_special_fields = {}
-
--- Size: Number Of Special Fields
-ice_futures_mdf_impact_v1_1_33.number_of_special_fields.size = 1
-
--- Display: Number Of Special Fields
-ice_futures_mdf_impact_v1_1_33.number_of_special_fields.display = function(value)
-  return "Number Of Special Fields: "..value
-end
-
--- Dissect: Number Of Special Fields
-ice_futures_mdf_impact_v1_1_33.number_of_special_fields.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.number_of_special_fields.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.number_of_special_fields.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_special_fields, range, value, display)
-
-  return offset + length, value
-end
-
 -- Special Field Message
 ice_futures_mdf_impact_v1_1_33.special_field_message = {}
 
@@ -6762,588 +9419,6 @@ ice_futures_mdf_impact_v1_1_33.special_field_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.special_field_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Num Decimals Options Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_options_price = {}
-
--- Size: Num Decimals Options Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.size = 1
-
--- Display: Num Decimals Options Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Num Decimals Options Price: No Value"
-  end
-
-  return "Num Decimals Options Price: "..value
-end
-
--- Dissect: Num Decimals Options Price
-ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.num_decimals_options_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_decimals_options_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Isin
-ice_futures_mdf_impact_v1_1_33.isin = {}
-
--- Size: Isin
-ice_futures_mdf_impact_v1_1_33.isin.size = 12
-
--- Display: Isin
-ice_futures_mdf_impact_v1_1_33.isin.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Isin: No Value"
-  end
-
-  return "Isin: "..value
-end
-
--- Dissect: Isin
-ice_futures_mdf_impact_v1_1_33.isin.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.isin.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.isin.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.isin, range, value, display)
-
-  return offset + length, value
-end
-
--- Off Exchange Increment Option Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price = {}
-
--- Size: Off Exchange Increment Option Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.size = 4
-
--- Display: Off Exchange Increment Option Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.display = function(value)
-  return "Off Exchange Increment Option Price: "..value
-end
-
--- Dissect: Off Exchange Increment Option Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_option_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_option_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Off Exchange Increment Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price = {}
-
--- Size: Off Exchange Increment Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.size = 4
-
--- Display: Off Exchange Increment Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.display = function(value)
-  return "Off Exchange Increment Price: "..value
-end
-
--- Dissect: Off Exchange Increment Price
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Off Exchange Increment Qty
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty = {}
-
--- Size: Off Exchange Increment Qty
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.size = 4
-
--- Display: Off Exchange Increment Qty
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.display = function(value)
-  return "Off Exchange Increment Qty: "..value
-end
-
--- Dissect: Off Exchange Increment Qty
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Off Exchange Increment Qty Denominator
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator = {}
-
--- Size: Off Exchange Increment Qty Denominator
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.size = 1
-
--- Display: Off Exchange Increment Qty Denominator
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Off Exchange Increment Qty Denominator: No Value"
-  end
-
-  return "Off Exchange Increment Qty Denominator: "..value
-end
-
--- Dissect: Off Exchange Increment Qty Denominator
-ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.off_exchange_increment_qty_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_exchange_increment_qty_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Mic Code
-ice_futures_mdf_impact_v1_1_33.mic_code = {}
-
--- Size: Mic Code
-ice_futures_mdf_impact_v1_1_33.mic_code.size = 4
-
--- Display: Mic Code
-ice_futures_mdf_impact_v1_1_33.mic_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Mic Code: No Value"
-  end
-
-  return "Mic Code: "..value
-end
-
--- Dissect: Mic Code
-ice_futures_mdf_impact_v1_1_33.mic_code.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.mic_code.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.mic_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.mic_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Strip Name
-ice_futures_mdf_impact_v1_1_33.strip_name = {}
-
--- Size: Strip Name
-ice_futures_mdf_impact_v1_1_33.strip_name.size = 39
-
--- Display: Strip Name
-ice_futures_mdf_impact_v1_1_33.strip_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Strip Name: No Value"
-  end
-
-  return "Strip Name: "..value
-end
-
--- Dissect: Strip Name
-ice_futures_mdf_impact_v1_1_33.strip_name.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.strip_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.strip_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Strip Id
-ice_futures_mdf_impact_v1_1_33.strip_id = {}
-
--- Size: Strip Id
-ice_futures_mdf_impact_v1_1_33.strip_id.size = 4
-
--- Display: Strip Id
-ice_futures_mdf_impact_v1_1_33.strip_id.display = function(value)
-  return "Strip Id: "..value
-end
-
--- Dissect: Strip Id
-ice_futures_mdf_impact_v1_1_33.strip_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.strip_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.strip_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Hub Alias
-ice_futures_mdf_impact_v1_1_33.hub_alias = {}
-
--- Size: Hub Alias
-ice_futures_mdf_impact_v1_1_33.hub_alias.size = 80
-
--- Display: Hub Alias
-ice_futures_mdf_impact_v1_1_33.hub_alias.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Hub Alias: No Value"
-  end
-
-  return "Hub Alias: "..value
-end
-
--- Dissect: Hub Alias
-ice_futures_mdf_impact_v1_1_33.hub_alias.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hub_alias.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.hub_alias.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hub_alias, range, value, display)
-
-  return offset + length, value
-end
-
--- Hub Id
-ice_futures_mdf_impact_v1_1_33.hub_id = {}
-
--- Size: Hub Id
-ice_futures_mdf_impact_v1_1_33.hub_id.size = 4
-
--- Display: Hub Id
-ice_futures_mdf_impact_v1_1_33.hub_id.display = function(value)
-  return "Hub Id: "..value
-end
-
--- Dissect: Hub Id
-ice_futures_mdf_impact_v1_1_33.hub_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hub_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.hub_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hub_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Name
-ice_futures_mdf_impact_v1_1_33.product_name = {}
-
--- Size: Product Name
-ice_futures_mdf_impact_v1_1_33.product_name.size = 62
-
--- Display: Product Name
-ice_futures_mdf_impact_v1_1_33.product_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Product Name: No Value"
-  end
-
-  return "Product Name: "..value
-end
-
--- Dissect: Product Name
-ice_futures_mdf_impact_v1_1_33.product_name.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.product_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.product_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.product_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-ice_futures_mdf_impact_v1_1_33.product_id = {}
-
--- Size: Product Id
-ice_futures_mdf_impact_v1_1_33.product_id.size = 4
-
--- Display: Product Id
-ice_futures_mdf_impact_v1_1_33.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-ice_futures_mdf_impact_v1_1_33.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.product_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Price
-ice_futures_mdf_impact_v1_1_33.max_price = {}
-
--- Size: Max Price
-ice_futures_mdf_impact_v1_1_33.max_price.size = 8
-
--- Display: Max Price
-ice_futures_mdf_impact_v1_1_33.max_price.display = function(value)
-  return "Max Price: "..value
-end
-
--- Dissect: Max Price
-ice_futures_mdf_impact_v1_1_33.max_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.max_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.max_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.max_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Price
-ice_futures_mdf_impact_v1_1_33.min_price = {}
-
--- Size: Min Price
-ice_futures_mdf_impact_v1_1_33.min_price.size = 8
-
--- Display: Min Price
-ice_futures_mdf_impact_v1_1_33.min_price.display = function(value)
-  return "Min Price: "..value
-end
-
--- Dissect: Min Price
-ice_futures_mdf_impact_v1_1_33.min_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.min_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.min_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.min_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Cleared Alias
-ice_futures_mdf_impact_v1_1_33.cleared_alias = {}
-
--- Size: Cleared Alias
-ice_futures_mdf_impact_v1_1_33.cleared_alias.size = 15
-
--- Display: Cleared Alias
-ice_futures_mdf_impact_v1_1_33.cleared_alias.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cleared Alias: No Value"
-  end
-
-  return "Cleared Alias: "..value
-end
-
--- Dissect: Cleared Alias
-ice_futures_mdf_impact_v1_1_33.cleared_alias.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.cleared_alias.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.cleared_alias.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.cleared_alias, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Quantity
-ice_futures_mdf_impact_v1_1_33.unit_quantity = {}
-
--- Size: Unit Quantity
-ice_futures_mdf_impact_v1_1_33.unit_quantity.size = 4
-
--- Display: Unit Quantity
-ice_futures_mdf_impact_v1_1_33.unit_quantity.display = function(value)
-  return "Unit Quantity: "..value
-end
-
--- Dissect: Unit Quantity
-ice_futures_mdf_impact_v1_1_33.unit_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.unit_quantity.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.unit_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.unit_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Day
-ice_futures_mdf_impact_v1_1_33.maturity_day = {}
-
--- Size: Maturity Day
-ice_futures_mdf_impact_v1_1_33.maturity_day.size = 2
-
--- Display: Maturity Day
-ice_futures_mdf_impact_v1_1_33.maturity_day.display = function(value)
-  return "Maturity Day: "..value
-end
-
--- Dissect: Maturity Day
-ice_futures_mdf_impact_v1_1_33.maturity_day.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.maturity_day.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.maturity_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.maturity_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Month
-ice_futures_mdf_impact_v1_1_33.maturity_month = {}
-
--- Size: Maturity Month
-ice_futures_mdf_impact_v1_1_33.maturity_month.size = 2
-
--- Display: Maturity Month
-ice_futures_mdf_impact_v1_1_33.maturity_month.display = function(value)
-  return "Maturity Month: "..value
-end
-
--- Dissect: Maturity Month
-ice_futures_mdf_impact_v1_1_33.maturity_month.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.maturity_month.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.maturity_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.maturity_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Year
-ice_futures_mdf_impact_v1_1_33.maturity_year = {}
-
--- Size: Maturity Year
-ice_futures_mdf_impact_v1_1_33.maturity_year.size = 2
-
--- Display: Maturity Year
-ice_futures_mdf_impact_v1_1_33.maturity_year.display = function(value)
-  return "Maturity Year: "..value
-end
-
--- Dissect: Maturity Year
-ice_futures_mdf_impact_v1_1_33.maturity_year.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.maturity_year.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.maturity_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.maturity_year, range, value, display)
-
-  return offset + length, value
 end
 
 -- New Expiry Message
@@ -7538,286 +9613,6 @@ ice_futures_mdf_impact_v1_1_33.new_expiry_message.dissect = function(buffer, off
   end
 end
 
--- Underlying Isin
-ice_futures_mdf_impact_v1_1_33.underlying_isin = {}
-
--- Size: Underlying Isin
-ice_futures_mdf_impact_v1_1_33.underlying_isin.size = 12
-
--- Display: Underlying Isin
-ice_futures_mdf_impact_v1_1_33.underlying_isin.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Isin: No Value"
-  end
-
-  return "Underlying Isin: "..value
-end
-
--- Dissect: Underlying Isin
-ice_futures_mdf_impact_v1_1_33.underlying_isin.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.underlying_isin.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.underlying_isin.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.underlying_isin, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange Silo
-ice_futures_mdf_impact_v1_1_33.exchange_silo = {}
-
--- Size: Exchange Silo
-ice_futures_mdf_impact_v1_1_33.exchange_silo.size = 1
-
--- Display: Exchange Silo
-ice_futures_mdf_impact_v1_1_33.exchange_silo.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Exchange Silo: No Value"
-  end
-
-  if value == "0" then
-    return "Exchange Silo: Ice (0)"
-  end
-  if value == "1" then
-    return "Exchange Silo: Endex (1)"
-  end
-  if value == "2" then
-    return "Exchange Silo: Liffe (2)"
-  end
-
-  return "Exchange Silo: Unknown("..value..")"
-end
-
--- Dissect: Exchange Silo
-ice_futures_mdf_impact_v1_1_33.exchange_silo.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.exchange_silo.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.exchange_silo.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.exchange_silo, range, value, display)
-
-  return offset + length, value
-end
-
--- Hedge Only
-ice_futures_mdf_impact_v1_1_33.hedge_only = {}
-
--- Size: Hedge Only
-ice_futures_mdf_impact_v1_1_33.hedge_only.size = 1
-
--- Display: Hedge Only
-ice_futures_mdf_impact_v1_1_33.hedge_only.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Hedge Only: No Value"
-  end
-
-  if value == "Y" then
-    return "Hedge Only: Yes (Y)"
-  end
-  if value == "N" then
-    return "Hedge Only: No (N)"
-  end
-
-  return "Hedge Only: Unknown("..value..")"
-end
-
--- Dissect: Hedge Only
-ice_futures_mdf_impact_v1_1_33.hedge_only.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.hedge_only.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.hedge_only.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.hedge_only, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Tradable
-ice_futures_mdf_impact_v1_1_33.is_tradable = {}
-
--- Size: Is Tradable
-ice_futures_mdf_impact_v1_1_33.is_tradable.size = 1
-
--- Display: Is Tradable
-ice_futures_mdf_impact_v1_1_33.is_tradable.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is Tradable: No Value"
-  end
-
-  if value == "Y" then
-    return "Is Tradable: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Tradable: No (N)"
-  end
-
-  return "Is Tradable: Unknown("..value..")"
-end
-
--- Dissect: Is Tradable
-ice_futures_mdf_impact_v1_1_33.is_tradable.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_tradable.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_tradable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Allows Implied
-ice_futures_mdf_impact_v1_1_33.allows_implied = {}
-
--- Size: Allows Implied
-ice_futures_mdf_impact_v1_1_33.allows_implied.size = 1
-
--- Display: Allows Implied
-ice_futures_mdf_impact_v1_1_33.allows_implied.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Allows Implied: No Value"
-  end
-
-  if value == "Y" then
-    return "Allows Implied: Yes (Y)"
-  end
-  if value == "N" then
-    return "Allows Implied: No (N)"
-  end
-
-  return "Allows Implied: Unknown("..value..")"
-end
-
--- Dissect: Allows Implied
-ice_futures_mdf_impact_v1_1_33.allows_implied.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.allows_implied.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.allows_implied.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.allows_implied, range, value, display)
-
-  return offset + length, value
-end
-
--- Allow Options
-ice_futures_mdf_impact_v1_1_33.allow_options = {}
-
--- Size: Allow Options
-ice_futures_mdf_impact_v1_1_33.allow_options.size = 1
-
--- Display: Allow Options
-ice_futures_mdf_impact_v1_1_33.allow_options.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Allow Options: No Value"
-  end
-
-  if value == "Y" then
-    return "Allow Options: Yes (Y)"
-  end
-  if value == "N" then
-    return "Allow Options: No (N)"
-  end
-
-  return "Allow Options: Unknown("..value..")"
-end
-
--- Dissect: Allow Options
-ice_futures_mdf_impact_v1_1_33.allow_options.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.allow_options.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.allow_options.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.allow_options, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 4
-ice_futures_mdf_impact_v1_1_33.reserved_4 = {}
-
--- Size: Reserved 4
-ice_futures_mdf_impact_v1_1_33.reserved_4.size = 4
-
--- Display: Reserved 4
-ice_futures_mdf_impact_v1_1_33.reserved_4.display = function(value)
-  return "Reserved 4: "..value
-end
-
--- Dissect: Reserved 4
-ice_futures_mdf_impact_v1_1_33.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = ice_futures_mdf_impact_v1_1_33.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Definition
 ice_futures_mdf_impact_v1_1_33.leg_definition = {}
 
@@ -7894,29 +9689,6 @@ ice_futures_mdf_impact_v1_1_33.leg_definition.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
   end
-end
-
--- Number Of Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions = {}
-
--- Size: Number Of Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.size = 1
-
--- Display: Number Of Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.display = function(value)
-  return "Number Of Leg Definitions: "..value
-end
-
--- Dissect: Number Of Leg Definitions
-ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.number_of_leg_definitions.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_leg_definitions, range, value, display)
-
-  return offset + length, value
 end
 
 -- New Futures Strategy Definition Message
@@ -8193,194 +9965,6 @@ ice_futures_mdf_impact_v1_1_33.new_futures_strategy_definition_message.dissect =
   end
 end
 
--- Ipl Down
-ice_futures_mdf_impact_v1_1_33.ipl_down = {}
-
--- Size: Ipl Down
-ice_futures_mdf_impact_v1_1_33.ipl_down.size = 8
-
--- Display: Ipl Down
-ice_futures_mdf_impact_v1_1_33.ipl_down.display = function(value)
-  return "Ipl Down: "..value
-end
-
--- Dissect: Ipl Down
-ice_futures_mdf_impact_v1_1_33.ipl_down.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.ipl_down.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.ipl_down.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_down, range, value, display)
-
-  return offset + length, value
-end
-
--- Ipl Up
-ice_futures_mdf_impact_v1_1_33.ipl_up = {}
-
--- Size: Ipl Up
-ice_futures_mdf_impact_v1_1_33.ipl_up.size = 8
-
--- Display: Ipl Up
-ice_futures_mdf_impact_v1_1_33.ipl_up.display = function(value)
-  return "Ipl Up: "..value
-end
-
--- Dissect: Ipl Up
-ice_futures_mdf_impact_v1_1_33.ipl_up.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.ipl_up.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.ipl_up.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_up, range, value, display)
-
-  return offset + length, value
-end
-
--- Ipl Hold Duration
-ice_futures_mdf_impact_v1_1_33.ipl_hold_duration = {}
-
--- Size: Ipl Hold Duration
-ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.size = 4
-
--- Display: Ipl Hold Duration
-ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.display = function(value)
-  return "Ipl Hold Duration: "..value
-end
-
--- Dissect: Ipl Hold Duration
-ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.ipl_hold_duration.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_hold_duration, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Up
-ice_futures_mdf_impact_v1_1_33.is_up = {}
-
--- Size: Is Up
-ice_futures_mdf_impact_v1_1_33.is_up.size = 1
-
--- Display: Is Up
-ice_futures_mdf_impact_v1_1_33.is_up.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is Up: No Value"
-  end
-
-  if value == "Y" then
-    return "Is Up: Ipl Upper Bound Violation (Y)"
-  end
-  if value == "N" then
-    return "Is Up: Ipl Lower Bound Violation (N)"
-  end
-  if value == "F" then
-    return "Is Up: Final (F)"
-  end
-  if value == " " then
-    return "Is Up: Non Endex Spot Market (<whitespace>)"
-  end
-
-  return "Is Up: Unknown("..value..")"
-end
-
--- Dissect: Is Up
-ice_futures_mdf_impact_v1_1_33.is_up.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_up.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_up.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_up, range, value, display)
-
-  return offset + length, value
-end
-
--- Notification Date Time
-ice_futures_mdf_impact_v1_1_33.notification_date_time = {}
-
--- Size: Notification Date Time
-ice_futures_mdf_impact_v1_1_33.notification_date_time.size = 8
-
--- Display: Notification Date Time
-ice_futures_mdf_impact_v1_1_33.notification_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Notification Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Notification Date Time
-ice_futures_mdf_impact_v1_1_33.notification_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.notification_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.notification_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.notification_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Ipl Hold Type
-ice_futures_mdf_impact_v1_1_33.ipl_hold_type = {}
-
--- Size: Ipl Hold Type
-ice_futures_mdf_impact_v1_1_33.ipl_hold_type.size = 1
-
--- Display: Ipl Hold Type
-ice_futures_mdf_impact_v1_1_33.ipl_hold_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ipl Hold Type: No Value"
-  end
-
-  if value == "S" then
-    return "Ipl Hold Type: Ipl Hold Start (S)"
-  end
-  if value == "E" then
-    return "Ipl Hold Type: Ipl Hold End (E)"
-  end
-
-  return "Ipl Hold Type: Unknown("..value..")"
-end
-
--- Dissect: Ipl Hold Type
-ice_futures_mdf_impact_v1_1_33.ipl_hold_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.ipl_hold_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.ipl_hold_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.ipl_hold_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Interval Price Limit Notification Message
 ice_futures_mdf_impact_v1_1_33.interval_price_limit_notification_message = {}
 
@@ -8443,245 +10027,6 @@ ice_futures_mdf_impact_v1_1_33.interval_price_limit_notification_message.dissect
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.interval_price_limit_notification_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Strip Info
-ice_futures_mdf_impact_v1_1_33.strip_info = {}
-
--- Size: Strip Info
-ice_futures_mdf_impact_v1_1_33.strip_info.size = 50
-
--- Display: Strip Info
-ice_futures_mdf_impact_v1_1_33.strip_info.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Strip Info: No Value"
-  end
-
-  return "Strip Info: "..value
-end
-
--- Dissect: Strip Info
-ice_futures_mdf_impact_v1_1_33.strip_info.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.strip_info.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.strip_info.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_info, range, value, display)
-
-  return offset + length, value
-end
-
--- End Day
-ice_futures_mdf_impact_v1_1_33.end_day = {}
-
--- Size: End Day
-ice_futures_mdf_impact_v1_1_33.end_day.size = 2
-
--- Display: End Day
-ice_futures_mdf_impact_v1_1_33.end_day.display = function(value)
-  return "End Day: "..value
-end
-
--- Dissect: End Day
-ice_futures_mdf_impact_v1_1_33.end_day.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.end_day.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.end_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.end_day, range, value, display)
-
-  return offset + length, value
-end
-
--- End Month
-ice_futures_mdf_impact_v1_1_33.end_month = {}
-
--- Size: End Month
-ice_futures_mdf_impact_v1_1_33.end_month.size = 2
-
--- Display: End Month
-ice_futures_mdf_impact_v1_1_33.end_month.display = function(value)
-  return "End Month: "..value
-end
-
--- Dissect: End Month
-ice_futures_mdf_impact_v1_1_33.end_month.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.end_month.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.end_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.end_month, range, value, display)
-
-  return offset + length, value
-end
-
--- End Year
-ice_futures_mdf_impact_v1_1_33.end_year = {}
-
--- Size: End Year
-ice_futures_mdf_impact_v1_1_33.end_year.size = 2
-
--- Display: End Year
-ice_futures_mdf_impact_v1_1_33.end_year.display = function(value)
-  return "End Year: "..value
-end
-
--- Dissect: End Year
-ice_futures_mdf_impact_v1_1_33.end_year.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.end_year.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.end_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.end_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Day
-ice_futures_mdf_impact_v1_1_33.begin_day = {}
-
--- Size: Begin Day
-ice_futures_mdf_impact_v1_1_33.begin_day.size = 2
-
--- Display: Begin Day
-ice_futures_mdf_impact_v1_1_33.begin_day.display = function(value)
-  return "Begin Day: "..value
-end
-
--- Dissect: Begin Day
-ice_futures_mdf_impact_v1_1_33.begin_day.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.begin_day.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.begin_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.begin_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Month
-ice_futures_mdf_impact_v1_1_33.begin_month = {}
-
--- Size: Begin Month
-ice_futures_mdf_impact_v1_1_33.begin_month.size = 2
-
--- Display: Begin Month
-ice_futures_mdf_impact_v1_1_33.begin_month.display = function(value)
-  return "Begin Month: "..value
-end
-
--- Dissect: Begin Month
-ice_futures_mdf_impact_v1_1_33.begin_month.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.begin_month.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.begin_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.begin_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Year
-ice_futures_mdf_impact_v1_1_33.begin_year = {}
-
--- Size: Begin Year
-ice_futures_mdf_impact_v1_1_33.begin_year.size = 2
-
--- Display: Begin Year
-ice_futures_mdf_impact_v1_1_33.begin_year.display = function(value)
-  return "Begin Year: "..value
-end
-
--- Dissect: Begin Year
-ice_futures_mdf_impact_v1_1_33.begin_year.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.begin_year.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.begin_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.begin_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Strip Type
-ice_futures_mdf_impact_v1_1_33.strip_type = {}
-
--- Size: Strip Type
-ice_futures_mdf_impact_v1_1_33.strip_type.size = 20
-
--- Display: Strip Type
-ice_futures_mdf_impact_v1_1_33.strip_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Strip Type: No Value"
-  end
-
-  return "Strip Type: "..value
-end
-
--- Dissect: Strip Type
-ice_futures_mdf_impact_v1_1_33.strip_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.strip_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.strip_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.strip_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Old Strip Id
-ice_futures_mdf_impact_v1_1_33.old_strip_id = {}
-
--- Size: Old Strip Id
-ice_futures_mdf_impact_v1_1_33.old_strip_id.size = 2
-
--- Display: Old Strip Id
-ice_futures_mdf_impact_v1_1_33.old_strip_id.display = function(value)
-  return "Old Strip Id: "..value
-end
-
--- Dissect: Old Strip Id
-ice_futures_mdf_impact_v1_1_33.old_strip_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.old_strip_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.old_strip_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.old_strip_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strip Info Message
@@ -8760,88 +10105,6 @@ ice_futures_mdf_impact_v1_1_33.strip_info_message.dissect = function(buffer, off
   end
 end
 
--- Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.pre_open_volume = {}
-
--- Size: Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.pre_open_volume.size = 4
-
--- Display: Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.pre_open_volume.display = function(value)
-  return "Pre Open Volume: "..value
-end
-
--- Dissect: Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.pre_open_volume.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.pre_open_volume.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.pre_open_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.pre_open_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Has Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.has_pre_open_volume = {}
-
--- Size: Has Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.size = 1
-
--- Display: Has Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Has Pre Open Volume: No Value"
-  end
-
-  return "Has Pre Open Volume: "..value
-end
-
--- Dissect: Has Pre Open Volume
-ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.has_pre_open_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.has_pre_open_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Pre Open Price
-ice_futures_mdf_impact_v1_1_33.pre_open_price = {}
-
--- Size: Pre Open Price
-ice_futures_mdf_impact_v1_1_33.pre_open_price.size = 8
-
--- Display: Pre Open Price
-ice_futures_mdf_impact_v1_1_33.pre_open_price.display = function(value)
-  return "Pre Open Price: "..value
-end
-
--- Dissect: Pre Open Price
-ice_futures_mdf_impact_v1_1_33.pre_open_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.pre_open_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.pre_open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.pre_open_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Pre Open Price Indicator Message
 ice_futures_mdf_impact_v1_1_33.pre_open_price_indicator_message = {}
 
@@ -8898,42 +10161,6 @@ ice_futures_mdf_impact_v1_1_33.pre_open_price_indicator_message.dissect = functi
   end
 end
 
--- Event Type
-ice_futures_mdf_impact_v1_1_33.event_type = {}
-
--- Size: Event Type
-ice_futures_mdf_impact_v1_1_33.event_type.size = 1
-
--- Display: Event Type
-ice_futures_mdf_impact_v1_1_33.event_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Event Type: No Value"
-  end
-
-  return "Event Type: "..value
-end
-
--- Dissect: Event Type
-ice_futures_mdf_impact_v1_1_33.event_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.event_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.event_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.event_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Event Message
 ice_futures_mdf_impact_v1_1_33.market_event_message = {}
 
@@ -8980,52 +10207,6 @@ ice_futures_mdf_impact_v1_1_33.market_event_message.dissect = function(buffer, o
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.market_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Opening Price
-ice_futures_mdf_impact_v1_1_33.opening_price = {}
-
--- Size: Opening Price
-ice_futures_mdf_impact_v1_1_33.opening_price.size = 8
-
--- Display: Opening Price
-ice_futures_mdf_impact_v1_1_33.opening_price.display = function(value)
-  return "Opening Price: "..value
-end
-
--- Dissect: Opening Price
-ice_futures_mdf_impact_v1_1_33.opening_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.opening_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.opening_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.opening_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Volume
-ice_futures_mdf_impact_v1_1_33.volume = {}
-
--- Size: Volume
-ice_futures_mdf_impact_v1_1_33.volume.size = 4
-
--- Display: Volume
-ice_futures_mdf_impact_v1_1_33.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-ice_futures_mdf_impact_v1_1_33.volume.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.volume.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.volume, range, value, display)
-
-  return offset + length, value
 end
 
 -- End Of Day Market Summary Message
@@ -9114,111 +10295,6 @@ ice_futures_mdf_impact_v1_1_33.end_of_day_market_summary_message.dissect = funct
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.end_of_day_market_summary_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Valuation Date Applying Date
-ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date = {}
-
--- Size: Valuation Date Applying Date
-ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.size = 10
-
--- Display: Valuation Date Applying Date
-ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Valuation Date Applying Date: No Value"
-  end
-
-  return "Valuation Date Applying Date: "..value
-end
-
--- Dissect: Valuation Date Applying Date
-ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.valuation_date_applying_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.valuation_date_applying_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Published Date Time
-ice_futures_mdf_impact_v1_1_33.published_date_time = {}
-
--- Size: Published Date Time
-ice_futures_mdf_impact_v1_1_33.published_date_time.size = 8
-
--- Display: Published Date Time
-ice_futures_mdf_impact_v1_1_33.published_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Published Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Published Date Time
-ice_futures_mdf_impact_v1_1_33.published_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.published_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.published_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.published_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Name
-ice_futures_mdf_impact_v1_1_33.short_name = {}
-
--- Size: Short Name
-ice_futures_mdf_impact_v1_1_33.short_name.size = 30
-
--- Display: Short Name
-ice_futures_mdf_impact_v1_1_33.short_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Short Name: No Value"
-  end
-
-  return "Short Name: "..value
-end
-
--- Dissect: Short Name
-ice_futures_mdf_impact_v1_1_33.short_name.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.short_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.short_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.short_name, range, value, display)
-
-  return offset + length, value
 end
 
 -- Index Prices Message
@@ -9341,29 +10417,6 @@ ice_futures_mdf_impact_v1_1_33.settlement_price_message.dissect = function(buffe
   end
 end
 
--- Close Price
-ice_futures_mdf_impact_v1_1_33.close_price = {}
-
--- Size: Close Price
-ice_futures_mdf_impact_v1_1_33.close_price.size = 8
-
--- Display: Close Price
-ice_futures_mdf_impact_v1_1_33.close_price.display = function(value)
-  return "Close Price: "..value
-end
-
--- Dissect: Close Price
-ice_futures_mdf_impact_v1_1_33.close_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.close_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.close_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Close Price Message
 ice_futures_mdf_impact_v1_1_33.close_price_message = {}
 
@@ -9412,29 +10465,6 @@ ice_futures_mdf_impact_v1_1_33.close_price_message.dissect = function(buffer, of
   end
 end
 
--- Open Price
-ice_futures_mdf_impact_v1_1_33.open_price = {}
-
--- Size: Open Price
-ice_futures_mdf_impact_v1_1_33.open_price.size = 8
-
--- Display: Open Price
-ice_futures_mdf_impact_v1_1_33.open_price.display = function(value)
-  return "Open Price: "..value
-end
-
--- Dissect: Open Price
-ice_futures_mdf_impact_v1_1_33.open_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.open_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.open_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Open Price Message
 ice_futures_mdf_impact_v1_1_33.open_price_message = {}
 
@@ -9481,29 +10511,6 @@ ice_futures_mdf_impact_v1_1_33.open_price_message.dissect = function(buffer, off
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.open_price_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Open Interest Change
-ice_futures_mdf_impact_v1_1_33.open_interest_change = {}
-
--- Size: Open Interest Change
-ice_futures_mdf_impact_v1_1_33.open_interest_change.size = 4
-
--- Display: Open Interest Change
-ice_futures_mdf_impact_v1_1_33.open_interest_change.display = function(value)
-  return "Open Interest Change: "..value
-end
-
--- Dissect: Open Interest Change
-ice_futures_mdf_impact_v1_1_33.open_interest_change.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.open_interest_change.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.open_interest_change.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.open_interest_change, range, value, display)
-
-  return offset + length, value
 end
 
 -- Open Interest Message
@@ -9560,84 +10567,6 @@ ice_futures_mdf_impact_v1_1_33.open_interest_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.open_interest_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Text Message Extra Fld
-ice_futures_mdf_impact_v1_1_33.text_message_extra_fld = {}
-
--- Size: Text Message Extra Fld
-ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.size = 800
-
--- Display: Text Message Extra Fld
-ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text Message Extra Fld: No Value"
-  end
-
-  return "Text Message Extra Fld: "..value
-end
-
--- Dissect: Text Message Extra Fld
-ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.text_message_extra_fld.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.text_message_extra_fld, range, value, display)
-
-  return offset + length, value
-end
-
--- Text Message
-ice_futures_mdf_impact_v1_1_33.text_message = {}
-
--- Size: Text Message
-ice_futures_mdf_impact_v1_1_33.text_message.size = 200
-
--- Display: Text Message
-ice_futures_mdf_impact_v1_1_33.text_message.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Text Message: No Value"
-  end
-
-  return "Text Message: "..value
-end
-
--- Dissect: Text Message
-ice_futures_mdf_impact_v1_1_33.text_message.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.text_message.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.text_message.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.text_message, range, value, display)
-
-  return offset + length, value
 end
 
 -- System Text Message
@@ -9808,71 +10737,6 @@ ice_futures_mdf_impact_v1_1_33.market_statistics_message.dissect = function(buff
   end
 end
 
--- Off Market Trade Type
-ice_futures_mdf_impact_v1_1_33.off_market_trade_type = {}
-
--- Size: Off Market Trade Type
-ice_futures_mdf_impact_v1_1_33.off_market_trade_type.size = 3
-
--- Display: Off Market Trade Type
-ice_futures_mdf_impact_v1_1_33.off_market_trade_type.display = function(value)
-  if value == " " then
-    return "Off Market Trade Type: Regular (<whitespace>)"
-  end
-  if value == "K" then
-    return "Off Market Trade Type: Block (K)"
-  end
-  if value == "S" then
-    return "Off Market Trade Type: Efs (S)"
-  end
-  if value == "E" then
-    return "Off Market Trade Type: Efp (E)"
-  end
-  if value == "O" then
-    return "Off Market Trade Type: Efp Efs (O)"
-  end
-  if value == "Q" then
-    return "Off Market Trade Type: Eoo (Q)"
-  end
-  if value == "I" then
-    return "Off Market Trade Type: Efm (I)"
-  end
-  if value == "5" then
-    return "Off Market Trade Type: Guaranteed Cross (5)"
-  end
-  if value == "5" then
-    return "Off Market Trade Type: Basis (5)"
-  end
-  if value == "AA" then
-    return "Off Market Trade Type: Asset Allocation (AA)"
-  end
-
-  return "Off Market Trade Type: Unknown("..value..")"
-end
-
--- Dissect: Off Market Trade Type
-ice_futures_mdf_impact_v1_1_33.off_market_trade_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.off_market_trade_type.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.off_market_trade_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.off_market_trade_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cancelled Trade Message
 ice_futures_mdf_impact_v1_1_33.cancelled_trade_message = {}
 
@@ -9935,49 +10799,6 @@ ice_futures_mdf_impact_v1_1_33.cancelled_trade_message.dissect = function(buffer
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.cancelled_trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Investigation Status
-ice_futures_mdf_impact_v1_1_33.investigation_status = {}
-
--- Size: Investigation Status
-ice_futures_mdf_impact_v1_1_33.investigation_status.size = 1
-
--- Display: Investigation Status
-ice_futures_mdf_impact_v1_1_33.investigation_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Investigation Status: No Value"
-  end
-
-  if value == "1" then
-    return "Investigation Status: Under Investigation (1)"
-  end
-  if value == "2" then
-    return "Investigation Status: Investigation Completed (2)"
-  end
-
-  return "Investigation Status: Unknown("..value..")"
-end
-
--- Dissect: Investigation Status
-ice_futures_mdf_impact_v1_1_33.investigation_status.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.investigation_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.investigation_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.investigation_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Investigated Trade Message
@@ -10046,103 +10867,6 @@ ice_futures_mdf_impact_v1_1_33.investigated_trade_message.dissect = function(buf
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.investigated_trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Is System Priced Leg
-ice_futures_mdf_impact_v1_1_33.is_system_priced_leg = {}
-
--- Size: Is System Priced Leg
-ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.size = 1
-
--- Display: Is System Priced Leg
-ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is System Priced Leg: No Value"
-  end
-
-  if value == "Y" then
-    return "Is System Priced Leg: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is System Priced Leg: No (N)"
-  end
-
-  return "Is System Priced Leg: Unknown("..value..")"
-end
-
--- Dissect: Is System Priced Leg
-ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_system_priced_leg.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_system_priced_leg, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery End Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_end_date_time = {}
-
--- Size: Delivery End Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.size = 8
-
--- Display: Delivery End Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Delivery End Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Delivery End Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.delivery_end_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.delivery_end_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Begin Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time = {}
-
--- Size: Delivery Begin Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.size = 8
-
--- Display: Delivery Begin Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Delivery Begin Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Delivery Begin Date Time
-ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.delivery_begin_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.delivery_begin_date_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Spot Market Trade Message
@@ -10215,167 +10939,6 @@ ice_futures_mdf_impact_v1_1_33.spot_market_trade_message.dissect = function(buff
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.spot_market_trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Aggressor Side
-ice_futures_mdf_impact_v1_1_33.aggressor_side = {}
-
--- Size: Aggressor Side
-ice_futures_mdf_impact_v1_1_33.aggressor_side.size = 1
-
--- Display: Aggressor Side
-ice_futures_mdf_impact_v1_1_33.aggressor_side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Aggressor Side: No Value"
-  end
-
-  if value == " " then
-    return "Aggressor Side: None (<whitespace>)"
-  end
-  if value == "1" then
-    return "Aggressor Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Aggressor Side: Sell (2)"
-  end
-
-  return "Aggressor Side: Unknown("..value..")"
-end
-
--- Dissect: Aggressor Side
-ice_futures_mdf_impact_v1_1_33.aggressor_side.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.aggressor_side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.aggressor_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.aggressor_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Adjusted Trade
-ice_futures_mdf_impact_v1_1_33.is_adjusted_trade = {}
-
--- Size: Is Adjusted Trade
-ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.size = 1
-
--- Display: Is Adjusted Trade
-ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Is Adjusted Trade: No Value"
-  end
-
-  return "Is Adjusted Trade: "..value
-end
-
--- Dissect: Is Adjusted Trade
-ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_adjusted_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_adjusted_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Implied Spread At Market Open
-ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open = {}
-
--- Size: Is Implied Spread At Market Open
-ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.size = 1
-
--- Display: Is Implied Spread At Market Open
-ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Is Implied Spread At Market Open: No Value"
-  end
-
-  return "Is Implied Spread At Market Open: "..value
-end
-
--- Dissect: Is Implied Spread At Market Open
-ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_implied_spread_at_market_open.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_implied_spread_at_market_open, range, value, display)
-
-  return offset + length, value
-end
-
--- System Priced Leg Type
-ice_futures_mdf_impact_v1_1_33.system_priced_leg_type = {}
-
--- Size: System Priced Leg Type
-ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.size = 1
-
--- Display: System Priced Leg Type
-ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "System Priced Leg Type: No Value"
-  end
-
-  if value == "C" then
-    return "System Priced Leg Type: System Priced Crack Spread Leg (C)"
-  end
-  if value == "S" then
-    return "System Priced Leg Type: System Priced Leg (S)"
-  end
-
-  return "System Priced Leg Type: Unknown("..value..")"
-end
-
--- Dissect: System Priced Leg Type
-ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.system_priced_leg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.system_priced_leg_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Message
@@ -10468,307 +11031,6 @@ ice_futures_mdf_impact_v1_1_33.trade_message.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price = {}
-
--- Size: Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.size = 8
-
--- Display: Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.display = function(value)
-  return "Previous Day Settlement Price: "..value
-end
-
--- Dissect: Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.previous_day_settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.previous_day_settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Has Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price = {}
-
--- Size: Has Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.size = 1
-
--- Display: Has Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Has Previous Day Settlement Price: No Value"
-  end
-
-  if value == "N" then
-    return "Has Previous Day Settlement Price: No (N)"
-  end
-  if value == "Y" then
-    return "Has Previous Day Settlement Price: Yes (Y)"
-  end
-
-  return "Has Previous Day Settlement Price: Unknown("..value..")"
-end
-
--- Dissect: Has Previous Day Settlement Price
-ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.has_previous_day_settlement_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.has_previous_day_settlement_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Settle Price Official
-ice_futures_mdf_impact_v1_1_33.is_settle_price_official = {}
-
--- Size: Is Settle Price Official
-ice_futures_mdf_impact_v1_1_33.is_settle_price_official.size = 1
-
--- Display: Is Settle Price Official
-ice_futures_mdf_impact_v1_1_33.is_settle_price_official.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Is Settle Price Official: No Value"
-  end
-
-  if value == "Y" then
-    return "Is Settle Price Official: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Settle Price Official: No (N)"
-  end
-
-  return "Is Settle Price Official: Unknown("..value..")"
-end
-
--- Dissect: Is Settle Price Official
-ice_futures_mdf_impact_v1_1_33.is_settle_price_official.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.is_settle_price_official.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = ice_futures_mdf_impact_v1_1_33.is_settle_price_official.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.is_settle_price_official, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 2
-ice_futures_mdf_impact_v1_1_33.reserved_2 = {}
-
--- Size: Reserved 2
-ice_futures_mdf_impact_v1_1_33.reserved_2.size = 2
-
--- Display: Reserved 2
-ice_futures_mdf_impact_v1_1_33.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-ice_futures_mdf_impact_v1_1_33.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = ice_futures_mdf_impact_v1_1_33.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Message Sequence Id
-ice_futures_mdf_impact_v1_1_33.last_message_sequence_id = {}
-
--- Size: Last Message Sequence Id
-ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.size = 4
-
--- Display: Last Message Sequence Id
-ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.display = function(value)
-  return "Last Message Sequence Id: "..value
-end
-
--- Dissect: Last Message Sequence Id
-ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.last_message_sequence_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_message_sequence_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Settle Price Date Time
-ice_futures_mdf_impact_v1_1_33.settle_price_date_time = {}
-
--- Size: Settle Price Date Time
-ice_futures_mdf_impact_v1_1_33.settle_price_date_time.size = 8
-
--- Display: Settle Price Date Time
-ice_futures_mdf_impact_v1_1_33.settle_price_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Settle Price Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Settle Price Date Time
-ice_futures_mdf_impact_v1_1_33.settle_price_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.settle_price_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.settle_price_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.settle_price_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Date Time
-ice_futures_mdf_impact_v1_1_33.last_trade_date_time = {}
-
--- Size: Last Trade Date Time
-ice_futures_mdf_impact_v1_1_33.last_trade_date_time.size = 8
-
--- Display: Last Trade Date Time
-ice_futures_mdf_impact_v1_1_33.last_trade_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Last Trade Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Last Trade Date Time
-ice_futures_mdf_impact_v1_1_33.last_trade_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.last_trade_date_time.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.last_trade_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_trade_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Quantity
-ice_futures_mdf_impact_v1_1_33.last_trade_quantity = {}
-
--- Size: Last Trade Quantity
-ice_futures_mdf_impact_v1_1_33.last_trade_quantity.size = 4
-
--- Display: Last Trade Quantity
-ice_futures_mdf_impact_v1_1_33.last_trade_quantity.display = function(value)
-  return "Last Trade Quantity: "..value
-end
-
--- Dissect: Last Trade Quantity
-ice_futures_mdf_impact_v1_1_33.last_trade_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.last_trade_quantity.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.last_trade_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_trade_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Price
-ice_futures_mdf_impact_v1_1_33.last_trade_price = {}
-
--- Size: Last Trade Price
-ice_futures_mdf_impact_v1_1_33.last_trade_price.size = 8
-
--- Display: Last Trade Price
-ice_futures_mdf_impact_v1_1_33.last_trade_price.display = function(value)
-  return "Last Trade Price: "..value
-end
-
--- Dissect: Last Trade Price
-ice_futures_mdf_impact_v1_1_33.last_trade_price.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.last_trade_price.size
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = ice_futures_mdf_impact_v1_1_33.last_trade_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.last_trade_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Num Of Book Entries
-ice_futures_mdf_impact_v1_1_33.num_of_book_entries = {}
-
--- Size: Num Of Book Entries
-ice_futures_mdf_impact_v1_1_33.num_of_book_entries.size = 4
-
--- Display: Num Of Book Entries
-ice_futures_mdf_impact_v1_1_33.num_of_book_entries.display = function(value)
-  return "Num Of Book Entries: "..value
-end
-
--- Dissect: Num Of Book Entries
-ice_futures_mdf_impact_v1_1_33.num_of_book_entries.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.num_of_book_entries.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.num_of_book_entries.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.num_of_book_entries, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Type
-ice_futures_mdf_impact_v1_1_33.market_type = {}
-
--- Size: Market Type
-ice_futures_mdf_impact_v1_1_33.market_type.size = 2
-
--- Display: Market Type
-ice_futures_mdf_impact_v1_1_33.market_type.display = function(value)
-  return "Market Type: "..value
-end
-
--- Dissect: Market Type
-ice_futures_mdf_impact_v1_1_33.market_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.market_type.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = ice_futures_mdf_impact_v1_1_33.market_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.market_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Snapshot Message
@@ -11068,167 +11330,6 @@ ice_futures_mdf_impact_v1_1_33.payload.dissect = function(buffer, offset, packet
   return offset
 end
 
--- Length
-ice_futures_mdf_impact_v1_1_33.length = {}
-
--- Size: Length
-ice_futures_mdf_impact_v1_1_33.length.size = 2
-
--- Display: Length
-ice_futures_mdf_impact_v1_1_33.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-ice_futures_mdf_impact_v1_1_33.length.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = ice_futures_mdf_impact_v1_1_33.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-ice_futures_mdf_impact_v1_1_33.message_type = {}
-
--- Size: Message Type
-ice_futures_mdf_impact_v1_1_33.message_type.size = 1
-
--- Display: Message Type
-ice_futures_mdf_impact_v1_1_33.message_type.display = function(value)
-  if value == "C" then
-    return "Message Type: Market Snapshot Message (C)"
-  end
-  if value == "G" then
-    return "Message Type: Trade Message (G)"
-  end
-  if value == "Y" then
-    return "Message Type: Spot Market Trade Message (Y)"
-  end
-  if value == "H" then
-    return "Message Type: Investigated Trade Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Cancelled Trade Message (I)"
-  end
-  if value == "J" then
-    return "Message Type: Market Statistics Message (J)"
-  end
-  if value == "K" then
-    return "Message Type: Market State Change Message (K)"
-  end
-  if value == "L" then
-    return "Message Type: System Text Message (L)"
-  end
-  if value == "M" then
-    return "Message Type: Open Interest Message (M)"
-  end
-  if value == "N" then
-    return "Message Type: Open Price Message (N)"
-  end
-  if value == "c" then
-    return "Message Type: Close Price Message (c)"
-  end
-  if value == "O" then
-    return "Message Type: Settlement Price Message (O)"
-  end
-  if value == "z" then
-    return "Message Type: Index Prices Message (z)"
-  end
-  if value == "u" then
-    return "Message Type: End Of Day Market Summary Message (u)"
-  end
-  if value == "f" then
-    return "Message Type: Market Event Message (f)"
-  end
-  if value == "g" then
-    return "Message Type: Pre Open Price Indicator Message (g)"
-  end
-  if value == "i" then
-    return "Message Type: Strip Info Message (i)"
-  end
-  if value == "V" then
-    return "Message Type: Interval Price Limit Notification Message (V)"
-  end
-  if value == "9" then
-    return "Message Type: New Futures Strategy Definition Message (9)"
-  end
-  if value == "R" then
-    return "Message Type: New Expiry Message (R)"
-  end
-  if value == "b" then
-    return "Message Type: Special Field Message (b)"
-  end
-  if value == "D" then
-    return "Message Type: Market Snapshot Order Message (D)"
-  end
-  if value == "E" then
-    return "Message Type: Add Or Modify Order Message (E)"
-  end
-  if value == "F" then
-    return "Message Type: Delete Order Message (F)"
-  end
-  if value == "T" then
-    return "Message Type: Message Bundle Marker (T)"
-  end
-  if value == "3" then
-    return "Message Type: Fixing Transition Message (3)"
-  end
-  if value == "4" then
-    return "Message Type: Fixing Lockdown Message (4)"
-  end
-  if value == "0" then
-    return "Message Type: Fixing Indicative Price Message Message (0)"
-  end
-  if value == "m" then
-    return "Message Type: Market Snapshot Price Level Message (m)"
-  end
-  if value == "t" then
-    return "Message Type: Add Price Level Message (t)"
-  end
-  if value == "s" then
-    return "Message Type: Change Price Level Message (s)"
-  end
-  if value == "r" then
-    return "Message Type: Delete Price Level Message (r)"
-  end
-  if value == "U" then
-    return "Message Type: New Options Strategy Definition Message (U)"
-  end
-  if value == "l" then
-    return "Message Type: New Options Market Definition Message (l)"
-  end
-  if value == "k" then
-    return "Message Type: Rfq Message (k)"
-  end
-  if value == "v" then
-    return "Message Type: Option Open Interest Message (v)"
-  end
-  if value == "w" then
-    return "Message Type: Option Settlement Price Message (w)"
-  end
-  if value == "W" then
-    return "Message Type: Old Style Options Trade And Market Stats Message (W)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-ice_futures_mdf_impact_v1_1_33.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = ice_futures_mdf_impact_v1_1_33.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 ice_futures_mdf_impact_v1_1_33.message_header = {}
 
@@ -11333,102 +11434,6 @@ ice_futures_mdf_impact_v1_1_33.message.dissect = function(buffer, offset, packet
     -- Skip element, add fields directly
     return ice_futures_mdf_impact_v1_1_33.message.fields(buffer, offset, packet, parent, message_index)
   end
-end
-
--- Sent Date Time
-ice_futures_mdf_impact_v1_1_33.sent_date_time = {}
-
--- Size: Sent Date Time
-ice_futures_mdf_impact_v1_1_33.sent_date_time.size = 8
-
--- Display: Sent Date Time
-ice_futures_mdf_impact_v1_1_33.sent_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Sent Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
--- Dissect: Sent Date Time
-ice_futures_mdf_impact_v1_1_33.sent_date_time.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.sent_date_time.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = ice_futures_mdf_impact_v1_1_33.sent_date_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sent_date_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Msgs
-ice_futures_mdf_impact_v1_1_33.number_of_msgs = {}
-
--- Size: Number Of Msgs
-ice_futures_mdf_impact_v1_1_33.number_of_msgs.size = 2
-
--- Display: Number Of Msgs
-ice_futures_mdf_impact_v1_1_33.number_of_msgs.display = function(value)
-  return "Number Of Msgs: "..value
-end
-
--- Dissect: Number Of Msgs
-ice_futures_mdf_impact_v1_1_33.number_of_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.number_of_msgs.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = ice_futures_mdf_impact_v1_1_33.number_of_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.number_of_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence
-ice_futures_mdf_impact_v1_1_33.sequence = {}
-
--- Size: Sequence
-ice_futures_mdf_impact_v1_1_33.sequence.size = 4
-
--- Display: Sequence
-ice_futures_mdf_impact_v1_1_33.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-ice_futures_mdf_impact_v1_1_33.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.sequence.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = ice_futures_mdf_impact_v1_1_33.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-ice_futures_mdf_impact_v1_1_33.session = {}
-
--- Size: Session
-ice_futures_mdf_impact_v1_1_33.session.size = 2
-
--- Display: Session
-ice_futures_mdf_impact_v1_1_33.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-ice_futures_mdf_impact_v1_1_33.session.dissect = function(buffer, offset, packet, parent)
-  local length = ice_futures_mdf_impact_v1_1_33.session.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = ice_futures_mdf_impact_v1_1_33.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_ice_futures_mdf_impact_v1_1_33.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

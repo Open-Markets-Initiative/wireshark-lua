@@ -196,106 +196,8 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Ebs Spectrum Sbe 12.0
+-- Cme Ebs Spectrum Sbe 12.0 Fields
 -----------------------------------------------------------------------
-
--- Security Trading Event
-cme_ebs_spectrum_sbe_v12_0.security_trading_event = {}
-
--- Size: Security Trading Event
-cme_ebs_spectrum_sbe_v12_0.security_trading_event.size = 1
-
--- Display: Security Trading Event
-cme_ebs_spectrum_sbe_v12_0.security_trading_event.display = function(value)
-  if value == 4 then
-    return "Security Trading Event: Global Day Roll (4)"
-  end
-
-  return "Security Trading Event: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Event
-cme_ebs_spectrum_sbe_v12_0.security_trading_event.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.security_trading_event.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.security_trading_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.security_trading_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Transact Time
-cme_ebs_spectrum_sbe_v12_0.transact_time = {}
-
--- Size: Transact Time
-cme_ebs_spectrum_sbe_v12_0.transact_time.size = 8
-
--- Display: Transact Time
-cme_ebs_spectrum_sbe_v12_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Transact Time
-cme_ebs_spectrum_sbe_v12_0.transact_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.transact_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_ebs_spectrum_sbe_v12_0.transact_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Global Day Roll
-cme_ebs_spectrum_sbe_v12_0.global_day_roll = {}
-
--- Size: Global Day Roll
-cme_ebs_spectrum_sbe_v12_0.global_day_roll.size =
-  cme_ebs_spectrum_sbe_v12_0.transact_time.size + 
-  cme_ebs_spectrum_sbe_v12_0.security_trading_event.size
-
--- Display: Global Day Roll
-cme_ebs_spectrum_sbe_v12_0.global_day_roll.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Global Day Roll
-cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Transact Time: uInt64
-  index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
-
-  -- Security Trading Event: SecurityTradingEvent
-  index, security_trading_event = cme_ebs_spectrum_sbe_v12_0.security_trading_event.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Global Day Roll
-cme_ebs_spectrum_sbe_v12_0.global_day_roll.dissect = function(buffer, offset, packet, parent)
-  if show.global_day_roll then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
-    local index = cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_ebs_spectrum_sbe_v12_0.global_day_roll.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Aggressor Side
 cme_ebs_spectrum_sbe_v12_0.aggressor_side = {}
@@ -330,132 +232,87 @@ cme_ebs_spectrum_sbe_v12_0.aggressor_side.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Trading Session Id
-cme_ebs_spectrum_sbe_v12_0.trading_session_id = {}
+-- Block Length
+cme_ebs_spectrum_sbe_v12_0.block_length = {}
 
--- Size: Trading Session Id
-cme_ebs_spectrum_sbe_v12_0.trading_session_id.size = 1
+-- Size: Block Length
+cme_ebs_spectrum_sbe_v12_0.block_length.size = 2
 
--- Display: Trading Session Id
-cme_ebs_spectrum_sbe_v12_0.trading_session_id.display = function(value)
-  if value == 255 then
-    return "Trading Session Id: No Value"
-  end
-  if value == 0 then
-    return "Trading Session Id: Gl (0)"
-  end
-  if value == 1 then
-    return "Trading Session Id: Sy (1)"
-  end
-  if value == 2 then
-    return "Trading Session Id: Tk (2)"
-  end
-  if value == 3 then
-    return "Trading Session Id: Hk (3)"
-  end
-  if value == 4 then
-    return "Trading Session Id: Ln (4)"
-  end
-  if value == 5 then
-    return "Trading Session Id: Ny (5)"
-  end
-
-  return "Trading Session Id: Unknown("..value..")"
+-- Display: Block Length
+cme_ebs_spectrum_sbe_v12_0.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Trading Session Id
-cme_ebs_spectrum_sbe_v12_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.trading_session_id.size
+-- Dissect: Block Length
+cme_ebs_spectrum_sbe_v12_0.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.block_length.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.trading_session_id.display(value, buffer, offset, packet, parent)
+  local display = cme_ebs_spectrum_sbe_v12_0.block_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.trading_session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Open Close Settl Flag
-cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag = {}
-
--- Size: Open Close Settl Flag
-cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size = 1
-
--- Display: Open Close Settl Flag
-cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.display = function(value)
-  if value == 0 then
-    return "Open Close Settl Flag: Current Day (0)"
-  end
-  if value == 4 then
-    return "Open Close Settl Flag: Previous Day (4)"
-  end
-
-  return "Open Close Settl Flag: Unknown("..value..")"
-end
-
--- Dissect: Open Close Settl Flag
-cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.open_close_settl_flag, range, value, display)
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.block_length, range, value, display)
 
   return offset + length, value
 end
 
--- Md Entry Time
-cme_ebs_spectrum_sbe_v12_0.md_entry_time = {}
+-- Financial Instrument Full Name
+cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name = {}
 
--- Size: Md Entry Time
-cme_ebs_spectrum_sbe_v12_0.md_entry_time.size = 8
+-- Size: Financial Instrument Full Name
+cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size = 35
 
--- Display: Md Entry Time
-cme_ebs_spectrum_sbe_v12_0.md_entry_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Md Entry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Md Entry Time
-cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Size
-cme_ebs_spectrum_sbe_v12_0.md_entry_size = {}
-
--- Size: Md Entry Size
-cme_ebs_spectrum_sbe_v12_0.md_entry_size.size = 8
-
--- Display: Md Entry Size
-cme_ebs_spectrum_sbe_v12_0.md_entry_size.display = function(value)
+-- Display: Financial Instrument Full Name
+cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.display = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Md Entry Size: No Value"
+  if value == nil or value == '' then
+    return "Financial Instrument Full Name: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "Financial Instrument Full Name: "..value
 end
 
--- Dissect: Md Entry Size
-cme_ebs_spectrum_sbe_v12_0.md_entry_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_size.size
+-- Dissect: Financial Instrument Full Name
+cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.financial_instrument_full_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Guid
+cme_ebs_spectrum_sbe_v12_0.instrument_guid = {}
+
+-- Size: Instrument Guid
+cme_ebs_spectrum_sbe_v12_0.instrument_guid.size = 8
+
+-- Display: Instrument Guid
+cme_ebs_spectrum_sbe_v12_0.instrument_guid.display = function(value)
+  return "Instrument Guid: "..value
+end
+
+-- Dissect: Instrument Guid
+cme_ebs_spectrum_sbe_v12_0.instrument_guid.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.instrument_guid.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_size.display(value, buffer, offset, packet, parent)
+  local display = cme_ebs_spectrum_sbe_v12_0.instrument_guid.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_size, range, value, display)
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.instrument_guid, range, value, display)
 
   return offset + length, value
 end
@@ -495,6 +352,104 @@ cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect = function(buffer, offset, packet
   local display = cme_ebs_spectrum_sbe_v12_0.md_entry_px.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Size
+cme_ebs_spectrum_sbe_v12_0.md_entry_size = {}
+
+-- Size: Md Entry Size
+cme_ebs_spectrum_sbe_v12_0.md_entry_size.size = 8
+
+-- Display: Md Entry Size
+cme_ebs_spectrum_sbe_v12_0.md_entry_size.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Md Entry Size: No Value"
+  end
+
+  return "Md Entry Size: "..value
+end
+
+-- Dissect: Md Entry Size
+cme_ebs_spectrum_sbe_v12_0.md_entry_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Time
+cme_ebs_spectrum_sbe_v12_0.md_entry_time = {}
+
+-- Size: Md Entry Time
+cme_ebs_spectrum_sbe_v12_0.md_entry_time.size = 8
+
+-- Display: Md Entry Time
+cme_ebs_spectrum_sbe_v12_0.md_entry_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Md Entry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Md Entry Time
+cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Type Spectrum Entry Type
+cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type = {}
+
+-- Size: Md Entry Type Spectrum Entry Type
+cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size = 1
+
+-- Display: Md Entry Type Spectrum Entry Type
+cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type Spectrum Entry Type: No Value"
+  end
+
+  if value == "9" then
+    return "Md Entry Type Spectrum Entry Type: Vwap (9)"
+  end
+  if value == "t" then
+    return "Md Entry Type Spectrum Entry Type: Twap (t)"
+  end
+
+  return "Md Entry Type Spectrum Entry Type: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type Spectrum Entry Type
+cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_spectrum_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -572,6 +527,438 @@ cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect = function(bu
   return offset + length, value
 end
 
+-- Message Size
+cme_ebs_spectrum_sbe_v12_0.message_size = {}
+
+-- Size: Message Size
+cme_ebs_spectrum_sbe_v12_0.message_size.size = 2
+
+-- Display: Message Size
+cme_ebs_spectrum_sbe_v12_0.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+cme_ebs_spectrum_sbe_v12_0.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group = {}
+
+-- Size: Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group.size = 1
+
+-- Display: Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+cme_ebs_spectrum_sbe_v12_0.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close Settl Flag
+cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag = {}
+
+-- Size: Open Close Settl Flag
+cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size = 1
+
+-- Display: Open Close Settl Flag
+cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.display = function(value)
+  if value == 0 then
+    return "Open Close Settl Flag: Current Day (0)"
+  end
+  if value == 4 then
+    return "Open Close Settl Flag: Previous Day (4)"
+  end
+
+  return "Open Close Settl Flag: Unknown("..value..")"
+end
+
+-- Dissect: Open Close Settl Flag
+cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.open_close_settl_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number = {}
+
+-- Size: Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size = 4
+
+-- Display: Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.display = function(value)
+  return "Packet Sequence Number: "..value
+end
+
+-- Dissect: Packet Sequence Number
+cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.packet_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+cme_ebs_spectrum_sbe_v12_0.schema_id = {}
+
+-- Size: Schema Id
+cme_ebs_spectrum_sbe_v12_0.schema_id.size = 2
+
+-- Display: Schema Id
+cme_ebs_spectrum_sbe_v12_0.schema_id.display = function(value)
+  if value == 12 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+cme_ebs_spectrum_sbe_v12_0.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+cme_ebs_spectrum_sbe_v12_0.security_id = {}
+
+-- Size: Security Id
+cme_ebs_spectrum_sbe_v12_0.security_id.size = 4
+
+-- Display: Security Id
+cme_ebs_spectrum_sbe_v12_0.security_id.display = function(value)
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+cme_ebs_spectrum_sbe_v12_0.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_ebs_spectrum_sbe_v12_0.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Event
+cme_ebs_spectrum_sbe_v12_0.security_trading_event = {}
+
+-- Size: Security Trading Event
+cme_ebs_spectrum_sbe_v12_0.security_trading_event.size = 1
+
+-- Display: Security Trading Event
+cme_ebs_spectrum_sbe_v12_0.security_trading_event.display = function(value)
+  if value == 4 then
+    return "Security Trading Event: Global Day Roll (4)"
+  end
+
+  return "Security Trading Event: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Event
+cme_ebs_spectrum_sbe_v12_0.security_trading_event.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.security_trading_event.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.security_trading_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.security_trading_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+cme_ebs_spectrum_sbe_v12_0.sending_time = {}
+
+-- Size: Sending Time
+cme_ebs_spectrum_sbe_v12_0.sending_time.size = 8
+
+-- Display: Sending Time
+cme_ebs_spectrum_sbe_v12_0.sending_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Sending Time
+cme_ebs_spectrum_sbe_v12_0.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_ebs_spectrum_sbe_v12_0.sending_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.sending_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cme_ebs_spectrum_sbe_v12_0.symbol = {}
+
+-- Size: Symbol
+cme_ebs_spectrum_sbe_v12_0.symbol.size = 20
+
+-- Display: Symbol
+cme_ebs_spectrum_sbe_v12_0.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cme_ebs_spectrum_sbe_v12_0.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_ebs_spectrum_sbe_v12_0.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+cme_ebs_spectrum_sbe_v12_0.template_id = {}
+
+-- Size: Template Id
+cme_ebs_spectrum_sbe_v12_0.template_id.size = 2
+
+-- Display: Template Id
+cme_ebs_spectrum_sbe_v12_0.template_id.display = function(value)
+  if value == 302 then
+    return "Template Id: Admin Heartbeat (302)"
+  end
+  if value == 303 then
+    return "Template Id: Md Incremental Refresh Spectrum (303)"
+  end
+  if value == 304 then
+    return "Template Id: Md Incremental Refresh Ticker (304)"
+  end
+  if value == 305 then
+    return "Template Id: Md Snapshot Refresh Spectrum (305)"
+  end
+  if value == 306 then
+    return "Template Id: Md Snapshot Refresh Ticker (306)"
+  end
+  if value == 307 then
+    return "Template Id: Global Day Roll (307)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+cme_ebs_spectrum_sbe_v12_0.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Id
+cme_ebs_spectrum_sbe_v12_0.trading_session_id = {}
+
+-- Size: Trading Session Id
+cme_ebs_spectrum_sbe_v12_0.trading_session_id.size = 1
+
+-- Display: Trading Session Id
+cme_ebs_spectrum_sbe_v12_0.trading_session_id.display = function(value)
+  if value == 255 then
+    return "Trading Session Id: No Value"
+  end
+  if value == 0 then
+    return "Trading Session Id: Gl (0)"
+  end
+  if value == 1 then
+    return "Trading Session Id: Sy (1)"
+  end
+  if value == 2 then
+    return "Trading Session Id: Tk (2)"
+  end
+  if value == 3 then
+    return "Trading Session Id: Hk (3)"
+  end
+  if value == 4 then
+    return "Trading Session Id: Ln (4)"
+  end
+  if value == 5 then
+    return "Trading Session Id: Ny (5)"
+  end
+
+  return "Trading Session Id: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session Id
+cme_ebs_spectrum_sbe_v12_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.trading_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+cme_ebs_spectrum_sbe_v12_0.transact_time = {}
+
+-- Size: Transact Time
+cme_ebs_spectrum_sbe_v12_0.transact_time.size = 8
+
+-- Display: Transact Time
+cme_ebs_spectrum_sbe_v12_0.transact_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transact Time
+cme_ebs_spectrum_sbe_v12_0.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_ebs_spectrum_sbe_v12_0.transact_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+cme_ebs_spectrum_sbe_v12_0.version = {}
+
+-- Size: Version
+cme_ebs_spectrum_sbe_v12_0.version.size = 2
+
+-- Display: Version
+cme_ebs_spectrum_sbe_v12_0.version.display = function(value)
+  if value == 0 then
+    return "Version: Version"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+cme_ebs_spectrum_sbe_v12_0.version.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cme_ebs_spectrum_sbe_v12_0.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cme Ebs Spectrum Sbe 12.0
+-----------------------------------------------------------------------
+
+-- Global Day Roll
+cme_ebs_spectrum_sbe_v12_0.global_day_roll = {}
+
+-- Size: Global Day Roll
+cme_ebs_spectrum_sbe_v12_0.global_day_roll.size =
+  cme_ebs_spectrum_sbe_v12_0.transact_time.size + 
+  cme_ebs_spectrum_sbe_v12_0.security_trading_event.size
+
+-- Display: Global Day Roll
+cme_ebs_spectrum_sbe_v12_0.global_day_roll.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Global Day Roll
+cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Transact Time: uInt64
+  index, transact_time = cme_ebs_spectrum_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Security Trading Event: SecurityTradingEvent
+  index, security_trading_event = cme_ebs_spectrum_sbe_v12_0.security_trading_event.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Global Day Roll
+cme_ebs_spectrum_sbe_v12_0.global_day_roll.dissect = function(buffer, offset, packet, parent)
+  if show.global_day_roll then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.global_day_roll, buffer(offset, 0))
+    local index = cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_ebs_spectrum_sbe_v12_0.global_day_roll.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_ebs_spectrum_sbe_v12_0.global_day_roll.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Snapshot Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group = {}
 
@@ -640,52 +1027,6 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.dissect = function(buff
     -- Skip element, add fields directly
     return cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.fields(buffer, offset, packet, parent, snapshot_refresh_ticker_group_index)
   end
-end
-
--- Num In Group
-cme_ebs_spectrum_sbe_v12_0.num_in_group = {}
-
--- Size: Num In Group
-cme_ebs_spectrum_sbe_v12_0.num_in_group.size = 1
-
--- Display: Num In Group
-cme_ebs_spectrum_sbe_v12_0.num_in_group.display = function(value)
-  return "Num In Group: "..value
-end
-
--- Dissect: Num In Group
-cme_ebs_spectrum_sbe_v12_0.num_in_group.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.num_in_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.num_in_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-cme_ebs_spectrum_sbe_v12_0.block_length = {}
-
--- Size: Block Length
-cme_ebs_spectrum_sbe_v12_0.block_length.size = 2
-
--- Display: Block Length
-cme_ebs_spectrum_sbe_v12_0.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-cme_ebs_spectrum_sbe_v12_0.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.block_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.block_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Group Size
@@ -789,130 +1130,6 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_groups.dissect = function(buf
   end
 end
 
--- Security Id
-cme_ebs_spectrum_sbe_v12_0.security_id = {}
-
--- Size: Security Id
-cme_ebs_spectrum_sbe_v12_0.security_id.size = 4
-
--- Display: Security Id
-cme_ebs_spectrum_sbe_v12_0.security_id.display = function(value)
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-cme_ebs_spectrum_sbe_v12_0.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.security_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_ebs_spectrum_sbe_v12_0.security_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.security_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Guid
-cme_ebs_spectrum_sbe_v12_0.instrument_guid = {}
-
--- Size: Instrument Guid
-cme_ebs_spectrum_sbe_v12_0.instrument_guid.size = 8
-
--- Display: Instrument Guid
-cme_ebs_spectrum_sbe_v12_0.instrument_guid.display = function(value)
-  return "Instrument Guid: "..value
-end
-
--- Dissect: Instrument Guid
-cme_ebs_spectrum_sbe_v12_0.instrument_guid.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.instrument_guid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_ebs_spectrum_sbe_v12_0.instrument_guid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.instrument_guid, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-cme_ebs_spectrum_sbe_v12_0.symbol = {}
-
--- Size: Symbol
-cme_ebs_spectrum_sbe_v12_0.symbol.size = 20
-
--- Display: Symbol
-cme_ebs_spectrum_sbe_v12_0.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-cme_ebs_spectrum_sbe_v12_0.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_ebs_spectrum_sbe_v12_0.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Financial Instrument Full Name
-cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name = {}
-
--- Size: Financial Instrument Full Name
-cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size = 35
-
--- Display: Financial Instrument Full Name
-cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Financial Instrument Full Name: No Value"
-  end
-
-  return "Financial Instrument Full Name: "..value
-end
-
--- Dissect: Financial Instrument Full Name
-cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.financial_instrument_full_name, range, value, display)
-
-  return offset + length, value
-end
-
 -- Md Snapshot Refresh Ticker
 cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker = {}
 
@@ -986,49 +1203,6 @@ cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.dissect = function(buffer,
     -- Skip element, add fields directly
     return cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.fields(buffer, offset, packet, parent)
   end
-end
-
--- Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type = {}
-
--- Size: Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size = 1
-
--- Display: Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Md Entry Type Spectrum Entry Type: No Value"
-  end
-
-  if value == "9" then
-    return "Md Entry Type Spectrum Entry Type: Vwap (9)"
-  end
-  if value == "t" then
-    return "Md Entry Type Spectrum Entry Type: Twap (t)"
-  end
-
-  return "Md Entry Type Spectrum Entry Type: Unknown("..value..")"
-end
-
--- Dissect: Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_spectrum_entry_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Snapshot Refresh Spectrum Group
@@ -1638,102 +1812,6 @@ cme_ebs_spectrum_sbe_v12_0.payload.dissect = function(buffer, offset, packet, pa
   return offset
 end
 
--- Version
-cme_ebs_spectrum_sbe_v12_0.version = {}
-
--- Size: Version
-cme_ebs_spectrum_sbe_v12_0.version.size = 2
-
--- Display: Version
-cme_ebs_spectrum_sbe_v12_0.version.display = function(value)
-  if value == 0 then
-    return "Version: Version"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-cme_ebs_spectrum_sbe_v12_0.version.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.version.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-cme_ebs_spectrum_sbe_v12_0.schema_id = {}
-
--- Size: Schema Id
-cme_ebs_spectrum_sbe_v12_0.schema_id.size = 2
-
--- Display: Schema Id
-cme_ebs_spectrum_sbe_v12_0.schema_id.display = function(value)
-  if value == 12 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-cme_ebs_spectrum_sbe_v12_0.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-cme_ebs_spectrum_sbe_v12_0.template_id = {}
-
--- Size: Template Id
-cme_ebs_spectrum_sbe_v12_0.template_id.size = 2
-
--- Display: Template Id
-cme_ebs_spectrum_sbe_v12_0.template_id.display = function(value)
-  if value == 302 then
-    return "Template Id: Admin Heartbeat (302)"
-  end
-  if value == 303 then
-    return "Template Id: Md Incremental Refresh Spectrum (303)"
-  end
-  if value == 304 then
-    return "Template Id: Md Incremental Refresh Ticker (304)"
-  end
-  if value == 305 then
-    return "Template Id: Md Snapshot Refresh Spectrum (305)"
-  end
-  if value == 306 then
-    return "Template Id: Md Snapshot Refresh Ticker (306)"
-  end
-  if value == 307 then
-    return "Template Id: Global Day Roll (307)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-cme_ebs_spectrum_sbe_v12_0.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.template_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 cme_ebs_spectrum_sbe_v12_0.message_header = {}
 
@@ -1786,29 +1864,6 @@ cme_ebs_spectrum_sbe_v12_0.message_header.dissect = function(buffer, offset, pac
   end
 end
 
--- Message Size
-cme_ebs_spectrum_sbe_v12_0.message_size = {}
-
--- Size: Message Size
-cme_ebs_spectrum_sbe_v12_0.message_size.size = 2
-
--- Display: Message Size
-cme_ebs_spectrum_sbe_v12_0.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-cme_ebs_spectrum_sbe_v12_0.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 cme_ebs_spectrum_sbe_v12_0.message = {}
 
@@ -1855,56 +1910,6 @@ cme_ebs_spectrum_sbe_v12_0.message.dissect = function(buffer, offset, packet, pa
 
     return index
   end
-end
-
--- Sending Time
-cme_ebs_spectrum_sbe_v12_0.sending_time = {}
-
--- Size: Sending Time
-cme_ebs_spectrum_sbe_v12_0.sending_time.size = 8
-
--- Display: Sending Time
-cme_ebs_spectrum_sbe_v12_0.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Sending Time
-cme_ebs_spectrum_sbe_v12_0.sending_time.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.sending_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_ebs_spectrum_sbe_v12_0.sending_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.sending_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Sequence Number
-cme_ebs_spectrum_sbe_v12_0.packet_sequence_number = {}
-
--- Size: Packet Sequence Number
-cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size = 4
-
--- Display: Packet Sequence Number
-cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.display = function(value)
-  return "Packet Sequence Number: "..value
-end
-
--- Dissect: Packet Sequence Number
-cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_ebs_spectrum_sbe_v12_0.packet_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.packet_sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Binary Packet Header

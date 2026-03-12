@@ -304,8 +304,731 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq NsmEquities Orders Ouch 4.2
+-- Nasdaq NsmEquities Orders Ouch 4.2 Fields
 -----------------------------------------------------------------------
+
+-- Bbo Weight Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator = {}
+
+-- Size: Bbo Weight Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.size = 1
+
+-- Display: Bbo Weight Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.display = function(value)
+  if value == "0" then
+    return "Bbo Weight Indicator: 002 (0)"
+  end
+  if value == "1" then
+    return "Bbo Weight Indicator: 021 (1)"
+  end
+  if value == "2" then
+    return "Bbo Weight Indicator: 12 (2)"
+  end
+  if value == "3" then
+    return "Bbo Weight Indicator: Greater Than 2 (3)"
+  end
+  if value == "S" then
+    return "Bbo Weight Indicator: Sets The Qbbo (S)"
+  end
+  if value == "N" then
+    return "Bbo Weight Indicator: Improves The Nbbo Upon Entry (N)"
+  end
+
+  return "Bbo Weight Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Bbo Weight Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.bbo_weight_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Broken Trade Reason
+nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason = {}
+
+-- Size: Broken Trade Reason
+nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.size = 1
+
+-- Display: Broken Trade Reason
+nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.display = function(value)
+  return "Broken Trade Reason: "..value
+end
+
+-- Dissect: Broken Trade Reason
+nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator = {}
+
+-- Size: Buy Sell Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.size = 1
+
+-- Display: Buy Sell Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.display = function(value)
+  if value == "B" then
+    return "Buy Sell Indicator: Buy (B)"
+  end
+  if value == "S" then
+    return "Buy Sell Indicator: Sell (S)"
+  end
+  if value == "T" then
+    return "Buy Sell Indicator: Sell Short (T)"
+  end
+  if value == "E" then
+    return "Buy Sell Indicator: Sell Short Exempt (E)"
+  end
+
+  return "Buy Sell Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Buy Sell Indicator
+nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason = {}
+
+-- Size: Cancel Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.size = 1
+
+-- Display: Cancel Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.display = function(value)
+  if value == "U" then
+    return "Cancel Order Reason: User Requested Cancel (U)"
+  end
+  if value == "I" then
+    return "Cancel Order Reason: Immediate Or Cancel Order (I)"
+  end
+  if value == "T" then
+    return "Cancel Order Reason: Timeout (T)"
+  end
+  if value == "S" then
+    return "Cancel Order Reason: Supervisory (S)"
+  end
+  if value == "D" then
+    return "Cancel Order Reason: This Order Cannot Be Executed Because Of A Regulatory Restriction (D)"
+  end
+  if value == "Q" then
+    return "Cancel Order Reason: Self Match Prevention (Q)"
+  end
+  if value == "Z" then
+    return "Cancel Order Reason: System Cancel (Z)"
+  end
+  if value == "C" then
+    return "Cancel Order Reason: Cross Canceled (C)"
+  end
+  if value == "K" then
+    return "Cancel Order Reason: This Order Cannot Be Executed (K)"
+  end
+  if value == "H" then
+    return "Cancel Order Reason: Halted (H)"
+  end
+  if value == "X" then
+    return "Cancel Order Reason: Open Protection (X)"
+  end
+  if value == "E" then
+    return "Cancel Order Reason: Closed (E)"
+  end
+  if value == "F" then
+    return "Cancel Order Reason: Post Only Cancel (F)"
+  end
+  if value == "G" then
+    return "Cancel Order Reason: Post Only Cancel (G)"
+  end
+
+  return "Cancel Order Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+nasdaq_nsmequities_orders_ouch_v4_2.capacity = {}
+
+-- Size: Capacity
+nasdaq_nsmequities_orders_ouch_v4_2.capacity.size = 1
+
+-- Display: Capacity
+nasdaq_nsmequities_orders_ouch_v4_2.capacity.display = function(value)
+  if value == "O" then
+    return "Capacity: Other (O)"
+  end
+  if value == "A" then
+    return "Capacity: Agency (A)"
+  end
+  if value == "P" then
+    return "Capacity: Principal (P)"
+  end
+  if value == "R" then
+    return "Capacity: Riskless (R)"
+  end
+
+  return "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+nasdaq_nsmequities_orders_ouch_v4_2.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+nasdaq_nsmequities_orders_ouch_v4_2.cross_type = {}
+
+-- Size: Cross Type
+nasdaq_nsmequities_orders_ouch_v4_2.cross_type.size = 1
+
+-- Display: Cross Type
+nasdaq_nsmequities_orders_ouch_v4_2.cross_type.display = function(value)
+  if value == "N" then
+    return "Cross Type: No Cross (N)"
+  end
+  if value == "O" then
+    return "Cross Type: Opening (O)"
+  end
+  if value == "C" then
+    return "Cross Type: Closing (C)"
+  end
+  if value == "H" then
+    return "Cross Type: Halt Ipo Cross (H)"
+  end
+  if value == "S" then
+    return "Cross Type: Supplemental (S)"
+  end
+  if value == "R" then
+    return "Cross Type: Retail (R)"
+  end
+  if value == "E" then
+    return "Cross Type: Extended (E)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
+end
+
+-- Dissect: Cross Type
+nasdaq_nsmequities_orders_ouch_v4_2.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Customer Type
+nasdaq_nsmequities_orders_ouch_v4_2.customer_type = {}
+
+-- Size: Customer Type
+nasdaq_nsmequities_orders_ouch_v4_2.customer_type.size = 1
+
+-- Display: Customer Type
+nasdaq_nsmequities_orders_ouch_v4_2.customer_type.display = function(value)
+  if value == "R" then
+    return "Customer Type: Retail Designated (R)"
+  end
+  if value == "N" then
+    return "Customer Type: Not A Retail Designated (N)"
+  end
+  if value == " " then
+    return "Customer Type: Default (<whitespace>)"
+  end
+
+  return "Customer Type: Unknown("..value..")"
+end
+
+-- Dissect: Customer Type
+nasdaq_nsmequities_orders_ouch_v4_2.customer_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.customer_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.customer_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decrement Shares
+nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares = {}
+
+-- Size: Decrement Shares
+nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.size = 4
+
+-- Display: Decrement Shares
+nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.display = function(value)
+  return "Decrement Shares: "..value
+end
+
+-- Dissect: Decrement Shares
+nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display
+nasdaq_nsmequities_orders_ouch_v4_2.display = {}
+
+-- Size: Display
+nasdaq_nsmequities_orders_ouch_v4_2.display.size = 1
+
+-- Display: Display
+nasdaq_nsmequities_orders_ouch_v4_2.display.display = function(value)
+  if value == "A" then
+    return "Display: Attributable Price (A)"
+  end
+  if value == "Y" then
+    return "Display: Anonymous Price (Y)"
+  end
+  if value == "N" then
+    return "Display: Non Display (N)"
+  end
+  if value == "P" then
+    return "Display: Post Only (P)"
+  end
+  if value == "I" then
+    return "Display: Imbalance Only (I)"
+  end
+  if value == "M" then
+    return "Display: Mid Point (M)"
+  end
+  if value == "W" then
+    return "Display: Mid Point (W)"
+  end
+  if value == "L" then
+    return "Display: Post Only And Attributable (L)"
+  end
+  if value == "O" then
+    return "Display: Retail Order (O)"
+  end
+  if value == "T" then
+    return "Display: Retail Order (T)"
+  end
+  if value == "Q" then
+    return "Display: Retail Price (Q)"
+  end
+  if value == "m" then
+    return "Display: Mid Point (m)"
+  end
+  if value == "n" then
+    return "Display: Non Display And Mid Point (n)"
+  end
+
+  return "Display: Unknown("..value..")"
+end
+
+-- Dissect: Display
+nasdaq_nsmequities_orders_ouch_v4_2.display.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.display.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.display.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_nsmequities_orders_ouch_v4_2.event_code = {}
+
+-- Size: Event Code
+nasdaq_nsmequities_orders_ouch_v4_2.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_nsmequities_orders_ouch_v4_2.event_code.display = function(value)
+  if value == "S" then
+    return "Event Code: Start Of Day— This Is Always The First Message Each Day (S)"
+  end
+  if value == "E" then
+    return "Event Code: End Of Day— This Indicates That Nasdaq Is Now Closed And Will Not Accept Any New Orders Or Replaces In This Session (E)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_nsmequities_orders_ouch_v4_2.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Shares
+nasdaq_nsmequities_orders_ouch_v4_2.executed_shares = {}
+
+-- Size: Executed Shares
+nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.size = 4
+
+-- Display: Executed Shares
+nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.display = function(value)
+  return "Executed Shares: "..value
+end
+
+-- Dissect: Executed Shares
+nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Price
+nasdaq_nsmequities_orders_ouch_v4_2.execution_price = {}
+
+-- Size: Execution Price
+nasdaq_nsmequities_orders_ouch_v4_2.execution_price.size = 4
+
+-- Display: Execution Price
+nasdaq_nsmequities_orders_ouch_v4_2.execution_price.display = function(value)
+  return "Execution Price: "..value
+end
+
+-- Dissect: Execution Price
+nasdaq_nsmequities_orders_ouch_v4_2.execution_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Existing Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token = {}
+
+-- Size: Existing Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.size = 14
+
+-- Display: Existing Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.display = function(value)
+  return "Existing Order Token: "..value
+end
+
+-- Dissect: Existing Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm
+nasdaq_nsmequities_orders_ouch_v4_2.firm = {}
+
+-- Size: Firm
+nasdaq_nsmequities_orders_ouch_v4_2.firm.size = 4
+
+-- Display: Firm
+nasdaq_nsmequities_orders_ouch_v4_2.firm.display = function(value)
+  return "Firm: "..value
+end
+
+-- Dissect: Firm
+nasdaq_nsmequities_orders_ouch_v4_2.firm.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.firm.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Intermarket Sweep Eligibility
+nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility = {}
+
+-- Size: Intermarket Sweep Eligibility
+nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size = 1
+
+-- Display: Intermarket Sweep Eligibility
+nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.display = function(value)
+  if value == "Y" then
+    return "Intermarket Sweep Eligibility: Eligible (Y)"
+  end
+  if value == "N" then
+    return "Intermarket Sweep Eligibility: Not Eligible (N)"
+  end
+  if value == "y" then
+    return "Intermarket Sweep Eligibility: Tradeat (y)"
+  end
+
+  return "Intermarket Sweep Eligibility: Unknown("..value..")"
+end
+
+-- Dissect: Intermarket Sweep Eligibility
+nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Flag
+nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag = {}
+
+-- Size: Liquidity Flag
+nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.size = 1
+
+-- Display: Liquidity Flag
+nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.display = function(value)
+  if value == "A" then
+    return "Liquidity Flag: Added (A)"
+  end
+  if value == "R" then
+    return "Liquidity Flag: Removed (R)"
+  end
+  if value == "O" then
+    return "Liquidity Flag: Opening (O)"
+  end
+  if value == "M" then
+    return "Liquidity Flag: Opening Cross (M)"
+  end
+  if value == "C" then
+    return "Liquidity Flag: Closing (C)"
+  end
+  if value == "L" then
+    return "Liquidity Flag: Closing Cross (L)"
+  end
+  if value == "H" then
+    return "Liquidity Flag: Halt Ipo (H)"
+  end
+  if value == "K" then
+    return "Liquidity Flag: Halt (K)"
+  end
+  if value == "J" then
+    return "Liquidity Flag: Nondisplayed (J)"
+  end
+  if value == "W" then
+    return "Liquidity Flag: Added (W)"
+  end
+  if value == "m" then
+    return "Liquidity Flag: Removed (m)"
+  end
+  if value == "k" then
+    return "Liquidity Flag: Added (k)"
+  end
+  if value == "0" then
+    return "Liquidity Flag: Supplemental (0)"
+  end
+  if value == "7" then
+    return "Liquidity Flag: Displayed (7)"
+  end
+  if value == "8" then
+    return "Liquidity Flag: Displayed (8)"
+  end
+  if value == "d" then
+    return "Liquidity Flag: Retail Designated (d)"
+  end
+  if value == "e" then
+    return "Liquidity Flag: Retail Designated (e)"
+  end
+  if value == "f" then
+    return "Liquidity Flag: Retail Designated (f)"
+  end
+  if value == "j" then
+    return "Liquidity Flag: Rpi Retail Price Improving (j)"
+  end
+  if value == "r" then
+    return "Liquidity Flag: Retail Order (r)"
+  end
+  if value == "t" then
+    return "Liquidity Flag: Retail Order (t)"
+  end
+  if value == "4" then
+    return "Liquidity Flag: Added (4)"
+  end
+  if value == "5" then
+    return "Liquidity Flag: Added (5)"
+  end
+  if value == "6" then
+    return "Liquidity Flag: Removed (6)"
+  end
+  if value == "g" then
+    return "Liquidity Flag: Added (g)"
+  end
+  if value == "n" then
+    return "Liquidity Flag: Midpoint (n)"
+  end
+
+  return "Liquidity Flag: Unknown("..value..")"
+end
+
+-- Dissect: Liquidity Flag
+nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Number
+nasdaq_nsmequities_orders_ouch_v4_2.match_number = {}
+
+-- Size: Match Number
+nasdaq_nsmequities_orders_ouch_v4_2.match_number.size = 8
+
+-- Display: Match Number
+nasdaq_nsmequities_orders_ouch_v4_2.match_number.display = function(value)
+  return "Match Number: "..value
+end
+
+-- Dissect: Match Number
+nasdaq_nsmequities_orders_ouch_v4_2.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.match_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.match_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Quantity
+nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity = {}
+
+-- Size: Minimum Quantity
+nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.size = 4
+
+-- Display: Minimum Quantity
+nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.display = function(value)
+  return "Minimum Quantity: "..value
+end
+
+-- Dissect: Minimum Quantity
+nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Reference Number
+nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number = {}
+
+-- Size: Order Reference Number
+nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.size = 8
+
+-- Display: Order Reference Number
+nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.display = function(value)
+  return "Order Reference Number: "..value
+end
+
+-- Dissect: Order Reference Number
+nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order State
+nasdaq_nsmequities_orders_ouch_v4_2.order_state = {}
+
+-- Size: Order State
+nasdaq_nsmequities_orders_ouch_v4_2.order_state.size = 1
+
+-- Display: Order State
+nasdaq_nsmequities_orders_ouch_v4_2.order_state.display = function(value)
+  if value == "L" then
+    return "Order State: Order (L)"
+  end
+  if value == "D" then
+    return "Order State: Order (D)"
+  end
+
+  return "Order State: Unknown("..value..")"
+end
+
+-- Dissect: Order State
+nasdaq_nsmequities_orders_ouch_v4_2.order_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.order_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.order_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_state, range, value, display)
+
+  return offset + length, value
+end
 
 -- Order Token
 nasdaq_nsmequities_orders_ouch_v4_2.order_token = {}
@@ -329,6 +1052,691 @@ nasdaq_nsmequities_orders_ouch_v4_2.order_token.dissect = function(buffer, offse
 
   return offset + length, value
 end
+
+-- Packet Length
+nasdaq_nsmequities_orders_ouch_v4_2.packet_length = {}
+
+-- Size: Packet Length
+nasdaq_nsmequities_orders_ouch_v4_2.packet_length.size = 2
+
+-- Display: Packet Length
+nasdaq_nsmequities_orders_ouch_v4_2.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+nasdaq_nsmequities_orders_ouch_v4_2.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+nasdaq_nsmequities_orders_ouch_v4_2.packet_type = {}
+
+-- Size: Packet Type
+nasdaq_nsmequities_orders_ouch_v4_2.packet_type.size = 1
+
+-- Display: Packet Type
+nasdaq_nsmequities_orders_ouch_v4_2.packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+nasdaq_nsmequities_orders_ouch_v4_2.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+nasdaq_nsmequities_orders_ouch_v4_2.password = {}
+
+-- Size: Password
+nasdaq_nsmequities_orders_ouch_v4_2.password.size = 10
+
+-- Display: Password
+nasdaq_nsmequities_orders_ouch_v4_2.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+nasdaq_nsmequities_orders_ouch_v4_2.password.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token = {}
+
+-- Size: Previous Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.size = 14
+
+-- Display: Previous Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.display = function(value)
+  return "Previous Order Token: "..value
+end
+
+-- Dissect: Previous Order Token
+nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.previous_order_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nasdaq_nsmequities_orders_ouch_v4_2.price = {}
+
+-- Size: Price
+nasdaq_nsmequities_orders_ouch_v4_2.price.size = 4
+
+-- Display: Price
+nasdaq_nsmequities_orders_ouch_v4_2.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nasdaq_nsmequities_orders_ouch_v4_2.price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price
+nasdaq_nsmequities_orders_ouch_v4_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_orders_ouch_v4_2.price.translate(raw)
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Prevented From Trading
+nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading = {}
+
+-- Size: Quantity Prevented From Trading
+nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.size = 4
+
+-- Display: Quantity Prevented From Trading
+nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.display = function(value)
+  return "Quantity Prevented From Trading: "..value
+end
+
+-- Dissect: Quantity Prevented From Trading
+nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+nasdaq_nsmequities_orders_ouch_v4_2.reason = {}
+
+-- Size: Reason
+nasdaq_nsmequities_orders_ouch_v4_2.reason.size = 1
+
+-- Display: Reason
+nasdaq_nsmequities_orders_ouch_v4_2.reason.display = function(value)
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+nasdaq_nsmequities_orders_ouch_v4_2.reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price = {}
+
+-- Size: Reference Price
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price.size = 4
+
+-- Display: Reference Price
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Translate: Reference Price
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Reference Price
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.reference_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_orders_ouch_v4_2.reference_price.translate(raw)
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price Type
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type = {}
+
+-- Size: Reference Price Type
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.size = 1
+
+-- Display: Reference Price Type
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.display = function(value)
+  return "Reference Price Type: "..value
+end
+
+-- Dissect: Reference Price Type
+nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rejected Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason = {}
+
+-- Size: Rejected Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.size = 1
+
+-- Display: Rejected Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.display = function(value)
+  return "Rejected Order Reason: "..value
+end
+
+-- Dissect: Rejected Order Reason
+nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replacement Order Token Alphanumeric 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14 = {}
+
+-- Size: Replacement Order Token Alphanumeric 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.size = 14
+
+-- Display: Replacement Order Token Alphanumeric 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.display = function(value)
+  return "Replacement Order Token Alphanumeric 14: "..value
+end
+
+-- Dissect: Replacement Order Token Alphanumeric 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_alphanumeric_14, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replacement Order Token Token 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14 = {}
+
+-- Size: Replacement Order Token Token 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.size = 14
+
+-- Display: Replacement Order Token Token 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.display = function(value)
+  return "Replacement Order Token Token 14: "..value
+end
+
+-- Dissect: Replacement Order Token Token 14
+nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+nasdaq_nsmequities_orders_ouch_v4_2.requested_session = {}
+
+-- Size: Requested Session
+nasdaq_nsmequities_orders_ouch_v4_2.requested_session.size = 10
+
+-- Display: Requested Session
+nasdaq_nsmequities_orders_ouch_v4_2.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+nasdaq_nsmequities_orders_ouch_v4_2.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.requested_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.size = 20
+
+-- Display: Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.display = function(value)
+  if value == "S" then
+    return "Sequenced Message Type: System Event Message (S)"
+  end
+  if value == "A" then
+    return "Sequenced Message Type: Accepted Message (A)"
+  end
+  if value == "U" then
+    return "Sequenced Message Type: Replaced Message (U)"
+  end
+  if value == "C" then
+    return "Sequenced Message Type: Canceled Message (C)"
+  end
+  if value == "D" then
+    return "Sequenced Message Type: Aiq Cancelled Message (D)"
+  end
+  if value == "E" then
+    return "Sequenced Message Type: Executed Message (E)"
+  end
+  if value == "B" then
+    return "Sequenced Message Type: Broken Trade Message (B)"
+  end
+  if value == "G" then
+    return "Sequenced Message Type: Executed With Reference Price Message (G)"
+  end
+  if value == "F" then
+    return "Sequenced Message Type: Trade Correction Message (F)"
+  end
+  if value == "J" then
+    return "Sequenced Message Type: Rejected Order Message (J)"
+  end
+  if value == "P" then
+    return "Sequenced Message Type: Cancel Pending Message (P)"
+  end
+  if value == "I" then
+    return "Sequenced Message Type: Cancel Reject Message (I)"
+  end
+  if value == "T" then
+    return "Sequenced Message Type: Order Priority Update Message (T)"
+  end
+  if value == "U" then
+    return "Sequenced Message Type: Order Modified Message (U)"
+  end
+  if value == "N" then
+    return "Sequenced Message Type: Trade Now Message (N)"
+  end
+
+  return "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_nsmequities_orders_ouch_v4_2.session = {}
+
+-- Size: Session
+nasdaq_nsmequities_orders_ouch_v4_2.session.size = 10
+
+-- Display: Session
+nasdaq_nsmequities_orders_ouch_v4_2.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_nsmequities_orders_ouch_v4_2.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Shares
+nasdaq_nsmequities_orders_ouch_v4_2.shares = {}
+
+-- Size: Shares
+nasdaq_nsmequities_orders_ouch_v4_2.shares.size = 4
+
+-- Display: Shares
+nasdaq_nsmequities_orders_ouch_v4_2.shares.display = function(value)
+  return "Shares: "..value
+end
+
+-- Dissect: Shares
+nasdaq_nsmequities_orders_ouch_v4_2.shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.shares.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock
+nasdaq_nsmequities_orders_ouch_v4_2.stock = {}
+
+-- Size: Stock
+nasdaq_nsmequities_orders_ouch_v4_2.stock.size = 8
+
+-- Display: Stock
+nasdaq_nsmequities_orders_ouch_v4_2.stock.display = function(value)
+  return "Stock: "..value
+end
+
+-- Dissect: Stock
+nasdaq_nsmequities_orders_ouch_v4_2.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.stock.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.stock.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+nasdaq_nsmequities_orders_ouch_v4_2.text = {}
+
+-- Size: Text
+nasdaq_nsmequities_orders_ouch_v4_2.text.size = 1
+
+-- Display: Text
+nasdaq_nsmequities_orders_ouch_v4_2.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+nasdaq_nsmequities_orders_ouch_v4_2.text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+nasdaq_nsmequities_orders_ouch_v4_2.time_in_force = {}
+
+-- Size: Time In Force
+nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.size = 4
+
+-- Display: Time In Force
+nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.display = function(value)
+  return "Time In Force: "..value
+end
+
+-- Dissect: Time In Force
+nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+nasdaq_nsmequities_orders_ouch_v4_2.timestamp = {}
+
+-- Size: Timestamp
+nasdaq_nsmequities_orders_ouch_v4_2.timestamp.size = 8
+
+-- Display: Timestamp
+nasdaq_nsmequities_orders_ouch_v4_2.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+nasdaq_nsmequities_orders_ouch_v4_2.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.display = function(value)
+  if value == "O" then
+    return "Unsequenced Message Type: Enter Order Message (O)"
+  end
+  if value == "U" then
+    return "Unsequenced Message Type: Replace Order Message (U)"
+  end
+  if value == "X" then
+    return "Unsequenced Message Type: Cancel Order Message (X)"
+  end
+  if value == "M" then
+    return "Unsequenced Message Type: Modify Order Message (M)"
+  end
+  if value == "N" then
+    return "Unsequenced Message Type: Trade Now Message (N)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Unsequenced Message Type
+nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+nasdaq_nsmequities_orders_ouch_v4_2.username = {}
+
+-- Size: Username
+nasdaq_nsmequities_orders_ouch_v4_2.username.size = 6
+
+-- Display: Username
+nasdaq_nsmequities_orders_ouch_v4_2.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+nasdaq_nsmequities_orders_ouch_v4_2.username.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.username.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq NsmEquities Orders Ouch 4.2
+-----------------------------------------------------------------------
 
 -- Trade Now Message
 nasdaq_nsmequities_orders_ouch_v4_2.trade_now_message = {}
@@ -368,65 +1776,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.trade_now_message.dissect = function(buffer,
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.trade_now_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Shares
-nasdaq_nsmequities_orders_ouch_v4_2.shares = {}
-
--- Size: Shares
-nasdaq_nsmequities_orders_ouch_v4_2.shares.size = 4
-
--- Display: Shares
-nasdaq_nsmequities_orders_ouch_v4_2.shares.display = function(value)
-  return "Shares: "..value
-end
-
--- Dissect: Shares
-nasdaq_nsmequities_orders_ouch_v4_2.shares.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.shares.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Sell Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator = {}
-
--- Size: Buy Sell Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.size = 1
-
--- Display: Buy Sell Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
-  if value == "T" then
-    return "Buy Sell Indicator: Sell Short (T)"
-  end
-  if value == "E" then
-    return "Buy Sell Indicator: Sell Short Exempt (E)"
-  end
-
-  return "Buy Sell Indicator: Unknown("..value..")"
-end
-
--- Dissect: Buy Sell Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.buy_sell_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.buy_sell_indicator, range, value, display)
-
-  return offset + length, value
 end
 
 -- Modify Order Message
@@ -521,223 +1870,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_message.dissect = function(buff
   end
 end
 
--- Minimum Quantity
-nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity = {}
-
--- Size: Minimum Quantity
-nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.size = 4
-
--- Display: Minimum Quantity
-nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.display = function(value)
-  return "Minimum Quantity: "..value
-end
-
--- Dissect: Minimum Quantity
-nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.minimum_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.minimum_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Intermarket Sweep Eligibility
-nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility = {}
-
--- Size: Intermarket Sweep Eligibility
-nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size = 1
-
--- Display: Intermarket Sweep Eligibility
-nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.display = function(value)
-  if value == "Y" then
-    return "Intermarket Sweep Eligibility: Eligible (Y)"
-  end
-  if value == "N" then
-    return "Intermarket Sweep Eligibility: Not Eligible (N)"
-  end
-  if value == "y" then
-    return "Intermarket Sweep Eligibility: Tradeat (y)"
-  end
-
-  return "Intermarket Sweep Eligibility: Unknown("..value..")"
-end
-
--- Dissect: Intermarket Sweep Eligibility
-nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.intermarket_sweep_eligibility.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility, range, value, display)
-
-  return offset + length, value
-end
-
--- Display
-nasdaq_nsmequities_orders_ouch_v4_2.display = {}
-
--- Size: Display
-nasdaq_nsmequities_orders_ouch_v4_2.display.size = 1
-
--- Display: Display
-nasdaq_nsmequities_orders_ouch_v4_2.display.display = function(value)
-  if value == "A" then
-    return "Display: Attributable Price (A)"
-  end
-  if value == "Y" then
-    return "Display: Anonymous Price (Y)"
-  end
-  if value == "N" then
-    return "Display: Non Display (N)"
-  end
-  if value == "P" then
-    return "Display: Post Only (P)"
-  end
-  if value == "I" then
-    return "Display: Imbalance Only (I)"
-  end
-  if value == "M" then
-    return "Display: Mid Point (M)"
-  end
-  if value == "W" then
-    return "Display: Mid Point (W)"
-  end
-  if value == "L" then
-    return "Display: Post Only And Attributable (L)"
-  end
-  if value == "O" then
-    return "Display: Retail Order (O)"
-  end
-  if value == "T" then
-    return "Display: Retail Order (T)"
-  end
-  if value == "Q" then
-    return "Display: Retail Price (Q)"
-  end
-  if value == "m" then
-    return "Display: Mid Point (m)"
-  end
-  if value == "n" then
-    return "Display: Non Display And Mid Point (n)"
-  end
-
-  return "Display: Unknown("..value..")"
-end
-
--- Dissect: Display
-nasdaq_nsmequities_orders_ouch_v4_2.display.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.display.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.display.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-nasdaq_nsmequities_orders_ouch_v4_2.time_in_force = {}
-
--- Size: Time In Force
-nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.size = 4
-
--- Display: Time In Force
-nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.display = function(value)
-  return "Time In Force: "..value
-end
-
--- Dissect: Time In Force
-nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-nasdaq_nsmequities_orders_ouch_v4_2.price = {}
-
--- Size: Price
-nasdaq_nsmequities_orders_ouch_v4_2.price.size = 4
-
--- Display: Price
-nasdaq_nsmequities_orders_ouch_v4_2.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-nasdaq_nsmequities_orders_ouch_v4_2.price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price
-nasdaq_nsmequities_orders_ouch_v4_2.price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_orders_ouch_v4_2.price.translate(raw)
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Replacement Order Token Token 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14 = {}
-
--- Size: Replacement Order Token Token 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.size = 14
-
--- Display: Replacement Order Token Token 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.display = function(value)
-  return "Replacement Order Token Token 14: "..value
-end
-
--- Dissect: Replacement Order Token Token 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_token_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_token_14, range, value, display)
-
-  return offset + length, value
-end
-
--- Existing Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token = {}
-
--- Size: Existing Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.size = 14
-
--- Display: Existing Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.display = function(value)
-  return "Existing Order Token: "..value
-end
-
--- Dissect: Existing Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.existing_order_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replace Order Message
 nasdaq_nsmequities_orders_ouch_v4_2.replace_order_message = {}
 
@@ -804,166 +1936,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.replace_order_message.dissect = function(buf
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.replace_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Customer Type
-nasdaq_nsmequities_orders_ouch_v4_2.customer_type = {}
-
--- Size: Customer Type
-nasdaq_nsmequities_orders_ouch_v4_2.customer_type.size = 1
-
--- Display: Customer Type
-nasdaq_nsmequities_orders_ouch_v4_2.customer_type.display = function(value)
-  if value == "R" then
-    return "Customer Type: Retail Designated (R)"
-  end
-  if value == "N" then
-    return "Customer Type: Not A Retail Designated (N)"
-  end
-  if value == " " then
-    return "Customer Type: Default (<whitespace>)"
-  end
-
-  return "Customer Type: Unknown("..value..")"
-end
-
--- Dissect: Customer Type
-nasdaq_nsmequities_orders_ouch_v4_2.customer_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.customer_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.customer_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Type
-nasdaq_nsmequities_orders_ouch_v4_2.cross_type = {}
-
--- Size: Cross Type
-nasdaq_nsmequities_orders_ouch_v4_2.cross_type.size = 1
-
--- Display: Cross Type
-nasdaq_nsmequities_orders_ouch_v4_2.cross_type.display = function(value)
-  if value == "N" then
-    return "Cross Type: No Cross (N)"
-  end
-  if value == "O" then
-    return "Cross Type: Opening (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Halt Ipo Cross (H)"
-  end
-  if value == "S" then
-    return "Cross Type: Supplemental (S)"
-  end
-  if value == "R" then
-    return "Cross Type: Retail (R)"
-  end
-  if value == "E" then
-    return "Cross Type: Extended (E)"
-  end
-
-  return "Cross Type: Unknown("..value..")"
-end
-
--- Dissect: Cross Type
-nasdaq_nsmequities_orders_ouch_v4_2.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.cross_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.cross_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Capacity
-nasdaq_nsmequities_orders_ouch_v4_2.capacity = {}
-
--- Size: Capacity
-nasdaq_nsmequities_orders_ouch_v4_2.capacity.size = 1
-
--- Display: Capacity
-nasdaq_nsmequities_orders_ouch_v4_2.capacity.display = function(value)
-  if value == "O" then
-    return "Capacity: Other (O)"
-  end
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Capacity: Riskless (R)"
-  end
-
-  return "Capacity: Unknown("..value..")"
-end
-
--- Dissect: Capacity
-nasdaq_nsmequities_orders_ouch_v4_2.capacity.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.capacity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Firm
-nasdaq_nsmequities_orders_ouch_v4_2.firm = {}
-
--- Size: Firm
-nasdaq_nsmequities_orders_ouch_v4_2.firm.size = 4
-
--- Display: Firm
-nasdaq_nsmequities_orders_ouch_v4_2.firm.display = function(value)
-  return "Firm: "..value
-end
-
--- Dissect: Firm
-nasdaq_nsmequities_orders_ouch_v4_2.firm.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.firm.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.firm.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.firm, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock
-nasdaq_nsmequities_orders_ouch_v4_2.stock = {}
-
--- Size: Stock
-nasdaq_nsmequities_orders_ouch_v4_2.stock.size = 8
-
--- Display: Stock
-nasdaq_nsmequities_orders_ouch_v4_2.stock.display = function(value)
-  return "Stock: "..value
-end
-
--- Dissect: Stock
-nasdaq_nsmequities_orders_ouch_v4_2.stock.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.stock.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.stock.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock, range, value, display)
-
-  return offset + length, value
 end
 
 -- Enter Order Message
@@ -1083,45 +2055,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message.dissect = function(buffe
   return offset
 end
 
--- Unsequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type = {}
-
--- Size: Unsequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.size = 1
-
--- Display: Unsequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
-  if value == "M" then
-    return "Unsequenced Message Type: Modify Order Message (M)"
-  end
-  if value == "N" then
-    return "Unsequenced Message Type: Trade Now Message (N)"
-  end
-
-  return "Unsequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Unsequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Unsequenced Data Packet
 nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_data_packet = {}
 
@@ -1173,98 +2106,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.unsequenced_data_packet.dissect = function(b
 
     return index
   end
-end
-
--- Requested Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number = {}
-
--- Size: Requested Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.size = 20
-
--- Display: Requested Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.display = function(value)
-  return "Requested Sequence Number: "..value
-end
-
--- Dissect: Requested Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.requested_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Requested Session
-nasdaq_nsmequities_orders_ouch_v4_2.requested_session = {}
-
--- Size: Requested Session
-nasdaq_nsmequities_orders_ouch_v4_2.requested_session.size = 10
-
--- Display: Requested Session
-nasdaq_nsmequities_orders_ouch_v4_2.requested_session.display = function(value)
-  return "Requested Session: "..value
-end
-
--- Dissect: Requested Session
-nasdaq_nsmequities_orders_ouch_v4_2.requested_session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.requested_session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.requested_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.requested_session, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-nasdaq_nsmequities_orders_ouch_v4_2.password = {}
-
--- Size: Password
-nasdaq_nsmequities_orders_ouch_v4_2.password.size = 10
-
--- Display: Password
-nasdaq_nsmequities_orders_ouch_v4_2.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-nasdaq_nsmequities_orders_ouch_v4_2.password.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.password.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-nasdaq_nsmequities_orders_ouch_v4_2.username = {}
-
--- Size: Username
-nasdaq_nsmequities_orders_ouch_v4_2.username.size = 6
-
--- Display: Username
-nasdaq_nsmequities_orders_ouch_v4_2.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-nasdaq_nsmequities_orders_ouch_v4_2.username.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.username.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.username, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Request Packet
@@ -1319,29 +2160,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.login_request_packet.dissect = function(buff
   end
 end
 
--- Timestamp
-nasdaq_nsmequities_orders_ouch_v4_2.timestamp = {}
-
--- Size: Timestamp
-nasdaq_nsmequities_orders_ouch_v4_2.timestamp.size = 8
-
--- Display: Timestamp
-nasdaq_nsmequities_orders_ouch_v4_2.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nasdaq_nsmequities_orders_ouch_v4_2.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Modified Message
 nasdaq_nsmequities_orders_ouch_v4_2.order_modified_message = {}
 
@@ -1392,29 +2210,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.order_modified_message.dissect = function(bu
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.order_modified_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Order Reference Number
-nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number = {}
-
--- Size: Order Reference Number
-nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.size = 8
-
--- Display: Order Reference Number
-nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.display = function(value)
-  return "Order Reference Number: "..value
-end
-
--- Dissect: Order Reference Number
-nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.order_reference_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_reference_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Priority Update Message
@@ -1561,29 +2356,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.cancel_pending_message.dissect = function(bu
   end
 end
 
--- Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason = {}
-
--- Size: Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.size = 1
-
--- Display: Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.display = function(value)
-  return "Rejected Order Reason: "..value
-end
-
--- Dissect: Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.rejected_order_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_message = {}
 
@@ -1630,200 +2402,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_message.dissect = function(bu
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.rejected_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reason
-nasdaq_nsmequities_orders_ouch_v4_2.reason = {}
-
--- Size: Reason
-nasdaq_nsmequities_orders_ouch_v4_2.reason.size = 1
-
--- Display: Reason
-nasdaq_nsmequities_orders_ouch_v4_2.reason.display = function(value)
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-nasdaq_nsmequities_orders_ouch_v4_2.reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Match Number
-nasdaq_nsmequities_orders_ouch_v4_2.match_number = {}
-
--- Size: Match Number
-nasdaq_nsmequities_orders_ouch_v4_2.match_number.size = 8
-
--- Display: Match Number
-nasdaq_nsmequities_orders_ouch_v4_2.match_number.display = function(value)
-  return "Match Number: "..value
-end
-
--- Dissect: Match Number
-nasdaq_nsmequities_orders_ouch_v4_2.match_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.match_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.match_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.match_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Liquidity Flag
-nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag = {}
-
--- Size: Liquidity Flag
-nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.size = 1
-
--- Display: Liquidity Flag
-nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.display = function(value)
-  if value == "A" then
-    return "Liquidity Flag: Added (A)"
-  end
-  if value == "R" then
-    return "Liquidity Flag: Removed (R)"
-  end
-  if value == "O" then
-    return "Liquidity Flag: Opening (O)"
-  end
-  if value == "M" then
-    return "Liquidity Flag: Opening Cross (M)"
-  end
-  if value == "C" then
-    return "Liquidity Flag: Closing (C)"
-  end
-  if value == "L" then
-    return "Liquidity Flag: Closing Cross (L)"
-  end
-  if value == "H" then
-    return "Liquidity Flag: Halt Ipo (H)"
-  end
-  if value == "K" then
-    return "Liquidity Flag: Halt (K)"
-  end
-  if value == "J" then
-    return "Liquidity Flag: Nondisplayed (J)"
-  end
-  if value == "W" then
-    return "Liquidity Flag: Added (W)"
-  end
-  if value == "m" then
-    return "Liquidity Flag: Removed (m)"
-  end
-  if value == "k" then
-    return "Liquidity Flag: Added (k)"
-  end
-  if value == "0" then
-    return "Liquidity Flag: Supplemental (0)"
-  end
-  if value == "7" then
-    return "Liquidity Flag: Displayed (7)"
-  end
-  if value == "8" then
-    return "Liquidity Flag: Displayed (8)"
-  end
-  if value == "d" then
-    return "Liquidity Flag: Retail Designated (d)"
-  end
-  if value == "e" then
-    return "Liquidity Flag: Retail Designated (e)"
-  end
-  if value == "f" then
-    return "Liquidity Flag: Retail Designated (f)"
-  end
-  if value == "j" then
-    return "Liquidity Flag: Rpi Retail Price Improving (j)"
-  end
-  if value == "r" then
-    return "Liquidity Flag: Retail Order (r)"
-  end
-  if value == "t" then
-    return "Liquidity Flag: Retail Order (t)"
-  end
-  if value == "4" then
-    return "Liquidity Flag: Added (4)"
-  end
-  if value == "5" then
-    return "Liquidity Flag: Added (5)"
-  end
-  if value == "6" then
-    return "Liquidity Flag: Removed (6)"
-  end
-  if value == "g" then
-    return "Liquidity Flag: Added (g)"
-  end
-  if value == "n" then
-    return "Liquidity Flag: Midpoint (n)"
-  end
-
-  return "Liquidity Flag: Unknown("..value..")"
-end
-
--- Dissect: Liquidity Flag
-nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.liquidity_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.liquidity_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Price
-nasdaq_nsmequities_orders_ouch_v4_2.execution_price = {}
-
--- Size: Execution Price
-nasdaq_nsmequities_orders_ouch_v4_2.execution_price.size = 4
-
--- Display: Execution Price
-nasdaq_nsmequities_orders_ouch_v4_2.execution_price.display = function(value)
-  return "Execution Price: "..value
-end
-
--- Dissect: Execution Price
-nasdaq_nsmequities_orders_ouch_v4_2.execution_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Executed Shares
-nasdaq_nsmequities_orders_ouch_v4_2.executed_shares = {}
-
--- Size: Executed Shares
-nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.size = 4
-
--- Display: Executed Shares
-nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.display = function(value)
-  return "Executed Shares: "..value
-end
-
--- Dissect: Executed Shares
-nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.executed_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Correction Message
@@ -1888,58 +2466,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.trade_correction_message.dissect = function(
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.trade_correction_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reference Price Type
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type = {}
-
--- Size: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.size = 1
-
--- Display: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.display = function(value)
-  return "Reference Price Type: "..value
-end
-
--- Dissect: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.reference_price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price = {}
-
--- Size: Reference Price
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price.size = 4
-
--- Display: Reference Price
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price.display = function(value)
-  return "Reference Price: "..value
-end
-
--- Translate: Reference Price
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Reference Price
-nasdaq_nsmequities_orders_ouch_v4_2.reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint()
-  local value = nasdaq_nsmequities_orders_ouch_v4_2.reference_price.translate(raw)
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reference_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Executed With Reference Price Message
@@ -2008,29 +2534,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.executed_with_reference_price_message.dissec
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.executed_with_reference_price_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Broken Trade Reason
-nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason = {}
-
--- Size: Broken Trade Reason
-nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.size = 1
-
--- Display: Broken Trade Reason
-nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.display = function(value)
-  return "Broken Trade Reason: "..value
-end
-
--- Dissect: Broken Trade Reason
-nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.broken_trade_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.broken_trade_reason, range, value, display)
-
-  return offset + length, value
 end
 
 -- Broken Trade Message
@@ -2143,118 +2646,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.executed_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.executed_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quantity Prevented From Trading
-nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading = {}
-
--- Size: Quantity Prevented From Trading
-nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.size = 4
-
--- Display: Quantity Prevented From Trading
-nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.display = function(value)
-  return "Quantity Prevented From Trading: "..value
-end
-
--- Dissect: Quantity Prevented From Trading
-nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.quantity_prevented_from_trading.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.quantity_prevented_from_trading, range, value, display)
-
-  return offset + length, value
-end
-
--- Cancel Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason = {}
-
--- Size: Cancel Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.size = 1
-
--- Display: Cancel Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.display = function(value)
-  if value == "U" then
-    return "Cancel Order Reason: User Requested Cancel (U)"
-  end
-  if value == "I" then
-    return "Cancel Order Reason: Immediate Or Cancel Order (I)"
-  end
-  if value == "T" then
-    return "Cancel Order Reason: Timeout (T)"
-  end
-  if value == "S" then
-    return "Cancel Order Reason: Supervisory (S)"
-  end
-  if value == "D" then
-    return "Cancel Order Reason: This Order Cannot Be Executed Because Of A Regulatory Restriction (D)"
-  end
-  if value == "Q" then
-    return "Cancel Order Reason: Self Match Prevention (Q)"
-  end
-  if value == "Z" then
-    return "Cancel Order Reason: System Cancel (Z)"
-  end
-  if value == "C" then
-    return "Cancel Order Reason: Cross Canceled (C)"
-  end
-  if value == "K" then
-    return "Cancel Order Reason: This Order Cannot Be Executed (K)"
-  end
-  if value == "H" then
-    return "Cancel Order Reason: Halted (H)"
-  end
-  if value == "X" then
-    return "Cancel Order Reason: Open Protection (X)"
-  end
-  if value == "E" then
-    return "Cancel Order Reason: Closed (E)"
-  end
-  if value == "F" then
-    return "Cancel Order Reason: Post Only Cancel (F)"
-  end
-  if value == "G" then
-    return "Cancel Order Reason: Post Only Cancel (G)"
-  end
-
-  return "Cancel Order Reason: Unknown("..value..")"
-end
-
--- Dissect: Cancel Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.cancel_order_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cancel_order_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Decrement Shares
-nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares = {}
-
--- Size: Decrement Shares
-nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.size = 4
-
--- Display: Decrement Shares
-nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.display = function(value)
-  return "Decrement Shares: "..value
-end
-
--- Dissect: Decrement Shares
-nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.decrement_shares.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares, range, value, display)
-
-  return offset + length, value
 end
 
 -- Aiq Cancelled Message
@@ -2371,124 +2762,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.canceled_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.canceled_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Bbo Weight Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator = {}
-
--- Size: Bbo Weight Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.size = 1
-
--- Display: Bbo Weight Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.display = function(value)
-  if value == "0" then
-    return "Bbo Weight Indicator: 002 (0)"
-  end
-  if value == "1" then
-    return "Bbo Weight Indicator: 021 (1)"
-  end
-  if value == "2" then
-    return "Bbo Weight Indicator: 12 (2)"
-  end
-  if value == "3" then
-    return "Bbo Weight Indicator: Greater Than 2 (3)"
-  end
-  if value == "S" then
-    return "Bbo Weight Indicator: Sets The Qbbo (S)"
-  end
-  if value == "N" then
-    return "Bbo Weight Indicator: Improves The Nbbo Upon Entry (N)"
-  end
-
-  return "Bbo Weight Indicator: Unknown("..value..")"
-end
-
--- Dissect: Bbo Weight Indicator
-nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.bbo_weight_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.bbo_weight_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Previous Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token = {}
-
--- Size: Previous Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.size = 14
-
--- Display: Previous Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.display = function(value)
-  return "Previous Order Token: "..value
-end
-
--- Dissect: Previous Order Token
-nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.previous_order_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.previous_order_token, range, value, display)
-
-  return offset + length, value
-end
-
--- Order State
-nasdaq_nsmequities_orders_ouch_v4_2.order_state = {}
-
--- Size: Order State
-nasdaq_nsmequities_orders_ouch_v4_2.order_state.size = 1
-
--- Display: Order State
-nasdaq_nsmequities_orders_ouch_v4_2.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Order (L)"
-  end
-  if value == "D" then
-    return "Order State: Order (D)"
-  end
-
-  return "Order State: Unknown("..value..")"
-end
-
--- Dissect: Order State
-nasdaq_nsmequities_orders_ouch_v4_2.order_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.order_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.order_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.order_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Replacement Order Token Alphanumeric 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14 = {}
-
--- Size: Replacement Order Token Alphanumeric 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.size = 14
-
--- Display: Replacement Order Token Alphanumeric 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.display = function(value)
-  return "Replacement Order Token Alphanumeric 14: "..value
-end
-
--- Dissect: Replacement Order Token Alphanumeric 14
-nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.replacement_order_token_alphanumeric_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.replacement_order_token_alphanumeric_14, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replaced Message
@@ -2695,36 +2968,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.accepted_message.dissect = function(buffer, 
   end
 end
 
--- Event Code
-nasdaq_nsmequities_orders_ouch_v4_2.event_code = {}
-
--- Size: Event Code
-nasdaq_nsmequities_orders_ouch_v4_2.event_code.size = 1
-
--- Display: Event Code
-nasdaq_nsmequities_orders_ouch_v4_2.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day— This Is Always The First Message Each Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day— This Indicates That Nasdaq Is Now Closed And Will Not Accept Any New Orders Or Replaces In This Session (E)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_nsmequities_orders_ouch_v4_2.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 nasdaq_nsmequities_orders_ouch_v4_2.system_event_message = {}
 
@@ -2838,75 +3081,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message.dissect = function(buffer,
   return offset
 end
 
--- Sequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type = {}
-
--- Size: Sequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.size = 1
-
--- Display: Sequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Canceled Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Aiq Cancelled Message (D)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Executed Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Executed With Reference Price Message (G)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Trade Correction Message (F)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Cancel Pending Message (P)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Cancel Reject Message (I)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Order Priority Update Message (T)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Modified Message (U)"
-  end
-  if value == "N" then
-    return "Sequenced Message Type: Trade Now Message (N)"
-  end
-
-  return "Sequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Sequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.sequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Data Packet
 nasdaq_nsmequities_orders_ouch_v4_2.sequenced_data_packet = {}
 
@@ -2960,29 +3134,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.sequenced_data_packet.dissect = function(buf
   end
 end
 
--- Reject Reason Code
-nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code = {}
-
--- Size: Reject Reason Code
-nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.size = 1
-
--- Display: Reject Reason Code
-nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
-end
-
--- Dissect: Reject Reason Code
-nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.reject_reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.reject_reason_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Rejected Packet
 nasdaq_nsmequities_orders_ouch_v4_2.login_rejected_packet = {}
 
@@ -3021,52 +3172,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.login_rejected_packet.dissect = function(buf
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.login_rejected_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_nsmequities_orders_ouch_v4_2.session = {}
-
--- Size: Session
-nasdaq_nsmequities_orders_ouch_v4_2.session.size = 10
-
--- Display: Session
-nasdaq_nsmequities_orders_ouch_v4_2.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_nsmequities_orders_ouch_v4_2.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Packet
@@ -3111,29 +3216,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.login_accepted_packet.dissect = function(buf
     -- Skip element, add fields directly
     return nasdaq_nsmequities_orders_ouch_v4_2.login_accepted_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Text
-nasdaq_nsmequities_orders_ouch_v4_2.text = {}
-
--- Size: Text
-nasdaq_nsmequities_orders_ouch_v4_2.text.size = 1
-
--- Display: Text
-nasdaq_nsmequities_orders_ouch_v4_2.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nsmequities_orders_ouch_v4_2.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text, range, value, display)
-
-  return offset + length, value
 end
 
 -- Debug Packet
@@ -3207,83 +3289,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.payload.dissect = function(buffer, offset, p
   end
 
   return offset
-end
-
--- Packet Type
-nasdaq_nsmequities_orders_ouch_v4_2.packet_type = {}
-
--- Size: Packet Type
-nasdaq_nsmequities_orders_ouch_v4_2.packet_type.size = 1
-
--- Display: Packet Type
-nasdaq_nsmequities_orders_ouch_v4_2.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nasdaq_nsmequities_orders_ouch_v4_2.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-nasdaq_nsmequities_orders_ouch_v4_2.packet_length = {}
-
--- Size: Packet Length
-nasdaq_nsmequities_orders_ouch_v4_2.packet_length.size = 2
-
--- Display: Packet Length
-nasdaq_nsmequities_orders_ouch_v4_2.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-nasdaq_nsmequities_orders_ouch_v4_2.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.packet_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

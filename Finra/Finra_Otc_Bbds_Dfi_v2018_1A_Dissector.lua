@@ -233,120 +233,323 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Finra Otc Bbds Dfi 2018.1A
+-- Finra Otc Bbds Dfi 2018.1A Fields
 -----------------------------------------------------------------------
 
--- Message Separator
-finra_otc_bbds_dfi_v2018_1a.message_separator = {}
+-- Action
+finra_otc_bbds_dfi_v2018_1a.action = {}
 
--- Size: Message Separator
-finra_otc_bbds_dfi_v2018_1a.message_separator.size = 1
+-- Size: Action
+finra_otc_bbds_dfi_v2018_1a.action.size = 1
 
--- Display: Message Separator
-finra_otc_bbds_dfi_v2018_1a.message_separator.display = function(value)
-  return "Message Separator: "..value
+-- Display: Action
+finra_otc_bbds_dfi_v2018_1a.action.display = function(value)
+  if value == "H" then
+    return "Action: Trading Halt (H)"
+  end
+  if value == "Q" then
+    return "Action: Quotation Resumption (Q)"
+  end
+  if value == "T" then
+    return "Action: Trading Resumption (T)"
+  end
+
+  return "Action: Unknown("..value..")"
 end
 
--- Dissect: Message Separator
-finra_otc_bbds_dfi_v2018_1a.message_separator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.message_separator.size
+-- Dissect: Action
+finra_otc_bbds_dfi_v2018_1a.action.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Administrative Message Type
+finra_otc_bbds_dfi_v2018_1a.administrative_message_type = {}
+
+-- Size: Administrative Message Type
+finra_otc_bbds_dfi_v2018_1a.administrative_message_type.size = 1
+
+-- Display: Administrative Message Type
+finra_otc_bbds_dfi_v2018_1a.administrative_message_type.display = function(value)
+  if value == "A" then
+    return "Administrative Message Type: General Administrative Message (A)"
+  end
+  if value == "H" then
+    return "Administrative Message Type: Trading Action Message (H)"
+  end
+
+  return "Administrative Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Administrative Message Type
+finra_otc_bbds_dfi_v2018_1a.administrative_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.administrative_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.administrative_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price
+finra_otc_bbds_dfi_v2018_1a.ask_price = {}
+
+-- Size: Ask Price
+finra_otc_bbds_dfi_v2018_1a.ask_price.size = 12
+
+-- Display: Ask Price
+finra_otc_bbds_dfi_v2018_1a.ask_price.display = function(value)
+  return "Ask Price: "..value
+end
+
+-- Dissect: Ask Price
+finra_otc_bbds_dfi_v2018_1a.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.ask_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.ask_price_denominator = {}
+
+-- Size: Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.size = 1
+
+-- Display: Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.display = function(value)
+  return "Ask Price Denominator: "..value
+end
+
+-- Dissect: Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size
+finra_otc_bbds_dfi_v2018_1a.ask_size = {}
+
+-- Size: Ask Size
+finra_otc_bbds_dfi_v2018_1a.ask_size.size = 7
+
+-- Display: Ask Size
+finra_otc_bbds_dfi_v2018_1a.ask_size.display = function(value)
+  return "Ask Size: "..value
+end
+
+-- Dissect: Ask Size
+finra_otc_bbds_dfi_v2018_1a.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.ask_size.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.ask_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+finra_otc_bbds_dfi_v2018_1a.bid_price = {}
+
+-- Size: Bid Price
+finra_otc_bbds_dfi_v2018_1a.bid_price.size = 12
+
+-- Display: Bid Price
+finra_otc_bbds_dfi_v2018_1a.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Dissect: Bid Price
+finra_otc_bbds_dfi_v2018_1a.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.bid_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.bid_price_denominator = {}
+
+-- Size: Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.size = 1
+
+-- Display: Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.display = function(value)
+  return "Bid Price Denominator: "..value
+end
+
+-- Dissect: Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+finra_otc_bbds_dfi_v2018_1a.bid_size = {}
+
+-- Size: Bid Size
+finra_otc_bbds_dfi_v2018_1a.bid_size.size = 7
+
+-- Display: Bid Size
+finra_otc_bbds_dfi_v2018_1a.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+finra_otc_bbds_dfi_v2018_1a.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.bid_size.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Soh
+finra_otc_bbds_dfi_v2018_1a.block_soh = {}
+
+-- Size: Block Soh
+finra_otc_bbds_dfi_v2018_1a.block_soh.size = 1
+
+-- Display: Block Soh
+finra_otc_bbds_dfi_v2018_1a.block_soh.display = function(value)
+  return "Block Soh: "..value
+end
+
+-- Dissect: Block Soh
+finra_otc_bbds_dfi_v2018_1a.block_soh.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.block_soh.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = finra_otc_bbds_dfi_v2018_1a.message_separator.display(value, buffer, offset, packet, parent)
+  local display = finra_otc_bbds_dfi_v2018_1a.block_soh.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_separator, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-finra_otc_bbds_dfi_v2018_1a.reserved = {}
-
--- Size: Reserved
-finra_otc_bbds_dfi_v2018_1a.reserved.size = 1
-
--- Display: Reserved
-finra_otc_bbds_dfi_v2018_1a.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-finra_otc_bbds_dfi_v2018_1a.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.reserved.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.reserved, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.block_soh, range, value, display)
 
   return offset + length, value
 end
 
--- Second
-finra_otc_bbds_dfi_v2018_1a.second = {}
+-- Control Message Type
+finra_otc_bbds_dfi_v2018_1a.control_message_type = {}
 
--- Size: Second
-finra_otc_bbds_dfi_v2018_1a.second.size = 1
+-- Size: Control Message Type
+finra_otc_bbds_dfi_v2018_1a.control_message_type.size = 1
 
--- Display: Second
-finra_otc_bbds_dfi_v2018_1a.second.display = function(value)
-  return "Second: "..value
+-- Display: Control Message Type
+finra_otc_bbds_dfi_v2018_1a.control_message_type.display = function(value)
+  if value == "I" then
+    return "Control Message Type: Start Of Day Message (I)"
+  end
+  if value == "J" then
+    return "Control Message Type: End Of Day Message (J)"
+  end
+  if value == "O" then
+    return "Control Message Type: Market Session Open Message (O)"
+  end
+  if value == "O" then
+    return "Control Message Type: Market Session Close Message (O)"
+  end
+  if value == "K" then
+    return "Control Message Type: End Of Retransmission Requests Message (K)"
+  end
+  if value == "Z" then
+    return "Control Message Type: End Of Transmissions Message (Z)"
+  end
+  if value == "T" then
+    return "Control Message Type: Line Integrity Message (T)"
+  end
+  if value == "L" then
+    return "Control Message Type: Sequence Number Reset Message (L)"
+  end
+  if value == "X" then
+    return "Control Message Type: End Of Trade Reporting Message (X)"
+  end
+
+  return "Control Message Type: Unknown("..value..")"
 end
 
--- Dissect: Second
-finra_otc_bbds_dfi_v2018_1a.second.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.second.size
+-- Dissect: Control Message Type
+finra_otc_bbds_dfi_v2018_1a.control_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.control_message_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.second.display(value, buffer, offset, packet, parent)
+  local display = finra_otc_bbds_dfi_v2018_1a.control_message_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.second, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control_message_type, range, value, display)
 
   return offset + length, value
 end
 
--- Minute
-finra_otc_bbds_dfi_v2018_1a.minute = {}
+-- Currency
+finra_otc_bbds_dfi_v2018_1a.currency = {}
 
--- Size: Minute
-finra_otc_bbds_dfi_v2018_1a.minute.size = 1
+-- Size: Currency
+finra_otc_bbds_dfi_v2018_1a.currency.size = 3
 
--- Display: Minute
-finra_otc_bbds_dfi_v2018_1a.minute.display = function(value)
-  return "Minute: "..value
+-- Display: Currency
+finra_otc_bbds_dfi_v2018_1a.currency.display = function(value)
+  return "Currency: "..value
 end
 
--- Dissect: Minute
-finra_otc_bbds_dfi_v2018_1a.minute.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.minute.size
+-- Dissect: Currency
+finra_otc_bbds_dfi_v2018_1a.currency.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.currency.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.minute.display(value, buffer, offset, packet, parent)
+  local display = finra_otc_bbds_dfi_v2018_1a.currency.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.minute, range, value, display)
-
-  return offset + length, value
-end
-
--- Hour
-finra_otc_bbds_dfi_v2018_1a.hour = {}
-
--- Size: Hour
-finra_otc_bbds_dfi_v2018_1a.hour.size = 1
-
--- Display: Hour
-finra_otc_bbds_dfi_v2018_1a.hour.display = function(value)
-  return "Hour: "..value
-end
-
--- Dissect: Hour
-finra_otc_bbds_dfi_v2018_1a.hour.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.hour.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.hour.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.hour, range, value, display)
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.currency, range, value, display)
 
   return offset + length, value
 end
@@ -374,6 +577,534 @@ finra_otc_bbds_dfi_v2018_1a.day.dissect = function(buffer, offset, packet, paren
   return offset + length, value
 end
 
+-- Hour
+finra_otc_bbds_dfi_v2018_1a.hour = {}
+
+-- Size: Hour
+finra_otc_bbds_dfi_v2018_1a.hour.size = 1
+
+-- Display: Hour
+finra_otc_bbds_dfi_v2018_1a.hour.display = function(value)
+  return "Hour: "..value
+end
+
+-- Dissect: Hour
+finra_otc_bbds_dfi_v2018_1a.hour.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.hour.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.hour.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.hour, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Appendage Indicator
+finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator = {}
+
+-- Size: Inside Appendage Indicator
+finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.size = 1
+
+-- Display: Inside Appendage Indicator
+finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.display = function(value)
+  if value == "1" then
+    return "Inside Appendage Indicator: No Change To Inside Quote (1)"
+  end
+  if value == "2" then
+    return "Inside Appendage Indicator: No Inside Exists (2)"
+  end
+  if value == "3" then
+    return "Inside Appendage Indicator: Inside Quote Appendage Is Attached (3)"
+  end
+
+  return "Inside Appendage Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Inside Appendage Indicator
+finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Ask Price
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price = {}
+
+-- Size: Inside Ask Price
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size = 12
+
+-- Display: Inside Ask Price
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price.display = function(value)
+  return "Inside Ask Price: "..value
+end
+
+-- Dissect: Inside Ask Price
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator = {}
+
+-- Size: Inside Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size = 1
+
+-- Display: Inside Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.display = function(value)
+  return "Inside Ask Price Denominator: "..value
+end
+
+-- Dissect: Inside Ask Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Ask Size
+finra_otc_bbds_dfi_v2018_1a.inside_ask_size = {}
+
+-- Size: Inside Ask Size
+finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size = 12
+
+-- Display: Inside Ask Size
+finra_otc_bbds_dfi_v2018_1a.inside_ask_size.display = function(value)
+  return "Inside Ask Size: "..value
+end
+
+-- Dissect: Inside Ask Size
+finra_otc_bbds_dfi_v2018_1a.inside_ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_ask_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Bid Price
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price = {}
+
+-- Size: Inside Bid Price
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size = 12
+
+-- Display: Inside Bid Price
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price.display = function(value)
+  return "Inside Bid Price: "..value
+end
+
+-- Dissect: Inside Bid Price
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator = {}
+
+-- Size: Inside Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size = 1
+
+-- Display: Inside Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.display = function(value)
+  return "Inside Bid Price Denominator: "..value
+end
+
+-- Dissect: Inside Bid Price Denominator
+finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Bid Size
+finra_otc_bbds_dfi_v2018_1a.inside_bid_size = {}
+
+-- Size: Inside Bid Size
+finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size = 12
+
+-- Display: Inside Bid Size
+finra_otc_bbds_dfi_v2018_1a.inside_bid_size.display = function(value)
+  return "Inside Bid Size: "..value
+end
+
+-- Dissect: Inside Bid Size
+finra_otc_bbds_dfi_v2018_1a.inside_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Inside Quote Condition
+finra_otc_bbds_dfi_v2018_1a.inside_quote_condition = {}
+
+-- Size: Inside Quote Condition
+finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size = 1
+
+-- Display: Inside Quote Condition
+finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.display = function(value)
+  if value == "O" then
+    return "Inside Quote Condition: Open (O)"
+  end
+  if value == "C" then
+    return "Inside Quote Condition: Closed (C)"
+  end
+
+  return "Inside Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Inside Quote Condition
+finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Center Originator Id
+finra_otc_bbds_dfi_v2018_1a.market_center_originator_id = {}
+
+-- Size: Market Center Originator Id
+finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size = 2
+
+-- Display: Market Center Originator Id
+finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.display = function(value)
+  if value == "E" then
+    return "Market Center Originator Id: Market Center Independent (E)"
+  end
+  if value == "U" then
+    return "Market Center Originator Id: Otc Bulletin Board (U)"
+  end
+  if value == "u" then
+    return "Market Center Originator Id: Other Otc Security (u)"
+  end
+  if value == "F" then
+    return "Market Center Originator Id: Otcbb And Ootc (F)"
+  end
+
+  return "Market Center Originator Id: Unknown("..value..")"
+end
+
+-- Dissect: Market Center Originator Id
+finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_center_originator_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Identifier
+finra_otc_bbds_dfi_v2018_1a.market_participant_identifier = {}
+
+-- Size: Market Participant Identifier
+finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.size = 1
+
+-- Display: Market Participant Identifier
+finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.display = function(value)
+  return "Market Participant Identifier: "..value
+end
+
+-- Dissect: Market Participant Identifier
+finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_identifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Location Id
+finra_otc_bbds_dfi_v2018_1a.market_participant_location_id = {}
+
+-- Size: Market Participant Location Id
+finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.size = 1
+
+-- Display: Market Participant Location Id
+finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.display = function(value)
+  return "Market Participant Location Id: "..value
+end
+
+-- Dissect: Market Participant Location Id
+finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_location_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Quote Condition
+finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition = {}
+
+-- Size: Market Participant Quote Condition
+finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.size = 1
+
+-- Display: Market Participant Quote Condition
+finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.display = function(value)
+  if value == "O" then
+    return "Market Participant Quote Condition: Open (O)"
+  end
+  if value == "C" then
+    return "Market Participant Quote Condition: Closed (C)"
+  end
+  if value == "B" then
+    return "Market Participant Quote Condition: Bid (B)"
+  end
+  if value == "N" then
+    return "Market Participant Quote Condition: Not Applicable (N)"
+  end
+  if value == "O" then
+    return "Market Participant Quote Condition: Offer (O)"
+  end
+  if value == "W" then
+    return "Market Participant Quote Condition: Bid And Offer (W)"
+  end
+  if value == "I" then
+    return "Market Participant Quote Condition: Periodic Indicative Other Securities (I)"
+  end
+  if value == "K" then
+    return "Market Participant Quote Condition: Realtime Quotes (K)"
+  end
+  if value == "L" then
+    return "Market Participant Quote Condition: Periodic Indicative Quotes (L)"
+  end
+
+  return "Market Participant Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Market Participant Quote Condition
+finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Participant Status
+finra_otc_bbds_dfi_v2018_1a.market_participant_status = {}
+
+-- Size: Market Participant Status
+finra_otc_bbds_dfi_v2018_1a.market_participant_status.size = 1
+
+-- Display: Market Participant Status
+finra_otc_bbds_dfi_v2018_1a.market_participant_status.display = function(value)
+  if value == "A" then
+    return "Market Participant Status: Active (A)"
+  end
+  if value == "D" then
+    return "Market Participant Status: Deleted (D)"
+  end
+  if value == "E" then
+    return "Market Participant Status: Excused (E)"
+  end
+  if value == "W" then
+    return "Market Participant Status: Withdrawn (W)"
+  end
+  if value == "S" then
+    return "Market Participant Status: Suspended (S)"
+  end
+
+  return "Market Participant Status: Unknown("..value..")"
+end
+
+-- Dissect: Market Participant Status
+finra_otc_bbds_dfi_v2018_1a.market_participant_status.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Category
+finra_otc_bbds_dfi_v2018_1a.message_category = {}
+
+-- Size: Message Category
+finra_otc_bbds_dfi_v2018_1a.message_category.size = 1
+
+-- Display: Message Category
+finra_otc_bbds_dfi_v2018_1a.message_category.display = function(value)
+  if value == "Q" then
+    return "Message Category: Quotation (Q)"
+  end
+  if value == "A" then
+    return "Message Category: Administrative (A)"
+  end
+  if value == "C" then
+    return "Message Category: Control (C)"
+  end
+
+  return "Message Category: Unknown("..value..")"
+end
+
+-- Dissect: Message Category
+finra_otc_bbds_dfi_v2018_1a.message_category.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.message_category.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.message_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Separator
+finra_otc_bbds_dfi_v2018_1a.message_separator = {}
+
+-- Size: Message Separator
+finra_otc_bbds_dfi_v2018_1a.message_separator.size = 1
+
+-- Display: Message Separator
+finra_otc_bbds_dfi_v2018_1a.message_separator.display = function(value)
+  return "Message Separator: "..value
+end
+
+-- Dissect: Message Separator
+finra_otc_bbds_dfi_v2018_1a.message_separator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.message_separator.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = finra_otc_bbds_dfi_v2018_1a.message_separator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_separator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Sequence Number
+finra_otc_bbds_dfi_v2018_1a.message_sequence_number = {}
+
+-- Size: Message Sequence Number
+finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size = 8
+
+-- Display: Message Sequence Number
+finra_otc_bbds_dfi_v2018_1a.message_sequence_number.display = function(value)
+  return "Message Sequence Number: "..value
+end
+
+-- Dissect: Message Sequence Number
+finra_otc_bbds_dfi_v2018_1a.message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = finra_otc_bbds_dfi_v2018_1a.message_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minute
+finra_otc_bbds_dfi_v2018_1a.minute = {}
+
+-- Size: Minute
+finra_otc_bbds_dfi_v2018_1a.minute.size = 1
+
+-- Display: Minute
+finra_otc_bbds_dfi_v2018_1a.minute.display = function(value)
+  return "Minute: "..value
+end
+
+-- Dissect: Minute
+finra_otc_bbds_dfi_v2018_1a.minute.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.minute.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.minute.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.minute, range, value, display)
+
+  return offset + length, value
+end
+
 -- Month
 finra_otc_bbds_dfi_v2018_1a.month = {}
 
@@ -393,6 +1124,306 @@ finra_otc_bbds_dfi_v2018_1a.month.dissect = function(buffer, offset, packet, par
   local display = finra_otc_bbds_dfi_v2018_1a.month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Otcbb Symbol
+finra_otc_bbds_dfi_v2018_1a.otcbb_symbol = {}
+
+-- Size: Otcbb Symbol
+finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.size = 11
+
+-- Display: Otcbb Symbol
+finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.display = function(value)
+  return "Otcbb Symbol: "..value
+end
+
+-- Dissect: Otcbb Symbol
+finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Otcbb Type
+finra_otc_bbds_dfi_v2018_1a.otcbb_type = {}
+
+-- Size: Otcbb Type
+finra_otc_bbds_dfi_v2018_1a.otcbb_type.size = 1
+
+-- Display: Otcbb Type
+finra_otc_bbds_dfi_v2018_1a.otcbb_type.display = function(value)
+  return "Otcbb Type: "..value
+end
+
+-- Dissect: Otcbb Type
+finra_otc_bbds_dfi_v2018_1a.otcbb_type.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.otcbb_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.otcbb_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quotation Message Type
+finra_otc_bbds_dfi_v2018_1a.quotation_message_type = {}
+
+-- Size: Quotation Message Type
+finra_otc_bbds_dfi_v2018_1a.quotation_message_type.size = 1
+
+-- Display: Quotation Message Type
+finra_otc_bbds_dfi_v2018_1a.quotation_message_type.display = function(value)
+  if value == "1" then
+    return "Quotation Message Type: Market Participant Quote Update Message (1)"
+  end
+
+  return "Quotation Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Quotation Message Type
+finra_otc_bbds_dfi_v2018_1a.quotation_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.quotation_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.quotation_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason Code
+finra_otc_bbds_dfi_v2018_1a.reason_code = {}
+
+-- Size: Reason Code
+finra_otc_bbds_dfi_v2018_1a.reason_code.size = 6
+
+-- Display: Reason Code
+finra_otc_bbds_dfi_v2018_1a.reason_code.display = function(value)
+  return "Reason Code: "..value
+end
+
+-- Dissect: Reason Code
+finra_otc_bbds_dfi_v2018_1a.reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+finra_otc_bbds_dfi_v2018_1a.reserved = {}
+
+-- Size: Reserved
+finra_otc_bbds_dfi_v2018_1a.reserved.size = 1
+
+-- Display: Reserved
+finra_otc_bbds_dfi_v2018_1a.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+finra_otc_bbds_dfi_v2018_1a.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.reserved.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmission Requester
+finra_otc_bbds_dfi_v2018_1a.retransmission_requester = {}
+
+-- Size: Retransmission Requester
+finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size = 2
+
+-- Display: Retransmission Requester
+finra_otc_bbds_dfi_v2018_1a.retransmission_requester.display = function(value)
+  return "Retransmission Requester: "..value
+end
+
+-- Dissect: Retransmission Requester
+finra_otc_bbds_dfi_v2018_1a.retransmission_requester.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.retransmission_requester.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second
+finra_otc_bbds_dfi_v2018_1a.second = {}
+
+-- Size: Second
+finra_otc_bbds_dfi_v2018_1a.second.size = 1
+
+-- Display: Second
+finra_otc_bbds_dfi_v2018_1a.second.display = function(value)
+  return "Second: "..value
+end
+
+-- Dissect: Second
+finra_otc_bbds_dfi_v2018_1a.second.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.second.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.second.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.second, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Identifier
+finra_otc_bbds_dfi_v2018_1a.session_identifier = {}
+
+-- Size: Session Identifier
+finra_otc_bbds_dfi_v2018_1a.session_identifier.size = 1
+
+-- Display: Session Identifier
+finra_otc_bbds_dfi_v2018_1a.session_identifier.display = function(value)
+  if value == "A" then
+    return "Session Identifier: All Market Sessions Or Session Independent (A)"
+  end
+  if value == "U" then
+    return "Session Identifier: Us Market Session (U)"
+  end
+
+  return "Session Identifier: Unknown("..value..")"
+end
+
+-- Dissect: Session Identifier
+finra_otc_bbds_dfi_v2018_1a.session_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.session_identifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.session_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.session_identifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol = {}
+
+-- Size: Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol.size = 11
+
+-- Display: Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol.display = function(value)
+  return "Stock Symbol: "..value
+end
+
+-- Dissect: Stock Symbol
+finra_otc_bbds_dfi_v2018_1a.stock_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.stock_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.stock_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.stock_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+finra_otc_bbds_dfi_v2018_1a.text = {}
+
+-- Size: Text
+finra_otc_bbds_dfi_v2018_1a.text.size = 2
+
+-- Display: Text
+finra_otc_bbds_dfi_v2018_1a.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+finra_otc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsolicited Indicator
+finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator = {}
+
+-- Size: Unsolicited Indicator
+finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.size = 1
+
+-- Display: Unsolicited Indicator
+finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.display = function(value)
+  if value == "A" then
+    return "Unsolicited Indicator: Unsolicited Ask (A)"
+  end
+  if value == "B" then
+    return "Unsolicited Indicator: Unsolicited Bid (B)"
+  end
+  if value == "U" then
+    return "Unsolicited Indicator: Unsolicited Bid And Ask (U)"
+  end
+  if value == " " then
+    return "Unsolicited Indicator: Not Applicable (<whitespace>)"
+  end
+
+  return "Unsolicited Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Unsolicited Indicator
+finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Wanted Indicator
+finra_otc_bbds_dfi_v2018_1a.wanted_indicator = {}
+
+-- Size: Wanted Indicator
+finra_otc_bbds_dfi_v2018_1a.wanted_indicator.size = 1
+
+-- Display: Wanted Indicator
+finra_otc_bbds_dfi_v2018_1a.wanted_indicator.display = function(value)
+  return "Wanted Indicator: "..value
+end
+
+-- Dissect: Wanted Indicator
+finra_otc_bbds_dfi_v2018_1a.wanted_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = finra_otc_bbds_dfi_v2018_1a.wanted_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = finra_otc_bbds_dfi_v2018_1a.wanted_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -419,6 +1450,11 @@ finra_otc_bbds_dfi_v2018_1a.year.dissect = function(buffer, offset, packet, pare
 
   return offset + length, value
 end
+
+
+-----------------------------------------------------------------------
+-- Dissect Finra Otc Bbds Dfi 2018.1A
+-----------------------------------------------------------------------
 
 -- Datetime
 finra_otc_bbds_dfi_v2018_1a.datetime = {}
@@ -478,123 +1514,6 @@ finra_otc_bbds_dfi_v2018_1a.datetime.dissect = function(buffer, offset, packet, 
     -- Skip element, add fields directly
     return finra_otc_bbds_dfi_v2018_1a.datetime.fields(buffer, offset, packet, parent)
   end
-end
-
--- Market Center Originator Id
-finra_otc_bbds_dfi_v2018_1a.market_center_originator_id = {}
-
--- Size: Market Center Originator Id
-finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size = 2
-
--- Display: Market Center Originator Id
-finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.display = function(value)
-  if value == "E" then
-    return "Market Center Originator Id: Market Center Independent (E)"
-  end
-  if value == "U" then
-    return "Market Center Originator Id: Otc Bulletin Board (U)"
-  end
-  if value == "u" then
-    return "Market Center Originator Id: Other Otc Security (u)"
-  end
-  if value == "F" then
-    return "Market Center Originator Id: Otcbb And Ootc (F)"
-  end
-
-  return "Market Center Originator Id: Unknown("..value..")"
-end
-
--- Dissect: Market Center Originator Id
-finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.market_center_originator_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_center_originator_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Sequence Number
-finra_otc_bbds_dfi_v2018_1a.message_sequence_number = {}
-
--- Size: Message Sequence Number
-finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size = 8
-
--- Display: Message Sequence Number
-finra_otc_bbds_dfi_v2018_1a.message_sequence_number.display = function(value)
-  return "Message Sequence Number: "..value
-end
-
--- Dissect: Message Sequence Number
-finra_otc_bbds_dfi_v2018_1a.message_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.message_sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.message_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Retransmission Requester
-finra_otc_bbds_dfi_v2018_1a.retransmission_requester = {}
-
--- Size: Retransmission Requester
-finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size = 2
-
--- Display: Retransmission Requester
-finra_otc_bbds_dfi_v2018_1a.retransmission_requester.display = function(value)
-  return "Retransmission Requester: "..value
-end
-
--- Dissect: Retransmission Requester
-finra_otc_bbds_dfi_v2018_1a.retransmission_requester.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.retransmission_requester.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.retransmission_requester.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.retransmission_requester, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Identifier
-finra_otc_bbds_dfi_v2018_1a.session_identifier = {}
-
--- Size: Session Identifier
-finra_otc_bbds_dfi_v2018_1a.session_identifier.size = 1
-
--- Display: Session Identifier
-finra_otc_bbds_dfi_v2018_1a.session_identifier.display = function(value)
-  if value == "A" then
-    return "Session Identifier: All Market Sessions Or Session Independent (A)"
-  end
-  if value == "U" then
-    return "Session Identifier: Us Market Session (U)"
-  end
-
-  return "Session Identifier: Unknown("..value..")"
-end
-
--- Dissect: Session Identifier
-finra_otc_bbds_dfi_v2018_1a.session_identifier.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.session_identifier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.session_identifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.session_identifier, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -1062,57 +1981,6 @@ finra_otc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offset, p
   return offset
 end
 
--- Control Message Type
-finra_otc_bbds_dfi_v2018_1a.control_message_type = {}
-
--- Size: Control Message Type
-finra_otc_bbds_dfi_v2018_1a.control_message_type.size = 1
-
--- Display: Control Message Type
-finra_otc_bbds_dfi_v2018_1a.control_message_type.display = function(value)
-  if value == "I" then
-    return "Control Message Type: Start Of Day Message (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day Message (J)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Open Message (O)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Close Message (O)"
-  end
-  if value == "K" then
-    return "Control Message Type: End Of Retransmission Requests Message (K)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Transmissions Message (Z)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity Message (T)"
-  end
-  if value == "L" then
-    return "Control Message Type: Sequence Number Reset Message (L)"
-  end
-  if value == "X" then
-    return "Control Message Type: End Of Trade Reporting Message (X)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
-end
-
--- Dissect: Control Message Type
-finra_otc_bbds_dfi_v2018_1a.control_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.control_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.control_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Control
 finra_otc_bbds_dfi_v2018_1a.control = {}
 
@@ -1164,29 +2032,6 @@ finra_otc_bbds_dfi_v2018_1a.control.dissect = function(buffer, offset, packet, p
     -- Skip element, add fields directly
     return finra_otc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reason Code
-finra_otc_bbds_dfi_v2018_1a.reason_code = {}
-
--- Size: Reason Code
-finra_otc_bbds_dfi_v2018_1a.reason_code.size = 6
-
--- Display: Reason Code
-finra_otc_bbds_dfi_v2018_1a.reason_code.display = function(value)
-  return "Reason Code: "..value
-end
-
--- Dissect: Reason Code
-finra_otc_bbds_dfi_v2018_1a.reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.reason_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.reason_code, range, value, display)
-
-  return offset + length, value
 end
 
 -- Action Datetime
@@ -1249,62 +2094,6 @@ finra_otc_bbds_dfi_v2018_1a.action_datetime.dissect = function(buffer, offset, p
   end
 end
 
--- Action
-finra_otc_bbds_dfi_v2018_1a.action = {}
-
--- Size: Action
-finra_otc_bbds_dfi_v2018_1a.action.size = 1
-
--- Display: Action
-finra_otc_bbds_dfi_v2018_1a.action.display = function(value)
-  if value == "H" then
-    return "Action: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Action: Quotation Resumption (Q)"
-  end
-  if value == "T" then
-    return "Action: Trading Resumption (T)"
-  end
-
-  return "Action: Unknown("..value..")"
-end
-
--- Dissect: Action
-finra_otc_bbds_dfi_v2018_1a.action.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.action.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.action.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.action, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Symbol
-finra_otc_bbds_dfi_v2018_1a.stock_symbol = {}
-
--- Size: Stock Symbol
-finra_otc_bbds_dfi_v2018_1a.stock_symbol.size = 11
-
--- Display: Stock Symbol
-finra_otc_bbds_dfi_v2018_1a.stock_symbol.display = function(value)
-  return "Stock Symbol: "..value
-end
-
--- Dissect: Stock Symbol
-finra_otc_bbds_dfi_v2018_1a.stock_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.stock_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.stock_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.stock_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Action Message
 finra_otc_bbds_dfi_v2018_1a.trading_action_message = {}
 
@@ -1359,29 +2148,6 @@ finra_otc_bbds_dfi_v2018_1a.trading_action_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return finra_otc_bbds_dfi_v2018_1a.trading_action_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Text
-finra_otc_bbds_dfi_v2018_1a.text = {}
-
--- Size: Text
-finra_otc_bbds_dfi_v2018_1a.text.size = 2
-
--- Display: Text
-finra_otc_bbds_dfi_v2018_1a.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-finra_otc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.text, range, value, display)
-
-  return offset + length, value
 end
 
 -- General Administrative Message
@@ -1445,36 +2211,6 @@ finra_otc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffer, of
   return offset
 end
 
--- Administrative Message Type
-finra_otc_bbds_dfi_v2018_1a.administrative_message_type = {}
-
--- Size: Administrative Message Type
-finra_otc_bbds_dfi_v2018_1a.administrative_message_type.size = 1
-
--- Display: Administrative Message Type
-finra_otc_bbds_dfi_v2018_1a.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: General Administrative Message (A)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Trading Action Message (H)"
-  end
-
-  return "Administrative Message Type: Unknown("..value..")"
-end
-
--- Dissect: Administrative Message Type
-finra_otc_bbds_dfi_v2018_1a.administrative_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.administrative_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.administrative_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.administrative_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Administrative
 finra_otc_bbds_dfi_v2018_1a.administrative = {}
 
@@ -1526,194 +2262,6 @@ finra_otc_bbds_dfi_v2018_1a.administrative.dissect = function(buffer, offset, pa
     -- Skip element, add fields directly
     return finra_otc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
   end
-end
-
--- Inside Ask Size
-finra_otc_bbds_dfi_v2018_1a.inside_ask_size = {}
-
--- Size: Inside Ask Size
-finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size = 12
-
--- Display: Inside Ask Size
-finra_otc_bbds_dfi_v2018_1a.inside_ask_size.display = function(value)
-  return "Inside Ask Size: "..value
-end
-
--- Dissect: Inside Ask Size
-finra_otc_bbds_dfi_v2018_1a.inside_ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_ask_size.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Inside Ask Price
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price = {}
-
--- Size: Inside Ask Price
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size = 12
-
--- Display: Inside Ask Price
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price.display = function(value)
-  return "Inside Ask Price: "..value
-end
-
--- Dissect: Inside Ask Price
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_ask_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Inside Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator = {}
-
--- Size: Inside Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size = 1
-
--- Display: Inside Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.display = function(value)
-  return "Inside Ask Price Denominator: "..value
-end
-
--- Dissect: Inside Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_ask_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Inside Bid Size
-finra_otc_bbds_dfi_v2018_1a.inside_bid_size = {}
-
--- Size: Inside Bid Size
-finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size = 12
-
--- Display: Inside Bid Size
-finra_otc_bbds_dfi_v2018_1a.inside_bid_size.display = function(value)
-  return "Inside Bid Size: "..value
-end
-
--- Dissect: Inside Bid Size
-finra_otc_bbds_dfi_v2018_1a.inside_bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_bid_size.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Inside Bid Price
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price = {}
-
--- Size: Inside Bid Price
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size = 12
-
--- Display: Inside Bid Price
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price.display = function(value)
-  return "Inside Bid Price: "..value
-end
-
--- Dissect: Inside Bid Price
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_bid_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Inside Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator = {}
-
--- Size: Inside Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size = 1
-
--- Display: Inside Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.display = function(value)
-  return "Inside Bid Price Denominator: "..value
-end
-
--- Dissect: Inside Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_bid_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Inside Quote Condition
-finra_otc_bbds_dfi_v2018_1a.inside_quote_condition = {}
-
--- Size: Inside Quote Condition
-finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size = 1
-
--- Display: Inside Quote Condition
-finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.display = function(value)
-  if value == "O" then
-    return "Inside Quote Condition: Open (O)"
-  end
-  if value == "C" then
-    return "Inside Quote Condition: Closed (C)"
-  end
-
-  return "Inside Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Inside Quote Condition
-finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_quote_condition, range, value, display)
-
-  return offset + length, value
 end
 
 -- Inside Appendage
@@ -1778,466 +2326,6 @@ finra_otc_bbds_dfi_v2018_1a.inside_appendage.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return finra_otc_bbds_dfi_v2018_1a.inside_appendage.fields(buffer, offset, packet, parent)
   end
-end
-
--- Inside Appendage Indicator
-finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator = {}
-
--- Size: Inside Appendage Indicator
-finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.size = 1
-
--- Display: Inside Appendage Indicator
-finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.display = function(value)
-  if value == "1" then
-    return "Inside Appendage Indicator: No Change To Inside Quote (1)"
-  end
-  if value == "2" then
-    return "Inside Appendage Indicator: No Inside Exists (2)"
-  end
-  if value == "3" then
-    return "Inside Appendage Indicator: Inside Quote Appendage Is Attached (3)"
-  end
-
-  return "Inside Appendage Indicator: Unknown("..value..")"
-end
-
--- Dissect: Inside Appendage Indicator
-finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.inside_appendage_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-finra_otc_bbds_dfi_v2018_1a.currency = {}
-
--- Size: Currency
-finra_otc_bbds_dfi_v2018_1a.currency.size = 3
-
--- Display: Currency
-finra_otc_bbds_dfi_v2018_1a.currency.display = function(value)
-  return "Currency: "..value
-end
-
--- Dissect: Currency
-finra_otc_bbds_dfi_v2018_1a.currency.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.currency.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Size
-finra_otc_bbds_dfi_v2018_1a.ask_size = {}
-
--- Size: Ask Size
-finra_otc_bbds_dfi_v2018_1a.ask_size.size = 7
-
--- Display: Ask Size
-finra_otc_bbds_dfi_v2018_1a.ask_size.display = function(value)
-  return "Ask Size: "..value
-end
-
--- Dissect: Ask Size
-finra_otc_bbds_dfi_v2018_1a.ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.ask_size.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price
-finra_otc_bbds_dfi_v2018_1a.ask_price = {}
-
--- Size: Ask Price
-finra_otc_bbds_dfi_v2018_1a.ask_price.size = 12
-
--- Display: Ask Price
-finra_otc_bbds_dfi_v2018_1a.ask_price.display = function(value)
-  return "Ask Price: "..value
-end
-
--- Dissect: Ask Price
-finra_otc_bbds_dfi_v2018_1a.ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.ask_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.ask_price_denominator = {}
-
--- Size: Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.size = 1
-
--- Display: Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.display = function(value)
-  return "Ask Price Denominator: "..value
-end
-
--- Dissect: Ask Price Denominator
-finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.ask_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.ask_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-finra_otc_bbds_dfi_v2018_1a.bid_size = {}
-
--- Size: Bid Size
-finra_otc_bbds_dfi_v2018_1a.bid_size.size = 7
-
--- Display: Bid Size
-finra_otc_bbds_dfi_v2018_1a.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-finra_otc_bbds_dfi_v2018_1a.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.bid_size.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-finra_otc_bbds_dfi_v2018_1a.bid_price = {}
-
--- Size: Bid Price
-finra_otc_bbds_dfi_v2018_1a.bid_price.size = 12
-
--- Display: Bid Price
-finra_otc_bbds_dfi_v2018_1a.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Dissect: Bid Price
-finra_otc_bbds_dfi_v2018_1a.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.bid_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = finra_otc_bbds_dfi_v2018_1a.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.bid_price_denominator = {}
-
--- Size: Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.size = 1
-
--- Display: Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.display = function(value)
-  return "Bid Price Denominator: "..value
-end
-
--- Dissect: Bid Price Denominator
-finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.bid_price_denominator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.bid_price_denominator, range, value, display)
-
-  return offset + length, value
-end
-
--- Unsolicited Indicator
-finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator = {}
-
--- Size: Unsolicited Indicator
-finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.size = 1
-
--- Display: Unsolicited Indicator
-finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.display = function(value)
-  if value == "A" then
-    return "Unsolicited Indicator: Unsolicited Ask (A)"
-  end
-  if value == "B" then
-    return "Unsolicited Indicator: Unsolicited Bid (B)"
-  end
-  if value == "U" then
-    return "Unsolicited Indicator: Unsolicited Bid And Ask (U)"
-  end
-  if value == " " then
-    return "Unsolicited Indicator: Not Applicable (<whitespace>)"
-  end
-
-  return "Unsolicited Indicator: Unknown("..value..")"
-end
-
--- Dissect: Unsolicited Indicator
-finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.unsolicited_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.unsolicited_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Wanted Indicator
-finra_otc_bbds_dfi_v2018_1a.wanted_indicator = {}
-
--- Size: Wanted Indicator
-finra_otc_bbds_dfi_v2018_1a.wanted_indicator.size = 1
-
--- Display: Wanted Indicator
-finra_otc_bbds_dfi_v2018_1a.wanted_indicator.display = function(value)
-  return "Wanted Indicator: "..value
-end
-
--- Dissect: Wanted Indicator
-finra_otc_bbds_dfi_v2018_1a.wanted_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.wanted_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.wanted_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.wanted_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Participant Quote Condition
-finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition = {}
-
--- Size: Market Participant Quote Condition
-finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.size = 1
-
--- Display: Market Participant Quote Condition
-finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.display = function(value)
-  if value == "O" then
-    return "Market Participant Quote Condition: Open (O)"
-  end
-  if value == "C" then
-    return "Market Participant Quote Condition: Closed (C)"
-  end
-  if value == "B" then
-    return "Market Participant Quote Condition: Bid (B)"
-  end
-  if value == "N" then
-    return "Market Participant Quote Condition: Not Applicable (N)"
-  end
-  if value == "O" then
-    return "Market Participant Quote Condition: Offer (O)"
-  end
-  if value == "W" then
-    return "Market Participant Quote Condition: Bid And Offer (W)"
-  end
-  if value == "I" then
-    return "Market Participant Quote Condition: Periodic Indicative Other Securities (I)"
-  end
-  if value == "K" then
-    return "Market Participant Quote Condition: Realtime Quotes (K)"
-  end
-  if value == "L" then
-    return "Market Participant Quote Condition: Periodic Indicative Quotes (L)"
-  end
-
-  return "Market Participant Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Market Participant Quote Condition
-finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Participant Status
-finra_otc_bbds_dfi_v2018_1a.market_participant_status = {}
-
--- Size: Market Participant Status
-finra_otc_bbds_dfi_v2018_1a.market_participant_status.size = 1
-
--- Display: Market Participant Status
-finra_otc_bbds_dfi_v2018_1a.market_participant_status.display = function(value)
-  if value == "A" then
-    return "Market Participant Status: Active (A)"
-  end
-  if value == "D" then
-    return "Market Participant Status: Deleted (D)"
-  end
-  if value == "E" then
-    return "Market Participant Status: Excused (E)"
-  end
-  if value == "W" then
-    return "Market Participant Status: Withdrawn (W)"
-  end
-  if value == "S" then
-    return "Market Participant Status: Suspended (S)"
-  end
-
-  return "Market Participant Status: Unknown("..value..")"
-end
-
--- Dissect: Market Participant Status
-finra_otc_bbds_dfi_v2018_1a.market_participant_status.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Participant Location Id
-finra_otc_bbds_dfi_v2018_1a.market_participant_location_id = {}
-
--- Size: Market Participant Location Id
-finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.size = 1
-
--- Display: Market Participant Location Id
-finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.display = function(value)
-  return "Market Participant Location Id: "..value
-end
-
--- Dissect: Market Participant Location Id
-finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_location_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_location_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Participant Identifier
-finra_otc_bbds_dfi_v2018_1a.market_participant_identifier = {}
-
--- Size: Market Participant Identifier
-finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.size = 1
-
--- Display: Market Participant Identifier
-finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.display = function(value)
-  return "Market Participant Identifier: "..value
-end
-
--- Dissect: Market Participant Identifier
-finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.market_participant_identifier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.market_participant_identifier, range, value, display)
-
-  return offset + length, value
-end
-
--- Otcbb Type
-finra_otc_bbds_dfi_v2018_1a.otcbb_type = {}
-
--- Size: Otcbb Type
-finra_otc_bbds_dfi_v2018_1a.otcbb_type.size = 1
-
--- Display: Otcbb Type
-finra_otc_bbds_dfi_v2018_1a.otcbb_type.display = function(value)
-  return "Otcbb Type: "..value
-end
-
--- Dissect: Otcbb Type
-finra_otc_bbds_dfi_v2018_1a.otcbb_type.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.otcbb_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.otcbb_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Otcbb Symbol
-finra_otc_bbds_dfi_v2018_1a.otcbb_symbol = {}
-
--- Size: Otcbb Symbol
-finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.size = 11
-
--- Display: Otcbb Symbol
-finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.display = function(value)
-  return "Otcbb Symbol: "..value
-end
-
--- Dissect: Otcbb Symbol
-finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.otcbb_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.otcbb_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Participant Quote Update Message
@@ -2394,33 +2482,6 @@ finra_otc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, offset,
   return offset
 end
 
--- Quotation Message Type
-finra_otc_bbds_dfi_v2018_1a.quotation_message_type = {}
-
--- Size: Quotation Message Type
-finra_otc_bbds_dfi_v2018_1a.quotation_message_type.size = 1
-
--- Display: Quotation Message Type
-finra_otc_bbds_dfi_v2018_1a.quotation_message_type.display = function(value)
-  if value == "1" then
-    return "Quotation Message Type: Market Participant Quote Update Message (1)"
-  end
-
-  return "Quotation Message Type: Unknown("..value..")"
-end
-
--- Dissect: Quotation Message Type
-finra_otc_bbds_dfi_v2018_1a.quotation_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.quotation_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.quotation_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.quotation_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quotation
 finra_otc_bbds_dfi_v2018_1a.quotation = {}
 
@@ -2495,39 +2556,6 @@ finra_otc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, p
   return offset
 end
 
--- Message Category
-finra_otc_bbds_dfi_v2018_1a.message_category = {}
-
--- Size: Message Category
-finra_otc_bbds_dfi_v2018_1a.message_category.size = 1
-
--- Display: Message Category
-finra_otc_bbds_dfi_v2018_1a.message_category.display = function(value)
-  if value == "Q" then
-    return "Message Category: Quotation (Q)"
-  end
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
-
-  return "Message Category: Unknown("..value..")"
-end
-
--- Dissect: Message Category
-finra_otc_bbds_dfi_v2018_1a.message_category.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.message_category.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = finra_otc_bbds_dfi_v2018_1a.message_category.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.message_category, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 finra_otc_bbds_dfi_v2018_1a.message = {}
 
@@ -2584,29 +2612,6 @@ finra_otc_bbds_dfi_v2018_1a.message.dissect = function(buffer, offset, packet, p
     -- Skip element, add fields directly
     return finra_otc_bbds_dfi_v2018_1a.message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Block Soh
-finra_otc_bbds_dfi_v2018_1a.block_soh = {}
-
--- Size: Block Soh
-finra_otc_bbds_dfi_v2018_1a.block_soh.size = 1
-
--- Display: Block Soh
-finra_otc_bbds_dfi_v2018_1a.block_soh.display = function(value)
-  return "Block Soh: "..value
-end
-
--- Dissect: Block Soh
-finra_otc_bbds_dfi_v2018_1a.block_soh.dissect = function(buffer, offset, packet, parent)
-  local length = finra_otc_bbds_dfi_v2018_1a.block_soh.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = finra_otc_bbds_dfi_v2018_1a.block_soh.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_otc_bbds_dfi_v2018_1a.fields.block_soh, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet

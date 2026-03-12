@@ -229,8 +229,1060 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nyse Equities Bbo Pillar 2.5.b
+-- Nyse Equities Bbo Pillar 2.5.b Fields
 -----------------------------------------------------------------------
+
+-- Ask Price
+nyse_equities_bbo_pillar_v2_5_b.ask_price = {}
+
+-- Size: Ask Price
+nyse_equities_bbo_pillar_v2_5_b.ask_price.size = 4
+
+-- Display: Ask Price
+nyse_equities_bbo_pillar_v2_5_b.ask_price.display = function(value)
+  return "Ask Price: "..value
+end
+
+-- Dissect: Ask Price
+nyse_equities_bbo_pillar_v2_5_b.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.ask_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Volume
+nyse_equities_bbo_pillar_v2_5_b.ask_volume = {}
+
+-- Size: Ask Volume
+nyse_equities_bbo_pillar_v2_5_b.ask_volume.size = 4
+
+-- Display: Ask Volume
+nyse_equities_bbo_pillar_v2_5_b.ask_volume.display = function(value)
+  return "Ask Volume: "..value
+end
+
+-- Dissect: Ask Volume
+nyse_equities_bbo_pillar_v2_5_b.ask_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.ask_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.ask_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ask_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Seq Num
+nyse_equities_bbo_pillar_v2_5_b.begin_seq_num = {}
+
+-- Size: Begin Seq Num
+nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size = 4
+
+-- Display: Begin Seq Num
+nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.display = function(value)
+  return "Begin Seq Num: "..value
+end
+
+-- Dissect: Begin Seq Num
+nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+nyse_equities_bbo_pillar_v2_5_b.bid_price = {}
+
+-- Size: Bid Price
+nyse_equities_bbo_pillar_v2_5_b.bid_price.size = 4
+
+-- Display: Bid Price
+nyse_equities_bbo_pillar_v2_5_b.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Dissect: Bid Price
+nyse_equities_bbo_pillar_v2_5_b.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.bid_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Volume
+nyse_equities_bbo_pillar_v2_5_b.bid_volume = {}
+
+-- Size: Bid Volume
+nyse_equities_bbo_pillar_v2_5_b.bid_volume.size = 4
+
+-- Display: Bid Volume
+nyse_equities_bbo_pillar_v2_5_b.bid_volume.display = function(value)
+  return "Bid Volume: "..value
+end
+
+-- Dissect: Bid Volume
+nyse_equities_bbo_pillar_v2_5_b.bid_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.bid_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.bid_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.bid_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+nyse_equities_bbo_pillar_v2_5_b.channel_id = {}
+
+-- Size: Channel Id
+nyse_equities_bbo_pillar_v2_5_b.channel_id.size = 1
+
+-- Display: Channel Id
+nyse_equities_bbo_pillar_v2_5_b.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+nyse_equities_bbo_pillar_v2_5_b.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Refresh Pkt
+nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt = {}
+
+-- Size: Current Refresh Pkt
+nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size = 2
+
+-- Display: Current Refresh Pkt
+nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.display = function(value)
+  return "Current Refresh Pkt: "..value
+end
+
+-- Dissect: Current Refresh Pkt
+nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.current_refresh_pkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Flag
+nyse_equities_bbo_pillar_v2_5_b.delivery_flag = {}
+
+-- Size: Delivery Flag
+nyse_equities_bbo_pillar_v2_5_b.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+nyse_equities_bbo_pillar_v2_5_b.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: Heartbeat (1)"
+  end
+  if value == 10 then
+    return "Delivery Flag: Pillar Failover (10)"
+  end
+  if value == 11 then
+    return "Delivery Flag: Original Message (11)"
+  end
+  if value == 12 then
+    return "Delivery Flag: Sequence Number Reset Message (12)"
+  end
+  if value == 13 then
+    return "Delivery Flag: One Retransmission Packet (13)"
+  end
+  if value == 15 then
+    return "Delivery Flag: Retransmission Sequence Message (15)"
+  end
+  if value == 17 then
+    return "Delivery Flag: One Refresh Packet (17)"
+  end
+  if value == 18 then
+    return "Delivery Flag: Refresh Sequence Start (18)"
+  end
+  if value == 19 then
+    return "Delivery Flag: Refresh Sequence Message (19)"
+  end
+  if value == 20 then
+    return "Delivery Flag: Refresh Sequence End (20)"
+  end
+  if value == 21 then
+    return "Delivery Flag: Message Unavailable (21)"
+  end
+
+  return "Delivery Flag: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Flag
+nyse_equities_bbo_pillar_v2_5_b.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.delivery_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.delivery_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.delivery_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq Num
+nyse_equities_bbo_pillar_v2_5_b.end_seq_num = {}
+
+-- Size: End Seq Num
+nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size = 4
+
+-- Display: End Seq Num
+nyse_equities_bbo_pillar_v2_5_b.end_seq_num.display = function(value)
+  return "End Seq Num: "..value
+end
+
+-- Dissect: End Seq Num
+nyse_equities_bbo_pillar_v2_5_b.end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Code
+nyse_equities_bbo_pillar_v2_5_b.exchange_code = {}
+
+-- Size: Exchange Code
+nyse_equities_bbo_pillar_v2_5_b.exchange_code.size = 1
+
+-- Display: Exchange Code
+nyse_equities_bbo_pillar_v2_5_b.exchange_code.display = function(value)
+  if value == "A" then
+    return "Exchange Code: Nyse American (A)"
+  end
+  if value == "C" then
+    return "Exchange Code: Nyse National (C)"
+  end
+  if value == "N" then
+    return "Exchange Code: Nyse (N)"
+  end
+  if value == "P" then
+    return "Exchange Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Exchange Code: Nasdaq (Q)"
+  end
+  if value == "V" then
+    return "Exchange Code: Iex (V)"
+  end
+  if value == "Z" then
+    return "Exchange Code: Bats (Z)"
+  end
+  if value == "B" then
+    return "Exchange Code: Global Otc (B)"
+  end
+  if value == "U" then
+    return "Exchange Code: Otcbb (U)"
+  end
+  if value == "V" then
+    return "Exchange Code: Other Otc (V)"
+  end
+
+  return "Exchange Code: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Code
+nyse_equities_bbo_pillar_v2_5_b.exchange_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.exchange_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.exchange_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.exchange_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Halt Condition
+nyse_equities_bbo_pillar_v2_5_b.halt_condition = {}
+
+-- Size: Halt Condition
+nyse_equities_bbo_pillar_v2_5_b.halt_condition.size = 1
+
+-- Display: Halt Condition
+nyse_equities_bbo_pillar_v2_5_b.halt_condition.display = function(value)
+  if value == "~" then
+    return "Halt Condition: Security Not Delayedhalted (~)"
+  end
+  if value == " " then
+    return "Halt Condition: Not Delayedhalted Nyse Tape A Only (<whitespace>)"
+  end
+  if value == "D" then
+    return "Halt Condition: News Dissemination (D)"
+  end
+  if value == "I" then
+    return "Halt Condition: Order Imbalance (I)"
+  end
+  if value == "P" then
+    return "Halt Condition: News Pending (P)"
+  end
+  if value == "M" then
+    return "Halt Condition: Luld Pause (M)"
+  end
+  if value == "S" then
+    return "Halt Condition: Related Security Not Used (S)"
+  end
+  if value == "X" then
+    return "Halt Condition: Equipment Changeover (X)"
+  end
+  if value == "Z" then
+    return "Halt Condition: No Open No Resume (Z)"
+  end
+  if value == "1" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
+  end
+  if value == "2" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
+  end
+  if value == "3" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
+  end
+
+  return "Halt Condition: Unknown("..value..")"
+end
+
+-- Dissect: Halt Condition
+nyse_equities_bbo_pillar_v2_5_b.halt_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.halt_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.halt_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.halt_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Id
+nyse_equities_bbo_pillar_v2_5_b.id = {}
+
+-- Size: Id
+nyse_equities_bbo_pillar_v2_5_b.id.size = 4
+
+-- Display: Id
+nyse_equities_bbo_pillar_v2_5_b.id.display = function(value)
+  return "Id: "..value
+end
+
+-- Dissect: Id
+nyse_equities_bbo_pillar_v2_5_b.id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_seq_num = {}
+
+-- Size: Last Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num = {}
+
+-- Size: Last Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size = 4
+
+-- Display: Last Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.display = function(value)
+  return "Last Symbol Seq Num: "..value
+end
+
+-- Dissect: Last Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.last_symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+nyse_equities_bbo_pillar_v2_5_b.lot_size = {}
+
+-- Size: Lot Size
+nyse_equities_bbo_pillar_v2_5_b.lot_size.size = 2
+
+-- Display: Lot Size
+nyse_equities_bbo_pillar_v2_5_b.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+nyse_equities_bbo_pillar_v2_5_b.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id
+nyse_equities_bbo_pillar_v2_5_b.market_id = {}
+
+-- Size: Market Id
+nyse_equities_bbo_pillar_v2_5_b.market_id.size = 2
+
+-- Display: Market Id
+nyse_equities_bbo_pillar_v2_5_b.market_id.display = function(value)
+  if value == 1 then
+    return "Market Id: Nyse Equities (1)"
+  end
+  if value == 3 then
+    return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 6 then
+    return "Market Id: Global Otc (6)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse Amex Options (8)"
+  end
+  if value == 9 then
+    return "Market Id: Nyse American Equities (9)"
+  end
+  if value == 10 then
+    return "Market Id: Nyse National Equities (10)"
+  end
+
+  return "Market Id: Unknown("..value..")"
+end
+
+-- Dissect: Market Id
+nyse_equities_bbo_pillar_v2_5_b.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.market_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market State
+nyse_equities_bbo_pillar_v2_5_b.market_state = {}
+
+-- Size: Market State
+nyse_equities_bbo_pillar_v2_5_b.market_state.size = 1
+
+-- Display: Market State
+nyse_equities_bbo_pillar_v2_5_b.market_state.display = function(value)
+  return "Market State: "..value
+end
+
+-- Dissect: Market State
+nyse_equities_bbo_pillar_v2_5_b.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.market_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.market_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.market_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+nyse_equities_bbo_pillar_v2_5_b.message_size = {}
+
+-- Size: Message Size
+nyse_equities_bbo_pillar_v2_5_b.message_size.size = 2
+
+-- Display: Message Size
+nyse_equities_bbo_pillar_v2_5_b.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+nyse_equities_bbo_pillar_v2_5_b.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_equities_bbo_pillar_v2_5_b.message_type = {}
+
+-- Size: Message Type
+nyse_equities_bbo_pillar_v2_5_b.message_type.size = 2
+
+-- Display: Message Type
+nyse_equities_bbo_pillar_v2_5_b.message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Source Time Reference Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Symbol Index Mapping Message (3)"
+  end
+  if value == 10 then
+    return "Message Type: Retransmission Request Message (10)"
+  end
+  if value == 11 then
+    return "Message Type: Request Response Message (11)"
+  end
+  if value == 12 then
+    return "Message Type: Heartbeat Response Message (12)"
+  end
+  if value == 13 then
+    return "Message Type: Symbol Index Mapping Request Message (13)"
+  end
+  if value == 15 then
+    return "Message Type: Refresh Request Message (15)"
+  end
+  if value == 31 then
+    return "Message Type: Message Unavailable Message (31)"
+  end
+  if value == 32 then
+    return "Message Type: Symbol Clear Message (32)"
+  end
+  if value == 34 then
+    return "Message Type: Security Status Message (34)"
+  end
+  if value == 35 then
+    return "Message Type: Refresh Header Message (35)"
+  end
+  if value == 140 then
+    return "Message Type: Quote Message (140)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_equities_bbo_pillar_v2_5_b.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nyse_equities_bbo_pillar_v2_5_b.mpv = {}
+
+-- Size: Mpv
+nyse_equities_bbo_pillar_v2_5_b.mpv.size = 2
+
+-- Display: Mpv
+nyse_equities_bbo_pillar_v2_5_b.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Dissect: Mpv
+nyse_equities_bbo_pillar_v2_5_b.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.mpv.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_equities_bbo_pillar_v2_5_b.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_equities_bbo_pillar_v2_5_b.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_equities_bbo_pillar_v2_5_b.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_equities_bbo_pillar_v2_5_b.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Source Seq Num
+nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num = {}
+
+-- Size: Next Source Seq Num
+nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.size = 4
+
+-- Display: Next Source Seq Num
+nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.display = function(value)
+  return "Next Source Seq Num: "..value
+end
+
+-- Dissect: Next Source Seq Num
+nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.next_source_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Msgs
+nyse_equities_bbo_pillar_v2_5_b.number_msgs = {}
+
+-- Size: Number Msgs
+nyse_equities_bbo_pillar_v2_5_b.number_msgs.size = 1
+
+-- Display: Number Msgs
+nyse_equities_bbo_pillar_v2_5_b.number_msgs.display = function(value)
+  return "Number Msgs: "..value
+end
+
+-- Dissect: Number Msgs
+nyse_equities_bbo_pillar_v2_5_b.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.number_msgs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.number_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.number_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pkt Size
+nyse_equities_bbo_pillar_v2_5_b.pkt_size = {}
+
+-- Size: Pkt Size
+nyse_equities_bbo_pillar_v2_5_b.pkt_size.size = 2
+
+-- Display: Pkt Size
+nyse_equities_bbo_pillar_v2_5_b.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+nyse_equities_bbo_pillar_v2_5_b.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Price
+nyse_equities_bbo_pillar_v2_5_b.prev_close_price = {}
+
+-- Size: Prev Close Price
+nyse_equities_bbo_pillar_v2_5_b.prev_close_price.size = 4
+
+-- Display: Prev Close Price
+nyse_equities_bbo_pillar_v2_5_b.prev_close_price.display = function(value)
+  return "Prev Close Price: "..value
+end
+
+-- Dissect: Prev Close Price
+nyse_equities_bbo_pillar_v2_5_b.prev_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.prev_close_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.prev_close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.prev_close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Volume
+nyse_equities_bbo_pillar_v2_5_b.prev_close_volume = {}
+
+-- Size: Prev Close Volume
+nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.size = 4
+
+-- Display: Prev Close Volume
+nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.display = function(value)
+  return "Prev Close Volume: "..value
+end
+
+-- Dissect: Prev Close Volume
+nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.prev_close_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 1
+nyse_equities_bbo_pillar_v2_5_b.price_1 = {}
+
+-- Size: Price 1
+nyse_equities_bbo_pillar_v2_5_b.price_1.size = 4
+
+-- Display: Price 1
+nyse_equities_bbo_pillar_v2_5_b.price_1.display = function(value)
+  return "Price 1: "..value
+end
+
+-- Dissect: Price 1
+nyse_equities_bbo_pillar_v2_5_b.price_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.price_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.price_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 2
+nyse_equities_bbo_pillar_v2_5_b.price_2 = {}
+
+-- Size: Price 2
+nyse_equities_bbo_pillar_v2_5_b.price_2.size = 4
+
+-- Display: Price 2
+nyse_equities_bbo_pillar_v2_5_b.price_2.display = function(value)
+  return "Price 2: "..value
+end
+
+-- Dissect: Price 2
+nyse_equities_bbo_pillar_v2_5_b.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.price_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Resolution
+nyse_equities_bbo_pillar_v2_5_b.price_resolution = {}
+
+-- Size: Price Resolution
+nyse_equities_bbo_pillar_v2_5_b.price_resolution.size = 1
+
+-- Display: Price Resolution
+nyse_equities_bbo_pillar_v2_5_b.price_resolution.display = function(value)
+  return "Price Resolution: "..value
+end
+
+-- Dissect: Price Resolution
+nyse_equities_bbo_pillar_v2_5_b.price_resolution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.price_resolution.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.price_resolution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_resolution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale Code
+nyse_equities_bbo_pillar_v2_5_b.price_scale_code = {}
+
+-- Size: Price Scale Code
+nyse_equities_bbo_pillar_v2_5_b.price_scale_code.size = 1
+
+-- Display: Price Scale Code
+nyse_equities_bbo_pillar_v2_5_b.price_scale_code.display = function(value)
+  return "Price Scale Code: "..value
+end
+
+-- Dissect: Price Scale Code
+nyse_equities_bbo_pillar_v2_5_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.price_scale_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.price_scale_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_equities_bbo_pillar_v2_5_b.product_id = {}
+
+-- Size: Product Id
+nyse_equities_bbo_pillar_v2_5_b.product_id.size = 1
+
+-- Display: Product Id
+nyse_equities_bbo_pillar_v2_5_b.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nyse_equities_bbo_pillar_v2_5_b.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+nyse_equities_bbo_pillar_v2_5_b.quote_condition = {}
+
+-- Size: Quote Condition
+nyse_equities_bbo_pillar_v2_5_b.quote_condition.size = 1
+
+-- Display: Quote Condition
+nyse_equities_bbo_pillar_v2_5_b.quote_condition.display = function(value)
+  if value == "O" then
+    return "Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Quote Condition: Regular Quote (R)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nyse_equities_bbo_pillar_v2_5_b.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Seq Num
+nyse_equities_bbo_pillar_v2_5_b.request_seq_num = {}
+
+-- Size: Request Seq Num
+nyse_equities_bbo_pillar_v2_5_b.request_seq_num.size = 4
+
+-- Display: Request Seq Num
+nyse_equities_bbo_pillar_v2_5_b.request_seq_num.display = function(value)
+  return "Request Seq Num: "..value
+end
+
+-- Dissect: Request Seq Num
+nyse_equities_bbo_pillar_v2_5_b.request_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.request_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.request_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.request_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+nyse_equities_bbo_pillar_v2_5_b.reserved_1 = {}
+
+-- Size: Reserved 1
+nyse_equities_bbo_pillar_v2_5_b.reserved_1.size = 1
+
+-- Display: Reserved 1
+nyse_equities_bbo_pillar_v2_5_b.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nyse_equities_bbo_pillar_v2_5_b.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_equities_bbo_pillar_v2_5_b.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+nyse_equities_bbo_pillar_v2_5_b.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_equities_bbo_pillar_v2_5_b.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_equities_bbo_pillar_v2_5_b.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_equities_bbo_pillar_v2_5_b.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_equities_bbo_pillar_v2_5_b.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+nyse_equities_bbo_pillar_v2_5_b.reserved_4 = {}
+
+-- Size: Reserved 4
+nyse_equities_bbo_pillar_v2_5_b.reserved_4.size = 4
+
+-- Display: Reserved 4
+nyse_equities_bbo_pillar_v2_5_b.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+nyse_equities_bbo_pillar_v2_5_b.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_equities_bbo_pillar_v2_5_b.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmit Method
+nyse_equities_bbo_pillar_v2_5_b.retransmit_method = {}
+
+-- Size: Retransmit Method
+nyse_equities_bbo_pillar_v2_5_b.retransmit_method.size = 1
+
+-- Display: Retransmit Method
+nyse_equities_bbo_pillar_v2_5_b.retransmit_method.display = function(value)
+  if value == 0 then
+    return "Retransmit Method: Udp (0)"
+  end
+
+  return "Retransmit Method: Unknown("..value..")"
+end
+
+-- Dissect: Retransmit Method
+nyse_equities_bbo_pillar_v2_5_b.retransmit_method.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.retransmit_method.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.retransmit_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.retransmit_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot
+nyse_equities_bbo_pillar_v2_5_b.round_lot = {}
+
+-- Size: Round Lot
+nyse_equities_bbo_pillar_v2_5_b.round_lot.size = 1
+
+-- Display: Round Lot
+nyse_equities_bbo_pillar_v2_5_b.round_lot.display = function(value)
+  return "Round Lot: "..value
+end
+
+-- Dissect: Round Lot
+nyse_equities_bbo_pillar_v2_5_b.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.round_lot.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.round_lot.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
 
 -- Rpi Indicator
 nyse_equities_bbo_pillar_v2_5_b.rpi_indicator = {}
@@ -268,170 +1320,261 @@ nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Quote Condition
-nyse_equities_bbo_pillar_v2_5_b.quote_condition = {}
+-- Seconds
+nyse_equities_bbo_pillar_v2_5_b.seconds = {}
 
--- Size: Quote Condition
-nyse_equities_bbo_pillar_v2_5_b.quote_condition.size = 1
+-- Size: Seconds
+nyse_equities_bbo_pillar_v2_5_b.seconds.size = 4
 
--- Display: Quote Condition
-nyse_equities_bbo_pillar_v2_5_b.quote_condition.display = function(value)
+-- Display: Seconds
+nyse_equities_bbo_pillar_v2_5_b.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nyse_equities_bbo_pillar_v2_5_b.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+nyse_equities_bbo_pillar_v2_5_b.security_status = {}
+
+-- Size: Security Status
+nyse_equities_bbo_pillar_v2_5_b.security_status.size = 1
+
+-- Display: Security Status
+nyse_equities_bbo_pillar_v2_5_b.security_status.display = function(value)
+  if value == "3" then
+    return "Security Status: Opening Delay (3)"
+  end
+  if value == "4" then
+    return "Security Status: Trading Halt (4)"
+  end
+  if value == "5" then
+    return "Security Status: Resume (5)"
+  end
+  if value == "6" then
+    return "Security Status: No Openno Resume (6)"
+  end
+  if value == "A" then
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
+  end
+  if value == "C" then
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
+  end
+  if value == "D" then
+    return "Security Status: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "P" then
+    return "Security Status: Preopening (P)"
+  end
+  if value == "E" then
+    return "Security Status: Early Session (E)"
+  end
   if value == "O" then
-    return "Quote Condition: Opening Quote (O)"
+    return "Security Status: Core Session (O)"
+  end
+  if value == "L" then
+    return "Security Status: Late Session Non Nyse Only (L)"
+  end
+  if value == "X" then
+    return "Security Status: Closed (X)"
+  end
+  if value == "T" then
+    return "Security Status: Time (T)"
+  end
+  if value == "I" then
+    return "Security Status: Price Indication (I)"
+  end
+  if value == "G" then
+    return "Security Status: Pre Opening Price Indication (G)"
   end
   if value == "R" then
-    return "Quote Condition: Regular Quote (R)"
+    return "Security Status: Rule 15 Indication (R)"
   end
 
-  return "Quote Condition: Unknown("..value..")"
+  return "Security Status: Unknown("..value..")"
 end
 
--- Dissect: Quote Condition
-nyse_equities_bbo_pillar_v2_5_b.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.quote_condition.size
+-- Dissect: Security Status
+nyse_equities_bbo_pillar_v2_5_b.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.security_status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.quote_condition.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.security_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Volume
-nyse_equities_bbo_pillar_v2_5_b.bid_volume = {}
-
--- Size: Bid Volume
-nyse_equities_bbo_pillar_v2_5_b.bid_volume.size = 4
-
--- Display: Bid Volume
-nyse_equities_bbo_pillar_v2_5_b.bid_volume.display = function(value)
-  return "Bid Volume: "..value
-end
-
--- Dissect: Bid Volume
-nyse_equities_bbo_pillar_v2_5_b.bid_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.bid_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.bid_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.bid_volume, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.security_status, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price
-nyse_equities_bbo_pillar_v2_5_b.bid_price = {}
+-- Security Type
+nyse_equities_bbo_pillar_v2_5_b.security_type = {}
 
--- Size: Bid Price
-nyse_equities_bbo_pillar_v2_5_b.bid_price.size = 4
+-- Size: Security Type
+nyse_equities_bbo_pillar_v2_5_b.security_type.size = 1
 
--- Display: Bid Price
-nyse_equities_bbo_pillar_v2_5_b.bid_price.display = function(value)
-  return "Bid Price: "..value
+-- Display: Security Type
+nyse_equities_bbo_pillar_v2_5_b.security_type.display = function(value)
+  if value == "A" then
+    return "Security Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Security Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Security Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Security Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Security Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Security Type: Us Depositary Shares (H)"
+  end
+  if value == "I" then
+    return "Security Type: Units (I)"
+  end
+  if value == "L" then
+    return "Security Type: Index Linked Notes (L)"
+  end
+  if value == "M" then
+    return "Security Type: Miscliquid Trust (M)"
+  end
+  if value == "O" then
+    return "Security Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Security Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Security Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Security Type: Shares Of Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Security Type: Test (T)"
+  end
+  if value == "U" then
+    return "Security Type: Units (U)"
+  end
+  if value == "W" then
+    return "Security Type: Warrant (W)"
+  end
+
+  return "Security Type: Unknown("..value..")"
 end
 
--- Dissect: Bid Price
-nyse_equities_bbo_pillar_v2_5_b.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.bid_price.size
+-- Dissect: Security Type
+nyse_equities_bbo_pillar_v2_5_b.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.bid_price.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.security_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.bid_price, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.security_type, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Volume
-nyse_equities_bbo_pillar_v2_5_b.ask_volume = {}
+-- Seq Num
+nyse_equities_bbo_pillar_v2_5_b.seq_num = {}
 
--- Size: Ask Volume
-nyse_equities_bbo_pillar_v2_5_b.ask_volume.size = 4
+-- Size: Seq Num
+nyse_equities_bbo_pillar_v2_5_b.seq_num.size = 4
 
--- Display: Ask Volume
-nyse_equities_bbo_pillar_v2_5_b.ask_volume.display = function(value)
-  return "Ask Volume: "..value
+-- Display: Seq Num
+nyse_equities_bbo_pillar_v2_5_b.seq_num.display = function(value)
+  return "Seq Num: "..value
 end
 
--- Dissect: Ask Volume
-nyse_equities_bbo_pillar_v2_5_b.ask_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.ask_volume.size
+-- Dissect: Seq Num
+nyse_equities_bbo_pillar_v2_5_b.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.seq_num.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.ask_volume.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.seq_num.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ask_volume, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price
-nyse_equities_bbo_pillar_v2_5_b.ask_price = {}
+-- Session State
+nyse_equities_bbo_pillar_v2_5_b.session_state = {}
 
--- Size: Ask Price
-nyse_equities_bbo_pillar_v2_5_b.ask_price.size = 4
+-- Size: Session State
+nyse_equities_bbo_pillar_v2_5_b.session_state.size = 1
 
--- Display: Ask Price
-nyse_equities_bbo_pillar_v2_5_b.ask_price.display = function(value)
-  return "Ask Price: "..value
+-- Display: Session State
+nyse_equities_bbo_pillar_v2_5_b.session_state.display = function(value)
+  return "Session State: "..value
 end
 
--- Dissect: Ask Price
-nyse_equities_bbo_pillar_v2_5_b.ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.ask_price.size
+-- Dissect: Session State
+nyse_equities_bbo_pillar_v2_5_b.session_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.session_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.ask_price.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.session_state.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ask_price, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.session_state, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num = {}
+-- Source Id
+nyse_equities_bbo_pillar_v2_5_b.source_id = {}
 
--- Size: Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size = 4
+-- Size: Source Id
+nyse_equities_bbo_pillar_v2_5_b.source_id.size = 10
 
--- Display: Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.display = function(value)
-  return "Symbol Seq Num: "..value
+-- Display: Source Id
+nyse_equities_bbo_pillar_v2_5_b.source_id.display = function(value)
+  return "Source Id: "..value
 end
 
--- Dissect: Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size
+-- Dissect: Source Id
+nyse_equities_bbo_pillar_v2_5_b.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.source_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nyse_equities_bbo_pillar_v2_5_b.source_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.symbol_seq_num, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.source_id, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Index
-nyse_equities_bbo_pillar_v2_5_b.symbol_index = {}
+-- Source Time
+nyse_equities_bbo_pillar_v2_5_b.source_time = {}
 
--- Size: Symbol Index
-nyse_equities_bbo_pillar_v2_5_b.symbol_index.size = 4
+-- Size: Source Time
+nyse_equities_bbo_pillar_v2_5_b.source_time.size = 4
 
--- Display: Symbol Index
-nyse_equities_bbo_pillar_v2_5_b.symbol_index.display = function(value)
-  return "Symbol Index: "..value
+-- Display: Source Time
+nyse_equities_bbo_pillar_v2_5_b.source_time.display = function(value)
+  return "Source Time: "..value
 end
 
--- Dissect: Symbol Index
-nyse_equities_bbo_pillar_v2_5_b.symbol_index.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
+-- Dissect: Source Time
+nyse_equities_bbo_pillar_v2_5_b.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.symbol_index.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.source_time, range, value, display)
 
   return offset + length, value
 end
@@ -459,268 +1602,6 @@ nyse_equities_bbo_pillar_v2_5_b.source_time_ns.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Quote Message
-nyse_equities_bbo_pillar_v2_5_b.quote_message = {}
-
--- Size: Quote Message
-nyse_equities_bbo_pillar_v2_5_b.quote_message.size =
-  nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size + 
-  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
-  nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size + 
-  nyse_equities_bbo_pillar_v2_5_b.ask_price.size + 
-  nyse_equities_bbo_pillar_v2_5_b.ask_volume.size + 
-  nyse_equities_bbo_pillar_v2_5_b.bid_price.size + 
-  nyse_equities_bbo_pillar_v2_5_b.bid_volume.size + 
-  nyse_equities_bbo_pillar_v2_5_b.quote_condition.size + 
-  nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.size
-
--- Display: Quote Message
-nyse_equities_bbo_pillar_v2_5_b.quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Message
-nyse_equities_bbo_pillar_v2_5_b.quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = nyse_equities_bbo_pillar_v2_5_b.source_time_ns.dissect(buffer, index, packet, parent)
-
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = nyse_equities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
-
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
-  index, ask_price = nyse_equities_bbo_pillar_v2_5_b.ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
-  index, ask_volume = nyse_equities_bbo_pillar_v2_5_b.ask_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
-  index, bid_price = nyse_equities_bbo_pillar_v2_5_b.bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
-  index, bid_volume = nyse_equities_bbo_pillar_v2_5_b.bid_volume.dissect(buffer, index, packet, parent)
-
-  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
-  index, quote_condition = nyse_equities_bbo_pillar_v2_5_b.quote_condition.dissect(buffer, index, packet, parent)
-
-  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
-  index, rpi_indicator = nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Message
-nyse_equities_bbo_pillar_v2_5_b.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.quote_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b.quote_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_equities_bbo_pillar_v2_5_b.quote_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b.quote_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Last Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num = {}
-
--- Size: Last Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size = 4
-
--- Display: Last Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.display = function(value)
-  return "Last Symbol Seq Num: "..value
-end
-
--- Dissect: Last Symbol Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.last_symbol_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_seq_num = {}
-
--- Size: Last Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size = 4
-
--- Display: Last Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
-end
-
--- Dissect: Last Seq Num
-nyse_equities_bbo_pillar_v2_5_b.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.last_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.last_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Total Refresh Pkts
-nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts = {}
-
--- Size: Total Refresh Pkts
-nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size = 2
-
--- Display: Total Refresh Pkts
-nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.display = function(value)
-  return "Total Refresh Pkts: "..value
-end
-
--- Dissect: Total Refresh Pkts
-nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.total_refresh_pkts, range, value, display)
-
-  return offset + length, value
-end
-
--- Current Refresh Pkt
-nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt = {}
-
--- Size: Current Refresh Pkt
-nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size = 2
-
--- Display: Current Refresh Pkt
-nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.display = function(value)
-  return "Current Refresh Pkt: "..value
-end
-
--- Dissect: Current Refresh Pkt
-nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.current_refresh_pkt, range, value, display)
-
-  return offset + length, value
-end
-
--- Refresh Header Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_header_message = {}
-
--- Size: Refresh Header Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.size =
-  nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size + 
-  nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size + 
-  nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size + 
-  nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size
-
--- Display: Refresh Header Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Refresh Header Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
-  index, current_refresh_pkt = nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.dissect(buffer, index, packet, parent)
-
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
-  index, total_refresh_pkts = nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.dissect(buffer, index, packet, parent)
-
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, last_seq_num = nyse_equities_bbo_pillar_v2_5_b.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, last_symbol_seq_num = nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Refresh Header Message
-nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.refresh_header_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.refresh_header_message, buffer(offset, 0))
-    local index = nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Session State
-nyse_equities_bbo_pillar_v2_5_b.session_state = {}
-
--- Size: Session State
-nyse_equities_bbo_pillar_v2_5_b.session_state.size = 1
-
--- Display: Session State
-nyse_equities_bbo_pillar_v2_5_b.session_state.display = function(value)
-  return "Session State: "..value
-end
-
--- Dissect: Session State
-nyse_equities_bbo_pillar_v2_5_b.session_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.session_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.session_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.session_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Market State
-nyse_equities_bbo_pillar_v2_5_b.market_state = {}
-
--- Size: Market State
-nyse_equities_bbo_pillar_v2_5_b.market_state.size = 1
-
--- Display: Market State
-nyse_equities_bbo_pillar_v2_5_b.market_state.display = function(value)
-  return "Market State: "..value
-end
-
--- Dissect: Market State
-nyse_equities_bbo_pillar_v2_5_b.market_state.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.market_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.market_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.market_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ssr State
 nyse_equities_bbo_pillar_v2_5_b.ssr_state = {}
 
@@ -740,52 +1621,6 @@ nyse_equities_bbo_pillar_v2_5_b.ssr_state.dissect = function(buffer, offset, pac
   local display = nyse_equities_bbo_pillar_v2_5_b.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ssr_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Time
-nyse_equities_bbo_pillar_v2_5_b.time = {}
-
--- Size: Time
-nyse_equities_bbo_pillar_v2_5_b.time.size = 4
-
--- Display: Time
-nyse_equities_bbo_pillar_v2_5_b.time.display = function(value)
-  return "Time: "..value
-end
-
--- Dissect: Time
-nyse_equities_bbo_pillar_v2_5_b.time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Ssr Triggering Volume
-nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume = {}
-
--- Size: Ssr Triggering Volume
-nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.size = 4
-
--- Display: Ssr Triggering Volume
-nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.display = function(value)
-  return "Ssr Triggering Volume: "..value
-end
-
--- Dissect: Ssr Triggering Volume
-nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
@@ -868,228 +1703,340 @@ nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_exchange_id.dissect = function(bu
   return offset + length, value
 end
 
--- Price 2
-nyse_equities_bbo_pillar_v2_5_b.price_2 = {}
+-- Ssr Triggering Volume
+nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume = {}
 
--- Size: Price 2
-nyse_equities_bbo_pillar_v2_5_b.price_2.size = 4
+-- Size: Ssr Triggering Volume
+nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.size = 4
 
--- Display: Price 2
-nyse_equities_bbo_pillar_v2_5_b.price_2.display = function(value)
-  return "Price 2: "..value
+-- Display: Ssr Triggering Volume
+nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.display = function(value)
+  return "Ssr Triggering Volume: "..value
 end
 
--- Dissect: Price 2
-nyse_equities_bbo_pillar_v2_5_b.price_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.price_2.size
+-- Dissect: Ssr Triggering Volume
+nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.price_2.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 1
-nyse_equities_bbo_pillar_v2_5_b.price_1 = {}
-
--- Size: Price 1
-nyse_equities_bbo_pillar_v2_5_b.price_1.size = 4
-
--- Display: Price 1
-nyse_equities_bbo_pillar_v2_5_b.price_1.display = function(value)
-  return "Price 1: "..value
-end
-
--- Dissect: Price 1
-nyse_equities_bbo_pillar_v2_5_b.price_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.price_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.price_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_1, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.ssr_triggering_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved 4
-nyse_equities_bbo_pillar_v2_5_b.reserved_4 = {}
+-- Status
+nyse_equities_bbo_pillar_v2_5_b.status = {}
 
--- Size: Reserved 4
-nyse_equities_bbo_pillar_v2_5_b.reserved_4.size = 4
+-- Size: Status
+nyse_equities_bbo_pillar_v2_5_b.status.size = 1
 
--- Display: Reserved 4
-nyse_equities_bbo_pillar_v2_5_b.reserved_4.display = function(value)
-  return "Reserved 4: "..value
+-- Display: Status
+nyse_equities_bbo_pillar_v2_5_b.status.display = function(value)
+  return "Status: "..value
 end
 
--- Dissect: Reserved 4
-nyse_equities_bbo_pillar_v2_5_b.reserved_4.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.reserved_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_bbo_pillar_v2_5_b.reserved_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.reserved_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Halt Condition
-nyse_equities_bbo_pillar_v2_5_b.halt_condition = {}
-
--- Size: Halt Condition
-nyse_equities_bbo_pillar_v2_5_b.halt_condition.size = 1
-
--- Display: Halt Condition
-nyse_equities_bbo_pillar_v2_5_b.halt_condition.display = function(value)
-  if value == "~" then
-    return "Halt Condition: Security Not Delayedhalted (~)"
-  end
-  if value == " " then
-    return "Halt Condition: Not Delayedhalted Nyse Tape A Only (<whitespace>)"
-  end
-  if value == "D" then
-    return "Halt Condition: News Dissemination (D)"
-  end
-  if value == "I" then
-    return "Halt Condition: Order Imbalance (I)"
-  end
-  if value == "P" then
-    return "Halt Condition: News Pending (P)"
-  end
-  if value == "M" then
-    return "Halt Condition: Luld Pause (M)"
-  end
-  if value == "S" then
-    return "Halt Condition: Related Security Not Used (S)"
-  end
-  if value == "X" then
-    return "Halt Condition: Equipment Changeover (X)"
-  end
-  if value == "Z" then
-    return "Halt Condition: No Open No Resume (Z)"
-  end
-  if value == "1" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
-  end
-  if value == "2" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
-  end
-  if value == "3" then
-    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
-  end
-
-  return "Halt Condition: Unknown("..value..")"
-end
-
--- Dissect: Halt Condition
-nyse_equities_bbo_pillar_v2_5_b.halt_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.halt_condition.size
+-- Dissect: Status
+nyse_equities_bbo_pillar_v2_5_b.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.status.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.halt_condition.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.halt_condition, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.status, range, value, display)
 
   return offset + length, value
 end
 
--- Security Status
-nyse_equities_bbo_pillar_v2_5_b.security_status = {}
+-- Symbol
+nyse_equities_bbo_pillar_v2_5_b.symbol = {}
 
--- Size: Security Status
-nyse_equities_bbo_pillar_v2_5_b.security_status.size = 1
+-- Size: Symbol
+nyse_equities_bbo_pillar_v2_5_b.symbol.size = 11
 
--- Display: Security Status
-nyse_equities_bbo_pillar_v2_5_b.security_status.display = function(value)
-  if value == "3" then
-    return "Security Status: Opening Delay (3)"
-  end
-  if value == "4" then
-    return "Security Status: Trading Halt (4)"
-  end
-  if value == "5" then
-    return "Security Status: Resume (5)"
-  end
-  if value == "6" then
-    return "Security Status: No Openno Resume (6)"
-  end
-  if value == "A" then
-    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
-  end
-  if value == "C" then
-    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
-  end
-  if value == "D" then
-    return "Security Status: Short Sale Restriction Deactivated (D)"
-  end
-  if value == "P" then
-    return "Security Status: Preopening (P)"
-  end
-  if value == "E" then
-    return "Security Status: Early Session (E)"
-  end
-  if value == "O" then
-    return "Security Status: Core Session (O)"
-  end
-  if value == "L" then
-    return "Security Status: Late Session Non Nyse Only (L)"
-  end
-  if value == "X" then
-    return "Security Status: Closed (X)"
-  end
-  if value == "T" then
-    return "Security Status: Time (T)"
-  end
-  if value == "I" then
-    return "Security Status: Price Indication (I)"
-  end
-  if value == "G" then
-    return "Security Status: Pre Opening Price Indication (G)"
-  end
-  if value == "R" then
-    return "Security Status: Rule 15 Indication (R)"
-  end
-
-  return "Security Status: Unknown("..value..")"
+-- Display: Symbol
+nyse_equities_bbo_pillar_v2_5_b.symbol.display = function(value)
+  return "Symbol: "..value
 end
 
--- Dissect: Security Status
-nyse_equities_bbo_pillar_v2_5_b.security_status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.security_status.size
+-- Dissect: Symbol
+nyse_equities_bbo_pillar_v2_5_b.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.symbol.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.security_status.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.symbol.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.security_status, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
--- Source Time
-nyse_equities_bbo_pillar_v2_5_b.source_time = {}
+-- Symbol Index
+nyse_equities_bbo_pillar_v2_5_b.symbol_index = {}
 
--- Size: Source Time
-nyse_equities_bbo_pillar_v2_5_b.source_time.size = 4
+-- Size: Symbol Index
+nyse_equities_bbo_pillar_v2_5_b.symbol_index.size = 4
 
--- Display: Source Time
-nyse_equities_bbo_pillar_v2_5_b.source_time.display = function(value)
-  return "Source Time: "..value
+-- Display: Symbol Index
+nyse_equities_bbo_pillar_v2_5_b.symbol_index.display = function(value)
+  return "Symbol Index: "..value
 end
 
--- Dissect: Source Time
-nyse_equities_bbo_pillar_v2_5_b.source_time.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.source_time.size
+-- Dissect: Symbol Index
+nyse_equities_bbo_pillar_v2_5_b.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.symbol_index.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.source_time.display(value, buffer, offset, packet, parent)
+  local display = nyse_equities_bbo_pillar_v2_5_b.symbol_index.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.source_time, range, value, display)
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.symbol_index, range, value, display)
 
   return offset + length, value
+end
+
+-- Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num = {}
+
+-- Size: Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size = 4
+
+-- Display: Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.display = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Id
+nyse_equities_bbo_pillar_v2_5_b.system_id = {}
+
+-- Size: System Id
+nyse_equities_bbo_pillar_v2_5_b.system_id.size = 1
+
+-- Display: System Id
+nyse_equities_bbo_pillar_v2_5_b.system_id.display = function(value)
+  return "System Id: "..value
+end
+
+-- Dissect: System Id
+nyse_equities_bbo_pillar_v2_5_b.system_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.system_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.system_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+nyse_equities_bbo_pillar_v2_5_b.time = {}
+
+-- Size: Time
+nyse_equities_bbo_pillar_v2_5_b.time.size = 4
+
+-- Display: Time
+nyse_equities_bbo_pillar_v2_5_b.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+nyse_equities_bbo_pillar_v2_5_b.time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Refresh Pkts
+nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts = {}
+
+-- Size: Total Refresh Pkts
+nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size = 2
+
+-- Display: Total Refresh Pkts
+nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.display = function(value)
+  return "Total Refresh Pkts: "..value
+end
+
+-- Dissect: Total Refresh Pkts
+nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.total_refresh_pkts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Trade
+nyse_equities_bbo_pillar_v2_5_b.unit_of_trade = {}
+
+-- Size: Unit Of Trade
+nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.size = 2
+
+-- Display: Unit Of Trade
+nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.display = function(value)
+  return "Unit Of Trade: "..value
+end
+
+-- Dissect: Unit Of Trade
+nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.unit_of_trade, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse Equities Bbo Pillar 2.5.b
+-----------------------------------------------------------------------
+
+-- Quote Message
+nyse_equities_bbo_pillar_v2_5_b.quote_message = {}
+
+-- Size: Quote Message
+nyse_equities_bbo_pillar_v2_5_b.quote_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.source_time_ns.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_index.size + 
+  nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ask_price.size + 
+  nyse_equities_bbo_pillar_v2_5_b.ask_volume.size + 
+  nyse_equities_bbo_pillar_v2_5_b.bid_price.size + 
+  nyse_equities_bbo_pillar_v2_5_b.bid_volume.size + 
+  nyse_equities_bbo_pillar_v2_5_b.quote_condition.size + 
+  nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.size
+
+-- Display: Quote Message
+nyse_equities_bbo_pillar_v2_5_b.quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Message
+nyse_equities_bbo_pillar_v2_5_b.quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  index, source_time_ns = nyse_equities_bbo_pillar_v2_5_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  index, symbol_index = nyse_equities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, symbol_seq_num = nyse_equities_bbo_pillar_v2_5_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  index, ask_price = nyse_equities_bbo_pillar_v2_5_b.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
+  index, ask_volume = nyse_equities_bbo_pillar_v2_5_b.ask_volume.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  index, bid_price = nyse_equities_bbo_pillar_v2_5_b.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
+  index, bid_volume = nyse_equities_bbo_pillar_v2_5_b.bid_volume.dissect(buffer, index, packet, parent)
+
+  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
+  index, quote_condition = nyse_equities_bbo_pillar_v2_5_b.quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
+  index, rpi_indicator = nyse_equities_bbo_pillar_v2_5_b.rpi_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Message
+nyse_equities_bbo_pillar_v2_5_b.quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.quote_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b.quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_bbo_pillar_v2_5_b.quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_bbo_pillar_v2_5_b.quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_header_message = {}
+
+-- Size: Refresh Header Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.size =
+  nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.size + 
+  nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.size + 
+  nyse_equities_bbo_pillar_v2_5_b.last_seq_num.size + 
+  nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.size
+
+-- Display: Refresh Header Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Header Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  index, current_refresh_pkt = nyse_equities_bbo_pillar_v2_5_b.current_refresh_pkt.dissect(buffer, index, packet, parent)
+
+  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  index, total_refresh_pkts = nyse_equities_bbo_pillar_v2_5_b.total_refresh_pkts.dissect(buffer, index, packet, parent)
+
+  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, last_seq_num = nyse_equities_bbo_pillar_v2_5_b.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, last_symbol_seq_num = nyse_equities_bbo_pillar_v2_5_b.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Header Message
+nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.dissect = function(buffer, offset, packet, parent)
+  if show.refresh_header_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_equities_bbo_pillar_v2_5_b.refresh_header_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Security Status Message
@@ -1188,29 +2135,6 @@ nyse_equities_bbo_pillar_v2_5_b.security_status_message.dissect = function(buffe
   end
 end
 
--- Next Source Seq Num
-nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num = {}
-
--- Size: Next Source Seq Num
-nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.size = 4
-
--- Display: Next Source Seq Num
-nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.display = function(value)
-  return "Next Source Seq Num: "..value
-end
-
--- Dissect: Next Source Seq Num
-nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.next_source_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.next_source_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Clear Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message = {}
 
@@ -1261,98 +2185,6 @@ nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return nyse_equities_bbo_pillar_v2_5_b.symbol_clear_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Channel Id
-nyse_equities_bbo_pillar_v2_5_b.channel_id = {}
-
--- Size: Channel Id
-nyse_equities_bbo_pillar_v2_5_b.channel_id.size = 1
-
--- Display: Channel Id
-nyse_equities_bbo_pillar_v2_5_b.channel_id.display = function(value)
-  return "Channel Id: "..value
-end
-
--- Dissect: Channel Id
-nyse_equities_bbo_pillar_v2_5_b.channel_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.channel_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.channel_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.channel_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-nyse_equities_bbo_pillar_v2_5_b.product_id = {}
-
--- Size: Product Id
-nyse_equities_bbo_pillar_v2_5_b.product_id.size = 1
-
--- Display: Product Id
-nyse_equities_bbo_pillar_v2_5_b.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-nyse_equities_bbo_pillar_v2_5_b.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.product_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.product_id, range, value, display)
-
-  return offset + length, value
-end
-
--- End Seq Num
-nyse_equities_bbo_pillar_v2_5_b.end_seq_num = {}
-
--- Size: End Seq Num
-nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size = 4
-
--- Display: End Seq Num
-nyse_equities_bbo_pillar_v2_5_b.end_seq_num.display = function(value)
-  return "End Seq Num: "..value
-end
-
--- Dissect: End Seq Num
-nyse_equities_bbo_pillar_v2_5_b.end_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.end_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.end_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.end_seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Begin Seq Num
-nyse_equities_bbo_pillar_v2_5_b.begin_seq_num = {}
-
--- Size: Begin Seq Num
-nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size = 4
-
--- Display: Begin Seq Num
-nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.display = function(value)
-  return "Begin Seq Num: "..value
-end
-
--- Dissect: Begin Seq Num
-nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.begin_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.begin_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Unavailable Message
@@ -1407,29 +2239,6 @@ nyse_equities_bbo_pillar_v2_5_b.message_unavailable_message.dissect = function(b
   end
 end
 
--- Source Id
-nyse_equities_bbo_pillar_v2_5_b.source_id = {}
-
--- Size: Source Id
-nyse_equities_bbo_pillar_v2_5_b.source_id.size = 10
-
--- Display: Source Id
-nyse_equities_bbo_pillar_v2_5_b.source_id.display = function(value)
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-nyse_equities_bbo_pillar_v2_5_b.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.source_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.source_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Refresh Request Message
 nyse_equities_bbo_pillar_v2_5_b.refresh_request_message = {}
 
@@ -1480,33 +2289,6 @@ nyse_equities_bbo_pillar_v2_5_b.refresh_request_message.dissect = function(buffe
     -- Skip element, add fields directly
     return nyse_equities_bbo_pillar_v2_5_b.refresh_request_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Retransmit Method
-nyse_equities_bbo_pillar_v2_5_b.retransmit_method = {}
-
--- Size: Retransmit Method
-nyse_equities_bbo_pillar_v2_5_b.retransmit_method.size = 1
-
--- Display: Retransmit Method
-nyse_equities_bbo_pillar_v2_5_b.retransmit_method.display = function(value)
-  if value == 0 then
-    return "Retransmit Method: Udp (0)"
-  end
-
-  return "Retransmit Method: Unknown("..value..")"
-end
-
--- Dissect: Retransmit Method
-nyse_equities_bbo_pillar_v2_5_b.retransmit_method.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.retransmit_method.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.retransmit_method.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.retransmit_method, range, value, display)
-
-  return offset + length, value
 end
 
 -- Symbol Index Mapping Request Message
@@ -1603,52 +2385,6 @@ nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message.dissect = function(bu
     -- Skip element, add fields directly
     return nyse_equities_bbo_pillar_v2_5_b.heartbeat_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Status
-nyse_equities_bbo_pillar_v2_5_b.status = {}
-
--- Size: Status
-nyse_equities_bbo_pillar_v2_5_b.status.size = 1
-
--- Display: Status
-nyse_equities_bbo_pillar_v2_5_b.status.display = function(value)
-  return "Status: "..value
-end
-
--- Dissect: Status
-nyse_equities_bbo_pillar_v2_5_b.status.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
--- Request Seq Num
-nyse_equities_bbo_pillar_v2_5_b.request_seq_num = {}
-
--- Size: Request Seq Num
-nyse_equities_bbo_pillar_v2_5_b.request_seq_num.size = 4
-
--- Display: Request Seq Num
-nyse_equities_bbo_pillar_v2_5_b.request_seq_num.display = function(value)
-  return "Request Seq Num: "..value
-end
-
--- Dissect: Request Seq Num
-nyse_equities_bbo_pillar_v2_5_b.request_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.request_seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.request_seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.request_seq_num, range, value, display)
-
-  return offset + length, value
 end
 
 -- Request Response Message
@@ -1771,456 +2507,6 @@ nyse_equities_bbo_pillar_v2_5_b.retransmission_request_message.dissect = functio
   end
 end
 
--- Reserved 2
-nyse_equities_bbo_pillar_v2_5_b.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_equities_bbo_pillar_v2_5_b.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_equities_bbo_pillar_v2_5_b.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_equities_bbo_pillar_v2_5_b.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_bbo_pillar_v2_5_b.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Of Trade
-nyse_equities_bbo_pillar_v2_5_b.unit_of_trade = {}
-
--- Size: Unit Of Trade
-nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.size = 2
-
--- Display: Unit Of Trade
-nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.display = function(value)
-  return "Unit Of Trade: "..value
-end
-
--- Dissect: Unit Of Trade
-nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.unit_of_trade.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.unit_of_trade, range, value, display)
-
-  return offset + length, value
-end
-
--- Mpv
-nyse_equities_bbo_pillar_v2_5_b.mpv = {}
-
--- Size: Mpv
-nyse_equities_bbo_pillar_v2_5_b.mpv.size = 2
-
--- Display: Mpv
-nyse_equities_bbo_pillar_v2_5_b.mpv.display = function(value)
-  return "Mpv: "..value
-end
-
--- Dissect: Mpv
-nyse_equities_bbo_pillar_v2_5_b.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.mpv.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot
-nyse_equities_bbo_pillar_v2_5_b.round_lot = {}
-
--- Size: Round Lot
-nyse_equities_bbo_pillar_v2_5_b.round_lot.size = 1
-
--- Display: Round Lot
-nyse_equities_bbo_pillar_v2_5_b.round_lot.display = function(value)
-  return "Round Lot: "..value
-end
-
--- Dissect: Round Lot
-nyse_equities_bbo_pillar_v2_5_b.round_lot.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.round_lot.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.round_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.round_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Resolution
-nyse_equities_bbo_pillar_v2_5_b.price_resolution = {}
-
--- Size: Price Resolution
-nyse_equities_bbo_pillar_v2_5_b.price_resolution.size = 1
-
--- Display: Price Resolution
-nyse_equities_bbo_pillar_v2_5_b.price_resolution.display = function(value)
-  return "Price Resolution: "..value
-end
-
--- Dissect: Price Resolution
-nyse_equities_bbo_pillar_v2_5_b.price_resolution.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.price_resolution.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.price_resolution.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_resolution, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Close Volume
-nyse_equities_bbo_pillar_v2_5_b.prev_close_volume = {}
-
--- Size: Prev Close Volume
-nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.size = 4
-
--- Display: Prev Close Volume
-nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.display = function(value)
-  return "Prev Close Volume: "..value
-end
-
--- Dissect: Prev Close Volume
-nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.prev_close_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.prev_close_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Prev Close Price
-nyse_equities_bbo_pillar_v2_5_b.prev_close_price = {}
-
--- Size: Prev Close Price
-nyse_equities_bbo_pillar_v2_5_b.prev_close_price.size = 4
-
--- Display: Prev Close Price
-nyse_equities_bbo_pillar_v2_5_b.prev_close_price.display = function(value)
-  return "Prev Close Price: "..value
-end
-
--- Dissect: Prev Close Price
-nyse_equities_bbo_pillar_v2_5_b.prev_close_price.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.prev_close_price.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.prev_close_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.prev_close_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Lot Size
-nyse_equities_bbo_pillar_v2_5_b.lot_size = {}
-
--- Size: Lot Size
-nyse_equities_bbo_pillar_v2_5_b.lot_size.size = 2
-
--- Display: Lot Size
-nyse_equities_bbo_pillar_v2_5_b.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-nyse_equities_bbo_pillar_v2_5_b.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Type
-nyse_equities_bbo_pillar_v2_5_b.security_type = {}
-
--- Size: Security Type
-nyse_equities_bbo_pillar_v2_5_b.security_type.size = 1
-
--- Display: Security Type
-nyse_equities_bbo_pillar_v2_5_b.security_type.display = function(value)
-  if value == "A" then
-    return "Security Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Security Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Security Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Security Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Security Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Security Type: Us Depositary Shares (H)"
-  end
-  if value == "I" then
-    return "Security Type: Units (I)"
-  end
-  if value == "L" then
-    return "Security Type: Index Linked Notes (L)"
-  end
-  if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
-  end
-  if value == "O" then
-    return "Security Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Security Type: Preferred Stock (P)"
-  end
-  if value == "R" then
-    return "Security Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Security Type: Test (T)"
-  end
-  if value == "U" then
-    return "Security Type: Units (U)"
-  end
-  if value == "W" then
-    return "Security Type: Warrant (W)"
-  end
-
-  return "Security Type: Unknown("..value..")"
-end
-
--- Dissect: Security Type
-nyse_equities_bbo_pillar_v2_5_b.security_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.security_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.security_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.security_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Scale Code
-nyse_equities_bbo_pillar_v2_5_b.price_scale_code = {}
-
--- Size: Price Scale Code
-nyse_equities_bbo_pillar_v2_5_b.price_scale_code.size = 1
-
--- Display: Price Scale Code
-nyse_equities_bbo_pillar_v2_5_b.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
-end
-
--- Dissect: Price Scale Code
-nyse_equities_bbo_pillar_v2_5_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.price_scale_code.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.price_scale_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.price_scale_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Exchange Code
-nyse_equities_bbo_pillar_v2_5_b.exchange_code = {}
-
--- Size: Exchange Code
-nyse_equities_bbo_pillar_v2_5_b.exchange_code.size = 1
-
--- Display: Exchange Code
-nyse_equities_bbo_pillar_v2_5_b.exchange_code.display = function(value)
-  if value == "A" then
-    return "Exchange Code: Nyse American (A)"
-  end
-  if value == "C" then
-    return "Exchange Code: Nyse National (C)"
-  end
-  if value == "N" then
-    return "Exchange Code: Nyse (N)"
-  end
-  if value == "P" then
-    return "Exchange Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Exchange Code: Nasdaq (Q)"
-  end
-  if value == "V" then
-    return "Exchange Code: Iex (V)"
-  end
-  if value == "Z" then
-    return "Exchange Code: Bats (Z)"
-  end
-  if value == "B" then
-    return "Exchange Code: Global Otc (B)"
-  end
-  if value == "U" then
-    return "Exchange Code: Otcbb (U)"
-  end
-  if value == "V" then
-    return "Exchange Code: Other Otc (V)"
-  end
-
-  return "Exchange Code: Unknown("..value..")"
-end
-
--- Dissect: Exchange Code
-nyse_equities_bbo_pillar_v2_5_b.exchange_code.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.exchange_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.exchange_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.exchange_code, range, value, display)
-
-  return offset + length, value
-end
-
--- System Id
-nyse_equities_bbo_pillar_v2_5_b.system_id = {}
-
--- Size: System Id
-nyse_equities_bbo_pillar_v2_5_b.system_id.size = 1
-
--- Display: System Id
-nyse_equities_bbo_pillar_v2_5_b.system_id.display = function(value)
-  return "System Id: "..value
-end
-
--- Dissect: System Id
-nyse_equities_bbo_pillar_v2_5_b.system_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.system_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.system_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.system_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Id
-nyse_equities_bbo_pillar_v2_5_b.market_id = {}
-
--- Size: Market Id
-nyse_equities_bbo_pillar_v2_5_b.market_id.size = 2
-
--- Display: Market Id
-nyse_equities_bbo_pillar_v2_5_b.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 6 then
-    return "Market Id: Global Otc (6)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse Amex Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-
-  return "Market Id: Unknown("..value..")"
-end
-
--- Dissect: Market Id
-nyse_equities_bbo_pillar_v2_5_b.market_id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.market_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.market_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.market_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1
-nyse_equities_bbo_pillar_v2_5_b.reserved_1 = {}
-
--- Size: Reserved 1
-nyse_equities_bbo_pillar_v2_5_b.reserved_1.size = 1
-
--- Display: Reserved 1
-nyse_equities_bbo_pillar_v2_5_b.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-nyse_equities_bbo_pillar_v2_5_b.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_equities_bbo_pillar_v2_5_b.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-nyse_equities_bbo_pillar_v2_5_b.symbol = {}
-
--- Size: Symbol
-nyse_equities_bbo_pillar_v2_5_b.symbol.size = 11
-
--- Display: Symbol
-nyse_equities_bbo_pillar_v2_5_b.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-nyse_equities_bbo_pillar_v2_5_b.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nyse_equities_bbo_pillar_v2_5_b.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Index Mapping Message
 nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message = {}
 
@@ -2319,29 +2605,6 @@ nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message.dissect = function(
     -- Skip element, add fields directly
     return nyse_equities_bbo_pillar_v2_5_b.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Id
-nyse_equities_bbo_pillar_v2_5_b.id = {}
-
--- Size: Id
-nyse_equities_bbo_pillar_v2_5_b.id.size = 4
-
--- Display: Id
-nyse_equities_bbo_pillar_v2_5_b.id.display = function(value)
-  return "Id: "..value
-end
-
--- Dissect: Id
-nyse_equities_bbo_pillar_v2_5_b.id.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Source Time Reference Message
@@ -2505,92 +2768,6 @@ nyse_equities_bbo_pillar_v2_5_b.payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Message Type
-nyse_equities_bbo_pillar_v2_5_b.message_type = {}
-
--- Size: Message Type
-nyse_equities_bbo_pillar_v2_5_b.message_type.size = 2
-
--- Display: Message Type
-nyse_equities_bbo_pillar_v2_5_b.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 140 then
-    return "Message Type: Quote Message (140)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nyse_equities_bbo_pillar_v2_5_b.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.message_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Size
-nyse_equities_bbo_pillar_v2_5_b.message_size = {}
-
--- Size: Message Size
-nyse_equities_bbo_pillar_v2_5_b.message_size.size = 2
-
--- Display: Message Size
-nyse_equities_bbo_pillar_v2_5_b.message_size.display = function(value)
-  return "Message Size: "..value
-end
-
--- Dissect: Message Size
-nyse_equities_bbo_pillar_v2_5_b.message_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Header
 nyse_equities_bbo_pillar_v2_5_b.message_header = {}
 
@@ -2686,52 +2863,6 @@ nyse_equities_bbo_pillar_v2_5_b.message.dissect = function(buffer, offset, packe
   end
 end
 
--- Nanoseconds
-nyse_equities_bbo_pillar_v2_5_b.nanoseconds = {}
-
--- Size: Nanoseconds
-nyse_equities_bbo_pillar_v2_5_b.nanoseconds.size = 4
-
--- Display: Nanoseconds
-nyse_equities_bbo_pillar_v2_5_b.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
-end
-
--- Dissect: Nanoseconds
-nyse_equities_bbo_pillar_v2_5_b.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.nanoseconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.nanoseconds, range, value, display)
-
-  return offset + length, value
-end
-
--- Seconds
-nyse_equities_bbo_pillar_v2_5_b.seconds = {}
-
--- Size: Seconds
-nyse_equities_bbo_pillar_v2_5_b.seconds.size = 4
-
--- Display: Seconds
-nyse_equities_bbo_pillar_v2_5_b.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-nyse_equities_bbo_pillar_v2_5_b.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.seconds.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.seconds, range, value, display)
-
-  return offset + length, value
-end
-
 -- Send Time
 nyse_equities_bbo_pillar_v2_5_b.send_time = {}
 
@@ -2787,132 +2918,6 @@ nyse_equities_bbo_pillar_v2_5_b.send_time.dissect = function(buffer, offset, pac
     -- Skip element, add fields directly
     return nyse_equities_bbo_pillar_v2_5_b.send_time.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seq Num
-nyse_equities_bbo_pillar_v2_5_b.seq_num = {}
-
--- Size: Seq Num
-nyse_equities_bbo_pillar_v2_5_b.seq_num.size = 4
-
--- Display: Seq Num
-nyse_equities_bbo_pillar_v2_5_b.seq_num.display = function(value)
-  return "Seq Num: "..value
-end
-
--- Dissect: Seq Num
-nyse_equities_bbo_pillar_v2_5_b.seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.seq_num.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.seq_num.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.seq_num, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Msgs
-nyse_equities_bbo_pillar_v2_5_b.number_msgs = {}
-
--- Size: Number Msgs
-nyse_equities_bbo_pillar_v2_5_b.number_msgs.size = 1
-
--- Display: Number Msgs
-nyse_equities_bbo_pillar_v2_5_b.number_msgs.display = function(value)
-  return "Number Msgs: "..value
-end
-
--- Dissect: Number Msgs
-nyse_equities_bbo_pillar_v2_5_b.number_msgs.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.number_msgs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.number_msgs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.number_msgs, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Flag
-nyse_equities_bbo_pillar_v2_5_b.delivery_flag = {}
-
--- Size: Delivery Flag
-nyse_equities_bbo_pillar_v2_5_b.delivery_flag.size = 1
-
--- Display: Delivery Flag
-nyse_equities_bbo_pillar_v2_5_b.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
-
-  return "Delivery Flag: Unknown("..value..")"
-end
-
--- Dissect: Delivery Flag
-nyse_equities_bbo_pillar_v2_5_b.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.delivery_flag.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.delivery_flag.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.delivery_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Pkt Size
-nyse_equities_bbo_pillar_v2_5_b.pkt_size = {}
-
--- Size: Pkt Size
-nyse_equities_bbo_pillar_v2_5_b.pkt_size.size = 2
-
--- Display: Pkt Size
-nyse_equities_bbo_pillar_v2_5_b.pkt_size.display = function(value)
-  return "Pkt Size: "..value
-end
-
--- Dissect: Pkt Size
-nyse_equities_bbo_pillar_v2_5_b.pkt_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_equities_bbo_pillar_v2_5_b.pkt_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_equities_bbo_pillar_v2_5_b.pkt_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_equities_bbo_pillar_v2_5_b.fields.pkt_size, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

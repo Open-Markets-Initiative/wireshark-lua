@@ -209,55 +209,32 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8
+-- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8 Fields
 -----------------------------------------------------------------------
 
--- Trading System Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp = {}
+-- Ack Required Poss Dup
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup = {}
 
--- Size: Trading System Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size = 8
+-- Size: Ack Required Poss Dup
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.size = 1
 
--- Display: Trading System Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+-- Display: Ack Required Poss Dup
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.display = function(value)
+  if value == "0" then
+    return "Ack Required Poss Dup: Unused (0)"
+  end
 
-  return "Trading System Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Ack Required Poss Dup: Unknown("..value..")"
 end
 
--- Dissect: Trading System Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size
+-- Dissect: Ack Required Poss Dup
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trading_system_time_stamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size = {}
-
--- Size: Ask Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.size = 4
-
--- Display: Ask Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.display = function(value)
-  return "Ask Size: "..value
-end
-
--- Dissect: Ask Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.ask_size, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.ack_required_poss_dup, range, value, display)
 
   return offset + length, value
 end
@@ -291,25 +268,25 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Bid Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size = {}
+-- Ask Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size = {}
 
--- Size: Bid Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.size = 4
+-- Size: Ask Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.size = 4
 
--- Display: Bid Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.display = function(value)
-  return "Bid Size: "..value
+-- Display: Ask Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.display = function(value)
+  return "Ask Size: "..value
 end
 
--- Dissect: Bid Size
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.size
+-- Dissect: Ask Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.display(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.bid_size, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -343,224 +320,147 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol = {}
+-- Bid Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size = {}
 
--- Size: Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size = 12
+-- Size: Bid Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.size = 4
 
--- Display: Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.display = function(value)
-  return "Symbol: "..value
+-- Display: Bid Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.display = function(value)
+  return "Bid Size: "..value
 end
 
--- Dissect: Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message = {}
-
--- Size: Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size
-
--- Display: Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol: 12 Byte Ascii String
-  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
-
-  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
-  index, bid_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.dissect(buffer, index, packet, parent)
-
-  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
-  index, ask_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
-  index, ask_size = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.dissect(buffer, index, packet, parent)
-
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.quote_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.quote_message, buffer(offset, 0))
-    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Product Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type = {}
-
--- Size: Product Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size = 1
-
--- Display: Product Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.display = function(value)
-  if value == "B" then
-    return "Product Type: Debenture (B)"
-  end
-  if value == "E" then
-    return "Product Type: Equity (E)"
-  end
-  if value == "M" then
-    return "Product Type: Mutual Fund (M)"
-  end
-  if value == "F" then
-    return "Product Type: Etf (F)"
-  end
-  if value == "U" then
-    return "Product Type: Us Equity (U)"
-  end
-  if value == "O" then
-    return "Product Type: Bond (O)"
-  end
-
-  return "Product Type: Unknown("..value..")"
-end
-
--- Dissect: Product Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.product_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Listing Market
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market = {}
-
--- Size: Listing Market
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size = 1
-
--- Display: Listing Market
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsx Venture (V)"
-  end
-  if value == "N" then
-    return "Listing Market: Tsx Na Vex (N)"
-  end
-  if value == "Q" then
-    return "Listing Market: Nasdaq (Q)"
-  end
-  if value == "S" then
-    return "Listing Market: Nyse (S)"
-  end
-  if value == "M" then
-    return "Listing Market: Nyse Mkt (M)"
-  end
-  if value == "X" then
-    return "Listing Market: N No Market (X)"
-  end
-
-  return "Listing Market: Unknown("..value..")"
-end
-
--- Dissect: Listing Market
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.listing_market, range, value, display)
-
-  return offset + length, value
-end
-
--- Resume Trade Time
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time = {}
-
--- Size: Resume Trade Time
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.size = 4
-
--- Display: Resume Trade Time
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.display = function(value)
-  return "Resume Trade Time: "..value
-end
-
--- Dissect: Resume Trade Time
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.size
+-- Dissect: Bid Size
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.display(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.resume_trade_time, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
 
--- Vwap
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap = {}
+-- Board Lot
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot = {}
 
--- Size: Vwap
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.size = 8
+-- Size: Board Lot
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.size = 2
 
--- Display: Vwap
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.display = function(value)
-  return "Vwap: "..value
+-- Display: Board Lot
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.display = function(value)
+  return "Board Lot: "..value
 end
 
--- Translate: Vwap
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Vwap
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.size
+-- Dissect: Board Lot
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.translate(raw)
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.vwap, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.board_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number = {}
+
+-- Size: Buy Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.size = 2
+
+-- Display: Buy Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.display = function(value)
+  return "Buy Broker Number: "..value
+end
+
+-- Dissect: Buy Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.buy_broker_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity = {}
+
+-- Size: Buy Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.size = 4
+
+-- Display: Buy Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.display = function(value)
+  return "Buy Maximum Quantity: "..value
+end
+
+-- Dissect: Buy Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.buy_maximum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity = {}
+
+-- Size: Buy Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.size = 4
+
+-- Display: Buy Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.display = function(value)
+  return "Buy Minimum Quantity: "..value
+end
+
+-- Dissect: Buy Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.buy_minimum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bypass
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass = {}
+
+-- Size: Bypass
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.size = 1
+
+-- Display: Bypass
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.display = function(value)
+  if value == "Y" then
+    return "Bypass: The Order Is A Bypass (Y)"
+  end
+  if value == "N" then
+    return "Bypass: The Order Is Not A Bypass (N)"
+  end
+
+  return "Bypass: Unknown("..value..")"
+end
+
+-- Dissect: Bypass
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.bypass, range, value, display)
 
   return offset + length, value
 end
@@ -594,54 +494,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.dissect = functi
   return offset + length, value
 end
 
--- Stock State
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state = {}
-
--- Size: Stock State
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.size = 2
-
--- Display: Stock State
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.display = function(value)
-  if value == "AR" then
-    return "Stock State: Authorized Delayed (AR)"
-  end
-  if value == "IR" then
-    return "Stock State: Inhibited Delayed (IR)"
-  end
-  if value == "AS" then
-    return "Stock State: Authorized Halted (AS)"
-  end
-  if value == "IS" then
-    return "Stock State: Inhibited Halted (IS)"
-  end
-  if value == "AE" then
-    return "Stock State: Authorized Price Movement Delayed (AE)"
-  end
-  if value == "IE" then
-    return "Stock State: Inhibited Price Movement Delayed (IE)"
-  end
-  if value == "A" then
-    return "Stock State: Authorized (A)"
-  end
-  if value == "I" then
-    return "Stock State: Inhibited (I)"
-  end
-
-  return "Stock State: Unknown("..value..")"
-end
-
--- Dissect: Stock State
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Comment
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.comment = {}
 
@@ -665,103 +517,132 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.comment.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message = {}
+-- Cross Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type = {}
 
--- Size: Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.comment.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size
+-- Size: Cross Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.size = 1
 
--- Display: Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol: 12 Byte Ascii String
-  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
-
-  -- Comment: 40 Byte Ascii String
-  index, comment = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.comment.dissect(buffer, index, packet, parent)
-
-  -- Stock State: 2 Byte Ascii String Enum with 8 values
-  index, stock_state = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.dissect(buffer, index, packet, parent)
-
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
-
-  -- Calculated Closing Price: 8 Byte Unsigned Fixed Width Integer
-  index, calculated_closing_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.dissect(buffer, index, packet, parent)
-
-  -- Vwap: 8 Byte Unsigned Fixed Width Integer
-  index, vwap = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.dissect(buffer, index, packet, parent)
-
-  -- Resume Trade Time: 4 Byte Unsigned Fixed Width Integer
-  index, resume_trade_time = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.dissect(buffer, index, packet, parent)
-
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
-
-  -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stock Status Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.stock_status_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_status_message, buffer(offset, 0))
-    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.fields(buffer, offset, packet, parent)
+-- Display: Cross Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.display = function(value)
+  if value == "I" then
+    return "Cross Type: Internal (I)"
   end
+  if value == "B" then
+    return "Cross Type: Basis (B)"
+  end
+  if value == "C" then
+    return "Cross Type: Contingent (C)"
+  end
+  if value == "D" then
+    return "Cross Type: Derivative Related (D)"
+  end
+  if value == "R" then
+    return "Cross Type: Regular (R)"
+  end
+  if value == "S" then
+    return "Cross Type: Special Trading Session (S)"
+  end
+  if value == "V" then
+    return "Cross Type: Volume Weighted Average Price (V)"
+  end
+  if value == " " then
+    return "Cross Type: Default Trade Was Not A Cross (<whitespace>)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
 end
 
--- Price Variation
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation = {}
-
--- Size: Price Variation
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size = 4
-
--- Display: Price Variation
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.display = function(value)
-  return "Price Variation: "..value
-end
-
--- Translate: Price Variation
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Variation
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size
+-- Dissect: Cross Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.size
   local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.translate(raw)
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price_variation, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency = {}
+
+-- Size: Currency
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.size = 1
+
+-- Display: Currency
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.display = function(value)
+  if value == "U" then
+    return "Currency: Usd (U)"
+  end
+  if value == "C" then
+    return "Currency: Cad (C)"
+  end
+
+  return "Currency: Unknown("..value..")"
+end
+
+-- Dissect: Currency
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cusip
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip = {}
+
+-- Size: Cusip
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.size = 12
+
+-- Display: Cusip
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.display = function(value)
+  return "Cusip: "..value
+end
+
+-- Dissect: Cusip
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.cusip, range, value, display)
+
+  return offset + length, value
+end
+
+-- Face Value
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value = {}
+
+-- Size: Face Value
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.size = 8
+
+-- Display: Face Value
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.display = function(value)
+  return "Face Value: "..value
+end
+
+-- Translate: Face Value
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Face Value
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.translate(raw)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.face_value, range, value, display)
 
   return offset + length, value
 end
@@ -795,114 +676,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.dissect = fu
   return offset + length, value
 end
 
--- Near Indicative Closing Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price = {}
-
--- Size: Near Indicative Closing Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size = 8
-
--- Display: Near Indicative Closing Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.display = function(value)
-  return "Near Indicative Closing Price: "..value
-end
-
--- Translate: Near Indicative Closing Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Near Indicative Closing Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.translate(raw)
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.near_indicative_closing_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Order Imbalance Side
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side = {}
-
--- Size: Market Order Imbalance Side
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.size = 1
-
--- Display: Market Order Imbalance Side
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.display = function(value)
-  if value == "B" then
-    return "Market Order Imbalance Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Market Order Imbalance Side: Sell (S)"
-  end
-  if value == " " then
-    return "Market Order Imbalance Side: No Imbalance Exists (<whitespace>)"
-  end
-
-  return "Market Order Imbalance Side: Unknown("..value..")"
-end
-
--- Dissect: Market Order Imbalance Side
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.market_order_imbalance_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Order Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume = {}
-
--- Size: Market Order Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.size = 4
-
--- Display: Market Order Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.display = function(value)
-  return "Market Order Imbalance Volume: "..value
-end
-
--- Dissect: Market Order Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.market_order_imbalance_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Paired Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume = {}
-
--- Size: Paired Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.size = 4
-
--- Display: Paired Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.display = function(value)
-  return "Paired Volume: "..value
-end
-
--- Dissect: Paired Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.paired_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Imbalance Reference Price
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price = {}
 
@@ -928,29 +701,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.dissect = funct
   local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.imbalance_reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume = {}
-
--- Size: Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.size = 4
-
--- Display: Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.display = function(value)
-  return "Imbalance Volume: "..value
-end
-
--- Dissect: Imbalance Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
 end
@@ -988,364 +738,27 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_side.dissect = function(buffer,
   return offset + length, value
 end
 
--- Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message = {}
+-- Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume = {}
 
--- Size: Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_side.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size
+-- Size: Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.size = 4
 
--- Display: Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.display = function(packet, parent, length)
-  return ""
+-- Display: Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.display = function(value)
+  return "Imbalance Volume: "..value
 end
 
--- Dissect Fields: Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol: 12 Byte Ascii String
-  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
-
-  -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, imbalance_side = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_side.dissect(buffer, index, packet, parent)
-
-  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
-  index, imbalance_volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.dissect(buffer, index, packet, parent)
-
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
-
-  -- Imbalance Reference Price: 8 Byte Unsigned Fixed Width Integer
-  index, imbalance_reference_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Paired Volume: 4 Byte Unsigned Fixed Width Integer
-  index, paired_volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.dissect(buffer, index, packet, parent)
-
-  -- Market Order Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
-  index, market_order_imbalance_volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.dissect(buffer, index, packet, parent)
-
-  -- Market Order Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, market_order_imbalance_side = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.dissect(buffer, index, packet, parent)
-
-  -- Near Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
-  index, near_indicative_closing_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.dissect(buffer, index, packet, parent)
-
-  -- Far Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
-  index, far_indicative_closing_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.dissect(buffer, index, packet, parent)
-
-  -- Price Variation: 4 Byte Unsigned Fixed Width Integer
-  index, price_variation = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Moc Imbalance Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.moc_imbalance_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_imbalance_message, buffer(offset, 0))
-    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Trade Date
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date = {}
-
--- Size: Trade Date
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.size = 4
-
--- Display: Trade Date
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.display = function(value)
-  return "Trade Date: "..value
-end
-
--- Dissect: Trade Date
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.size
+-- Dissect: Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.display(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number = {}
-
--- Size: Trade Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.size = 4
-
--- Display: Trade Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.display = function(value)
-  return "Trade Number: "..value
-end
-
--- Dissect: Trade Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_number, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.imbalance_volume, range, value, display)
 
   return offset + length, value
-end
-
--- Last Sale Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price = {}
-
--- Size: Last Sale Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.size = 8
-
--- Display: Last Sale Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.display = function(value)
-  return "Last Sale Price: "..value
-end
-
--- Translate: Last Sale Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Last Sale Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.translate(raw)
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.last_sale_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp = {}
-
--- Size: Trade Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.size = 4
-
--- Display: Trade Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.display = function(value)
-  return "Trade Time Stamp: "..value
-end
-
--- Dissect: Trade Time Stamp
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_time_stamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number = {}
-
--- Size: Sell Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.size = 2
-
--- Display: Sell Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.display = function(value)
-  return "Sell Broker Number: "..value
-end
-
--- Dissect: Sell Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_broker_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number = {}
-
--- Size: Buy Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.size = 2
-
--- Display: Buy Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.display = function(value)
-  return "Buy Broker Number: "..value
-end
-
--- Dissect: Buy Broker Number
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.buy_broker_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume = {}
-
--- Size: Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.size = 4
-
--- Display: Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price = {}
-
--- Size: Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size = 8
-
--- Display: Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Price
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.translate(raw)
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message = {}
-
--- Size: Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.size =
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.size + 
-  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size
-
--- Display: Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol: 12 Byte Ascii String
-  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
-
-  -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.dissect(buffer, index, packet, parent)
-
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.dissect(buffer, index, packet, parent)
-
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, buy_broker_number = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.dissect(buffer, index, packet, parent)
-
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, sell_broker_number = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.dissect(buffer, index, packet, parent)
-
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
-  index, trade_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.dissect(buffer, index, packet, parent)
-
-  -- Last Sale Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_sale_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.dissect(buffer, index, packet, parent)
-
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
-
-  -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.dissect(buffer, index, packet, parent)
-
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Trade Cancelled Message
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.dissect = function(buffer, offset, packet, parent)
-  if show.trade_cancelled_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_cancelled_message, buffer(offset, 0))
-    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Is Conditional
@@ -1438,6 +851,329 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.is_mid_only.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Last Sale Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price = {}
+
+-- Size: Last Sale Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.size = 8
+
+-- Display: Last Sale Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.display = function(value)
+  return "Last Sale Price: "..value
+end
+
+-- Translate: Last Sale Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Last Sale Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.translate(raw)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.last_sale_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Listing Market
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market = {}
+
+-- Size: Listing Market
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size = 1
+
+-- Display: Listing Market
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.display = function(value)
+  if value == "T" then
+    return "Listing Market: Tsx (T)"
+  end
+  if value == "V" then
+    return "Listing Market: Tsx Venture (V)"
+  end
+  if value == "N" then
+    return "Listing Market: Tsx Na Vex (N)"
+  end
+  if value == "Q" then
+    return "Listing Market: Nasdaq (Q)"
+  end
+  if value == "S" then
+    return "Listing Market: Nyse (S)"
+  end
+  if value == "M" then
+    return "Listing Market: Nyse Mkt (M)"
+  end
+  if value == "X" then
+    return "Listing Market: N No Market (X)"
+  end
+
+  return "Listing Market: Unknown("..value..")"
+end
+
+-- Dissect: Listing Market
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.listing_market, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Order Imbalance Side
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side = {}
+
+-- Size: Market Order Imbalance Side
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.size = 1
+
+-- Display: Market Order Imbalance Side
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.display = function(value)
+  if value == "B" then
+    return "Market Order Imbalance Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Market Order Imbalance Side: Sell (S)"
+  end
+  if value == " " then
+    return "Market Order Imbalance Side: No Imbalance Exists (<whitespace>)"
+  end
+
+  return "Market Order Imbalance Side: Unknown("..value..")"
+end
+
+-- Dissect: Market Order Imbalance Side
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.market_order_imbalance_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Order Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume = {}
+
+-- Size: Market Order Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.size = 4
+
+-- Display: Market Order Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.display = function(value)
+  return "Market Order Imbalance Volume: "..value
+end
+
+-- Dissect: Market Order Imbalance Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.market_order_imbalance_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length = {}
+
+-- Size: Message Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.size = 2
+
+-- Display: Message Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Moc Eligible
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible = {}
+
+-- Size: Moc Eligible
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.size = 1
+
+-- Display: Moc Eligible
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.display = function(value)
+  if value == "Y" then
+    return "Moc Eligible: Yes (Y)"
+  end
+  if value == "N" then
+    return "Moc Eligible: No (N)"
+  end
+
+  return "Moc Eligible: Unknown("..value..")"
+end
+
+-- Dissect: Moc Eligible
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_eligible, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length = {}
+
+-- Size: Msg Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.size = 2
+
+-- Display: Msg Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type = {}
+
+-- Size: Msg Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.size = 1
+
+-- Display: Msg Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.display = function(value)
+  if value == "J" then
+    return "Msg Type: Symbol Status Message (J)"
+  end
+  if value == "s" then
+    return "Msg Type: Trade Report Message (s)"
+  end
+  if value == "T" then
+    return "Msg Type: Trade Cancelled Message (T)"
+  end
+  if value == "F" then
+    return "Msg Type: Moc Imbalance Message (F)"
+  end
+  if value == "I" then
+    return "Msg Type: Stock Status Message (I)"
+  end
+  if value == "I" then
+    return "Msg Type: Quote Message (I)"
+  end
+
+  return "Msg Type: Unknown("..value..")"
+end
+
+-- Dissect: Msg Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version = {}
+
+-- Size: Msg Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.size = 1
+
+-- Display: Msg Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.display = function(value)
+  return "Msg Version: "..value
+end
+
+-- Dissect: Msg Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Near Indicative Closing Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price = {}
+
+-- Size: Near Indicative Closing Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size = 8
+
+-- Display: Near Indicative Closing Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.display = function(value)
+  return "Near Indicative Closing Price: "..value
+end
+
+-- Translate: Near Indicative Closing Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Near Indicative Closing Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.translate(raw)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.near_indicative_closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Body
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body = {}
+
+-- Size: Num Body
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.size = 1
+
+-- Display: Num Body
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.display = function(value)
+  return "Num Body: "..value
+end
+
+-- Dissect: Num Body
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.num_body, range, value, display)
+
+  return offset + length, value
+end
+
 -- Opening Trade
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.opening_trade = {}
 
@@ -1468,50 +1204,336 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.opening_trade.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Cross Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type = {}
+-- Paired Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume = {}
 
--- Size: Cross Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.size = 1
+-- Size: Paired Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.size = 4
 
--- Display: Cross Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.display = function(value)
-  if value == "I" then
-    return "Cross Type: Internal (I)"
-  end
-  if value == "B" then
-    return "Cross Type: Basis (B)"
-  end
-  if value == "C" then
-    return "Cross Type: Contingent (C)"
-  end
-  if value == "D" then
-    return "Cross Type: Derivative Related (D)"
-  end
-  if value == "R" then
-    return "Cross Type: Regular (R)"
-  end
-  if value == "S" then
-    return "Cross Type: Special Trading Session (S)"
-  end
-  if value == "V" then
-    return "Cross Type: Volume Weighted Average Price (V)"
-  end
-  if value == " " then
-    return "Cross Type: Default Trade Was Not A Cross (<whitespace>)"
-  end
-
-  return "Cross Type: Unknown("..value..")"
+-- Display: Paired Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.display = function(value)
+  return "Paired Volume: "..value
 end
 
--- Dissect: Cross Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.size
+-- Dissect: Paired Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.paired_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price = {}
+
+-- Size: Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size = 8
+
+-- Display: Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Price
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.translate(raw)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Variation
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation = {}
+
+-- Size: Price Variation
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size = 4
+
+-- Display: Price Variation
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.display = function(value)
+  return "Price Variation: "..value
+end
+
+-- Translate: Price Variation
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Variation
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.translate(raw)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.price_variation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type = {}
+
+-- Size: Product Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size = 1
+
+-- Display: Product Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.display = function(value)
+  if value == "B" then
+    return "Product Type: Debenture (B)"
+  end
+  if value == "E" then
+    return "Product Type: Equity (E)"
+  end
+  if value == "M" then
+    return "Product Type: Mutual Fund (M)"
+  end
+  if value == "F" then
+    return "Product Type: Etf (F)"
+  end
+  if value == "U" then
+    return "Product Type: Us Equity (U)"
+  end
+  if value == "O" then
+    return "Product Type: Bond (O)"
+  end
+
+  return "Product Type: Unknown("..value..")"
+end
+
+-- Dissect: Product Type
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cross_type.display(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.cross_type, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.product_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Protocol Name
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name = {}
+
+-- Size: Protocol Name
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.size = 1
+
+-- Display: Protocol Name
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.display = function(value)
+  if value == "X" then
+    return "Protocol Name: Xmt (X)"
+  end
+
+  return "Protocol Name: Unknown("..value..")"
+end
+
+-- Dissect: Protocol Name
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.protocol_name, range, value, display)
+
+  return offset + length, value
+end
+
+-- Protocol Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version = {}
+
+-- Size: Protocol Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.size = 1
+
+-- Display: Protocol Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.display = function(value)
+  return "Protocol Version: "..value
+end
+
+-- Dissect: Protocol Version
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.protocol_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Resume Trade Time
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time = {}
+
+-- Size: Resume Trade Time
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.size = 4
+
+-- Display: Resume Trade Time
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.display = function(value)
+  return "Resume Trade Time: "..value
+end
+
+-- Dissect: Resume Trade Time
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.resume_trade_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number = {}
+
+-- Size: Sell Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.size = 2
+
+-- Display: Sell Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.display = function(value)
+  return "Sell Broker Number: "..value
+end
+
+-- Dissect: Sell Broker Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_broker_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity = {}
+
+-- Size: Sell Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.size = 4
+
+-- Display: Sell Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.display = function(value)
+  return "Sell Maximum Quantity: "..value
+end
+
+-- Dissect: Sell Maximum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_maximum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity = {}
+
+-- Size: Sell Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.size = 4
+
+-- Display: Sell Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.display = function(value)
+  return "Sell Minimum Quantity: "..value
+end
+
+-- Dissect: Sell Minimum Quantity
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_minimum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence 0
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0 = {}
+
+-- Size: Sequence 0
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.size = 1
+
+-- Display: Sequence 0
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.display = function(value)
+  return "Sequence 0: "..value
+end
+
+-- Dissect: Sequence 0
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sequence_0, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence 1
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1 = {}
+
+-- Size: Sequence 1
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.size = 4
+
+-- Display: Sequence 1
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.display = function(value)
+  return "Sequence 1: "..value
+end
+
+-- Dissect: Sequence 1
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sequence_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id = {}
+
+-- Size: Session Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.size = 4
+
+-- Display: Session Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.session_id, range, value, display)
 
   return offset + length, value
 end
@@ -1558,34 +1580,650 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.settlement_terms.dissect = function(buffe
   return offset + length, value
 end
 
--- Bypass
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass = {}
+-- Source Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id = {}
 
--- Size: Bypass
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.size = 1
+-- Size: Source Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.size = 1
 
--- Display: Bypass
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: The Order Is A Bypass (Y)"
-  end
-  if value == "N" then
-    return "Bypass: The Order Is Not A Bypass (N)"
-  end
-
-  return "Bypass: Unknown("..value..")"
+-- Display: Source Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.display = function(value)
+  return "Source Id: "..value
 end
 
--- Dissect: Bypass
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.size
+-- Dissect: Source Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bypass.display(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.bypass, range, value, display)
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.source_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Start Of Frame
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame = {}
+
+-- Size: Start Of Frame
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.size = 1
+
+-- Display: Start Of Frame
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.display = function(value)
+  if value == 2 then
+    return "Start Of Frame: New Frame (2)"
+  end
+
+  return "Start Of Frame: Unknown("..value..")"
+end
+
+-- Dissect: Start Of Frame
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.start_of_frame, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Group
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group = {}
+
+-- Size: Stock Group
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.size = 1
+
+-- Display: Stock Group
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.display = function(value)
+  return "Stock Group: "..value
+end
+
+-- Dissect: Stock Group
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock State
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state = {}
+
+-- Size: Stock State
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.size = 2
+
+-- Display: Stock State
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.display = function(value)
+  if value == "AR" then
+    return "Stock State: Authorized Delayed (AR)"
+  end
+  if value == "IR" then
+    return "Stock State: Inhibited Delayed (IR)"
+  end
+  if value == "AS" then
+    return "Stock State: Authorized Halted (AS)"
+  end
+  if value == "IS" then
+    return "Stock State: Inhibited Halted (IS)"
+  end
+  if value == "AE" then
+    return "Stock State: Authorized Price Movement Delayed (AE)"
+  end
+  if value == "IE" then
+    return "Stock State: Inhibited Price Movement Delayed (IE)"
+  end
+  if value == "A" then
+    return "Stock State: Authorized (A)"
+  end
+  if value == "I" then
+    return "Stock State: Inhibited (I)"
+  end
+
+  return "Stock State: Unknown("..value..")"
+end
+
+-- Dissect: Stock State
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id = {}
+
+-- Size: Stream Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.size = 2
+
+-- Display: Stream Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.display = function(value)
+  return "Stream Id: "..value
+end
+
+-- Dissect: Stream Id
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stream_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol = {}
+
+-- Size: Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size = 12
+
+-- Display: Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Test Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol = {}
+
+-- Size: Test Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.size = 1
+
+-- Display: Test Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.display = function(value)
+  if value == "Y" then
+    return "Test Symbol: Yes (Y)"
+  end
+  if value == "N" then
+    return "Test Symbol: No (N)"
+  end
+
+  return "Test Symbol: Unknown("..value..")"
+end
+
+-- Dissect: Test Symbol
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.test_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date = {}
+
+-- Size: Trade Date
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.size = 4
+
+-- Display: Trade Date
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.display = function(value)
+  return "Trade Date: "..value
+end
+
+-- Dissect: Trade Date
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number = {}
+
+-- Size: Trade Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.size = 4
+
+-- Display: Trade Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.display = function(value)
+  return "Trade Number: "..value
+end
+
+-- Dissect: Trade Number
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp = {}
+
+-- Size: Trade Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.size = 4
+
+-- Display: Trade Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.display = function(value)
+  return "Trade Time Stamp: "..value
+end
+
+-- Dissect: Trade Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_time_stamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading System Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp = {}
+
+-- Size: Trading System Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size = 8
+
+-- Display: Trading System Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Trading System Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Trading System Time Stamp
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trading_system_time_stamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume = {}
+
+-- Size: Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.size = 4
+
+-- Display: Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap = {}
+
+-- Size: Vwap
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.size = 8
+
+-- Display: Vwap
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.display = function(value)
+  return "Vwap: "..value
+end
+
+-- Translate: Vwap
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Vwap
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.translate(raw)
+  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.vwap, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.8
+-----------------------------------------------------------------------
+
+-- Quote Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message = {}
+
+-- Size: Quote Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.size =
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size
+
+-- Display: Quote Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol: 12 Byte Ascii String
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
+  index, bid_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  index, bid_size = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.bid_size.dissect(buffer, index, packet, parent)
+
+  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
+  index, ask_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  index, ask_size = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ask_size.dissect(buffer, index, packet, parent)
+
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.quote_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.quote_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stock Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message = {}
+
+-- Size: Stock Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.size =
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.comment.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size
+
+-- Display: Stock Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stock Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol: 12 Byte Ascii String
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
+
+  -- Comment: 40 Byte Ascii String
+  index, comment = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.comment.dissect(buffer, index, packet, parent)
+
+  -- Stock State: 2 Byte Ascii String Enum with 8 values
+  index, stock_state = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_state.dissect(buffer, index, packet, parent)
+
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
+
+  -- Calculated Closing Price: 8 Byte Unsigned Fixed Width Integer
+  index, calculated_closing_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.calculated_closing_price.dissect(buffer, index, packet, parent)
+
+  -- Vwap: 8 Byte Unsigned Fixed Width Integer
+  index, vwap = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.vwap.dissect(buffer, index, packet, parent)
+
+  -- Resume Trade Time: 4 Byte Unsigned Fixed Width Integer
+  index, resume_trade_time = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.resume_trade_time.dissect(buffer, index, packet, parent)
+
+  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
+
+  -- Product Type: 1 Byte Ascii String Enum with 6 values
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stock Status Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.stock_status_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_status_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Moc Imbalance Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message = {}
+
+-- Size: Moc Imbalance Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.size =
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_side.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.size
+
+-- Display: Moc Imbalance Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Moc Imbalance Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol: 12 Byte Ascii String
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
+
+  -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  index, imbalance_side = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_side.dissect(buffer, index, packet, parent)
+
+  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  index, imbalance_volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_volume.dissect(buffer, index, packet, parent)
+
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
+
+  -- Imbalance Reference Price: 8 Byte Unsigned Fixed Width Integer
+  index, imbalance_reference_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.imbalance_reference_price.dissect(buffer, index, packet, parent)
+
+  -- Paired Volume: 4 Byte Unsigned Fixed Width Integer
+  index, paired_volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.paired_volume.dissect(buffer, index, packet, parent)
+
+  -- Market Order Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  index, market_order_imbalance_volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_volume.dissect(buffer, index, packet, parent)
+
+  -- Market Order Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  index, market_order_imbalance_side = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.market_order_imbalance_side.dissect(buffer, index, packet, parent)
+
+  -- Near Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
+  index, near_indicative_closing_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.near_indicative_closing_price.dissect(buffer, index, packet, parent)
+
+  -- Far Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
+  index, far_indicative_closing_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.far_indicative_closing_price.dissect(buffer, index, packet, parent)
+
+  -- Price Variation: 4 Byte Unsigned Fixed Width Integer
+  index, price_variation = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price_variation.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Moc Imbalance Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.dissect = function(buffer, offset, packet, parent)
+  if show.moc_imbalance_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_imbalance_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_imbalance_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Cancelled Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message = {}
+
+-- Size: Trade Cancelled Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.size =
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.size + 
+  tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.size
+
+-- Display: Trade Cancelled Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Cancelled Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol: 12 Byte Ascii String
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.symbol.dissect(buffer, index, packet, parent)
+
+  -- Price: 8 Byte Unsigned Fixed Width Integer
+  index, price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.price.dissect(buffer, index, packet, parent)
+
+  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  index, volume = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.volume.dissect(buffer, index, packet, parent)
+
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  index, buy_broker_number = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_broker_number.dissect(buffer, index, packet, parent)
+
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  index, sell_broker_number = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_broker_number.dissect(buffer, index, packet, parent)
+
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  index, trade_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_time_stamp.dissect(buffer, index, packet, parent)
+
+  -- Last Sale Price: 8 Byte Unsigned Fixed Width Integer
+  index, last_sale_price = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.last_sale_price.dissect(buffer, index, packet, parent)
+
+  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
+
+  -- Product Type: 1 Byte Ascii String Enum with 6 values
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.product_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_number.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  index, trade_date = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trading_system_time_stamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Cancelled Message
+tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.dissect = function(buffer, offset, packet, parent)
+  if show.trade_cancelled_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.trade_cancelled_message, buffer(offset, 0))
+    local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_cancelled_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Trade Report Message
@@ -1698,286 +2336,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_report_message.dissect = function(b
     -- Skip element, add fields directly
     return tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.trade_report_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Moc Eligible
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible = {}
-
--- Size: Moc Eligible
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.size = 1
-
--- Display: Moc Eligible
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.display = function(value)
-  if value == "Y" then
-    return "Moc Eligible: Yes (Y)"
-  end
-  if value == "N" then
-    return "Moc Eligible: No (N)"
-  end
-
-  return "Moc Eligible: Unknown("..value..")"
-end
-
--- Dissect: Moc Eligible
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.moc_eligible.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.moc_eligible, range, value, display)
-
-  return offset + length, value
-end
-
--- Test Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol = {}
-
--- Size: Test Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.size = 1
-
--- Display: Test Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.display = function(value)
-  if value == "Y" then
-    return "Test Symbol: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Symbol: No (N)"
-  end
-
-  return "Test Symbol: Unknown("..value..")"
-end
-
--- Dissect: Test Symbol
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.test_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.test_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity = {}
-
--- Size: Sell Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.size = 4
-
--- Display: Sell Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.display = function(value)
-  return "Sell Minimum Quantity: "..value
-end
-
--- Dissect: Sell Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_minimum_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_minimum_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity = {}
-
--- Size: Sell Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.size = 4
-
--- Display: Sell Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.display = function(value)
-  return "Sell Maximum Quantity: "..value
-end
-
--- Dissect: Sell Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sell_maximum_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sell_maximum_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity = {}
-
--- Size: Buy Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.size = 4
-
--- Display: Buy Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.display = function(value)
-  return "Buy Minimum Quantity: "..value
-end
-
--- Dissect: Buy Minimum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_minimum_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.buy_minimum_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity = {}
-
--- Size: Buy Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.size = 4
-
--- Display: Buy Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.display = function(value)
-  return "Buy Maximum Quantity: "..value
-end
-
--- Dissect: Buy Maximum Quantity
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.buy_maximum_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.buy_maximum_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Face Value
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value = {}
-
--- Size: Face Value
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.size = 8
-
--- Display: Face Value
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.display = function(value)
-  return "Face Value: "..value
-end
-
--- Translate: Face Value
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Face Value
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.translate(raw)
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.face_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.face_value, range, value, display)
-
-  return offset + length, value
-end
-
--- Currency
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency = {}
-
--- Size: Currency
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.size = 1
-
--- Display: Currency
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
-  if value == "C" then
-    return "Currency: Cad (C)"
-  end
-
-  return "Currency: Unknown("..value..")"
-end
-
--- Dissect: Currency
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.currency.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Board Lot
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot = {}
-
--- Size: Board Lot
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.size = 2
-
--- Display: Board Lot
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.display = function(value)
-  return "Board Lot: "..value
-end
-
--- Dissect: Board Lot
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.board_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.board_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Cusip
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip = {}
-
--- Size: Cusip
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.size = 12
-
--- Display: Cusip
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.display = function(value)
-  return "Cusip: "..value
-end
-
--- Dissect: Cusip
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.cusip.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.cusip, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Group
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group = {}
-
--- Size: Stock Group
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.size = 1
-
--- Display: Stock Group
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.display = function(value)
-  return "Stock Group: "..value
-end
-
--- Dissect: Stock Group
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stock_group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stock_group, range, value, display)
-
-  return offset + length, value
 end
 
 -- Symbol Status Message
@@ -2113,121 +2471,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.business_message.dissect = function(buffe
   return offset
 end
 
--- Sequence 1
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1 = {}
-
--- Size: Sequence 1
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.size = 4
-
--- Display: Sequence 1
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.display = function(value)
-  return "Sequence 1: "..value
-end
-
--- Dissect: Sequence 1
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sequence_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence 0
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0 = {}
-
--- Size: Sequence 0
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.size = 1
-
--- Display: Sequence 0
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.display = function(value)
-  return "Sequence 0: "..value
-end
-
--- Dissect: Sequence 0
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.sequence_0.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.sequence_0, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id = {}
-
--- Size: Stream Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.size = 2
-
--- Display: Stream Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.display = function(value)
-  return "Stream Id: "..value
-end
-
--- Dissect: Stream Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.stream_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.stream_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Source Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id = {}
-
--- Size: Source Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.size = 1
-
--- Display: Source Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.display = function(value)
-  return "Source Id: "..value
-end
-
--- Dissect: Source Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.source_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.source_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version = {}
-
--- Size: Msg Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.size = 1
-
--- Display: Msg Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.display = function(value)
-  return "Msg Version: "..value
-end
-
--- Dissect: Msg Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_version, range, value, display)
-
-  return offset + length, value
-end
-
 -- Business Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.business_header = {}
 
@@ -2329,71 +2572,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.body_message.dissect = function(buffer, o
   end
 end
 
--- Msg Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type = {}
-
--- Size: Msg Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.size = 1
-
--- Display: Msg Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.display = function(value)
-  if value == "J" then
-    return "Msg Type: Symbol Status Message (J)"
-  end
-  if value == "s" then
-    return "Msg Type: Trade Report Message (s)"
-  end
-  if value == "T" then
-    return "Msg Type: Trade Cancelled Message (T)"
-  end
-  if value == "F" then
-    return "Msg Type: Moc Imbalance Message (F)"
-  end
-  if value == "I" then
-    return "Msg Type: Stock Status Message (I)"
-  end
-  if value == "I" then
-    return "Msg Type: Quote Message (I)"
-  end
-
-  return "Msg Type: Unknown("..value..")"
-end
-
--- Dissect: Msg Type
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length = {}
-
--- Size: Msg Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.size = 2
-
--- Display: Msg Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.display = function(value)
-  return "Msg Length: "..value
-end
-
--- Dissect: Msg Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.msg_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.msg_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Body Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.body_header = {}
 
@@ -2490,179 +2668,6 @@ tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.body.dissect = function(buffer, offset, p
 
     return index
   end
-end
-
--- Num Body
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body = {}
-
--- Size: Num Body
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.size = 1
-
--- Display: Num Body
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.display = function(value)
-  return "Num Body: "..value
-end
-
--- Dissect: Num Body
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.num_body.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.num_body, range, value, display)
-
-  return offset + length, value
-end
-
--- Ack Required Poss Dup
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup = {}
-
--- Size: Ack Required Poss Dup
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.size = 1
-
--- Display: Ack Required Poss Dup
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.display = function(value)
-  if value == "0" then
-    return "Ack Required Poss Dup: Unused (0)"
-  end
-
-  return "Ack Required Poss Dup: Unknown("..value..")"
-end
-
--- Dissect: Ack Required Poss Dup
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.ack_required_poss_dup.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.ack_required_poss_dup, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id = {}
-
--- Size: Session Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.size = 4
-
--- Display: Session Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length = {}
-
--- Size: Message Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.size = 2
-
--- Display: Message Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Protocol Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version = {}
-
--- Size: Protocol Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.size = 1
-
--- Display: Protocol Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.display = function(value)
-  return "Protocol Version: "..value
-end
-
--- Dissect: Protocol Version
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.protocol_version, range, value, display)
-
-  return offset + length, value
-end
-
--- Protocol Name
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name = {}
-
--- Size: Protocol Name
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.size = 1
-
--- Display: Protocol Name
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.display = function(value)
-  if value == "X" then
-    return "Protocol Name: Xmt (X)"
-  end
-
-  return "Protocol Name: Unknown("..value..")"
-end
-
--- Dissect: Protocol Name
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.protocol_name.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.protocol_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Start Of Frame
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame = {}
-
--- Size: Start Of Frame
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.size = 1
-
--- Display: Start Of Frame
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.display = function(value)
-  if value == 2 then
-    return "Start Of Frame: New Frame (2)"
-  end
-
-  return "Start Of Frame: Unknown("..value..")"
-end
-
--- Dissect: Start Of Frame
-tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.start_of_frame.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_8.fields.start_of_frame, range, value, display)
-
-  return offset + length, value
 end
 
 -- Frame Header

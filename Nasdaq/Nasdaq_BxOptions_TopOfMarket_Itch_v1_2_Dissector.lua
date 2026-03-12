@@ -225,28 +225,671 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Nasdaq BxOptions TopOfMarket Itch 1.2
+-- Nasdaq BxOptions TopOfMarket Itch 1.2 Fields
 -----------------------------------------------------------------------
 
--- Original Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume = {}
+-- Ask Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price = {}
 
--- Size: Original Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size = 4
+-- Size: Ask Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size = 2
 
--- Display: Original Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.display = function(value)
-  return "Original Volume: "..value
+-- Display: Ask Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.display = function(value)
+  return "Ask Price: "..value
 end
 
--- Dissect: Original Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size
+-- Translate: Ask Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Ask Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long = {}
+
+-- Size: Ask Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size = 4
+
+-- Display: Ask Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.display = function(value)
+  return "Ask Price Long: "..value
+end
+
+-- Translate: Ask Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Ask Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size = {}
+
+-- Size: Ask Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size = 2
+
+-- Display: Ask Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.display = function(value)
+  return "Ask Size: "..value
+end
+
+-- Dissect: Ask Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_volume, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long = {}
+
+-- Size: Ask Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size = 4
+
+-- Display: Ask Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.display = function(value)
+  return "Ask Size Long: "..value
+end
+
+-- Dissect: Ask Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price = {}
+
+-- Size: Bid Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size = 2
+
+-- Display: Bid Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long = {}
+
+-- Size: Bid Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size = 4
+
+-- Display: Bid Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
+end
+
+-- Translate: Bid Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Bid Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size = {}
+
+-- Size: Bid Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size = 2
+
+-- Display: Bid Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long = {}
+
+-- Size: Bid Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size = 4
+
+-- Display: Bid Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
+end
+
+-- Dissect: Bid Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id = {}
+
+-- Size: Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size = 4
+
+-- Display: Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.display = function(value)
+  return "Cross Id: "..value
+end
+
+-- Dissect: Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Trading (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_bxoptions_topofmarket_itch_v1_2.event_code = {}
+
+-- Size: Event Code
+nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Market Hours (Q)"
+  end
+  if value == "M" then
+    return "Event Code: End Of Market Hours (M)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Day
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day = {}
+
+-- Size: Expiration Day
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size = 1
+
+-- Display: Expiration Day
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.display = function(value)
+  return "Expiration Day: "..value
+end
+
+-- Dissect: Expiration Day
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_day, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Month
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month = {}
+
+-- Size: Expiration Month
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size = 1
+
+-- Display: Expiration Month
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.display = function(value)
+  return "Expiration Month: "..value
+end
+
+-- Dissect: Expiration Month
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Year
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year = {}
+
+-- Size: Expiration Year
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size = 1
+
+-- Display: Expiration Year
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.display = function(value)
+  return "Expiration Year: "..value
+end
+
+-- Dissect: Expiration Year
+nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_year, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_count = {}
+
+-- Size: Message Count
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_length = {}
+
+-- Size: Message Length
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_type = {}
+
+-- Size: Message Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.display = function(value)
+  if value == "T" then
+    return "Message Type: Timestamp Message (T)"
+  end
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "D" then
+    return "Message Type: Options Directory Message (D)"
+  end
+  if value == "H" then
+    return "Message Type: Trading Action Message (H)"
+  end
+  if value == "O" then
+    return "Message Type: Security Open Message (O)"
+  end
+  if value == "q" then
+    return "Message Type: Best Bid And Ask Update Short Form Message (q)"
+  end
+  if value == "Q" then
+    return "Message Type: Best Bid And Ask Update Long Form Message (Q)"
+  end
+  if value == "b" then
+    return "Message Type: Best Bid Update Short Form Message (b)"
+  end
+  if value == "a" then
+    return "Message Type: Best Ask Update Short Form Message (a)"
+  end
+  if value == "B" then
+    return "Message Type: Best Bid Update Long Form Message (B)"
+  end
+  if value == "A" then
+    return "Message Type: Best Ask Update Long Form Message (A)"
+  end
+  if value == "R" then
+    return "Message Type: Trade Report Message (R)"
+  end
+  if value == "X" then
+    return "Message Type: Broken Trade Report Message (X)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Price Variation
+nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation = {}
+
+-- Size: Minimum Price Variation
+nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size = 1
+
+-- Display: Minimum Price Variation
+nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.display = function(value)
+  if value == "E" then
+    return "Minimum Price Variation: Penny Everywhere (E)"
+  end
+  if value == "S" then
+    return "Minimum Price Variation: Scaled (S)"
+  end
+  if value == "P" then
+    return "Minimum Price Variation: Penny Pilot (P)"
+  end
+
+  return "Minimum Price Variation: Unknown("..value..")"
+end
+
+-- Dissect: Minimum Price Variation
+nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds = {}
+
+-- Size: Nanoseconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_bxoptions_topofmarket_itch_v1_2.open_state = {}
+
+-- Size: Open State
+nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size = 1
+
+-- Display: Open State
+nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.display = function(value)
+  if value == "Y" then
+    return "Open State: Open (Y)"
+  end
+  if value == "N" then
+    return "Open State: Closed (N)"
+  end
+
+  return "Open State: Unknown("..value..")"
+end
+
+-- Dissect: Open State
+nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Closing Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type = {}
+
+-- Size: Option Closing Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size = 1
+
+-- Display: Option Closing Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.display = function(value)
+  return "Option Closing Type: "..value
+end
+
+-- Dissect: Option Closing Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_id = {}
+
+-- Size: Option Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_type = {}
+
+-- Size: Option Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id = {}
+
+-- Size: Original Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size = 4
+
+-- Display: Original Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.display = function(value)
+  return "Original Cross Id: "..value
+end
+
+-- Dissect: Original Cross Id
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_cross_id, range, value, display)
 
   return offset + length, value
 end
@@ -280,74 +923,481 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.original_price.dissect = function(buffer,
   return offset + length, value
 end
 
--- Original Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id = {}
+-- Original Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume = {}
 
--- Size: Original Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size = 4
+-- Size: Original Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size = 4
 
--- Display: Original Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.display = function(value)
-  return "Original Cross Id: "..value
+-- Display: Original Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.display = function(value)
+  return "Original Volume: "..value
 end
 
--- Dissect: Original Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.size
+-- Dissect: Original Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.original_cross_id.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.original_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_cross_id, range, value, display)
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.original_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Option Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_id = {}
+-- Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.price = {}
 
--- Size: Option Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size = 4
+-- Size: Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.price.size = 2
 
--- Display: Option Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.display = function(value)
-  return "Option Id: "..value
+-- Display: Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.price.display = function(value)
+  return "Price: "..value
 end
 
--- Dissect: Option Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.option_id.display(value, buffer, offset, packet, parent)
+-- Translate: Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.price.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_id, range, value, display)
+-- Dissect: Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.price.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price, range, value, display)
 
   return offset + length, value
 end
 
--- Nanoseconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds = {}
+-- Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.price_long = {}
 
--- Size: Nanoseconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size = 4
+-- Size: Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size = 4
 
--- Display: Nanoseconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.display = function(value)
-  return "Nanoseconds: "..value
+-- Display: Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Dissect: Nanoseconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.nanoseconds.display(value, buffer, offset, packet, parent)
+-- Translate: Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.translate = function(raw)
+  return raw/10000
+end
 
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.nanoseconds, range, value, display)
+-- Dissect: Price Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price_long, range, value, display)
 
   return offset + length, value
 end
+
+-- Quote Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition = {}
+
+-- Size: Quote Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size = 1
+
+-- Display: Quote Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.display = function(value)
+  if value == "F" then
+    return "Quote Condition: Nonfirm Quote (F)"
+  end
+  if value == "R" then
+    return "Quote Condition: Rotational Quote (R)"
+  end
+  if value == "X" then
+    return "Quote Condition: Bid Side Firm (X)"
+  end
+  if value == "Y" then
+    return "Quote Condition: Ask Side Firm (Y)"
+  end
+  if value == " " then
+    return "Quote Condition: Regular Quote (<whitespace>)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.seconds = {}
+
+-- Size: Seconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size = 4
+
+-- Display: Seconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size = 6
+
+-- Display: Security Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_bxoptions_topofmarket_itch_v1_2.session = {}
+
+-- Size: Session
+nasdaq_bxoptions_topofmarket_itch_v1_2.session.size = 10
+
+-- Display: Session
+nasdaq_bxoptions_topofmarket_itch_v1_2.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_bxoptions_topofmarket_itch_v1_2.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.size = {}
+
+-- Size: Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.size.size = 2
+
+-- Display: Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+nasdaq_bxoptions_topofmarket_itch_v1_2.size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.size_long = {}
+
+-- Size: Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size = 4
+
+-- Display: Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.display = function(value)
+  return "Size Long: "..value
+end
+
+-- Dissect: Size Long
+nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+nasdaq_bxoptions_topofmarket_itch_v1_2.source = {}
+
+-- Size: Source
+nasdaq_bxoptions_topofmarket_itch_v1_2.source.size = 1
+
+-- Display: Source
+nasdaq_bxoptions_topofmarket_itch_v1_2.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+nasdaq_bxoptions_topofmarket_itch_v1_2.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price = {}
+
+-- Size: Strike Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size = 4
+
+-- Display: Strike Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Strike Price
+nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.translate(raw)
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Subversion
+nasdaq_bxoptions_topofmarket_itch_v1_2.subversion = {}
+
+-- Size: Subversion
+nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size = 1
+
+-- Display: Subversion
+nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.display = function(value)
+  return "Subversion: "..value
+end
+
+-- Dissect: Subversion
+nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.subversion, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tradable
+nasdaq_bxoptions_topofmarket_itch_v1_2.tradable = {}
+
+-- Size: Tradable
+nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size = 1
+
+-- Display: Tradable
+nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.display = function(value)
+  if value == "Y" then
+    return "Tradable: Yes (Y)"
+  end
+  if value == "N" then
+    return "Tradable: No (N)"
+  end
+
+  return "Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Tradable
+nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition = {}
+
+-- Size: Trade Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size = 1
+
+-- Display: Trade Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.display = function(value)
+  return "Trade Condition: "..value
+end
+
+-- Dissect: Trade Condition
+nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_bxoptions_topofmarket_itch_v1_2.version = {}
+
+-- Size: Version
+nasdaq_bxoptions_topofmarket_itch_v1_2.version.size = 1
+
+-- Display: Version
+nasdaq_bxoptions_topofmarket_itch_v1_2.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_bxoptions_topofmarket_itch_v1_2.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.volume = {}
+
+-- Size: Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size = 4
+
+-- Display: Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nasdaq_bxoptions_topofmarket_itch_v1_2.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq BxOptions TopOfMarket Itch 1.2
+-----------------------------------------------------------------------
 
 -- Broken Trade Report Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message = {}
@@ -403,104 +1453,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message.dissect = fun
     -- Skip element, add fields directly
     return nasdaq_bxoptions_topofmarket_itch_v1_2.broken_trade_report_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.volume = {}
-
--- Size: Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size = 4
-
--- Display: Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.volume.display = function(value)
-  return "Volume: "..value
-end
-
--- Dissect: Volume
-nasdaq_bxoptions_topofmarket_itch_v1_2.volume.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.volume.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.price_long = {}
-
--- Size: Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size = 4
-
--- Display: Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.display = function(value)
-  return "Price Long: "..value
-end
-
--- Translate: Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition = {}
-
--- Size: Trade Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size = 1
-
--- Display: Trade Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.display = function(value)
-  return "Trade Condition: "..value
-end
-
--- Dissect: Trade Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.trade_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.trade_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id = {}
-
--- Size: Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size = 4
-
--- Display: Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.display = function(value)
-  return "Cross Id: "..value
-end
-
--- Dissect: Cross Id
-nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.cross_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.cross_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trade Report Message
@@ -561,68 +1513,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message.dissect = function(b
     -- Skip element, add fields directly
     return nasdaq_bxoptions_topofmarket_itch_v1_2.trade_report_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.size_long = {}
-
--- Size: Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size = 4
-
--- Display: Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.display = function(value)
-  return "Size Long: "..value
-end
-
--- Dissect: Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition = {}
-
--- Size: Quote Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size = 1
-
--- Display: Quote Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.display = function(value)
-  if value == "F" then
-    return "Quote Condition: Nonfirm Quote (F)"
-  end
-  if value == "R" then
-    return "Quote Condition: Rotational Quote (R)"
-  end
-  if value == "X" then
-    return "Quote Condition: Bid Side Firm (X)"
-  end
-  if value == "Y" then
-    return "Quote Condition: Ask Side Firm (Y)"
-  end
-  if value == " " then
-    return "Quote Condition: Regular Quote (<whitespace>)"
-  end
-
-  return "Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Quote Condition
-nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.quote_condition, range, value, display)
-
-  return offset + length, value
 end
 
 -- Best Ask Update Long Form Message
@@ -737,58 +1627,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message.dissect
   end
 end
 
--- Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.size = {}
-
--- Size: Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.size.size = 2
-
--- Display: Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.size.display = function(value)
-  return "Size: "..value
-end
-
--- Dissect: Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.size, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.price = {}
-
--- Size: Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.price.size = 2
-
--- Display: Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.price.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Best Ask Update Short Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message = {}
 
@@ -901,110 +1739,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message.dissec
   end
 end
 
--- Ask Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long = {}
-
--- Size: Ask Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size = 4
-
--- Display: Ask Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.display = function(value)
-  return "Ask Size Long: "..value
-end
-
--- Dissect: Ask Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long = {}
-
--- Size: Ask Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size = 4
-
--- Display: Ask Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.display = function(value)
-  return "Ask Price Long: "..value
-end
-
--- Translate: Ask Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Ask Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long = {}
-
--- Size: Bid Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size = 4
-
--- Display: Bid Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.display = function(value)
-  return "Bid Size Long: "..value
-end
-
--- Dissect: Bid Size Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long = {}
-
--- Size: Bid Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size = 4
-
--- Display: Bid Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.display = function(value)
-  return "Bid Price Long: "..value
-end
-
--- Translate: Bid Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Bid Price Long
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price_long, range, value, display)
-
-  return offset + length, value
-end
-
 -- Best Bid And Ask Update Long Form Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message = {}
 
@@ -1067,110 +1801,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message
     -- Skip element, add fields directly
     return nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Ask Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size = {}
-
--- Size: Ask Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size = 2
-
--- Display: Ask Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.display = function(value)
-  return "Ask Size: "..value
-end
-
--- Dissect: Ask Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price = {}
-
--- Size: Ask Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size = 2
-
--- Display: Ask Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.display = function(value)
-  return "Ask Price: "..value
-end
-
--- Translate: Ask Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Ask Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.ask_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.ask_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size = {}
-
--- Size: Bid Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size = 2
-
--- Display: Bid Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.display = function(value)
-  return "Bid Size: "..value
-end
-
--- Dissect: Bid Size
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price = {}
-
--- Size: Bid Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size = 2
-
--- Display: Bid Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Translate: Bid Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.bid_price, range, value, display)
-
-  return offset + length, value
 end
 
 -- Best Bid And Ask Update Short Form Message
@@ -1237,36 +1867,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_messag
   end
 end
 
--- Open State
-nasdaq_bxoptions_topofmarket_itch_v1_2.open_state = {}
-
--- Size: Open State
-nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size = 1
-
--- Display: Open State
-nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed (N)"
-  end
-
-  return "Open State: Unknown("..value..")"
-end
-
--- Dissect: Open State
-nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.open_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.open_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Open Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message = {}
 
@@ -1315,36 +1915,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.security_open_message.dissect = function(
   end
 end
 
--- Current Trading State
-nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state = {}
-
--- Size: Current Trading State
-nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size = 1
-
--- Display: Current Trading State
-nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
-
-  return "Current Trading State: Unknown("..value..")"
-end
-
--- Dissect: Current Trading State
-nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.current_trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.current_trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Action Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message = {}
 
@@ -1391,289 +1961,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message.dissect = function
     -- Skip element, add fields directly
     return nasdaq_bxoptions_topofmarket_itch_v1_2.trading_action_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Minimum Price Variation
-nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation = {}
-
--- Size: Minimum Price Variation
-nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size = 1
-
--- Display: Minimum Price Variation
-nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.display = function(value)
-  if value == "E" then
-    return "Minimum Price Variation: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Minimum Price Variation: Scaled (S)"
-  end
-  if value == "P" then
-    return "Minimum Price Variation: Penny Pilot (P)"
-  end
-
-  return "Minimum Price Variation: Unknown("..value..")"
-end
-
--- Dissect: Minimum Price Variation
-nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.minimum_price_variation.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation, range, value, display)
-
-  return offset + length, value
-end
-
--- Tradable
-nasdaq_bxoptions_topofmarket_itch_v1_2.tradable = {}
-
--- Size: Tradable
-nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size = 1
-
--- Display: Tradable
-nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Yes (Y)"
-  end
-  if value == "N" then
-    return "Tradable: No (N)"
-  end
-
-  return "Tradable: Unknown("..value..")"
-end
-
--- Dissect: Tradable
-nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.tradable.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Closing Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type = {}
-
--- Size: Option Closing Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size = 1
-
--- Display: Option Closing Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.display = function(value)
-  return "Option Closing Type: "..value
-end
-
--- Dissect: Option Closing Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.option_closing_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_closing_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol = {}
-
--- Size: Underlying Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size = 13
-
--- Display: Underlying Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.display = function(value)
-  return "Underlying Symbol: "..value
-end
-
--- Dissect: Underlying Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.underlying_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.underlying_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Source
-nasdaq_bxoptions_topofmarket_itch_v1_2.source = {}
-
--- Size: Source
-nasdaq_bxoptions_topofmarket_itch_v1_2.source.size = 1
-
--- Display: Source
-nasdaq_bxoptions_topofmarket_itch_v1_2.source.display = function(value)
-  return "Source: "..value
-end
-
--- Dissect: Source
-nasdaq_bxoptions_topofmarket_itch_v1_2.source.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.source.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.source.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_type = {}
-
--- Size: Option Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size = 1
-
--- Display: Option Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-
-  return "Option Type: Unknown("..value..")"
-end
-
--- Dissect: Option Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.option_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.option_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price = {}
-
--- Size: Strike Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size = 4
-
--- Display: Strike Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Strike Price
-nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.translate(raw)
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Day
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day = {}
-
--- Size: Expiration Day
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size = 1
-
--- Display: Expiration Day
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.display = function(value)
-  return "Expiration Day: "..value
-end
-
--- Dissect: Expiration Day
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_day.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Month
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month = {}
-
--- Size: Expiration Month
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size = 1
-
--- Display: Expiration Month
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.display = function(value)
-  return "Expiration Month: "..value
-end
-
--- Dissect: Expiration Month
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Year
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year = {}
-
--- Size: Expiration Year
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size = 1
-
--- Display: Expiration Year
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.display = function(value)
-  return "Expiration Year: "..value
-end
-
--- Dissect: Expiration Year
-nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.expiration_year.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.expiration_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol = {}
-
--- Size: Security Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size = 6
-
--- Display: Security Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.security_symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Options Directory Message
@@ -1764,94 +2051,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.options_directory_message.dissect = funct
   end
 end
 
--- Subversion
-nasdaq_bxoptions_topofmarket_itch_v1_2.subversion = {}
-
--- Size: Subversion
-nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size = 1
-
--- Display: Subversion
-nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.display = function(value)
-  return "Subversion: "..value
-end
-
--- Dissect: Subversion
-nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.subversion.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.subversion, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-nasdaq_bxoptions_topofmarket_itch_v1_2.version = {}
-
--- Size: Version
-nasdaq_bxoptions_topofmarket_itch_v1_2.version.size = 1
-
--- Display: Version
-nasdaq_bxoptions_topofmarket_itch_v1_2.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-nasdaq_bxoptions_topofmarket_itch_v1_2.version.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Code
-nasdaq_bxoptions_topofmarket_itch_v1_2.event_code = {}
-
--- Size: Event Code
-nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size = 1
-
--- Display: Event Code
-nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-
-  return "Event Code: Unknown("..value..")"
-end
-
--- Dissect: Event Code
-nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.event_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.event_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message = {}
 
@@ -1902,29 +2101,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message.dissect = function(b
     -- Skip element, add fields directly
     return nasdaq_bxoptions_topofmarket_itch_v1_2.system_event_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Seconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.seconds = {}
-
--- Size: Seconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size = 4
-
--- Display: Seconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.display = function(value)
-  return "Seconds: "..value
-end
-
--- Dissect: Seconds
-nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.seconds.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.seconds, range, value, display)
-
-  return offset + length, value
 end
 
 -- Timestamp Message
@@ -2026,92 +2202,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.payload.dissect = function(buffer, offset
   end
 
   return offset
-end
-
--- Message Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_type = {}
-
--- Size: Message Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size = 1
-
--- Display: Message Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Timestamp Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Options Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Message (O)"
-  end
-  if value == "q" then
-    return "Message Type: Best Bid And Ask Update Short Form Message (q)"
-  end
-  if value == "Q" then
-    return "Message Type: Best Bid And Ask Update Long Form Message (Q)"
-  end
-  if value == "b" then
-    return "Message Type: Best Bid Update Short Form Message (b)"
-  end
-  if value == "a" then
-    return "Message Type: Best Ask Update Short Form Message (a)"
-  end
-  if value == "B" then
-    return "Message Type: Best Bid Update Long Form Message (B)"
-  end
-  if value == "A" then
-    return "Message Type: Best Ask Update Long Form Message (A)"
-  end
-  if value == "R" then
-    return "Message Type: Trade Report Message (R)"
-  end
-  if value == "X" then
-    return "Message Type: Broken Trade Report Message (X)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_length = {}
-
--- Size: Message Length
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size = 2
-
--- Display: Message Length
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message Header
@@ -2247,91 +2337,6 @@ nasdaq_bxoptions_topofmarket_itch_v1_2.messages.dissect = function(buffer, offse
   end
 
   return offset
-end
-
--- Message Count
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_count = {}
-
--- Size: Message Count
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size = 2
-
--- Display: Message Count
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.message_count, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size = 8
-
--- Display: Sequence Number
-nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_bxoptions_topofmarket_itch_v1_2.session = {}
-
--- Size: Session
-nasdaq_bxoptions_topofmarket_itch_v1_2.session.size = 10
-
--- Display: Session
-nasdaq_bxoptions_topofmarket_itch_v1_2.session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Session: No Value"
-  end
-
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_bxoptions_topofmarket_itch_v1_2.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxoptions_topofmarket_itch_v1_2.session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_bxoptions_topofmarket_itch_v1_2.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxoptions_topofmarket_itch_v1_2.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

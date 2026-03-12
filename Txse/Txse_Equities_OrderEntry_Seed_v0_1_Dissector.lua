@@ -617,8 +617,85 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Txse Equities OrderEntry Seed 0.1
+-- Txse Equities OrderEntry Seed 0.1 Fields
 -----------------------------------------------------------------------
+
+-- Cancel Reason
+txse_equities_orderentry_seed_v0_1.cancel_reason = {}
+
+-- Size: Cancel Reason
+txse_equities_orderentry_seed_v0_1.cancel_reason.size = 1
+
+-- Display: Cancel Reason
+txse_equities_orderentry_seed_v0_1.cancel_reason.display = function(value)
+  if value == 1 then
+    return "Cancel Reason: Requested By User (1)"
+  end
+  if value == 2 then
+    return "Cancel Reason: Related To Time In Force (2)"
+  end
+  if value == 3 then
+    return "Cancel Reason: Related To Min Qty (3)"
+  end
+  if value == 4 then
+    return "Cancel Reason: Nms Violation No Slide (4)"
+  end
+  if value == 5 then
+    return "Cancel Reason: Marketable Reserve (5)"
+  end
+  if value == 6 then
+    return "Cancel Reason: Self Match Prevention (6)"
+  end
+  if value == 7 then
+    return "Cancel Reason: Replenishment Canceled Due To Reserve (7)"
+  end
+  if value == 8 then
+    return "Cancel Reason: Related To Order Type (8)"
+  end
+  if value == 9 then
+    return "Cancel Reason: Canceled Due To Crossed Markets (9)"
+  end
+  if value == 10 then
+    return "Cancel Reason: Canceled Due To Mass Cancel Request (10)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reason
+txse_equities_orderentry_seed_v0_1.cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.cancel_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.cancel_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Count
+txse_equities_orderentry_seed_v0_1.canceled_count = {}
+
+-- Size: Canceled Count
+txse_equities_orderentry_seed_v0_1.canceled_count.size = 4
+
+-- Display: Canceled Count
+txse_equities_orderentry_seed_v0_1.canceled_count.display = function(value)
+  return "Canceled Count: "..value
+end
+
+-- Dissect: Canceled Count
+txse_equities_orderentry_seed_v0_1.canceled_count.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.canceled_count.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.canceled_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.canceled_count, range, value, display)
+
+  return offset + length, value
+end
 
 -- Cl Ord Id
 txse_equities_orderentry_seed_v0_1.cl_ord_id = {}
@@ -643,94 +720,271 @@ txse_equities_orderentry_seed_v0_1.cl_ord_id.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Member Group
-txse_equities_orderentry_seed_v0_1.member_group = {}
+-- Display Price
+txse_equities_orderentry_seed_v0_1.display_price = {}
 
--- Size: Member Group
-txse_equities_orderentry_seed_v0_1.member_group.size = 2
+-- Size: Display Price
+txse_equities_orderentry_seed_v0_1.display_price.size = 8
 
--- Display: Member Group
-txse_equities_orderentry_seed_v0_1.member_group.display = function(value)
-  return "Member Group: "..value
+-- Display: Display Price
+txse_equities_orderentry_seed_v0_1.display_price.display = function(value)
+  return "Display Price: "..value
 end
 
--- Dissect: Member Group
-txse_equities_orderentry_seed_v0_1.member_group.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.member_group.size
+-- Dissect: Display Price
+txse_equities_orderentry_seed_v0_1.display_price.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.display_price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = txse_equities_orderentry_seed_v0_1.member_group.display(value, buffer, offset, packet, parent)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.display_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.member_group, range, value, display)
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.display_price, range, value, display)
 
   return offset + length, value
 end
 
--- Sender Comp
-txse_equities_orderentry_seed_v0_1.sender_comp = {}
+-- Exec Id
+txse_equities_orderentry_seed_v0_1.exec_id = {}
 
--- Size: Sender Comp
-txse_equities_orderentry_seed_v0_1.sender_comp.size = 8
+-- Size: Exec Id
+txse_equities_orderentry_seed_v0_1.exec_id.size = 8
 
--- Display: Sender Comp
-txse_equities_orderentry_seed_v0_1.sender_comp.display = function(value)
-  return "Sender Comp: "..value
+-- Display: Exec Id
+txse_equities_orderentry_seed_v0_1.exec_id.display = function(value)
+  return "Exec Id: "..value
 end
 
--- Dissect: Sender Comp
-txse_equities_orderentry_seed_v0_1.sender_comp.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.sender_comp.size
+-- Dissect: Exec Id
+txse_equities_orderentry_seed_v0_1.exec_id.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.exec_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = txse_equities_orderentry_seed_v0_1.sender_comp.display(value, buffer, offset, packet, parent)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.exec_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.sender_comp, range, value, display)
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
 
--- Mpid
-txse_equities_orderentry_seed_v0_1.mpid = {}
+-- Exec Qty
+txse_equities_orderentry_seed_v0_1.exec_qty = {}
 
--- Size: Mpid
-txse_equities_orderentry_seed_v0_1.mpid.size = 4
+-- Size: Exec Qty
+txse_equities_orderentry_seed_v0_1.exec_qty.size = 4
 
--- Display: Mpid
-txse_equities_orderentry_seed_v0_1.mpid.display = function(value)
-  return "Mpid: "..value
+-- Display: Exec Qty
+txse_equities_orderentry_seed_v0_1.exec_qty.display = function(value)
+  return "Exec Qty: "..value
 end
 
--- Dissect: Mpid
-txse_equities_orderentry_seed_v0_1.mpid.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.mpid.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = txse_equities_orderentry_seed_v0_1.mpid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mpid, range, value, display)
-
-  return offset + length, value
-end
-
--- Canceled Count
-txse_equities_orderentry_seed_v0_1.canceled_count = {}
-
--- Size: Canceled Count
-txse_equities_orderentry_seed_v0_1.canceled_count.size = 4
-
--- Display: Canceled Count
-txse_equities_orderentry_seed_v0_1.canceled_count.display = function(value)
-  return "Canceled Count: "..value
-end
-
--- Dissect: Canceled Count
-txse_equities_orderentry_seed_v0_1.canceled_count.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.canceled_count.size
+-- Dissect: Exec Qty
+txse_equities_orderentry_seed_v0_1.exec_qty.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.exec_qty.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.canceled_count.display(value, buffer, offset, packet, parent)
+  local display = txse_equities_orderentry_seed_v0_1.exec_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.canceled_count, range, value, display)
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.exec_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Time
+txse_equities_orderentry_seed_v0_1.expire_time = {}
+
+-- Size: Expire Time
+txse_equities_orderentry_seed_v0_1.expire_time.size = 8
+
+-- Display: Expire Time
+txse_equities_orderentry_seed_v0_1.expire_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Expire Time
+txse_equities_orderentry_seed_v0_1.expire_time.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.expire_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.expire_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.expire_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Highest Known Sequence Number
+txse_equities_orderentry_seed_v0_1.highest_known_sequence_number = {}
+
+-- Size: Highest Known Sequence Number
+txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.size = 8
+
+-- Display: Highest Known Sequence Number
+txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.display = function(value)
+  return "Highest Known Sequence Number: "..value
+end
+
+-- Dissect: Highest Known Sequence Number
+txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.highest_known_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+txse_equities_orderentry_seed_v0_1.leaves_qty = {}
+
+-- Size: Leaves Qty
+txse_equities_orderentry_seed_v0_1.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+txse_equities_orderentry_seed_v0_1.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+txse_equities_orderentry_seed_v0_1.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Locate Broker
+txse_equities_orderentry_seed_v0_1.locate_broker = {}
+
+-- Size: Locate Broker
+txse_equities_orderentry_seed_v0_1.locate_broker.size = 4
+
+-- Display: Locate Broker
+txse_equities_orderentry_seed_v0_1.locate_broker.display = function(value)
+  return "Locate Broker: "..value
+end
+
+-- Dissect: Locate Broker
+txse_equities_orderentry_seed_v0_1.locate_broker.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.locate_broker.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = txse_equities_orderentry_seed_v0_1.locate_broker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.locate_broker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logon Response Code
+txse_equities_orderentry_seed_v0_1.logon_response_code = {}
+
+-- Size: Logon Response Code
+txse_equities_orderentry_seed_v0_1.logon_response_code.size = 1
+
+-- Display: Logon Response Code
+txse_equities_orderentry_seed_v0_1.logon_response_code.display = function(value)
+  if value == 0 then
+    return "Logon Response Code: Success (0)"
+  end
+  if value == 1 then
+    return "Logon Response Code: Incorrect Sender Comp (1)"
+  end
+  if value == 2 then
+    return "Logon Response Code: Incorrect Session (2)"
+  end
+  if value == 3 then
+    return "Logon Response Code: Invalid Next Sequence (3)"
+  end
+  if value == 4 then
+    return "Logon Response Code: Invalid Configuration (4)"
+  end
+  if value == 5 then
+    return "Logon Response Code: Incorrect Token (5)"
+  end
+
+  return "Logon Response Code: Unknown("..value..")"
+end
+
+-- Dissect: Logon Response Code
+txse_equities_orderentry_seed_v0_1.logon_response_code.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.logon_response_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_equities_orderentry_seed_v0_1.logon_response_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.logon_response_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+txse_equities_orderentry_seed_v0_1.lot_size = {}
+
+-- Size: Lot Size
+txse_equities_orderentry_seed_v0_1.lot_size.size = 4
+
+-- Display: Lot Size
+txse_equities_orderentry_seed_v0_1.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+txse_equities_orderentry_seed_v0_1.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Hours State
+txse_equities_orderentry_seed_v0_1.market_hours_state = {}
+
+-- Size: Market Hours State
+txse_equities_orderentry_seed_v0_1.market_hours_state.size = 1
+
+-- Display: Market Hours State
+txse_equities_orderentry_seed_v0_1.market_hours_state.display = function(value)
+  if value == 0 then
+    return "Market Hours State: Closed Before Hours (0)"
+  end
+  if value == 1 then
+    return "Market Hours State: Early Session (1)"
+  end
+  if value == 2 then
+    return "Market Hours State: Regular Session (2)"
+  end
+  if value == 3 then
+    return "Market Hours State: After Hours Session (3)"
+  end
+  if value == 4 then
+    return "Market Hours State: Closed After Hours (4)"
+  end
+
+  return "Market Hours State: Unknown("..value..")"
+end
+
+-- Dissect: Market Hours State
+txse_equities_orderentry_seed_v0_1.market_hours_state.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.market_hours_state.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.market_hours_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_hours_state, range, value, display)
 
   return offset + length, value
 end
@@ -781,6 +1035,1145 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_request_id.dissect = function(buf
   return offset + length, value
 end
 
+-- Mass Cancel Scope
+txse_equities_orderentry_seed_v0_1.mass_cancel_scope = {}
+
+-- Size: Mass Cancel Scope
+txse_equities_orderentry_seed_v0_1.mass_cancel_scope.size = 1
+
+-- Display: Mass Cancel Scope
+txse_equities_orderentry_seed_v0_1.mass_cancel_scope.display = function(value)
+  if value == 0 then
+    return "Mass Cancel Scope: By Member Owned Sender Comps (0)"
+  end
+  if value == 1 then
+    return "Mass Cancel Scope: By Member Owned Mpids (1)"
+  end
+
+  return "Mass Cancel Scope: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Scope
+txse_equities_orderentry_seed_v0_1.mass_cancel_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.mass_cancel_scope.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.mass_cancel_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Engine Id
+txse_equities_orderentry_seed_v0_1.matching_engine_id = {}
+
+-- Size: Matching Engine Id
+txse_equities_orderentry_seed_v0_1.matching_engine_id.size = 1
+
+-- Display: Matching Engine Id
+txse_equities_orderentry_seed_v0_1.matching_engine_id.display = function(value)
+  return "Matching Engine Id: "..value
+end
+
+-- Dissect: Matching Engine Id
+txse_equities_orderentry_seed_v0_1.matching_engine_id.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.matching_engine_id.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.matching_engine_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.matching_engine_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Floor Qty
+txse_equities_orderentry_seed_v0_1.max_floor_qty = {}
+
+-- Size: Max Floor Qty
+txse_equities_orderentry_seed_v0_1.max_floor_qty.size = 4
+
+-- Display: Max Floor Qty
+txse_equities_orderentry_seed_v0_1.max_floor_qty.display = function(value)
+  return "Max Floor Qty: "..value
+end
+
+-- Dissect: Max Floor Qty
+txse_equities_orderentry_seed_v0_1.max_floor_qty.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.max_floor_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.max_floor_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.max_floor_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Replenish Qty Range
+txse_equities_orderentry_seed_v0_1.max_replenish_qty_range = {}
+
+-- Size: Max Replenish Qty Range
+txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.size = 4
+
+-- Display: Max Replenish Qty Range
+txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.display = function(value)
+  return "Max Replenish Qty Range: "..value
+end
+
+-- Dissect: Max Replenish Qty Range
+txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.max_replenish_qty_range, range, value, display)
+
+  return offset + length, value
+end
+
+-- Max Replenish Time Range
+txse_equities_orderentry_seed_v0_1.max_replenish_time_range = {}
+
+-- Size: Max Replenish Time Range
+txse_equities_orderentry_seed_v0_1.max_replenish_time_range.size = 8
+
+-- Display: Max Replenish Time Range
+txse_equities_orderentry_seed_v0_1.max_replenish_time_range.display = function(value)
+  return "Max Replenish Time Range: "..value
+end
+
+-- Dissect: Max Replenish Time Range
+txse_equities_orderentry_seed_v0_1.max_replenish_time_range.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.max_replenish_time_range.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.max_replenish_time_range.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.max_replenish_time_range, range, value, display)
+
+  return offset + length, value
+end
+
+-- Member Group
+txse_equities_orderentry_seed_v0_1.member_group = {}
+
+-- Size: Member Group
+txse_equities_orderentry_seed_v0_1.member_group.size = 2
+
+-- Display: Member Group
+txse_equities_orderentry_seed_v0_1.member_group.display = function(value)
+  return "Member Group: "..value
+end
+
+-- Dissect: Member Group
+txse_equities_orderentry_seed_v0_1.member_group.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.member_group.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = txse_equities_orderentry_seed_v0_1.member_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.member_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Member Token
+txse_equities_orderentry_seed_v0_1.member_token = {}
+
+-- Size: Member Token
+txse_equities_orderentry_seed_v0_1.member_token.size = 8
+
+-- Display: Member Token
+txse_equities_orderentry_seed_v0_1.member_token.display = function(value)
+  return "Member Token: "..value
+end
+
+-- Dissect: Member Token
+txse_equities_orderentry_seed_v0_1.member_token.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.member_token.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = txse_equities_orderentry_seed_v0_1.member_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.member_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+txse_equities_orderentry_seed_v0_1.message_length = {}
+
+-- Size: Message Length
+txse_equities_orderentry_seed_v0_1.message_length.size = 2
+
+-- Display: Message Length
+txse_equities_orderentry_seed_v0_1.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+txse_equities_orderentry_seed_v0_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = txse_equities_orderentry_seed_v0_1.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Qty
+txse_equities_orderentry_seed_v0_1.min_qty = {}
+
+-- Size: Min Qty
+txse_equities_orderentry_seed_v0_1.min_qty.size = 4
+
+-- Display: Min Qty
+txse_equities_orderentry_seed_v0_1.min_qty.display = function(value)
+  return "Min Qty: "..value
+end
+
+-- Dissect: Min Qty
+txse_equities_orderentry_seed_v0_1.min_qty.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.min_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.min_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpid
+txse_equities_orderentry_seed_v0_1.mpid = {}
+
+-- Size: Mpid
+txse_equities_orderentry_seed_v0_1.mpid.size = 4
+
+-- Display: Mpid
+txse_equities_orderentry_seed_v0_1.mpid.display = function(value)
+  return "Mpid: "..value
+end
+
+-- Dissect: Mpid
+txse_equities_orderentry_seed_v0_1.mpid.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = txse_equities_orderentry_seed_v0_1.mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Sequence Number
+txse_equities_orderentry_seed_v0_1.next_sequence_number = {}
+
+-- Size: Next Sequence Number
+txse_equities_orderentry_seed_v0_1.next_sequence_number.size = 8
+
+-- Display: Next Sequence Number
+txse_equities_orderentry_seed_v0_1.next_sequence_number.display = function(value)
+  return "Next Sequence Number: "..value
+end
+
+-- Dissect: Next Sequence Number
+txse_equities_orderentry_seed_v0_1.next_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.next_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_equities_orderentry_seed_v0_1.next_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Stream Ids
+txse_equities_orderentry_seed_v0_1.number_stream_ids = {}
+
+-- Size: Number Stream Ids
+txse_equities_orderentry_seed_v0_1.number_stream_ids.size = 1
+
+-- Display: Number Stream Ids
+txse_equities_orderentry_seed_v0_1.number_stream_ids.display = function(value)
+  return "Number Stream Ids: "..value
+end
+
+-- Dissect: Number Stream Ids
+txse_equities_orderentry_seed_v0_1.number_stream_ids.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.number_stream_ids.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_equities_orderentry_seed_v0_1.number_stream_ids.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.number_stream_ids, range, value, display)
+
+  return offset + length, value
+end
+
+-- Operational Halt Reason
+txse_equities_orderentry_seed_v0_1.operational_halt_reason = {}
+
+-- Size: Operational Halt Reason
+txse_equities_orderentry_seed_v0_1.operational_halt_reason.size = 1
+
+-- Display: Operational Halt Reason
+txse_equities_orderentry_seed_v0_1.operational_halt_reason.display = function(value)
+  if value == 0 then
+    return "Operational Halt Reason: Administrative (0)"
+  end
+
+  return "Operational Halt Reason: Unknown("..value..")"
+end
+
+-- Dissect: Operational Halt Reason
+txse_equities_orderentry_seed_v0_1.operational_halt_reason.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.operational_halt_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.operational_halt_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.operational_halt_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+txse_equities_orderentry_seed_v0_1.order_id = {}
+
+-- Size: Order Id
+txse_equities_orderentry_seed_v0_1.order_id.size = 8
+
+-- Display: Order Id
+txse_equities_orderentry_seed_v0_1.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+txse_equities_orderentry_seed_v0_1.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+txse_equities_orderentry_seed_v0_1.order_qty = {}
+
+-- Size: Order Qty
+txse_equities_orderentry_seed_v0_1.order_qty.size = 4
+
+-- Display: Order Qty
+txse_equities_orderentry_seed_v0_1.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+txse_equities_orderentry_seed_v0_1.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Orig Cl Ord Id
+txse_equities_orderentry_seed_v0_1.orig_cl_ord_id = {}
+
+-- Size: Orig Cl Ord Id
+txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.size = 8
+
+-- Display: Orig Cl Ord Id
+txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.display = function(value)
+  return "Orig Cl Ord Id: "..value
+end
+
+-- Dissect: Orig Cl Ord Id
+txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.orig_cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+txse_equities_orderentry_seed_v0_1.packet_type = {}
+
+-- Size: Packet Type
+txse_equities_orderentry_seed_v0_1.packet_type.size = 1
+
+-- Display: Packet Type
+txse_equities_orderentry_seed_v0_1.packet_type.display = function(value)
+  if value == 53 then
+    return "Packet Type: Logon Request Packet (53)"
+  end
+  if value == 55 then
+    return "Packet Type: Member Heartbeat Packet (55)"
+  end
+  if value == 54 then
+    return "Packet Type: Tcp Unsequenced Message (54)"
+  end
+  if value == 48 then
+    return "Packet Type: Debug Message (48)"
+  end
+  if value == 52 then
+    return "Packet Type: End Of Session Message (52)"
+  end
+  if value == 49 then
+    return "Packet Type: Logon Response Message (49)"
+  end
+  if value == 51 then
+    return "Packet Type: Server Heartbeat Message (51)"
+  end
+  if value == 50 then
+    return "Packet Type: Tcp Sequenced Message (50)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+txse_equities_orderentry_seed_v0_1.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = txse_equities_orderentry_seed_v0_1.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+txse_equities_orderentry_seed_v0_1.price = {}
+
+-- Size: Price
+txse_equities_orderentry_seed_v0_1.price.size = 8
+
+-- Display: Price
+txse_equities_orderentry_seed_v0_1.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+txse_equities_orderentry_seed_v0_1.price.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Slide Instruction
+txse_equities_orderentry_seed_v0_1.price_slide_instruction = {}
+
+-- Size: Price Slide Instruction
+txse_equities_orderentry_seed_v0_1.price_slide_instruction.size = 1
+
+-- Display: Price Slide Instruction
+txse_equities_orderentry_seed_v0_1.price_slide_instruction.display = function(value)
+  if value == 0 then
+    return "Price Slide Instruction: No Price Slide (0)"
+  end
+  if value == 1 then
+    return "Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
+  end
+  if value == 2 then
+    return "Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
+  end
+  if value == 3 then
+    return "Price Slide Instruction: Single Price Slide Lock Only (3)"
+  end
+
+  return "Price Slide Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Price Slide Instruction
+txse_equities_orderentry_seed_v0_1.price_slide_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.price_slide_instruction.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.price_slide_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.price_slide_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rake Instance
+txse_equities_orderentry_seed_v0_1.rake_instance = {}
+
+-- Size: Rake Instance
+txse_equities_orderentry_seed_v0_1.rake_instance.size = 4
+
+-- Display: Rake Instance
+txse_equities_orderentry_seed_v0_1.rake_instance.display = function(value)
+  return "Rake Instance: "..value
+end
+
+-- Dissect: Rake Instance
+txse_equities_orderentry_seed_v0_1.rake_instance.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.rake_instance.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_equities_orderentry_seed_v0_1.rake_instance.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.rake_instance, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rank Price
+txse_equities_orderentry_seed_v0_1.rank_price = {}
+
+-- Size: Rank Price
+txse_equities_orderentry_seed_v0_1.rank_price.size = 8
+
+-- Display: Rank Price
+txse_equities_orderentry_seed_v0_1.rank_price.display = function(value)
+  return "Rank Price: "..value
+end
+
+-- Dissect: Rank Price
+txse_equities_orderentry_seed_v0_1.rank_price.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.rank_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.rank_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.rank_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price Target
+txse_equities_orderentry_seed_v0_1.reference_price_target = {}
+
+-- Size: Reference Price Target
+txse_equities_orderentry_seed_v0_1.reference_price_target.size = 2
+
+-- Display: Reference Price Target
+txse_equities_orderentry_seed_v0_1.reference_price_target.display = function(value)
+  return "Reference Price Target: "..value
+end
+
+-- Dissect: Reference Price Target
+txse_equities_orderentry_seed_v0_1.reference_price_target.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.reference_price_target.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.reference_price_target.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.reference_price_target, range, value, display)
+
+  return offset + length, value
+end
+
+-- Regulatory Halt Reason
+txse_equities_orderentry_seed_v0_1.regulatory_halt_reason = {}
+
+-- Size: Regulatory Halt Reason
+txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.size = 1
+
+-- Display: Regulatory Halt Reason
+txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.display = function(value)
+  if value == 0 then
+    return "Regulatory Halt Reason: Reason Not Available (0)"
+  end
+  if value == 1 then
+    return "Regulatory Halt Reason: News Pending (1)"
+  end
+  if value == 2 then
+    return "Regulatory Halt Reason: News Dissemination (2)"
+  end
+  if value == 3 then
+    return "Regulatory Halt Reason: Info Requested (3)"
+  end
+  if value == 4 then
+    return "Regulatory Halt Reason: Order Imbalance (4)"
+  end
+  if value == 5 then
+    return "Regulatory Halt Reason: Extraordinary Market Activity (5)"
+  end
+  if value == 6 then
+    return "Regulatory Halt Reason: Luld Pause (6)"
+  end
+  if value == 7 then
+    return "Regulatory Halt Reason: Non Compliance (7)"
+  end
+  if value == 8 then
+    return "Regulatory Halt Reason: Filings Not Current (8)"
+  end
+  if value == 9 then
+    return "Regulatory Halt Reason: Sec Suspension (9)"
+  end
+  if value == 10 then
+    return "Regulatory Halt Reason: Regulatory Concern (10)"
+  end
+  if value == 11 then
+    return "Regulatory Halt Reason: Sub Penny Trading (11)"
+  end
+  if value == 12 then
+    return "Regulatory Halt Reason: Etf (12)"
+  end
+  if value == 13 then
+    return "Regulatory Halt Reason: Ipo Not Trading (13)"
+  end
+  if value == 14 then
+    return "Regulatory Halt Reason: Corporate Action (14)"
+  end
+  if value == 15 then
+    return "Regulatory Halt Reason: Circuit Breaker L 1 (15)"
+  end
+  if value == 16 then
+    return "Regulatory Halt Reason: Circuit Breaker L 2 (16)"
+  end
+  if value == 17 then
+    return "Regulatory Halt Reason: Circuit Breaker L 3 (17)"
+  end
+
+  return "Regulatory Halt Reason: Unknown("..value..")"
+end
+
+-- Dissect: Regulatory Halt Reason
+txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.regulatory_halt_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason
+txse_equities_orderentry_seed_v0_1.reject_reason = {}
+
+-- Size: Reject Reason
+txse_equities_orderentry_seed_v0_1.reject_reason.size = 1
+
+-- Display: Reject Reason
+txse_equities_orderentry_seed_v0_1.reject_reason.display = function(value)
+  if value == 1 then
+    return "Reject Reason: Invalid Client Order Id (1)"
+  end
+  if value == 2 then
+    return "Reject Reason: Duplicate Client Order Id (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Unknown Original Client Order Id (3)"
+  end
+  if value == 4 then
+    return "Reject Reason: No Longer On Book (4)"
+  end
+  if value == 5 then
+    return "Reject Reason: Invalid Symbol (5)"
+  end
+  if value == 6 then
+    return "Reject Reason: Invalid Price (6)"
+  end
+  if value == 7 then
+    return "Reject Reason: Invalid Order Quantity (7)"
+  end
+  if value == 8 then
+    return "Reject Reason: Invalid Reference Price Target (8)"
+  end
+  if value == 9 then
+    return "Reject Reason: Invalid Is Hidden Flag (9)"
+  end
+  if value == 10 then
+    return "Reject Reason: Invalid Order Type (10)"
+  end
+  if value == 11 then
+    return "Reject Reason: Invalid Side (11)"
+  end
+  if value == 12 then
+    return "Reject Reason: Invalid Max Floor Quantity (12)"
+  end
+  if value == 13 then
+    return "Reject Reason: Invalid Max Replenish Quantity Range (13)"
+  end
+  if value == 14 then
+    return "Reject Reason: Invalid Max Replenish Time Range (14)"
+  end
+  if value == 15 then
+    return "Reject Reason: Invalid Minimum Quantity (15)"
+  end
+  if value == 16 then
+    return "Reject Reason: Invalid Locate Required Flag (16)"
+  end
+  if value == 17 then
+    return "Reject Reason: Invalid Time In Force (17)"
+  end
+  if value == 18 then
+    return "Reject Reason: Unsupported Modification (18)"
+  end
+  if value == 19 then
+    return "Reject Reason: Invalid Mpid (19)"
+  end
+  if value == 20 then
+    return "Reject Reason: Invalid Sender Comp (20)"
+  end
+
+  return "Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reject Reason
+txse_equities_orderentry_seed_v0_1.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+txse_equities_orderentry_seed_v0_1.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+txse_equities_orderentry_seed_v0_1.requested_sequence_number.size = 8
+
+-- Display: Requested Sequence Number
+txse_equities_orderentry_seed_v0_1.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+txse_equities_orderentry_seed_v0_1.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_equities_orderentry_seed_v0_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Restatement Reason
+txse_equities_orderentry_seed_v0_1.restatement_reason = {}
+
+-- Size: Restatement Reason
+txse_equities_orderentry_seed_v0_1.restatement_reason.size = 1
+
+-- Display: Restatement Reason
+txse_equities_orderentry_seed_v0_1.restatement_reason.display = function(value)
+  if value == 1 then
+    return "Restatement Reason: Reserve Replenished (1)"
+  end
+  if value == 2 then
+    return "Restatement Reason: Repriced (2)"
+  end
+
+  return "Restatement Reason: Unknown("..value..")"
+end
+
+-- Dissect: Restatement Reason
+txse_equities_orderentry_seed_v0_1.restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Match Instruction
+txse_equities_orderentry_seed_v0_1.self_match_instruction = {}
+
+-- Size: Self Match Instruction
+txse_equities_orderentry_seed_v0_1.self_match_instruction.size = 1
+
+-- Display: Self Match Instruction
+txse_equities_orderentry_seed_v0_1.self_match_instruction.display = function(value)
+  if value == 0 then
+    return "Self Match Instruction: No Self Match Prevention (0)"
+  end
+  if value == 1 then
+    return "Self Match Instruction: Cancel Newest (1)"
+  end
+  if value == 2 then
+    return "Self Match Instruction: Cancel Oldest (2)"
+  end
+  if value == 3 then
+    return "Self Match Instruction: Cancel Both (3)"
+  end
+  if value == 4 then
+    return "Self Match Instruction: Cancel Smallest (4)"
+  end
+  if value == 5 then
+    return "Self Match Instruction: Decrement And Cancel (5)"
+  end
+
+  return "Self Match Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Self Match Instruction
+txse_equities_orderentry_seed_v0_1.self_match_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.self_match_instruction.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.self_match_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.self_match_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Match Scope
+txse_equities_orderentry_seed_v0_1.self_match_scope = {}
+
+-- Size: Self Match Scope
+txse_equities_orderentry_seed_v0_1.self_match_scope.size = 1
+
+-- Display: Self Match Scope
+txse_equities_orderentry_seed_v0_1.self_match_scope.display = function(value)
+  if value == 0 then
+    return "Self Match Scope: By Member (0)"
+  end
+  if value == 1 then
+    return "Self Match Scope: By Mpid (1)"
+  end
+  if value == 2 then
+    return "Self Match Scope: By Member Group (2)"
+  end
+  if value == 3 then
+    return "Self Match Scope: By Mpid And Member Group (3)"
+  end
+
+  return "Self Match Scope: Unknown("..value..")"
+end
+
+-- Dissect: Self Match Scope
+txse_equities_orderentry_seed_v0_1.self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sender Comp
+txse_equities_orderentry_seed_v0_1.sender_comp = {}
+
+-- Size: Sender Comp
+txse_equities_orderentry_seed_v0_1.sender_comp.size = 8
+
+-- Display: Sender Comp
+txse_equities_orderentry_seed_v0_1.sender_comp.display = function(value)
+  return "Sender Comp: "..value
+end
+
+-- Dissect: Sender Comp
+txse_equities_orderentry_seed_v0_1.sender_comp.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.sender_comp.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = txse_equities_orderentry_seed_v0_1.sender_comp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.sender_comp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+txse_equities_orderentry_seed_v0_1.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+txse_equities_orderentry_seed_v0_1.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+txse_equities_orderentry_seed_v0_1.sequenced_message_type.display = function(value)
+  if value == 105 then
+    return "Sequenced Message Type: Trading Session Status Message (105)"
+  end
+  if value == 115 then
+    return "Sequenced Message Type: Define Symbol Message (115)"
+  end
+  if value == 121 then
+    return "Sequenced Message Type: Symbol Status Message (121)"
+  end
+  if value == 73 then
+    return "Sequenced Message Type: Limit Order Accepted Message (73)"
+  end
+  if value == 85 then
+    return "Sequenced Message Type: Limit Order Rejected Message (85)"
+  end
+  if value == 68 then
+    return "Sequenced Message Type: Market Order Accepted Message (68)"
+  end
+  if value == 84 then
+    return "Sequenced Message Type: Market Order Rejected Message (84)"
+  end
+  if value == 88 then
+    return "Sequenced Message Type: Order Canceled Message (88)"
+  end
+  if value == 87 then
+    return "Sequenced Message Type: Cancel Rejected Message (87)"
+  end
+  if value == 89 then
+    return "Sequenced Message Type: Order Modified Message (89)"
+  end
+  if value == 78 then
+    return "Sequenced Message Type: Modify Rejected Message (78)"
+  end
+  if value == 74 then
+    return "Sequenced Message Type: Order Replaced Message (74)"
+  end
+  if value == 75 then
+    return "Sequenced Message Type: Replace Rejected Message (75)"
+  end
+  if value == 69 then
+    return "Sequenced Message Type: Order Executed Message (69)"
+  end
+  if value == 70 then
+    return "Sequenced Message Type: Order Restated Message (70)"
+  end
+  if value == 79 then
+    return "Sequenced Message Type: Mass Cancel Accepted Message (79)"
+  end
+  if value == 80 then
+    return "Sequenced Message Type: Mass Cancel Rejected Message (80)"
+  end
+  if value == 81 then
+    return "Sequenced Message Type: Mass Cancel Result Message (81)"
+  end
+
+  return "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+txse_equities_orderentry_seed_v0_1.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_equities_orderentry_seed_v0_1.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+txse_equities_orderentry_seed_v0_1.session = {}
+
+-- Size: Session
+txse_equities_orderentry_seed_v0_1.session.size = 8
+
+-- Display: Session
+txse_equities_orderentry_seed_v0_1.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+txse_equities_orderentry_seed_v0_1.session.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.session.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = txse_equities_orderentry_seed_v0_1.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction State
+txse_equities_orderentry_seed_v0_1.short_sale_restriction_state = {}
+
+-- Size: Short Sale Restriction State
+txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.size = 1
+
+-- Display: Short Sale Restriction State
+txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.display = function(value)
+  if value == 0 then
+    return "Short Sale Restriction State: None (0)"
+  end
+  if value == 1 then
+    return "Short Sale Restriction State: Activated (1)"
+  end
+  if value == 2 then
+    return "Short Sale Restriction State: Continued (2)"
+  end
+
+  return "Short Sale Restriction State: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction State
+txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.short_sale_restriction_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stream Id
+txse_equities_orderentry_seed_v0_1.stream_id = {}
+
+-- Size: Stream Id
+txse_equities_orderentry_seed_v0_1.stream_id.size = 1
+
+-- Display: Stream Id
+txse_equities_orderentry_seed_v0_1.stream_id.display = function(value)
+  return "Stream Id: "..value
+end
+
+-- Dissect: Stream Id
+txse_equities_orderentry_seed_v0_1.stream_id.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.stream_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_equities_orderentry_seed_v0_1.stream_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.stream_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Suffix
+txse_equities_orderentry_seed_v0_1.suffix = {}
+
+-- Size: Suffix
+txse_equities_orderentry_seed_v0_1.suffix.size = 8
+
+-- Display: Suffix
+txse_equities_orderentry_seed_v0_1.suffix.display = function(value)
+  return "Suffix: "..value
+end
+
+-- Dissect: Suffix
+txse_equities_orderentry_seed_v0_1.suffix.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.suffix.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = txse_equities_orderentry_seed_v0_1.suffix.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.suffix, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+txse_equities_orderentry_seed_v0_1.symbol = {}
+
+-- Size: Symbol
+txse_equities_orderentry_seed_v0_1.symbol.size = 8
+
+-- Display: Symbol
+txse_equities_orderentry_seed_v0_1.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+txse_equities_orderentry_seed_v0_1.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = txse_equities_orderentry_seed_v0_1.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Id
+txse_equities_orderentry_seed_v0_1.symbol_id = {}
+
+-- Size: Symbol Id
+txse_equities_orderentry_seed_v0_1.symbol_id.size = 2
+
+-- Display: Symbol Id
+txse_equities_orderentry_seed_v0_1.symbol_id.display = function(value)
+  return "Symbol Id: "..value
+end
+
+-- Dissect: Symbol Id
+txse_equities_orderentry_seed_v0_1.symbol_id.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.symbol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_equities_orderentry_seed_v0_1.symbol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+txse_equities_orderentry_seed_v0_1.text = {}
+
+-- Display: Text
+txse_equities_orderentry_seed_v0_1.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect runtime sized field: Text
+txse_equities_orderentry_seed_v0_1.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = txse_equities_orderentry_seed_v0_1.text.display(value, packet, parent, size)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Trading State
+txse_equities_orderentry_seed_v0_1.trading_state = {}
+
+-- Size: Trading State
+txse_equities_orderentry_seed_v0_1.trading_state.size = 1
+
+-- Display: Trading State
+txse_equities_orderentry_seed_v0_1.trading_state.display = function(value)
+  return "Trading State: "..value
+end
+
+-- Dissect: Trading State
+txse_equities_orderentry_seed_v0_1.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.trading_state.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = txse_equities_orderentry_seed_v0_1.trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.trading_state, range, value, display)
+
+  return offset + length, value
+end
+
 -- Transact Time
 txse_equities_orderentry_seed_v0_1.transact_time = {}
 
@@ -807,6 +2200,76 @@ txse_equities_orderentry_seed_v0_1.transact_time.dissect = function(buffer, offs
 
   return offset + length, value
 end
+
+-- Unsequenced Message Type
+txse_equities_orderentry_seed_v0_1.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+txse_equities_orderentry_seed_v0_1.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+txse_equities_orderentry_seed_v0_1.unsequenced_message_type.display = function(value)
+  if value == 76 then
+    return "Unsequenced Message Type: Limit Order Message (76)"
+  end
+  if value == 65 then
+    return "Unsequenced Message Type: Market Order Message (65)"
+  end
+  if value == 67 then
+    return "Unsequenced Message Type: Cancel Order Message (67)"
+  end
+  if value == 77 then
+    return "Unsequenced Message Type: Modify Order Message (77)"
+  end
+  if value == 82 then
+    return "Unsequenced Message Type: Replace Order Message (82)"
+  end
+  if value == 86 then
+    return "Unsequenced Message Type: Mass Cancel Message (86)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Unsequenced Message Type
+txse_equities_orderentry_seed_v0_1.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = txse_equities_orderentry_seed_v0_1.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Data
+txse_equities_orderentry_seed_v0_1.user_data = {}
+
+-- Size: User Data
+txse_equities_orderentry_seed_v0_1.user_data.size = 8
+
+-- Display: User Data
+txse_equities_orderentry_seed_v0_1.user_data.display = function(value)
+  return "User Data: "..value
+end
+
+-- Dissect: User Data
+txse_equities_orderentry_seed_v0_1.user_data.dissect = function(buffer, offset, packet, parent)
+  local length = txse_equities_orderentry_seed_v0_1.user_data.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = txse_equities_orderentry_seed_v0_1.user_data.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.user_data, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Txse Equities OrderEntry Seed 0.1
+-----------------------------------------------------------------------
 
 -- Mass Cancel Result Presence Bits
 txse_equities_orderentry_seed_v0_1.mass_cancel_result_presence_bits = {}
@@ -968,120 +2431,6 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_result_message.dissect = function
 
     return index
   end
-end
-
--- Reject Reason
-txse_equities_orderentry_seed_v0_1.reject_reason = {}
-
--- Size: Reject Reason
-txse_equities_orderentry_seed_v0_1.reject_reason.size = 1
-
--- Display: Reject Reason
-txse_equities_orderentry_seed_v0_1.reject_reason.display = function(value)
-  if value == 1 then
-    return "Reject Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Reject Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Reject Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Reject Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Reject Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Reject Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Reject Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Reject Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Reject Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Reject Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Reject Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Reject Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Reject Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Reject Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Reject Reason: Unsupported Modification (18)"
-  end
-  if value == 19 then
-    return "Reject Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Reject Reason: Invalid Sender Comp (20)"
-  end
-
-  return "Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reject Reason
-txse_equities_orderentry_seed_v0_1.reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Mass Cancel Scope
-txse_equities_orderentry_seed_v0_1.mass_cancel_scope = {}
-
--- Size: Mass Cancel Scope
-txse_equities_orderentry_seed_v0_1.mass_cancel_scope.size = 1
-
--- Display: Mass Cancel Scope
-txse_equities_orderentry_seed_v0_1.mass_cancel_scope.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Scope: By Member Owned Sender Comps (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Scope: By Member Owned Mpids (1)"
-  end
-
-  return "Mass Cancel Scope: Unknown("..value..")"
-end
-
--- Dissect: Mass Cancel Scope
-txse_equities_orderentry_seed_v0_1.mass_cancel_scope.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.mass_cancel_scope.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.mass_cancel_scope.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.mass_cancel_scope, range, value, display)
-
-  return offset + length, value
 end
 
 -- Mass Cancel Rejected Presence Bits
@@ -1408,128 +2757,6 @@ txse_equities_orderentry_seed_v0_1.mass_cancel_accepted_message.dissect = functi
   end
 end
 
--- Order Qty
-txse_equities_orderentry_seed_v0_1.order_qty = {}
-
--- Size: Order Qty
-txse_equities_orderentry_seed_v0_1.order_qty.size = 4
-
--- Display: Order Qty
-txse_equities_orderentry_seed_v0_1.order_qty.display = function(value)
-  return "Order Qty: "..value
-end
-
--- Dissect: Order Qty
-txse_equities_orderentry_seed_v0_1.order_qty.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.order_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.order_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Display Price
-txse_equities_orderentry_seed_v0_1.display_price = {}
-
--- Size: Display Price
-txse_equities_orderentry_seed_v0_1.display_price.size = 8
-
--- Display: Display Price
-txse_equities_orderentry_seed_v0_1.display_price.display = function(value)
-  return "Display Price: "..value
-end
-
--- Dissect: Display Price
-txse_equities_orderentry_seed_v0_1.display_price.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.display_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.display_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.display_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Rank Price
-txse_equities_orderentry_seed_v0_1.rank_price = {}
-
--- Size: Rank Price
-txse_equities_orderentry_seed_v0_1.rank_price.size = 8
-
--- Display: Rank Price
-txse_equities_orderentry_seed_v0_1.rank_price.display = function(value)
-  return "Rank Price: "..value
-end
-
--- Dissect: Rank Price
-txse_equities_orderentry_seed_v0_1.rank_price.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.rank_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.rank_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.rank_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Restatement Reason
-txse_equities_orderentry_seed_v0_1.restatement_reason = {}
-
--- Size: Restatement Reason
-txse_equities_orderentry_seed_v0_1.restatement_reason.size = 1
-
--- Display: Restatement Reason
-txse_equities_orderentry_seed_v0_1.restatement_reason.display = function(value)
-  if value == 1 then
-    return "Restatement Reason: Reserve Replenished (1)"
-  end
-  if value == 2 then
-    return "Restatement Reason: Repriced (2)"
-  end
-
-  return "Restatement Reason: Unknown("..value..")"
-end
-
--- Dissect: Restatement Reason
-txse_equities_orderentry_seed_v0_1.restatement_reason.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.restatement_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.restatement_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id
-txse_equities_orderentry_seed_v0_1.order_id = {}
-
--- Size: Order Id
-txse_equities_orderentry_seed_v0_1.order_id.size = 8
-
--- Display: Order Id
-txse_equities_orderentry_seed_v0_1.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-txse_equities_orderentry_seed_v0_1.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.order_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Restated Presence Bits
 txse_equities_orderentry_seed_v0_1.order_restated_presence_bits = {}
 
@@ -1676,98 +2903,6 @@ txse_equities_orderentry_seed_v0_1.order_restated_message.dissect = function(buf
   end
 end
 
--- Leaves Qty
-txse_equities_orderentry_seed_v0_1.leaves_qty = {}
-
--- Size: Leaves Qty
-txse_equities_orderentry_seed_v0_1.leaves_qty.size = 4
-
--- Display: Leaves Qty
-txse_equities_orderentry_seed_v0_1.leaves_qty.display = function(value)
-  return "Leaves Qty: "..value
-end
-
--- Dissect: Leaves Qty
-txse_equities_orderentry_seed_v0_1.leaves_qty.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.leaves_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.leaves_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.leaves_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Qty
-txse_equities_orderentry_seed_v0_1.exec_qty = {}
-
--- Size: Exec Qty
-txse_equities_orderentry_seed_v0_1.exec_qty.size = 4
-
--- Display: Exec Qty
-txse_equities_orderentry_seed_v0_1.exec_qty.display = function(value)
-  return "Exec Qty: "..value
-end
-
--- Dissect: Exec Qty
-txse_equities_orderentry_seed_v0_1.exec_qty.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.exec_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.exec_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.exec_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Exec Id
-txse_equities_orderentry_seed_v0_1.exec_id = {}
-
--- Size: Exec Id
-txse_equities_orderentry_seed_v0_1.exec_id.size = 8
-
--- Display: Exec Id
-txse_equities_orderentry_seed_v0_1.exec_id.display = function(value)
-  return "Exec Id: "..value
-end
-
--- Dissect: Exec Id
-txse_equities_orderentry_seed_v0_1.exec_id.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.exec_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.exec_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.exec_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-txse_equities_orderentry_seed_v0_1.price = {}
-
--- Size: Price
-txse_equities_orderentry_seed_v0_1.price.size = 8
-
--- Display: Price
-txse_equities_orderentry_seed_v0_1.price.display = function(value)
-  return "Price: "..value
-end
-
--- Dissect: Price
-txse_equities_orderentry_seed_v0_1.price.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Executed Message
 txse_equities_orderentry_seed_v0_1.order_executed_message = {}
 
@@ -1836,52 +2971,6 @@ txse_equities_orderentry_seed_v0_1.order_executed_message.dissect = function(buf
   end
 end
 
--- Locate Broker
-txse_equities_orderentry_seed_v0_1.locate_broker = {}
-
--- Size: Locate Broker
-txse_equities_orderentry_seed_v0_1.locate_broker.size = 4
-
--- Display: Locate Broker
-txse_equities_orderentry_seed_v0_1.locate_broker.display = function(value)
-  return "Locate Broker: "..value
-end
-
--- Dissect: Locate Broker
-txse_equities_orderentry_seed_v0_1.locate_broker.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.locate_broker.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = txse_equities_orderentry_seed_v0_1.locate_broker.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.locate_broker, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Floor Qty
-txse_equities_orderentry_seed_v0_1.max_floor_qty = {}
-
--- Size: Max Floor Qty
-txse_equities_orderentry_seed_v0_1.max_floor_qty.size = 4
-
--- Display: Max Floor Qty
-txse_equities_orderentry_seed_v0_1.max_floor_qty.display = function(value)
-  return "Max Floor Qty: "..value
-end
-
--- Dissect: Max Floor Qty
-txse_equities_orderentry_seed_v0_1.max_floor_qty.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.max_floor_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.max_floor_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.max_floor_qty, range, value, display)
-
-  return offset + length, value
-end
-
 -- Replace Bitfields
 txse_equities_orderentry_seed_v0_1.replace_bitfields = {}
 
@@ -1940,29 +3029,6 @@ txse_equities_orderentry_seed_v0_1.replace_bitfields.dissect = function(buffer, 
   end
 
   return offset + size, value
-end
-
--- Orig Cl Ord Id
-txse_equities_orderentry_seed_v0_1.orig_cl_ord_id = {}
-
--- Size: Orig Cl Ord Id
-txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.size = 8
-
--- Display: Orig Cl Ord Id
-txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.display = function(value)
-  return "Orig Cl Ord Id: "..value
-end
-
--- Dissect: Orig Cl Ord Id
-txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.orig_cl_ord_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.orig_cl_ord_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replace Rejected Presence Bits
@@ -2731,60 +3797,6 @@ txse_equities_orderentry_seed_v0_1.cancel_rejected_message.dissect = function(bu
   end
 end
 
--- Cancel Reason
-txse_equities_orderentry_seed_v0_1.cancel_reason = {}
-
--- Size: Cancel Reason
-txse_equities_orderentry_seed_v0_1.cancel_reason.size = 1
-
--- Display: Cancel Reason
-txse_equities_orderentry_seed_v0_1.cancel_reason.display = function(value)
-  if value == 1 then
-    return "Cancel Reason: Requested By User (1)"
-  end
-  if value == 2 then
-    return "Cancel Reason: Related To Time In Force (2)"
-  end
-  if value == 3 then
-    return "Cancel Reason: Related To Min Qty (3)"
-  end
-  if value == 4 then
-    return "Cancel Reason: Nms Violation No Slide (4)"
-  end
-  if value == 5 then
-    return "Cancel Reason: Marketable Reserve (5)"
-  end
-  if value == 6 then
-    return "Cancel Reason: Self Match Prevention (6)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Replenishment Canceled Due To Reserve (7)"
-  end
-  if value == 8 then
-    return "Cancel Reason: Related To Order Type (8)"
-  end
-  if value == 9 then
-    return "Cancel Reason: Canceled Due To Crossed Markets (9)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Canceled Due To Mass Cancel Request (10)"
-  end
-
-  return "Cancel Reason: Unknown("..value..")"
-end
-
--- Dissect: Cancel Reason
-txse_equities_orderentry_seed_v0_1.cancel_reason.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.cancel_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.cancel_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.cancel_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Canceled Message
 txse_equities_orderentry_seed_v0_1.order_canceled_message = {}
 
@@ -2842,130 +3854,6 @@ txse_equities_orderentry_seed_v0_1.order_canceled_message.dissect = function(buf
 
     return index
   end
-end
-
--- User Data
-txse_equities_orderentry_seed_v0_1.user_data = {}
-
--- Size: User Data
-txse_equities_orderentry_seed_v0_1.user_data.size = 8
-
--- Display: User Data
-txse_equities_orderentry_seed_v0_1.user_data.display = function(value)
-  return "User Data: "..value
-end
-
--- Dissect: User Data
-txse_equities_orderentry_seed_v0_1.user_data.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.user_data.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.user_data.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.user_data, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Match Instruction
-txse_equities_orderentry_seed_v0_1.self_match_instruction = {}
-
--- Size: Self Match Instruction
-txse_equities_orderentry_seed_v0_1.self_match_instruction.size = 1
-
--- Display: Self Match Instruction
-txse_equities_orderentry_seed_v0_1.self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Self Match Instruction: Decrement And Cancel (5)"
-  end
-
-  return "Self Match Instruction: Unknown("..value..")"
-end
-
--- Dissect: Self Match Instruction
-txse_equities_orderentry_seed_v0_1.self_match_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.self_match_instruction.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.self_match_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.self_match_instruction, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Match Scope
-txse_equities_orderentry_seed_v0_1.self_match_scope = {}
-
--- Size: Self Match Scope
-txse_equities_orderentry_seed_v0_1.self_match_scope.size = 1
-
--- Display: Self Match Scope
-txse_equities_orderentry_seed_v0_1.self_match_scope.display = function(value)
-  if value == 0 then
-    return "Self Match Scope: By Member (0)"
-  end
-  if value == 1 then
-    return "Self Match Scope: By Mpid (1)"
-  end
-  if value == 2 then
-    return "Self Match Scope: By Member Group (2)"
-  end
-  if value == 3 then
-    return "Self Match Scope: By Mpid And Member Group (3)"
-  end
-
-  return "Self Match Scope: Unknown("..value..")"
-end
-
--- Dissect: Self Match Scope
-txse_equities_orderentry_seed_v0_1.self_match_scope.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.self_match_scope.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.self_match_scope.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.self_match_scope, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Id
-txse_equities_orderentry_seed_v0_1.symbol_id = {}
-
--- Size: Symbol Id
-txse_equities_orderentry_seed_v0_1.symbol_id.size = 2
-
--- Display: Symbol Id
-txse_equities_orderentry_seed_v0_1.symbol_id.display = function(value)
-  return "Symbol Id: "..value
-end
-
--- Dissect: Symbol Id
-txse_equities_orderentry_seed_v0_1.symbol_id.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.symbol_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.symbol_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Market Order Bit Fields
@@ -3418,161 +4306,6 @@ txse_equities_orderentry_seed_v0_1.market_order_accepted_message.dissect = funct
 
     return index
   end
-end
-
--- Expire Time
-txse_equities_orderentry_seed_v0_1.expire_time = {}
-
--- Size: Expire Time
-txse_equities_orderentry_seed_v0_1.expire_time.size = 8
-
--- Display: Expire Time
-txse_equities_orderentry_seed_v0_1.expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Expire Time
-txse_equities_orderentry_seed_v0_1.expire_time.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.expire_time.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.expire_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.expire_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price Target
-txse_equities_orderentry_seed_v0_1.reference_price_target = {}
-
--- Size: Reference Price Target
-txse_equities_orderentry_seed_v0_1.reference_price_target.size = 2
-
--- Display: Reference Price Target
-txse_equities_orderentry_seed_v0_1.reference_price_target.display = function(value)
-  return "Reference Price Target: "..value
-end
-
--- Dissect: Reference Price Target
-txse_equities_orderentry_seed_v0_1.reference_price_target.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.reference_price_target.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.reference_price_target.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.reference_price_target, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Replenish Time Range
-txse_equities_orderentry_seed_v0_1.max_replenish_time_range = {}
-
--- Size: Max Replenish Time Range
-txse_equities_orderentry_seed_v0_1.max_replenish_time_range.size = 8
-
--- Display: Max Replenish Time Range
-txse_equities_orderentry_seed_v0_1.max_replenish_time_range.display = function(value)
-  return "Max Replenish Time Range: "..value
-end
-
--- Dissect: Max Replenish Time Range
-txse_equities_orderentry_seed_v0_1.max_replenish_time_range.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.max_replenish_time_range.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = txse_equities_orderentry_seed_v0_1.max_replenish_time_range.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.max_replenish_time_range, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Replenish Qty Range
-txse_equities_orderentry_seed_v0_1.max_replenish_qty_range = {}
-
--- Size: Max Replenish Qty Range
-txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.size = 4
-
--- Display: Max Replenish Qty Range
-txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.display = function(value)
-  return "Max Replenish Qty Range: "..value
-end
-
--- Dissect: Max Replenish Qty Range
-txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.max_replenish_qty_range.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.max_replenish_qty_range, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Qty
-txse_equities_orderentry_seed_v0_1.min_qty = {}
-
--- Size: Min Qty
-txse_equities_orderentry_seed_v0_1.min_qty.size = 4
-
--- Display: Min Qty
-txse_equities_orderentry_seed_v0_1.min_qty.display = function(value)
-  return "Min Qty: "..value
-end
-
--- Dissect: Min Qty
-txse_equities_orderentry_seed_v0_1.min_qty.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.min_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.min_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.min_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Slide Instruction
-txse_equities_orderentry_seed_v0_1.price_slide_instruction = {}
-
--- Size: Price Slide Instruction
-txse_equities_orderentry_seed_v0_1.price_slide_instruction.size = 1
-
--- Display: Price Slide Instruction
-txse_equities_orderentry_seed_v0_1.price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
-
-  return "Price Slide Instruction: Unknown("..value..")"
-end
-
--- Dissect: Price Slide Instruction
-txse_equities_orderentry_seed_v0_1.price_slide_instruction.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.price_slide_instruction.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.price_slide_instruction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.price_slide_instruction, range, value, display)
-
-  return offset + length, value
 end
 
 -- Limit Order Bit Fields
@@ -4349,167 +5082,6 @@ txse_equities_orderentry_seed_v0_1.limit_order_accepted_message.dissect = functi
   end
 end
 
--- Regulatory Halt Reason
-txse_equities_orderentry_seed_v0_1.regulatory_halt_reason = {}
-
--- Size: Regulatory Halt Reason
-txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.size = 1
-
--- Display: Regulatory Halt Reason
-txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.display = function(value)
-  if value == 0 then
-    return "Regulatory Halt Reason: Reason Not Available (0)"
-  end
-  if value == 1 then
-    return "Regulatory Halt Reason: News Pending (1)"
-  end
-  if value == 2 then
-    return "Regulatory Halt Reason: News Dissemination (2)"
-  end
-  if value == 3 then
-    return "Regulatory Halt Reason: Info Requested (3)"
-  end
-  if value == 4 then
-    return "Regulatory Halt Reason: Order Imbalance (4)"
-  end
-  if value == 5 then
-    return "Regulatory Halt Reason: Extraordinary Market Activity (5)"
-  end
-  if value == 6 then
-    return "Regulatory Halt Reason: Luld Pause (6)"
-  end
-  if value == 7 then
-    return "Regulatory Halt Reason: Non Compliance (7)"
-  end
-  if value == 8 then
-    return "Regulatory Halt Reason: Filings Not Current (8)"
-  end
-  if value == 9 then
-    return "Regulatory Halt Reason: Sec Suspension (9)"
-  end
-  if value == 10 then
-    return "Regulatory Halt Reason: Regulatory Concern (10)"
-  end
-  if value == 11 then
-    return "Regulatory Halt Reason: Sub Penny Trading (11)"
-  end
-  if value == 12 then
-    return "Regulatory Halt Reason: Etf (12)"
-  end
-  if value == 13 then
-    return "Regulatory Halt Reason: Ipo Not Trading (13)"
-  end
-  if value == 14 then
-    return "Regulatory Halt Reason: Corporate Action (14)"
-  end
-  if value == 15 then
-    return "Regulatory Halt Reason: Circuit Breaker L 1 (15)"
-  end
-  if value == 16 then
-    return "Regulatory Halt Reason: Circuit Breaker L 2 (16)"
-  end
-  if value == 17 then
-    return "Regulatory Halt Reason: Circuit Breaker L 3 (17)"
-  end
-
-  return "Regulatory Halt Reason: Unknown("..value..")"
-end
-
--- Dissect: Regulatory Halt Reason
-txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.regulatory_halt_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.regulatory_halt_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Operational Halt Reason
-txse_equities_orderentry_seed_v0_1.operational_halt_reason = {}
-
--- Size: Operational Halt Reason
-txse_equities_orderentry_seed_v0_1.operational_halt_reason.size = 1
-
--- Display: Operational Halt Reason
-txse_equities_orderentry_seed_v0_1.operational_halt_reason.display = function(value)
-  if value == 0 then
-    return "Operational Halt Reason: Administrative (0)"
-  end
-
-  return "Operational Halt Reason: Unknown("..value..")"
-end
-
--- Dissect: Operational Halt Reason
-txse_equities_orderentry_seed_v0_1.operational_halt_reason.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.operational_halt_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.operational_halt_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.operational_halt_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Short Sale Restriction State
-txse_equities_orderentry_seed_v0_1.short_sale_restriction_state = {}
-
--- Size: Short Sale Restriction State
-txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.size = 1
-
--- Display: Short Sale Restriction State
-txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction State: None (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction State: Activated (1)"
-  end
-  if value == 2 then
-    return "Short Sale Restriction State: Continued (2)"
-  end
-
-  return "Short Sale Restriction State: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction State
-txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.short_sale_restriction_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.short_sale_restriction_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading State
-txse_equities_orderentry_seed_v0_1.trading_state = {}
-
--- Size: Trading State
-txse_equities_orderentry_seed_v0_1.trading_state.size = 1
-
--- Display: Trading State
-txse_equities_orderentry_seed_v0_1.trading_state.display = function(value)
-  return "Trading State: "..value
-end
-
--- Dissect: Trading State
-txse_equities_orderentry_seed_v0_1.trading_state.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.trading_state.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.trading_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.trading_state, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol Status Presence Bits
 txse_equities_orderentry_seed_v0_1.symbol_status_presence_bits = {}
 
@@ -4640,29 +5212,6 @@ txse_equities_orderentry_seed_v0_1.symbol_status_message.dissect = function(buff
   end
 end
 
--- Lot Size
-txse_equities_orderentry_seed_v0_1.lot_size = {}
-
--- Size: Lot Size
-txse_equities_orderentry_seed_v0_1.lot_size.size = 4
-
--- Display: Lot Size
-txse_equities_orderentry_seed_v0_1.lot_size.display = function(value)
-  return "Lot Size: "..value
-end
-
--- Dissect: Lot Size
-txse_equities_orderentry_seed_v0_1.lot_size.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.lot_size.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_equities_orderentry_seed_v0_1.lot_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.lot_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Define Symbol Bitfields
 txse_equities_orderentry_seed_v0_1.define_symbol_bitfields = {}
 
@@ -4704,75 +5253,6 @@ txse_equities_orderentry_seed_v0_1.define_symbol_bitfields.dissect = function(bu
   end
 
   return offset + size, value
-end
-
--- Matching Engine Id
-txse_equities_orderentry_seed_v0_1.matching_engine_id = {}
-
--- Size: Matching Engine Id
-txse_equities_orderentry_seed_v0_1.matching_engine_id.size = 1
-
--- Display: Matching Engine Id
-txse_equities_orderentry_seed_v0_1.matching_engine_id.display = function(value)
-  return "Matching Engine Id: "..value
-end
-
--- Dissect: Matching Engine Id
-txse_equities_orderentry_seed_v0_1.matching_engine_id.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.matching_engine_id.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.matching_engine_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.matching_engine_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Suffix
-txse_equities_orderentry_seed_v0_1.suffix = {}
-
--- Size: Suffix
-txse_equities_orderentry_seed_v0_1.suffix.size = 8
-
--- Display: Suffix
-txse_equities_orderentry_seed_v0_1.suffix.display = function(value)
-  return "Suffix: "..value
-end
-
--- Dissect: Suffix
-txse_equities_orderentry_seed_v0_1.suffix.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.suffix.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = txse_equities_orderentry_seed_v0_1.suffix.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.suffix, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-txse_equities_orderentry_seed_v0_1.symbol = {}
-
--- Size: Symbol
-txse_equities_orderentry_seed_v0_1.symbol.size = 8
-
--- Display: Symbol
-txse_equities_orderentry_seed_v0_1.symbol.display = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-txse_equities_orderentry_seed_v0_1.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = txse_equities_orderentry_seed_v0_1.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Define Symbol Message
@@ -4841,45 +5321,6 @@ txse_equities_orderentry_seed_v0_1.define_symbol_message.dissect = function(buff
 
     return index
   end
-end
-
--- Market Hours State
-txse_equities_orderentry_seed_v0_1.market_hours_state = {}
-
--- Size: Market Hours State
-txse_equities_orderentry_seed_v0_1.market_hours_state.size = 1
-
--- Display: Market Hours State
-txse_equities_orderentry_seed_v0_1.market_hours_state.display = function(value)
-  if value == 0 then
-    return "Market Hours State: Closed Before Hours (0)"
-  end
-  if value == 1 then
-    return "Market Hours State: Early Session (1)"
-  end
-  if value == 2 then
-    return "Market Hours State: Regular Session (2)"
-  end
-  if value == 3 then
-    return "Market Hours State: After Hours Session (3)"
-  end
-  if value == 4 then
-    return "Market Hours State: Closed After Hours (4)"
-  end
-
-  return "Market Hours State: Unknown("..value..")"
-end
-
--- Dissect: Market Hours State
-txse_equities_orderentry_seed_v0_1.market_hours_state.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.market_hours_state.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = txse_equities_orderentry_seed_v0_1.market_hours_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.market_hours_state, range, value, display)
-
-  return offset + length, value
 end
 
 -- Trading Session Status Presence Bits
@@ -5090,107 +5531,6 @@ txse_equities_orderentry_seed_v0_1.sequenced_message.dissect = function(buffer, 
   return offset
 end
 
--- Sequenced Message Type
-txse_equities_orderentry_seed_v0_1.sequenced_message_type = {}
-
--- Size: Sequenced Message Type
-txse_equities_orderentry_seed_v0_1.sequenced_message_type.size = 1
-
--- Display: Sequenced Message Type
-txse_equities_orderentry_seed_v0_1.sequenced_message_type.display = function(value)
-  if value == 105 then
-    return "Sequenced Message Type: Trading Session Status Message (105)"
-  end
-  if value == 115 then
-    return "Sequenced Message Type: Define Symbol Message (115)"
-  end
-  if value == 121 then
-    return "Sequenced Message Type: Symbol Status Message (121)"
-  end
-  if value == 73 then
-    return "Sequenced Message Type: Limit Order Accepted Message (73)"
-  end
-  if value == 85 then
-    return "Sequenced Message Type: Limit Order Rejected Message (85)"
-  end
-  if value == 68 then
-    return "Sequenced Message Type: Market Order Accepted Message (68)"
-  end
-  if value == 84 then
-    return "Sequenced Message Type: Market Order Rejected Message (84)"
-  end
-  if value == 88 then
-    return "Sequenced Message Type: Order Canceled Message (88)"
-  end
-  if value == 87 then
-    return "Sequenced Message Type: Cancel Rejected Message (87)"
-  end
-  if value == 89 then
-    return "Sequenced Message Type: Order Modified Message (89)"
-  end
-  if value == 78 then
-    return "Sequenced Message Type: Modify Rejected Message (78)"
-  end
-  if value == 74 then
-    return "Sequenced Message Type: Order Replaced Message (74)"
-  end
-  if value == 75 then
-    return "Sequenced Message Type: Replace Rejected Message (75)"
-  end
-  if value == 69 then
-    return "Sequenced Message Type: Order Executed Message (69)"
-  end
-  if value == 70 then
-    return "Sequenced Message Type: Order Restated Message (70)"
-  end
-  if value == 79 then
-    return "Sequenced Message Type: Mass Cancel Accepted Message (79)"
-  end
-  if value == 80 then
-    return "Sequenced Message Type: Mass Cancel Rejected Message (80)"
-  end
-  if value == 81 then
-    return "Sequenced Message Type: Mass Cancel Result Message (81)"
-  end
-
-  return "Sequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Sequenced Message Type
-txse_equities_orderentry_seed_v0_1.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.sequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_equities_orderentry_seed_v0_1.sequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.sequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Stream Id
-txse_equities_orderentry_seed_v0_1.stream_id = {}
-
--- Size: Stream Id
-txse_equities_orderentry_seed_v0_1.stream_id.size = 1
-
--- Display: Stream Id
-txse_equities_orderentry_seed_v0_1.stream_id.display = function(value)
-  return "Stream Id: "..value
-end
-
--- Dissect: Stream Id
-txse_equities_orderentry_seed_v0_1.stream_id.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.stream_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_equities_orderentry_seed_v0_1.stream_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.stream_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tcp Sequenced Message
 txse_equities_orderentry_seed_v0_1.tcp_sequenced_message = {}
 
@@ -5245,163 +5585,6 @@ txse_equities_orderentry_seed_v0_1.tcp_sequenced_message.dissect = function(buff
 
     return index
   end
-end
-
--- Rake Instance
-txse_equities_orderentry_seed_v0_1.rake_instance = {}
-
--- Size: Rake Instance
-txse_equities_orderentry_seed_v0_1.rake_instance.size = 4
-
--- Display: Rake Instance
-txse_equities_orderentry_seed_v0_1.rake_instance.display = function(value)
-  return "Rake Instance: "..value
-end
-
--- Dissect: Rake Instance
-txse_equities_orderentry_seed_v0_1.rake_instance.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.rake_instance.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_equities_orderentry_seed_v0_1.rake_instance.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.rake_instance, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Stream Ids
-txse_equities_orderentry_seed_v0_1.number_stream_ids = {}
-
--- Size: Number Stream Ids
-txse_equities_orderentry_seed_v0_1.number_stream_ids.size = 1
-
--- Display: Number Stream Ids
-txse_equities_orderentry_seed_v0_1.number_stream_ids.display = function(value)
-  return "Number Stream Ids: "..value
-end
-
--- Dissect: Number Stream Ids
-txse_equities_orderentry_seed_v0_1.number_stream_ids.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.number_stream_ids.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_equities_orderentry_seed_v0_1.number_stream_ids.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.number_stream_ids, range, value, display)
-
-  return offset + length, value
-end
-
--- Logon Response Code
-txse_equities_orderentry_seed_v0_1.logon_response_code = {}
-
--- Size: Logon Response Code
-txse_equities_orderentry_seed_v0_1.logon_response_code.size = 1
-
--- Display: Logon Response Code
-txse_equities_orderentry_seed_v0_1.logon_response_code.display = function(value)
-  if value == 0 then
-    return "Logon Response Code: Success (0)"
-  end
-  if value == 1 then
-    return "Logon Response Code: Incorrect Sender Comp (1)"
-  end
-  if value == 2 then
-    return "Logon Response Code: Incorrect Session (2)"
-  end
-  if value == 3 then
-    return "Logon Response Code: Invalid Next Sequence (3)"
-  end
-  if value == 4 then
-    return "Logon Response Code: Invalid Configuration (4)"
-  end
-  if value == 5 then
-    return "Logon Response Code: Incorrect Token (5)"
-  end
-
-  return "Logon Response Code: Unknown("..value..")"
-end
-
--- Dissect: Logon Response Code
-txse_equities_orderentry_seed_v0_1.logon_response_code.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.logon_response_code.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_equities_orderentry_seed_v0_1.logon_response_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.logon_response_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Highest Known Sequence Number
-txse_equities_orderentry_seed_v0_1.highest_known_sequence_number = {}
-
--- Size: Highest Known Sequence Number
-txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.size = 8
-
--- Display: Highest Known Sequence Number
-txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.display = function(value)
-  return "Highest Known Sequence Number: "..value
-end
-
--- Dissect: Highest Known Sequence Number
-txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_equities_orderentry_seed_v0_1.highest_known_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.highest_known_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Next Sequence Number
-txse_equities_orderentry_seed_v0_1.next_sequence_number = {}
-
--- Size: Next Sequence Number
-txse_equities_orderentry_seed_v0_1.next_sequence_number.size = 8
-
--- Display: Next Sequence Number
-txse_equities_orderentry_seed_v0_1.next_sequence_number.display = function(value)
-  return "Next Sequence Number: "..value
-end
-
--- Dissect: Next Sequence Number
-txse_equities_orderentry_seed_v0_1.next_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.next_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_equities_orderentry_seed_v0_1.next_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.next_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-txse_equities_orderentry_seed_v0_1.session = {}
-
--- Size: Session
-txse_equities_orderentry_seed_v0_1.session.size = 8
-
--- Display: Session
-txse_equities_orderentry_seed_v0_1.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-txse_equities_orderentry_seed_v0_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.session.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_equities_orderentry_seed_v0_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon Response Message
@@ -5462,25 +5645,6 @@ txse_equities_orderentry_seed_v0_1.logon_response_message.dissect = function(buf
     -- Skip element, add fields directly
     return txse_equities_orderentry_seed_v0_1.logon_response_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Text
-txse_equities_orderentry_seed_v0_1.text = {}
-
--- Display: Text
-txse_equities_orderentry_seed_v0_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect runtime sized field: Text
-txse_equities_orderentry_seed_v0_1.text.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = txse_equities_orderentry_seed_v0_1.text.display(value, packet, parent, size)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.text, range, value, display)
-
-  return offset + size, value
 end
 
 -- Debug Message
@@ -6432,48 +6596,6 @@ txse_equities_orderentry_seed_v0_1.unsequenced_message.dissect = function(buffer
   return offset
 end
 
--- Unsequenced Message Type
-txse_equities_orderentry_seed_v0_1.unsequenced_message_type = {}
-
--- Size: Unsequenced Message Type
-txse_equities_orderentry_seed_v0_1.unsequenced_message_type.size = 1
-
--- Display: Unsequenced Message Type
-txse_equities_orderentry_seed_v0_1.unsequenced_message_type.display = function(value)
-  if value == 76 then
-    return "Unsequenced Message Type: Limit Order Message (76)"
-  end
-  if value == 65 then
-    return "Unsequenced Message Type: Market Order Message (65)"
-  end
-  if value == 67 then
-    return "Unsequenced Message Type: Cancel Order Message (67)"
-  end
-  if value == 77 then
-    return "Unsequenced Message Type: Modify Order Message (77)"
-  end
-  if value == 82 then
-    return "Unsequenced Message Type: Replace Order Message (82)"
-  end
-  if value == 86 then
-    return "Unsequenced Message Type: Mass Cancel Message (86)"
-  end
-
-  return "Unsequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Unsequenced Message Type
-txse_equities_orderentry_seed_v0_1.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.unsequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = txse_equities_orderentry_seed_v0_1.unsequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.unsequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tcp Unsequenced Message
 txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message = {}
 
@@ -6525,52 +6647,6 @@ txse_equities_orderentry_seed_v0_1.tcp_unsequenced_message.dissect = function(bu
 
     return index
   end
-end
-
--- Requested Sequence Number
-txse_equities_orderentry_seed_v0_1.requested_sequence_number = {}
-
--- Size: Requested Sequence Number
-txse_equities_orderentry_seed_v0_1.requested_sequence_number.size = 8
-
--- Display: Requested Sequence Number
-txse_equities_orderentry_seed_v0_1.requested_sequence_number.display = function(value)
-  return "Requested Sequence Number: "..value
-end
-
--- Dissect: Requested Sequence Number
-txse_equities_orderentry_seed_v0_1.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.requested_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = txse_equities_orderentry_seed_v0_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.requested_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Member Token
-txse_equities_orderentry_seed_v0_1.member_token = {}
-
--- Size: Member Token
-txse_equities_orderentry_seed_v0_1.member_token.size = 8
-
--- Display: Member Token
-txse_equities_orderentry_seed_v0_1.member_token.display = function(value)
-  return "Member Token: "..value
-end
-
--- Dissect: Member Token
-txse_equities_orderentry_seed_v0_1.member_token.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.member_token.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = txse_equities_orderentry_seed_v0_1.member_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.member_token, range, value, display)
-
-  return offset + length, value
 end
 
 -- Logon Request Packet
@@ -6656,77 +6732,6 @@ txse_equities_orderentry_seed_v0_1.payload.dissect = function(buffer, offset, pa
   end
 
   return offset
-end
-
--- Packet Type
-txse_equities_orderentry_seed_v0_1.packet_type = {}
-
--- Size: Packet Type
-txse_equities_orderentry_seed_v0_1.packet_type.size = 1
-
--- Display: Packet Type
-txse_equities_orderentry_seed_v0_1.packet_type.display = function(value)
-  if value == 53 then
-    return "Packet Type: Logon Request Packet (53)"
-  end
-  if value == 55 then
-    return "Packet Type: Member Heartbeat Packet (55)"
-  end
-  if value == 54 then
-    return "Packet Type: Tcp Unsequenced Message (54)"
-  end
-  if value == 48 then
-    return "Packet Type: Debug Message (48)"
-  end
-  if value == 52 then
-    return "Packet Type: End Of Session Message (52)"
-  end
-  if value == 49 then
-    return "Packet Type: Logon Response Message (49)"
-  end
-  if value == 51 then
-    return "Packet Type: Server Heartbeat Message (51)"
-  end
-  if value == 50 then
-    return "Packet Type: Tcp Sequenced Message (50)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-txse_equities_orderentry_seed_v0_1.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = txse_equities_orderentry_seed_v0_1.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Length
-txse_equities_orderentry_seed_v0_1.message_length = {}
-
--- Size: Message Length
-txse_equities_orderentry_seed_v0_1.message_length.size = 2
-
--- Display: Message Length
-txse_equities_orderentry_seed_v0_1.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-txse_equities_orderentry_seed_v0_1.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = txse_equities_orderentry_seed_v0_1.message_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = txse_equities_orderentry_seed_v0_1.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_equities_orderentry_seed_v0_1.fields.message_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Rake Message Header

@@ -207,7 +207,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Memx Equities MemoirDepthFeed Sbe 1.3
+-- Memx Equities MemoirDepthFeed Sbe 1.3 Fields
 -----------------------------------------------------------------------
 
 -- As Of Sequence Number
@@ -233,142 +233,27 @@ memx_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.dissect = function(
   return offset + length, value
 end
 
--- Timestamp
-memx_equities_memoirdepthfeed_sbe_v1_3.timestamp = {}
+-- Block Length
+memx_equities_memoirdepthfeed_sbe_v1_3.block_length = {}
 
--- Size: Timestamp
-memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size = 8
+-- Size: Block Length
+memx_equities_memoirdepthfeed_sbe_v1_3.block_length.size = 2
 
--- Display: Timestamp
-memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+-- Display: Block Length
+memx_equities_memoirdepthfeed_sbe_v1_3.block_length.display = function(value)
+  return "Block Length: "..value
 end
 
--- Dissect: Timestamp
-memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Snapshot Complete Message
-memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message = {}
-
--- Size: Snapshot Complete Message
-memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.size =
-  memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.size
-
--- Display: Snapshot Complete Message
-memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Snapshot Complete Message
-memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: UTCTimestampNanos
-  index, timestamp = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
-
-  -- As Of Sequence Number: uint64
-  index, as_of_sequence_number = memx_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Snapshot Complete Message
-memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.snapshot_complete_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Security Id
-memx_equities_memoirdepthfeed_sbe_v1_3.security_id = {}
-
--- Size: Security Id
-memx_equities_memoirdepthfeed_sbe_v1_3.security_id.size = 2
-
--- Display: Security Id
-memx_equities_memoirdepthfeed_sbe_v1_3.security_id.display = function(value)
-  return "Security Id: "..value
-end
-
--- Dissect: Security Id
-memx_equities_memoirdepthfeed_sbe_v1_3.security_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.security_id.size
+-- Dissect: Block Length
+memx_equities_memoirdepthfeed_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.block_length.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.security_id.display(value, buffer, offset, packet, parent)
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id, range, value, display)
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
-end
-
--- Clear Book Message
-memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message = {}
-
--- Size: Clear Book Message
-memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.size =
-  memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
-  memx_equities_memoirdepthfeed_sbe_v1_3.security_id.size
-
--- Display: Clear Book Message
-memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Clear Book Message
-memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Timestamp: UTCTimestampNanos
-  index, timestamp = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Security Id: uint16
-  index, security_id = memx_equities_memoirdepthfeed_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Clear Book Message
-memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.dissect = function(buffer, offset, packet, parent)
-  if show.clear_book_message then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
-    local index = memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Corrected Price
@@ -419,6 +304,190 @@ memx_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity.dissect = function(buf
   local display = memx_equities_memoirdepthfeed_sbe_v1_3.corrected_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Header Length
+memx_equities_memoirdepthfeed_sbe_v1_3.header_length = {}
+
+-- Size: Header Length
+memx_equities_memoirdepthfeed_sbe_v1_3.header_length.size = 1
+
+-- Display: Header Length
+memx_equities_memoirdepthfeed_sbe_v1_3.header_length.display = function(value)
+  return "Header Length: "..value
+end
+
+-- Dissect: Header Length
+memx_equities_memoirdepthfeed_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.header_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Is Test Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol = {}
+
+-- Size: Is Test Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size = 1
+
+-- Display: Is Test Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.display = function(value)
+  if value == 0 then
+    return "Is Test Symbol: False (0)"
+  end
+  if value == 1 then
+    return "Is Test Symbol: True (1)"
+  end
+
+  return "Is Test Symbol: Unknown("..value..")"
+end
+
+-- Dissect: Is Test Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+memx_equities_memoirdepthfeed_sbe_v1_3.message_count = {}
+
+-- Size: Message Count
+memx_equities_memoirdepthfeed_sbe_v1_3.message_count.size = 2
+
+-- Display: Message Count
+memx_equities_memoirdepthfeed_sbe_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+memx_equities_memoirdepthfeed_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+memx_equities_memoirdepthfeed_sbe_v1_3.message_length = {}
+
+-- Size: Message Length
+memx_equities_memoirdepthfeed_sbe_v1_3.message_length.size = 2
+
+-- Display: Message Length
+memx_equities_memoirdepthfeed_sbe_v1_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+memx_equities_memoirdepthfeed_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+memx_equities_memoirdepthfeed_sbe_v1_3.message_type = {}
+
+-- Size: Message Type
+memx_equities_memoirdepthfeed_sbe_v1_3.message_type.size = 1
+
+-- Display: Message Type
+memx_equities_memoirdepthfeed_sbe_v1_3.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat Message (0)"
+  end
+  if value == 1 then
+    return "Message Type: Session Shutdown Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Sequenced Message (2)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+memx_equities_memoirdepthfeed_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+memx_equities_memoirdepthfeed_sbe_v1_3.mpv = {}
+
+-- Size: Mpv
+memx_equities_memoirdepthfeed_sbe_v1_3.mpv.size = 8
+
+-- Display: Mpv
+memx_equities_memoirdepthfeed_sbe_v1_3.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Translate: Mpv
+memx_equities_memoirdepthfeed_sbe_v1_3.mpv.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Mpv
+memx_equities_memoirdepthfeed_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.mpv.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = memx_equities_memoirdepthfeed_sbe_v1_3.mpv.translate(raw)
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+memx_equities_memoirdepthfeed_sbe_v1_3.order_id = {}
+
+-- Size: Order Id
+memx_equities_memoirdepthfeed_sbe_v1_3.order_id.size = 8
+
+-- Display: Order Id
+memx_equities_memoirdepthfeed_sbe_v1_3.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+memx_equities_memoirdepthfeed_sbe_v1_3.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -475,6 +544,536 @@ memx_equities_memoirdepthfeed_sbe_v1_3.original_quantity.dissect = function(buff
   return offset + length, value
 end
 
+-- Price
+memx_equities_memoirdepthfeed_sbe_v1_3.price = {}
+
+-- Size: Price
+memx_equities_memoirdepthfeed_sbe_v1_3.price.size = 8
+
+-- Display: Price
+memx_equities_memoirdepthfeed_sbe_v1_3.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+memx_equities_memoirdepthfeed_sbe_v1_3.price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Price
+memx_equities_memoirdepthfeed_sbe_v1_3.price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.price.size
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = memx_equities_memoirdepthfeed_sbe_v1_3.price.translate(raw)
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+memx_equities_memoirdepthfeed_sbe_v1_3.quantity = {}
+
+-- Size: Quantity
+memx_equities_memoirdepthfeed_sbe_v1_3.quantity.size = 4
+
+-- Display: Quantity
+memx_equities_memoirdepthfeed_sbe_v1_3.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+memx_equities_memoirdepthfeed_sbe_v1_3.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+memx_equities_memoirdepthfeed_sbe_v1_3.reserved = {}
+
+-- Size: Reserved
+memx_equities_memoirdepthfeed_sbe_v1_3.reserved.size = 1
+
+-- Display: Reserved
+memx_equities_memoirdepthfeed_sbe_v1_3.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+memx_equities_memoirdepthfeed_sbe_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot
+memx_equities_memoirdepthfeed_sbe_v1_3.round_lot = {}
+
+-- Size: Round Lot
+memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.size = 4
+
+-- Display: Round Lot
+memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.display = function(value)
+  return "Round Lot: "..value
+end
+
+-- Dissect: Round Lot
+memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+memx_equities_memoirdepthfeed_sbe_v1_3.schema_id = {}
+
+-- Size: Schema Id
+memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.size = 1
+
+-- Display: Schema Id
+memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.display = function(value)
+  if value == 2 then
+    return "Schema Id: SchemaId"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+memx_equities_memoirdepthfeed_sbe_v1_3.security_id = {}
+
+-- Size: Security Id
+memx_equities_memoirdepthfeed_sbe_v1_3.security_id.size = 2
+
+-- Display: Security Id
+memx_equities_memoirdepthfeed_sbe_v1_3.security_id.display = function(value)
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+memx_equities_memoirdepthfeed_sbe_v1_3.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.security_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status = {}
+
+-- Size: Security Trading Status
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size = 1
+
+-- Display: Security Trading Status
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == "H" then
+    return "Security Trading Status: Halted (H)"
+  end
+  if value == "P" then
+    return "Security Trading Status: Paused (P)"
+  end
+  if value == "Q" then
+    return "Security Trading Status: Quoting (Q)"
+  end
+  if value == "T" then
+    return "Security Trading Status: Trading (T)"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Trading Status Reason
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason = {}
+
+-- Size: Security Trading Status Reason
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size = 1
+
+-- Display: Security Trading Status Reason
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Trading Status Reason: No Value"
+  end
+
+  if value == "X" then
+    return "Security Trading Status Reason: None (X)"
+  end
+  if value == "R" then
+    return "Security Trading Status Reason: Regulatory (R)"
+  end
+  if value == "A" then
+    return "Security Trading Status Reason: Administrative (A)"
+  end
+
+  return "Security Trading Status Reason: Unknown("..value..")"
+end
+
+-- Dissect: Security Trading Status Reason
+memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number = {}
+
+-- Size: Sequence Number
+memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size = 8
+
+-- Display: Sequence Number
+memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+memx_equities_memoirdepthfeed_sbe_v1_3.session_id = {}
+
+-- Size: Session Id
+memx_equities_memoirdepthfeed_sbe_v1_3.session_id.size = 8
+
+-- Display: Session Id
+memx_equities_memoirdepthfeed_sbe_v1_3.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+memx_equities_memoirdepthfeed_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Short Sale Restriction
+memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction = {}
+
+-- Size: Short Sale Restriction
+memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size = 1
+
+-- Display: Short Sale Restriction
+memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.display = function(value)
+  if value == 0 then
+    return "Short Sale Restriction: False (0)"
+  end
+  if value == 1 then
+    return "Short Sale Restriction: True (1)"
+  end
+
+  return "Short Sale Restriction: Unknown("..value..")"
+end
+
+-- Dissect: Short Sale Restriction
+memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.short_sale_restriction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+memx_equities_memoirdepthfeed_sbe_v1_3.side = {}
+
+-- Size: Side
+memx_equities_memoirdepthfeed_sbe_v1_3.side.size = 1
+
+-- Display: Side
+memx_equities_memoirdepthfeed_sbe_v1_3.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+memx_equities_memoirdepthfeed_sbe_v1_3.side.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol = {}
+
+-- Size: Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol.size = 6
+
+-- Display: Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Sfx
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx = {}
+
+-- Size: Symbol Sfx
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size = 6
+
+-- Display: Symbol Sfx
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Sfx: No Value"
+  end
+
+  return "Symbol Sfx: "..value
+end
+
+-- Dissect: Symbol Sfx
+memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Template Id
+memx_equities_memoirdepthfeed_sbe_v1_3.template_id = {}
+
+-- Size: Template Id
+memx_equities_memoirdepthfeed_sbe_v1_3.template_id.size = 1
+
+-- Display: Template Id
+memx_equities_memoirdepthfeed_sbe_v1_3.template_id.display = function(value)
+  if value == 1 then
+    return "Template Id: Instrument Directory Message (1)"
+  end
+  if value == 2 then
+    return "Template Id: Reg Sho Restriction Message (2)"
+  end
+  if value == 3 then
+    return "Template Id: Security Trading Status Message (3)"
+  end
+  if value == 5 then
+    return "Template Id: Trading Session Status Message (5)"
+  end
+  if value == 10 then
+    return "Template Id: Order Added Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Order Deleted Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Order Reduced Message (12)"
+  end
+  if value == 13 then
+    return "Template Id: Order Executed Message (13)"
+  end
+  if value == 14 then
+    return "Template Id: Trade Message (14)"
+  end
+  if value == 15 then
+    return "Template Id: Broken Trade Message (15)"
+  end
+  if value == 16 then
+    return "Template Id: Corrected Trade Message (16)"
+  end
+  if value == 18 then
+    return "Template Id: Clear Book Message (18)"
+  end
+  if value == 100 then
+    return "Template Id: Snapshot Complete Message (100)"
+  end
+
+  return "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+memx_equities_memoirdepthfeed_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.template_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+memx_equities_memoirdepthfeed_sbe_v1_3.timestamp = {}
+
+-- Size: Timestamp
+memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size = 8
+
+-- Display: Timestamp
+memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Id
 memx_equities_memoirdepthfeed_sbe_v1_3.trade_id = {}
 
@@ -496,6 +1095,175 @@ memx_equities_memoirdepthfeed_sbe_v1_3.trade_id.dissect = function(buffer, offse
   parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trade_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Trading Session
+memx_equities_memoirdepthfeed_sbe_v1_3.trading_session = {}
+
+-- Size: Trading Session
+memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.size = 1
+
+-- Display: Trading Session
+memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Session: No Value"
+  end
+
+  if value == "1" then
+    return "Trading Session: Opening (1)"
+  end
+  if value == "2" then
+    return "Trading Session: Trading (2)"
+  end
+  if value == "3" then
+    return "Trading Session: Post Trading (3)"
+  end
+  if value == "4" then
+    return "Trading Session: Closed (4)"
+  end
+
+  return "Trading Session: Unknown("..value..")"
+end
+
+-- Dissect: Trading Session
+memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+memx_equities_memoirdepthfeed_sbe_v1_3.version = {}
+
+-- Size: Version
+memx_equities_memoirdepthfeed_sbe_v1_3.version.size = 2
+
+-- Display: Version
+memx_equities_memoirdepthfeed_sbe_v1_3.version.display = function(value)
+  if value == 259 then
+    return "Version: Version 1.3"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+memx_equities_memoirdepthfeed_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirdepthfeed_sbe_v1_3.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirdepthfeed_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Memx Equities MemoirDepthFeed Sbe 1.3
+-----------------------------------------------------------------------
+
+-- Snapshot Complete Message
+memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message = {}
+
+-- Size: Snapshot Complete Message
+memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.size
+
+-- Display: Snapshot Complete Message
+memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Snapshot Complete Message
+memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UTCTimestampNanos
+  index, timestamp = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- As Of Sequence Number: uint64
+  index, as_of_sequence_number = memx_equities_memoirdepthfeed_sbe_v1_3.as_of_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Snapshot Complete Message
+memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.snapshot_complete_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Clear Book Message
+memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message = {}
+
+-- Size: Clear Book Message
+memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.size =
+  memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.size + 
+  memx_equities_memoirdepthfeed_sbe_v1_3.security_id.size
+
+-- Display: Clear Book Message
+memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Clear Book Message
+memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UTCTimestampNanos
+  index, timestamp = memx_equities_memoirdepthfeed_sbe_v1_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Security Id: uint16
+  index, security_id = memx_equities_memoirdepthfeed_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Clear Book Message
+memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.dissect = function(buffer, offset, packet, parent)
+  if show.clear_book_message then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message, buffer(offset, 0))
+    local index = memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_equities_memoirdepthfeed_sbe_v1_3.clear_book_message.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- Corrected Trade Message
@@ -618,58 +1386,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.broken_trade_message.dissect = function(b
   end
 end
 
--- Price
-memx_equities_memoirdepthfeed_sbe_v1_3.price = {}
-
--- Size: Price
-memx_equities_memoirdepthfeed_sbe_v1_3.price.size = 8
-
--- Display: Price
-memx_equities_memoirdepthfeed_sbe_v1_3.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-memx_equities_memoirdepthfeed_sbe_v1_3.price.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Price
-memx_equities_memoirdepthfeed_sbe_v1_3.price.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.price.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = memx_equities_memoirdepthfeed_sbe_v1_3.price.translate(raw)
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity
-memx_equities_memoirdepthfeed_sbe_v1_3.quantity = {}
-
--- Size: Quantity
-memx_equities_memoirdepthfeed_sbe_v1_3.quantity.size = 4
-
--- Display: Quantity
-memx_equities_memoirdepthfeed_sbe_v1_3.quantity.display = function(value)
-  return "Quantity: "..value
-end
-
--- Dissect: Quantity
-memx_equities_memoirdepthfeed_sbe_v1_3.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Message
 memx_equities_memoirdepthfeed_sbe_v1_3.trade_message = {}
 
@@ -724,29 +1440,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.trade_message.dissect = function(buffer, 
     -- Skip element, add fields directly
     return memx_equities_memoirdepthfeed_sbe_v1_3.trade_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Order Id
-memx_equities_memoirdepthfeed_sbe_v1_3.order_id = {}
-
--- Size: Order Id
-memx_equities_memoirdepthfeed_sbe_v1_3.order_id.size = 8
-
--- Display: Order Id
-memx_equities_memoirdepthfeed_sbe_v1_3.order_id.display = function(value)
-  return "Order Id: "..value
-end
-
--- Dissect: Order Id
-memx_equities_memoirdepthfeed_sbe_v1_3.order_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.order_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.order_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed Message
@@ -909,49 +1602,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.order_deleted_message.dissect = function(
   end
 end
 
--- Side
-memx_equities_memoirdepthfeed_sbe_v1_3.side = {}
-
--- Size: Side
-memx_equities_memoirdepthfeed_sbe_v1_3.side.size = 1
-
--- Display: Side
-memx_equities_memoirdepthfeed_sbe_v1_3.side.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Side: No Value"
-  end
-
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-
-  return "Side: Unknown("..value..")"
-end
-
--- Dissect: Side
-memx_equities_memoirdepthfeed_sbe_v1_3.side.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.side.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Added Message
 memx_equities_memoirdepthfeed_sbe_v1_3.order_added_message = {}
 
@@ -1012,55 +1662,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.order_added_message.dissect = function(bu
   end
 end
 
--- Trading Session
-memx_equities_memoirdepthfeed_sbe_v1_3.trading_session = {}
-
--- Size: Trading Session
-memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.size = 1
-
--- Display: Trading Session
-memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trading Session: No Value"
-  end
-
-  if value == "1" then
-    return "Trading Session: Opening (1)"
-  end
-  if value == "2" then
-    return "Trading Session: Trading (2)"
-  end
-  if value == "3" then
-    return "Trading Session: Post Trading (3)"
-  end
-  if value == "4" then
-    return "Trading Session: Closed (4)"
-  end
-
-  return "Trading Session: Unknown("..value..")"
-end
-
--- Dissect: Trading Session
-memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.trading_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trading Session Status Message
 memx_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message = {}
 
@@ -1103,101 +1704,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.dissect = 
     -- Skip element, add fields directly
     return memx_equities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Security Trading Status Reason
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason = {}
-
--- Size: Security Trading Status Reason
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size = 1
-
--- Display: Security Trading Status Reason
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Trading Status Reason: No Value"
-  end
-
-  if value == "X" then
-    return "Security Trading Status Reason: None (X)"
-  end
-  if value == "R" then
-    return "Security Trading Status Reason: Regulatory (R)"
-  end
-  if value == "A" then
-    return "Security Trading Status Reason: Administrative (A)"
-  end
-
-  return "Security Trading Status Reason: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status Reason
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Trading Status
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status = {}
-
--- Size: Security Trading Status
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size = 1
-
--- Display: Security Trading Status
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Security Trading Status: No Value"
-  end
-
-  if value == "H" then
-    return "Security Trading Status: Halted (H)"
-  end
-  if value == "P" then
-    return "Security Trading Status: Paused (P)"
-  end
-  if value == "Q" then
-    return "Security Trading Status: Quoting (Q)"
-  end
-  if value == "T" then
-    return "Security Trading Status: Trading (T)"
-  end
-
-  return "Security Trading Status: Unknown("..value..")"
-end
-
--- Dissect: Security Trading Status
-memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status, range, value, display)
-
-  return offset + length, value
 end
 
 -- Security Trading Status Message
@@ -1252,36 +1758,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.dissect =
   end
 end
 
--- Short Sale Restriction
-memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction = {}
-
--- Size: Short Sale Restriction
-memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size = 1
-
--- Display: Short Sale Restriction
-memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
-
-  return "Short Sale Restriction: Unknown("..value..")"
-end
-
--- Dissect: Short Sale Restriction
-memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.short_sale_restriction, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reg Sho Restriction Message
 memx_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message = {}
 
@@ -1328,189 +1804,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.dissect = fun
     -- Skip element, add fields directly
     return memx_equities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Mpv
-memx_equities_memoirdepthfeed_sbe_v1_3.mpv = {}
-
--- Size: Mpv
-memx_equities_memoirdepthfeed_sbe_v1_3.mpv.size = 8
-
--- Display: Mpv
-memx_equities_memoirdepthfeed_sbe_v1_3.mpv.display = function(value)
-  return "Mpv: "..value
-end
-
--- Translate: Mpv
-memx_equities_memoirdepthfeed_sbe_v1_3.mpv.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Mpv
-memx_equities_memoirdepthfeed_sbe_v1_3.mpv.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.mpv.size
-  local range = buffer(offset, length)
-  local raw = range:int64()
-  local value = memx_equities_memoirdepthfeed_sbe_v1_3.mpv.translate(raw)
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.mpv.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Is Test Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol = {}
-
--- Size: Is Test Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size = 1
-
--- Display: Is Test Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
-
-  return "Is Test Symbol: Unknown("..value..")"
-end
-
--- Dissect: Is Test Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.is_test_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-memx_equities_memoirdepthfeed_sbe_v1_3.reserved = {}
-
--- Size: Reserved
-memx_equities_memoirdepthfeed_sbe_v1_3.reserved.size = 1
-
--- Display: Reserved
-memx_equities_memoirdepthfeed_sbe_v1_3.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-memx_equities_memoirdepthfeed_sbe_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
--- Round Lot
-memx_equities_memoirdepthfeed_sbe_v1_3.round_lot = {}
-
--- Size: Round Lot
-memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.size = 4
-
--- Display: Round Lot
-memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.display = function(value)
-  return "Round Lot: "..value
-end
-
--- Dissect: Round Lot
-memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.round_lot.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.round_lot, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Sfx
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx = {}
-
--- Size: Symbol Sfx
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size = 6
-
--- Display: Symbol Sfx
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Sfx: No Value"
-  end
-
-  return "Symbol Sfx: "..value
-end
-
--- Dissect: Symbol Sfx
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.symbol_sfx.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol = {}
-
--- Size: Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol.size = 6
-
--- Display: Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol: No Value"
-  end
-
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-memx_equities_memoirdepthfeed_sbe_v1_3.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.symbol.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol, range, value, display)
-
-  return offset + length, value
 end
 
 -- Instrument Directory Message
@@ -1642,146 +1935,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.payload.dissect = function(buffer, offset
   return offset
 end
 
--- Version
-memx_equities_memoirdepthfeed_sbe_v1_3.version = {}
-
--- Size: Version
-memx_equities_memoirdepthfeed_sbe_v1_3.version.size = 2
-
--- Display: Version
-memx_equities_memoirdepthfeed_sbe_v1_3.version.display = function(value)
-  if value == 259 then
-    return "Version: Version 1.3"
-  end
-
-  return "Version: Unknown("..value..")"
-end
-
--- Dissect: Version
-memx_equities_memoirdepthfeed_sbe_v1_3.version.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.version.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Schema Id
-memx_equities_memoirdepthfeed_sbe_v1_3.schema_id = {}
-
--- Size: Schema Id
-memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.size = 1
-
--- Display: Schema Id
-memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.display = function(value)
-  if value == 2 then
-    return "Schema Id: SchemaId"
-  end
-
-  return "Schema Id: Unknown("..value..")"
-end
-
--- Dissect: Schema Id
-memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.schema_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Template Id
-memx_equities_memoirdepthfeed_sbe_v1_3.template_id = {}
-
--- Size: Template Id
-memx_equities_memoirdepthfeed_sbe_v1_3.template_id.size = 1
-
--- Display: Template Id
-memx_equities_memoirdepthfeed_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Order Added Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Order Deleted Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Order Reduced Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Order Executed Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Trade Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Broken Trade Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Corrected Trade Message (16)"
-  end
-  if value == 18 then
-    return "Template Id: Clear Book Message (18)"
-  end
-  if value == 100 then
-    return "Template Id: Snapshot Complete Message (100)"
-  end
-
-  return "Template Id: Unknown("..value..")"
-end
-
--- Dissect: Template Id
-memx_equities_memoirdepthfeed_sbe_v1_3.template_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.template_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.template_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Block Length
-memx_equities_memoirdepthfeed_sbe_v1_3.block_length = {}
-
--- Size: Block Length
-memx_equities_memoirdepthfeed_sbe_v1_3.block_length.size = 2
-
--- Display: Block Length
-memx_equities_memoirdepthfeed_sbe_v1_3.block_length.display = function(value)
-  return "Block Length: "..value
-end
-
--- Dissect: Block Length
-memx_equities_memoirdepthfeed_sbe_v1_3.block_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.block_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.block_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sbe Header
 memx_equities_memoirdepthfeed_sbe_v1_3.sbe_header = {}
 
@@ -1890,29 +2043,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.sbe_message.dissect = function(buffer, of
   end
 end
 
--- Message Length
-memx_equities_memoirdepthfeed_sbe_v1_3.message_length = {}
-
--- Size: Message Length
-memx_equities_memoirdepthfeed_sbe_v1_3.message_length.size = 2
-
--- Display: Message Length
-memx_equities_memoirdepthfeed_sbe_v1_3.message_length.display = function(value)
-  return "Message Length: "..value
-end
-
--- Dissect: Message Length
-memx_equities_memoirdepthfeed_sbe_v1_3.message_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.message_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.message_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message
 memx_equities_memoirdepthfeed_sbe_v1_3.message = {}
 
@@ -1961,29 +2091,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.message.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return memx_equities_memoirdepthfeed_sbe_v1_3.message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Message Count
-memx_equities_memoirdepthfeed_sbe_v1_3.message_count = {}
-
--- Size: Message Count
-memx_equities_memoirdepthfeed_sbe_v1_3.message_count.size = 2
-
--- Display: Message Count
-memx_equities_memoirdepthfeed_sbe_v1_3.message_count.display = function(value)
-  return "Message Count: "..value
-end
-
--- Dissect: Message Count
-memx_equities_memoirdepthfeed_sbe_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.message_count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.message_count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count, range, value, display)
-
-  return offset + length, value
 end
 
 -- Sequenced Message
@@ -2048,108 +2155,6 @@ memx_equities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect = function(buf
   end
 
   return offset
-end
-
--- Sequence Number
-memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number = {}
-
--- Size: Sequence Number
-memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size = 8
-
--- Display: Sequence Number
-memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-memx_equities_memoirdepthfeed_sbe_v1_3.session_id = {}
-
--- Size: Session Id
-memx_equities_memoirdepthfeed_sbe_v1_3.session_id.size = 8
-
--- Display: Session Id
-memx_equities_memoirdepthfeed_sbe_v1_3.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-memx_equities_memoirdepthfeed_sbe_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.session_id.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Header Length
-memx_equities_memoirdepthfeed_sbe_v1_3.header_length = {}
-
--- Size: Header Length
-memx_equities_memoirdepthfeed_sbe_v1_3.header_length.size = 1
-
--- Display: Header Length
-memx_equities_memoirdepthfeed_sbe_v1_3.header_length.display = function(value)
-  return "Header Length: "..value
-end
-
--- Dissect: Header Length
-memx_equities_memoirdepthfeed_sbe_v1_3.header_length.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.header_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.header_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Message Type
-memx_equities_memoirdepthfeed_sbe_v1_3.message_type = {}
-
--- Size: Message Type
-memx_equities_memoirdepthfeed_sbe_v1_3.message_type.size = 1
-
--- Display: Message Type
-memx_equities_memoirdepthfeed_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-memx_equities_memoirdepthfeed_sbe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirdepthfeed_sbe_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_equities_memoirdepthfeed_sbe_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
 end
 
 -- Common Header

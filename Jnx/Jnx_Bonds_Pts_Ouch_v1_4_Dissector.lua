@@ -237,28 +237,616 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Jnx Bonds Pts Ouch 1.4
+-- Jnx Bonds Pts Ouch 1.4 Fields
 -----------------------------------------------------------------------
 
--- Quantity
-jnx_bonds_pts_ouch_v1_4.quantity = {}
+-- Buy Sell Indicator
+jnx_bonds_pts_ouch_v1_4.buy_sell_indicator = {}
 
--- Size: Quantity
-jnx_bonds_pts_ouch_v1_4.quantity.size = 4
+-- Size: Buy Sell Indicator
+jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.size = 1
 
--- Display: Quantity
-jnx_bonds_pts_ouch_v1_4.quantity.display = function(value)
-  return "Quantity: "..value
+-- Display: Buy Sell Indicator
+jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.display = function(value)
+  if value == "B" then
+    return "Buy Sell Indicator: Buy (B)"
+  end
+  if value == "S" then
+    return "Buy Sell Indicator: Sell (S)"
+  end
+  if value == "T" then
+    return "Buy Sell Indicator: Sell Short (T)"
+  end
+  if value == "E" then
+    return "Buy Sell Indicator: Sell Short Exempt (E)"
+  end
+
+  return "Buy Sell Indicator: Unknown("..value..")"
 end
 
--- Dissect: Quantity
-jnx_bonds_pts_ouch_v1_4.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.quantity.size
+-- Dissect: Buy Sell Indicator
+jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+jnx_bonds_pts_ouch_v1_4.capacity = {}
+
+-- Size: Capacity
+jnx_bonds_pts_ouch_v1_4.capacity.size = 1
+
+-- Display: Capacity
+jnx_bonds_pts_ouch_v1_4.capacity.display = function(value)
+  if value == "A" then
+    return "Capacity: Agency (A)"
+  end
+  if value == "P" then
+    return "Capacity: Principal (P)"
+  end
+
+  return "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+jnx_bonds_pts_ouch_v1_4.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cash Margin Type
+jnx_bonds_pts_ouch_v1_4.cash_margin_type = {}
+
+-- Size: Cash Margin Type
+jnx_bonds_pts_ouch_v1_4.cash_margin_type.size = 1
+
+-- Display: Cash Margin Type
+jnx_bonds_pts_ouch_v1_4.cash_margin_type.display = function(value)
+  if value == "1" then
+    return "Cash Margin Type: Cash (1)"
+  end
+
+  return "Cash Margin Type: Unknown("..value..")"
+end
+
+-- Dissect: Cash Margin Type
+jnx_bonds_pts_ouch_v1_4.cash_margin_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.cash_margin_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.cash_margin_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Reference
+jnx_bonds_pts_ouch_v1_4.client_reference = {}
+
+-- Size: Client Reference
+jnx_bonds_pts_ouch_v1_4.client_reference.size = 10
+
+-- Display: Client Reference
+jnx_bonds_pts_ouch_v1_4.client_reference.display = function(value)
+  return "Client Reference: "..value
+end
+
+-- Dissect: Client Reference
+jnx_bonds_pts_ouch_v1_4.client_reference.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.client_reference.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_bonds_pts_ouch_v1_4.client_reference.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.client_reference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Counter Party
+jnx_bonds_pts_ouch_v1_4.counter_party = {}
+
+-- Size: Counter Party
+jnx_bonds_pts_ouch_v1_4.counter_party.size = 12
+
+-- Display: Counter Party
+jnx_bonds_pts_ouch_v1_4.counter_party.display = function(value)
+  return "Counter Party: "..value
+end
+
+-- Dissect: Counter Party
+jnx_bonds_pts_ouch_v1_4.counter_party.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.counter_party.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_bonds_pts_ouch_v1_4.counter_party.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.counter_party, range, value, display)
+
+  return offset + length, value
+end
+
+-- Decrement Quantity
+jnx_bonds_pts_ouch_v1_4.decrement_quantity = {}
+
+-- Size: Decrement Quantity
+jnx_bonds_pts_ouch_v1_4.decrement_quantity.size = 4
+
+-- Display: Decrement Quantity
+jnx_bonds_pts_ouch_v1_4.decrement_quantity.display = function(value)
+  return "Decrement Quantity: "..value
+end
+
+-- Dissect: Decrement Quantity
+jnx_bonds_pts_ouch_v1_4.decrement_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.decrement_quantity.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.quantity.display(value, buffer, offset, packet, parent)
+  local display = jnx_bonds_pts_ouch_v1_4.decrement_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.quantity, range, value, display)
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display
+jnx_bonds_pts_ouch_v1_4.display = {}
+
+-- Size: Display
+jnx_bonds_pts_ouch_v1_4.display.size = 1
+
+-- Display: Display
+jnx_bonds_pts_ouch_v1_4.display.display = function(value)
+  if value == "P" then
+    return "Display: Postonly (P)"
+  end
+
+  return "Display: Unknown("..value..")"
+end
+
+-- Dissect: Display
+jnx_bonds_pts_ouch_v1_4.display.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.display.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.display.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.display, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+jnx_bonds_pts_ouch_v1_4.executed_quantity = {}
+
+-- Size: Executed Quantity
+jnx_bonds_pts_ouch_v1_4.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+jnx_bonds_pts_ouch_v1_4.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+jnx_bonds_pts_ouch_v1_4.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Price
+jnx_bonds_pts_ouch_v1_4.execution_price = {}
+
+-- Size: Execution Price
+jnx_bonds_pts_ouch_v1_4.execution_price.size = 4
+
+-- Display: Execution Price
+jnx_bonds_pts_ouch_v1_4.execution_price.display = function(value)
+  return "Execution Price: "..value
+end
+
+-- Translate: Execution Price
+jnx_bonds_pts_ouch_v1_4.execution_price.translate = function(raw)
+  return raw/1000
+end
+
+-- Dissect: Execution Price
+jnx_bonds_pts_ouch_v1_4.execution_price.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.execution_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = jnx_bonds_pts_ouch_v1_4.execution_price.translate(raw)
+  local display = jnx_bonds_pts_ouch_v1_4.execution_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.execution_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Existing Order Token
+jnx_bonds_pts_ouch_v1_4.existing_order_token = {}
+
+-- Size: Existing Order Token
+jnx_bonds_pts_ouch_v1_4.existing_order_token.size = 4
+
+-- Display: Existing Order Token
+jnx_bonds_pts_ouch_v1_4.existing_order_token.display = function(value)
+  return "Existing Order Token: "..value
+end
+
+-- Dissect: Existing Order Token
+jnx_bonds_pts_ouch_v1_4.existing_order_token.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.existing_order_token.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.existing_order_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.existing_order_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Firm Id
+jnx_bonds_pts_ouch_v1_4.firm_id = {}
+
+-- Size: Firm Id
+jnx_bonds_pts_ouch_v1_4.firm_id.size = 4
+
+-- Display: Firm Id
+jnx_bonds_pts_ouch_v1_4.firm_id.display = function(value)
+  return "Firm Id: "..value
+end
+
+-- Dissect: Firm Id
+jnx_bonds_pts_ouch_v1_4.firm_id.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.firm_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.firm_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.firm_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group
+jnx_bonds_pts_ouch_v1_4.group = {}
+
+-- Size: Group
+jnx_bonds_pts_ouch_v1_4.group.size = 4
+
+-- Display: Group
+jnx_bonds_pts_ouch_v1_4.group.display = function(value)
+  if value == "DJGB" then
+    return "Group: Jgb Market (DJGB)"
+  end
+
+  return "Group: Unknown("..value..")"
+end
+
+-- Dissect: Group
+jnx_bonds_pts_ouch_v1_4.group.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.group.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_bonds_pts_ouch_v1_4.group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Indicator
+jnx_bonds_pts_ouch_v1_4.liquidity_indicator = {}
+
+-- Size: Liquidity Indicator
+jnx_bonds_pts_ouch_v1_4.liquidity_indicator.size = 1
+
+-- Display: Liquidity Indicator
+jnx_bonds_pts_ouch_v1_4.liquidity_indicator.display = function(value)
+  if value == "A" then
+    return "Liquidity Indicator: Added (A)"
+  end
+  if value == "R" then
+    return "Liquidity Indicator: Removed (R)"
+  end
+
+  return "Liquidity Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Liquidity Indicator
+jnx_bonds_pts_ouch_v1_4.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.liquidity_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.liquidity_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Match Number
+jnx_bonds_pts_ouch_v1_4.match_number = {}
+
+-- Size: Match Number
+jnx_bonds_pts_ouch_v1_4.match_number.size = 8
+
+-- Display: Match Number
+jnx_bonds_pts_ouch_v1_4.match_number.display = function(value)
+  return "Match Number: "..value
+end
+
+-- Dissect: Match Number
+jnx_bonds_pts_ouch_v1_4.match_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.match_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_bonds_pts_ouch_v1_4.match_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Quantity
+jnx_bonds_pts_ouch_v1_4.minimum_quantity = {}
+
+-- Size: Minimum Quantity
+jnx_bonds_pts_ouch_v1_4.minimum_quantity.size = 4
+
+-- Display: Minimum Quantity
+jnx_bonds_pts_ouch_v1_4.minimum_quantity.display = function(value)
+  return "Minimum Quantity: "..value
+end
+
+-- Dissect: Minimum Quantity
+jnx_bonds_pts_ouch_v1_4.minimum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.minimum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.minimum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Canceled Reason
+jnx_bonds_pts_ouch_v1_4.order_canceled_reason = {}
+
+-- Size: Order Canceled Reason
+jnx_bonds_pts_ouch_v1_4.order_canceled_reason.size = 1
+
+-- Display: Order Canceled Reason
+jnx_bonds_pts_ouch_v1_4.order_canceled_reason.display = function(value)
+  if value == "U" then
+    return "Order Canceled Reason: User Requested Cancel (U)"
+  end
+  if value == "L" then
+    return "Order Canceled Reason: User Logged Off (L)"
+  end
+  if value == "S" then
+    return "Order Canceled Reason: Supervisory Terminal Manual Cancel (S)"
+  end
+  if value == "I" then
+    return "Order Canceled Reason: Immediate Or Cancel Order (I)"
+  end
+  if value == "M" then
+    return "Order Canceled Reason: Order Expired (M)"
+  end
+  if value == "X" then
+    return "Order Canceled Reason: Invalid Price (X)"
+  end
+  if value == "Z" then
+    return "Order Canceled Reason: Invalid Quantity (Z)"
+  end
+  if value == "N" then
+    return "Order Canceled Reason: Invalid Minimum Quantity (N)"
+  end
+  if value == "Y" then
+    return "Order Canceled Reason: Invalid Order Type (Y)"
+  end
+  if value == "D" then
+    return "Order Canceled Reason: Invalid Display Type (D)"
+  end
+  if value == "R" then
+    return "Order Canceled Reason: Not Allowed (R)"
+  end
+  if value == "F" then
+    return "Order Canceled Reason: Throttled (F)"
+  end
+  if value == "G" then
+    return "Order Canceled Reason: Margin Restriction (G)"
+  end
+  if value == "O" then
+    return "Order Canceled Reason: Other (O)"
+  end
+
+  return "Order Canceled Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Canceled Reason
+jnx_bonds_pts_ouch_v1_4.order_canceled_reason.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.order_canceled_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.order_canceled_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Classification
+jnx_bonds_pts_ouch_v1_4.order_classification = {}
+
+-- Size: Order Classification
+jnx_bonds_pts_ouch_v1_4.order_classification.size = 1
+
+-- Display: Order Classification
+jnx_bonds_pts_ouch_v1_4.order_classification.display = function(value)
+  if value == "1" then
+    return "Order Classification: Non Hft (1)"
+  end
+  if value == "3" then
+    return "Order Classification: Hft Market Making Strategy (3)"
+  end
+  if value == "4" then
+    return "Order Classification: Hft Arbitrage Strategy (4)"
+  end
+  if value == "5" then
+    return "Order Classification: Hft Directional Strategy (5)"
+  end
+  if value == "6" then
+    return "Order Classification: Hft Other Strategy (6)"
+  end
+
+  return "Order Classification: Unknown("..value..")"
+end
+
+-- Dissect: Order Classification
+jnx_bonds_pts_ouch_v1_4.order_classification.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.order_classification.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.order_classification.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_classification, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Number
+jnx_bonds_pts_ouch_v1_4.order_number = {}
+
+-- Size: Order Number
+jnx_bonds_pts_ouch_v1_4.order_number.size = 8
+
+-- Display: Order Number
+jnx_bonds_pts_ouch_v1_4.order_number.display = function(value)
+  return "Order Number: "..value
+end
+
+-- Dissect: Order Number
+jnx_bonds_pts_ouch_v1_4.order_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.order_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_bonds_pts_ouch_v1_4.order_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Rejected Reason
+jnx_bonds_pts_ouch_v1_4.order_rejected_reason = {}
+
+-- Size: Order Rejected Reason
+jnx_bonds_pts_ouch_v1_4.order_rejected_reason.size = 1
+
+-- Display: Order Rejected Reason
+jnx_bonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
+  if value == "H" then
+    return "Order Rejected Reason: Halted (H)"
+  end
+  if value == "S" then
+    return "Order Rejected Reason: Invalid Orderbook Identifier (S)"
+  end
+  if value == "X" then
+    return "Order Rejected Reason: Invalid Price (X)"
+  end
+  if value == "Z" then
+    return "Order Rejected Reason: Invalid Quantity (Z)"
+  end
+  if value == "N" then
+    return "Order Rejected Reason: Invalid Minimum Quantity (N)"
+  end
+  if value == "Y" then
+    return "Order Rejected Reason: Invalid Order Type (Y)"
+  end
+  if value == "D" then
+    return "Order Rejected Reason: Invalid Display Type (D)"
+  end
+  if value == "R" then
+    return "Order Rejected Reason: Order Not Allowed (R)"
+  end
+  if value == "F" then
+    return "Order Rejected Reason: Flow Throttled (F)"
+  end
+  if value == "G" then
+    return "Order Rejected Reason: Invalid Margin Specification (G)"
+  end
+  if value == "L" then
+    return "Order Rejected Reason: Mpid Not Allowed For This Port (L)"
+  end
+  if value == "c" then
+    return "Order Rejected Reason: No Permission (c)"
+  end
+  if value == "O" then
+    return "Order Rejected Reason: Other (O)"
+  end
+
+  return "Order Rejected Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Rejected Reason
+jnx_bonds_pts_ouch_v1_4.order_rejected_reason.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.order_rejected_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.order_rejected_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order State
+jnx_bonds_pts_ouch_v1_4.order_state = {}
+
+-- Size: Order State
+jnx_bonds_pts_ouch_v1_4.order_state.size = 1
+
+-- Display: Order State
+jnx_bonds_pts_ouch_v1_4.order_state.display = function(value)
+  if value == "L" then
+    return "Order State: Live (L)"
+  end
+  if value == "D" then
+    return "Order State: Dead (D)"
+  end
+
+  return "Order State: Unknown("..value..")"
+end
+
+-- Dissect: Order State
+jnx_bonds_pts_ouch_v1_4.order_state.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.order_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.order_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_state, range, value, display)
 
   return offset + length, value
 end
@@ -285,6 +873,577 @@ jnx_bonds_pts_ouch_v1_4.order_token.dissect = function(buffer, offset, packet, p
 
   return offset + length, value
 end
+
+-- Orderbook Id
+jnx_bonds_pts_ouch_v1_4.orderbook_id = {}
+
+-- Size: Orderbook Id
+jnx_bonds_pts_ouch_v1_4.orderbook_id.size = 4
+
+-- Display: Orderbook Id
+jnx_bonds_pts_ouch_v1_4.orderbook_id.display = function(value)
+  return "Orderbook Id: "..value
+end
+
+-- Dissect: Orderbook Id
+jnx_bonds_pts_ouch_v1_4.orderbook_id.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.orderbook_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.orderbook_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.orderbook_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Length
+jnx_bonds_pts_ouch_v1_4.packet_length = {}
+
+-- Size: Packet Length
+jnx_bonds_pts_ouch_v1_4.packet_length.size = 2
+
+-- Display: Packet Length
+jnx_bonds_pts_ouch_v1_4.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+jnx_bonds_pts_ouch_v1_4.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+jnx_bonds_pts_ouch_v1_4.packet_type = {}
+
+-- Size: Packet Type
+jnx_bonds_pts_ouch_v1_4.packet_type.size = 1
+
+-- Display: Packet Type
+jnx_bonds_pts_ouch_v1_4.packet_type.display = function(value)
+  if value == "+" then
+    return "Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Packet Type: Server Heartbeat Packet (H)"
+  end
+  if value == "Z" then
+    return "Packet Type: End Of Session Packet (Z)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+jnx_bonds_pts_ouch_v1_4.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+jnx_bonds_pts_ouch_v1_4.password = {}
+
+-- Size: Password
+jnx_bonds_pts_ouch_v1_4.password.size = 10
+
+-- Display: Password
+jnx_bonds_pts_ouch_v1_4.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+jnx_bonds_pts_ouch_v1_4.password.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.password.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Order Token
+jnx_bonds_pts_ouch_v1_4.previous_order_token = {}
+
+-- Size: Previous Order Token
+jnx_bonds_pts_ouch_v1_4.previous_order_token.size = 4
+
+-- Display: Previous Order Token
+jnx_bonds_pts_ouch_v1_4.previous_order_token.display = function(value)
+  return "Previous Order Token: "..value
+end
+
+-- Dissect: Previous Order Token
+jnx_bonds_pts_ouch_v1_4.previous_order_token.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.previous_order_token.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.previous_order_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.previous_order_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+jnx_bonds_pts_ouch_v1_4.price = {}
+
+-- Size: Price
+jnx_bonds_pts_ouch_v1_4.price.size = 4
+
+-- Display: Price
+jnx_bonds_pts_ouch_v1_4.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+jnx_bonds_pts_ouch_v1_4.price.translate = function(raw)
+  return raw/1000
+end
+
+-- Dissect: Price
+jnx_bonds_pts_ouch_v1_4.price.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = jnx_bonds_pts_ouch_v1_4.price.translate(raw)
+  local display = jnx_bonds_pts_ouch_v1_4.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+jnx_bonds_pts_ouch_v1_4.quantity = {}
+
+-- Size: Quantity
+jnx_bonds_pts_ouch_v1_4.quantity.size = 4
+
+-- Display: Quantity
+jnx_bonds_pts_ouch_v1_4.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+jnx_bonds_pts_ouch_v1_4.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Prevented From Trading
+jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading = {}
+
+-- Size: Quantity Prevented From Trading
+jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.size = 4
+
+-- Display: Quantity Prevented From Trading
+jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.display = function(value)
+  return "Quantity Prevented From Trading: "..value
+end
+
+-- Dissect: Quantity Prevented From Trading
+jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason Code
+jnx_bonds_pts_ouch_v1_4.reject_reason_code = {}
+
+-- Size: Reject Reason Code
+jnx_bonds_pts_ouch_v1_4.reject_reason_code.size = 1
+
+-- Display: Reject Reason Code
+jnx_bonds_pts_ouch_v1_4.reject_reason_code.display = function(value)
+  return "Reject Reason Code: "..value
+end
+
+-- Dissect: Reject Reason Code
+jnx_bonds_pts_ouch_v1_4.reject_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.reject_reason_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.reject_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Replacement Order Token
+jnx_bonds_pts_ouch_v1_4.replacement_order_token = {}
+
+-- Size: Replacement Order Token
+jnx_bonds_pts_ouch_v1_4.replacement_order_token.size = 4
+
+-- Display: Replacement Order Token
+jnx_bonds_pts_ouch_v1_4.replacement_order_token.display = function(value)
+  return "Replacement Order Token: "..value
+end
+
+-- Dissect: Replacement Order Token
+jnx_bonds_pts_ouch_v1_4.replacement_order_token.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.replacement_order_token.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.replacement_order_token.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+jnx_bonds_pts_ouch_v1_4.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+jnx_bonds_pts_ouch_v1_4.requested_sequence_number.size = 20
+
+-- Display: Requested Sequence Number
+jnx_bonds_pts_ouch_v1_4.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+jnx_bonds_pts_ouch_v1_4.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Session
+jnx_bonds_pts_ouch_v1_4.requested_session = {}
+
+-- Size: Requested Session
+jnx_bonds_pts_ouch_v1_4.requested_session.size = 10
+
+-- Display: Requested Session
+jnx_bonds_pts_ouch_v1_4.requested_session.display = function(value)
+  return "Requested Session: "..value
+end
+
+-- Dissect: Requested Session
+jnx_bonds_pts_ouch_v1_4.requested_session.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.requested_session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.requested_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.requested_session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+jnx_bonds_pts_ouch_v1_4.sequence_number = {}
+
+-- Size: Sequence Number
+jnx_bonds_pts_ouch_v1_4.sequence_number.size = 20
+
+-- Display: Sequence Number
+jnx_bonds_pts_ouch_v1_4.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+jnx_bonds_pts_ouch_v1_4.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+jnx_bonds_pts_ouch_v1_4.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+jnx_bonds_pts_ouch_v1_4.sequenced_message_type.size = 1
+
+-- Display: Sequenced Message Type
+jnx_bonds_pts_ouch_v1_4.sequenced_message_type.display = function(value)
+  if value == "S" then
+    return "Sequenced Message Type: System Event Message (S)"
+  end
+  if value == "A" then
+    return "Sequenced Message Type: Order Accepted Message (A)"
+  end
+  if value == "U" then
+    return "Sequenced Message Type: Order Replaced Message (U)"
+  end
+  if value == "C" then
+    return "Sequenced Message Type: Order Canceled Message (C)"
+  end
+  if value == "D" then
+    return "Sequenced Message Type: Order Aiq Canceled Message (D)"
+  end
+  if value == "e" then
+    return "Sequenced Message Type: Order Executed With Counter Party Message (e)"
+  end
+  if value == "J" then
+    return "Sequenced Message Type: Order Rejected Message (J)"
+  end
+
+  return "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+jnx_bonds_pts_ouch_v1_4.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+jnx_bonds_pts_ouch_v1_4.session = {}
+
+-- Size: Session
+jnx_bonds_pts_ouch_v1_4.session.size = 10
+
+-- Display: Session
+jnx_bonds_pts_ouch_v1_4.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+jnx_bonds_pts_ouch_v1_4.session.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.session.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Event
+jnx_bonds_pts_ouch_v1_4.system_event = {}
+
+-- Size: System Event
+jnx_bonds_pts_ouch_v1_4.system_event.size = 1
+
+-- Display: System Event
+jnx_bonds_pts_ouch_v1_4.system_event.display = function(value)
+  if value == "S" then
+    return "System Event: Start Of Day (S)"
+  end
+  if value == "E" then
+    return "System Event: End Of Day (E)"
+  end
+
+  return "System Event: Unknown("..value..")"
+end
+
+-- Dissect: System Event
+jnx_bonds_pts_ouch_v1_4.system_event.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.system_event.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.system_event.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.system_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+jnx_bonds_pts_ouch_v1_4.text = {}
+
+-- Size: Text
+jnx_bonds_pts_ouch_v1_4.text.size = 1
+
+-- Display: Text
+jnx_bonds_pts_ouch_v1_4.text.display = function(value)
+  return "Text: "..value
+end
+
+-- Dissect: Text
+jnx_bonds_pts_ouch_v1_4.text.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+jnx_bonds_pts_ouch_v1_4.time_in_force = {}
+
+-- Size: Time In Force
+jnx_bonds_pts_ouch_v1_4.time_in_force.size = 4
+
+-- Display: Time In Force
+jnx_bonds_pts_ouch_v1_4.time_in_force.display = function(value)
+  if value == 0 then
+    return "Time In Force: Immediate (0)"
+  end
+  if value == 99999 then
+    return "Time In Force: Day (99999)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+jnx_bonds_pts_ouch_v1_4.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = jnx_bonds_pts_ouch_v1_4.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+jnx_bonds_pts_ouch_v1_4.timestamp = {}
+
+-- Size: Timestamp
+jnx_bonds_pts_ouch_v1_4.timestamp.size = 8
+
+-- Display: Timestamp
+jnx_bonds_pts_ouch_v1_4.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+jnx_bonds_pts_ouch_v1_4.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = jnx_bonds_pts_ouch_v1_4.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message Type
+jnx_bonds_pts_ouch_v1_4.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.size = 1
+
+-- Display: Unsequenced Message Type
+jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.display = function(value)
+  if value == "O" then
+    return "Unsequenced Message Type: Enter Order Message (O)"
+  end
+  if value == "U" then
+    return "Unsequenced Message Type: Replace Order Message (U)"
+  end
+  if value == "X" then
+    return "Unsequenced Message Type: Cancel Order Message (X)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Unsequenced Message Type
+jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+jnx_bonds_pts_ouch_v1_4.username = {}
+
+-- Size: Username
+jnx_bonds_pts_ouch_v1_4.username.size = 6
+
+-- Display: Username
+jnx_bonds_pts_ouch_v1_4.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+jnx_bonds_pts_ouch_v1_4.username.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_bonds_pts_ouch_v1_4.username.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_bonds_pts_ouch_v1_4.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Jnx Bonds Pts Ouch 1.4
+-----------------------------------------------------------------------
 
 -- Cancel Order Message
 jnx_bonds_pts_ouch_v1_4.cancel_order_message = {}
@@ -328,161 +1487,6 @@ jnx_bonds_pts_ouch_v1_4.cancel_order_message.dissect = function(buffer, offset, 
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.cancel_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Minimum Quantity
-jnx_bonds_pts_ouch_v1_4.minimum_quantity = {}
-
--- Size: Minimum Quantity
-jnx_bonds_pts_ouch_v1_4.minimum_quantity.size = 4
-
--- Display: Minimum Quantity
-jnx_bonds_pts_ouch_v1_4.minimum_quantity.display = function(value)
-  return "Minimum Quantity: "..value
-end
-
--- Dissect: Minimum Quantity
-jnx_bonds_pts_ouch_v1_4.minimum_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.minimum_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.minimum_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.minimum_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Display
-jnx_bonds_pts_ouch_v1_4.display = {}
-
--- Size: Display
-jnx_bonds_pts_ouch_v1_4.display.size = 1
-
--- Display: Display
-jnx_bonds_pts_ouch_v1_4.display.display = function(value)
-  if value == "P" then
-    return "Display: Postonly (P)"
-  end
-
-  return "Display: Unknown("..value..")"
-end
-
--- Dissect: Display
-jnx_bonds_pts_ouch_v1_4.display.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.display.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.display.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.display, range, value, display)
-
-  return offset + length, value
-end
-
--- Time In Force
-jnx_bonds_pts_ouch_v1_4.time_in_force = {}
-
--- Size: Time In Force
-jnx_bonds_pts_ouch_v1_4.time_in_force.size = 4
-
--- Display: Time In Force
-jnx_bonds_pts_ouch_v1_4.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Immediate (0)"
-  end
-  if value == 99999 then
-    return "Time In Force: Day (99999)"
-  end
-
-  return "Time In Force: Unknown("..value..")"
-end
-
--- Dissect: Time In Force
-jnx_bonds_pts_ouch_v1_4.time_in_force.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.time_in_force.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.time_in_force.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Price
-jnx_bonds_pts_ouch_v1_4.price = {}
-
--- Size: Price
-jnx_bonds_pts_ouch_v1_4.price.size = 4
-
--- Display: Price
-jnx_bonds_pts_ouch_v1_4.price.display = function(value)
-  return "Price: "..value
-end
-
--- Translate: Price
-jnx_bonds_pts_ouch_v1_4.price.translate = function(raw)
-  return raw/1000
-end
-
--- Dissect: Price
-jnx_bonds_pts_ouch_v1_4.price.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = jnx_bonds_pts_ouch_v1_4.price.translate(raw)
-  local display = jnx_bonds_pts_ouch_v1_4.price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Replacement Order Token
-jnx_bonds_pts_ouch_v1_4.replacement_order_token = {}
-
--- Size: Replacement Order Token
-jnx_bonds_pts_ouch_v1_4.replacement_order_token.size = 4
-
--- Display: Replacement Order Token
-jnx_bonds_pts_ouch_v1_4.replacement_order_token.display = function(value)
-  return "Replacement Order Token: "..value
-end
-
--- Dissect: Replacement Order Token
-jnx_bonds_pts_ouch_v1_4.replacement_order_token.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.replacement_order_token.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.replacement_order_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.replacement_order_token, range, value, display)
-
-  return offset + length, value
-end
-
--- Existing Order Token
-jnx_bonds_pts_ouch_v1_4.existing_order_token = {}
-
--- Size: Existing Order Token
-jnx_bonds_pts_ouch_v1_4.existing_order_token.size = 4
-
--- Display: Existing Order Token
-jnx_bonds_pts_ouch_v1_4.existing_order_token.display = function(value)
-  return "Existing Order Token: "..value
-end
-
--- Dissect: Existing Order Token
-jnx_bonds_pts_ouch_v1_4.existing_order_token.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.existing_order_token.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.existing_order_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.existing_order_token, range, value, display)
-
-  return offset + length, value
 end
 
 -- Replace Order Message
@@ -547,234 +1551,6 @@ jnx_bonds_pts_ouch_v1_4.replace_order_message.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.replace_order_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Cash Margin Type
-jnx_bonds_pts_ouch_v1_4.cash_margin_type = {}
-
--- Size: Cash Margin Type
-jnx_bonds_pts_ouch_v1_4.cash_margin_type.size = 1
-
--- Display: Cash Margin Type
-jnx_bonds_pts_ouch_v1_4.cash_margin_type.display = function(value)
-  if value == "1" then
-    return "Cash Margin Type: Cash (1)"
-  end
-
-  return "Cash Margin Type: Unknown("..value..")"
-end
-
--- Dissect: Cash Margin Type
-jnx_bonds_pts_ouch_v1_4.cash_margin_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.cash_margin_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.cash_margin_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.cash_margin_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Classification
-jnx_bonds_pts_ouch_v1_4.order_classification = {}
-
--- Size: Order Classification
-jnx_bonds_pts_ouch_v1_4.order_classification.size = 1
-
--- Display: Order Classification
-jnx_bonds_pts_ouch_v1_4.order_classification.display = function(value)
-  if value == "1" then
-    return "Order Classification: Non Hft (1)"
-  end
-  if value == "3" then
-    return "Order Classification: Hft Market Making Strategy (3)"
-  end
-  if value == "4" then
-    return "Order Classification: Hft Arbitrage Strategy (4)"
-  end
-  if value == "5" then
-    return "Order Classification: Hft Directional Strategy (5)"
-  end
-  if value == "6" then
-    return "Order Classification: Hft Other Strategy (6)"
-  end
-
-  return "Order Classification: Unknown("..value..")"
-end
-
--- Dissect: Order Classification
-jnx_bonds_pts_ouch_v1_4.order_classification.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.order_classification.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.order_classification.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_classification, range, value, display)
-
-  return offset + length, value
-end
-
--- Capacity
-jnx_bonds_pts_ouch_v1_4.capacity = {}
-
--- Size: Capacity
-jnx_bonds_pts_ouch_v1_4.capacity.size = 1
-
--- Display: Capacity
-jnx_bonds_pts_ouch_v1_4.capacity.display = function(value)
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-
-  return "Capacity: Unknown("..value..")"
-end
-
--- Dissect: Capacity
-jnx_bonds_pts_ouch_v1_4.capacity.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.capacity.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.capacity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Firm Id
-jnx_bonds_pts_ouch_v1_4.firm_id = {}
-
--- Size: Firm Id
-jnx_bonds_pts_ouch_v1_4.firm_id.size = 4
-
--- Display: Firm Id
-jnx_bonds_pts_ouch_v1_4.firm_id.display = function(value)
-  return "Firm Id: "..value
-end
-
--- Dissect: Firm Id
-jnx_bonds_pts_ouch_v1_4.firm_id.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.firm_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.firm_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.firm_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Group
-jnx_bonds_pts_ouch_v1_4.group = {}
-
--- Size: Group
-jnx_bonds_pts_ouch_v1_4.group.size = 4
-
--- Display: Group
-jnx_bonds_pts_ouch_v1_4.group.display = function(value)
-  if value == "DJGB" then
-    return "Group: Jgb Market (DJGB)"
-  end
-
-  return "Group: Unknown("..value..")"
-end
-
--- Dissect: Group
-jnx_bonds_pts_ouch_v1_4.group.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.group.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_bonds_pts_ouch_v1_4.group.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.group, range, value, display)
-
-  return offset + length, value
-end
-
--- Orderbook Id
-jnx_bonds_pts_ouch_v1_4.orderbook_id = {}
-
--- Size: Orderbook Id
-jnx_bonds_pts_ouch_v1_4.orderbook_id.size = 4
-
--- Display: Orderbook Id
-jnx_bonds_pts_ouch_v1_4.orderbook_id.display = function(value)
-  return "Orderbook Id: "..value
-end
-
--- Dissect: Orderbook Id
-jnx_bonds_pts_ouch_v1_4.orderbook_id.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.orderbook_id.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.orderbook_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.orderbook_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Buy Sell Indicator
-jnx_bonds_pts_ouch_v1_4.buy_sell_indicator = {}
-
--- Size: Buy Sell Indicator
-jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.size = 1
-
--- Display: Buy Sell Indicator
-jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
-  if value == "T" then
-    return "Buy Sell Indicator: Sell Short (T)"
-  end
-  if value == "E" then
-    return "Buy Sell Indicator: Sell Short Exempt (E)"
-  end
-
-  return "Buy Sell Indicator: Unknown("..value..")"
-end
-
--- Dissect: Buy Sell Indicator
-jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.buy_sell_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.buy_sell_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Client Reference
-jnx_bonds_pts_ouch_v1_4.client_reference = {}
-
--- Size: Client Reference
-jnx_bonds_pts_ouch_v1_4.client_reference.size = 10
-
--- Display: Client Reference
-jnx_bonds_pts_ouch_v1_4.client_reference.display = function(value)
-  return "Client Reference: "..value
-end
-
--- Dissect: Client Reference
-jnx_bonds_pts_ouch_v1_4.client_reference.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.client_reference.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_bonds_pts_ouch_v1_4.client_reference.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.client_reference, range, value, display)
-
-  return offset + length, value
 end
 
 -- Enter Order Message
@@ -890,39 +1666,6 @@ jnx_bonds_pts_ouch_v1_4.unsequenced_message.dissect = function(buffer, offset, p
   return offset
 end
 
--- Unsequenced Message Type
-jnx_bonds_pts_ouch_v1_4.unsequenced_message_type = {}
-
--- Size: Unsequenced Message Type
-jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.size = 1
-
--- Display: Unsequenced Message Type
-jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
-
-  return "Unsequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Unsequenced Message Type
-jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.unsequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.unsequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Unsequenced Data Packet
 jnx_bonds_pts_ouch_v1_4.unsequenced_data_packet = {}
 
@@ -974,98 +1717,6 @@ jnx_bonds_pts_ouch_v1_4.unsequenced_data_packet.dissect = function(buffer, offse
 
     return index
   end
-end
-
--- Requested Sequence Number
-jnx_bonds_pts_ouch_v1_4.requested_sequence_number = {}
-
--- Size: Requested Sequence Number
-jnx_bonds_pts_ouch_v1_4.requested_sequence_number.size = 20
-
--- Display: Requested Sequence Number
-jnx_bonds_pts_ouch_v1_4.requested_sequence_number.display = function(value)
-  return "Requested Sequence Number: "..value
-end
-
--- Dissect: Requested Sequence Number
-jnx_bonds_pts_ouch_v1_4.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.requested_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.requested_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Requested Session
-jnx_bonds_pts_ouch_v1_4.requested_session = {}
-
--- Size: Requested Session
-jnx_bonds_pts_ouch_v1_4.requested_session.size = 10
-
--- Display: Requested Session
-jnx_bonds_pts_ouch_v1_4.requested_session.display = function(value)
-  return "Requested Session: "..value
-end
-
--- Dissect: Requested Session
-jnx_bonds_pts_ouch_v1_4.requested_session.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.requested_session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.requested_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.requested_session, range, value, display)
-
-  return offset + length, value
-end
-
--- Password
-jnx_bonds_pts_ouch_v1_4.password = {}
-
--- Size: Password
-jnx_bonds_pts_ouch_v1_4.password.size = 10
-
--- Display: Password
-jnx_bonds_pts_ouch_v1_4.password.display = function(value)
-  return "Password: "..value
-end
-
--- Dissect: Password
-jnx_bonds_pts_ouch_v1_4.password.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.password.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.password.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.password, range, value, display)
-
-  return offset + length, value
-end
-
--- Username
-jnx_bonds_pts_ouch_v1_4.username = {}
-
--- Size: Username
-jnx_bonds_pts_ouch_v1_4.username.size = 6
-
--- Display: Username
-jnx_bonds_pts_ouch_v1_4.username.display = function(value)
-  return "Username: "..value
-end
-
--- Dissect: Username
-jnx_bonds_pts_ouch_v1_4.username.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.username.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.username.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.username, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Request Packet
@@ -1120,92 +1771,6 @@ jnx_bonds_pts_ouch_v1_4.login_request_packet.dissect = function(buffer, offset, 
   end
 end
 
--- Order Rejected Reason
-jnx_bonds_pts_ouch_v1_4.order_rejected_reason = {}
-
--- Size: Order Rejected Reason
-jnx_bonds_pts_ouch_v1_4.order_rejected_reason.size = 1
-
--- Display: Order Rejected Reason
-jnx_bonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
-  if value == "H" then
-    return "Order Rejected Reason: Halted (H)"
-  end
-  if value == "S" then
-    return "Order Rejected Reason: Invalid Orderbook Identifier (S)"
-  end
-  if value == "X" then
-    return "Order Rejected Reason: Invalid Price (X)"
-  end
-  if value == "Z" then
-    return "Order Rejected Reason: Invalid Quantity (Z)"
-  end
-  if value == "N" then
-    return "Order Rejected Reason: Invalid Minimum Quantity (N)"
-  end
-  if value == "Y" then
-    return "Order Rejected Reason: Invalid Order Type (Y)"
-  end
-  if value == "D" then
-    return "Order Rejected Reason: Invalid Display Type (D)"
-  end
-  if value == "R" then
-    return "Order Rejected Reason: Order Not Allowed (R)"
-  end
-  if value == "F" then
-    return "Order Rejected Reason: Flow Throttled (F)"
-  end
-  if value == "G" then
-    return "Order Rejected Reason: Invalid Margin Specification (G)"
-  end
-  if value == "L" then
-    return "Order Rejected Reason: Mpid Not Allowed For This Port (L)"
-  end
-  if value == "c" then
-    return "Order Rejected Reason: No Permission (c)"
-  end
-  if value == "O" then
-    return "Order Rejected Reason: Other (O)"
-  end
-
-  return "Order Rejected Reason: Unknown("..value..")"
-end
-
--- Dissect: Order Rejected Reason
-jnx_bonds_pts_ouch_v1_4.order_rejected_reason.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.order_rejected_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.order_rejected_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_rejected_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-jnx_bonds_pts_ouch_v1_4.timestamp = {}
-
--- Size: Timestamp
-jnx_bonds_pts_ouch_v1_4.timestamp.size = 8
-
--- Display: Timestamp
-jnx_bonds_pts_ouch_v1_4.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-jnx_bonds_pts_ouch_v1_4.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_bonds_pts_ouch_v1_4.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Rejected Message
 jnx_bonds_pts_ouch_v1_4.order_rejected_message = {}
 
@@ -1252,134 +1817,6 @@ jnx_bonds_pts_ouch_v1_4.order_rejected_message.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.order_rejected_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Match Number
-jnx_bonds_pts_ouch_v1_4.match_number = {}
-
--- Size: Match Number
-jnx_bonds_pts_ouch_v1_4.match_number.size = 8
-
--- Display: Match Number
-jnx_bonds_pts_ouch_v1_4.match_number.display = function(value)
-  return "Match Number: "..value
-end
-
--- Dissect: Match Number
-jnx_bonds_pts_ouch_v1_4.match_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.match_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_bonds_pts_ouch_v1_4.match_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.match_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Counter Party
-jnx_bonds_pts_ouch_v1_4.counter_party = {}
-
--- Size: Counter Party
-jnx_bonds_pts_ouch_v1_4.counter_party.size = 12
-
--- Display: Counter Party
-jnx_bonds_pts_ouch_v1_4.counter_party.display = function(value)
-  return "Counter Party: "..value
-end
-
--- Dissect: Counter Party
-jnx_bonds_pts_ouch_v1_4.counter_party.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.counter_party.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_bonds_pts_ouch_v1_4.counter_party.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.counter_party, range, value, display)
-
-  return offset + length, value
-end
-
--- Liquidity Indicator
-jnx_bonds_pts_ouch_v1_4.liquidity_indicator = {}
-
--- Size: Liquidity Indicator
-jnx_bonds_pts_ouch_v1_4.liquidity_indicator.size = 1
-
--- Display: Liquidity Indicator
-jnx_bonds_pts_ouch_v1_4.liquidity_indicator.display = function(value)
-  if value == "A" then
-    return "Liquidity Indicator: Added (A)"
-  end
-  if value == "R" then
-    return "Liquidity Indicator: Removed (R)"
-  end
-
-  return "Liquidity Indicator: Unknown("..value..")"
-end
-
--- Dissect: Liquidity Indicator
-jnx_bonds_pts_ouch_v1_4.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.liquidity_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.liquidity_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.liquidity_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Price
-jnx_bonds_pts_ouch_v1_4.execution_price = {}
-
--- Size: Execution Price
-jnx_bonds_pts_ouch_v1_4.execution_price.size = 4
-
--- Display: Execution Price
-jnx_bonds_pts_ouch_v1_4.execution_price.display = function(value)
-  return "Execution Price: "..value
-end
-
--- Translate: Execution Price
-jnx_bonds_pts_ouch_v1_4.execution_price.translate = function(raw)
-  return raw/1000
-end
-
--- Dissect: Execution Price
-jnx_bonds_pts_ouch_v1_4.execution_price.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.execution_price.size
-  local range = buffer(offset, length)
-  local raw = range:int()
-  local value = jnx_bonds_pts_ouch_v1_4.execution_price.translate(raw)
-  local display = jnx_bonds_pts_ouch_v1_4.execution_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.execution_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Executed Quantity
-jnx_bonds_pts_ouch_v1_4.executed_quantity = {}
-
--- Size: Executed Quantity
-jnx_bonds_pts_ouch_v1_4.executed_quantity.size = 4
-
--- Display: Executed Quantity
-jnx_bonds_pts_ouch_v1_4.executed_quantity.display = function(value)
-  return "Executed Quantity: "..value
-end
-
--- Dissect: Executed Quantity
-jnx_bonds_pts_ouch_v1_4.executed_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.executed_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.executed_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.executed_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Executed With Counter Party Message
@@ -1444,118 +1881,6 @@ jnx_bonds_pts_ouch_v1_4.order_executed_with_counter_party_message.dissect = func
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.order_executed_with_counter_party_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Quantity Prevented From Trading
-jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading = {}
-
--- Size: Quantity Prevented From Trading
-jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.size = 4
-
--- Display: Quantity Prevented From Trading
-jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.display = function(value)
-  return "Quantity Prevented From Trading: "..value
-end
-
--- Dissect: Quantity Prevented From Trading
-jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.quantity_prevented_from_trading.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Canceled Reason
-jnx_bonds_pts_ouch_v1_4.order_canceled_reason = {}
-
--- Size: Order Canceled Reason
-jnx_bonds_pts_ouch_v1_4.order_canceled_reason.size = 1
-
--- Display: Order Canceled Reason
-jnx_bonds_pts_ouch_v1_4.order_canceled_reason.display = function(value)
-  if value == "U" then
-    return "Order Canceled Reason: User Requested Cancel (U)"
-  end
-  if value == "L" then
-    return "Order Canceled Reason: User Logged Off (L)"
-  end
-  if value == "S" then
-    return "Order Canceled Reason: Supervisory Terminal Manual Cancel (S)"
-  end
-  if value == "I" then
-    return "Order Canceled Reason: Immediate Or Cancel Order (I)"
-  end
-  if value == "M" then
-    return "Order Canceled Reason: Order Expired (M)"
-  end
-  if value == "X" then
-    return "Order Canceled Reason: Invalid Price (X)"
-  end
-  if value == "Z" then
-    return "Order Canceled Reason: Invalid Quantity (Z)"
-  end
-  if value == "N" then
-    return "Order Canceled Reason: Invalid Minimum Quantity (N)"
-  end
-  if value == "Y" then
-    return "Order Canceled Reason: Invalid Order Type (Y)"
-  end
-  if value == "D" then
-    return "Order Canceled Reason: Invalid Display Type (D)"
-  end
-  if value == "R" then
-    return "Order Canceled Reason: Not Allowed (R)"
-  end
-  if value == "F" then
-    return "Order Canceled Reason: Throttled (F)"
-  end
-  if value == "G" then
-    return "Order Canceled Reason: Margin Restriction (G)"
-  end
-  if value == "O" then
-    return "Order Canceled Reason: Other (O)"
-  end
-
-  return "Order Canceled Reason: Unknown("..value..")"
-end
-
--- Dissect: Order Canceled Reason
-jnx_bonds_pts_ouch_v1_4.order_canceled_reason.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.order_canceled_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.order_canceled_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_canceled_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Decrement Quantity
-jnx_bonds_pts_ouch_v1_4.decrement_quantity = {}
-
--- Size: Decrement Quantity
-jnx_bonds_pts_ouch_v1_4.decrement_quantity.size = 4
-
--- Display: Decrement Quantity
-jnx_bonds_pts_ouch_v1_4.decrement_quantity.display = function(value)
-  return "Decrement Quantity: "..value
-end
-
--- Dissect: Decrement Quantity
-jnx_bonds_pts_ouch_v1_4.decrement_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.decrement_quantity.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.decrement_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Aiq Canceled Message
@@ -1672,82 +1997,6 @@ jnx_bonds_pts_ouch_v1_4.order_canceled_message.dissect = function(buffer, offset
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.order_canceled_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Previous Order Token
-jnx_bonds_pts_ouch_v1_4.previous_order_token = {}
-
--- Size: Previous Order Token
-jnx_bonds_pts_ouch_v1_4.previous_order_token.size = 4
-
--- Display: Previous Order Token
-jnx_bonds_pts_ouch_v1_4.previous_order_token.display = function(value)
-  return "Previous Order Token: "..value
-end
-
--- Dissect: Previous Order Token
-jnx_bonds_pts_ouch_v1_4.previous_order_token.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.previous_order_token.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.previous_order_token.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.previous_order_token, range, value, display)
-
-  return offset + length, value
-end
-
--- Order State
-jnx_bonds_pts_ouch_v1_4.order_state = {}
-
--- Size: Order State
-jnx_bonds_pts_ouch_v1_4.order_state.size = 1
-
--- Display: Order State
-jnx_bonds_pts_ouch_v1_4.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Live (L)"
-  end
-  if value == "D" then
-    return "Order State: Dead (D)"
-  end
-
-  return "Order State: Unknown("..value..")"
-end
-
--- Dissect: Order State
-jnx_bonds_pts_ouch_v1_4.order_state.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.order_state.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.order_state.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Number
-jnx_bonds_pts_ouch_v1_4.order_number = {}
-
--- Size: Order Number
-jnx_bonds_pts_ouch_v1_4.order_number.size = 8
-
--- Display: Order Number
-jnx_bonds_pts_ouch_v1_4.order_number.display = function(value)
-  return "Order Number: "..value
-end
-
--- Dissect: Order Number
-jnx_bonds_pts_ouch_v1_4.order_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.order_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = jnx_bonds_pts_ouch_v1_4.order_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.order_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Order Replaced Message
@@ -1942,36 +2191,6 @@ jnx_bonds_pts_ouch_v1_4.order_accepted_message.dissect = function(buffer, offset
   end
 end
 
--- System Event
-jnx_bonds_pts_ouch_v1_4.system_event = {}
-
--- Size: System Event
-jnx_bonds_pts_ouch_v1_4.system_event.size = 1
-
--- Display: System Event
-jnx_bonds_pts_ouch_v1_4.system_event.display = function(value)
-  if value == "S" then
-    return "System Event: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "System Event: End Of Day (E)"
-  end
-
-  return "System Event: Unknown("..value..")"
-end
-
--- Dissect: System Event
-jnx_bonds_pts_ouch_v1_4.system_event.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.system_event.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.system_event.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.system_event, range, value, display)
-
-  return offset + length, value
-end
-
 -- System Event Message
 jnx_bonds_pts_ouch_v1_4.system_event_message = {}
 
@@ -2053,51 +2272,6 @@ jnx_bonds_pts_ouch_v1_4.sequenced_message.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Sequenced Message Type
-jnx_bonds_pts_ouch_v1_4.sequenced_message_type = {}
-
--- Size: Sequenced Message Type
-jnx_bonds_pts_ouch_v1_4.sequenced_message_type.size = 1
-
--- Display: Sequenced Message Type
-jnx_bonds_pts_ouch_v1_4.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Canceled Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Order Aiq Canceled Message (D)"
-  end
-  if value == "e" then
-    return "Sequenced Message Type: Order Executed With Counter Party Message (e)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Order Rejected Message (J)"
-  end
-
-  return "Sequenced Message Type: Unknown("..value..")"
-end
-
--- Dissect: Sequenced Message Type
-jnx_bonds_pts_ouch_v1_4.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.sequenced_message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.sequenced_message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequenced_message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Data Packet
 jnx_bonds_pts_ouch_v1_4.sequenced_data_packet = {}
 
@@ -2151,29 +2325,6 @@ jnx_bonds_pts_ouch_v1_4.sequenced_data_packet.dissect = function(buffer, offset,
   end
 end
 
--- Reject Reason Code
-jnx_bonds_pts_ouch_v1_4.reject_reason_code = {}
-
--- Size: Reject Reason Code
-jnx_bonds_pts_ouch_v1_4.reject_reason_code.size = 1
-
--- Display: Reject Reason Code
-jnx_bonds_pts_ouch_v1_4.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
-end
-
--- Dissect: Reject Reason Code
-jnx_bonds_pts_ouch_v1_4.reject_reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.reject_reason_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.reject_reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Login Rejected Packet
 jnx_bonds_pts_ouch_v1_4.login_rejected_packet = {}
 
@@ -2212,52 +2363,6 @@ jnx_bonds_pts_ouch_v1_4.login_rejected_packet.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.login_rejected_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequence Number
-jnx_bonds_pts_ouch_v1_4.sequence_number = {}
-
--- Size: Sequence Number
-jnx_bonds_pts_ouch_v1_4.sequence_number.size = 20
-
--- Display: Sequence Number
-jnx_bonds_pts_ouch_v1_4.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-jnx_bonds_pts_ouch_v1_4.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-jnx_bonds_pts_ouch_v1_4.session = {}
-
--- Size: Session
-jnx_bonds_pts_ouch_v1_4.session.size = 10
-
--- Display: Session
-jnx_bonds_pts_ouch_v1_4.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-jnx_bonds_pts_ouch_v1_4.session.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.session.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.session, range, value, display)
-
-  return offset + length, value
 end
 
 -- Login Accepted Packet
@@ -2302,29 +2407,6 @@ jnx_bonds_pts_ouch_v1_4.login_accepted_packet.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return jnx_bonds_pts_ouch_v1_4.login_accepted_packet.fields(buffer, offset, packet, parent)
   end
-end
-
--- Text
-jnx_bonds_pts_ouch_v1_4.text = {}
-
--- Size: Text
-jnx_bonds_pts_ouch_v1_4.text.size = 1
-
--- Display: Text
-jnx_bonds_pts_ouch_v1_4.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-jnx_bonds_pts_ouch_v1_4.text.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.text, range, value, display)
-
-  return offset + length, value
 end
 
 -- Debug Packet
@@ -2398,83 +2480,6 @@ jnx_bonds_pts_ouch_v1_4.payload.dissect = function(buffer, offset, packet, paren
   end
 
   return offset
-end
-
--- Packet Type
-jnx_bonds_pts_ouch_v1_4.packet_type = {}
-
--- Size: Packet Type
-jnx_bonds_pts_ouch_v1_4.packet_type.size = 1
-
--- Display: Packet Type
-jnx_bonds_pts_ouch_v1_4.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-jnx_bonds_pts_ouch_v1_4.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_bonds_pts_ouch_v1_4.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-jnx_bonds_pts_ouch_v1_4.packet_length = {}
-
--- Size: Packet Length
-jnx_bonds_pts_ouch_v1_4.packet_length.size = 2
-
--- Display: Packet Length
-jnx_bonds_pts_ouch_v1_4.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-jnx_bonds_pts_ouch_v1_4.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_bonds_pts_ouch_v1_4.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = jnx_bonds_pts_ouch_v1_4.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_bonds_pts_ouch_v1_4.fields.packet_length, range, value, display)
-
-  return offset + length, value
 end
 
 -- Packet Header

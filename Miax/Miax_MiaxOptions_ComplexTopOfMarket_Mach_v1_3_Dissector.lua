@@ -240,8 +240,316 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Miax MiaxOptions ComplexTopOfMarket Mach 1.3
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Fields
 -----------------------------------------------------------------------
+
+-- Active On Miax
+miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax = {}
+
+-- Size: Active On Miax
+miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.size = 1
+
+-- Display: Active On Miax
+miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.display = function(value)
+  if value == "A" then
+    return "Active On Miax: Active (A)"
+  end
+  if value == "I" then
+    return "Active On Miax: Inactive (I)"
+  end
+
+  return "Active On Miax: Unknown("..value..")"
+end
+
+-- Dissect: Active On Miax
+miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.active_on_miax, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition = {}
+
+-- Size: Bid Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.size = 1
+
+-- Display: Bid Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.display = function(value)
+  if value == "A" then
+    return "Bid Condition: Regular (A)"
+  end
+  if value == "T" then
+    return "Bid Condition: Trading Halt (T)"
+  end
+  if value == "W" then
+    return "Bid Condition: Wide (W)"
+  end
+  if value == "S" then
+    return "Bid Condition: Simple Auction (S)"
+  end
+  if value == "C" then
+    return "Bid Condition: Complex Auction (C)"
+  end
+  if value == "M" then
+    return "Bid Condition: Simple Market Protection (M)"
+  end
+  if value == "L" then
+    return "Bid Condition: Leg Market Protection (L)"
+  end
+
+  return "Bid Condition: Unknown("..value..")"
+end
+
+-- Dissect: Bid Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2 = {}
+
+-- Size: Bid Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.size = 2
+
+-- Display: Bid Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.display = function(value)
+  return "Bid Price 2: "..value
+end
+
+-- Translate: Bid Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8 = {}
+
+-- Size: Bid Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.size = 8
+
+-- Display: Bid Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.display = function(value)
+  return "Bid Price 8: "..value
+end
+
+-- Translate: Bid Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Bid Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_price_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2 = {}
+
+-- Size: Bid Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.size = 2
+
+-- Display: Bid Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.display = function(value)
+  return "Bid Priority Customer Size 2: "..value
+end
+
+-- Dissect: Bid Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4 = {}
+
+-- Size: Bid Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.size = 4
+
+-- Display: Bid Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.display = function(value)
+  return "Bid Priority Customer Size 4: "..value
+end
+
+-- Dissect: Bid Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2 = {}
+
+-- Size: Bid Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.size = 2
+
+-- Display: Bid Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.display = function(value)
+  return "Bid Size 2: "..value
+end
+
+-- Dissect: Bid Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4 = {}
+
+-- Size: Bid Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.size = 4
+
+-- Display: Bid Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.display = function(value)
+  return "Bid Size 4: "..value
+end
+
+-- Dissect: Bid Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Call Or Put
+miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put = {}
+
+-- Size: Call Or Put
+miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.size = 1
+
+-- Display: Call Or Put
+miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.display = function(value)
+  if value == "C" then
+    return "Call Or Put: Call (C)"
+  end
+  if value == "P" then
+    return "Call Or Put: Put (P)"
+  end
+
+  return "Call Or Put: Unknown("..value..")"
+end
+
+-- Dissect: Call Or Put
+miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.call_or_put, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time = {}
+
+-- Size: Closing Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.size = 8
+
+-- Display: Closing Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.display = function(value)
+  return "Closing Time: "..value
+end
+
+-- Dissect: Closing Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.closing_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason = {}
+
+-- Size: Event Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.size = 1
+
+-- Display: Event Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.display = function(value)
+  if value == "A" then
+    return "Event Reason: Automatic (A)"
+  end
+  if value == "M" then
+    return "Event Reason: Manual (M)"
+  end
+
+  return "Event Reason: Unknown("..value..")"
+end
+
+-- Dissect: Event Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.event_reason, range, value, display)
+
+  return offset + length, value
+end
 
 -- Expected Event Time Nano Seconds
 miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_nano_seconds = {}
@@ -289,32 +597,1355 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds.dissec
   return offset + length, value
 end
 
--- Event Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason = {}
+-- Expiration Date
+miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date = {}
 
--- Size: Event Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.size = 1
+-- Size: Expiration Date
+miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.size = 8
 
--- Display: Event Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.display = function(value)
-  if value == "A" then
-    return "Event Reason: Automatic (A)"
-  end
-  if value == "M" then
-    return "Event Reason: Manual (M)"
-  end
-
-  return "Event Reason: Unknown("..value..")"
+-- Display: Expiration Date
+miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.display = function(value)
+  return "Expiration Date: "..value
 end
 
--- Dissect: Event Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.size
+-- Dissect: Expiration Date
+miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expiration_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio Qty
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty = {}
+
+-- Size: Leg Ratio Qty
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.size = 2
+
+-- Display: Leg Ratio Qty
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.display = function(value)
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side = {}
+
+-- Size: Leg Side
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.size = 1
+
+-- Display: Leg Side
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.display = function(value)
+  if value == "B" then
+    return "Leg Side: Bid (B)"
+  end
+  if value == "A" then
+    return "Leg Side: Ask (A)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.event_reason.display(value, buffer, offset, packet, parent)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.event_reason, range, value, display)
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Acceptance Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator = {}
+
+-- Size: Liquidity Acceptance Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.size = 1
+
+-- Display: Liquidity Acceptance Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.display = function(value)
+  if value == "P" then
+    return "Liquidity Acceptance Increment Indicator: Penny (P)"
+  end
+  if value == "N" then
+    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
+  end
+  if value == "D" then
+    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
+  end
+
+  return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Liquidity Acceptance Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.liquidity_acceptance_increment_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Long Term Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option = {}
+
+-- Size: Long Term Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.size = 1
+
+-- Display: Long Term Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.display = function(value)
+  if value == "Y" then
+    return "Long Term Option: Yes (Y)"
+  end
+  if value == "N" then
+    return "Long Term Option: No (N)"
+  end
+
+  return "Long Term Option: Unknown("..value..")"
+end
+
+-- Dissect: Long Term Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.long_term_option, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.message_type = {}
+
+-- Size: Message Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.size = 1
+
+-- Display: Message Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.display = function(value)
+  if value == "1" then
+    return "Message Type: System Time Message (1)"
+  end
+  if value == "P" then
+    return "Message Type: Simple Series Update Message (P)"
+  end
+  if value == "C" then
+    return "Message Type: Complex Strategy Definition Message (C)"
+  end
+  if value == "S" then
+    return "Message Type: System State Message (S)"
+  end
+  if value == "b" then
+    return "Message Type: Complex Top Of Market Bid Compact Message (b)"
+  end
+  if value == "o" then
+    return "Message Type: Complex Top Of Market Offer Compact Message (o)"
+  end
+  if value == "e" then
+    return "Message Type: Complex Top Of Market Bid Wide Message (e)"
+  end
+  if value == "f" then
+    return "Message Type: Complex Top Of Market Offer Wide Message (f)"
+  end
+  if value == "m" then
+    return "Message Type: Complex Double Sided Top Of Market Compact Message (m)"
+  end
+  if value == "w" then
+    return "Message Type: Complex Double Sided Top Of Market Wide Message (w)"
+  end
+  if value == "t" then
+    return "Message Type: Strategy Last Sale Message (t)"
+  end
+  if value == "H" then
+    return "Message Type: Underlying Trading Status Notification Message (H)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Miax Bbo Posting Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator = {}
+
+-- Size: Miax Bbo Posting Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.size = 1
+
+-- Display: Miax Bbo Posting Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.display = function(value)
+  if value == "P" then
+    return "Miax Bbo Posting Increment Indicator: Penny (P)"
+  end
+  if value == "N" then
+    return "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)"
+  end
+  if value == "D" then
+    return "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)"
+  end
+
+  return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Miax Bbo Posting Increment Indicator
+miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.miax_bbo_posting_increment_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Net Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.net_price = {}
+
+-- Size: Net Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.size = 8
+
+-- Display: Net Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.display = function(value)
+  return "Net Price: "..value
+end
+
+-- Translate: Net Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Net Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.net_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notification Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time = {}
+
+-- Size: Notification Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.size = 4
+
+-- Display: Notification Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.display = function(value)
+  return "Notification Time: "..value
+end
+
+-- Dissect: Notification Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.notification_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Legs
+miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs = {}
+
+-- Size: Number Of Legs
+miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.size = 1
+
+-- Display: Number Of Legs
+miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition = {}
+
+-- Size: Offer Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.size = 1
+
+-- Display: Offer Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.display = function(value)
+  if value == "A" then
+    return "Offer Condition: Regular (A)"
+  end
+  if value == "T" then
+    return "Offer Condition: Trading Halt (T)"
+  end
+  if value == "W" then
+    return "Offer Condition: Wide (W)"
+  end
+  if value == "S" then
+    return "Offer Condition: Simple Auction (S)"
+  end
+  if value == "C" then
+    return "Offer Condition: Complex Auction (C)"
+  end
+  if value == "M" then
+    return "Offer Condition: Simple Market Protection (M)"
+  end
+  if value == "L" then
+    return "Offer Condition: Leg Market Protection (L)"
+  end
+
+  return "Offer Condition: Unknown("..value..")"
+end
+
+-- Dissect: Offer Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2 = {}
+
+-- Size: Offer Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.size = 2
+
+-- Display: Offer Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.display = function(value)
+  return "Offer Price 2: "..value
+end
+
+-- Translate: Offer Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Offer Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8 = {}
+
+-- Size: Offer Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.size = 8
+
+-- Display: Offer Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.display = function(value)
+  return "Offer Price 8: "..value
+end
+
+-- Translate: Offer Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Offer Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_price_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2 = {}
+
+-- Size: Offer Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.size = 2
+
+-- Display: Offer Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.display = function(value)
+  return "Offer Priority Customer Size 2: "..value
+end
+
+-- Dissect: Offer Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4 = {}
+
+-- Size: Offer Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.size = 4
+
+-- Display: Offer Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.display = function(value)
+  return "Offer Priority Customer Size 4: "..value
+end
+
+-- Dissect: Offer Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2 = {}
+
+-- Size: Offer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.size = 2
+
+-- Display: Offer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.display = function(value)
+  return "Offer Size 2: "..value
+end
+
+-- Dissect: Offer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4 = {}
+
+-- Size: Offer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.size = 4
+
+-- Display: Offer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.display = function(value)
+  return "Offer Size 4: "..value
+end
+
+-- Dissect: Offer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time = {}
+
+-- Size: Opening Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.size = 8
+
+-- Display: Opening Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.display = function(value)
+  return "Opening Time: "..value
+end
+
+-- Dissect: Opening Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Underlying Market Code
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code = {}
+
+-- Size: Opening Underlying Market Code
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.size = 1
+
+-- Display: Opening Underlying Market Code
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.display = function(value)
+  if value == "A" then
+    return "Opening Underlying Market Code: Nyse Amex (A)"
+  end
+  if value == "B" then
+    return "Opening Underlying Market Code: Nasdaq Omx Bx (B)"
+  end
+  if value == "C" then
+    return "Opening Underlying Market Code: Nse (C)"
+  end
+  if value == "D" then
+    return "Opening Underlying Market Code: Finra Adf (D)"
+  end
+  if value == "E" then
+    return "Opening Underlying Market Code: Market Independent (E)"
+  end
+  if value == "I" then
+    return "Opening Underlying Market Code: Ise (I)"
+  end
+  if value == "J" then
+    return "Opening Underlying Market Code: Edga (J)"
+  end
+  if value == "K" then
+    return "Opening Underlying Market Code: Edgx (K)"
+  end
+  if value == "M" then
+    return "Opening Underlying Market Code: Cse (M)"
+  end
+  if value == "N" then
+    return "Opening Underlying Market Code: Nyse Euronext (N)"
+  end
+  if value == "P" then
+    return "Opening Underlying Market Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Opening Underlying Market Code: Nasdaq Omx Utp (Q)"
+  end
+  if value == "T" then
+    return "Opening Underlying Market Code: Nasdaq Omx Cta (T)"
+  end
+  if value == "V" then
+    return "Opening Underlying Market Code: Iex (V)"
+  end
+  if value == "X" then
+    return "Opening Underlying Market Code: Nasdaq Omx Phlx (X)"
+  end
+  if value == "Y" then
+    return "Opening Underlying Market Code: Bats Y (Y)"
+  end
+  if value == "Z" then
+    return "Opening Underlying Market Code: Bats (Z)"
+  end
+
+  return "Opening Underlying Market Code: Unknown("..value..")"
+end
+
+-- Dissect: Opening Underlying Market Code
+miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_underlying_market_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Length
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length = {}
+
+-- Size: Packet Length
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.size = 2
+
+-- Display: Packet Length
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.display = function(value)
+  return "Packet Length: "..value
+end
+
+-- Dissect: Packet Length
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type = {}
+
+-- Size: Packet Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.size = 1
+
+-- Display: Packet Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.display = function(value)
+  if value == 0 then
+    return "Packet Type: Heartbeat (0)"
+  end
+  if value == 1 then
+    return "Packet Type: Start Of Session (1)"
+  end
+  if value == 2 then
+    return "Packet Type: End Of Session (2)"
+  end
+  if value == 3 then
+    return "Packet Type: Application Message (3)"
+  end
+
+  return "Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Packet Type
+miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_2 = {}
+
+-- Size: Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.size = 2
+
+-- Display: Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.display = function(value)
+  return "Price 2: "..value
+end
+
+-- Translate: Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_8 = {}
+
+-- Size: Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.size = 8
+
+-- Display: Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.display = function(value)
+  return "Price 8: "..value
+end
+
+-- Translate: Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2 = {}
+
+-- Size: Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.size = 2
+
+-- Display: Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.display = function(value)
+  return "Priority Customer Size 2: "..value
+end
+
+-- Dissect: Priority Customer Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_customer_size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4 = {}
+
+-- Size: Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.size = 4
+
+-- Display: Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.display = function(value)
+  return "Priority Customer Size 4: "..value
+end
+
+-- Dissect: Priority Customer Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_customer_size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Priority Quote Width
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width = {}
+
+-- Size: Priority Quote Width
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.size = 4
+
+-- Display: Priority Quote Width
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.display = function(value)
+  return "Priority Quote Width: "..value
+end
+
+-- Translate: Priority Quote Width
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Priority Quote Width
+miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_quote_width, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Add Update Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time = {}
+
+-- Size: Product Add Update Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.size = 4
+
+-- Display: Product Add Update Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.display = function(value)
+  return "Product Add Update Time: "..value
+end
+
+-- Dissect: Product Add Update Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.product_add_update_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_id = {}
+
+-- Size: Product Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.size = 4
+
+-- Display: Product Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1 = {}
+
+-- Size: Reserved 1
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.size = 1
+
+-- Display: Reserved 1
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 10
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10 = {}
+
+-- Size: Reserved 10
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.size = 10
+
+-- Display: Reserved 10
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.display = function(value)
+  return "Reserved 10: "..value
+end
+
+-- Dissect: Reserved 10
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_10, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 16
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16 = {}
+
+-- Size: Reserved 16
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.size = 16
+
+-- Display: Reserved 16
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.display = function(value)
+  return "Reserved 16: "..value
+end
+
+-- Dissect: Reserved 16
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_16, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8 = {}
+
+-- Size: Reserved 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.size = 8
+
+-- Display: Reserved 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Restricted Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option = {}
+
+-- Size: Restricted Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.size = 1
+
+-- Display: Restricted Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.display = function(value)
+  if value == "Y" then
+    return "Restricted Option: Yes (Y)"
+  end
+  if value == "N" then
+    return "Restricted Option: No (N)"
+  end
+
+  return "Restricted Option: Unknown("..value..")"
+end
+
+-- Dissect: Restricted Option
+miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.restricted_option, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol = {}
+
+-- Size: Security Symbol
+miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.size = 6
+
+-- Display: Security Symbol
+miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number = {}
+
+-- Size: Sequence Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.size = 8
+
+-- Display: Sequence Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_id = {}
+
+-- Size: Session Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.size = 4
+
+-- Display: Session Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_number = {}
+
+-- Size: Session Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.size = 1
+
+-- Display: Session Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.display = function(value)
+  return "Session Number: "..value
+end
+
+-- Dissect: Session Number
+miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_2 = {}
+
+-- Size: Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.size = 2
+
+-- Display: Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.display = function(value)
+  return "Size 2: "..value
+end
+
+-- Dissect: Size 2
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.size_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_4 = {}
+
+-- Size: Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.size = 4
+
+-- Display: Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.display = function(value)
+  return "Size 4: "..value
+end
+
+-- Dissect: Size 4
+miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.size_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Add Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time = {}
+
+-- Size: Strategy Add Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.size = 4
+
+-- Display: Strategy Add Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.display = function(value)
+  return "Strategy Add Time: "..value
+end
+
+-- Dissect: Strategy Add Time
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strategy_add_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id = {}
+
+-- Size: Strategy Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.size = 4
+
+-- Display: Strategy Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.display = function(value)
+  return "Strategy Id: "..value
+end
+
+-- Dissect: Strategy Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strategy_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price = {}
+
+-- Size: Strike Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.size = 4
+
+-- Display: Strike Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.display = function(value)
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Strike Price
+miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.translate(raw)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Status
+miax_miaxoptions_complextopofmarket_mach_v1_3.system_status = {}
+
+-- Size: System Status
+miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.size = 1
+
+-- Display: System Status
+miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.display = function(value)
+  if value == "S" then
+    return "System Status: Start Of System Hours (S)"
+  end
+  if value == "C" then
+    return "System Status: End Of System Hours (C)"
+  end
+  if value == "1" then
+    return "System Status: Start Test Session (1)"
+  end
+  if value == "2" then
+    return "System Status: End Of Test Session (2)"
+  end
+
+  return "System Status: Unknown("..value..")"
+end
+
+-- Dissect: System Status
+miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.system_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp = {}
+
+-- Size: Timestamp
+miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.size = 4
+
+-- Display: Timestamp
+miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Top Of Market Quote Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition = {}
+
+-- Size: Top Of Market Quote Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.size = 1
+
+-- Display: Top Of Market Quote Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.display = function(value)
+  if value == "A" then
+    return "Top Of Market Quote Condition: Regular (A)"
+  end
+  if value == "T" then
+    return "Top Of Market Quote Condition: Trading Halt (T)"
+  end
+  if value == "W" then
+    return "Top Of Market Quote Condition: Wide (W)"
+  end
+  if value == "S" then
+    return "Top Of Market Quote Condition: Simple Auction (S)"
+  end
+  if value == "C" then
+    return "Top Of Market Quote Condition: Complex Auction (C)"
+  end
+  if value == "M" then
+    return "Top Of Market Quote Condition: Simple Market Protection (M)"
+  end
+  if value == "L" then
+    return "Top Of Market Quote Condition: Leg Market Protection (L)"
+  end
+
+  return "Top Of Market Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Top Of Market Quote Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.top_of_market_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition = {}
+
+-- Size: Trade Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.size = 1
+
+-- Display: Trade Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.display = function(value)
+  if value == "S" then
+    return "Trade Condition: Matched (S)"
+  end
+  if value == "L" then
+    return "Trade Condition: Legged (L)"
+  end
+
+  return "Trade Condition: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id = {}
+
+-- Size: Trade Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.size = 4
+
+-- Display: Trade Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Size
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size = {}
+
+-- Size: Trade Size
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.size = 4
+
+-- Display: Trade Size
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.display = function(value)
+  return "Trade Size: "..value
+end
+
+-- Dissect: Trade Size
+miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.trade_size, range, value, display)
 
   return offset + length, value
 end
@@ -375,28 +2006,63 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.underlying_symbol.dissect = functi
   return offset + length, value
 end
 
--- Timestamp
-miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp = {}
+-- Update Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason = {}
 
--- Size: Timestamp
-miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.size = 4
+-- Size: Update Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.size = 1
 
--- Display: Timestamp
-miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.display = function(value)
-  return "Timestamp: "..value
+-- Display: Update Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.display = function(value)
+  if value == "N" then
+    return "Update Reason: New Strategy Created (N)"
+  end
+  if value == "U" then
+    return "Update Reason: Updated (U)"
+  end
+
+  return "Update Reason: Unknown("..value..")"
 end
 
--- Dissect: Timestamp
-miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.size
+-- Dissect: Update Reason
+miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.timestamp, range, value, display)
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.update_reason, range, value, display)
 
   return offset + length, value
 end
+
+-- Version
+miax_miaxoptions_complextopofmarket_mach_v1_3.version = {}
+
+-- Size: Version
+miax_miaxoptions_complextopofmarket_mach_v1_3.version.size = 8
+
+-- Display: Version
+miax_miaxoptions_complextopofmarket_mach_v1_3.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+miax_miaxoptions_complextopofmarket_mach_v1_3.version.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.version.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Miax MiaxOptions ComplexTopOfMarket Mach 1.3
+-----------------------------------------------------------------------
 
 -- Underlying Trading Status Notification Message
 miax_miaxoptions_complextopofmarket_mach_v1_3.underlying_trading_status_notification_message = {}
@@ -456,157 +2122,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.underlying_trading_status_notifica
     -- Skip element, add fields directly
     return miax_miaxoptions_complextopofmarket_mach_v1_3.underlying_trading_status_notification_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reserved 16
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16 = {}
-
--- Size: Reserved 16
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.size = 16
-
--- Display: Reserved 16
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.display = function(value)
-  return "Reserved 16: "..value
-end
-
--- Dissect: Reserved 16
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_16, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition = {}
-
--- Size: Trade Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.size = 1
-
--- Display: Trade Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.display = function(value)
-  if value == "S" then
-    return "Trade Condition: Matched (S)"
-  end
-  if value == "L" then
-    return "Trade Condition: Legged (L)"
-  end
-
-  return "Trade Condition: Unknown("..value..")"
-end
-
--- Dissect: Trade Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.trade_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Size
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size = {}
-
--- Size: Trade Size
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.size = 4
-
--- Display: Trade Size
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.display = function(value)
-  return "Trade Size: "..value
-end
-
--- Dissect: Trade Size
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.trade_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.net_price = {}
-
--- Size: Net Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.size = 8
-
--- Display: Net Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.display = function(value)
-  return "Net Price: "..value
-end
-
--- Translate: Net Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Net Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.net_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.net_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id = {}
-
--- Size: Trade Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.size = 4
-
--- Display: Trade Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.display = function(value)
-  return "Trade Id: "..value
-end
-
--- Dissect: Trade Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.trade_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id = {}
-
--- Size: Strategy Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.size = 4
-
--- Display: Strategy Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.display = function(value)
-  return "Strategy Id: "..value
-end
-
--- Dissect: Strategy Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strategy_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Strategy Last Sale Message
@@ -671,246 +2186,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_last_sale_message.dissect
     -- Skip element, add fields directly
     return miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_last_sale_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Offer Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition = {}
-
--- Size: Offer Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.size = 1
-
--- Display: Offer Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.display = function(value)
-  if value == "A" then
-    return "Offer Condition: Regular (A)"
-  end
-  if value == "T" then
-    return "Offer Condition: Trading Halt (T)"
-  end
-  if value == "W" then
-    return "Offer Condition: Wide (W)"
-  end
-  if value == "S" then
-    return "Offer Condition: Simple Auction (S)"
-  end
-  if value == "C" then
-    return "Offer Condition: Complex Auction (C)"
-  end
-  if value == "M" then
-    return "Offer Condition: Simple Market Protection (M)"
-  end
-  if value == "L" then
-    return "Offer Condition: Leg Market Protection (L)"
-  end
-
-  return "Offer Condition: Unknown("..value..")"
-end
-
--- Dissect: Offer Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4 = {}
-
--- Size: Offer Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.size = 4
-
--- Display: Offer Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.display = function(value)
-  return "Offer Priority Customer Size 4: "..value
-end
-
--- Dissect: Offer Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4 = {}
-
--- Size: Offer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.size = 4
-
--- Display: Offer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.display = function(value)
-  return "Offer Size 4: "..value
-end
-
--- Dissect: Offer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8 = {}
-
--- Size: Offer Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.size = 8
-
--- Display: Offer Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.display = function(value)
-  return "Offer Price 8: "..value
-end
-
--- Translate: Offer Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Offer Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition = {}
-
--- Size: Bid Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.size = 1
-
--- Display: Bid Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.display = function(value)
-  if value == "A" then
-    return "Bid Condition: Regular (A)"
-  end
-  if value == "T" then
-    return "Bid Condition: Trading Halt (T)"
-  end
-  if value == "W" then
-    return "Bid Condition: Wide (W)"
-  end
-  if value == "S" then
-    return "Bid Condition: Simple Auction (S)"
-  end
-  if value == "C" then
-    return "Bid Condition: Complex Auction (C)"
-  end
-  if value == "M" then
-    return "Bid Condition: Simple Market Protection (M)"
-  end
-  if value == "L" then
-    return "Bid Condition: Leg Market Protection (L)"
-  end
-
-  return "Bid Condition: Unknown("..value..")"
-end
-
--- Dissect: Bid Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4 = {}
-
--- Size: Bid Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.size = 4
-
--- Display: Bid Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.display = function(value)
-  return "Bid Priority Customer Size 4: "..value
-end
-
--- Dissect: Bid Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4 = {}
-
--- Size: Bid Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.size = 4
-
--- Display: Bid Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.display = function(value)
-  return "Bid Size 4: "..value
-end
-
--- Dissect: Bid Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8 = {}
-
--- Size: Bid Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.size = 8
-
--- Display: Bid Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.display = function(value)
-  return "Bid Price 8: "..value
-end
-
--- Translate: Bid Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Bid Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_price_8, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Double Sided Top Of Market Wide Message
@@ -989,156 +2264,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_double_sided_top_of_market
   end
 end
 
--- Offer Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2 = {}
-
--- Size: Offer Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.size = 2
-
--- Display: Offer Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.display = function(value)
-  return "Offer Priority Customer Size 2: "..value
-end
-
--- Dissect: Offer Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_priority_customer_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_priority_customer_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2 = {}
-
--- Size: Offer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.size = 2
-
--- Display: Offer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.display = function(value)
-  return "Offer Size 2: "..value
-end
-
--- Dissect: Offer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2 = {}
-
--- Size: Offer Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.size = 2
-
--- Display: Offer Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.display = function(value)
-  return "Offer Price 2: "..value
-end
-
--- Translate: Offer Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.offer_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2 = {}
-
--- Size: Bid Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.size = 2
-
--- Display: Bid Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.display = function(value)
-  return "Bid Priority Customer Size 2: "..value
-end
-
--- Dissect: Bid Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_priority_customer_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_priority_customer_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2 = {}
-
--- Size: Bid Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.size = 2
-
--- Display: Bid Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.display = function(value)
-  return "Bid Size 2: "..value
-end
-
--- Dissect: Bid Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2 = {}
-
--- Size: Bid Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.size = 2
-
--- Display: Bid Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.display = function(value)
-  return "Bid Price 2: "..value
-end
-
--- Translate: Bid Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.bid_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.bid_price_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Double Sided Top Of Market Compact Message
 miax_miaxoptions_complextopofmarket_mach_v1_3.complex_double_sided_top_of_market_compact_message = {}
 
@@ -1213,126 +2338,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_double_sided_top_of_market
     -- Skip element, add fields directly
     return miax_miaxoptions_complextopofmarket_mach_v1_3.complex_double_sided_top_of_market_compact_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Top Of Market Quote Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition = {}
-
--- Size: Top Of Market Quote Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.size = 1
-
--- Display: Top Of Market Quote Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.display = function(value)
-  if value == "A" then
-    return "Top Of Market Quote Condition: Regular (A)"
-  end
-  if value == "T" then
-    return "Top Of Market Quote Condition: Trading Halt (T)"
-  end
-  if value == "W" then
-    return "Top Of Market Quote Condition: Wide (W)"
-  end
-  if value == "S" then
-    return "Top Of Market Quote Condition: Simple Auction (S)"
-  end
-  if value == "C" then
-    return "Top Of Market Quote Condition: Complex Auction (C)"
-  end
-  if value == "M" then
-    return "Top Of Market Quote Condition: Simple Market Protection (M)"
-  end
-  if value == "L" then
-    return "Top Of Market Quote Condition: Leg Market Protection (L)"
-  end
-
-  return "Top Of Market Quote Condition: Unknown("..value..")"
-end
-
--- Dissect: Top Of Market Quote Condition
-miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.top_of_market_quote_condition.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.top_of_market_quote_condition, range, value, display)
-
-  return offset + length, value
-end
-
--- Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4 = {}
-
--- Size: Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.size = 4
-
--- Display: Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.display = function(value)
-  return "Priority Customer Size 4: "..value
-end
-
--- Dissect: Priority Customer Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_customer_size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_4 = {}
-
--- Size: Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.size = 4
-
--- Display: Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.display = function(value)
-  return "Size 4: "..value
-end
-
--- Dissect: Size 4
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.size_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.size_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_8 = {}
-
--- Size: Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.size = 8
-
--- Display: Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.display = function(value)
-  return "Price 8: "..value
-end
-
--- Translate: Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_8, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Top Of Market Offer Wide Message
@@ -1455,81 +2460,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_top_of_market_bid_wide_mes
   end
 end
 
--- Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2 = {}
-
--- Size: Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.size = 2
-
--- Display: Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.display = function(value)
-  return "Priority Customer Size 2: "..value
-end
-
--- Dissect: Priority Customer Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_customer_size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_customer_size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_2 = {}
-
--- Size: Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.size = 2
-
--- Display: Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.display = function(value)
-  return "Size 2: "..value
-end
-
--- Dissect: Size 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.size_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.size_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_2 = {}
-
--- Size: Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.size = 2
-
--- Display: Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.display = function(value)
-  return "Price 2: "..value
-end
-
--- Translate: Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price 2
-miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Top Of Market Offer Compact Message
 miax_miaxoptions_complextopofmarket_mach_v1_3.complex_top_of_market_offer_compact_message = {}
 
@@ -1650,111 +2580,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_top_of_market_bid_compact_
   end
 end
 
--- System Status
-miax_miaxoptions_complextopofmarket_mach_v1_3.system_status = {}
-
--- Size: System Status
-miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.size = 1
-
--- Display: System Status
-miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
-
-  return "System Status: Unknown("..value..")"
-end
-
--- Dissect: System Status
-miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.system_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.system_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Session Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_id = {}
-
--- Size: Session Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.size = 4
-
--- Display: Session Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.display = function(value)
-  return "Session Id: "..value
-end
-
--- Dissect: Session Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Version
-miax_miaxoptions_complextopofmarket_mach_v1_3.version = {}
-
--- Size: Version
-miax_miaxoptions_complextopofmarket_mach_v1_3.version.size = 8
-
--- Display: Version
-miax_miaxoptions_complextopofmarket_mach_v1_3.version.display = function(value)
-  return "Version: "..value
-end
-
--- Dissect: Version
-miax_miaxoptions_complextopofmarket_mach_v1_3.version.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.version.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.version.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.version, range, value, display)
-
-  return offset + length, value
-end
-
--- Notification Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time = {}
-
--- Size: Notification Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.size = 4
-
--- Display: Notification Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.display = function(value)
-  return "Notification Time: "..value
-end
-
--- Dissect: Notification Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.notification_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.notification_time, range, value, display)
-
-  return offset + length, value
-end
-
 -- System State Message
 miax_miaxoptions_complextopofmarket_mach_v1_3.system_state_message = {}
 
@@ -1805,105 +2630,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.system_state_message.dissect = fun
     -- Skip element, add fields directly
     return miax_miaxoptions_complextopofmarket_mach_v1_3.system_state_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Reserved 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8 = {}
-
--- Size: Reserved 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.size = 8
-
--- Display: Reserved 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.display = function(value)
-  return "Reserved 8: "..value
-end
-
--- Dissect: Reserved 8
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side = {}
-
--- Size: Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.size = 1
-
--- Display: Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Bid (B)"
-  end
-  if value == "A" then
-    return "Leg Side: Ask (A)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_side, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty = {}
-
--- Size: Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.size = 2
-
--- Display: Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.display = function(value)
-  return "Leg Ratio Qty: "..value
-end
-
--- Dissect: Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_id = {}
-
--- Size: Product Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.size = 4
-
--- Display: Product Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.display = function(value)
-  return "Product Id: "..value
-end
-
--- Dissect: Product Id
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.product_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.product_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Leg Definition
@@ -1962,158 +2688,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.dissect = function(
     -- Skip element, add fields directly
     return miax_miaxoptions_complextopofmarket_mach_v1_3.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
   end
-end
-
--- Number Of Legs
-miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs = {}
-
--- Size: Number Of Legs
-miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.size = 1
-
--- Display: Number Of Legs
-miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.display = function(value)
-  return "Number Of Legs: "..value
-end
-
--- Dissect: Number Of Legs
-miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.number_of_legs.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.number_of_legs, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 10
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10 = {}
-
--- Size: Reserved 10
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.size = 10
-
--- Display: Reserved 10
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.display = function(value)
-  return "Reserved 10: "..value
-end
-
--- Dissect: Reserved 10
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_10, range, value, display)
-
-  return offset + length, value
-end
-
--- Update Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason = {}
-
--- Size: Update Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.size = 1
-
--- Display: Update Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.display = function(value)
-  if value == "N" then
-    return "Update Reason: New Strategy Created (N)"
-  end
-  if value == "U" then
-    return "Update Reason: Updated (U)"
-  end
-
-  return "Update Reason: Unknown("..value..")"
-end
-
--- Dissect: Update Reason
-miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.update_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 1
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1 = {}
-
--- Size: Reserved 1
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.size = 1
-
--- Display: Reserved 1
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.display = function(value)
-  return "Reserved 1: "..value
-end
-
--- Dissect: Reserved 1
-miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Active On Miax
-miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax = {}
-
--- Size: Active On Miax
-miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.size = 1
-
--- Display: Active On Miax
-miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.display = function(value)
-  if value == "A" then
-    return "Active On Miax: Active (A)"
-  end
-  if value == "I" then
-    return "Active On Miax: Inactive (I)"
-  end
-
-  return "Active On Miax: Unknown("..value..")"
-end
-
--- Dissect: Active On Miax
-miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.active_on_miax, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Add Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time = {}
-
--- Size: Strategy Add Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.size = 4
-
--- Display: Strategy Add Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.display = function(value)
-  return "Strategy Add Time: "..value
-end
-
--- Dissect: Strategy Add Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_add_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strategy_add_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Complex Strategy Definition Message
@@ -2203,410 +2777,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_strategy_definition_messag
     -- Skip element, add fields directly
     return miax_miaxoptions_complextopofmarket_mach_v1_3.complex_strategy_definition_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Priority Quote Width
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width = {}
-
--- Size: Priority Quote Width
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.size = 4
-
--- Display: Priority Quote Width
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.display = function(value)
-  return "Priority Quote Width: "..value
-end
-
--- Translate: Priority Quote Width
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Priority Quote Width
-miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.priority_quote_width.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_quote_width, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Underlying Market Code
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code = {}
-
--- Size: Opening Underlying Market Code
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.size = 1
-
--- Display: Opening Underlying Market Code
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.display = function(value)
-  if value == "A" then
-    return "Opening Underlying Market Code: Nyse Amex (A)"
-  end
-  if value == "B" then
-    return "Opening Underlying Market Code: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Opening Underlying Market Code: Nse (C)"
-  end
-  if value == "D" then
-    return "Opening Underlying Market Code: Finra Adf (D)"
-  end
-  if value == "E" then
-    return "Opening Underlying Market Code: Market Independent (E)"
-  end
-  if value == "I" then
-    return "Opening Underlying Market Code: Ise (I)"
-  end
-  if value == "J" then
-    return "Opening Underlying Market Code: Edga (J)"
-  end
-  if value == "K" then
-    return "Opening Underlying Market Code: Edgx (K)"
-  end
-  if value == "M" then
-    return "Opening Underlying Market Code: Cse (M)"
-  end
-  if value == "N" then
-    return "Opening Underlying Market Code: Nyse Euronext (N)"
-  end
-  if value == "P" then
-    return "Opening Underlying Market Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Opening Underlying Market Code: Nasdaq Omx Utp (Q)"
-  end
-  if value == "T" then
-    return "Opening Underlying Market Code: Nasdaq Omx Cta (T)"
-  end
-  if value == "V" then
-    return "Opening Underlying Market Code: Iex (V)"
-  end
-  if value == "X" then
-    return "Opening Underlying Market Code: Nasdaq Omx Phlx (X)"
-  end
-  if value == "Y" then
-    return "Opening Underlying Market Code: Bats Y (Y)"
-  end
-  if value == "Z" then
-    return "Opening Underlying Market Code: Bats (Z)"
-  end
-
-  return "Opening Underlying Market Code: Unknown("..value..")"
-end
-
--- Dissect: Opening Underlying Market Code
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_underlying_market_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_underlying_market_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Liquidity Acceptance Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator = {}
-
--- Size: Liquidity Acceptance Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.size = 1
-
--- Display: Liquidity Acceptance Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Liquidity Acceptance Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
-  end
-
-  return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
-end
-
--- Dissect: Liquidity Acceptance Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.liquidity_acceptance_increment_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Miax Bbo Posting Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator = {}
-
--- Size: Miax Bbo Posting Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.size = 1
-
--- Display: Miax Bbo Posting Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Miax Bbo Posting Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)"
-  end
-
-  return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
-end
-
--- Dissect: Miax Bbo Posting Increment Indicator
-miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.miax_bbo_posting_increment_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.miax_bbo_posting_increment_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Long Term Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option = {}
-
--- Size: Long Term Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.size = 1
-
--- Display: Long Term Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.display = function(value)
-  if value == "Y" then
-    return "Long Term Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Long Term Option: No (N)"
-  end
-
-  return "Long Term Option: Unknown("..value..")"
-end
-
--- Dissect: Long Term Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.long_term_option.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.long_term_option, range, value, display)
-
-  return offset + length, value
-end
-
--- Restricted Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option = {}
-
--- Size: Restricted Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.size = 1
-
--- Display: Restricted Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.display = function(value)
-  if value == "Y" then
-    return "Restricted Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Restricted Option: No (N)"
-  end
-
-  return "Restricted Option: Unknown("..value..")"
-end
-
--- Dissect: Restricted Option
-miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.restricted_option.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.restricted_option, range, value, display)
-
-  return offset + length, value
-end
-
--- Closing Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time = {}
-
--- Size: Closing Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.size = 8
-
--- Display: Closing Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.display = function(value)
-  return "Closing Time: "..value
-end
-
--- Dissect: Closing Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.closing_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.closing_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Opening Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time = {}
-
--- Size: Opening Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.size = 8
-
--- Display: Opening Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.display = function(value)
-  return "Opening Time: "..value
-end
-
--- Dissect: Opening Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.opening_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Call Or Put
-miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put = {}
-
--- Size: Call Or Put
-miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.size = 1
-
--- Display: Call Or Put
-miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.display = function(value)
-  if value == "C" then
-    return "Call Or Put: Call (C)"
-  end
-  if value == "P" then
-    return "Call Or Put: Put (P)"
-  end
-
-  return "Call Or Put: Unknown("..value..")"
-end
-
--- Dissect: Call Or Put
-miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.call_or_put.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.call_or_put, range, value, display)
-
-  return offset + length, value
-end
-
--- Strike Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price = {}
-
--- Size: Strike Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.size = 4
-
--- Display: Strike Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.display = function(value)
-  return "Strike Price: "..value
-end
-
--- Translate: Strike Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Strike Price
-miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.translate(raw)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.strike_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Expiration Date
-miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date = {}
-
--- Size: Expiration Date
-miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.size = 8
-
--- Display: Expiration Date
-miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.display = function(value)
-  return "Expiration Date: "..value
-end
-
--- Dissect: Expiration Date
-miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expiration_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Security Symbol
-miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol = {}
-
--- Size: Security Symbol
-miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.size = 6
-
--- Display: Security Symbol
-miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.display = function(value)
-  return "Security Symbol: "..value
-end
-
--- Dissect: Security Symbol
-miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.security_symbol.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.security_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Product Add Update Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time = {}
-
--- Size: Product Add Update Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.size = 4
-
--- Display: Product Add Update Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.display = function(value)
-  return "Product Add Update Time: "..value
-end
-
--- Dissect: Product Add Update Time
-miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.product_add_update_time.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.product_add_update_time, range, value, display)
-
-  return offset + length, value
 end
 
 -- Simple Series Update Message
@@ -2810,66 +2980,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.data.dissect = function(buffer, of
   return offset
 end
 
--- Message Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.message_type = {}
-
--- Size: Message Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.size = 1
-
--- Display: Message Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.display = function(value)
-  if value == "1" then
-    return "Message Type: System Time Message (1)"
-  end
-  if value == "P" then
-    return "Message Type: Simple Series Update Message (P)"
-  end
-  if value == "C" then
-    return "Message Type: Complex Strategy Definition Message (C)"
-  end
-  if value == "S" then
-    return "Message Type: System State Message (S)"
-  end
-  if value == "b" then
-    return "Message Type: Complex Top Of Market Bid Compact Message (b)"
-  end
-  if value == "o" then
-    return "Message Type: Complex Top Of Market Offer Compact Message (o)"
-  end
-  if value == "e" then
-    return "Message Type: Complex Top Of Market Bid Wide Message (e)"
-  end
-  if value == "f" then
-    return "Message Type: Complex Top Of Market Offer Wide Message (f)"
-  end
-  if value == "m" then
-    return "Message Type: Complex Double Sided Top Of Market Compact Message (m)"
-  end
-  if value == "w" then
-    return "Message Type: Complex Double Sided Top Of Market Wide Message (w)"
-  end
-  if value == "t" then
-    return "Message Type: Strategy Last Sale Message (t)"
-  end
-  if value == "H" then
-    return "Message Type: Underlying Trading Status Notification Message (H)"
-  end
-
-  return "Message Type: Unknown("..value..")"
-end
-
--- Dissect: Message Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.message_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Application Message
 miax_miaxoptions_complextopofmarket_mach_v1_3.application_message = {}
 
@@ -2934,111 +3044,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.payload.dissect = function(buffer,
   end
 
   return offset
-end
-
--- Session Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_number = {}
-
--- Size: Session Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.size = 1
-
--- Display: Session Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.display = function(value)
-  return "Session Number: "..value
-end
-
--- Dissect: Session Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.session_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type = {}
-
--- Size: Packet Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.size = 1
-
--- Display: Packet Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Packet Length
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length = {}
-
--- Size: Packet Length
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.size = 2
-
--- Display: Packet Length
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.display = function(value)
-  return "Packet Length: "..value
-end
-
--- Dissect: Packet Length
-miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.packet_length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Sequence Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number = {}
-
--- Size: Sequence Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.size = 8
-
--- Display: Sequence Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.sequence_number, range, value, display)
-
-  return offset + length, value
 end
 
 -- Message
