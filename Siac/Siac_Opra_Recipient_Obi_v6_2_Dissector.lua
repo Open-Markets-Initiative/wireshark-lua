@@ -3904,7 +3904,7 @@ siac_opra_recipient_obi_v6_2.version.size = 1
 -- Display: Version
 siac_opra_recipient_obi_v6_2.version.display = function(value)
   if value == 6 then
-    return "Version: Version"
+    return "Version: Opra 6"
   end
 
   return "Version: Unknown("..value..")"
